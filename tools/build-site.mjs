@@ -21,28 +21,42 @@ const countyPaths = [...usSvg.matchAll(/<path class="county" data-fips="(\d+)" d
 const statePaths = Object.fromEntries([...usSvg.matchAll(/<path class="state" id="state-([A-Z]{2})"[^>]*? d="([^"]*)">/g)].map(m => [m[1], m[2]]));
 const bbox = ds => { let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity; for (const d of ds) for (const m of d.matchAll(/(-?\d+\.?\d*),(-?\d+\.?\d*)/g)) { const x = +m[1], y = +m[2]; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; } return [x0, y0, x1 - x0, y1 - y0]; };
 const norm = c => String(c || "").toLowerCase().replace(/&amp;/g, "&").replace(/\s+(county|parish|borough|census area|municipality|city and borough)$/i, "").replace(/^st\.\s/, "st ").replace(/^saint\s/, "st ").replace(/[^a-z0-9 ]/g, "").trim();
-const COUNTY_COLOR = { allows: "#b3382c", consent_required: "#c9a227", bans: "#2f6b3a", unknown: "#cfc9bc", none: "#e9e4d8" };
+const COUNTY_COLOR = { allows: "#9B2C2C", consent_required: "#C05621", bans: "#2D6A4F", unknown: "#B85C5C", none: "#C98383" };
+function countyStatus(code, list) {
+  const base = states[code].status;
+  if (!list.length) return base === "banned" ? "bans" : base === "partial" ? "bans" : "state";
+  if (list.some(d => d.status === "allows")) return "allows";
+  if (list.some(d => d.status === "consent_required")) return "consent_required";
+  if (list.every(d => d.status === "bans")) return "bans";
+  return "unknown";
+}
+const CFILL = { allows: "#9B2C2C", consent_required: "#C05621", bans: "#2D6A4F", unknown: "#B85C5C", state: "#C98383" };
+const CLBL = { allows: "A recorded district allows it", consent_required: "Parental consent required", bans: "Every recorded district prohibits it", unknown: "Recorded, policy not yet found", state: "No district recorded yet: state law applies" };
 function countyMap(code, ds) {
   const cps = countyPaths.filter(c => c.state === code); if (!cps.length) return "";
   const byCounty = {}; for (const d of ds) { const k = norm(d.county); if (!k) continue; (byCounty[k] ||= []).push(d); }
-  const [x, y, w, h] = bbox(cps.map(c => c.d)); const pad = Math.max(w, h) * 0.03;
-  const paths = cps.map(c => { const list = byCounty[norm(c.name)] || []; const st = !list.length ? "none" : list.some(d => d.status === "allows") ? "allows" : list.some(d => d.status === "consent_required") ? "consent_required" : list.every(d => d.status === "bans") ? "bans" : "unknown";
-    const label = list.length ? list.map(d => `${d.name}: ${({ allows: "allows", bans: "prohibits", consent_required: "consent required", unknown: "unknown" })[d.status]}`).join("; ") : "No district recorded yet";
-    return `<path d="${c.d}" fill="${COUNTY_COLOR[st]}" stroke="#fff" stroke-width="${(Math.max(w, h) / 600).toFixed(2)}" data-county="${esc(c.name)}" data-status="${st}" data-districts="${esc(label)}" data-key="${esc(norm(c.name))}"><title>${esc(c.name)}</title></path>`; }).join("\n");
-  const counts = Object.entries(cps.reduce((a, c) => { const list = byCounty[norm(c.name)] || []; const st = !list.length ? "none" : list.some(d => d.status === "allows") ? "allows" : list.some(d => d.status === "consent_required") ? "consent_required" : list.every(d => d.status === "bans") ? "bans" : "unknown"; a[st] = (a[st] || 0) + 1; return a; }, {}));
-  const LBL = { allows: "A district allows it", consent_required: "Parental consent required", bans: "Every recorded district prohibits it", unknown: "Recorded, policy unknown", none: "No district recorded yet" };
-  return `<div class="countywrap"><svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" role="img" aria-label="Counties of the state colored by school district corporal punishment policy">
+  const [x, y, w, h] = bbox(cps.map(c => c.d)); const pad = Math.max(w, h) * 0.03; const sw = (Math.max(w, h) / 700).toFixed(2);
+  const counts = {};
+  const paths = cps.map(c => { const list = byCounty[norm(c.name)] || []; const st = countyStatus(code, list); counts[st] = (counts[st] || 0) + 1;
+    const label = list.length ? list.map(d => `${d.name}: ${({ allows: "allows", bans: "prohibits", consent_required: "consent required", unknown: "policy unknown" })[d.status]}`).join("<br>") : "No district recorded yet. State law applies. Help scan it.";
+    return `<path d="${c.d}" fill="${CFILL[st]}" stroke="#fff" stroke-width="${sw}" data-county="${esc(c.name)}" data-status="${esc(CLBL[st])}" data-districts="${esc(label)}" data-key="${esc(norm(c.name))}" tabindex="0"><title>${esc(c.name)}</title></path>`; }).join("\n");
+  return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><span class="meta">Hover a county for its districts; click to jump to the table.</span></div>
+<svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" role="img" aria-label="Counties colored by school district corporal punishment policy">
 ${paths}
-<path d="${statePaths[code]}" fill="none" stroke="#1c1c1c" stroke-width="${(Math.max(w, h) / 400).toFixed(2)}" pointer-events="none"/>
-</svg>
-<div id="countyinfo" class="card small"><b>Hover or tap a county.</b> Click to jump to its districts. Colors come from the district table below; counties with no recorded district are unshaded. Boundaries: US Census Bureau (public domain).</div></div>
-<div id="legend" class="small">${["allows", "consent_required", "bans", "unknown", "none"].filter(k => counts.some(([s]) => s === k)).map(k => `<span><i style="background:${COUNTY_COLOR[k]}"></i>${LBL[k]} (${counts.find(([s]) => s === k)[1]})</span>`).join("")}</div>
-<script>(function(){const info=document.getElementById("countyinfo");const svg=document.querySelector(".countymap");if(!svg)return;svg.querySelectorAll("path[data-county]").forEach(p=>{const show=()=>{info.innerHTML="<b>"+p.dataset.county+"</b><br>"+p.dataset.districts;};p.addEventListener("mouseenter",show);p.addEventListener("focus",show);p.setAttribute("tabindex","0");p.addEventListener("click",()=>{show();const row=document.querySelector('tr[data-key="'+p.dataset.key+'"]');if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.classList.add("hl");setTimeout(()=>row.classList.remove("hl"),2500);}});});})();</script>`;
+<path d="${statePaths[code]}" fill="none" stroke="#0D132D" stroke-width="${(Math.max(w, h) / 450).toFixed(2)}" pointer-events="none"/>
+</svg><div class="tip" id="ctip"></div>
+<div class="legend">${Object.keys(CLBL).filter(k => counts[k]).map(k => `<span><i style="background:${CFILL[k]}"></i>${CLBL[k]} (${counts[k]})</span>`).join("")}</div></div>
+<p class="meta">Counties take the state's status unless a recorded district differs. Boundaries: US Census Bureau (public domain). District policies with a source link are verified; the rest were carried over from the original map and are being re-checked.</p>
+<script>(function(){const tip=document.getElementById("ctip"),box=document.querySelector(".mapbox"),svg=document.querySelector(".countymap");if(!svg)return;
+svg.querySelectorAll("path[data-county]").forEach(p=>{const show=e=>{tip.innerHTML="<b>"+p.dataset.county+"</b><span class=st>"+p.dataset.status+"</span><br>"+p.dataset.districts;tip.style.display="block";if(e&&e.clientX){const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+14,r.width-330)+"px";tip.style.top=(e.clientY-r.top+14)+"px";}};
+p.addEventListener("mousemove",show);p.addEventListener("focus",show);p.addEventListener("mouseleave",()=>tip.style.display="none");p.addEventListener("blur",()=>tip.style.display="none");
+p.addEventListener("click",()=>{const row=document.querySelector('tr[data-key="'+p.dataset.key+'"]');if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.classList.add("hl");setTimeout(()=>row.classList.remove("hl"),2500);}});});
+const q=document.getElementById("dsearch");if(q){q.addEventListener("input",()=>{const v=q.value.trim().toLowerCase();document.querySelectorAll("tr[data-key]").forEach(r=>{r.style.display=!v||r.textContent.toLowerCase().includes(v)?"":"none";});svg.querySelectorAll("path[data-county]").forEach(p=>{p.style.opacity=!v||p.dataset.county.toLowerCase().includes(v)||p.dataset.districts.toLowerCase().includes(v)?"1":".25";});});}})();</script>`;
 }
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const n = v => v == null || v === "" ? "" : Number(v).toLocaleString("en-US");
 const LABEL = { banned: "Prohibited in public schools", partial: "Legal, but every district has stopped", legal: "Legal in public schools" };
-const COLOR = { banned: "#2f6b3a", partial: "#c9a227", legal: "#b3382c" };
+const COLOR = { banned: "#2D6A4F", partial: "#C05621", legal: "#9B2C2C" };
 const claim = id => claims.find(c => c.id === id);
 const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`(.+?)`/g, "<code>$1</code>");
 
@@ -66,7 +80,7 @@ function shell({ title, description, path, body, image = `${BASE}/assets/og-imag
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${image}">
-<link rel="stylesheet" href="/kids/site.css">
+<link rel="stylesheet" href="/kids/site.css">\n<script defer src="/kids/news.js"></script>
 ${extraHead}
 </head>
 <body>
@@ -74,8 +88,9 @@ ${extraHead}
   <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
   <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
+${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
-${body}
+${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</section>") + 10) : body}
 </main>
 <footer class="wrap foot">
   <p>End School Corporal Punishment™ is an open project of <a href="https://earthpilot.ai">EarthPilot</a>. Every figure on this site is a file in the <a href="${REPO}/tree/main/facts/claims">claims registry</a> with its source and verification date; data generated ${summary.generated}. Content CC BY 4.0, code MIT. Map boundaries: US Census Bureau (public domain).</p>
@@ -87,28 +102,36 @@ ${body}
 
 // ---------- CSS ----------
 writeFileSync(join(site, "site.css"), `
-:root{--ink:#1c1c1c;--muted:#5d5a54;--bg:#f4efe6;--card:#fffdf8;--rule:#e2dccf;--green:#2f6b3a;--gold:#c9a227;--red:#b3382c;--navy:#1f3a5f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif}
-a{color:var(--navy)}.wrap{max-width:1100px;margin:0 auto;padding:0 1.25rem}
-.top{border-bottom:1px solid var(--rule);background:var(--bg);position:sticky;top:0;z-index:10}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1.25rem;flex-wrap:wrap}
-.wordmark{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;text-decoration:none;color:var(--ink);letter-spacing:-.01em}.wordmark span{color:var(--red)}
-.top nav{display:flex;gap:1.1rem;flex-wrap:wrap}.top nav a{text-decoration:none;color:var(--ink);font-size:.95rem;border-bottom:2px solid transparent}.top nav a:hover{border-color:var(--gold)}
-h1{font-family:Georgia,serif;font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;margin:1.6rem 0 .6rem;letter-spacing:-.01em}h2{font-family:Georgia,serif;font-size:1.5rem;margin:2.2rem 0 .7rem}h3{font-size:1.1rem;margin:1.4rem 0 .4rem}
-.lede{font-size:1.15rem;color:var(--muted);max-width:60ch;margin:0 0 1.4rem}
-.layout{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;align-items:start}@media(max-width:820px){.layout{grid-template-columns:1fr}}
-#map svg{width:100%;height:auto;display:block}#legend{display:flex;flex-wrap:wrap;gap:1rem;font-size:.9rem;margin-top:.6rem}#legend i{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:.4rem;vertical-align:-2px}
-.card{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:1.1rem 1.3rem}.card h2{margin-top:0;font-size:1.3rem}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}.stat{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:1rem 1.1rem}.stat b{display:block;font-family:Georgia,serif;font-size:2rem;line-height:1.1}.stat span{color:var(--muted);font-size:.9rem}
-.status{display:inline-block;padding:.25rem .7rem;border-radius:999px;color:#fff;font-weight:600;font-size:.9rem}.status.banned{background:var(--green)}.status.partial{background:var(--gold);color:#1c1c1c}.status.legal{background:var(--red)}
-table{border-collapse:collapse;width:100%;font-size:.95rem;background:var(--card)}th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}th{background:#efe9dc;font-weight:600}.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:10px}
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&display=swap');
+:root{--navy-dark:#0D132D;--navy:#151A30;--charcoal:#293340;--gray-pale:#D9DEE8;--gray-light:#E8ECF1;--gray-medium:#8B95A5;--ink:#0D132D;--muted:#5A6577;--bg:#F5F7FA;--card:#FFFFFF;--rule:#D9DEE8;--green:#2D6A4F;--green-dark:#1B4332;--red:#9B2C2C;--red-dark:#742A2A;--partial:#C05621;--gold:#B7791F;--serif:'Merriweather',Georgia,serif;--sans:'Source Sans 3','Source Sans Pro',-apple-system,system-ui,sans-serif;--radius:2px;--shadow:0 2px 8px rgba(0,0,0,.15)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 var(--sans)}
+a{color:var(--navy-dark)}.wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
+.top{background:var(--navy-dark);color:#fff;border-bottom:3px solid var(--red)}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1.25rem;flex-wrap:wrap}
+.wordmark{font-family:var(--serif);font-weight:700;font-size:1.35rem;text-decoration:none;color:#fff;letter-spacing:.02em}.wordmark span{color:#fff}
+.top nav{display:flex;gap:2rem;flex-wrap:wrap}.top nav a{text-decoration:none;color:var(--gray-pale);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid transparent;padding-bottom:2px}.top nav a:hover{color:#fff;border-color:#fff}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem);line-height:1.12;margin:1.6rem 0 .6rem}h2{font-family:var(--serif);font-size:1.45rem;margin:2.2rem 0 .7rem;color:var(--navy-dark)}h3{font-size:1.05rem;margin:1.3rem 0 .4rem;text-transform:uppercase;letter-spacing:.04em;color:var(--charcoal)}
+.hero{background:var(--navy-dark);color:#fff;text-align:center;padding:2.5rem 1.25rem 2rem}.hero h1{color:#fff;margin:0 0 .5rem;font-size:clamp(1.9rem,3.8vw,2.6rem)}.hero .lede{color:var(--gray-pale);margin:0 auto;max-width:70ch}.hero .status{margin-top:.6rem}.hero .crumb{color:var(--gray-pale);font-size:.9rem;margin-bottom:.5rem}.hero .crumb a{color:#fff}
+.lede{font-size:1.15rem;color:var(--muted);max-width:66ch;margin:0 0 1.4rem}
+.layout{display:grid;grid-template-columns:1fr;gap:1rem}
+.mapbox{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);padding:.75rem;position:relative}
+#map svg{width:100%;height:auto;display:block}.countymap{width:100%;height:auto;max-height:68vh;display:block;margin:0 auto}
+.legend{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;font-size:.92rem;margin:.6rem 0 0;color:var(--charcoal)}.legend i{display:inline-block;width:14px;height:14px;border-radius:2px;margin-right:.45rem;vertical-align:-2px;border:1px solid rgba(0,0,0,.15)}
+.tip{position:absolute;pointer-events:none;background:var(--navy-dark);color:#fff;padding:.55rem .75rem;border-radius:var(--radius);font-size:.9rem;line-height:1.35;max-width:320px;box-shadow:var(--shadow);display:none;z-index:5}.tip b{display:block;font-family:var(--serif);font-size:1rem;margin-bottom:.15rem}.tip .st{color:#D9DEE8}
+.mapctl{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin:0 0 .5rem}.mapctl select,.mapctl input{font:inherit;padding:.4rem .6rem;border:1px solid var(--gray-medium);border-radius:var(--radius);background:#fff;min-width:220px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.3rem;box-shadow:var(--shadow)}.card h2{margin-top:0;font-size:1.25rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin:1.5rem 0}.stat{background:var(--navy-dark);color:#fff;border-radius:var(--radius);padding:1rem 1.1rem}.stat b{display:block;font-family:var(--serif);font-size:2rem;line-height:1.1}.stat span{color:var(--gray-pale);font-size:.9rem}.stat.legal b{color:#E57373}.stat.banned b{color:#52B788}
+.status{display:inline-block;padding:.25rem .7rem;border-radius:var(--radius);color:#fff;font-weight:700;font-size:.85rem;letter-spacing:.03em;text-transform:uppercase}.status.banned{background:var(--green)}.status.partial{background:var(--partial)}.status.legal{background:var(--red)}
+table{border-collapse:collapse;width:100%;font-size:.95rem;background:var(--card)}th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--rule);vertical-align:top}th{background:var(--gray-light);font-weight:700}.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow)}
+.pill{display:inline-block;padding:.1rem .5rem;border-radius:var(--radius);font-size:.85rem;font-weight:600}.pill.allows{background:#fecaca;color:#991b1b}.pill.bans{background:#bbf7d0;color:#166534}.pill.consent_required{background:#fef3c7;color:#92400e}.pill.unknown{background:#e5e7eb;color:#374151}
 .meta{color:var(--muted);font-size:.88rem}.small{font-size:.9rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-pre{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:1rem;white-space:pre-wrap;font:.85rem/1.5 ui-monospace,Menlo,monospace;overflow-x:auto}.copy{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:.45rem .8rem;cursor:pointer;font-size:.9rem}
-.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:.6rem 1rem;border-radius:8px;font-weight:600}.btn.alt{background:var(--green)}
-.countywrap{display:grid;grid-template-columns:3fr 2fr;gap:1rem;align-items:start}@media(max-width:820px){.countywrap{grid-template-columns:1fr}}.countymap{width:100%;height:auto;display:block;background:var(--card);border:1px solid var(--rule);border-radius:10px}.countymap path[data-county]{cursor:pointer}.countymap path[data-county]:hover{stroke:#1c1c1c;stroke-width:1.5}tr.hl td{background:#fff3c4}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+pre{background:#fff;border:1px solid var(--rule);border-radius:var(--radius);padding:1rem;white-space:pre-wrap;font:.85rem/1.5 ui-monospace,Menlo,monospace;overflow-x:auto}.copy{background:var(--navy-dark);color:#fff;border:0;border-radius:var(--radius);padding:.45rem .8rem;cursor:pointer;font:inherit;font-size:.9rem}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:.6rem 1rem;border-radius:var(--radius);font-weight:700}
 .foot{border-top:1px solid var(--rule);margin-top:3rem;padding-top:1.2rem;padding-bottom:2rem;color:var(--muted);font-size:.88rem}
 ul.claims li{margin:.5rem 0}.states-list{columns:3;column-gap:1.5rem;font-size:.95rem}@media(max-width:700px){.states-list{columns:2}}.states-list a{text-decoration:none}
-code{background:#efe9dc;padding:.05rem .3rem;border-radius:4px;font-size:.9em}
+code{background:var(--gray-light);padding:.05rem .3rem;border-radius:var(--radius);font-size:.9em}
+.news{list-style:none;padding:0;margin:0}.news li{padding:.55rem 0;border-bottom:1px solid var(--rule)}.news a{text-decoration:none;font-weight:600}.news .meta{display:block}
+tr.hl td{background:#fef3c7}
 `.trim());
 
 // ---------- index ----------
@@ -121,13 +144,12 @@ writeFileSync(join(site, "index.html"), shell({
   title: "Where a teacher may still legally hit a student", path: "/",
   description: "The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.",
   extraHead: `<script defer src="/kids/map.js"></script>`,
-  body: `
-<h1>Where a teacher may still legally hit a student</h1>
-<p class="lede">In ${legalStates.length} states a public school employee may paddle a child as punishment, and does. In ${partialStates.length} more it is legal but every district has stopped. Hover or tap a state. Every status links to its statute and every number to its source.</p>
-<div class="layout">
-  <div><div id="map" aria-live="polite"></div><div id="legend"></div></div>
-  <aside id="info" class="card"><p class="meta">Select a state to see its law, limits, bills, and the number of students struck.</p></aside>
-</div>
+  body: `<section class="hero"><div class="wrap"><h1>Where a teacher may still legally hit a student</h1>
+<p class="lede">In ${legalStates.length} states a public school employee may paddle a child as punishment, and does. In ${partialStates.length} more it is legal but every district has stopped. Hover or tap a state. Every status links to its statute and every number to its source.</p></div></section>
+<div class="mapbox"><div class="mapctl"><select id="jump" aria-label="Go to a state"><option value="">Go to a state…</option>${Object.values(states).sort((a, b) => a.name.localeCompare(b.name)).map(s => `<option value="${s.code}">${esc(s.name)}</option>`).join("")}</select><span class="meta">Hover a state for its status and numbers; click to open it. County lines show where district policies differ.</span></div>
+<div id="map" aria-live="polite"></div><div class="tip" id="stip"></div><div class="legend" id="legend"></div></div>
+<h2>Latest news</h2>
+<ul class="news" id="news" data-q="&quot;corporal punishment&quot; school"><li class="meta">Loading the latest coverage…</li></ul>
 <div class="stats">
   <div class="stat"><b>${n(total2122.figure)}</b><span>students received corporal punishment in 2021-22, the newest year the Department of Education has analyzed</span></div>
   <div class="stat"><b>${n(c2324.figure)}</b><span>in 2023-24, computed by this project from the raw file released August 31, 2026</span></div>
@@ -155,11 +177,10 @@ for (const s of Object.values(states)) {
   const rows = Object.entries(crdc).map(([y, t]) => [y, t.find(r => r.state === s.code)]).filter(([, r]) => r);
   const ds = (districts[s.code] || []).slice().sort((a, b) => a.name.localeCompare(b.name));
   const legal = s.status !== "banned";
-  const body = `
-<p class="meta"><a href="/kids/">Map</a> › ${esc(s.name)}</p>
+  const body = `<section class="hero"><div class="wrap"><p class="crumb"><a href="/kids/">Map</a> › ${esc(s.name)}</p>
 <h1>${esc(s.name)}</h1>
 <p><span class="status ${s.status}">${LABEL[s.status]}${s.year_banned ? ` since ${s.year_banned}` : ""}</span></p>
-${s.notes ? `<p class="lede">${esc(s.notes)}</p>` : ""}
+${s.notes ? `<p class="lede">${esc(s.notes)}</p>` : ""}</div></section>
 <div class="grid">
 <div class="card"><h2>The law</h2>
 ${s.statute ? `<p><b>${esc(s.statute)}</b>${s.statute_url ? ` <a href="${esc(s.statute_url)}" rel="noopener">text</a>` : ""}</p>` : `<p class="meta">Statute not yet verified against a primary source. <a href="${REPO}/blob/main/data/states/${s.code}.yaml">Help verify it.</a></p>`}
@@ -176,8 +197,8 @@ ${legal ? `<h2>Counties</h2>
 ${countyMap(s.code, ds)}
 <h2>Districts</h2>
 <p class="meta">${ds.length} districts recorded; ${ds.filter(d => d.source).length} with a source. A status without a source has not been verified. <a href="/kids/contribute/">Help scan this state.</a></p>
-${ds.length ? `<div class="tablewrap"><table><tr><th>District</th><th>County</th><th>Policy</th><th>Source</th><th>Verified</th></tr>${ds.map(d => `<tr data-key="${esc(norm(d.county))}"><td>${esc(d.name)}</td><td>${esc(d.county || "")}</td><td>${{ allows: "Allows", bans: "Prohibits", consent_required: "Parental consent required", unknown: "Unknown" }[d.status]}</td><td>${d.source ? `<a href="${esc(d.source)}" rel="noopener">${esc(d.policy_code || "policy")}</a>` : "<span class=\"meta\">none yet</span>"}</td><td class="meta">${d.last_verified || ""}</td></tr>`).join("")}</table></div>` : ""}` : ""}
-<h2>Do something</h2>
+${ds.length ? `<div class="tablewrap"><table><tr><th>District</th><th>County</th><th>Policy</th><th>Source</th><th>Verified</th></tr>${ds.map(d => `<tr data-key="${esc(norm(d.county))}"><td>${esc(d.name)}</td><td>${esc(d.county || "")}</td><td><span class="pill ${d.status}">${{ allows: "Allows", bans: "Prohibits", consent_required: "Consent required", unknown: "Unknown" }[d.status]}</span></td><td>${d.source ? `<a href="${esc(d.source)}" rel="noopener">${esc(d.policy_code || "policy")}</a>` : "<span class=\"meta\">none yet</span>"}</td><td class="meta">${d.last_verified || ""}</td></tr>`).join("")}</table></div>` : ""}` : ""}
+<h2>In the news</h2>\n<ul class="news" id="news" data-q="${esc(`"corporal punishment" school ${s.name}`)}"><li class="meta">Loading the latest coverage…</li></ul>\n<h2>Do something</h2>
 <div class="grid">
 ${legal ? `<div class="card"><h2>Parents</h2><p><a href="/kids/resources/#letters">File the written refusal</a> with your child's school. ${s.code === "LA" || s.code === "MO" || s.code === "FL" ? "In this state the school also needs your signed consent before any paddling." : "In this state the burden is on you to say no; the school must honor it."}</p></div>` : ""}
 <div class="card"><h2>Everyone</h2><p><a href="/kids/resources/#letters">Write the board or your legislator</a> with the numbers above. The templates cite only verified facts.</p></div>
@@ -198,9 +219,8 @@ writeFileSync(join(site, "resources", "index.html").replace(/resources\/index/, 
   title: "Facts and templates to end school corporal punishment", path: "/resources/",
   description: "Every verified fact about corporal punishment in US schools with its source, plus the model bill, district policy, board resolution, parent refusal letter, testimony and records-request templates.",
   extraHead: `<script>function copyT(b){navigator.clipboard.writeText(b.previousElementSibling.innerText).then(()=>{const t=b.innerText;b.innerText='Copied';setTimeout(()=>b.innerText=t,1500)})}</script>`,
-  body: `
-<h1>Facts and templates</h1>
-<p class="lede">Every sentence below is a file in the claims registry with its primary source and the date it was last verified. Quote the year with the number. If one is wrong, <a href="${REPO}/issues/new?template=fact-correction.yml">say so</a> and it will be fixed the same day.</p>
+  body: `<section class="hero"><div class="wrap"><h1>Facts and templates</h1>
+<p class="lede">Every sentence below is a file in the claims registry with its primary source and the date it was last verified. Quote the year with the number. If one is wrong, <a href="${REPO}/issues/new?template=fact-correction.yml">say so</a> and it will be fixed the same day.</p></div></section>
 <h2 id="facts">Verified facts</h2>
 ${facts}
 <h2 id="letters">Templates</h2>
@@ -221,9 +241,8 @@ mkdirSync(join(site, "contribute"), { recursive: true });
 writeFileSync(join(site, "contribute", "index.html"), shell({
   title: "Bring an agent: help end school corporal punishment", path: "/contribute/",
   description: "Point your AI agent at the open task queue: scan district policies, verify claims, watch bills. Or give money, share your state, or file the parent letter.",
-  body: `
-<h1>Bring an agent</h1>
-<p class="lede">Most of the remaining work is reading thousands of district policy manuals and recording what they say, with a source and a verbatim quote. That is agent work, and the tools are ready.</p>
+  body: `<section class="hero"><div class="wrap"><h1>Bring an agent</h1>
+<p class="lede">Most of the remaining work is reading thousands of district policy manuals and recording what they say, with a source and a verbatim quote. That is agent work, and the tools are ready.</p></div></section>
 <div class="grid">
 <div class="card"><h2>Claude Code</h2><pre>claude plugin marketplace add AnthonyDavidAdams/end-school-corporal-punishment
 claude plugin install escp@escp
