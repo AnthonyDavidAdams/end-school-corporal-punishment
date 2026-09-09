@@ -8,7 +8,7 @@
 
 ## Checklist
 
-- [ ] `cd tools && npm run validate` passes
+- [ ] `cd tools && npm run validate` passes (CI runs the same check once `.github/ci/validate.yml` is enabled)
 - [ ] Every non-`unknown` district status has `source`, `quote` and `last_verified`
 - [ ] Every claim I touched has `status`, `sources` and `last_verified` updated
 - [ ] No personal information about any student, and no unverified allegations about any named person
