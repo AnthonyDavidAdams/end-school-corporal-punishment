@@ -12,7 +12,7 @@ Verified 2026-09-09. Add organizations with a URL; remove none without a note.
 | Southern Poverty Law Center with UCLA Civil Rights Project | "The Striking Outlier" (2019); no corporal punishment output found since | https://www.splcenter.org/20190611/striking-outlier-persistent-painful-and-problematic-practice-corporal-punishment-schools |
 | National Women's Law Center | Organized the 2016 open letter signed by 100+ organizations | https://nwlc.org/resource/open-letter-calling-for-end-to-corporal-punishment-in-schools/ |
 | Lives in the Balance (Ross Greene) | State action pages (Colorado, Idaho) | https://livesinthebalance.org/colorado-prohibits-corporal-punishment/ |
-| American Academy of Pediatrics | November 2023 school policy statement | https://news.cuanschutz.edu/accords/policy-statement-calls-for-end-of-corporal-punishment-in-schools |
+| American Academy of Pediatrics | August 2023 school policy statement (Pediatrics 152(3)) | https://news.cuanschutz.edu/accords/policy-statement-calls-for-end-of-corporal-punishment-in-schools |
 | Bellwether | 2024 status analysis | https://bellwether.org/blog/corporal-punishment-in-public-schools/ |
 | State coalitions | Kentucky: Prevent Child Abuse Kentucky, Kentucky Youth Advocates, ACLU-KY. North Carolina: NC Child. Colorado: Disability Law Colorado, Mental Health Colorado. Florida: Florida Student Policy Forum. Texas: IDRA. Tennessee: Tennesseans for Nonviolent School Discipline (name only). Mississippi, Alabama, Oklahoma: no coalition verified | |
 

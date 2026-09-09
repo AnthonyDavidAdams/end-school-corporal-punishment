@@ -64,12 +64,17 @@
   "name": "Colorado",
   "status": "banned",
   "year_banned": 2023,
-  "private_schools_covered": null,
-  "statute": null,
+  "private_schools_covered": false,
+  "statute": "C.R.S. § 22-1-140 (HB23-1191)",
+  "statute_url": "https://leg.colorado.gov/bills/hb23-1191",
   "limits": [],
-  "notes": "HB23-1191. 154 of 178 districts already had bans before state law",
-  "sources": [],
-  "last_verified": null
+  "bills": [],
+  "notes": "Signed and effective April 20, 2023; covers public schools including charters and licensed child care, not private schools. Before the law, 154 of 178 districts already prohibited it. House 48-16, Senate 32-0.",
+  "sources": [
+   "https://leg.colorado.gov/bills/hb23-1191",
+   "https://content.leg.colorado.gov/sites/default/files/2023a_1191_signed.pdf"
+  ],
+  "last_verified": "2026-09-09"
  },
  "CT": {
   "code": "CT",
@@ -112,12 +117,29 @@
   "name": "Florida",
   "status": "legal",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
-  "limits": [],
-  "notes": "2025 law (HB 1255) requires parental opt-in consent. 19 of 67 districts allow it. 516 incidents in 2023-24",
-  "sources": [],
-  "last_verified": null
+  "private_schools_covered": false,
+  "statute": "Fla. Stat. § 1002.20(4)(c), § 1003.32 (CS/HB 1255, 2025, ch. 2025-110)",
+  "statute_url": "https://laws.flrules.org/2025/110",
+  "limits": [
+   "Since July 1, 2025 a district that authorizes it must obtain written parental consent for the school year or before each instance, have a second informed adult present, provide a written explanation on request, and review the policy at a public meeting every three years or the authorization expires; charters must comply"
+  ],
+  "bills": [
+   {
+    "number": "CS/HB 1255",
+    "session": "2025",
+    "sponsor": "Reps. Dana Trabulsy and Chase Tramont (R)",
+    "summary": "Omnibus education bill adding the parental-consent requirement; final votes 100-0 and 30-0; signed May 30, 2025",
+    "status": "signed",
+    "url": "https://www.flsenate.gov/Session/Bill/2025/1255"
+   }
+  ],
+  "notes": "17 of 67 districts reported 516 instances in 2023-24 (Suwannee 74, Holmes 65, Calhoun 59, Columbia 50, Wakulla 45, Washington 43); 647 students in the 2021-22 federal count. Districts that still permit it are coded consent_required. The consent law came from a four-year University of Florida student campaign after a disability-only ban was blocked.",
+  "sources": [
+   "https://www.flsenate.gov/Session/Bill/2025/1255",
+   "https://laws.flrules.org/2025/110",
+   "https://www.clickorlando.com/news/florida/2025/08/18/new-florida-law-allows-school-spankings-with-parent-consent/"
+  ],
+  "last_verified": "2026-09-09"
  },
  "GA": {
   "code": "GA",
@@ -160,24 +182,34 @@
   "name": "Idaho",
   "status": "banned",
   "year_banned": 2023,
-  "private_schools_covered": null,
-  "statute": null,
+  "private_schools_covered": false,
+  "statute": "Idaho Code § 33-1224 (H.B. 281, 2023, ch. 246)",
+  "statute_url": "https://legislature.idaho.gov/statutesrules/idstat/Title33/T33CH12/SECT33-1224/",
   "limits": [],
-  "notes": "Most recent state ban. Also banned restraint/seclusion as discipline",
-  "sources": [],
-  "last_verified": null
+  "bills": [],
+  "notes": "Signed April 3, 2023, effective July 1, 2023. Bundled with restraint and seclusion limits; private schools removed by Senate amendment. House 45-22, Senate 21-12.",
+  "sources": [
+   "https://legislature.idaho.gov/sessioninfo/2023/legislation/H0281/",
+   "https://legislature.idaho.gov/statutesrules/idstat/Title33/T33CH12/SECT33-1224/"
+  ],
+  "last_verified": "2026-09-09"
  },
  "IL": {
   "code": "IL",
   "name": "Illinois",
   "status": "banned",
   "year_banned": 1994,
-  "private_schools_covered": null,
-  "statute": null,
+  "private_schools_covered": true,
+  "statute": "105 ILCS 5/24-24 (public) and 5/22-100 (all schools, P.A. 103-0806)",
+  "statute_url": "https://www.ilga.gov/legislation/publicacts/fulltext.asp?Name=103-0806",
   "limits": [],
-  "notes": "Banned in private schools 2024. One of 5 states banning in both public and private",
-  "sources": [],
-  "last_verified": null
+  "bills": [],
+  "notes": "Public-school ban dates to the mid-1990s (reported). HB 4175 (Rep. Margaret Croke) extended it to nonpublic schools; signed August 9, 2024, effective January 1, 2025.",
+  "sources": [
+   "https://www.ilga.gov/legislation/publicacts/fulltext.asp?Name=103-0806",
+   "https://www.ilga.gov/legislation/ilcs/fulltext.asp?DocName=010500050K24-24"
+  ],
+  "last_verified": "2026-09-09"
  },
  "IN": {
   "code": "IN",
@@ -208,24 +240,65 @@
   "name": "Kentucky",
   "status": "partial",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
-  "limits": [],
-  "notes": "Technically legal but ALL 171 districts banned it by Nov 2, 2023. Zero incidents 2023-24",
-  "sources": [],
-  "last_verified": null
+  "private_schools_covered": false,
+  "statute": "KRS 503.110 (permits); 704 KAR 7:170 (regulates)",
+  "statute_url": "https://apps.legislature.ky.gov/law/kar/titles/704/007/170/",
+  "limits": [
+   "Under 704 KAR 7:170 (effective Aug 30, 2022) a district that permits it must obtain annual written and per-instance verbal parental consent, use a same-gender certified witness, no instruments, provide counseling by the next school day, and may not use it on students with IEPs or 504 plans, homeless or foster youth"
+  ],
+  "bills": [
+   {
+    "number": "HB 22",
+    "session": "2020 Regular Session",
+    "sponsor": "Rep. Steve Riley (R)",
+    "summary": "Ban corporal punishment in schools; passed House 65-17, died in Senate Education",
+    "status": "failed",
+    "url": "https://apps.legislature.ky.gov/record/20rs/hb22.html"
+   },
+   {
+    "number": "HB 119",
+    "session": "2022 Regular Session",
+    "sponsor": "Rep. Steve Riley (R)",
+    "summary": "Ban corporal punishment in schools; died in committee",
+    "status": "failed",
+    "url": "https://apps.legislature.ky.gov/record/22rs/hb119.html"
+   }
+  ],
+  "notes": "All 171 districts had prohibiting policies by November 2, 2023; zero incidents in 2023-24 (5 in 2022-23, 142 in 2019-20, about 1,100 in 2011-12). The statute still permits it, and advocates want a ban in law because policies can be reversed.",
+  "sources": [
+   "https://apps.legislature.ky.gov/law/kar/titles/704/007/170/",
+   "https://nkytribune.com/2025/01/kentucky-records-zero-instances-of-corporal-punishment-during-2023-2024-school-year/",
+   "https://www.lpm.org/news/2021-12-01/kentucky-board-of-education-limits-corporal-punishment-in-schools"
+  ],
+  "last_verified": "2026-09-09"
  },
  "LA": {
   "code": "LA",
   "name": "Louisiana",
   "status": "legal",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
-  "limits": [],
-  "notes": "Prohibits use on students with certain disabilities",
-  "sources": [],
-  "last_verified": null
+  "private_schools_covered": false,
+  "statute": "La. R.S. § 17:416.1 (as amended by Act 266 of 2017, HB 79)",
+  "statute_url": "https://legis.la.gov/legis/BillInfo.aspx?s=17RS&b=HB79",
+  "limits": [
+   "No corporal punishment on certain students with exceptionalities (Act 266, effective August 1, 2017)"
+  ],
+  "bills": [
+   {
+    "number": "HB 649",
+    "session": "2022 Regular Session",
+    "sponsor": "",
+    "summary": "Parental-consent requirement; passed House 70-28 on reconsideration, never received a Senate floor vote (the Global Initiative wrongly reports it as passed)",
+    "status": "failed",
+    "url": "https://legis.la.gov/legis/BillInfo.aspx?s=22RS&b=HB649"
+   }
+  ],
+  "notes": "264 students in 2021-22; 65 in 2023-24. Black students were 61 percent of those struck in 2017-18.",
+  "sources": [
+   "https://legis.la.gov/legis/BillInfo.aspx?s=17RS&b=HB79",
+   "https://legis.la.gov/legis/BillInfo.aspx?s=22RS&b=HB649"
+  ],
+  "last_verified": "2026-09-09"
  },
  "MA": {
   "code": "MA",
@@ -244,12 +317,17 @@
   "name": "Maryland",
   "status": "banned",
   "year_banned": 1993,
-  "private_schools_covered": null,
-  "statute": null,
+  "private_schools_covered": true,
+  "statute": "Md. Educ. § 7-306(b) (public); § 2-206(e)(3)(ii) (nonpublic, HB 185, 2023 ch. 671)",
+  "statute_url": "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/hb0185?ys=2023RS",
   "limits": [],
-  "notes": "Banned in both public and private schools",
-  "sources": [],
-  "last_verified": null
+  "bills": [],
+  "notes": "Nonpublic-school ban effective July 1, 2023, through the State Board's certificate of approval; schools operated by a bona fide church organization are exempt from the certificate requirement.",
+  "sources": [
+   "https://mgaleg.maryland.gov/mgawebsite/Legislation/Details/hb0185?ys=2023RS",
+   "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=ged&section=7-306&enactments=false"
+  ],
+  "last_verified": "2026-09-09"
  },
  "ME": {
   "code": "ME",
@@ -304,12 +382,19 @@
   "name": "Mississippi",
   "status": "legal",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
-  "limits": [],
-  "notes": "HIGHEST use nationally. 20,309 students in 2017-18. 35.7% of districts use on >25% of students",
-  "sources": [],
-  "last_verified": null
+  "private_schools_covered": false,
+  "statute": "Miss. Code § 37-11-57 (as amended by HB 1182, 2019)",
+  "statute_url": "http://billstatus.ls.state.ms.us/2019/pdf/history/HB/HB1182.xml",
+  "limits": [
+   "No corporal punishment on students with an IEP or 504 plan (HB 1182, approved March 21, 2019, effective July 1, 2019)"
+  ],
+  "bills": [],
+  "notes": "Highest per-capita use in the nation: 3,678 students in 2021-22 (8.3 per 1,000), 20,309 in 2017-18 (29 percent of the national total). The count of students with disabilities struck fell from 3,304 in 2017-18 to 30 in 2021-22 after the 2019 law. Black students were 63 percent of those struck in 2017-18 and 60 percent in 2021-22.",
+  "sources": [
+   "http://billstatus.ls.state.ms.us/2019/pdf/history/HB/HB1182.xml",
+   "http://billstatus.ls.state.ms.us/documents/2019/pdf/HB/1100-1199/HB1182SG.pdf"
+  ],
+  "last_verified": "2026-09-09"
  },
  "MT": {
   "code": "MT",
@@ -328,12 +413,37 @@
   "name": "North Carolina",
   "status": "partial",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
-  "limits": [],
-  "notes": "De facto ban - all districts banned as of Oct 2, 2018",
-  "sources": [],
-  "last_verified": null
+  "private_schools_covered": false,
+  "statute": "G.S. 115C-390.4",
+  "statute_url": "https://www.ncleg.net/enactedlegislation/statutes/html/bysection/chapter_115c/gs_115c-390.4.html",
+  "limits": [
+   "Local board decides; witness required; written parental notice; records; annual report to State Board by race, sex and disability; written parental opt-out offered at enrollment (an opted-out student may be suspended for offenses that otherwise would not require it)"
+  ],
+  "bills": [
+   {
+    "number": "HB 983",
+    "session": "2025-26",
+    "sponsor": "Reps. Maria Cervania and Marcia Morey (D)",
+    "summary": "Prohibit corporal punishment in schools; in House Rules since April 14, 2025",
+    "status": "pending",
+    "url": "https://www.ncleg.gov/BillLookUp/2025/H983"
+   },
+   {
+    "number": "S714",
+    "session": "2025-26",
+    "sponsor": "Sen. Gladys Robinson (D) with Sen. Kevin Corbin (R) among sponsors",
+    "summary": "Prohibit corporal punishment in schools; in Senate Rules since March 26, 2025",
+    "status": "pending",
+    "url": "https://www.ncleg.gov/BillLookUp/2025/S714"
+   }
+  ],
+  "notes": "All 115 districts prohibited it by October 2, 2018 (Robeson County April 2018, Graham County October 2, 2018) after two decades of advocacy by NC Child. 57 students reported in 2017-18; none since. A 2019 bipartisan ban bill cleared House Education and stalled.",
+  "sources": [
+   "https://www.ncleg.net/enactedlegislation/statutes/html/bysection/chapter_115c/gs_115c-390.4.html",
+   "https://www.ednc.org/corporal-punishment-in-nc-the-end-is-near/",
+   "https://www.wunc.org/education/2018-10-18/graham-county-schools-end-corporal-punishment"
+  ],
+  "last_verified": "2026-09-09"
  },
  "ND": {
   "code": "ND",
@@ -388,12 +498,17 @@
   "name": "New Mexico",
   "status": "banned",
   "year_banned": 2011,
-  "private_schools_covered": null,
-  "statute": null,
+  "private_schools_covered": false,
+  "statute": "NMSA 1978 § 22-5-4.3(B) (HB 172, 2011, Laws 2011 ch. 97)",
+  "statute_url": "https://www.nmlegis.gov/Legislation/Legislation?chamber=H&legType=B&legNo=172&year=11",
   "limits": [],
-  "notes": null,
-  "sources": [],
-  "last_verified": null
+  "bills": [],
+  "notes": "Signed April 6, 2011 by Gov. Susana Martinez (R); effective June 17, 2011 (computed). House 36-31, Senate 22-17. Only 36 of 89 districts still permitted it at passage.",
+  "sources": [
+   "https://www.nmlegis.gov/Legislation/Legislation?chamber=H&legType=B&legNo=172&year=11",
+   "https://www.nmlegis.gov/Sessions/11%20Regular/final/HB0172.pdf"
+  ],
+  "last_verified": "2026-09-09"
  },
  "NV": {
   "code": "NV",
@@ -412,12 +527,16 @@
   "name": "New York",
   "status": "banned",
   "year_banned": 1985,
-  "private_schools_covered": null,
-  "statute": null,
+  "private_schools_covered": true,
+  "statute": "N.Y. Educ. Law §§ 305, 1125 (A5010A/S5261A, 2023 ch. 551)",
+  "statute_url": "https://www.nysenate.gov/legislation/bills/2023/S5261/amendment/A",
   "limits": [],
-  "notes": "Banned in both public and private schools",
-  "sources": [],
-  "last_verified": null
+  "bills": [],
+  "notes": "Public-school ban by regulation since 1985; the 2023 law, signed October 25, 2023, directs the Commissioner to prohibit corporal punishment in any school in the state, public or private.",
+  "sources": [
+   "https://www.nysenate.gov/legislation/bills/2023/S5261/amendment/A"
+  ],
+  "last_verified": "2026-09-09"
  },
  "OH": {
   "code": "OH",
@@ -436,12 +555,37 @@
   "name": "Oklahoma",
   "status": "legal",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
-  "limits": [],
-  "notes": "Prohibits use on students with certain disabilities. 2024 legislation to limit use",
-  "sources": [],
-  "last_verified": null
+  "private_schools_covered": false,
+  "statute": "70 O.S. § 13-116 (as amended by SB 364, 2025, Laws 2025 ch. 99)",
+  "statute_url": "https://law.justia.com/codes/oklahoma/title-70/section-70-13-116/",
+  "limits": [
+   "No corporal punishment on any student identified with a disability under IDEA (SB 364, law without the governor's signature May 8, 2025; effective date disputed between 90 days after sine die and May 12, 2025); the 2017 law (HB 1623) had covered only the most significant cognitive disabilities with IEP or parental-waiver exceptions"
+  ],
+  "bills": [
+   {
+    "number": "SB 364",
+    "session": "2025",
+    "sponsor": "Sen. Dave Rader and Rep. Anthony Moore (R)",
+    "summary": "Ban corporal punishment for students with disabilities; Senate 31-16, House 63-25; became law without Gov. Stitt's signature",
+    "status": "signed",
+    "url": "http://www.oklegislature.gov/BillInfo.aspx?Bill=SB364&Session=2500"
+   },
+   {
+    "number": "HB 1028",
+    "session": "2023",
+    "sponsor": "Rep. John Talley (R)",
+    "summary": "Ban corporal punishment for students with disabilities; failed 45-43 on March 14, 2023, passed 84-8 on reconsideration March 20, stalled in the Senate",
+    "status": "failed",
+    "url": "http://www.oklegislature.gov/BillInfo.aspx?Bill=HB1028&Session=2300"
+   }
+  ],
+  "notes": "1,458 students in 2021-22 (991 in 2023-24). American Indian/Alaska Native students were 24 percent of those struck in 2017-18. Bills have been carried by Republicans without an outside coalition.",
+  "sources": [
+   "http://www.oklegislature.gov/BillInfo.aspx?Bill=SB364&Session=2500",
+   "http://webserver1.lsb.state.ok.us/cf_pdf/2025-26%20ENR/SB/SB364%20ENR.PDF",
+   "http://www.oklegislature.gov/BillInfo.aspx?Bill=HB1623&Session=1700"
+  ],
+  "last_verified": "2026-09-09"
  },
  "OR": {
   "code": "OR",
@@ -484,12 +628,17 @@
   "name": "South Carolina",
   "status": "legal",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
+  "private_schools_covered": false,
+  "statute": "S.C. Code § 59-63-260",
+  "statute_url": "https://www.scstatehouse.gov/code/t59c063.php",
   "limits": [],
-  "notes": "District-level decisions",
-  "sources": [],
-  "last_verified": null
+  "bills": [],
+  "notes": "Unchanged since 1973: each district's governing body 'may provide corporal punishment for any pupil that it deems just and proper.' No statutory limits and no State Board regulation. 85 students in 2021-22, 23 in 2017-18. No bill on school corporal punishment filed in the 2023-24 or 2025-26 sessions. District-by-district status unverified; an Island Packet explainer of September 18, 2025 likely has a tally.",
+  "sources": [
+   "https://www.scstatehouse.gov/code/t59c063.php",
+   "https://ed.sc.gov/how-do-i/public-schools/what-is-the-department-of-education-s-policy-regarding-corporal-punishment/"
+  ],
+  "last_verified": "2026-09-09"
  },
  "SD": {
   "code": "SD",
@@ -508,24 +657,47 @@
   "name": "Tennessee",
   "status": "legal",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
-  "limits": [],
-  "notes": "Prohibits use on students with certain disabilities. 2024 legislation to limit use",
-  "sources": [],
-  "last_verified": null
+  "private_schools_covered": false,
+  "statute": "Tenn. Code § 49-6-4103 et seq. (HB 2330, 2018, Pub. Ch. 900)",
+  "statute_url": "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB2330&GA=110",
+  "limits": [
+   "No corporal punishment on students with an IEP or 504 plan unless district policy allows it and the parent gives written permission (effective July 1, 2018)"
+  ],
+  "bills": [],
+  "notes": "1,031 students in 2021-22; 616 in 2023-24 (down 40 percent). Statute section number for the general authorization should be confirmed by the bill-watch task.",
+  "sources": [
+   "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB2330&GA=110"
+  ],
+  "last_verified": "2026-09-09"
  },
  "TX": {
   "code": "TX",
   "name": "Texas",
   "status": "legal",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
-  "limits": [],
-  "notes": "Second highest use nationally. 13,892 students in 2017-18. Significant district variation",
-  "sources": [],
-  "last_verified": null
+  "private_schools_covered": false,
+  "statute": "Tex. Educ. Code § 37.0011",
+  "statute_url": "https://statutes.capitol.texas.gov/Docs/ED/htm/ED.37.htm",
+  "limits": [
+   "Parent may prohibit it by signed written statement each year (§ 37.0011); district must adopt a policy"
+  ],
+  "bills": [
+   {
+    "number": "HB 772",
+    "session": "88R (2023)",
+    "sponsor": "Rep. Alma Allen (D)",
+    "summary": "Ban corporal punishment in public schools; committee 5-2, failed on second reading April 26, 2023 (reported 58-86); Allen has filed it every session for 18 years",
+    "status": "failed",
+    "url": "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB772"
+   }
+  ],
+  "notes": "Largest absolute use: 7,324 students in 2021-22 and 5,359 in 2023-24; 13,892 in 2017-18. IDRA counted 468 districts with corporal punishment policies and 21,685 incidents on 13,054 students in 2017-18. The 2025 (89R) session was not checked; run bill-watch.",
+  "sources": [
+   "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB772",
+   "https://www.texastribune.org/2023/04/26/texas-house-corporal-punishment-public-schools/",
+   "https://www.idra.org/education_policy/hitting-hurts-the-case-for-ending-corporal-punishment-in-texas/"
+  ],
+  "last_verified": "2026-09-09"
  },
  "UT": {
   "code": "UT",
@@ -604,11 +776,35 @@
   "name": "Wyoming",
   "status": "legal",
   "year_banned": null,
-  "private_schools_covered": null,
-  "statute": null,
+  "private_schools_covered": false,
+  "statute": "W.S. § 21-4-308(b) (immunity for reasonable corporal discipline authorized by board policy)",
+  "statute_url": "https://wyoleg.gov/statutes/compress/title21.pdf",
   "limits": [],
-  "notes": "Western state that permits the practice",
-  "sources": [],
-  "last_verified": null
+  "bills": [
+   {
+    "number": "SF0047",
+    "session": "2023 General Session",
+    "sponsor": "Joint Education Interim Committee",
+    "summary": "Repeal immunity for corporal discipline; Senate 26-5, House Committee of the Whole failed 12-47 on February 14, 2023",
+    "status": "failed",
+    "url": "https://wyoleg.gov/Legislation/2023/SF0047"
+   },
+   {
+    "number": "HB0065",
+    "session": "2026 Budget Session",
+    "sponsor": "Joint Education Interim Committee",
+    "summary": "Require district discipline policies, parental notice and reporting; repeal the corporal-discipline immunity; failed introduction 38-24 (two-thirds needed) February 9, 2026",
+    "status": "failed",
+    "url": "https://wyoleg.gov/Legislation/2026/HB0065"
+   }
+  ],
+  "notes": "The statute grants immunity rather than authorizing the practice. Press in 2022-23 reported one to three of 48 districts still had it in policy (Niobrara County SD #1 named) and no incidents reported federally since 2012; Laramie County SD 1 reaffirmed its prohibition in October 2025. Advocate: principal Jeff Jones.",
+  "sources": [
+   "https://wyoleg.gov/statutes/compress/title21.pdf",
+   "https://wyoleg.gov/Legislation/2023/SF0047",
+   "https://wyoleg.gov/Legislation/2026/HB0065",
+   "https://www.wyomingpublicmedia.org/education/2022-10-04/a-sheridan-county-school-principal-is-seeking-to-end-corporal-punishment-in-wyomings-public-schools"
+  ],
+  "last_verified": "2026-09-09"
  }
 }

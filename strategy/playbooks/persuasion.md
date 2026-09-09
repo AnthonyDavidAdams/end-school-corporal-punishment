@@ -16,7 +16,7 @@ This is the psychology layer of the CRM. Every practice here is tied to a study;
   - **Safe schools and order**: the practices that replace paddling (Module 2 and 3 in `training/`) produce fewer referrals, not more. Lead with the neighboring district that stopped and did fine.
   - **Fiscal responsibility and liability**: settlements, insurance, and administrator time. Cite a case from the state or circuit in `strategy/case-studies/`.
   - **Faith**: many members cite faith. Do not argue scripture. Pastors and church members in the district who oppose paddling are the messengers here; the CRM matches them.
-  - **Teachers**: the teachers' own associations (NEA, AFT) oppose the practice, and no teacher likes being the one holding the paddle. Teachers in the district are strong messengers.
+  - **Teachers**: both national teacher unions endorsed the federal ban bill in 2023 (cite the endorsement; the AFT's only resolution on the subject, from 1976, sided with teachers in *Ingraham*), and no teacher likes being the one holding the paddle. Teachers in the district are strong messengers.
 - Avoid the frames that work on us and not on them: "human rights", "the UN", "every other developed country". True, verified, and in `facts/`; they belong in a written record, not in the opening of a letter to a rural board member who has heard them as condescension for twenty years.
 
 ## 3. Stories beat statistics for changing minds; statistics make the story credible

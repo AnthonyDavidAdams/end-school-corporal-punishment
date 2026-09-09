@@ -38,7 +38,7 @@ Each module in `modules/` has: what it replaces, the evidence (with citations to
 
 ## Status
 
-Draft. Modules are being written and reviewed; see `tasks/README.md` for the `training-review` task. Review from people who have run a school is worth more than anything else here.
+Draft, first complete pass 2026-09-09: all ten modules written against `evidence.md` (48 sources, 40 verified against the record or full text). Not yet reviewed by anyone who has run a school; see `tasks/README.md` for the `training-review` task. That review is worth more than anything else here.
 
 ## License
 
