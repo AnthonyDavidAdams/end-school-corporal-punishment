@@ -2,9 +2,19 @@ code: IN
 name: "Indiana"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
+private_schools_covered: False
+statute: "No corporal punishment statute; IC 20-33-8-8(b) (school personnel 'stand in the relation of parents' and may take 'any disciplinary action necessary')"
+statute_url: "https://codes.findlaw.com/in/title-20-education/in-code-sect-20-33-8-8/"
 limits: []
-notes: "District-level decisions. Low usage"
-sources: []
-last_verified: null
+bills:
+  - number: "SB 531"
+    session: "2025"
+    sponsor: "Sen. J.D. Ford (D)"
+    summary: "Ban corporal punishment in public, charter and state-accredited nonpublic schools; no hearing"
+    status: failed
+    url: https://iga.in.gov/legislative/2025/bills/senate/531/details
+notes: "No law explicitly bans or allows it; 8 students reported in 2021-22, 16 in 2017-18. SB 531's inclusion of nonpublic schools confirms no existing private-school ban."
+sources:
+  - https://codes.findlaw.com/in/title-20-education/in-code-sect-20-33-8-8/
+  - https://iga.in.gov/legislative/2025/bills/senate/531/details
+last_verified: 2026-09-09

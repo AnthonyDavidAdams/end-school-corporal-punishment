@@ -30,4 +30,6 @@ There is also a lever the old playbooks missed. Kentucky reached zero without a 
 - `playbooks/` how to run each lever
 - `case-studies/` documented wins and losses, with sources
 - `opposition.md` every argument for corporal punishment we have heard in testimony, and the response that has worked
-- `targets/` per-state target lists (legislators, districts) produced by the `legislator-dossier` task
+- `liability.md` what the courts actually do when a paddling goes wrong, and which liability arguments survive (the Fifth Circuit rule matters)
+- `field.md` who is working on this, with verified URLs
+- `../crm/dossiers/` per-body decision-maker files produced by the `decision-maker-dossier` task

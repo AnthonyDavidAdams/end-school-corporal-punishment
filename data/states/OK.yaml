@@ -3,26 +3,34 @@ name: "Oklahoma"
 status: legal
 year_banned: null
 private_schools_covered: False
-statute: "70 O.S. \u00a7 13-116 (as amended by SB 364, 2025, Laws 2025 ch. 99)"
-statute_url: "https://law.justia.com/codes/oklahoma/title-70/section-70-13-116/"
+statute: "70 O.S. \u00a7 24-100.4(C) (teacher has a parent's right to discipline 'according to district policies'; formerly \u00a7 6-114); 21 O.S. \u00a7 844 ('spanking, switching or paddling'); 70 O.S. \u00a7 13-116 (disability ban, SB 364, 2025)"
+statute_url: "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os70.pdf"
 limits:
-  - "No corporal punishment on any student identified with a disability under IDEA (SB 364, law without the governor's signature May 8, 2025; effective date disputed between 90 days after sine die and May 12, 2025); the 2017 law (HB 1623) had covered only the most significant cognitive disabilities with IEP or parental-waiver exceptions"
+  - "No corporal punishment on any student identified with a disability under IDEA (SB 364, Laws 2025 ch. 99; law without the governor's signature May 8, 2025; effective about August 28, 2025 by constitutional default since the emergency clause failed)"
+  - "70 O.S. \u00a7 24-100.4(D): the State Board may not proscribe corporal punishment except for IEP students, so Kentucky's regulatory route is closed by statute in Oklahoma"
+  - "No statewide consent, witness, instrument or record rules"
 bills:
   - number: "SB 364"
     session: "2025"
     sponsor: "Sen. Dave Rader and Rep. Anthony Moore (R)"
-    summary: "Ban corporal punishment for students with disabilities; Senate 31-16, House 63-25; became law without Gov. Stitt's signature"
+    summary: "Ban corporal punishment for any student with an IDEA disability; Senate 31-16, House 63-25; became law without Gov. Stitt's signature"
     status: signed
     url: http://www.oklegislature.gov/BillInfo.aspx?Bill=SB364&Session=2500
+  - number: "HB 2244"
+    session: "2025"
+    sponsor: ""
+    summary: "Reporting requirement; stalled"
+    status: failed
+    url: http://www.oklegislature.gov/BillInfo.aspx?Bill=HB2244&Session=2500
   - number: "HB 1028"
-    session: "2023"
+    session: "2023-24"
     sponsor: "Rep. John Talley (R)"
-    summary: "Ban corporal punishment for students with disabilities; failed 45-43 on March 14, 2023, passed 84-8 on reconsideration March 20, stalled in the Senate"
+    summary: "Disability ban; failed 45-43 March 14, 2023, passed 84-8 on reconsideration March 20, passed both chambers in different forms, died"
     status: failed
     url: http://www.oklegislature.gov/BillInfo.aspx?Bill=HB1028&Session=2300
-notes: "1,458 students in 2021-22 (991 in 2023-24). American Indian/Alaska Native students were 24 percent of those struck in 2017-18. Bills have been carried by Republicans without an outside coalition."
+notes: "1,458 students in 2021-22 (991 in 2023-24); fourth-highest rate. American Indian/Alaska Native students were 24 percent of those struck in 2017-18. Bills carried by Republicans without an outside coalition. Note the statutory bar on State Board rulemaking: the Kentucky regulation route is unavailable here without a statute change."
 sources:
+  - https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os70.pdf
   - http://www.oklegislature.gov/BillInfo.aspx?Bill=SB364&Session=2500
   - http://webserver1.lsb.state.ok.us/cf_pdf/2025-26%20ENR/SB/SB364%20ENR.PDF
-  - http://www.oklegislature.gov/BillInfo.aspx?Bill=HB1623&Session=1700
 last_verified: 2026-09-09

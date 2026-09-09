@@ -3,12 +3,28 @@ name: "Tennessee"
 status: legal
 year_banned: null
 private_schools_covered: False
-statute: "Tenn. Code \u00a7 49-6-4103 et seq. (HB 2330, 2018, Pub. Ch. 900)"
-statute_url: "https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB2330&GA=110"
+statute: "T.C.A. \u00a7 49-6-4103 (as amended by Public Chapter 275, 2023), \u00a7 49-6-4104"
+statute_url: "https://codes.findlaw.com/tn/title-49-education/tn-code-sect-49-6-4103/"
 limits:
-  - "No corporal punishment on students with an IEP or 504 plan unless district policy allows it and the parent gives written permission (effective July 1, 2018)"
-bills: []
-notes: "1,031 students in 2021-22; 616 in 2023-24 (down 40 percent). Statute section number for the general authorization should be confirmed by the bill-watch task."
+  - "Before corporal punishment the educator must document having addressed the behavior, provided consequences, consulted the parent, and considered whether to evaluate the student for a disability (Public Chapter 275, effective April 28, 2023)"
+  - "No corporal punishment on a student with a disability unless district policy permits it and the parent gives written permission specifying type and circumstances, with notice each time (HB 2330, 2018)"
+  - "Each local board adopts rules to implement and control any form of corporal punishment (\u00a7 49-6-4104)"
+bills:
+  - number: "SB 972 / HB 995 (Pub. Ch. 275)"
+    session: "2023"
+    sponsor: "Sen. Bill Powers (R), Rep. John Stevens (R); co-primes Sens. Akbari, Campbell"
+    summary: "Documentation prerequisites before corporal punishment; Senate 32-0, House 90-0, signed April 28, 2023"
+    status: signed
+    url: https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=SB0972&ga=113
+  - number: "SB 1788 / HB 1965"
+    session: "2024"
+    sponsor: "Sen. Heidi Campbell (D), Rep. Jason Powell (D)"
+    summary: "Full ban removing statutory authorization; SB 1788 failed for lack of a second in Senate Education March 13, 2024; HB 1965 taken off notice"
+    status: failed
+    url: https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=SB1788&ga=113
+notes: "1,031 students in 2021-22; 616 in 2023-24 (down 40 percent, after the 2023 documentation law). No bill in the 2025-26 session by caption search. Jackson County: a teacher and assistant principal were indicted in November 2023 after two paddlings injured a student; outcome not found."
 sources:
-  - https://wapp.capitol.tn.gov/apps/BillInfo/Default.aspx?BillNumber=HB2330&GA=110
+  - https://codes.findlaw.com/tn/title-49-education/tn-code-sect-49-6-4103/
+  - https://publications.tnsosfiles.com/acts/113/pub/pc0275.pdf
+  - https://wapp.capitol.tn.gov/apps/BillInfo/Default?BillNumber=SB1788&ga=113
 last_verified: 2026-09-09

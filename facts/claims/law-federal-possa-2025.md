@@ -1,6 +1,6 @@
 ---
 id: law-federal-possa-2025
-claim: "The Protecting Our Students in Schools Act, which would bar corporal punishment in any school receiving federal funds, was introduced as H.R. 3265 on May 8, 2025 with 19 cosponsors, all Democrats, and referred to the House Education and Workforce Committee, where every prior version since 2010 has died without a hearing or markup."
+claim: "The Protecting Our Students in Schools Act, which would bar corporal punishment in any school receiving federal funds, was introduced as H.R. 3265 on May 8, 2025 with 21 cosponsors, all Democrats, and referred to the House Education and Workforce Committee; no version since 2010 has had a hearing or markup, and as of September 2026 no Senate companion has been introduced in the 119th Congress despite press releases saying one would be."
 status: verified
 figure: H.R. 3265
 as_of: "2025-05-08"
@@ -30,7 +30,7 @@ last_verified: 2026-09-09
 verified_by: "agent:claude (research pass 2026-09-09)"
 ---
 
-Prior versions: H.R. 5628 (2010, McCarthy), H.R. 727 (2019, Hastings), POSSA 2021 (McEachin, Bonamici, Murphy), POSSA 2023 (Bonamici, McBath, Moore, Wilson; Murphy). The 2023 version listed more than 60 endorsing organizations including NEA, AFT, National PTA, NAACP, ACLU, APA. A Senate companion for 2025 was 'to be reintroduced' as of May 2025; check congress.gov before quoting a Senate number. Why they stall is analysis, not reporting: every version has been single-party, and the spending-clause design invites the local-control objection.
+Prior versions, with cosponsor counts: H.R. 8460 (2020, McEachin, 8) and S. 4936 (2020, Murphy); H.R. 3836 (2021, 30) and S. 2029 (2021, 4); H.R. 3596 (2023, Bonamici, 49) and S. 1762 (2023, Murphy, 7). Earlier lineage: H.R. 5628 (2010, McCarthy, 24), H.R. 3027 (2011), H.R. 727 (2019, Hastings), H.R. 1234 (2021). The congress.gov API lists no related Senate bill for H.R. 3265 and none of Sen. Murphy's 119th-Congress bills concerns corporal punishment. The 2023 version listed more than 60 endorsing organizations including NEA, AFT, National PTA, NAACP, ACLU, APA. A Senate companion for 2025 was 'to be reintroduced' as of May 2025; check congress.gov before quoting a Senate number. Why they stall is analysis, not reporting: every version has been single-party, and the spending-clause design invites the local-control objection.
 
 ## History
-- 2026-09-09: created.
+- 2026-09-09: created; corrected the same day from 19 to 21 cosponsors and added the missing Senate companion.

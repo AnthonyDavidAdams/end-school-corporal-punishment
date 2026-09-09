@@ -15,7 +15,7 @@ Start from `templates/state-ban-act.md`. Keep the reasonable-force exceptions; e
 
 ## The regulatory route
 
-If the legislature will not move, the state board of education may. Kentucky's 704 KAR 7:170 (2022) did not ban corporal punishment; it required any district that kept it to obtain annual written and per-instance verbal consent, use a same-gender certified witness, exclude students with IEPs and 504 plans, and provide counseling within a day. Every one of 171 districts chose prohibition within one policy cycle. Ask the state board for the same rule; the argument is child safety and district liability, and the board hears it in a room without floor speeches. `case-studies/kentucky-regulation.md`.
+If the legislature will not move, the state board of education may. Kentucky's 704 KAR 7:170 (2022) did not ban corporal punishment; it required any district that kept it to obtain annual written and per-instance verbal consent, use a same-gender certified witness, exclude students with IEPs and 504 plans, and provide counseling within a day. Every one of 171 districts chose prohibition within one policy cycle. Ask the state board for the same rule; the argument is child safety and district liability, and the board hears it in a room without floor speeches. Check the statute first: Oklahoma's 70 O.S. § 24-100.4(D) forbids its State Board from proscribing corporal punishment except for IEP students, so there the route needs a statute change. `case-studies/kentucky-regulation.md`.
 
 ## Sequencing when preconditions are missing
 

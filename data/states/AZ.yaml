@@ -2,9 +2,37 @@ code: AZ
 name: "Arizona"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
+private_schools_covered: False
+statute: "A.R.S. \u00a7 15-843(B)(2) (boards prescribe 'procedures for using corporal punishment if allowed by the governing board')"
+statute_url: "https://www.azleg.gov/ars/15/00843.htm"
 limits: []
-notes: "Western state that permits the practice"
-sources: []
-last_verified: null
+bills:
+  - number: "SB1594"
+    session: "2026"
+    sponsor: "Sen. Lela Alston (D)"
+    summary: "Prohibit corporal punishment by any district or charter employee; second read Feb 4, 2026, no further action"
+    status: failed
+    url: https://www.azleg.gov/legtext/57leg/2R/bills/SB1594P.htm
+  - number: "SB1478"
+    session: "2025"
+    sponsor: "Sens. Alston, Burch, Epstein, Kuby (D)"
+    summary: "Prohibit corporal punishment; died without a hearing"
+    status: failed
+    url: https://www.billtrack50.com/billdetail/1812352
+  - number: "SB1379"
+    session: "2024"
+    sponsor: "Sen. Lela Alston (D) + 12"
+    summary: "Prohibit corporal punishment; died without a hearing"
+    status: failed
+    url: https://www.billtrack50.com/billdetail/1688107
+  - number: "HB2071"
+    session: "2023"
+    sponsor: "Rep. Laura Terech (D) + 14"
+    summary: "Prohibit corporal punishment; died without a hearing"
+    status: failed
+    url: https://www.billtrack50.com/billdetail/1519846
+notes: "Districts set their own rules; 72 students in 2021-22, 202 in 2023-24. A ban bill has been filed every year since 2023 and never received a hearing."
+sources:
+  - https://www.azleg.gov/ars/15/00843.htm
+  - https://www.azleg.gov/legtext/57leg/2R/bills/SB1594P.htm
+last_verified: 2026-09-09

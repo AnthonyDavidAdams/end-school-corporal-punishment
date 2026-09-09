@@ -3,13 +3,51 @@ name: "Mississippi"
 status: legal
 year_banned: null
 private_schools_covered: False
-statute: "Miss. Code \u00a7 37-11-57 (as amended by HB 1182, 2019)"
-statute_url: "http://billstatus.ls.state.ms.us/2019/pdf/history/HB/HB1182.xml"
+statute: "Miss. Code Ann. \u00a7 37-11-57 (as amended by HB 1182, 2019, Laws 2019 ch. 354)"
+statute_url: "https://law.justia.com/codes/mississippi/title-37/chapter-11/section-37-11-57/"
 limits:
-  - "No corporal punishment on students with an IEP or 504 plan (HB 1182, approved March 21, 2019, effective July 1, 2019)"
-bills: []
-notes: "Highest per-capita use in the nation: 3,678 students in 2021-22 (8.3 per 1,000), 20,309 in 2017-18 (29 percent of the national total). The count of students with disabilities struck fell from 3,304 in 2017-18 to 30 in 2021-22 after the 2019 law. Black students were 63 percent of those struck in 2017-18 and 60 percent in 2021-22."
+  - "No corporal punishment on any student with a disability (IEP or 504 plan), with no immunity for violations (effective July 1, 2019). No consent, witness, instrument or record requirements in statute"
+bills:
+  - number: "HB 306"
+    session: "2026"
+    sponsor: "Rep. Carl Mickens (D)"
+    summary: "Full ban; died in committee Feb 3, 2026"
+    status: failed
+    url: https://billstatus.ls.state.ms.us/2026/pdf/history/HB/HB0306.xml
+  - number: "HB 1187"
+    session: "2026"
+    sponsor: "Rep. Carolyn Crawford (R)"
+    summary: "Parental opt-in and annual notice; died in committee Feb 3, 2026"
+    status: failed
+    url: https://billstatus.ls.state.ms.us/2026/pdf/history/HB/HB1187.xml
+  - number: "SB 2296"
+    session: "2026"
+    sponsor: "Sen. Sollie Norwood (D)"
+    summary: "Full ban; died in committee Feb 3, 2026"
+    status: failed
+    url: https://billstatus.ls.state.ms.us/2026/pdf/history/SB/SB2296.xml
+  - number: "HB 269 / HB 794 / SB 2614"
+    session: "2025"
+    sponsor: "Mickens (ban), Crawford (opt-in), Norwood (ban)"
+    summary: "All died in committee without a hearing"
+    status: failed
+    url: https://billstatus.ls.state.ms.us/2025/pdf/history/HB/HB0269.xml
+  - number: "HB 70 / HB 1514 / SB 2375"
+    session: "2024"
+    sponsor: "Mickens, Crawford, Norwood"
+    summary: "All died in committee"
+    status: failed
+    url: https://billstatus.ls.state.ms.us/2024/pdf/history/HB/HB0070.xml
+  - number: "HB 158 / HB 291 / SB 2577"
+    session: "2023"
+    sponsor: "Mickens, Crawford, Norwood"
+    summary: "All died in committee"
+    status: failed
+    url: https://billstatus.ls.state.ms.us/2023/pdf/history/HB/HB0158.xml
+notes: "Highest per-capita use in the nation: 3,678 students in 2021-22 (8.3 per 1,000), 20,309 in 2017-18. Students with disabilities struck fell from 3,304 to 30 after the 2019 law, though Mississippi Today reported 211 paddlings of students with disabilities after the ban. Twelve bills in four sessions, three per year from the same three sponsors (a Democratic full ban in each chamber and a Republican opt-in), have all died in committee without a hearing. February 2025: an East Jasper third-grader's arm was broken during a paddling the mother had approved; no action found."
 sources:
+  - https://law.justia.com/codes/mississippi/title-37/chapter-11/section-37-11-57/
   - http://billstatus.ls.state.ms.us/2019/pdf/history/HB/HB1182.xml
-  - http://billstatus.ls.state.ms.us/documents/2019/pdf/HB/1100-1199/HB1182SG.pdf
+  - https://mississippitoday.org/2023/02/07/corporal-punishment-mississippi-schools/
+  - https://www.wdam.com/2025/03/06/heidelberg-mom-demanding-answers-school-leaders-after-sons-arm-broken-during-paddling/
 last_verified: 2026-09-09

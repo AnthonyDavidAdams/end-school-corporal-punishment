@@ -1,6 +1,6 @@
 ---
 id: law-florida-hb1255-2025
-claim: "Since July 1, 2025, Florida districts that allow corporal punishment must obtain written parental consent, either for the school year or before each instance, and have a second informed adult present, under HB 1255, which passed both chambers unanimously on final votes and was signed May 30, 2025."
+claim: "Since July 1, 2025, Florida districts that allow corporal punishment must obtain parental consent, either for the school year or before each instance, under HB 1255 (the statute says 'consent,' not 'written consent'; the second-adult and written-explanation rules predate it in § 1003.32), which passed both chambers unanimously on final votes and was signed May 30, 2025."
 status: verified
 figure: 2025
 as_of: "2025-07-01"

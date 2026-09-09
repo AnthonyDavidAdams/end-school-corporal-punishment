@@ -2,20 +2,43 @@ code: LA
 name: "Louisiana"
 status: legal
 year_banned: null
-private_schools_covered: False
-statute: "La. R.S. \u00a7 17:416.1 (as amended by Act 266 of 2017, HB 79)"
-statute_url: "https://legis.la.gov/legis/BillInfo.aspx?s=17RS&b=HB79"
+private_schools_covered: null
+statute: "La. R.S. 17:416.1(B) (public; Acts 2017 No. 266, 2023 No. 268, 2024 No. 780) and 17:416.22 (state-funded nonpublic schools)"
+statute_url: "https://www.legis.la.gov/Legis/Law.aspx?d=81025"
 limits:
-  - "No corporal punishment on certain students with exceptionalities (Act 266, effective August 1, 2017)"
+  - "Prohibited in any public school unless the parent gives written consent for that school year on a form created by the state Department of Education (Act 268 of 2023, HB 242, effective August 1, 2023)"
+  - "No corporal punishment on a student with an exceptionality (other than gifted) or an Individual Accommodation Plan (Act 266 of 2017)"
+  - "Taping a student's mouth or otherwise restricting the airway is prohibited regardless of consent (Act 780 of 2024, HB 107)"
+  - "The same rules apply to any nonpublic school that receives state funds (R.S. 17:416.22)"
 bills:
+  - number: "HB 242 (Act 268)"
+    session: "2023 Regular Session"
+    sponsor: "Rep. Stephanie Hilferty"
+    summary: "Written annual parental opt-in on a state form; House 74-21, Senate 37-1, signed June 9, 2023"
+    status: signed
+    url: https://legis.la.gov/legis/BillInfo.aspx?s=23RS&b=HB242
+  - number: "HB 107 (Act 780)"
+    session: "2024 Regular Session"
+    sponsor: "Rep. Bayham"
+    summary: "Ban on mouth-taping and airway restriction regardless of consent; law without signature June 25, 2024"
+    status: signed
+    url: https://legis.la.gov/legis/BillInfo.aspx?s=24RS&b=HB107
   - number: "HB 649"
     session: "2022 Regular Session"
     sponsor: ""
-    summary: "Parental-consent requirement; passed House 70-28 on reconsideration, never received a Senate floor vote (the Global Initiative wrongly reports it as passed)"
+    summary: "Opt-in consent; passed the House, died at sine die (the Global Initiative wrongly reports it as passed)"
     status: failed
     url: https://legis.la.gov/legis/BillInfo.aspx?s=22RS&b=HB649
-notes: "264 students in 2021-22; 65 in 2023-24. Black students were 61 percent of those struck in 2017-18."
+  - number: "HB 324"
+    session: "2021 Regular Session"
+    sponsor: ""
+    summary: "Full ban; failed the House 48-49"
+    status: failed
+    url: https://legis.la.gov/legis/BillInfo.aspx?s=21RS&b=HB324
+notes: "Louisiana is the clearest opt-in state: since August 2023 a school may not paddle without the parent's signed annual consent on the state form. A 2022 survey found 27 systems prohibiting and 19 allowing of 46 responding. 264 students in 2021-22; 65 in 2023-24. No bill in 2025 or 2026."
 sources:
-  - https://legis.la.gov/legis/BillInfo.aspx?s=17RS&b=HB79
-  - https://legis.la.gov/legis/BillInfo.aspx?s=22RS&b=HB649
+  - https://www.legis.la.gov/Legis/Law.aspx?d=81025
+  - https://legis.la.gov/Legis/Law.aspx?d=1337955
+  - https://legis.la.gov/legis/BillInfo.aspx?s=23RS&b=HB242
+  - https://legis.la.gov/legis/BillInfo.aspx?s=24RS&b=HB107
 last_verified: 2026-09-09

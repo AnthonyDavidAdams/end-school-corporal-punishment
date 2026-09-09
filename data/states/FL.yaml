@@ -3,20 +3,35 @@ name: "Florida"
 status: legal
 year_banned: null
 private_schools_covered: False
-statute: "Fla. Stat. \u00a7 1002.20(4)(c), \u00a7 1003.32 (CS/HB 1255, 2025, ch. 2025-110)"
-statute_url: "https://laws.flrules.org/2025/110"
+statute: "Fla. Stat. \u00a7 1003.32(1)(k) (teacher authority per board policy) and \u00a7 1002.20(4)(c) (as amended by CS/HB 1255, 2025, ch. 2025-110)"
+statute_url: "https://www.flsenate.gov/Laws/Statutes/2026/1002.20"
 limits:
-  - "Since July 1, 2025 a district that authorizes it must obtain written parental consent for the school year or before each instance, have a second informed adult present, provide a written explanation on request, and review the policy at a public meeting every three years or the authorization expires; charters must comply"
+  - "Since July 1, 2025 a board that authorizes it must require parental consent, for the school year or before each instance (the statute says 'consent,' not 'written consent'); the board must review the policy at a public meeting every three years or the authorization expires; charters must comply (\u00a7 1002.33(16)(b)17)"
+  - "Principal approval in principle and principal guidelines; another adult present and informed of the reason; written explanation to the parent on request (\u00a7 1003.32(1)(k))"
+  - "No disability ban"
 bills:
+  - number: "HB 109 / SB 662"
+    session: "2026"
+    sponsor: "Rep. Johanna L\u00f3pez (D), Sen. Mack Bernard (D)"
+    summary: "Full ban for district employees; died in committee March 13, 2026"
+    status: failed
+    url: https://www.flsenate.gov/Session/Bill/2026/109
   - number: "CS/HB 1255"
     session: "2025"
     sponsor: "Reps. Dana Trabulsy and Chase Tramont (R)"
     summary: "Omnibus education bill adding the parental-consent requirement; final votes 100-0 and 30-0; signed May 30, 2025"
     status: signed
     url: https://www.flsenate.gov/Session/Bill/2025/1255
-notes: "17 of 67 districts reported 516 instances in 2023-24 (Suwannee 74, Holmes 65, Calhoun 59, Columbia 50, Wakulla 45, Washington 43); 647 students in the 2021-22 federal count. Districts that still permit it are coded consent_required. The consent law came from a four-year University of Florida student campaign after a disability-only ban was blocked."
+  - number: "HB 439 / SB 1318"
+    session: "2024"
+    sponsor: "Reps. Waldron, Beltran, Garcia, Gottlieb, Stark; Sen. Thompson"
+    summary: "Remove teacher authority, require notification, ban for specified students; favorable in subcommittee, died March 8, 2024"
+    status: failed
+    url: https://www.flsenate.gov/Session/Bill/2024/439
+notes: "17 of 67 districts reported 516 instances in 2023-24 (Suwannee 74, Holmes 65, Calhoun 59, Columbia 50, Wakulla 45, Washington 43); 647 students in the 2021-22 federal count. Districts that still permit it are coded consent_required. The consent law came from a four-year University of Florida student campaign after a disability-only ban was blocked. Hendry County banned it in 2021 after a principal was filmed paddling a six-year-old."
 sources:
   - https://www.flsenate.gov/Session/Bill/2025/1255
   - https://laws.flrules.org/2025/110
-  - https://www.clickorlando.com/news/florida/2025/08/18/new-florida-law-allows-school-spankings-with-parent-consent/
+  - https://www.flsenate.gov/Laws/Statutes/2026/1002.20
+  - https://www.flsenate.gov/Session/Bill/2025/1255/Analyses/h1255z1.SAS.PDF
 last_verified: 2026-09-09

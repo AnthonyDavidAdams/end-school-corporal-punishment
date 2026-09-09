@@ -1,6 +1,6 @@
 # Playbook: federal action
 
-Federal law does not prohibit corporal punishment in schools, and *Ingraham v. Wright* (1977) held that the Eighth Amendment does not either. The Protecting Our Students in Schools Act has been introduced in successive Congresses and has not moved out of committee; details and current status in `data/states/README.md` and `facts/claims/law-federal-*.md`.
+Federal law does not prohibit corporal punishment in schools, and *Ingraham v. Wright* (1977) held that the Eighth Amendment does not either. The Protecting Our Students in Schools Act has been introduced in every Congress since 2020 and has never had a hearing; the 2025 House bill has 21 cosponsors and, as of September 2026, no Senate companion. Details in `case-studies/federal-attempts.md` and `facts/claims/law-federal-possa-2025.md`.
 
 Federal action becomes possible when the count of states where the practice remains legal is small enough that most members are voting to ratify what their own state already did. Until then, the federal work that matters is:
 

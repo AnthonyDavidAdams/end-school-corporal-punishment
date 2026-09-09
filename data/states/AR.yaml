@@ -2,9 +2,22 @@ code: AR
 name: "Arkansas"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
-limits: []
-notes: "Among top 4 states for incidents. 75% of districts show gender disparities"
-sources: []
-last_verified: null
+private_schools_covered: False
+statute: "A.C.A. \u00a7 6-18-505(c) (as amended by Act 557 of 2019), \u00a7 6-18-503(b), \u00a7 6-17-112"
+statute_url: "https://codes.findlaw.com/ar/title-6-education/ar-code-sect-6-18-503/"
+limits:
+  - "No corporal punishment on a child who is intellectually disabled, non-ambulatory, non-verbal, or autistic (Act 557 of 2019, SB 381)"
+  - "Only for cause, reasonable, after warning, by a teacher or administrator, in the presence of an administrator or designee (\u00a7 6-18-503(b)); district must authorize it in its written discipline policy"
+bills:
+  - number: "SB 59 (Act 165)"
+    session: "2023"
+    sponsor: "Sen. Linda Chesterfield"
+    summary: "Expanded staff authority to use 'reasonable and appropriate physical force'; not a ban"
+    status: signed
+    url: https://www.arkleg.state.ar.us/Bills/Detail?id=SB59&ddBienniumSession=2023%2F2023R
+notes: "Second-highest per-capita use (6.3 per 1,000 in 2021-22; 3,165 students). A 2025 thesis reportedly counts 171 districts (72 percent) allowing and 51 banning. The disability ban is Act 557 of 2019, not 'Act 1249 of 2021' as some lists say. No ban bill found 2025-26 (Arkansans Against School Paddling tracker)."
+sources:
+  - https://www.arkleg.state.ar.us/Home/FTPDocument?path=/ACTS/2019R/Public/ACT557.pdf
+  - https://codes.findlaw.com/ar/title-6-education/ar-code-sect-6-18-503/
+  - https://banpaddlingar.com/bill-tracker/
+last_verified: 2026-09-09

@@ -2,9 +2,40 @@ code: MO
 name: "Missouri"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
-limits: []
-notes: "District-level decisions"
-sources: []
-last_verified: null
+private_schools_covered: False
+statute: "RSMo 160.261 (as amended by SBs 681 and 662, 2022)"
+statute_url: "https://revisor.mo.gov/main/OneSection.aspx?section=160.261"
+limits:
+  - "No pupil may be subject to corporal punishment without the parent being notified and providing written permission (opt-in, effective August 28, 2022)"
+  - "Spanking must be administered by certificated personnel in the presence of a district-employee witness to be exempt from the abuse definition (160.261.10)"
+  - "Each board's written discipline policy must state its determination on corporal punishment"
+bills:
+  - number: "HB 2827"
+    session: "2026"
+    sponsor: "Rep. Jo Doll (D)"
+    summary: "Require every district policy to prohibit corporal punishment; referred May 15, 2026, no hearing"
+    status: failed
+    url: https://house.mo.gov/Bill.aspx?bill=HB2827&year=2026&code=R
+  - number: "HB 1581"
+    session: "2024"
+    sponsor: "Rep. Maggie Nurrenbern (D)"
+    summary: "Require district policies to prohibit corporal punishment; no hearing"
+    status: failed
+    url: https://house.mo.gov/Bill.aspx?bill=HB1581&year=2024&code=R
+  - number: "HB 121"
+    session: "2023"
+    sponsor: "Rep. Maggie Nurrenbern (D)"
+    summary: "Require district policies to prohibit corporal punishment; no hearing"
+    status: failed
+    url: https://house.mo.gov/Bill.aspx?bill=HB121&year=2023&code=R
+  - number: "HB 160"
+    session: "2023"
+    sponsor: "Rep. Ian Mackey (D)"
+    summary: "Require district policies to prohibit corporal punishment; no hearing"
+    status: failed
+    url: https://house.mo.gov/Bill.aspx?bill=HB160&year=2023&code=R
+notes: "At least 123 districts authorized corporal punishment for 2022-23 (Columbia Missourian, April 2023). Cassville R-IV reinstated opt-in paddling in August 2022. 1,133 students in 2021-22; 1,002 in 2023-24. Ban bills have never received a hearing."
+sources:
+  - https://revisor.mo.gov/main/OneSection.aspx?section=160.261
+  - https://house.mo.gov/Bill.aspx?bill=HB2827&year=2026&code=R
+last_verified: 2026-09-09
