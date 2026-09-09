@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bring an agent: help end school corporal punishment</title>
+<meta name="description" content="Point your AI agent at the open task queue: scan district policies, verify claims, watch bills. Or give money, share your state, or file the parent letter.">
+<link rel="canonical" href="https://earthpilot.org/kids/contribute/">
+<meta property="og:title" content="Bring an agent: help end school corporal punishment">
+<meta property="og:description" content="Point your AI agent at the open task queue: scan district policies, verify claims, watch bills. Or give money, share your state, or file the parent letter.">
+<meta property="og:image" content="https://earthpilot.org/kids/assets/og-image.png">
+<meta property="og:url" content="https://earthpilot.org/kids/contribute/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="End School Corporal Punishment">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bring an agent: help end school corporal punishment">
+<meta name="twitter:description" content="Point your AI agent at the open task queue: scan district policies, verify claims, watch bills. Or give money, share your state, or file the parent letter.">
+<meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
+<link rel="stylesheet" href="/kids/site.css">
+
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/contribute/">Bring an agent</a><a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment" rel="noopener">GitHub</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Bring an agent</h1>
+<p class="lede">Most of the remaining work is reading thousands of district policy manuals and recording what they say, with a source and a verbatim quote. That is agent work, and the tools are ready.</p>
+<div class="grid">
+<div class="card"><h2>Claude Code</h2><pre>claude plugin marketplace add AnthonyDavidAdams/end-school-corporal-punishment
+claude plugin install escp@escp
+claude
+&gt; /escp:district-policy-scan Mississippi</pre><p class="small">Six skills: district scan, verify claim, bill watch, federal data refresh, decision-maker dossier, share kit. Each ends in a validated pull request.</p></div>
+<div class="card"><h2>Any other agent (MCP)</h2><pre>https://escp-mcp-production.up.railway.app/mcp</pre><p class="small">A Model Context Protocol server with the facts, state law, district data, federal counts, the task queue, and tools to submit a district finding or a fact correction. Works from ChatGPT, Cursor, Claude Desktop, or your own code. <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/mcp/README.md">Setup.</a></p></div>
+<div class="card"><h2>The contract</h2><p>Open every source. Quote verbatim. Date everything. Never guess. No student names. <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/AGENTS.md">AGENTS.md</a> is the whole of it, and the validator enforces the schema.</p></div>
+</div>
+<h2>The queue</h2>
+<div class="tablewrap"><table><tr><th>Task</th><th>Unit</th><th>Priority</th></tr>
+<tr><td>District policy scan</td><td>One state, or a slice of Texas</td><td>1</td></tr>
+<tr><td>Federal data refresh</td><td>One CRDC release year</td><td>1</td></tr>
+<tr><td>Verify a claim</td><td>One claim file</td><td>2</td></tr>
+<tr><td>Bill watch</td><td>One state, current session</td><td>2</td></tr>
+<tr><td>Decision-maker dossier</td><td>One board or committee, public record only</td><td>3</td></tr>
+<tr><td>Training review</td><td>One module, by someone who has run a school</td><td>3</td></tr>
+</table></div>
+<p class="meta">Claim a scope first with the <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/issues/new?template=task-claim.yml">task-claim issue</a> so work is not duplicated. Roughly 4,400 districts in the 17 states; 0 sourced so far.</p>
+<h2>No agent?</h2>
+<div class="grid">
+<div class="card"><h2>Money</h2><p>Compute for the queue, public-records fees, and travel to hearings, in that order, with a <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/FUNDING.md">public ledger</a>. Sponsor the repository on GitHub.</p></div>
+<div class="card"><h2>Your network</h2><p>Share your state's page. If you are a teacher, physician, psychologist, pastor or lawyer in a paddling state, open an issue titled <code>[witness] Your State</code>.</p></div>
+<div class="card"><h2>An hour</h2><p>Add your own district's policy with the <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/issues/new?template=district-policy.yml">district finding form</a>, or verify one claim.</p></div>
+</div>
+</main>
+<footer class="wrap foot">
+  <p>End School Corporal Punishment™ is an open project of <a href="https://earthpilot.ai">EarthPilot</a>. Every figure on this site is a file in the <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/tree/main/facts/claims">claims registry</a> with its source and verification date; data generated 2026-09-09. Content CC BY 4.0, code MIT. Map boundaries: US Census Bureau (public domain).</p>
+  <p>No student is named on this site. Officials' public positions are documented; their private lives are not.</p>
+</footer>
+</body>
+</html>

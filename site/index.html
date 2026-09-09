@@ -3,53 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Corporal Punishment in US Schools: state map</title>
-<meta name="description" content="Where teachers may still legally hit students, state by state, built from an open, sourced dataset.">
-<meta property="og:title" content="Corporal Punishment in US Schools: state map">
-<meta property="og:description" content="Where teachers may still legally hit students, state by state, built from an open, sourced dataset.">
+<title>Where a teacher may still legally hit a student</title>
+<meta name="description" content="The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.">
+<link rel="canonical" href="https://earthpilot.org/kids/">
+<meta property="og:title" content="Where a teacher may still legally hit a student">
+<meta property="og:description" content="The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.">
 <meta property="og:image" content="https://earthpilot.org/kids/assets/og-image.png">
 <meta property="og:url" content="https://earthpilot.org/kids/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="End School Corporal Punishment">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Corporal Punishment in US Schools: state map">
-<meta name="twitter:description" content="Where teachers may still legally hit students, state by state, built from an open, sourced dataset.">
+<meta name="twitter:title" content="Where a teacher may still legally hit a student">
+<meta name="twitter:description" content="The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.">
 <meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
-<style>
-  :root { --ink: #1c1c1c; --muted: #5a5a5a; --bg: #f6f4ef; --card: #fff; }
-  body { margin: 0; font: 16px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; color: var(--ink); background: var(--bg); }
-  header, main, footer { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem; }
-  header h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
-  header p { margin: 0; color: var(--muted); }
-  .layout { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; align-items: start; }
-  #map svg { width: 100%; height: auto; display: block; }
-  #legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .9rem; margin-top: .5rem; }
-  #legend i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; margin-right: .4rem; vertical-align: -2px; }
-  #info { background: var(--card); border-radius: 8px; padding: 1rem 1.25rem; min-height: 8rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
-  #info h2 { margin: 0 0 .5rem; font-size: 1.25rem; }
-  .status { font-weight: 600; } .status.legal { color: #b3382c; } .status.banned { color: #2f6b3a; } .status.partial { color: #8a6d12; }
-  .meta { color: var(--muted); font-size: .85rem; }
-  footer { color: var(--muted); font-size: .85rem; }
-  @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } }
-</style>
+<link rel="stylesheet" href="/kids/site.css">
+<script defer src="/kids/map.js"></script>
 </head>
 <body>
-<header>
-  <h1>Corporal punishment in US public schools</h1>
-  <p>Hover or tap a state. Every status comes from <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment">an open dataset</a> you can check and correct.</p>
-</header>
-<main>
-  <div class="layout">
-    <div>
-      <div id="map" aria-live="polite"></div>
-      <div id="legend"></div>
-    </div>
-    <aside id="info"><p class="meta">Select a state to see its law, limits, and sources.</p></aside>
-  </div>
+<header class="top"><div class="wrap">
+  <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/contribute/">Bring an agent</a><a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment" rel="noopener">GitHub</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Where a teacher may still legally hit a student</h1>
+<p class="lede">In 15 states a public school employee may paddle a child as punishment, and does. In 2 more it is legal but every district has stopped. Hover or tap a state. Every status links to its statute and every number to its source.</p>
+<div class="layout">
+  <div><div id="map" aria-live="polite"></div><div id="legend"></div></div>
+  <aside id="info" class="card"><p class="meta">Select a state to see its law, limits, bills, and the number of students struck.</p></aside>
+</div>
+<div class="stats">
+  <div class="stat"><b>24,534</b><span>students received corporal punishment in 2021-22, the newest year the Department of Education has analyzed</span></div>
+  <div class="stat"><b>19,851</b><span>in 2023-24, computed by this project from the raw file released August 31, 2026</span></div>
+  <div class="stat"><b>74.4%</b><span>of them in four states: Texas, Alabama, Mississippi, Arkansas</span></div>
+  <div class="stat"><b>81%</b><span>boys. Black students are 26% of those struck and 15% of enrollment</span></div>
+  <div class="stat"><b>36 of 38</b><span>OECD countries prohibit it in schools. The exceptions: the United States and one Australian state</span></div>
+</div>
+<p class="meta">Sources: US Department of Education Civil Rights Data Collection; Global Initiative to End All Corporal Punishment of Children (March 2025). Counts are students, not incidents, self-reported by districts the Department says likely underreport. <a href="/kids/resources/#facts">All claims with sources.</a></p>
+<h2>Still legal and in use</h2>
+<p class="states-list"><a href="/kids/state/AL/">Alabama</a><br><a href="/kids/state/AZ/">Arizona</a><br><a href="/kids/state/AR/">Arkansas</a><br><a href="/kids/state/FL/">Florida</a><br><a href="/kids/state/GA/">Georgia</a><br><a href="/kids/state/IN/">Indiana</a><br><a href="/kids/state/KS/">Kansas</a><br><a href="/kids/state/LA/">Louisiana</a><br><a href="/kids/state/MS/">Mississippi</a><br><a href="/kids/state/MO/">Missouri</a><br><a href="/kids/state/OK/">Oklahoma</a><br><a href="/kids/state/SC/">South Carolina</a><br><a href="/kids/state/TN/">Tennessee</a><br><a href="/kids/state/TX/">Texas</a><br><a href="/kids/state/WY/">Wyoming</a></p>
+<h2>Legal, but every district has stopped</h2>
+<p><a href="/kids/state/KY/">Kentucky</a>, <a href="/kids/state/NC/">North Carolina</a>. Kentucky reached zero through a 2022 state board regulation; North Carolina through twenty years of district-by-district work.</p>
+<h2>How it ends</h2>
+<div class="grid">
+  <div class="card"><h2>If you are a parent</h2><p>In every state where this is legal you can refuse in writing. <a href="/kids/resources/#letters">The letter takes two minutes.</a> Districts change policy when the pile of refusals gets tall.</p></div>
+  <div class="card"><h2>If you have an AI agent</h2><p>Most of the remaining work is reading district policy manuals and recording what they say, with sources. About 4,400 districts; 0 sourced so far. <a href="/kids/contribute/">Install the skills and take a state.</a></p></div>
+  <div class="card"><h2>If you run a school</h2><p>A free, open ten-module curriculum for replacing corporal punishment, written for small schools with no behavior specialist. <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/tree/main/training" rel="noopener">Read the training.</a></p></div>
+</div>
+<h2>Prohibited</h2>
+<p class="states-list"><a href="/kids/state/AK/">Alaska</a> <span class="meta">1989</span><br><a href="/kids/state/CA/">California</a> <span class="meta">1986</span><br><a href="/kids/state/CO/">Colorado</a> <span class="meta">2023</span><br><a href="/kids/state/CT/">Connecticut</a> <span class="meta">1989</span><br><a href="/kids/state/DE/">Delaware</a> <span class="meta">2003</span><br><a href="/kids/state/DC/">District of Columbia</a><br><a href="/kids/state/HI/">Hawaii</a> <span class="meta">1973</span><br><a href="/kids/state/ID/">Idaho</a> <span class="meta">2023</span><br><a href="/kids/state/IL/">Illinois</a> <span class="meta">1994</span><br><a href="/kids/state/IA/">Iowa</a> <span class="meta">1989</span><br><a href="/kids/state/ME/">Maine</a> <span class="meta">1975</span><br><a href="/kids/state/MD/">Maryland</a> <span class="meta">1993</span><br><a href="/kids/state/MA/">Massachusetts</a> <span class="meta">1971</span><br><a href="/kids/state/MI/">Michigan</a> <span class="meta">1989</span><br><a href="/kids/state/MN/">Minnesota</a> <span class="meta">1989</span><br><a href="/kids/state/MT/">Montana</a> <span class="meta">1991</span><br><a href="/kids/state/NE/">Nebraska</a> <span class="meta">1988</span><br><a href="/kids/state/NV/">Nevada</a> <span class="meta">1993</span><br><a href="/kids/state/NH/">New Hampshire</a><br><a href="/kids/state/NJ/">New Jersey</a> <span class="meta">1867</span><br><a href="/kids/state/NM/">New Mexico</a> <span class="meta">2011</span><br><a href="/kids/state/NY/">New York</a> <span class="meta">1985</span><br><a href="/kids/state/ND/">North Dakota</a> <span class="meta">1989</span><br><a href="/kids/state/OH/">Ohio</a> <span class="meta">2009</span><br><a href="/kids/state/OR/">Oregon</a> <span class="meta">1989</span><br><a href="/kids/state/PA/">Pennsylvania</a> <span class="meta">2005</span><br><a href="/kids/state/RI/">Rhode Island</a> <span class="meta">1977</span><br><a href="/kids/state/SD/">South Dakota</a> <span class="meta">1990</span><br><a href="/kids/state/UT/">Utah</a> <span class="meta">1992</span><br><a href="/kids/state/VT/">Vermont</a> <span class="meta">1985</span><br><a href="/kids/state/VA/">Virginia</a> <span class="meta">1989</span><br><a href="/kids/state/WA/">Washington</a> <span class="meta">1993</span><br><a href="/kids/state/WV/">West Virginia</a> <span class="meta">1994</span><br><a href="/kids/state/WI/">Wisconsin</a> <span class="meta">1988</span></p>
+
 </main>
-<footer>
-  <p>Data generated <span id="generated"></span>. District policies sourced so far: <span id="sourced"></span>. Map boundaries: US Census Bureau (public domain). Content CC BY 4.0, code MIT.</p>
+<footer class="wrap foot">
+  <p>End School Corporal Punishment™ is an open project of <a href="https://earthpilot.ai">EarthPilot</a>. Every figure on this site is a file in the <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/tree/main/facts/claims">claims registry</a> with its source and verification date; data generated 2026-09-09. Content CC BY 4.0, code MIT. Map boundaries: US Census Bureau (public domain).</p>
+  <p>No student is named on this site. Officials' public positions are documented; their private lives are not.</p>
 </footer>
-<script src="map.js"></script>
 </body>
 </html>

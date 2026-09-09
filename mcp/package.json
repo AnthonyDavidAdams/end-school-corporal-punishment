@@ -1,0 +1,21 @@
+{
+  "name": "escp-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server for the End School Corporal Punishment project: verified facts, state and district data, CRDC extracts, task queue, and finding submission.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "start:http": "node server.mjs --http",
+    "test": "node test.mjs",
+    "vendor": "node vendor.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.5.4"
+  }
+}

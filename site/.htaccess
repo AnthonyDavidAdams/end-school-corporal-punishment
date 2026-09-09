@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteBase /kids/
+# old PHP URLs
+RewriteCond %{QUERY_STRING} ^state=([A-Za-z]{2})
+RewriteRule ^(county|state)(\.php)?$ /kids/state/%1/? [R=301,L]
+RewriteRule ^resources(\.php)?$ /kids/resources/ [R=301,L]
+RewriteRule ^(index\.php)$ /kids/ [R=301,L]
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+<FilesMatch "\.(db|sqlite|sql|yaml|yml)$">
+  Require all denied
+</FilesMatch>
+AddType image/svg+xml .svg
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/svg+xml "access plus 7 days"
+  ExpiresByType application/json "access plus 1 hour"
+</IfModule>
