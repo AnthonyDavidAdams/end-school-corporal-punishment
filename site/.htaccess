@@ -5,6 +5,8 @@ RewriteCond %{QUERY_STRING} ^state=([A-Za-z]{2})
 RewriteRule ^(county|state)(\.php)?$ /kids/state/%1/? [R=301,L]
 RewriteRule ^resources(\.php)?$ /kids/resources/ [R=301,L]
 RewriteRule ^(index\.php)$ /kids/ [R=301,L]
+RewriteRule ^cache/ - [F]
+Options -Indexes
 <FilesMatch "^\.">
   Require all denied
 </FilesMatch>
