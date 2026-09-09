@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "State corporal punishment status",
+  "type": "object",
+  "required": ["code", "name", "status", "sources"],
+  "properties": {
+    "code": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "name": { "type": "string" },
+    "status": { "enum": ["banned", "legal", "partial"], "description": "banned = prohibited in public schools by statute or rule; legal = permitted by statute; partial = permitted by statute but every district has prohibited it (de facto ban)" },
+    "year_banned": { "type": ["integer", "null"] },
+    "private_schools_covered": { "type": ["boolean", "null"], "description": "true if the prohibition also covers private schools" },
+    "statute": { "type": ["string", "null"], "description": "Citation of the governing statute or rule, e.g. 'Tex. Educ. Code § 37.0011'" },
+    "statute_url": { "type": ["string", "null"], "format": "uri" },
+    "limits": { "type": "array", "items": { "type": "string" }, "description": "Statutory limits in legal states: parental opt-out, opt-in consent, disability exemptions, who may administer, notice rules" },
+    "bills": { "type": "array", "items": { "$ref": "#/$defs/bill" } },
+    "notes": { "type": ["string", "null"] },
+    "sources": { "type": "array", "items": { "type": "string", "format": "uri" } },
+    "last_verified": { "type": ["string", "null"], "format": "date" }
+  },
+  "$defs": {
+    "bill": {
+      "type": "object",
+      "required": ["number", "session", "status", "url"],
+      "properties": {
+        "number": { "type": "string" },
+        "session": { "type": "string" },
+        "sponsor": { "type": ["string", "null"] },
+        "summary": { "type": ["string", "null"] },
+        "status": { "enum": ["pending", "passed", "failed", "vetoed", "signed"] },
+        "url": { "type": "string", "format": "uri" }
+      }
+    }
+  }
+}

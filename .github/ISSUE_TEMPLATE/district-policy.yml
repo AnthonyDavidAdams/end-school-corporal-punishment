@@ -1,0 +1,24 @@
+name: District policy finding
+description: Report a school district's corporal punishment policy (allows / bans / consent required) with a source.
+title: "[district] <State> <District name>: <status>"
+labels: ["data", "district-policy"]
+body:
+  - type: input
+    id: district
+    attributes: { label: District name and state, placeholder: "DeSoto County Schools, MS" }
+    validations: { required: true }
+  - type: dropdown
+    id: status
+    attributes: { label: Status, options: ["allows", "bans", "consent_required"] }
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes: { label: Source URL (board policy, handbook, minutes) }
+    validations: { required: true }
+  - type: textarea
+    id: quote
+    attributes: { label: Verbatim quote from the source that establishes the status }
+    validations: { required: true }
+  - type: input
+    id: nces
+    attributes: { label: NCES district ID (7 digits), placeholder: "2800960" }

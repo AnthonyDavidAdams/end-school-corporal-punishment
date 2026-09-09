@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "District corporal punishment policies for one state",
+  "type": "object",
+  "required": ["state", "districts"],
+  "properties": {
+    "state": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "districts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status"],
+        "properties": {
+          "name": { "type": "string" },
+          "county": { "type": ["string", "null"] },
+          "nces_id": { "type": ["string", "null"], "pattern": "^[0-9]{7}$", "description": "NCES LEA ID, 7 digits" },
+          "status": { "enum": ["allows", "bans", "consent_required", "unknown"] },
+          "source": { "type": ["string", "null"], "format": "uri", "description": "URL of the board policy, handbook, or official record that establishes the status" },
+          "quote": { "type": ["string", "null"], "description": "Verbatim sentence from the source that establishes the status" },
+          "policy_code": { "type": ["string", "null"], "description": "Board policy number, e.g. 'JDA' or 'FO(LOCAL)'" },
+          "crdc_students_latest": { "type": ["integer", "null"], "description": "Students receiving CP in the latest CRDC year" },
+          "last_verified": { "type": ["string", "null"], "format": "date" },
+          "notes": { "type": ["string", "null"] }
+        },
+        "allOf": [
+          { "if": { "properties": { "status": { "enum": ["allows", "bans", "consent_required"] } }, "required": ["last_verified"] }, "then": { "required": ["source", "quote"] } }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+name: Bill, rule, or court decision
+description: A legislative bill, board vote, agency rule, or court decision that changes the legal status anywhere.
+title: "[law] <State> <bill number or case>"
+labels: ["law"]
+body:
+  - type: input
+    id: what
+    attributes: { label: Bill number, rule, or case name }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes: { label: Official URL (legislature, court, agency) }
+    validations: { required: true }
+  - type: textarea
+    id: effect
+    attributes: { label: What it does and its current status }
+    validations: { required: true }

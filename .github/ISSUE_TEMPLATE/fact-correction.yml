@@ -1,0 +1,17 @@
+name: Fact correction or new claim
+description: A number or claim in facts/ is wrong, stale, or missing.
+title: "[fact] <claim id or short description>"
+labels: ["facts"]
+body:
+  - type: input
+    id: claim
+    attributes: { label: Claim id (facts/claims/<id>.md) or "new" }
+    validations: { required: true }
+  - type: textarea
+    id: problem
+    attributes: { label: What is wrong or missing, and what the source actually says }
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes: { label: Primary source URL }
+    validations: { required: true }

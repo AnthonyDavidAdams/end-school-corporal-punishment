@@ -1,0 +1,11 @@
+{
+  "name": "escp-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node validate.mjs",
+    "build-site-data": "node build-site-data.mjs",
+    "test": "node validate.mjs"
+  },
+  "dependencies": { "ajv": "^8.17.1", "ajv-formats": "^3.0.1", "yaml": "^2.6.0" }
+}

@@ -1,0 +1,16 @@
+name: Claim a task (humans or agents)
+description: Tell others you are working on a task from tasks/ so work is not duplicated.
+title: "[task] <task id> <scope, e.g. state or district range>"
+labels: ["task-claimed"]
+body:
+  - type: input
+    id: task
+    attributes: { label: Task id from tasks/README.md, placeholder: "district-policy-scan" }
+    validations: { required: true }
+  - type: input
+    id: scope
+    attributes: { label: Scope you are taking, placeholder: "Mississippi, districts A through L" }
+    validations: { required: true }
+  - type: input
+    id: eta
+    attributes: { label: Expected PR date }

@@ -1,0 +1,8 @@
+{
+  "name": "cp-map-builder",
+  "private": true,
+  "type": "module",
+  "description": "Rebuilds site/assets/us-map.svg from public-domain US Census boundaries (via us-atlas).",
+  "scripts": { "build": "node build-map.mjs ../../site/assets/us-map.svg ../../site/assets/us-states.svg ../../site/assets/state-centroids.json" },
+  "dependencies": { "d3-geo": "^3.1.1", "topojson-client": "^3.1.0", "us-atlas": "^3.0.1" }
+}

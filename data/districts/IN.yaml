@@ -1,0 +1,32 @@
+# District corporal punishment policies for IN. One entry per district.
+# status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
+state: IN
+districts:
+  - name: "Indianapolis Public Schools"
+    county: "Marion"
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: "Fort Wayne Community Schools"
+    county: "Allen"
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: "Evansville Vanderburgh Schools"
+    county: "Vanderburgh"
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: "South Gibson School Corp"
+    county: "Gibson"
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
