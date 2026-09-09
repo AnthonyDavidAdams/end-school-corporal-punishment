@@ -6,6 +6,9 @@ The last two North Carolina districts. Robeson ended the practice after two deca
 ## Pike County, KY (by November 2, 2023): the last Kentucky holdout
 Ended via the state board regulation rather than a local campaign. See `kentucky-regulation.md`.
 
+## Pike County, AL (June 17, 2024): the highest-use district to stop
+Pike County Schools reported 252 students paddled in 2023-24, the fifth-highest count of any district in the country. Its board policy 5.30.1, revised June 17, 2024, now prohibits corporal punishment (source in `data/districts/AL.yaml`). How the vote came about is not yet documented; Simbli exposes no prior revision and no press coverage was found. This is the first documented switch among the top-20 districts and the one to interview first: a board in a high-use Alabama county chose to stop, in the same policy cycle its neighbors kept the association's model text. Open item for the outreach kit.
+
 ## Overton ISD, TX (August to October 2023): no change after an arrest
 Principal Jeffrey Hogg was arrested after paddling a high-school girl who bruised. The board president said "most everyone has been supportive of the district as a whole"; a parent: "I would rather get my butt busted as a kid than be grounded"; the superintendent defended the principal for following policy. No policy change was reported. Lesson: an incident alone, even with an arrest, does not move a board whose community supports the practice; the constituents in the room decide, and outside attention hardens them.
 

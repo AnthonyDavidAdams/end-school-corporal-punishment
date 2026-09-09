@@ -52,6 +52,8 @@ Most districts publish board policy through one of a few vendors. Search these f
 - The student handbook PDF on the district site, section "Discipline" or "Code of Conduct"
 - District website search for "corporal punishment", "paddling", "physical discipline"
 
+Vendor notes from the first scan (2026-09-09): Simbli and TASB Policy Online are JavaScript-only; WebFetch shows navigation only and curl gets 403 on TASB, so read them in a browser (or curl TASB with a browser user agent, which works). Simbli `ViewPolicy.aspx` URLs carry session tokens; record the stable `PolicyListing.aspx?S=<id>` entry in `notes` too. Alabama county systems mostly use the AASB model text (policy 6.1x); Mississippi uses MSBA codes JDA/JDB; Texas uses FO(LOCAL). Some districts publish the manual only behind a login; the student handbook PDF is the public fallback and the entry should say so. Scanned PDFs need OCR. Watch for same-named districts in other states (Covington County, Marion County).
+
 The status rules:
 
 - `allows`: the policy authorizes corporal punishment (even with conditions such as parental notice or an opt-out form).

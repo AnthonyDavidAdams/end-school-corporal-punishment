@@ -2,347 +2,387 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: TX
 districts:
-  - name: "Houston ISD"
-    county: "Harris"
+  - name: Abilene ISD
+    county: Taylor
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Amarillo ISD
+    county: Potter
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Arlington ISD
+    county: Tarrant
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-    notes: "Largest district in Texas - banned"
-  - name: "Dallas ISD"
-    county: "Dallas"
+  - name: Austin ISD
+    county: Travis
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "San Antonio ISD"
-    county: "Bexar"
+  - name: Big Spring Independent School District
+    county: Howard
+    nces_id: "4810200"
+    status: allows
+    source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=685&code=FO
+    quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
+    policy_code: FO(LOCAL)
+    crdc_students_latest: 180
+    last_verified: 2026-09-09
+    notes: "Opt-out only: not administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting it; the parent may reinstate permission at any time by signed statement. Limited to spanking or paddling, administered only by the principal or designee (a female principal or designee when the student is female), with one other District professional employee present, out of view of other students; the disciplinary record must include the administrator, witness, date and time. No disability exemption in FO(LOCAL); FO(LEGAL) carries the Education Code 37.0011 opt-out text. TASB Policy Online, Big Spring ISD Board Policy Manual key=685 (linked from https://www.bsisd.esc18.net/about-bsisd/board-of-trustees as 'Board Policy Manual'). FO(LOCAL)-X, UPDATE 126, DATE ISSUED: 10/17/2025. Guidelines text: 'Corporal punishment shall be limited to spanking or paddling the student and shall be administered in accordance with the following guidelines: The student shall be told the reason corporal punishment is being administered. Corporal punishment shall be administered only by the principal or designee, and, when the student is female, only by a female principal or designee. The instrument to be used in administering corporal punishment shall be approved by the principal. Corporal punishment shall be administered in the presence of one other District professional employee and in a designated place out of view of other students.' The 2026-2027 BSISD Student Code of Conduct (https://resources.finalsite.net/images/v1786994858/bsisdesc18net/tcg7xqznfcxufropnwcz/2026-2027BSISDStudentCodeofConduct.pdf, p.12 'Discipline Management Techniques') lists: 'Corporal punishment, unless the student’s parent or guardian has provided a signed statement prohibiting its use.' and under Prohibited Aversive Techniques: 'Using techniques designed or likely to cause physical pain, other than corporal punishment as permitted by district policy. [See policy FO(LOCAL).]' District office: 708 East 11th Place, Big Spring, TX 79720. Board agendas/minutes: https://meetings.boardbook.org/Public/Organization/723."
+  - name: Brownsville ISD
+    county: Cameron
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Bryan ISD
+    county: Brazos
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Corpus Christi ISD
+    county: Nueces
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Fort Worth ISD"
-    county: "Tarrant"
+  - name: Cypress-Fairbanks ISD
+    county: Harris
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Austin ISD"
-    county: "Travis"
+  - name: Dallas ISD
+    county: Dallas
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "El Paso ISD"
-    county: "El Paso"
+  - name: Del Rio CISD
+    county: Val Verde
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Dumas ISD
+    county: Moore
+    nces_id: "4817610"
+    status: allows
+    source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=915&code=FO
+    quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
+    policy_code: FO(LOCAL)
+    crdc_students_latest: 560
+    last_verified: 2026-09-09
+    notes: "Opt-out, not opt-in: a parent must submit a signed statement to the principal each school year to prohibit it, and may reinstate permission at any time. Limited to spanking or paddling; administered only by the principal or designee with a principal-approved instrument, in the presence of one other District professional employee, out of view of other students; the disciplinary record must name the administrator, the witness, and the date and time. No disability exemption appears in FO(LOCAL). Opened on TASB Policy Online (Local Policy tab of FO). Footer reads: DUMAS ISD, FO(LOCAL)-C1, UPDATE 126, DATE ISSUED: 11/11/2025. The district site (https://www.dumasisd.org/page/school-board) links the manual as 'Dumas ISD Board Policy Manual' -> https://pol.tasb.org/Home/Index/915. FO(LEGAL) on the same page cites Education Code 37.0011 (parent written opt-out). News: The Satanic Temple's Protect Children Project protested the policy outside Dumas High School on 2023-11-17 and handed out opt-out cards; the district said parents are informed annually of the policy: https://abc7amarillo.com/news/local/the-satanic-temple-protests-dumas-isds-corporal-punishment-policy-dumas-texas-paddle-spank-dumas-high-school-dumas-texas (opened). pol.tasb.org returns 403 to curl and WebFetch; it had to be read in a real browser."
+  - name: Eagle Pass ISD
+    county: Maverick
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Edinburg CISD
+    county: Hidalgo
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: El Paso ISD
+    county: El Paso
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Arlington ISD"
-    county: "Tarrant"
+  - name: Fort Worth ISD
+    county: Tarrant
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Corpus Christi ISD"
-    county: "Nueces"
+  - name: Frisco ISD
+    county: Collin
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Plano ISD"
-    county: "Collin"
+  - name: Garland ISD
+    county: Dallas
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Garland ISD"
-    county: "Dallas"
+  - name: Harlingen CISD
+    county: Cameron
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Houston ISD
+    county: Harris
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Irving ISD"
-    county: "Dallas"
+    notes: Largest district in Texas - banned
+  - name: Irving ISD
+    county: Dallas
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Lewisville ISD"
-    county: "Denton"
+  - name: Katy ISD
+    county: Harris
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Frisco ISD"
-    county: "Collin"
+  - name: Killeen ISD
+    county: Bell
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Laredo ISD
+    county: Webb
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lewisville ISD
+    county: Denton
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "McKinney ISD"
-    county: "Collin"
+  - name: Livingston Independent School District
+    county: Polk
+    nces_id: "4827780"
+    status: allows
+    source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1001&code=FO
+    quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
+    policy_code: FO(LOCAL)
+    crdc_students_latest: 161
+    last_verified: 2026-09-09
+    notes: "Opt-out only: not administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting it; the parent may reinstate permission at any time by signed statement. Limited to spanking or paddling, administered only by the principal or designee, with one other District professional employee present, in a designated place out of view of other students; the disciplinary record must include the administrator, witness, date and time. No disability exemption in FO(LOCAL); FO(LEGAL) carries the Education Code 37.0011 opt-out text. TASB Policy Online, Livingston ISD Board Policy Manual key=1001 (linked from https://www.livingstonisd.com/135616_2, the School Board page, as 'Board Policy Manual' https://pol.tasb.org/PolicyOnline?key=1001). FO(LOCAL)-C1, UPDATE 126, DATE ISSUED: 10/9/2025. Guidelines text: 'Corporal punishment shall be limited to spanking or paddling the student and shall be administered in accordance with the following guidelines: The student shall be told the reason corporal punishment is being administered. Corporal punishment shall be administered only by the principal or designee. The instrument to be used in administering corporal punishment shall be approved by the principal. Corporal punishment shall be administered in the presence of one other District professional employee and in a designated place out of view of other students.' Unlike Big Spring's FO(LOCAL), there is no same-sex-administrator clause. No student handbook or code of conduct PDF was located on livingstonisd.com this run. District office: 1412 South Houston Ave., Livingston, TX 77351. Board agendas/minutes: https://meetings.boardbook.org/Public/Organization/1664."
+  - name: Longview ISD
+    county: Gregg
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lubbock ISD
+    county: Lubbock
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lufkin ISD
+    county: Angelina
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Marshall ISD
+    county: Harrison
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: McAllen ISD
+    county: Hidalgo
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: McKinney ISD
+    county: Collin
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Round Rock ISD"
-    county: "Williamson"
+  - name: Midland ISD
+    county: Midland
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Mount Pleasant ISD
+    county: Titus
+    nces_id: "4831760"
+    status: allows
+    source: https://pol.tasb.org/Policy/Code/1133?filter=FO
+    quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
+    policy_code: FO(LOCAL)
+    crdc_students_latest: 239
+    last_verified: 2026-09-09
+    notes: "Opt-out: a parent must submit a signed statement to the principal each school year prohibiting corporal punishment, and may reinstate permission at any time. Limited to spanking or paddling, administered only by the principal or designee with an instrument approved by the principal, in the presence of one other District professional employee and out of view of other students; the student is told the reason first; the disciplinary record must include the administrator, witness, date and time. FO(LOCAL) states no disability exemption. TASB Policy Online, Mount Pleasant ISD (district key 1133), FO(LOCAL)-C1, UPDATE 126, DATE ISSUED: 11/11/2025. The same page carries FO(LEGAL) quoting Education Code 37.0011 (parent's written, signed statement prohibits corporal punishment; must be provided each school year). Link to Policy Online found on the district homepage https://www.mpisd.net/ (http://pol.tasb.org/Home/Index/1133)."
+  - name: Nacogdoches ISD
+    county: Nacogdoches
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: North East ISD
+    county: Bexar
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Pasadena ISD"
-    county: "Harris"
+  - name: Northside ISD
+    county: Bexar
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Katy ISD"
-    county: "Harris"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Cypress-Fairbanks ISD"
-    county: "Harris"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Northside ISD"
-    county: "Bexar"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "North East ISD"
-    county: "Bexar"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Temple ISD"
-    county: "Bell"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Killeen ISD"
-    county: "Bell"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Bryan ISD"
-    county: "Brazos"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lufkin ISD"
-    county: "Angelina"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Nacogdoches ISD"
-    county: "Nacogdoches"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Longview ISD"
-    county: "Gregg"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Tyler ISD"
-    county: "Smith"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Marshall ISD"
-    county: "Harrison"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Texarkana ISD"
-    county: "Bowie"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Paris ISD"
-    county: "Lamar"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Sherman ISD"
-    county: "Grayson"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Wichita Falls ISD"
-    county: "Wichita"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Abilene ISD"
-    county: "Taylor"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "San Angelo ISD"
-    county: "Tom Green"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Midland ISD"
-    county: "Midland"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Odessa ISD"
-    county: "Ector"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Amarillo ISD"
-    county: "Potter"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lubbock ISD"
-    county: "Lubbock"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Waco ISD"
-    county: "McLennan"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Victoria ISD"
-    county: "Victoria"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Brownsville ISD"
-    county: "Cameron"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Harlingen CISD"
-    county: "Cameron"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "McAllen ISD"
-    county: "Hidalgo"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Edinburg CISD"
-    county: "Hidalgo"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Laredo ISD"
-    county: "Webb"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Del Rio CISD"
-    county: "Val Verde"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Eagle Pass ISD"
-    county: "Maverick"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Three Rivers ISD"
-    county: "Live Oak"
+  - name: Odem-Edroy ISD
+    county: San Patricio
     nces_id: null
     status: consent_required
     source: null
     quote: null
     last_verified: null
-  - name: "Odem-Edroy ISD"
-    county: "San Patricio"
+  - name: Odessa ISD
+    county: Ector
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Paris ISD
+    county: Lamar
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Pasadena ISD
+    county: Harris
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Plano ISD
+    county: Collin
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Round Rock ISD
+    county: Williamson
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: San Angelo ISD
+    county: Tom Green
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: San Antonio ISD
+    county: Bexar
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Sherman ISD
+    county: Grayson
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Temple ISD
+    county: Bell
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Texarkana ISD
+    county: Bowie
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Three Rivers ISD
+    county: Live Oak
     nces_id: null
     status: consent_required
+    source: null
+    quote: null
+    last_verified: null
+  - name: Tyler ISD
+    county: Smith
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Victoria ISD
+    county: Victoria
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Waco ISD
+    county: McLennan
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Wichita Falls ISD
+    county: Wichita
+    nces_id: null
+    status: allows
     source: null
     quote: null
     last_verified: null

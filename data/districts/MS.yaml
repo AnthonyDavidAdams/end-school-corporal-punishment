@@ -2,599 +2,611 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: MS
 districts:
-  - name: "DeSoto County Schools"
-    county: "DeSoto"
+  - name: Adams County Schools
+    county: Adams
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Rankin County School District"
-    county: "Rankin"
+  - name: Alcorn County Schools
+    county: Alcorn
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Madison County Schools"
-    county: "Madison"
+  - name: Amite County Schools
+    county: Amite
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Harrison County School District"
-    county: "Harrison"
+  - name: Attala County Schools
+    county: Attala
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Jackson County School District"
-    county: "Jackson"
+  - name: Benton County Schools
+    county: Benton
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Lee County Schools"
-    county: "Lee"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lamar County School District"
-    county: "Lamar"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Pearl River County Schools"
-    county: "Pearl River"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Jones County Schools"
-    county: "Jones"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Forrest County Schools"
-    county: "Forrest"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Hinds County School District"
-    county: "Hinds"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lauderdale County School District"
-    county: "Lauderdale"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lowndes County School District"
-    county: "Lowndes"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lafayette County School District"
-    county: "Lafayette"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Pontotoc County Schools"
-    county: "Pontotoc"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Monroe County School District"
-    county: "Monroe"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Simpson County School District"
-    county: "Simpson"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Scott County School District"
-    county: "Scott"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Alcorn County Schools"
-    county: "Alcorn"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Tishomingo County Schools"
-    county: "Tishomingo"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Prentiss County Schools"
-    county: "Prentiss"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Union County Schools"
-    county: "Union"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Tippah County Schools"
-    county: "Tippah"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Benton County Schools"
-    county: "Benton"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Marshall County School District"
-    county: "Marshall"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Panola County Schools"
-    county: "Panola"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Quitman County Schools"
-    county: "Quitman"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Coahoma County School District"
-    county: "Coahoma"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Bolivar County Schools"
-    county: "Bolivar"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Sunflower County Schools"
-    county: "Sunflower"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Leflore County Schools"
-    county: "Leflore"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Washington County Schools"
-    county: "Washington"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Humphreys County Schools"
-    county: "Humphreys"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Issaquena County Schools"
-    county: "Issaquena"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Sharkey County Schools"
-    county: "Sharkey"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Warren County School District"
-    county: "Warren"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Claiborne County Schools"
-    county: "Claiborne"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Jefferson County Schools"
-    county: "Jefferson"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Adams County Schools"
-    county: "Adams"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Wilkinson County Schools"
-    county: "Wilkinson"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Amite County Schools"
-    county: "Amite"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Pike County Schools"
-    county: "Pike"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Walthall County Schools"
-    county: "Walthall"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lincoln County Schools"
-    county: "Lincoln"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Copiah County Schools"
-    county: "Copiah"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lawrence County Schools"
-    county: "Lawrence"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Marion County Schools"
-    county: "Marion"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Jeff Davis County Schools"
-    county: "Jefferson Davis"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Covington County Schools"
-    county: "Covington"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Smith County Schools"
-    county: "Smith"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Jasper County Schools"
-    county: "Jasper"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Clarke County Schools"
-    county: "Clarke"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Wayne County Schools"
-    county: "Wayne"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Greene County Schools"
-    county: "Greene"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Perry County Schools"
-    county: "Perry"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Stone County Schools"
-    county: "Stone"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "George County Schools"
-    county: "George"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Hancock County School District"
-    county: "Hancock"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Neshoba County Schools"
-    county: "Neshoba"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Kemper County Schools"
-    county: "Kemper"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Winston County Schools"
-    county: "Winston"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Noxubee County Schools"
-    county: "Noxubee"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Oktibbeha County Schools"
-    county: "Oktibbeha"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Clay County Schools"
-    county: "Clay"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Webster County Schools"
-    county: "Webster"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Choctaw County Schools"
-    county: "Choctaw"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Montgomery County Schools"
-    county: "Montgomery"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Attala County Schools"
-    county: "Attala"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Leake County Schools"
-    county: "Leake"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Newton County Schools"
-    county: "Newton"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Calhoun County Schools"
-    county: "Calhoun"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Chickasaw County Schools"
-    county: "Chickasaw"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Itawamba County Schools"
-    county: "Itawamba"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Yalobusha County Schools"
-    county: "Yalobusha"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Grenada County Schools"
-    county: "Grenada"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Carroll County Schools"
-    county: "Carroll"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Holmes County Schools"
-    county: "Holmes"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Yazoo County Schools"
-    county: "Yazoo"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Tallahatchie County Schools"
-    county: "Tallahatchie"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Tunica County Schools"
-    county: "Tunica"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Tate County Schools"
-    county: "Tate"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Franklin County Schools"
-    county: "Franklin"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Jackson Public Schools"
-    county: "Hinds"
+  - name: Biloxi Public Schools
+    county: Harrison
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-    notes: "State capital - banned corporal punishment"
-  - name: "Biloxi Public Schools"
-    county: "Harrison"
+  - name: Bolivar County Schools
+    county: Bolivar
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Calhoun County Schools
+    county: Calhoun
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Carroll County Schools
+    county: Carroll
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Chickasaw County School District
+    county: Chickasaw
+    nces_id: "2800200"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031690&revid=qLBplusRtgjp8l46O9Gr1zCqw==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
+    quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    last_verified: 2026-09-09
+    policy_code: JDB
+    crdc_students_latest: 192
+    notes: "No parental consent or opt-out provision appears in policy JDB. Disability exemption: \"School personnel is prohibited from using corporal punishment on any student with a disability. A student with a disability is any student who has an IEP or Section 504 plan.\" It may be administered by the principal, assistant principal, or a teacher, in the presence of another school employee, only after less stringent measures have failed unless the conduct is extreme; must be reasonable and moderate. MSBA policy service: the district's Board of Trustees page https://www.chickasaw.k12.ms.us/page/board-of-trustees/ links 'Board Policies Public View' -> https://chickasaw.msbapolicy.org/ which redirects to Simbli site S=36031690. Policy JDB status ADOPTED, Original Adopted Date 07/20/2012, Last Revised Date 06/08/2026, Last Reviewed Date 06/08/2026. Cites Miss. Code 37-11-57 and 11-46-9, Ingraham v. Wright; cross-references AAA and JD. District office is in Houston, MS."
+  - name: Choctaw County Schools
+    county: Choctaw
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Claiborne County Schools
+    county: Claiborne
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Clarke County Schools
+    county: Clarke
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Clay County Schools
+    county: Clay
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Coahoma County School District
+    county: Coahoma
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Copiah County Schools
+    county: Copiah
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Covington County Schools
+    county: Covington
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: DeSoto County Schools
+    county: DeSoto
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Forrest County Schools
+    county: Forrest
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Franklin County Schools
+    county: Franklin
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: George County Schools
+    county: George
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Greene County Schools
+    county: Greene
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Grenada County Schools
+    county: Grenada
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Gulfport School District
+    county: Harrison
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Gulfport School District"
-    county: "Harrison"
+  - name: Hancock County School District
+    county: Hancock
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Harrison County School District
+    county: Harrison
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Hinds County School District
+    county: Hinds
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Holmes County Schools
+    county: Holmes
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Humphreys County Schools
+    county: Humphreys
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Issaquena County Schools
+    county: Issaquena
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Itawamba County Schools
+    county: Itawamba
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Jackson County School District
+    county: Jackson
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Jackson Public Schools
+    county: Hinds
     nces_id: null
     status: bans
+    source: null
+    quote: null
+    last_verified: null
+    notes: State capital - banned corporal punishment
+  - name: Jeff Davis County Schools
+    county: Jefferson Davis
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Jefferson County Schools
+    county: Jefferson
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Jones County Schools
+    county: Jones
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Kemper County Schools
+    county: Kemper
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lafayette County School District
+    county: Lafayette
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lamar County School District
+    county: Lamar
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lauderdale County School District
+    county: Lauderdale
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lawrence County Schools
+    county: Lawrence
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Leake County Schools
+    county: Leake
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lee County Schools
+    county: Lee
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Leflore County Schools
+    county: Leflore
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lincoln County Schools
+    county: Lincoln
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lowndes County School District
+    county: Lowndes
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Madison County Schools
+    county: Madison
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Marion County Schools
+    county: Marion
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Marshall County School District
+    county: Marshall
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Monroe County School District
+    county: Monroe
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Montgomery County Schools
+    county: Montgomery
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Neshoba County Schools
+    county: Neshoba
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Newton County Schools
+    county: Newton
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Noxubee County Schools
+    county: Noxubee
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Oktibbeha County Schools
+    county: Oktibbeha
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Pearl River County Schools
+    county: Pearl River
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Perry County Schools
+    county: Perry
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Pike County Schools
+    county: Pike
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Pontotoc County Schools
+    county: Pontotoc
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Prentiss County Schools
+    county: Prentiss
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Quitman County Schools
+    county: Quitman
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Rankin County School District
+    county: Rankin
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Scott County School District
+    county: Scott
+    nces_id: "2803900"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031781&revid=R988PCslsho1mFQtXpkelFwog==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
+    quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board. School personnel is prohibited from using corporal punishment on any student with a disability. A student with a disability is any student who has an IEP or Section 504 plan.
+    last_verified: 2026-09-09
+    policy_code: JDB
+    crdc_students_latest: 259
+    notes: "No parental consent or opt-out provision. Prohibited for any student with an IEP or Section 504 plan. To be used only after less stringent measures (counseling, parent conferences, other discipline) have failed unless the conduct is extreme; administered by the principal, assistant principal, or administrative assistant in the presence of another school employee; paddling must be witnessed by at least one school employee. MSBA policy service on Simbli (scott.msbapolicy.org redirects to simbli.eboardsolutions.com S=36031781, linked from https://www.scott.k12.ms.us/ as 'Board MSBA Policy'). Policy JDB: Original Adopted Date 04/08/2014, Last Revised Date 06/11/2019, Status ADOPTED; cites Miss. Code 37-11-57 and 11-46-9 and Ingraham v. Wright. Related policies in the J section: JD Student Discipline (10/08/2019), JDA Discipline Plan, JCD(2). Simbli listing is JavaScript-rendered; read in Chrome."
+  - name: Sharkey County Schools
+    county: Sharkey
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Simpson County School District
+    county: Simpson
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Smith County Schools
+    county: Smith
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: South Panola School District
+    county: Panola
+    nces_id: "2804050"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5225/Bams/b8765fcc-d296-4094-a195-97e25eaf1bf5/2026---South-Panola-Schools---BMS-Parent-Student-Handbook-v5-7_20.pdf
+    quote: The South Panola School District policy allows corporal punishment under certain conditions. Contact your school for an opt-out form for you to sign if you choose not to have your child paddled.
+    last_verified: 2026-09-09
+    policy_code: 'Batesville Middle School 2026-2027 Student Handbook, "Discipline" section, "CORPORAL PUNISHMENT (CP)" (p. 11); Appendix E: Corporal Punishment (p. 42)'
+    crdc_students_latest: 192
+    notes: "The handbook text frames it as opt-out (\"Contact your school for an opt-out form ... if you choose not to have your child paddled\"). Appendix E is a signed form with two boxes: \"South Panola School District Administration has my permission to use corporal punishment as a means to correct behavior. Prior to issuing corporal punishment, a phone call will be made to the parent/guardian.\" and \"South Panola School District does NOT have my permission to use corporal punishment as a means to correct behavior.\" No witness, administrator, or disability provisions are stated in the handbook; the underlying board policy could not be read (see notes). The district's board policy manual is on MSBA/Simbli (southpanola.msbapolicy.org -> https://simbli.eboardsolutions.com/Index.aspx?S=36031786), but the policy listing redirects to https://simbli.eboardsolutions.com/Login.aspx?S=36031786 and is not publicly readable, so the status rests on the school handbook, which states district policy. The handbook is the Batesville Middle School (grades 4-5) 2026-2027 Parent/Student Handbook, linked from https://www.spsd.k12.ms.us/o/bams/documents/ (also via short link https://aptg.co/hnYHRQ). It lists corporal punishment as a consequence for 2nd-offense minor bus infractions, 2nd-offense electronic device use, tardies, and vandalism on the disciplinary referral form. Possible internal tension: the discipline section describes an opt-out, while the Appendix E form is worded as permission/no permission; recorded here as allows (opt-out) per the policy sentence. Other school handbooks (SPHS, BJHS, BIS, Pope, BAES) were not found in their document folders. District office is in Batesville, MS."
+  - name: Stone County Schools
+    county: Stone
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Sunflower County Schools
+    county: Sunflower
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Tallahatchie County Schools
+    county: Tallahatchie
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Tate County Schools
+    county: Tate
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Tippah County Schools
+    county: Tippah
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Tishomingo County Schools
+    county: Tishomingo
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Tunica County Schools
+    county: Tunica
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Union County Schools
+    county: Union
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Walthall County Schools
+    county: Walthall
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Warren County School District
+    county: Warren
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Washington County Schools
+    county: Washington
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Wayne County Schools
+    county: Wayne
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Webster County Schools
+    county: Webster
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: West Jasper School District
+    county: Jasper
+    nces_id: "2804590"
+    status: allows
+    source: https://www.westjasper.org/files/documents/Handbooks/2026-2027%20WJSD%20Student%20Handbook.pdf
+    quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board. Parents or guardians are not allowed to administer corporal punishment on West Jasper School District grounds. Students who cannot be given corporal punishment may be suspended out of school for offenses which would merit corporal punishment.
+    last_verified: 2026-09-09
+    policy_code: Student Handbook 2026-27, 'Corporal Punishment' (p. 43-46)
+    crdc_students_latest: 145
+    notes: No parental consent or opt-out provision; 'Students who cannot be given corporal punishment may be suspended out of school for offenses which would merit corporal punishment.' Administered by the teacher, principal or assistant principal (lead teachers may be authorized), 'not to exceed three licks per day', 'in the presence of a certified employee'; 'HB1182, corporal punishment is prohibited for students with a disability who has an IEP or Section 504 Plan. West Jasper School District will suspend any student with a disability who has an IEP or Section 504 Plan, rather than administer corporal punishment.' Handbook is 'West Jasper School District School Year 2026-27' (62 pages), linked from westjasper.org. The K-6 and 7-12 discipline step plans list 'One day ISD or Corporal Punishment' (steps 1-3), the tardy policy lists 'Corporal punishment or 1 day of ISD' at the 4th unexcused tardy, and bus offenses list corporal punishment as an option for the first three minor/intermediate offenses. The district's board policy manual link (https://wjasper.msbapolicy.org/) redirects to Simbli (https://simbli.eboardsolutions.com/Index.aspx?S=36031853), whose policy listing requires JavaScript and returned no policy text to curl or WebFetch; no Wayback capture found. The MSBA policy code (likely JDA) could not be confirmed. CRDC name 'WEST JASPER CONSOLIDATED SCHOOLS'; NCES and district style it 'West Jasper School District'.
+  - name: Wilkinson County Schools
+    county: Wilkinson
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Winston County Schools
+    county: Winston
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Yalobusha County Schools
+    county: Yalobusha
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Yazoo County Schools
+    county: Yazoo
+    nces_id: null
+    status: allows
     source: null
     quote: null
     last_verified: null

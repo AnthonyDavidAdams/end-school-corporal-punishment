@@ -2,157 +2,246 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: AL
 districts:
-  - name: "Mobile County Public Schools"
-    county: "Mobile"
+  - name: Baldwin County Schools
+    county: Baldwin
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Jefferson County Schools"
-    county: "Jefferson"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Madison County Schools"
-    county: "Madison"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Shelby County Schools"
-    county: "Shelby"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Baldwin County Schools"
-    county: "Baldwin"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Tuscaloosa County Schools"
-    county: "Tuscaloosa"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Montgomery County Schools"
-    county: "Montgomery"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Lee County Schools"
-    county: "Lee"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Houston County Schools"
-    county: "Houston"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Etowah County Schools"
-    county: "Etowah"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Calhoun County Schools"
-    county: "Calhoun"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Marshall County Schools"
-    county: "Marshall"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Morgan County Schools"
-    county: "Morgan"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Limestone County Schools"
-    county: "Limestone"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Elmore County Schools"
-    county: "Elmore"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Cullman County Schools"
-    county: "Cullman"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Walker County Schools"
-    county: "Walker"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Blount County Schools"
-    county: "Blount"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "St. Clair County Schools"
-    county: "St. Clair"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Talladega County Schools"
-    county: "Talladega"
-    nces_id: null
-    status: allows
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Birmingham City Schools"
-    county: "Jefferson"
+  - name: Birmingham City Schools
+    county: Jefferson
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Huntsville City Schools"
-    county: "Madison"
+  - name: Blount County Schools
+    county: Blount
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Butler County Schools
+    county: Butler
+    nces_id: "0100510"
+    status: allows
+    source: https://www.butlerco.k12.al.us/fs/resource-manager/view/c5bd3ab2-960e-40cf-9450-4f3d853ff9a6
+    quote: The Board shall allow reasonable corporal punishment only after other means of discipline have failed to produce desirable results. If corporal punishment is required, it shall be administered only by a certified employee in the presence of a school administrator who has been informed beforehand of the reasons for the punishment. At no time shall corporal punishment be administered in the presence of another student. Parents who object to corporal punishment as a method of discipline shall advise the school administrator in writing of the objection; however, the school administrator has the authority to determine appropriate discipline
+    policy_code: 2026-2027 Code of Conduct, section "Corporal Punishment" (p. 14, under Formal Disciplinary Actions and Procedures)
+    crdc_students_latest: 248
+    last_verified: 2026-09-09
+    notes: "Opt-out only, and non-binding: parents who object must advise the administrator in writing, but the text says the administrator retains authority to determine discipline, and the signature page reads \"I DO___ or DO NOT ___ prefer that corporal punishment (paddling) be used ... However, I acknowledge the right of the school system's authority to use any and all disciplinary measures ... including paddling.\" Administered by a certified employee with a Board-issued paddle, no more than three licks, in the presence of a school administrator (or principal's designee), after an attempted phone call to the parent, recorded in PowerSchool, with a written explanation and witness name given to parents afterward. No disability exemption is stated. Document is the district's \"2026-2027 Code of Conduct\" PDF linked from https://www.butlerco.k12.al.us/for-parents/bcss-handbook-policies (BCSS Handbook & Policies page), which also lists \"Board Policy/Student Handbook & Code of Conduct Revisions\" dated July 17, 2025 and October 16, 2025. The Code of Conduct cites Alabama Code 16-28A-1 and Ingraham v. Wright. Corporal punishment is listed as a first-offense option for Class II (grades 6-12) and Class III offenses. No separate board policy manual (AASB-style) was found on the district site; the Code of Conduct is board-adopted and is the operative text."
+  - name: Calhoun County School District
+    county: Calhoun
+    nces_id: "0100540"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031575&revid=ov1mAh6MTHdOGkeRYUu1aw==&ptid=opluslgy5YBB1lFkXrdgY4anQ==&secid=PIt0EdqGusPq6JYPplus1xJww==&PG=6&IRP=0&isPndg=false
+    quote: "In accordance with Alabama law, the Board of Education permits the use of corporal punishment. Should corporal punishment be needed, it must be administered in accordance with the following: The student has been notified of the offense for which he/she is to receive corporal punishment and the student has been given an opportunity to explain his/her actions. The punishment shall be administered by the school principal or his/her designee(s) (certificated personnel only) and witnessed by a certified school employee. The punishment shall be administered out of the view or presence of any other students. The punishment shall consist of no more than three swats on the buttocks with a smooth surface paddle free of holes and/or cracks."
+    last_verified: 2026-09-09
+    policy_code: "6.16"
+    crdc_students_latest: 173
+    notes: "Board policy 6.16 contains no parental consent or opt-out provision. Administered by the principal or certificated designee, witnessed by a certified employee, out of view of other students, maximum three swats with a smooth paddle; no disability exemption stated. The 2026-2027 Student Code of Conduct discipline tables list 'Corporal Punishment and Parental Notification-as a last resort after other disciplinary tactics have failed and/or determined on a case by-case basis' (notification, not consent). Board Policy Manual on Simbli (S=36031575), linked from https://www.calhouncountyschools.com/our-district/policies-reports. Policy 6.16 'Corporal Punishment', status ADOPTED, original adopted 06/06/2023, last reviewed 06/06/2023, reference ALA. CODE §16-28A-2. The 2026-2027 Student Code of Conduct PDF (https://resources.finalsite.net/images/v1782915796/calhounk12alus/wufdubppvm8ain3uk87i/StudentCodeofConduct.pdf) repeats the policy text verbatim under 'Corporal Punishment-' in its definitions of disciplinary actions and, under STUDENT DUE PROCESS, provides 'Informal Due Process - Corporal Punishment and Short-Term Suspension (9 days or less)' (oral or written notice of the charge, explanation of the evidence, opportunity to present the student's version). The CCBOE Student Handbook PDF (https://resources.finalsite.net/images/v1782915853/calhounk12alus/ngt0vriwbhw6mnll9nvt/CCBOE_Student_Handbook.pdf) contains no corporal punishment text. District office: 4400 McClellan Blvd, Anniston, AL 36206. calhoun.k12.al.us redirects to calhouncountyschools.com. Stable entry point: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36031575 then chapter 6 > 6.16."
+  - name: Coffee County Schools
+    county: Coffee
+    nces_id: "0100810"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2070&revid=eIilrJZeyhbzPmuNcNFFMg==&ptid=nWlQpJkYTAuW9bslshR3E96RA==&secid=qHu2lGamQmtT4oCqzZ6LAA==&PG=6&IRP=0&isPndg=false
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. If a parent or guardian does not want corporal punishment used in disciplining their child, it the parent or guardian’s responsibility to notify the school principal in writing.
+    policy_code: "6.17"
+    crdc_students_latest: 184
+    last_verified: 2026-09-09
+    notes: "Opt-out only: a parent or guardian who does not want corporal punishment used must notify the school principal in writing. Administered by the principal, assistant principal, or designee in the presence of another certified employee, not in the presence of another student; no disability exemption stated in the policy. Board Policy Manual is on Simbli (S=2070), reached via the redirect from https://www.coffeecountyschools.org/board-policy-manual. Policy 6.17 'Corporal Punishment', status ADOPTED, original adopted date 06/06/2019, reference Ala. Code §16-28A-2. Second paragraph: 'Corporal punishment will be administered by the school principal, the assistant principal, or his or her designee in the presence of another certified employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administrating and documenting corporal punishment, consistent with the terms of this policy.' The typo 'it the parent' is in the source. District office: 400 Reddoch Hill Rd, Elba, AL 36323. The Simbli ViewPolicy URL carries session-style tokens; the stable entry point is https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=2070 then chapter 6 > 6.17."
+  - name: Covington County Schools
+    county: Covington
+    nces_id: "0100930"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5469/Ccs/c6069503-6ba9-458f-9291-f2c4358d5837/Code-of-Conduct-26-27-adopted-5-5-26.doc?disposition=inline
+    quote: Corporal punishment may be administered by the principal/designee or teacher in the presence of a professional employee of the Board of Education. A written report will be prepared for each incident and copies of each report must be on file in the administrative office of the school. Corporal punishment for a student documented as having a disability, in which the behavior was not a manifestation of the student's disability, will follow the same procedures as a non-disabled student.
+    policy_code: Code of Student Conduct 2026-2027, section 'CORPORAL PUNISHMENT' (unnumbered)
+    crdc_students_latest: 265
+    last_verified: 2026-09-09
+    notes: "No parental consent, notice, or opt-out provision. May be administered by the principal/designee or a teacher, witnessed by a professional employee of the Board, with a written report filed at the school. Students with disabilities are paddled under the same procedures when the behavior is not a manifestation of the disability. Document is the Word file 'CCS Code of Conduct 2026-2027' (file name says adopted 5-5-26; title page: COVINGTON COUNTY SCHOOLS, ANDALUSIA, ALABAMA, CODE OF STUDENT CONDUCT 2026-2027, Superintendent Nikki Guilford) in the Home folder of the district's Apptegy document library, listed at https://www.cov.k12.al.us/documents/parent-resources/code-of-student-conduct/816114. The board policy manual ('CCS Policy Manuel 2026-2027', 99-page PDF, https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5469/Ccs/85e9a626-d158-419e-9274-5c8bbe998258/Code-of-Conduct-8.4.26.pdf?disposition=inline) is a scanned image with no text layer and no OCR tool was available, so the numbered board policy on corporal punishment was not read; a follow-up should OCR it for the policy code. The two old nav short-links (5il.co/3hx7n School Board Policy, 5il.co/3hx6y Code of Student Conduct) are dead (404/403). NOTE: covingtoncountyschools.org is Covington County, Mississippi, not this district."
+  - name: Cullman County Schools
+    county: Cullman
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Dale County Board of Education (Dale County Schools)
+    county: Dale
+    nces_id: "0101050"
+    status: allows
+    source: https://content.myconnectsuite.com/api/documents/920e45d83bd747a2bc643eb8c1ea510a
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his or her designee in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administering and documenting corporal punishment, consistent with the terms of this policy.
+    policy_code: "6.16"
+    crdc_students_latest: 146
+    last_verified: 2026-09-09
+    notes: "No parental consent, notice, or opt-out provision. Administered by the principal or designee, witnessed by another adult professional school system employee, not in front of other students; no disability exemption stated in the policy. Source is the 'Board Policy Manual' linked from the dalecountyboe.org homepage (112 pages, scanned image PDF, page footers read 'Dale County Board of Education Policy Manual Effective: July 1, 2022'). The PDF has no text layer; the quote was taken by OCR (macOS Vision) of page 87-88 and checked against the identical AASB model wording used by Marion County; verify against the image before quoting in a hearing. No student handbook or code of conduct was found on the district site navigation (pages: About, BOE, Curriculum, Federal Programs, Finance, Health, HR, SPED, Superintendent, Teacher, Technology, Transportation, Virtual School); the /boe page lists agenda/minute PDFs only."
+  - name: DeKalb County Board of Education (DeKalb County Schools)
+    county: DeKalb
+    nces_id: "0101140"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/12948/26-27_policy_and_procedure_final.pdf
+    quote: "6.14.1 Corporal Punishment - Corporal punishment shall always be administered with a consideration for the age and physical maturity of the student. Corporal punishment must always be a deliberate, well thought out action on the part of school administrators and should be administered appropriately to effectively alter student behaviors that are unacceptable in a school environment. Should corporal punishment be needed, it must be administered according to the following: a. A student must be notified of the offense for which he/she is to receive corporal punishment and the student must be given an opportunity to explain his/her actions. b. The punishment must be administered by a school administrator and witnessed by a certified school employee. c. The punishment must be administered out of view of any other students. d. The punishment shall consist of a moderate use of physical force or physical contact by an administrator as may be necessary to maintain discipline or to enforce school rules. e. A written record of the punishment shall be made, in which the violated offense resulting in the punishment is listed along with the administered punishment, the name of the witness(es), and the name of the administrator giving the discipline. The administrator shall maintain a copy of the record and a copy shall be given to the student's parent/guardian."
+    policy_code: 6.14.1
+    crdc_students_latest: 156
+    last_verified: 2026-09-09
+    notes: "No parental consent or opt-out; the 2026-2027 Student Handbook and Code of Conduct sec. 5.3.3 states verbatim: 'State law does not forbid corporal punishment. The DeKalb County Board of Education does not recognize a \"no paddle\" list. Schools must follow IEP/504 plan or make provisions for medical reasons.' Administered by a school administrator, witnessed by a certified employee, out of view of other students, written record with copy to parent. Policy manual is 'Policies and Procedures Handbook', 228 pages, cover reads 'Effective 8/1/2026' (page footers carry 'DRAFT 5/21/15' watermark). Linked from https://www.dekalbk12.org/handbooks. Companion source: 2026-2027 Student Handbook and Code of Conduct, https://files.smartsites.parentsquare.com/12948/26-27_student_handbook_final_1.pdf, sec. 5.3.3 (p. 2295 of text extraction) and the Type I / Type II offense sanction lists ('Corporal Punishment - (Witness and Due Process Required) - DeKalb County Board of Education Policy must be followed')."
+  - name: Elmore County Schools
+    county: Elmore
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Etowah County Schools
+    county: Etowah
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Houston County Schools
+    county: Houston
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Huntsville City Schools
+    county: Madison
     nces_id: null
     status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Jackson County Board of Education
+    county: Jackson
+    nces_id: "0101830"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/10574/jackson_county_policy_manual_updated_nov_12_2025.pdf
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student.
+    policy_code: "6.16"
+    crdc_students_latest: 386
+    last_verified: 2026-09-09
+    notes: "No parental consent, notice, or opt-out provision in policy 6.16. Administered by the principal or representative in the presence of another adult professional employee, not in front of other students; the Superintendent is authorized to write procedures for administering and documenting it. No disability exemption. Reference: Ala. Code 16-28A-2. PDF is embedded in the district's Board Policy page https://www.jacksonk12.org/185475_3 (Jackson County School District, Hollywood AL; jacksonk12.org is the current domain, the NCES-listed www.jackson.k12.al.us no longer resolves). Downloaded and text-extracted with pdftotext. The Students chapter footer reads 'Jackson County Board of Education Policy Manual Updated: March 23, 2022'; the file name says the manual was updated Nov 12, 2025. The Student Handbook page (https://www.jacksonk12.org/185476_3) embeds a separate viewer that was not opened."
+  - name: Jefferson County Schools
+    county: Jefferson
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Lee County Schools
+    county: Lee
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Limestone County Schools
+    county: Limestone
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Madison County Schools
+    county: Madison
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Marion County Board of Education (Marion County Schools)
+    county: Marion
+    nces_id: "0102310"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2664/Mcbe/0b295940-bea3-4387-ab1f-1af38c7ba6a8/Z-Full_Policy_Manual_Merged.pdf?disposition=inline
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his or her designee in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administering and documenting corporal punishment, consistent with the terms of this policy.
+    policy_code: "6.16"
+    crdc_students_latest: 155
+    last_verified: 2026-09-09
+    notes: "No parental consent, notice, or opt-out provision. Administered by the principal or designee, witnessed by another adult professional school system employee, not in front of other students; no disability exemption stated in the policy. Policy manual cover reads 'Marion County Board of Education Policy Manual Updated: April 21, 2022' (138 pages), filed under Documents > Board Policies and Procedures at https://marioncountyal.sites.thrillshare.com/documents/policies-and-procedures/375989 (the district's mcbe.net domain serves a bot challenge to non-browser clients; the Thrillshare mirror is the same site). The 2026-2027 Marion County Schools Handbook (https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2664/Mcbe/9557cbab-57aa-4a58-8333-98230bb59c13/25-26_MCBE_NEW_REVISED_handbook_.pdf?disposition=inline) lists 'corporal punishment' as a sanction for Class I offenses, a first Class II offense, and bus infractions. Note: marionk12.org is Marion County School District, Columbia, Mississippi, not this district."
+  - name: Marshall County Board of Education (Marshall County School District)
+    county: Marshall
+    nces_id: "0100006"
+    status: allows
+    source: https://drive.google.com/file/d/1CTcyVJ-5XBRx0rR-le1G_jet_UvvBO10/view
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administrating and documenting corporal punishment, consistent with the terms of this policy.
+    last_verified: 2026-09-09
+    policy_code: "6.15"
+    crdc_students_latest: 157
+    notes: "No parental consent, notice, or opt-out provision. Administered by the principal or his representative, witnessed by another adult professional school system employee, not in front of other students; no disability exemption stated in the policy. Source is the 'Full Board Policy' PDF linked from https://www.marshallk12.org/our-district/policies-and-procedures (Google Drive file, 90 pages, cover reads 'Marshall County Board of Education Policy Manual August 7, 2012'; PDF metadata title is 'CLARKE COUNTY', apparently a template artifact). The district site still links this 2012 manual as its current policy manual on 2026-09-09. The district's Simbli site (simbli.eboardsolutions.com S=2059) is used for board minutes; its policy listing returned a login page, not a public manual. The /studenthandbook page on marshallk12.org contains no handbook text or embed (no 'corporal' on the page). Statutory reference cited in policy: Ala. Code 16-28A-2."
+  - name: Mobile County Public Schools
+    county: Mobile
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Montgomery County Schools
+    county: Montgomery
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Morgan County Schools
+    county: Morgan
+    nces_id: "0102480"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36030917&revid=gOko5w3EpF8hJ3HfHCrajw==&ptid=tgXX6LPA166ygZS74CSPMA==&secid=rXWF48YTyHX6J1LHrKnhVA==&PG=6&IRP=0&isPndg=false
+    quote: The Board allows reasonable corporal punishment of students in accordance with the Code of Student Conduct and under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by a certified professional school system employee in the presence of another certified professional school system employee. Corporal punishment should not be administered in the presence of another student.
+    last_verified: 2026-09-09
+    policy_code: "6.10"
+    crdc_students_latest: 175
+    notes: "Opt-out only: 'A parent or guardian of student may opt out of the use of corporal punishment as a disciplinary consequence for that student by submitting a written, signed statement to the school principal.' Administered by a certified professional employee in the presence of another certified professional employee, not in front of other students; no disability exemption stated. MCS Board Policy Manual on Simbli (S=36030917), linked from https://www.morgank12.org/325165_2 ('Policies'). Policy 6.10 'Corporal Punishment', status ADOPTED, original adopted date 04/08/2021, reference ALA. CODE §16-28A-2. Closing sentence: 'The Superintendent is authorized to develop and implement procedures for administrating and documenting corporal punishment, consistent with the terms of this policy.' The Student Code of Conduct/Handbook is a Google Drive folder (https://drive.google.com/drive/folders/18MvvHcv1M3ePoZQXqCXQKwjOiSrsd4hC) and was not opened. District office: 235 Highway 67 South, Decatur, AL 35603. Stable entry point: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36030917 then chapter 6 > 6.10."
+  - name: Pike County Schools
+    county: Pike
+    nces_id: "0102790"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031835&revid=TxECO0Mvq5zslshklslshOr2dbdg==&ptid=u1H0U6RLevfc4xOirU9CLg==&secid=L4EOyGP3XAvv0XtOufsryQ==&PG=6&IRP=0&isPndg=false
+    quote: The Pike County Board of Education prohibits the use of corporal punishment. No person employed by or engaged in the Pike County Schools shall administer corporal punishment upon a pupil.
+    policy_code: 5.30.1
+    crdc_students_latest: 252
+    last_verified: 2026-09-09
+    notes: "Not applicable; the policy prohibits corporal punishment outright. It substitutes a one-day suspension with a required parent conference on return for Code of Conduct violations. Policy 5.30.1 CORPORAL PUNISHMENT, Status ADOPTED, Original Adopted Date 06/01/2005, Last Revised Date 06/17/2024, Last Reviewed Date 06/17/2024, on the district's Simbli manual (linked from https://www.pikecountyschools.com/ as the board policy listing, S=36031835). CONFLICT WITH CRDC: the ban was revised 06/17/2024, after the 2023-24 school year in which CRDC records 252 students receiving corporal punishment, so the 2023-24 figure likely reflects the pre-June-2024 policy. Simbli does not expose the prior revision text publicly; board minutes from June 2024 were not located (no search budget). Recommend a [conflict] issue only if a later data year still shows paddling."
+  - name: Shelby County Schools
+    county: Shelby
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: St. Clair County Schools
+    county: St. Clair
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Talladega County Schools
+    county: Talladega
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Tuscaloosa County Schools
+    county: Tuscaloosa
+    nces_id: null
+    status: allows
+    source: null
+    quote: null
+    last_verified: null
+  - name: Walker County Schools
+    county: Walker
+    nces_id: null
+    status: allows
     source: null
     quote: null
     last_verified: null

@@ -2,92 +2,102 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: GA
 districts:
-  - name: "Gwinnett County Public Schools"
-    county: "Gwinnett"
+  - name: Atlanta Public Schools
+    county: Fulton
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Cobb County School District"
-    county: "Cobb"
+  - name: Cherokee County Schools
+    county: Cherokee
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "Fulton County Schools"
-    county: "Fulton"
+  - name: Cobb County School District
+    county: Cobb
     nces_id: null
     status: bans
     source: null
     quote: null
     last_verified: null
-  - name: "DeKalb County Schools"
-    county: "DeKalb"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Atlanta Public Schools"
-    county: "Fulton"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Cherokee County Schools"
-    county: "Cherokee"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Forsyth County Schools"
-    county: "Forsyth"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Henry County Schools"
-    county: "Henry"
-    nces_id: null
-    status: bans
-    source: null
-    quote: null
-    last_verified: null
-  - name: "Colquitt County Schools"
-    county: "Colquitt"
+  - name: Coffee County Schools
+    county: Coffee
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Thomas County Schools"
-    county: "Thomas"
+  - name: Colquitt County Schools
+    county: Colquitt
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Tift County Schools"
-    county: "Tift"
+  - name: DeKalb County Schools
+    county: DeKalb
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Forsyth County Schools
+    county: Forsyth
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Fulton County Schools
+    county: Fulton
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Gwinnett County Public Schools
+    county: Gwinnett
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Henry County Schools
+    county: Henry
+    nces_id: null
+    status: bans
+    source: null
+    quote: null
+    last_verified: null
+  - name: Laurens County Schools
+    county: Laurens
+    nces_id: "1301890"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4101&revid=MPVho6cn3DYM2P3VPk07jg==&ptid=amIgTZiB9plushNjl6WXhfiOQ==&secid=p6v70fD4K8ukRv6vtplusTtSg==&PG=6&IRP=0&isPndg=false
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: 231
+    last_verified: 2026-09-09
+    notes: "Opt-out: \"Corporal punishment shall not be administered to a child whose parents or legal guardian have filed with the principal of the school a statement expressly objecting to the use of corporal punishment or a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child's mental or emotional stability.\" Only a principal or designated administrator may administer it, never a teacher or parent; it must be witnessed by another certified employee informed beforehand in the pupil's presence; a written explanation and the witness's name are provided to parents on request; it may not be excessive and generally not a first-line punishment. No IEP/504 exemption beyond the doctor's-statement route. Simbli/eBoard (GSBA) board policy manual, site S=4101, reached from https://www.lcboe.net/338421_2 (Board of Education page, link 'eBoard - Laurens County' -> https://simbli.eboardsolutions.com/Index.aspx?S=4101). Policy JDA status ADOPTED, Original Adopted Date 02/14/2008, Last Reviewed Date 08/13/2020. References O.C.G.A. 20-2-730 through 20-2-732. Simbli listing is JavaScript-rendered; the ViewPolicy link was obtained by filtering the listing to section J in a browser."
+  - name: Thomas County Schools
+    county: Thomas
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Coffee County Schools"
-    county: "Coffee"
+  - name: Tift County Schools
+    county: Tift
     nces_id: null
     status: allows
     source: null
     quote: null
     last_verified: null
-  - name: "Ware County Schools"
-    county: "Ware"
+  - name: Ware County Schools
+    county: Ware
     nces_id: null
     status: allows
     source: null
