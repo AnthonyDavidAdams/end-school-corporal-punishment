@@ -15,6 +15,30 @@ const csv = t => { const [h, ...r] = t.trim().split(/\r?\n/).map(l => l.split(",
 const crdc = {};
 for (const y of readdirSync(join(root, "data/crdc")).filter(f => /^\d{4}-\d{2}$/.test(f))) { const p = join(root, "data/crdc", y, "states.csv"); if (existsSync(p)) crdc[y] = csv(readFileSync(p, "utf8")); }
 const national = csv(readFileSync(join(root, "data/crdc/national.csv"), "utf8"));
+// ---- county map: parse the public-domain SVG once, build a per-state county SVG ----
+const usSvg = readFileSync(join(site, "assets/us-map.svg"), "utf8");
+const countyPaths = [...usSvg.matchAll(/<path class="county" data-fips="(\d+)" data-state="([A-Z]{2})" data-name="([^"]*)" d="([^"]*)"\/>/g)].map(m => ({ fips: m[1], state: m[2], name: m[3], d: m[4] }));
+const statePaths = Object.fromEntries([...usSvg.matchAll(/<path class="state" id="state-([A-Z]{2})"[^>]*? d="([^"]*)">/g)].map(m => [m[1], m[2]]));
+const bbox = ds => { let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity; for (const d of ds) for (const m of d.matchAll(/(-?\d+\.?\d*),(-?\d+\.?\d*)/g)) { const x = +m[1], y = +m[2]; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; } return [x0, y0, x1 - x0, y1 - y0]; };
+const norm = c => String(c || "").toLowerCase().replace(/&amp;/g, "&").replace(/\s+(county|parish|borough|census area|municipality|city and borough)$/i, "").replace(/^st\.\s/, "st ").replace(/^saint\s/, "st ").replace(/[^a-z0-9 ]/g, "").trim();
+const COUNTY_COLOR = { allows: "#b3382c", consent_required: "#c9a227", bans: "#2f6b3a", unknown: "#cfc9bc", none: "#e9e4d8" };
+function countyMap(code, ds) {
+  const cps = countyPaths.filter(c => c.state === code); if (!cps.length) return "";
+  const byCounty = {}; for (const d of ds) { const k = norm(d.county); if (!k) continue; (byCounty[k] ||= []).push(d); }
+  const [x, y, w, h] = bbox(cps.map(c => c.d)); const pad = Math.max(w, h) * 0.03;
+  const paths = cps.map(c => { const list = byCounty[norm(c.name)] || []; const st = !list.length ? "none" : list.some(d => d.status === "allows") ? "allows" : list.some(d => d.status === "consent_required") ? "consent_required" : list.every(d => d.status === "bans") ? "bans" : "unknown";
+    const label = list.length ? list.map(d => `${d.name}: ${({ allows: "allows", bans: "prohibits", consent_required: "consent required", unknown: "unknown" })[d.status]}`).join("; ") : "No district recorded yet";
+    return `<path d="${c.d}" fill="${COUNTY_COLOR[st]}" stroke="#fff" stroke-width="${(Math.max(w, h) / 600).toFixed(2)}" data-county="${esc(c.name)}" data-status="${st}" data-districts="${esc(label)}" data-key="${esc(norm(c.name))}"><title>${esc(c.name)}</title></path>`; }).join("\n");
+  const counts = Object.entries(cps.reduce((a, c) => { const list = byCounty[norm(c.name)] || []; const st = !list.length ? "none" : list.some(d => d.status === "allows") ? "allows" : list.some(d => d.status === "consent_required") ? "consent_required" : list.every(d => d.status === "bans") ? "bans" : "unknown"; a[st] = (a[st] || 0) + 1; return a; }, {}));
+  const LBL = { allows: "A district allows it", consent_required: "Parental consent required", bans: "Every recorded district prohibits it", unknown: "Recorded, policy unknown", none: "No district recorded yet" };
+  return `<div class="countywrap"><svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" role="img" aria-label="Counties of the state colored by school district corporal punishment policy">
+${paths}
+<path d="${statePaths[code]}" fill="none" stroke="#1c1c1c" stroke-width="${(Math.max(w, h) / 400).toFixed(2)}" pointer-events="none"/>
+</svg>
+<div id="countyinfo" class="card small"><b>Hover or tap a county.</b> Click to jump to its districts. Colors come from the district table below; counties with no recorded district are unshaded. Boundaries: US Census Bureau (public domain).</div></div>
+<div id="legend" class="small">${["allows", "consent_required", "bans", "unknown", "none"].filter(k => counts.some(([s]) => s === k)).map(k => `<span><i style="background:${COUNTY_COLOR[k]}"></i>${LBL[k]} (${counts.find(([s]) => s === k)[1]})</span>`).join("")}</div>
+<script>(function(){const info=document.getElementById("countyinfo");const svg=document.querySelector(".countymap");if(!svg)return;svg.querySelectorAll("path[data-county]").forEach(p=>{const show=()=>{info.innerHTML="<b>"+p.dataset.county+"</b><br>"+p.dataset.districts;};p.addEventListener("mouseenter",show);p.addEventListener("focus",show);p.setAttribute("tabindex","0");p.addEventListener("click",()=>{show();const row=document.querySelector('tr[data-key="'+p.dataset.key+'"]');if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.classList.add("hl");setTimeout(()=>row.classList.remove("hl"),2500);}});});})();</script>`;
+}
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const n = v => v == null || v === "" ? "" : Number(v).toLocaleString("en-US");
 const LABEL = { banned: "Prohibited in public schools", partial: "Legal, but every district has stopped", legal: "Legal in public schools" };
@@ -81,6 +105,7 @@ table{border-collapse:collapse;width:100%;font-size:.95rem;background:var(--card
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
 pre{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:1rem;white-space:pre-wrap;font:.85rem/1.5 ui-monospace,Menlo,monospace;overflow-x:auto}.copy{background:var(--navy);color:#fff;border:0;border-radius:6px;padding:.45rem .8rem;cursor:pointer;font-size:.9rem}
 .btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:.6rem 1rem;border-radius:8px;font-weight:600}.btn.alt{background:var(--green)}
+.countywrap{display:grid;grid-template-columns:3fr 2fr;gap:1rem;align-items:start}@media(max-width:820px){.countywrap{grid-template-columns:1fr}}.countymap{width:100%;height:auto;display:block;background:var(--card);border:1px solid var(--rule);border-radius:10px}.countymap path[data-county]{cursor:pointer}.countymap path[data-county]:hover{stroke:#1c1c1c;stroke-width:1.5}tr.hl td{background:#fff3c4}
 .foot{border-top:1px solid var(--rule);margin-top:3rem;padding-top:1.2rem;padding-bottom:2rem;color:var(--muted);font-size:.88rem}
 ul.claims li{margin:.5rem 0}.states-list{columns:3;column-gap:1.5rem;font-size:.95rem}@media(max-width:700px){.states-list{columns:2}}.states-list a{text-decoration:none}
 code{background:#efe9dc;padding:.05rem .3rem;border-radius:4px;font-size:.9em}
@@ -147,9 +172,11 @@ ${s.sources && s.sources.length ? `<p class="meta">Sources: ${s.sources.map((u, 
 ${rows.length ? `<div class="tablewrap"><table><tr><th>Year</th><th>Students</th><th>Black</th><th>Boys</th><th>With disabilities</th><th>Per 1,000</th></tr>${rows.map(([y, r]) => `<tr><td>${y}</td><td>${n(r.students)}</td><td>${n(r.black)}</td><td>${n(r.boys)}</td><td>${n(r.with_disabilities)}</td><td>${r.per_1000_enrolled || ""}</td></tr>`).join("")}</table></div><p class="meta">US Department of Education Civil Rights Data Collection. Students, not incidents; 2023-24 computed by this project from the raw file. ${s.code === "NJ" ? "The 2023-24 New Jersey figure is an evident district reporting error." : ""}</p>` : `<p>No students reported in the federal collections since 2017-18.</p>`}
 </div>
 </div>
-${legal ? `<h2>Districts</h2>
+${legal ? `<h2>Counties</h2>
+${countyMap(s.code, ds)}
+<h2>Districts</h2>
 <p class="meta">${ds.length} districts recorded; ${ds.filter(d => d.source).length} with a source. A status without a source has not been verified. <a href="/kids/contribute/">Help scan this state.</a></p>
-${ds.length ? `<div class="tablewrap"><table><tr><th>District</th><th>County</th><th>Policy</th><th>Source</th><th>Verified</th></tr>${ds.map(d => `<tr><td>${esc(d.name)}</td><td>${esc(d.county || "")}</td><td>${{ allows: "Allows", bans: "Prohibits", consent_required: "Parental consent required", unknown: "Unknown" }[d.status]}</td><td>${d.source ? `<a href="${esc(d.source)}" rel="noopener">${esc(d.policy_code || "policy")}</a>` : "<span class=\"meta\">none yet</span>"}</td><td class="meta">${d.last_verified || ""}</td></tr>`).join("")}</table></div>` : ""}` : ""}
+${ds.length ? `<div class="tablewrap"><table><tr><th>District</th><th>County</th><th>Policy</th><th>Source</th><th>Verified</th></tr>${ds.map(d => `<tr data-key="${esc(norm(d.county))}"><td>${esc(d.name)}</td><td>${esc(d.county || "")}</td><td>${{ allows: "Allows", bans: "Prohibits", consent_required: "Parental consent required", unknown: "Unknown" }[d.status]}</td><td>${d.source ? `<a href="${esc(d.source)}" rel="noopener">${esc(d.policy_code || "policy")}</a>` : "<span class=\"meta\">none yet</span>"}</td><td class="meta">${d.last_verified || ""}</td></tr>`).join("")}</table></div>` : ""}` : ""}
 <h2>Do something</h2>
 <div class="grid">
 ${legal ? `<div class="card"><h2>Parents</h2><p><a href="/kids/resources/#letters">File the written refusal</a> with your child's school. ${s.code === "LA" || s.code === "MO" || s.code === "FL" ? "In this state the school also needs your signed consent before any paddling." : "In this state the burden is on you to say no; the school must honor it."}</p></div>` : ""}
