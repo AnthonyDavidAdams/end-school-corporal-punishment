@@ -6,7 +6,12 @@ Live map: [earthpilot.org/kids](https://earthpilot.org/kids/)
 
 ## The situation
 
-<!-- HEADLINE -->
+- **24,534 students** received corporal punishment in US public schools in 2021-22, the newest year the Department of Education has analyzed. Our count from the raw 2023-24 file, released August 31, 2026, is 19,851. Both are students, not incidents, and both are self-reported by districts that the Department says likely underreport.
+- **17 states** still permit it by statute. In two, Kentucky and North Carolina, every district has stopped by policy, leaving **15 states** where it is legal and in use. No state has enacted a ban since Colorado and Idaho in 2023.
+- **Four states** (Texas, Alabama, Mississippi, Arkansas) account for **74 percent** of students struck. About **950 districts** and **2,050 schools** reported any use in 2021-22, out of 17,700 districts and 98,000 schools. The problem is concentrated, which is why it can be ended.
+- **Boys are 81 percent** of those struck. **Black students are 26 percent** of those struck and 15 percent of enrollment; Black boys are 8 percent of enrollment and 20 percent of those struck.
+- **36 of 38 OECD countries** prohibit it in schools. The exceptions are the United States and Australia.
+- The American Academy of Pediatrics, the American Psychological Association, the NEA, the AFT, and more than 100 other organizations have called for an end to it. Two Secretaries of Education have written to every governor asking the same.
 
 Every figure above is a file in [`facts/claims/`](facts/claims/) with its primary source and verification date. If one is wrong or stale, [say so](../../issues/new?template=fact-correction.yml).
 

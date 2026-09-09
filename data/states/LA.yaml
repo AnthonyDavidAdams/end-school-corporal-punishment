@@ -2,9 +2,20 @@ code: LA
 name: "Louisiana"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
-limits: []
-notes: "Prohibits use on students with certain disabilities"
-sources: []
-last_verified: null
+private_schools_covered: False
+statute: "La. R.S. \u00a7 17:416.1 (as amended by Act 266 of 2017, HB 79)"
+statute_url: "https://legis.la.gov/legis/BillInfo.aspx?s=17RS&b=HB79"
+limits:
+  - "No corporal punishment on certain students with exceptionalities (Act 266, effective August 1, 2017)"
+bills:
+  - number: "HB 649"
+    session: "2022 Regular Session"
+    sponsor: ""
+    summary: "Parental-consent requirement; passed House 70-28 on reconsideration, never received a Senate floor vote (the Global Initiative wrongly reports it as passed)"
+    status: failed
+    url: https://legis.la.gov/legis/BillInfo.aspx?s=22RS&b=HB649
+notes: "264 students in 2021-22; 65 in 2023-24. Black students were 61 percent of those struck in 2017-18."
+sources:
+  - https://legis.la.gov/legis/BillInfo.aspx?s=17RS&b=HB79
+  - https://legis.la.gov/legis/BillInfo.aspx?s=22RS&b=HB649
+last_verified: 2026-09-09

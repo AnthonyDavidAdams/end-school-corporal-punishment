@@ -2,9 +2,21 @@ code: TX
 name: "Texas"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
-limits: []
-notes: "Second highest use nationally. 13,892 students in 2017-18. Significant district variation"
-sources: []
-last_verified: null
+private_schools_covered: False
+statute: "Tex. Educ. Code \u00a7 37.0011"
+statute_url: "https://statutes.capitol.texas.gov/Docs/ED/htm/ED.37.htm"
+limits:
+  - "Parent may prohibit it by signed written statement each year (\u00a7 37.0011); district must adopt a policy"
+bills:
+  - number: "HB 772"
+    session: "88R (2023)"
+    sponsor: "Rep. Alma Allen (D)"
+    summary: "Ban corporal punishment in public schools; committee 5-2, failed on second reading April 26, 2023 (reported 58-86); Allen has filed it every session for 18 years"
+    status: failed
+    url: https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB772
+notes: "Largest absolute use: 7,324 students in 2021-22 and 5,359 in 2023-24; 13,892 in 2017-18. IDRA counted 468 districts with corporal punishment policies and 21,685 incidents on 13,054 students in 2017-18. The 2025 (89R) session was not checked; run bill-watch."
+sources:
+  - https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB772
+  - https://www.texastribune.org/2023/04/26/texas-house-corporal-punishment-public-schools/
+  - https://www.idra.org/education_policy/hitting-hurts-the-case-for-ending-corporal-punishment-in-texas/
+last_verified: 2026-09-09

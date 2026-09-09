@@ -2,9 +2,27 @@ code: OK
 name: "Oklahoma"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
-limits: []
-notes: "Prohibits use on students with certain disabilities. 2024 legislation to limit use"
-sources: []
-last_verified: null
+private_schools_covered: False
+statute: "70 O.S. \u00a7 13-116 (as amended by SB 364, 2025, Laws 2025 ch. 99)"
+statute_url: "https://law.justia.com/codes/oklahoma/title-70/section-70-13-116/"
+limits:
+  - "No corporal punishment on any student identified with a disability under IDEA (SB 364, law without the governor's signature May 8, 2025; effective date disputed between 90 days after sine die and May 12, 2025); the 2017 law (HB 1623) had covered only the most significant cognitive disabilities with IEP or parental-waiver exceptions"
+bills:
+  - number: "SB 364"
+    session: "2025"
+    sponsor: "Sen. Dave Rader and Rep. Anthony Moore (R)"
+    summary: "Ban corporal punishment for students with disabilities; Senate 31-16, House 63-25; became law without Gov. Stitt's signature"
+    status: signed
+    url: http://www.oklegislature.gov/BillInfo.aspx?Bill=SB364&Session=2500
+  - number: "HB 1028"
+    session: "2023"
+    sponsor: "Rep. John Talley (R)"
+    summary: "Ban corporal punishment for students with disabilities; failed 45-43 on March 14, 2023, passed 84-8 on reconsideration March 20, stalled in the Senate"
+    status: failed
+    url: http://www.oklegislature.gov/BillInfo.aspx?Bill=HB1028&Session=2300
+notes: "1,458 students in 2021-22 (991 in 2023-24). American Indian/Alaska Native students were 24 percent of those struck in 2017-18. Bills have been carried by Republicans without an outside coalition."
+sources:
+  - http://www.oklegislature.gov/BillInfo.aspx?Bill=SB364&Session=2500
+  - http://webserver1.lsb.state.ok.us/cf_pdf/2025-26%20ENR/SB/SB364%20ENR.PDF
+  - http://www.oklegislature.gov/BillInfo.aspx?Bill=HB1623&Session=1700
+last_verified: 2026-09-09

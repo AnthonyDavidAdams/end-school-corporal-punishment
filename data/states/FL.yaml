@@ -2,9 +2,21 @@ code: FL
 name: "Florida"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
-limits: []
-notes: "2025 law (HB 1255) requires parental opt-in consent. 19 of 67 districts allow it. 516 incidents in 2023-24"
-sources: []
-last_verified: null
+private_schools_covered: False
+statute: "Fla. Stat. \u00a7 1002.20(4)(c), \u00a7 1003.32 (CS/HB 1255, 2025, ch. 2025-110)"
+statute_url: "https://laws.flrules.org/2025/110"
+limits:
+  - "Since July 1, 2025 a district that authorizes it must obtain written parental consent for the school year or before each instance, have a second informed adult present, provide a written explanation on request, and review the policy at a public meeting every three years or the authorization expires; charters must comply"
+bills:
+  - number: "CS/HB 1255"
+    session: "2025"
+    sponsor: "Reps. Dana Trabulsy and Chase Tramont (R)"
+    summary: "Omnibus education bill adding the parental-consent requirement; final votes 100-0 and 30-0; signed May 30, 2025"
+    status: signed
+    url: https://www.flsenate.gov/Session/Bill/2025/1255
+notes: "17 of 67 districts reported 516 instances in 2023-24 (Suwannee 74, Holmes 65, Calhoun 59, Columbia 50, Wakulla 45, Washington 43); 647 students in the 2021-22 federal count. Districts that still permit it are coded consent_required. The consent law came from a four-year University of Florida student campaign after a disability-only ban was blocked."
+sources:
+  - https://www.flsenate.gov/Session/Bill/2025/1255
+  - https://laws.flrules.org/2025/110
+  - https://www.clickorlando.com/news/florida/2025/08/18/new-florida-law-allows-school-spankings-with-parent-consent/
+last_verified: 2026-09-09

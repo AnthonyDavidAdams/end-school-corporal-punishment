@@ -2,9 +2,27 @@ code: WY
 name: "Wyoming"
 status: legal
 year_banned: null
-private_schools_covered: null
-statute: null
+private_schools_covered: False
+statute: "W.S. \u00a7 21-4-308(b) (immunity for reasonable corporal discipline authorized by board policy)"
+statute_url: "https://wyoleg.gov/statutes/compress/title21.pdf"
 limits: []
-notes: "Western state that permits the practice"
-sources: []
-last_verified: null
+bills:
+  - number: "SF0047"
+    session: "2023 General Session"
+    sponsor: "Joint Education Interim Committee"
+    summary: "Repeal immunity for corporal discipline; Senate 26-5, House Committee of the Whole failed 12-47 on February 14, 2023"
+    status: failed
+    url: https://wyoleg.gov/Legislation/2023/SF0047
+  - number: "HB0065"
+    session: "2026 Budget Session"
+    sponsor: "Joint Education Interim Committee"
+    summary: "Require district discipline policies, parental notice and reporting; repeal the corporal-discipline immunity; failed introduction 38-24 (two-thirds needed) February 9, 2026"
+    status: failed
+    url: https://wyoleg.gov/Legislation/2026/HB0065
+notes: "The statute grants immunity rather than authorizing the practice. Press in 2022-23 reported one to three of 48 districts still had it in policy (Niobrara County SD #1 named) and no incidents reported federally since 2012; Laramie County SD 1 reaffirmed its prohibition in October 2025. Advocate: principal Jeff Jones."
+sources:
+  - https://wyoleg.gov/statutes/compress/title21.pdf
+  - https://wyoleg.gov/Legislation/2023/SF0047
+  - https://wyoleg.gov/Legislation/2026/HB0065
+  - https://www.wyomingpublicmedia.org/education/2022-10-04/a-sheridan-county-school-principal-is-seeking-to-end-corporal-punishment-in-wyomings-public-schools
+last_verified: 2026-09-09

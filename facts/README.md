@@ -41,5 +41,5 @@ Plain-language note on how to use the number, what it counts, and what it does n
 
 - The claim sentence names the data year. "In 2021-22" beats "recently".
 - Ratios name both sides: "Black students were 15 percent of enrollment and 37 percent of students receiving corporal punishment."
-- When a newer data year arrives, create a new claim and retire the old one; never edit a figure in place.
+- When a newer data year arrives, create a new claim, set `supersedes` on it, and retire the old one with `superseded_by`; never edit a figure in place.
 - The `id` is the filename. Prefix by source family: `crdc-`, `law-`, `study-`, `intl-`, `org-`, `persuasion-`, `campaign-`.

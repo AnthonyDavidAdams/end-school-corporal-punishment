@@ -2,17 +2,103 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Fact claim frontmatter (facts/claims/*.md)",
   "type": "object",
-  "required": ["id", "claim", "status", "sources", "last_verified"],
+  "required": [
+    "id",
+    "claim",
+    "status",
+    "sources",
+    "last_verified"
+  ],
   "properties": {
-    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-    "claim": { "type": "string", "description": "One sentence, publishable as-is" },
-    "status": { "enum": ["verified", "reported", "disputed", "retired"], "description": "verified = a maintainer or agent opened the primary source; reported = secondary source only; disputed = conflicting sources, do not publish; retired = superseded, kept for history" },
-    "figure": { "type": ["string", "number", "null"], "description": "The headline number, if any" },
-    "as_of": { "type": ["string", "null"], "description": "Data year the figure refers to, e.g. '2021-22'" },
-    "sources": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["url"], "properties": { "url": { "type": "string", "format": "uri" }, "title": { "type": "string" }, "publisher": { "type": "string" }, "date": { "type": "string" }, "primary": { "type": "boolean" } } } },
-    "supersedes": { "type": ["string", "null"] },
-    "tags": { "type": "array", "items": { "type": "string" } },
-    "last_verified": { "type": "string", "format": "date" },
-    "verified_by": { "type": ["string", "null"], "description": "GitHub handle, or 'agent:<name>' with the PR link in the body" }
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "claim": {
+      "type": "string",
+      "description": "One sentence, publishable as-is"
+    },
+    "status": {
+      "enum": [
+        "verified",
+        "reported",
+        "disputed",
+        "retired"
+      ],
+      "description": "verified = a maintainer or agent opened the primary source; reported = secondary source only; disputed = conflicting sources, do not publish; retired = superseded, kept for history"
+    },
+    "figure": {
+      "type": [
+        "string",
+        "number",
+        "null"
+      ],
+      "description": "The headline number, if any"
+    },
+    "as_of": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Data year the figure refers to, e.g. '2021-22'"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "primary": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_verified": {
+      "type": "string",
+      "format": "date"
+    },
+    "verified_by": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "GitHub handle, or 'agent:<name>' with the PR link in the body"
+    },
+    "superseded_by": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "For retired claims: the id of the claim that replaces it"
+    }
   }
 }

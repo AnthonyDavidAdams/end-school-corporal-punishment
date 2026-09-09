@@ -7,7 +7,7 @@ Dear Members of the [DISTRICT NAME] Board of Education,
 
 I am writing to request that the Board adopt a policy prohibiting corporal punishment in our schools.
 
-While [STATE] state law permits corporal punishment, individual districts have the authority to ban it. Many districts in our state have already done so, recognizing that physical punishment is ineffective and harmful.
+While [STATE] state law permits corporal punishment, individual districts have the authority to ban it. [NUMBER] of the [TOTAL] districts in our state have already done so, including [NEIGHBORING DISTRICT], recognizing that physical punishment is ineffective and harmful.
 
 As a [parent/community member/educator] in this district, I am concerned that:
 - Corporal punishment can cause physical and psychological harm to children

@@ -13,6 +13,10 @@ State bans pass when they change little in practice. Colorado banned corporal pu
 
 Start from `templates/state-ban-act.md`. Keep the reasonable-force exceptions; every successful bill has them and their absence is the opposition's first attack. Consider including private schools only if the count of states with private-school bans in `facts/` supports the precedent argument; otherwise leave it for a later session.
 
+## The regulatory route
+
+If the legislature will not move, the state board of education may. Kentucky's 704 KAR 7:170 (2022) did not ban corporal punishment; it required any district that kept it to obtain annual written and per-instance verbal consent, use a same-gender certified witness, exclude students with IEPs and 504 plans, and provide counseling within a day. Every one of 171 districts chose prohibition within one policy cycle. Ask the state board for the same rule; the argument is child safety and district liability, and the board hears it in a room without floor speeches. `case-studies/kentucky-regulation.md`.
+
 ## Sequencing when preconditions are missing
 
 Pass what can pass, in this order, each with its own bill: (1) prohibition for students with disabilities; (2) written opt-in parental consent, annually renewed; (3) principal-only administration, another adult present, written record; (4) annual public reporting by school; (5) the full ban. Florida moved to opt-in consent in 2025; Louisiana, Oklahoma, and Tennessee have taken or debated the disability step. See `narrowing.md` and `data/states/`.

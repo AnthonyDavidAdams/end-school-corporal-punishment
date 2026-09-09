@@ -2,9 +2,27 @@ code: KY
 name: "Kentucky"
 status: partial
 year_banned: null
-private_schools_covered: null
-statute: null
-limits: []
-notes: "Technically legal but ALL 171 districts banned it by Nov 2, 2023. Zero incidents 2023-24"
-sources: []
-last_verified: null
+private_schools_covered: False
+statute: "KRS 503.110 (permits); 704 KAR 7:170 (regulates)"
+statute_url: "https://apps.legislature.ky.gov/law/kar/titles/704/007/170/"
+limits:
+  - "Under 704 KAR 7:170 (effective Aug 30, 2022) a district that permits it must obtain annual written and per-instance verbal parental consent, use a same-gender certified witness, no instruments, provide counseling by the next school day, and may not use it on students with IEPs or 504 plans, homeless or foster youth"
+bills:
+  - number: "HB 22"
+    session: "2020 Regular Session"
+    sponsor: "Rep. Steve Riley (R)"
+    summary: "Ban corporal punishment in schools; passed House 65-17, died in Senate Education"
+    status: failed
+    url: https://apps.legislature.ky.gov/record/20rs/hb22.html
+  - number: "HB 119"
+    session: "2022 Regular Session"
+    sponsor: "Rep. Steve Riley (R)"
+    summary: "Ban corporal punishment in schools; died in committee"
+    status: failed
+    url: https://apps.legislature.ky.gov/record/22rs/hb119.html
+notes: "All 171 districts had prohibiting policies by November 2, 2023; zero incidents in 2023-24 (5 in 2022-23, 142 in 2019-20, about 1,100 in 2011-12). The statute still permits it, and advocates want a ban in law because policies can be reversed."
+sources:
+  - https://apps.legislature.ky.gov/law/kar/titles/704/007/170/
+  - https://nkytribune.com/2025/01/kentucky-records-zero-instances-of-corporal-punishment-during-2023-2024-school-year/
+  - https://www.lpm.org/news/2021-12-01/kentucky-board-of-education-limits-corporal-punishment-in-schools
+last_verified: 2026-09-09

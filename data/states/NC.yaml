@@ -2,9 +2,27 @@ code: NC
 name: "North Carolina"
 status: partial
 year_banned: null
-private_schools_covered: null
-statute: null
-limits: []
-notes: "De facto ban - all districts banned as of Oct 2, 2018"
-sources: []
-last_verified: null
+private_schools_covered: False
+statute: "G.S. 115C-390.4"
+statute_url: "https://www.ncleg.net/enactedlegislation/statutes/html/bysection/chapter_115c/gs_115c-390.4.html"
+limits:
+  - "Local board decides; witness required; written parental notice; records; annual report to State Board by race, sex and disability; written parental opt-out offered at enrollment (an opted-out student may be suspended for offenses that otherwise would not require it)"
+bills:
+  - number: "HB 983"
+    session: "2025-26"
+    sponsor: "Reps. Maria Cervania and Marcia Morey (D)"
+    summary: "Prohibit corporal punishment in schools; in House Rules since April 14, 2025"
+    status: pending
+    url: https://www.ncleg.gov/BillLookUp/2025/H983
+  - number: "S714"
+    session: "2025-26"
+    sponsor: "Sen. Gladys Robinson (D) with Sen. Kevin Corbin (R) among sponsors"
+    summary: "Prohibit corporal punishment in schools; in Senate Rules since March 26, 2025"
+    status: pending
+    url: https://www.ncleg.gov/BillLookUp/2025/S714
+notes: "All 115 districts prohibited it by October 2, 2018 (Robeson County April 2018, Graham County October 2, 2018) after two decades of advocacy by NC Child. 57 students reported in 2017-18; none since. A 2019 bipartisan ban bill cleared House Education and stalled."
+sources:
+  - https://www.ncleg.net/enactedlegislation/statutes/html/bysection/chapter_115c/gs_115c-390.4.html
+  - https://www.ednc.org/corporal-punishment-in-nc-the-end-is-near/
+  - https://www.wunc.org/education/2018-10-18/graham-county-schools-end-corporal-punishment
+last_verified: 2026-09-09

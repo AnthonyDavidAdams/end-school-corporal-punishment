@@ -8,13 +8,15 @@ Corporal punishment in US schools will not end with one federal law. It ends the
 2. **Pile up opt-outs.** In every legal state a parent can refuse in writing. A district where a third of parents have filed refusals has a policy in name only, and superintendents drop policies that create paperwork and liability without use. `templates/letter-principal-opt-out.md`.
 3. **Flip districts.** School boards are the cheapest lever in American politics: five to nine people, public meetings, three-minute comment slots, and elections decided by a few hundred votes. `playbooks/district-ban.md`.
 4. **Flip states when the map is already mostly flipped.** Colorado in 2023 banned corporal punishment after 154 of 178 districts already had. Kentucky and North Carolina reached zero districts before their legislatures acted at all. Legislators vote for bans that change nothing in their own district. `playbooks/state-ban.md`.
-5. **Narrow the practice where you cannot end it.** Bans for students with disabilities, opt-in consent instead of opt-out, mandatory reporting, and administration-only-by-principals each cut use sharply and build the record for a full ban. `playbooks/narrowing.md`.
+5. **Narrow the practice where you cannot end it.** Bans for students with disabilities (Mississippi 2019, Tennessee 2018, Louisiana 2017, Oklahoma 2025), opt-in consent (Florida 2025), mandatory reporting, and administration-only-by-principals each cut use sharply and build the record for a full ban. Mississippi's count of students with disabilities struck fell from 3,304 to 30 after its 2019 law. `playbooks/narrowing.md`.
 6. **Replace, do not just prohibit.** Every ban needs an answer to "then what do we do instead," or the opposition wins on the floor with a story about chaos. `training/` is that answer, free and open. `playbooks/replacement.md`.
 7. **Federal action as ratification.** The Protecting Our Students in Schools Act has stalled in every Congress it has been introduced. It passes when the count of legal states is single digits. `playbooks/federal.md`.
 
 ## Where the leverage is
 
-By students affected, a handful of states are the whole problem. The CRDC tables in `data/crdc/` rank them. The strategy is to concentrate: the district scan, opt-out drives, and board campaigns go first to the districts that account for most of the use, which are a few hundred districts in Mississippi, Texas, Alabama, Arkansas, Oklahoma, Louisiana, Georgia, Tennessee, and Missouri.
+By students affected, a handful of states are the whole problem: Texas, Alabama, Mississippi and Arkansas were 74 percent of the 24,534 students struck in 2021-22, and about 950 districts reported any use at all (`facts/claims/crdc-top-four-states-share-2021-22.md`, `crdc-schools-and-districts-2021-22.md`). The strategy is to concentrate: the district scan, opt-out drives, and board campaigns go first to those 950 districts, and within them to the ones the CRDC district table ranks highest.
+
+There is also a lever the old playbooks missed. Kentucky reached zero without a statute: its Board of Education adopted a regulation in 2022 that made the practice so expensive to administer (consent, witness, counseling, exclusions) that all 171 districts quit within a year (`case-studies/kentucky-regulation.md`). Every remaining state has a board with rulemaking authority over discipline.
 
 ## What this repository adds that did not exist
 
