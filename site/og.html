@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:1200px;height:630px;background:#f6f4ef;font-family:-apple-system,system-ui,sans-serif;color:#1c1c1c;overflow:hidden}
+.wrap{display:flex;height:630px}
+.text{width:440px;padding:56px 0 0 56px;box-sizing:border-box}
+h1{font-size:44px;line-height:1.05;margin:0 0 20px;font-weight:700}
+p{font-size:22px;line-height:1.35;margin:0 0 14px;color:#3a3a3a}
+.small{font-size:16px;color:#6a6a6a;margin-top:28px}
+#map{width:760px;padding:40px 30px 0 0;box-sizing:border-box}
+#map svg{width:100%;height:auto}
+</style></head><body><div class="wrap"><div class="text">
+<h1>Where a teacher may still legally hit a student</h1>
+<p><b style="color:#b3382c">15 states</b> allow it and use it.</p>
+<p><b style="color:#8a6d12">2 states</b> allow it, but every district has stopped.</p>
+<p><b style="color:#2f6b3a">33 states + DC</b> prohibit it.</p>
+<p class="small">24,534 students struck in 2021-22 (US Dept. of Education). Open data, CC BY 4.0. earthpilot.org/kids</p>
+</div><div id="map"></div></div>
+<script>
+const C={banned:"#2f6b3a",partial:"#c9a227",legal:"#b3382c"};
+Promise.all([fetch("http://localhost:8766/assets/us-states.svg").then(r=>r.text()),fetch("http://localhost:8766/data/states.json").then(r=>r.json())]).then(([svg,st])=>{
+ const m=document.getElementById("map"); m.innerHTML=svg;
+ for(const p of m.querySelectorAll("path.state")){const s=st[p.dataset.state]; p.setAttribute("fill",C[s?.status]||"#ccc"); p.setAttribute("stroke","#fff"); p.setAttribute("stroke-width","1.2");}
+ document.title="ready";
+});
+</script></body></html>
