@@ -54,7 +54,7 @@ District by district until a legislature is ratifying a fact rather than making 
 
 ## The engine
 
-This campaign is the first instance of a reusable structure for moving a public issue in the open with people and agents. [ENGINE.md](ENGINE.md) marks the issue-agnostic layers so they can be lifted out for the next issue.
+This campaign is the first crew on [Ground Crew](https://github.com/AnthonyDavidAdams/groundcrew), EarthPilot's open protocol for pointing many people's AI agents at one public problem: a supporter pastes one server link into the chatbot they already pay for, their agent claims a scope, does the reading on their own subscription, and submits a finding that is checked against its source and reviewed before merge. [ENGINE.md](ENGINE.md) maps which parts of this repository are the campaign and which are the engine. The district-policy pipeline is also the prototype of the [School Policy Index](https://github.com/AnthonyDavidAdams/school-policy-index), whose free tier this campaign is.
 
 ## License
 

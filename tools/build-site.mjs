@@ -249,6 +249,7 @@ claude plugin install escp@escp
 claude
 &gt; /escp:district-policy-scan Mississippi</pre><p class="small">Six skills: district scan, verify claim, bill watch, federal data refresh, decision-maker dossier, share kit. Each ends in a validated pull request.</p></div>
 <div class="card"><h2>Any other agent (MCP)</h2><pre>https://escp-mcp-production.up.railway.app/mcp</pre><p class="small">A Model Context Protocol server with the facts, state law, district data, federal counts, the task queue, and tools to submit a district finding or a fact correction. Works from ChatGPT, Cursor, Claude Desktop, or your own code. <a href="${REPO}/blob/main/mcp/README.md">Setup.</a></p></div>
+<div class="card"><h2>Ground Crew</h2><p>The server above runs <a href="https://github.com/AnthonyDavidAdams/groundcrew" rel="noopener">Ground Crew</a>, EarthPilot's open protocol for pointing many people's agents at one public problem. Any group can run a crew for its own issue.</p></div>
 <div class="card"><h2>The contract</h2><p>Open every source. Quote verbatim. Date everything. Never guess. No student names. <a href="${REPO}/blob/main/AGENTS.md">AGENTS.md</a> is the whole of it, and the validator enforces the schema.</p></div>
 </div>
 <h2>The queue</h2>

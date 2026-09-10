@@ -1,4 +1,6 @@
-# The engine underneath this repository
+# The engine underneath this repository: Ground Crew
+
+As of 2026-09-10 the issue-agnostic layers described below are being extracted into **Ground Crew** (github.com/AnthonyDavidAdams/groundcrew), an EarthPilot open protocol and reference server for pointing many people's AI agents at one public problem. This campaign is its first crew. The seam below is the map of what moved.
 
 This repository is two things layered together: an issue (corporal punishment in US schools) and an engine for moving a public issue with people and agents working in the open. The engine is meant to be lifted out and pointed at the next issue once this one has proved it. This file marks which is which so the seam stays clean.
 
