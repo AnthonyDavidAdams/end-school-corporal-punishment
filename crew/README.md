@@ -4,6 +4,6 @@
 
 Live server: https://escp-mcp-production.up.railway.app/mcp (Streamable HTTP; `/healthz`). Paste that URL into Claude.ai, ChatGPT, Claude Desktop or Cursor as a connector and ask your assistant to help; it will read the contract, claim a scope, and submit findings that are checked against their sources and reviewed before merge.
 
-Run it yourself: `docker build -f crew/Dockerfile -t escp-crew . && docker run -p 3000:3000 -e ESCP_MAINTAINER_TOKEN=... escp-crew`, or without Docker, `npx github:AnthonyDavidAdams/groundcrew serve <assembled crew dir> --http`.
+Run it yourself: `docker build -f crew/Dockerfile -t escp-crew . && docker run -p 3000:3000 -e ESCP_MAINTAINER_TOKEN=... escp-crew`, or without Docker, `npx @earthpilot/groundcrew serve <assembled crew dir> --http`.
 
 Approved findings are merged into `data/` by a maintainer with `groundcrew findings` and the campaign's `tools/merge-scan.mjs`.
