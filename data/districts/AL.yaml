@@ -33,6 +33,35 @@ districts:
     crdc_students_latest: 248
     last_verified: 2026-09-09
     notes: "Opt-out only, and non-binding: parents who object must advise the administrator in writing, but the text says the administrator retains authority to determine discipline, and the signature page reads \"I DO___ or DO NOT ___ prefer that corporal punishment (paddling) be used ... However, I acknowledge the right of the school system's authority to use any and all disciplinary measures ... including paddling.\" Administered by a certified employee with a Board-issued paddle, no more than three licks, in the presence of a school administrator (or principal's designee), after an attempted phone call to the parent, recorded in PowerSchool, with a written explanation and witness name given to parents afterward. No disability exemption is stated. Document is the district's \"2026-2027 Code of Conduct\" PDF linked from https://www.butlerco.k12.al.us/for-parents/bcss-handbook-policies (BCSS Handbook & Policies page), which also lists \"Board Policy/Student Handbook & Code of Conduct Revisions\" dated July 17, 2025 and October 16, 2025. The Code of Conduct cites Alabama Code 16-28A-1 and Ingraham v. Wright. Corporal punishment is listed as a first-offense option for Class II (grades 6-12) and Class III offenses. No separate board policy manual (AASB-style) was found on the district site; the Code of Conduct is board-adopted and is the operative text."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: Cell phone or similar device use is prohibited in the school between the hours of 7:00 a.m. – 3:30 p.m. Local schools will determine how digital devices are stored during the school day
+      source: https://www.butlerco.k12.al.us/fs/resource-manager/view/c5bd3ab2-960e-40cf-9450-4f3d853ff9a6
+      policy_code: 2026-2027 Code of Conduct, 'Digital Device Use' (p. 39)
+      last_verified: 2026-09-09
+      notes: "Fixed-clock ban covering the whole school day. Discipline for grades 6-12: 1st offense (Class II-S09) confiscation + 10 days ISSP; 2nd (Class III-S16) 45 days Alternative School; 3rd (Class IV-S58) recommended expulsion. Students are permitted to use phones on the school bus (transportation rule 20). The Code does not cite the FOCUS Act or Act 2025-386."
+    ai_policy:
+      status: permitted_with_guidance
+      quote: Students shall not use Artificial Intelligence (AI) platforms to avoid doing their own work. AI platforms should only be used as a supplement when authorized by a teacher. Should AI be used, the student must acknowledge and cite the use of AI, attributing text, images, multimedia, etc. to the AI source and criteria used to show how AI contributed to the result of the assignment. A violation of this rule is considered cheating and will be handled as outlined in the current Handbook and Code of Student Conduct.
+      source: https://www.butlerco.k12.al.us/fs/resource-manager/view/c5bd3ab2-960e-40cf-9450-4f3d853ff9a6
+      policy_code: 2026-2027 Code of Conduct, 'Artificial Intelligence (AI) Acceptable Use Policy' (pp. 41-43), section B 'Students Responsible Use'
+      last_verified: 2026-09-09
+      notes: Stand-alone AI acceptable-use policy with staff rules (A.1-11), student rules (B.1-7), misuse prohibition (C), privacy warning (D) and a review clause (E) referencing ALSDE guidance. The document itself writes 'Alternative Intelligence (AI) platforms' in the opening paragraph.
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: Greenville High School
+        source: https://ghs.butlerco.k12.al.us/
+        quote: ""
+      middle_school:
+        start: null
+        end: unknown
+        school: Greenville Middle School
+        source: https://gms.butlerco.k12.al.us/
+        quote: ""
+      notes: "No bell schedule found. Searched: 2026-27 Code of Conduct (only the 7:00 a.m.-3:30 p.m. phone-ban window), Greenville HS and Greenville MS home, About Us, Our School, For Students and Calendar pages, district Schools and For Parents pages. Georgiana School and McKenzie School (K-12) not checked."
+    document_text_path: data/policies/AL/0100510.md
   - name: Calhoun County School District
     county: Calhoun
     nces_id: "0100540"
@@ -43,6 +72,36 @@ districts:
     policy_code: "6.16"
     crdc_students_latest: 173
     notes: "Board policy 6.16 contains no parental consent or opt-out provision. Administered by the principal or certificated designee, witnessed by a certified employee, out of view of other students, maximum three swats with a smooth paddle; no disability exemption stated. The 2026-2027 Student Code of Conduct discipline tables list 'Corporal Punishment and Parental Notification-as a last resort after other disciplinary tactics have failed and/or determined on a case by-case basis' (notification, not consent). Board Policy Manual on Simbli (S=36031575), linked from https://www.calhouncountyschools.com/our-district/policies-reports. Policy 6.16 'Corporal Punishment', status ADOPTED, original adopted 06/06/2023, last reviewed 06/06/2023, reference ALA. CODE §16-28A-2. The 2026-2027 Student Code of Conduct PDF (https://resources.finalsite.net/images/v1782915796/calhounk12alus/wufdubppvm8ain3uk87i/StudentCodeofConduct.pdf) repeats the policy text verbatim under 'Corporal Punishment-' in its definitions of disciplinary actions and, under STUDENT DUE PROCESS, provides 'Informal Due Process - Corporal Punishment and Short-Term Suspension (9 days or less)' (oral or written notice of the charge, explanation of the evidence, opportunity to present the student's version). The CCBOE Student Handbook PDF (https://resources.finalsite.net/images/v1782915853/calhounk12alus/ngt0vriwbhw6mnll9nvt/CCBOE_Student_Handbook.pdf) contains no corporal punishment text. District office: 4400 McClellan Blvd, Anniston, AL 36206. calhoun.k12.al.us redirects to calhouncountyschools.com. Stable entry point: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36031575 then chapter 6 > 6.16."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: No student may use, operate, or possess an electronic wireless communication device in any public elementary or secondary school building or on the grounds thereof during the instructional day unless the wireless communication device is turned off and stored off their person in a locker, car, or similar storage location.
+      source: https://resources.finalsite.net/images/v1782915796/calhounk12alus/wufdubppvm8ain3uk87i/StudentCodeofConduct.pdf
+      policy_code: Student Code of Conduct 2026-27, 'CELL PHONE' (p. 32)
+      last_verified: 2026-09-09
+      notes: Tracks the FOCUS Act text and cites Section 16-13-231, Code of Alabama 1975 for the instructional day, which 'includes class transitions, lunch, non-instructional times'. The Act is not named in the Code of Conduct (searched 'FOCUS'); the White Plains Middle site links a 'FOCUS Act Information' Google Doc. Unauthorized use is an Intermediate Violation (Code 205 / 102 lists).
+    ai_policy:
+      status: no_policy
+      quote: null
+      source: https://resources.finalsite.net/images/v1782915796/calhounk12alus/wufdubppvm8ain3uk87i/StudentCodeofConduct.pdf
+      policy_code: null
+      last_verified: 2026-09-09
+      notes: "Searched the full text of the 2026-27 Student Code of Conduct (PDF text extraction, 240 KB) and the CCBOE Student Handbook (145 KB) for 'artificial intelligence', 'AI', 'ChatGPT', 'generative': no match."
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: Alexandria, Ohatchee, Pleasant Valley, Saks, Walter Wellborn, Weaver, White Plains High
+        source: https://www.calhouncountyschools.com/
+        quote: null
+      middle_school:
+        start: null
+        end: unknown
+        school: Alexandria Middle, White Plains Middle
+        source: https://www.calhouncountyschools.com/
+        quote: null
+      notes: Searched the Code of Conduct and Student Handbook text for bell times (none) and the home/About Us/Contact pages of ahs, ams, wphs, wpms, shs, whs .calhouncountyschools.com (Finalsite; no hours in served HTML).
+    archived_url: https://web.archive.org/web/20260910031710/https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031575&revid=ov1mAh6MTHdOGkeRYUu1aw==&ptid=opluslgy5YBB1lFkXrdgY4anQ==&secid=PIt0EdqGusPq6JYPplus1xJww==&PG=6&IRP=0&isPndg=false
+    document_text_path: data/policies/AL/0100540.md
   - name: Coffee County Schools
     county: Coffee
     nces_id: "0100810"
@@ -53,6 +112,36 @@ districts:
     crdc_students_latest: 184
     last_verified: 2026-09-09
     notes: "Opt-out only: a parent or guardian who does not want corporal punishment used must notify the school principal in writing. Administered by the principal, assistant principal, or designee in the presence of another certified employee, not in the presence of another student; no disability exemption stated in the policy. Board Policy Manual is on Simbli (S=2070), reached via the redirect from https://www.coffeecountyschools.org/board-policy-manual. Policy 6.17 'Corporal Punishment', status ADOPTED, original adopted date 06/06/2019, reference Ala. Code §16-28A-2. Second paragraph: 'Corporal punishment will be administered by the school principal, the assistant principal, or his or her designee in the presence of another certified employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administrating and documenting corporal punishment, consistent with the terms of this policy.' The typo 'it the parent' is in the source. District office: 400 Reddoch Hill Rd, Elba, AL 36323. The Simbli ViewPolicy URL carries session-style tokens; the stable entry point is https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=2070 then chapter 6 > 6.17."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: The use of all electronic devices, including cell phones, beepers, pagers, and smartwatches, is prohibited during the school day. This includes using cell phones to make voice calls, to take photos/videos and to send or receive text messages. [...] The device must be turned off upon arrival on campus. If it is brought inside, it must be placed in the student's locker before the beginning of first period. The students are prohibited from keeping the device on their person, including purses, book bags, and clothing.
+      source: https://files.smartsites.parentsquare.com/13161/parent_student_information_guide_for_website_1.pdf
+      policy_code: Parent/Student Information Guide 2026-27, 'Cell Phones/Electronic Devices' (PDF p. 46-47)
+      last_verified: 2026-09-09
+      notes: Guide is a scanned PDF with no text layer; quote taken by OCR (macOS Vision) and should be checked against the page image before quoting in a hearing. Text does not cite the FOCUS Act by name (searched 'FOCUS'). Possession after the beginning of first period is a discipline violation; five-step penalty ladder from confiscation to suspension pending hearing.
+    ai_policy:
+      status: no_policy
+      quote: null
+      source: https://files.smartsites.parentsquare.com/13161/parent_student_information_guide_for_website_1.pdf
+      policy_code: null
+      last_verified: 2026-09-09
+      notes: "Searched the OCR text of the whole 79-page guide for 'artificial intelligence', 'AI', 'ChatGPT', 'generative', 'plagiar': no match. The only academic-honesty line is 'Intentionally providing false information (forgery, cheating, etc.)'. OCR caveat applies."
+    start_times:
+      high_school:
+        start: 7:30
+        end: 3:15
+        school: Coffee County Schools (district-wide; New Brockton High, Kinston, Zion Chapel)
+        source: https://files.smartsites.parentsquare.com/13161/parent_student_information_guide_for_website_1.pdf
+        quote: The times established for opening and closing of the Coffee County Schools are 7:30 a.m. and 3:15 p.m.
+      middle_school:
+        start: 7:30
+        end: 3:15
+        school: Coffee County Schools (district-wide; New Brockton Middle)
+        source: https://files.smartsites.parentsquare.com/13161/parent_student_information_guide_for_website_1.pdf
+        quote: The times established for opening and closing of the Coffee County Schools are 7:30 a.m. and 3:15 p.m.
+      notes: District-wide opening/closing times from the guide ('SCHOOL OPENING AND CLOSING', PDF p. 33), not a per-school bell schedule. Each school site has a 'School Hours' page (e.g. https://nbhs.coffeecountyschools.org/school-hours) but it renders no times to a non-JavaScript client.
+    archived_url: https://web.archive.org/web/20260910031412/https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2070&revid=eIilrJZeyhbzPmuNcNFFMg==&ptid=nWlQpJkYTAuW9bslshR3E96RA==&secid=qHu2lGamQmtT4oCqzZ6LAA==&PG=6&IRP=0&isPndg=false
+    document_text_path: data/policies/AL/0100810.md
   - name: Covington County Schools
     county: Covington
     nces_id: "0100930"
@@ -63,6 +152,35 @@ districts:
     crdc_students_latest: 265
     last_verified: 2026-09-09
     notes: "No parental consent, notice, or opt-out provision. May be administered by the principal/designee or a teacher, witnessed by a professional employee of the Board, with a written report filed at the school. Students with disabilities are paddled under the same procedures when the behavior is not a manifestation of the disability. Document is the Word file 'CCS Code of Conduct 2026-2027' (file name says adopted 5-5-26; title page: COVINGTON COUNTY SCHOOLS, ANDALUSIA, ALABAMA, CODE OF STUDENT CONDUCT 2026-2027, Superintendent Nikki Guilford) in the Home folder of the district's Apptegy document library, listed at https://www.cov.k12.al.us/documents/parent-resources/code-of-student-conduct/816114. The board policy manual ('CCS Policy Manuel 2026-2027', 99-page PDF, https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5469/Ccs/85e9a626-d158-419e-9274-5c8bbe998258/Code-of-Conduct-8.4.26.pdf?disposition=inline) is a scanned image with no text layer and no OCR tool was available, so the numbered board policy on corporal punishment was not read; a follow-up should OCR it for the policy code. The two old nav short-links (5il.co/3hx7n School Board Policy, 5il.co/3hx6y Code of Student Conduct) are dead (404/403). NOTE: covingtoncountyschools.org is Covington County, Mississippi, not this district."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: Covington County Schools prohibits student possession of electronic communication devices during the instructional day or on school buses.
+      source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5469/Ccs/c6069503-6ba9-458f-9291-f2c4358d5837/Code-of-Conduct-26-27-adopted-5-5-26.doc?disposition=inline
+      policy_code: Code of Student Conduct 2026-2027, section 'Electronic Communication and Recording Devices(FOCUS Act)' (unnumbered)
+      last_verified: 2026-09-09
+      notes: "Section heading names the FOCUS Act. Possession itself is prohibited during the instructional day and on buses. Consequences: 1st offense device taken up until end of day and returned to student; subsequent offenses parent pick-up, may be treated as Class II-255 or Class III-303; refusal to surrender is Class III; violation during state testing = 3-day suspension. Offense codes 255 'Cell phone possession' and 303 'Repeated cell phone offense'."
+    ai_policy:
+      status: no_policy
+      quote: ""
+      source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5469/Ccs/c6069503-6ba9-458f-9291-f2c4358d5837/Code-of-Conduct-26-27-adopted-5-5-26.doc?disposition=inline
+      policy_code: ""
+      last_verified: 2026-09-09
+      notes: "Read the entire 2026-2027 Code of Student Conduct (41k chars, textutil extraction of the .doc): no 'artificial intelligence', 'AI', 'ChatGPT' or 'generative'. Cheating appears only as offense 180 'Cheating (copying school work)'."
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: Straughn High School (also Florala HS, Pleasant Home, Red Level)
+        source: https://shs.cov.k12.al.us/o/shs
+        quote: ""
+      middle_school:
+        start: null
+        end: unknown
+        school: Straughn Middle School (also Fleeta Jr. High)
+        source: https://sms.cov.k12.al.us/o/sms
+        quote: ""
+      notes: "No bell schedule found. Searched: 2026-27 Code of Student Conduct (only the Alternative School hours 8:00 A.M.-3:00 P.M. appear), district home page school list, Straughn High School home page, Straughn Middle School home page and its Students information page. Apptegy school sites show only events and live feeds."
+    document_text_path: data/policies/AL/0100930.md
   - name: Cullman County Schools
     county: Cullman
     nces_id: null
@@ -80,6 +198,36 @@ districts:
     crdc_students_latest: 146
     last_verified: 2026-09-09
     notes: "No parental consent, notice, or opt-out provision. Administered by the principal or designee, witnessed by another adult professional school system employee, not in front of other students; no disability exemption stated in the policy. Source is the 'Board Policy Manual' linked from the dalecountyboe.org homepage (112 pages, scanned image PDF, page footers read 'Dale County Board of Education Policy Manual Effective: July 1, 2022'). The PDF has no text layer; the quote was taken by OCR (macOS Vision) of page 87-88 and checked against the identical AASB model wording used by Marion County; verify against the image before quoting in a hearing. No student handbook or code of conduct was found on the district site navigation (pages: About, BOE, Curriculum, Federal Programs, Finance, Health, HR, SPED, Superintendent, Teacher, Technology, Transportation, Virtual School); the /boe page lists agenda/minute PDFs only."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: "Grades 5-12: Bell-to-bell ban; students will not be allowed to use personal cell phones/wireless communication devices during the instructional day (from the first bell of the day to the last bell of the day). Cell phones are to be unheard and unseen during the school day."
+      source: https://docs.google.com/document/d/e/2PACX-1vQKwi1zolV3f9QndIDyurp7sRLR36GCj57QTrwOeyMWyw-SSoGnRjXgfEGUM61aGLtnVukBdUizO-uk/pub
+      policy_code: DCHS Parent/Student Handbook 2026-27, 'STUDENT POSSESSION AND USE OF CELLULAR PHONES, PERSONAL LAP TOPS, AND OTHER ELECTRONIC COMMUNICATION DEVICES' (p. 20)
+      last_verified: 2026-09-09
+      notes: "Names the FOCUS ACT: 'In compliance with Alabama Law (FOCUS ACT), Dale County Schools is committed to creating a focused learning environment' and 'The Dale County Board of Education has adopted a policy that aligns with Alabama Law (FOCUS ACT).' Grades K-4 may not bring devices at all; grades 5-12 must store them 'off their person, such as in a locker, car, or similar storage location'. Same text in the South Dale Middle School Student Handbook 2025-2026 (https://docs.google.com/document/d/1DnE_GXwm6ZAz8O25WieJeeZDgAzcT7ef3D3aHMqUhck/edit). The district site publishes no district-wide student handbook; only a one-page 'Student Handbook Amendment' (explicit images, Act 2024-98)."
+    ai_policy:
+      status: academic_integrity_only
+      quote: Cheating on tests, projects, classroom assignments, homework, or any other assigned work. This includes, but not limited to, the use of Artificial Intelligence or other electronic source of information.
+      source: https://docs.google.com/document/d/e/2PACX-1vQKwi1zolV3f9QndIDyurp7sRLR36GCj57QTrwOeyMWyw-SSoGnRjXgfEGUM61aGLtnVukBdUizO-uk/pub
+      policy_code: DCHS Parent/Student Handbook 2026-27, Class II offense 17
+      last_verified: 2026-09-09
+      notes: Also the explicit-images rule covers images 'generated by artificial intelligence'. No general AI-use policy.
+    start_times:
+      high_school:
+        start: 7:50
+        end: 3:05
+        school: Dale County High School
+        source: https://dchs.dalecountyboe.org/bellschedule
+        quote: 7:50 9:30 1st Block ... 1:35 3:05 4th Block
+      middle_school:
+        start: null
+        end: unknown
+        school: South Dale Middle School
+        source: https://sdms.dalecountyboe.org/
+        quote: null
+      notes: "DCHS 2026-2027 bell schedule is an image (https://content.myconnectsuite.com/api/documents/cbff928cc0584dd699467fbc475ba7b6.png), read by OCR: 'BEGIN 7:25 END 7:50 Lockers & Breakfast in Classrooms; 7:50 9:30 1st Block; ... 1:35 3:05 4th Block'. The /schoolhours page image reads 'SCHOOL HOURS 7:25 AM - 3:05 PM'. South Dale Middle: the site and 2025-2026 handbook give only office hours ('7:30 AM to 3:30 PM') and 'Students should not be on campus before 7:25 a.m.' / 'should not remain on campus after 3:30 p.m.'; no bell schedule found."
+    archived_url: https://web.archive.org/web/20250416120350/https://content.myconnectsuite.com/api/documents/920e45d83bd747a2bc643eb8c1ea510a
+    document_text_path: data/policies/AL/0101050.md
   - name: DeKalb County Board of Education (DeKalb County Schools)
     county: DeKalb
     nces_id: "0101140"
@@ -90,6 +238,36 @@ districts:
     crdc_students_latest: 156
     last_verified: 2026-09-09
     notes: "No parental consent or opt-out; the 2026-2027 Student Handbook and Code of Conduct sec. 5.3.3 states verbatim: 'State law does not forbid corporal punishment. The DeKalb County Board of Education does not recognize a \"no paddle\" list. Schools must follow IEP/504 plan or make provisions for medical reasons.' Administered by a school administrator, witnessed by a certified employee, out of view of other students, written record with copy to parent. Policy manual is 'Policies and Procedures Handbook', 228 pages, cover reads 'Effective 8/1/2026' (page footers carry 'DRAFT 5/21/15' watermark). Linked from https://www.dekalbk12.org/handbooks. Companion source: 2026-2027 Student Handbook and Code of Conduct, https://files.smartsites.parentsquare.com/12948/26-27_student_handbook_final_1.pdf, sec. 5.3.3 (p. 2295 of text extraction) and the Type I / Type II offense sanction lists ('Corporal Punishment - (Witness and Due Process Required) - DeKalb County Board of Education Policy must be followed')."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: All personal student Wireless Communication Devices (WCD) are to remain turned off and stored off their person during the instructional day.
+      source: https://files.smartsites.parentsquare.com/12948/26-27_student_handbook_final_1.pdf
+      policy_code: Student Handbook 2026-27, sec. 6.9 'Wireless Communication Device Policy (FOCUS ACT)' (p. 72)
+      last_verified: 2026-09-09
+      notes: "Section heading names the FOCUS ACT. 'Instructional Day' is defined as arrival until dismissal and 'includes class transitions, lunch, class time, and non-instructional time'; 'Stored off their person' means 'a locker, car, or similar storage location (e.g., backpack, purse, gym, pouch...)'. Exceptions: IEP/504/health plan, supervised educational use, emergency. Failure to comply is a Type II offense."
+    ai_policy:
+      status: no_policy
+      quote: null
+      source: https://files.smartsites.parentsquare.com/12948/26-27_student_handbook_final_1.pdf
+      policy_code: null
+      last_verified: 2026-09-09
+      notes: "Searched the 2026-27 handbook text for 'artificial intelligence', 'AI', 'ChatGPT', 'generative'. The only mention is in offense 2.21 'Distribution of Explicit Images': the prohibition 'includes images of known and unknown individuals and those generated by artificial intelligence' (Act 2024-98 language). No academic or general AI-use rule."
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: Crossville, Fyffe, Geraldine, Ider, Plainview, Sylvania, Valley Head, Collinsville High
+        source: https://www.dekalbk12.org/
+        quote: null
+      middle_school:
+        start: null
+        end: unknown
+        school: Crossville Middle, Henagar Jr. High, Ruhama Jr. High
+        source: https://www.dekalbk12.org/
+        quote: null
+      notes: Searched the 2026-27 handbook text for bell times (none) and the home/About pages of crhs, crms, fhs, ghs, phs, shs, ihs .dekalbk12.org (SmartSites; no hours in served HTML; /school-hours returns 404).
+    archived_url: https://web.archive.org/web/20260910032002/https://files.smartsites.parentsquare.com/12948/26-27_policy_and_procedure_final.pdf
+    document_text_path: data/policies/AL/0101140.md
   - name: Elmore County Schools
     county: Elmore
     nces_id: null
@@ -128,6 +306,35 @@ districts:
     crdc_students_latest: 386
     last_verified: 2026-09-09
     notes: "No parental consent, notice, or opt-out provision in policy 6.16. Administered by the principal or representative in the presence of another adult professional employee, not in front of other students; the Superintendent is authorized to write procedures for administering and documenting it. No disability exemption. Reference: Ala. Code 16-28A-2. PDF is embedded in the district's Board Policy page https://www.jacksonk12.org/185475_3 (Jackson County School District, Hollywood AL; jacksonk12.org is the current domain, the NCES-listed www.jackson.k12.al.us no longer resolves). Downloaded and text-extracted with pdftotext. The Students chapter footer reads 'Jackson County Board of Education Policy Manual Updated: March 23, 2022'; the file name says the manual was updated Nov 12, 2025. The Student Handbook page (https://www.jacksonk12.org/185476_3) embeds a separate viewer that was not opened."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: Personal electronic devices (PEDs) are to remain off and off their person during school hours unless permission is granted by the local school administration (or designee) for supervised classroom instruction or other uses deemed appropriate such as IEPs, I-ELPs, health care plans, or 504s.
+      source: https://files.smartsites.parentsquare.com/10574/student_handbook_2026-2027.pdf
+      policy_code: 2026-2027 Student/Parent Information Guide, Technology Usage Policy, 'Personal Electronic Device Policy' (p. 61); handbook p. 43 'Cell Phones and Other Electronic Devices' refers to it
+      last_verified: 2026-09-09
+      notes: "Acceptable Use Locations table: Classroom 'Off and stored off their person during instructional time unless directed by teachers'; Bathrooms, Cafeteria, Locker rooms, Dressing rooms 'Not permitted'; Buses 'Appropriate use permitted'; Transition times 'Off and stored off their person'. The board policy manual 6.20 Electronic Communication Devices (updated Nov 12, 2025 file) requires devices 'turned off and stored off the student's person in a locker, car, or a similar storage location during the instructional day, which includes ... class time, lunch, transitions between classes, and any non-instructional periods'. The handbook cites the FOCUS Act (16-40-13) only for the required social media safety course; the manual cites 'Ala. Act 2025-403' (FOCUS Act) in the tobacco/vaping section. Neither names the FOCUS Act in the device rule itself."
+    ai_policy:
+      status: no_policy
+      quote: ""
+      source: https://files.smartsites.parentsquare.com/10574/student_handbook_2026-2027.pdf
+      policy_code: ""
+      last_verified: 2026-09-09
+      notes: "Searched the full 2026-2027 Student/Parent Information Guide (154k chars) and the board policy manual text for 'artificial intelligence', 'AI', 'A.I.', 'ChatGPT', 'generative': no matches. Cheating (1.09 Dishonesty and/or cheating) and plagiarism (Technology Usage Policy item 15) do not mention AI."
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: North Jackson High School / North Sand Mountain / Pisgah / Section / Skyline (five high schools)
+        source: https://www.jacksonk12.org/311444_2
+        quote: ""
+      middle_school:
+        start: null
+        end: unknown
+        school: Stevenson Middle / Bridgeport Middle
+        source: https://www.jacksonk12.org/311444_2
+        quote: ""
+      notes: "No bell schedule found. Searched: the 2026-27 handbook (no clock times at all), district School List page, North Jackson HS, North Sand Mountain HS, Stevenson Middle and Bridgeport Middle SmartSites home pages and site maps (they carry only ParentSquare feeds), NSM 'About Us' page. Bridgeport Middle links a Google Drive student handbook that was not opened."
+    document_text_path: data/policies/AL/0101830.md
   - name: Jefferson County Schools
     county: Jefferson
     nces_id: null
@@ -166,6 +373,36 @@ districts:
     crdc_students_latest: 155
     last_verified: 2026-09-09
     notes: "No parental consent, notice, or opt-out provision. Administered by the principal or designee, witnessed by another adult professional school system employee, not in front of other students; no disability exemption stated in the policy. Policy manual cover reads 'Marion County Board of Education Policy Manual Updated: April 21, 2022' (138 pages), filed under Documents > Board Policies and Procedures at https://marioncountyal.sites.thrillshare.com/documents/policies-and-procedures/375989 (the district's mcbe.net domain serves a bot challenge to non-browser clients; the Thrillshare mirror is the same site). The 2026-2027 Marion County Schools Handbook (https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2664/Mcbe/9557cbab-57aa-4a58-8333-98230bb59c13/25-26_MCBE_NEW_REVISED_handbook_.pdf?disposition=inline) lists 'corporal punishment' as a sanction for Class I offenses, a first Class II offense, and bus infractions. Note: marionk12.org is Marion County School District, Columbia, Mississippi, not this district."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: Cell phones and other electronic communication devices (including watches that connect to the internet or cell phones) are to be OFF and STORED OFF THEIR PERSON during the school day. Cell phones and personal communication devices should be stored in a secure location, such as a vehicle, locker, or similar storage location.
+      source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2664/Mcbe/9557cbab-57aa-4a58-8333-98230bb59c13/25-26_MCBE_NEW_REVISED_handbook_.pdf?disposition=inline
+      policy_code: Marion County Schools Handbook 2026-27, 'CELL PHONES AND OTHER ELECTRONIC DEVICES'
+      last_verified: 2026-09-09
+      notes: "Does not name the FOCUS Act (searched 'FOCUS') but uses its 'stored off their person' formula. Offense 1.14 / 2.15 'Unauthorized use of wireless/electronic communication devices' with corporal punishment among the listed sanctions. 1st offense: device confiscated for the remainder of the day."
+    ai_policy:
+      status: no_policy
+      quote: null
+      source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2664/Mcbe/9557cbab-57aa-4a58-8333-98230bb59c13/25-26_MCBE_NEW_REVISED_handbook_.pdf?disposition=inline
+      policy_code: null
+      last_verified: 2026-09-09
+      notes: Searched the handbook text for 'artificial intelligence', 'AI', 'ChatGPT', 'generative'. Only mention is offense 3.19 'Distribution of Explicit Images', which 'includes images of known and unknown individuals and those generated by artificial intelligence'. No academic or general AI-use rule.
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: Hamilton High School, Marion County High School, Hackleburg High, Phillips High, Brilliant School
+        source: https://marioncountyal.sites.thrillshare.com/o/hamiltonhigh
+        quote: null
+      middle_school:
+        start: null
+        end: unknown
+        school: Hamilton Middle School
+        source: https://marioncountyal.sites.thrillshare.com/o/hamiltonmiddle
+        quote: null
+      notes: "Searched the handbook text for bell times (none) and the Apptegy pages /o/hamiltonhigh, /o/hamiltonmiddle and their /documents listings on the Thrillshare mirror (mcbe.net serves a bot challenge to non-browser clients): no bell schedule or hours found."
+    archived_url: https://web.archive.org/web/20260910032919/https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2664/Mcbe/0b295940-bea3-4387-ab1f-1af38c7ba6a8/Z-Full_Policy_Manual_Merged.pdf?disposition=inline
+    document_text_path: data/policies/AL/0102310.md
   - name: Marshall County Board of Education (Marshall County School District)
     county: Marshall
     nces_id: "0100006"
@@ -176,6 +413,36 @@ districts:
     policy_code: "6.15"
     crdc_students_latest: 157
     notes: "No parental consent, notice, or opt-out provision. Administered by the principal or his representative, witnessed by another adult professional school system employee, not in front of other students; no disability exemption stated in the policy. Source is the 'Full Board Policy' PDF linked from https://www.marshallk12.org/our-district/policies-and-procedures (Google Drive file, 90 pages, cover reads 'Marshall County Board of Education Policy Manual August 7, 2012'; PDF metadata title is 'CLARKE COUNTY', apparently a template artifact). The district site still links this 2012 manual as its current policy manual on 2026-09-09. The district's Simbli site (simbli.eboardsolutions.com S=2059) is used for board minutes; its policy listing returned a login page, not a public manual. The /studenthandbook page on marshallk12.org contains no handbook text or embed (no 'corporal' on the page). Statutory reference cited in policy: Ala. Code 16-28A-2."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: Any use of personal technological devices (cell phones, ipads, smart watches, etc) during the school day will be prohibited. Any variation of this policy is only at the discretion of the PRINCIPAL.
+      source: https://drive.google.com/file/d/1cZooqI3j21rUORLyy1x2lHCgU8mLz53n/view
+      policy_code: 26-27 6-12 Student Handbook, 'Technology Usage Agreement' item 1 (p. 11); same text in the PK-5 handbook
+      last_verified: 2026-09-09
+      notes: "Handbook p. 10 states: 'The FOCUS Act signed into law by Governor Kay Ivey on May 14, 2025 bans student smartphone use in public schools.' Offense 2.20 'Unauthorized use of cell phone, pager, or other electronic communication device' is a Class II offense. Storage method is not specified beyond the prohibition; 'First Violation: The device will be kept by the principal until the end of the school day'."
+    ai_policy:
+      status: permitted_with_guidance
+      quote: Generative AI is a new and emerging technology. As such, its uses and the implications of its use are still being discovered. Its use will be treated like any established technology. Any work produced must be properly cited and/or attributed to the generative engine, and any malicious use will be subject to the disciplinary actions of the Code of Conduct.
+      source: https://drive.google.com/file/d/1cZooqI3j21rUORLyy1x2lHCgU8mLz53n/view
+      policy_code: 26-27 6-12 Student Handbook, 'Technology Usage Agreement' item 8 (p. 12)
+      last_verified: 2026-09-09
+      notes: Same paragraph in the PK-5 handbook. Treated as a technology-use rule (cite or attribute), not a ban.
+    start_times:
+      high_school:
+        start: 7:40
+        end: 2:58
+        school: Kate Duncan Smith DAR High School
+        source: https://darh.marshallk12.org/our-school/bell-schedule
+        quote: 1st Period 7:40 - 8:38 ... 7th Period 2:05 - 2:58
+      middle_school:
+        start: 7:40
+        end: 2:58
+        school: Kate Duncan Smith DAR Middle School
+        source: https://resources.finalsite.net/images/v1730396372/marshallk12org/yphcn2etg8n8l1upigou/DARMSchedule24-25.pdf
+        quote: 1st PERIOD 7:40 – 8:38 ... 7th PERIOD 2:05 – 2:58
+      notes: "DAR High bell schedule (Mon-Wed modified block) is on its site; Friday is 'Even Periods + Early Dismissal'. DAR Middle's linked schedule PDF is dated 2024-2025 (updated 8/19/24), the only version linked. District handbook: 'School personnel are on campus for supervision of students from 7:15 a.m. to 3:00 p.m. Monday, Tuesday, Wednesday, and Thursday. Friday is early release day and students are dismissed at 2:00 p.m.' Douglas High/Middle and Asbury/Brindlee Mountain bell-schedule pages returned no times to curl (Douglas Middle embeds an Adobe share link)."
+    archived_url: https://web.archive.org/web/20260910031936/https://drive.google.com/file/d/1CTcyVJ-5XBRx0rR-le1G_jet_UvvBO10/view
+    document_text_path: data/policies/AL/0100006.md
   - name: Mobile County Public Schools
     county: Mobile
     nces_id: null
@@ -200,6 +467,36 @@ districts:
     policy_code: "6.10"
     crdc_students_latest: 175
     notes: "Opt-out only: 'A parent or guardian of student may opt out of the use of corporal punishment as a disciplinary consequence for that student by submitting a written, signed statement to the school principal.' Administered by a certified professional employee in the presence of another certified professional employee, not in front of other students; no disability exemption stated. MCS Board Policy Manual on Simbli (S=36030917), linked from https://www.morgank12.org/325165_2 ('Policies'). Policy 6.10 'Corporal Punishment', status ADOPTED, original adopted date 04/08/2021, reference ALA. CODE §16-28A-2. Closing sentence: 'The Superintendent is authorized to develop and implement procedures for administrating and documenting corporal punishment, consistent with the terms of this policy.' The Student Code of Conduct/Handbook is a Google Drive folder (https://drive.google.com/drive/folders/18MvvHcv1M3ePoZQXqCXQKwjOiSrsd4hC) and was not opened. District office: 235 Highway 67 South, Decatur, AL 35603. Stable entry point: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36030917 then chapter 6 > 6.10."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: In Compliance with The Alabama FOCUS Act (Freeing our Classrooms of Unnecessary Screens for Safety), effective beginning with the 2025-2026 school year (August 1, 2025), no student shall use or operate or possess any wireless communication device in any public elementary or secondary school building or on the grounds thereof during the instructional day.
+      source: https://drive.google.com/file/d/1-RRX5CBrq2uwQ_wJPiecAS4MBcxpde63/view
+      policy_code: Student Code of Conduct 2026-27, 'Morgan County Schools Cell Phone Policy' (p. 62); Board Policy 6.21 referenced
+      last_verified: 2026-09-09
+      notes: "Cites the Alabama FOCUS Act by name. Devices 'must be turned off and stored off the student's person in a locker, vehicle, or a similar storage location during the instructional day', which 'includes class transitions, lunch, non-instructional times'. Same text published separately as 'MCS Cell Phone Policy.pdf' (https://drive.google.com/file/d/1Imyh-3Y5mEguYqA-kj0WAEI8QLZ_THGf/view) in the Student Handbooks Drive folder. Exceptions: IEP/504/health plan, supervised educational use, emergency."
+    ai_policy:
+      status: permitted_with_guidance
+      quote: "Approved AI Use: Research assistance and summarization with proper citations. Language translation tools for educational purposes. Teacher-approved AI learning tools. Prohibited AI Use: Submitting AI-generated work as original student work. Using AI to plagiarize, cheat, or bypass critical thinking. Creating, altering, or distributing AI-generated misleading or inappropriate content. Violations will be treated as academic dishonesty and subject to disciplinary action."
+      source: https://drive.google.com/file/d/1-RRX5CBrq2uwQ_wJPiecAS4MBcxpde63/view
+      policy_code: Student Code of Conduct 2026-27, Technology section 'Artificial Intelligence (AI) & Academic Integrity'; also Class III offense 3.15(F)
+      last_verified: 2026-09-09
+      notes: "Bulleted list rendered as one quote. Class III offense 3.15(F) adds: 'Artificial intelligence is a new, vastly emerging technology. ... Any work produced must be properly cited and/or attributed to the generative AI engine, and any malicious or unethical use will be subject to the disciplinary actions of the Code of Conduct.'"
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: Priceville High School, Danville High School, West Morgan High School, A.P. Brewer High School, Falkville High School
+        source: https://www.morgank12.org/
+        quote: null
+      middle_school:
+        start: null
+        end: unknown
+        school: Priceville Junior High, Danville Middle, West Morgan Middle, Cotaco/Eva/Lacey's Spring/Union Hill Junior High
+        source: https://www.morgank12.org/
+        quote: null
+      notes: Searched the 65-page 2026-27 Student Code of Conduct for bell times (only a summer-school line '9:00 am – 1:00 pm'), and the home and About Us pages of phs, pjhs, dhs, dms, wmhs, wmms, bhs, fhs .morgank12.org (no hours in the served HTML; /school-hours returns 404). Chrome could not open morgank12.org in this session (domain not permitted).
+    archived_url: https://web.archive.org/web/20260910031543/https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36030917&revid=gOko5w3EpF8hJ3HfHCrajw==&ptid=tgXX6LPA166ygZS74CSPMA==&secid=rXWF48YTyHX6J1LHrKnhVA==&PG=6&IRP=0&isPndg=false
+    document_text_path: data/policies/AL/0102480.md
   - name: Pike County Schools
     county: Pike
     nces_id: "0102790"
@@ -210,6 +507,35 @@ districts:
     crdc_students_latest: 252
     last_verified: 2026-09-09
     notes: "Not applicable; the policy prohibits corporal punishment outright. It substitutes a one-day suspension with a required parent conference on return for Code of Conduct violations. Policy 5.30.1 CORPORAL PUNISHMENT, Status ADOPTED, Original Adopted Date 06/01/2005, Last Revised Date 06/17/2024, Last Reviewed Date 06/17/2024, on the district's Simbli manual (linked from https://www.pikecountyschools.com/ as the board policy listing, S=36031835). CONFLICT WITH CRDC: the ban was revised 06/17/2024, after the 2023-24 school year in which CRDC records 252 students receiving corporal punishment, so the 2023-24 figure likely reflects the pre-June-2024 policy. Simbli does not expose the prior revision text publicly; board minutes from June 2024 were not located (no search budget). Recommend a [conflict] issue only if a later data year still shows paddling."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: The Pike County School System prohibits student use of wireless communication devices during the instructional day at all schools, including in hallways, restrooms, lunch areas, and during class transitions.
+      source: https://files.smartsites.parentsquare.com/7340/code_of_conduct_2.pdf
+      policy_code: Student Code of Conduct & General Information 2026-27, 'Cell Phones - Cell Phone and Wireless Communication Usage', board policy 8.63 (p. 20)
+      last_verified: 2026-09-09
+      notes: "Purpose paragraph: 'This policy aligns with the Freeing our Classrooms of Unnecessary Screens for Safety (FOCUS) Act (Act 2025-386)'. Devices must be turned off on arrival and stored off the student's person; exceptions for IEP/504/health plans, teacher-authorized educational use, emergencies. 'Statutory Authority ... Act 2025-386 (FOCUS Act)'. The 2025-26 edition (pike_county_schools_-_code_of_conduct_2025-26.pdf) carries the same 8.63 text."
+    ai_policy:
+      status: no_policy
+      quote: ""
+      source: https://files.smartsites.parentsquare.com/7340/code_of_conduct_2.pdf
+      policy_code: ""
+      last_verified: 2026-09-09
+      notes: "Read the full 2026-27 Code of Conduct (199k chars): no 'artificial intelligence', 'AI', 'A.I.', 'ChatGPT' or 'generative'. Academic Misconduct section defines cheating, plagiarism ('anything not generated in an authorized fashion'), fabrication and misrepresentation without naming AI. Emerging Technologies/Electronic Devices section is silent on AI."
+    start_times:
+      high_school:
+        start: 7:45
+        end: 3:10
+        school: Pike County High School (grades 7-12)
+        source: https://pikecountyhs.com/
+        quote: Doors Open 7:10 AM First Bell 7:45 AM Dismissal 3:10 PM
+      middle_school:
+        start: 7:40
+        end: 3:10
+        school: Pike County High School houses grades 7-12; Banks School (Pre-K-8)
+        source: https://banks-school.com/
+        quote: "Instruction Hours: 7:40 AM – 3:10 PM"
+      notes: "No stand-alone middle school. Pike County HS and Goshen HS both list 'Instruction Hours: 7:40 AM – 3:10 PM' in the site header; PCHS bell schedule block gives First Bell 7:45 AM, Dismissal 3:10 PM. Banks School (Pre-K-8) header: Instruction Hours 7:40 AM – 3:10 PM."
+    document_text_path: data/policies/AL/0102790.md
   - name: Shelby County Schools
     county: Shelby
     nces_id: null

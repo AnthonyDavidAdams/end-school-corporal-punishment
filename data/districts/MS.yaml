@@ -75,6 +75,35 @@ districts:
     policy_code: JDB
     crdc_students_latest: 192
     notes: "No parental consent or opt-out provision appears in policy JDB. Disability exemption: \"School personnel is prohibited from using corporal punishment on any student with a disability. A student with a disability is any student who has an IEP or Section 504 plan.\" It may be administered by the principal, assistant principal, or a teacher, in the presence of another school employee, only after less stringent measures have failed unless the conduct is extreme; must be reasonable and moderate. MSBA policy service: the district's Board of Trustees page https://www.chickasaw.k12.ms.us/page/board-of-trustees/ links 'Board Policies Public View' -> https://chickasaw.msbapolicy.org/ which redirects to Simbli site S=36031690. Policy JDB status ADOPTED, Original Adopted Date 07/20/2012, Last Revised Date 06/08/2026, Last Reviewed Date 06/08/2026. Cites Miss. Code 37-11-57 and 11-46-9, Ingraham v. Wright; cross-references AAA and JD. District office is in Houston, MS."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: "Cell phones: no student attending the Chickasaw County School District will be allowed to use a cellular phone device except when directed by a teacher and/or building administrator."
+      source: https://drive.google.com/file/d/1R6XuRcUGdUJtvs08YVOozg_P_0jpaz1g/view
+      policy_code: 2026-2027 Student Handbook, 'Technology' section (unnumbered)
+      last_verified: 2026-09-09
+      notes: Blanket no-use rule at any time on campus unless a teacher or administrator directs otherwise; confiscation with a $25 retrieval fee. No state statute cited; no separate classroom/lunch distinction.
+    ai_policy:
+      status: no_policy
+      quote: ""
+      source: https://drive.google.com/file/d/1R6XuRcUGdUJtvs08YVOozg_P_0jpaz1g/view
+      policy_code: ""
+      last_verified: 2026-09-09
+      notes: "Read the full 2026-2027 Student Handbook (141k chars): no 'artificial intelligence', 'AI', 'A.I.', 'ChatGPT' or 'generative'. Plagiarism appears only in the Technology Acceptable Use Policy."
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: Houlka Attendance Center (K-12)
+        source: https://www.chickasaw.k12.ms.us/
+        quote: ""
+      middle_school:
+        start: null
+        end: unknown
+        school: Houlka Attendance Center (K-12)
+        source: https://www.chickasaw.k12.ms.us/
+        quote: ""
+      notes: "No bell schedule found. The district operates a single K-12 campus (Houlka Attendance Center) with no separate school website. Searched: 2026-27 Student Handbook (only check-out window 7:00-8:00 a.m. and bus-change cutoff times), district home page links, Documents page, Documents & Forms page."
+    document_text_path: data/policies/MS/2800200.md
   - name: Choctaw County Schools
     county: Choctaw
     nces_id: null
@@ -450,6 +479,35 @@ districts:
     policy_code: JDB
     crdc_students_latest: 259
     notes: "No parental consent or opt-out provision. Prohibited for any student with an IEP or Section 504 plan. To be used only after less stringent measures (counseling, parent conferences, other discipline) have failed unless the conduct is extreme; administered by the principal, assistant principal, or administrative assistant in the presence of another school employee; paddling must be witnessed by at least one school employee. MSBA policy service on Simbli (scott.msbapolicy.org redirects to simbli.eboardsolutions.com S=36031781, linked from https://www.scott.k12.ms.us/ as 'Board MSBA Policy'). Policy JDB: Original Adopted Date 04/08/2014, Last Revised Date 06/11/2019, Status ADOPTED; cites Miss. Code 37-11-57 and 11-46-9 and Ingraham v. Wright. Related policies in the J section: JD Student Discipline (10/08/2019), JDA Discipline Plan, JCD(2). Simbli listing is JavaScript-rendered; read in Chrome."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: Therefore, cell phones are not to be seen or heard, and cell phone usage is prohibited inside school buildings or on campus during school hours.
+      source: https://4.files.edl.io/3f16/07/09/25/163945-e92cd01a-b4a2-412b-846c-0c82d1321361.docx
+      policy_code: 2025-2026 Student Handbook, 'Scott County School District's Electronic Discipline Plan - Cell Phone/Electronic Devices' (p. 15; board code JCBA in margin)
+      last_verified: 2026-09-09
+      notes: "Latest handbook posted on https://www.scott.k12.ms.us/apps/pages/handbooks is 2025-2026 (July 9, 2025 .docx); no 2026-27 edition was posted as of 2026-09-09. Consequences: 1st warning; 2nd confiscation + 3 days ISR; 3rd 3 days OSS; further 5 days OSS with possible alternative placement. No state statute is cited in the cell phone section."
+    ai_policy:
+      status: no_policy
+      quote: ""
+      source: https://4.files.edl.io/3f16/07/09/25/163945-e92cd01a-b4a2-412b-846c-0c82d1321361.docx
+      policy_code: ""
+      last_verified: 2026-09-09
+      notes: "Read the full 2025-2026 Student Handbook (192k chars): no 'artificial intelligence', 'AI', 'A.I.', 'ChatGPT' or 'generative'. Cheating appears in the Student Conduct rules and the discipline ladder without reference to AI; the Internet Acceptable Use Policy mentions plagiarism only."
+    start_times:
+      high_school:
+        start: 7:45
+        end: 3:08
+        school: Morton High School
+        source: http://mhs.scott.k12.ms.us/apps/pages/index.jsp?uREC_ID=1349012&type=d&pREC_ID=1538881
+        quote: "Take In Time: 7:30AM Tardy Bell for first period: 7:45 Dismissal Time: 3:08 PM"
+      middle_school:
+        start: 7:45
+        end: 3:08
+        school: Bettye Mae Jack Middle School
+        source: http://bmj.scott.k12.ms.us/apps/bell_schedules/
+        quote: "Take In Time: 7:15 AM Tardy Bell for the first period: 7:45 AM Dismissal Time: 3:08 PM"
+      notes: District has Morton HS, Lake HS, Scott Central Attendance Center (K-12), Sebastopol; Lake High School's posted bell schedule is labelled '22-23 LHS Bell Schedule' (7:45 AM first bell, 1st period 7:50). Lake Middle School not checked.
+    document_text_path: data/policies/MS/2803900.md
   - name: Sharkey County Schools
     county: Sharkey
     nces_id: null
@@ -481,6 +539,35 @@ districts:
     policy_code: 'Batesville Middle School 2026-2027 Student Handbook, "Discipline" section, "CORPORAL PUNISHMENT (CP)" (p. 11); Appendix E: Corporal Punishment (p. 42)'
     crdc_students_latest: 192
     notes: "The handbook text frames it as opt-out (\"Contact your school for an opt-out form ... if you choose not to have your child paddled\"). Appendix E is a signed form with two boxes: \"South Panola School District Administration has my permission to use corporal punishment as a means to correct behavior. Prior to issuing corporal punishment, a phone call will be made to the parent/guardian.\" and \"South Panola School District does NOT have my permission to use corporal punishment as a means to correct behavior.\" No witness, administrator, or disability provisions are stated in the handbook; the underlying board policy could not be read (see notes). The district's board policy manual is on MSBA/Simbli (southpanola.msbapolicy.org -> https://simbli.eboardsolutions.com/Index.aspx?S=36031786), but the policy listing redirects to https://simbli.eboardsolutions.com/Login.aspx?S=36031786 and is not publicly readable, so the status rests on the school handbook, which states district policy. The handbook is the Batesville Middle School (grades 4-5) 2026-2027 Parent/Student Handbook, linked from https://www.spsd.k12.ms.us/o/bams/documents/ (also via short link https://aptg.co/hnYHRQ). It lists corporal punishment as a consequence for 2nd-offense minor bus infractions, 2nd-offense electronic device use, tardies, and vandalism on the disciplinary referral form. Possible internal tension: the discipline section describes an opt-out, while the Appendix E form is worded as permission/no permission; recorded here as allows (opt-out) per the policy sentence. Other school handbooks (SPHS, BJHS, BIS, Pope, BAES) were not found in their document folders. District office is in Batesville, MS."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: Electronic devices are not permitted and are not to be used at any time unless approved by administration. This includes, but is not limited to, cellphones, MP3 players, iPods, etc.
+      source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5225/Bams/b8765fcc-d296-4094-a195-97e25eaf1bf5/2026---South-Panola-Schools---BMS-Parent-Student-Handbook-v5-7_20.pdf
+      policy_code: Batesville Middle School 2026-2027 Student Handbook, Discipline, 'Electronic Devices' (p. 9); identical text in the South Panola High School and Batesville Junior High School 2026-2027 Secondary Student Handbooks
+      last_verified: 2026-09-09
+      notes: "Devices not permitted at all (listed under 'Items to Leave at Home'); 1st offense warning and parent pick-up, 2nd offense corporal punishment or 1 day ALS, 3rd 3 days ALS; refusal to surrender = 3 days ALS. No state statute cited. SPHS handbook: https://aptg.co/mMBpr- (resolves to a signed S3 URL); BJHS handbook: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5225/Bjhs/4de57470-c2e8-4cec-8ad6-d7cad9b0b8b9/2026---South-Panola-Schools---BJHS-Parent-Student-Handbook-v5-7_20.pdf?disposition=inline"
+    ai_policy:
+      status: no_policy
+      quote: ""
+      source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5225/Bams/b8765fcc-d296-4094-a195-97e25eaf1bf5/2026---South-Panola-Schools---BMS-Parent-Student-Handbook-v5-7_20.pdf
+      policy_code: ""
+      last_verified: 2026-09-09
+      notes: "Read the full BMS 2026-27 handbook (125k chars) and grepped the SPHS and BJHS 2026-27 handbooks: no 'artificial intelligence', 'AI', 'A.I.', 'ChatGPT' or 'generative'. Academic Dishonesty section does not mention AI."
+    start_times:
+      high_school:
+        start: 7:40
+        end: 3:05
+        school: South Panola High School
+        source: https://www.spsd.k12.ms.us/o/sphs/page/bell-schedule
+        quote: Bell Schedule 7:40 – 9:29 1st Block 9:33 – 11:11 2nd Block 11:14 – 1:23 3rd Block 1:27 – 3:05 4th Block
+      middle_school:
+        start: 7:40
+        end: 3:00
+        school: Batesville Junior High School (grades 6-8)
+        source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5225/Bjhs/4de57470-c2e8-4cec-8ad6-d7cad9b0b8b9/2026---South-Panola-Schools---BJHS-Parent-Student-Handbook-v5-7_20.pdf?disposition=inline
+        quote: The school day for students begins at 7:40 a.m. and ends at 3:00 p.m.
+      notes: "Batesville Middle School (grades 4-5) handbook: 'The school day for students begins at 7:50 a.m. and ends at 3:00 p.m.'"
+    document_text_path: data/policies/MS/2804050.md
   - name: Stone County Schools
     county: Stone
     nces_id: null
@@ -582,6 +669,35 @@ districts:
     policy_code: Student Handbook 2026-27, 'Corporal Punishment' (p. 43-46)
     crdc_students_latest: 145
     notes: No parental consent or opt-out provision; 'Students who cannot be given corporal punishment may be suspended out of school for offenses which would merit corporal punishment.' Administered by the teacher, principal or assistant principal (lead teachers may be authorized), 'not to exceed three licks per day', 'in the presence of a certified employee'; 'HB1182, corporal punishment is prohibited for students with a disability who has an IEP or Section 504 Plan. West Jasper School District will suspend any student with a disability who has an IEP or Section 504 Plan, rather than administer corporal punishment.' Handbook is 'West Jasper School District School Year 2026-27' (62 pages), linked from westjasper.org. The K-6 and 7-12 discipline step plans list 'One day ISD or Corporal Punishment' (steps 1-3), the tardy policy lists 'Corporal punishment or 1 day of ISD' at the 4th unexcused tardy, and bus offenses list corporal punishment as an option for the first three minor/intermediate offenses. The district's board policy manual link (https://wjasper.msbapolicy.org/) redirects to Simbli (https://simbli.eboardsolutions.com/Index.aspx?S=36031853), whose policy listing requires JavaScript and returned no policy text to curl or WebFetch; no Wayback capture found. The MSBA policy code (likely JDA) could not be confirmed. CRDC name 'WEST JASPER CONSOLIDATED SCHOOLS'; NCES and district style it 'West Jasper School District'.
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: "Student cell phones are not allowed. Students found with possession of cell phones, smart watches or any personal electronic communication device capable of photo functions or messaging during the school day will: 1st Offense- The device will be confiscated. A parent/guardian conference with the school administrator is required; whereupon, the parent/guardian will sign the cell phone contract after which the cell phone will be returned to the parent/guardian."
+      source: https://www.westjasper.org/files/documents/Handbooks/2026-2027%20WJSD%20Student%20Handbook.pdf
+      policy_code: Student Handbook 2026-27, 'PERSONAL ELECTRONIC COMMUNICATION DEVICES' (p. 45)
+      last_verified: 2026-09-09
+      notes: Phones are barred from school and buses entirely ('No cell phones, smart watches, radios, cameras ... are allowed at school or on school buses'), which is stricter than a storage-based bell-to-bell rule. Does not cite any 2025 Mississippi statute (searched 'FOCUS', 'Mississippi Code', 'HB', 'SB' near the section). Failure to surrender a device 'WILL RESULT IN 20 DAYS ALTERNATIVE SCHOOL'.
+    ai_policy:
+      status: no_policy
+      quote: null
+      source: https://www.westjasper.org/files/documents/Handbooks/2026-2027%20WJSD%20Student%20Handbook.pdf
+      policy_code: null
+      last_verified: 2026-09-09
+      notes: "Searched the 62-page handbook text (322 KB) for 'artificial intelligence', 'AI', 'ChatGPT', 'generative', 'A.I.': no match. Cheating/plagiarism rule (item 11, item 19) does not mention AI."
+    start_times:
+      high_school:
+        start: null
+        end: unknown
+        school: Bay Springs High School, Stringer Attendance Center
+        source: https://www.westjasper.org/schools/bshs/index
+        quote: null
+      middle_school:
+        start: null
+        end: unknown
+        school: Bay Springs Middle School
+        source: https://www.westjasper.org/schools/bsms/index
+        quote: null
+      notes: Handbook gives only 'No student should be delivered to school before 7:20 a.m.' and alternative-school hours '7:40 am – 3:00 pm'. The BSHS and BSMS pages and their About pages on westjasper.org list no bell schedule or hours.
+    document_text_path: data/policies/MS/2804590.md
   - name: Wilkinson County Schools
     county: Wilkinson
     nces_id: null

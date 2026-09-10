@@ -82,6 +82,35 @@ districts:
     crdc_students_latest: 231
     last_verified: 2026-09-09
     notes: "Opt-out: \"Corporal punishment shall not be administered to a child whose parents or legal guardian have filed with the principal of the school a statement expressly objecting to the use of corporal punishment or a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child's mental or emotional stability.\" Only a principal or designated administrator may administer it, never a teacher or parent; it must be witnessed by another certified employee informed beforehand in the pupil's presence; a written explanation and the witness's name are provided to parents on request; it may not be excessive and generally not a first-line punishment. No IEP/504 exemption beyond the doctor's-statement route. Simbli/eBoard (GSBA) board policy manual, site S=4101, reached from https://www.lcboe.net/338421_2 (Board of Education page, link 'eBoard - Laurens County' -> https://simbli.eboardsolutions.com/Index.aspx?S=4101). Policy JDA status ADOPTED, Original Adopted Date 02/14/2008, Last Reviewed Date 08/13/2020. References O.C.G.A. 20-2-730 through 20-2-732. Simbli listing is JavaScript-rendered; the ViewPolicy link was obtained by filtering the listing to section J in a browser."
+    phone_policy:
+      status: bell_to_bell_ban
+      quote: Cell phones, smart watches, headphones, air pods, earphones, tablets, and personal computers are prohibited on campus. All such electronic devices should be left in the student's vehicle and/or turned off and placed in the student's backpack/pocketbook. Electronic devices may not be accessed by the student during the school hours of 8:00 am – 3:00 pm.
+      source: https://files.smartsites.parentsquare.com/11158/student_handbook_26_27_.pdf
+      policy_code: "West Laurens High School Student Handbook 2026-2027, 'Electronic Devices: Updated May 2026' (p. 38)"
+      last_verified: 2026-09-09
+      notes: "No district-wide student handbook; each school publishes its own. East Laurens HS 2026-27 uses the same text with hours 8:00 am – 2:55 pm. West Laurens Middle 2026-27 (item 15, 'Laurens County Board Procedure'): devices 'may not be in use (which includes powered on) from 7:50 AM until 3:00 PM', stored powered-off in homeroom classroom storage, not used at lunch, break, hallways, locker rooms, Connections or restrooms. None of the handbooks names Georgia's Distraction-Free Education Act (HB 340) or any statute in the device rule."
+    ai_policy:
+      status: no_policy
+      quote: ""
+      source: https://files.smartsites.parentsquare.com/11158/student_handbook_26_27_.pdf
+      policy_code: ""
+      last_verified: 2026-09-09
+      notes: "Read the full WLHS 2026-27 handbook (159k chars) plus the ELHS 2026-27 and WLMS 2026-27 handbooks: no 'artificial intelligence', 'AI', 'A.I.', 'ChatGPT' or 'generative'. The Cheating section covers plagiarism/copying only."
+    start_times:
+      high_school:
+        start: 8:00
+        end: 3:00
+        school: West Laurens High School
+        source: https://files.smartsites.parentsquare.com/11158/student_handbook_26_27_.pdf
+        quote: REGULAR BELL SCHEDULE 8:00 Report to class 8:05 – 9:37 1st Period ... 1:25 – 3:00 4th Period
+      middle_school:
+        start: 8:05
+        end: 3:05
+        school: West Laurens Middle School
+        source: https://files.smartsites.parentsquare.com/11162/wlms_student_handbook_2026-2027_finaldocx.pdf
+        quote: 8:05AM – 3:05PM – School Hours
+      notes: "East Laurens High School 2026-27 regular bell: 1st Block 8:00 – 9:30, 4th Block 1:25 – 2:55 (https://files.smartsites.parentsquare.com/11159/student_handbookdocx_2.pdf). East Laurens Middle (2025-26 handbook): 8:00 AM tardy bell, students leave around 3:15 PM."
+    document_text_path: data/policies/GA/1301890.md
   - name: Thomas County Schools
     county: Thomas
     nces_id: null

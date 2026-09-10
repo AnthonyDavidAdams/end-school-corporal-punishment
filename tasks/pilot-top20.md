@@ -22,3 +22,20 @@ Started 2026-09-09. Purpose: measure what one district costs to source (agent to
 **What made it expensive.** This session's web-search budget was already exhausted, so every agent found policies by direct fetching and by driving Chrome for the JavaScript-only policy vendors (Simbli, TASB Policy Online, Apptegy). Roughly a third of the tool calls were wasted on bot challenges. A fresh session with search available, plus the vendor notes now in AGENTS.md, should come in well under 20,000 tokens per district.
 
 **What to fix before scaling.** (1) Simbli policy URLs carry session tokens; record the stable `PolicyListing.aspx?S=<id>` entry as well. (2) Scanned PDFs with no text layer (Dale County, Covington County) need OCR; macOS Vision worked for one. (3) Two districts (South Panola, Marshall County) publish the current manual behind a login and only a handbook or an old PDF is public; the entry says so. (4) Chrome is shared across agents; each agent must verify the page title before reading.
+
+## Second pass, same twenty districts (2026-09-09): phones, AI, start times, archiving, full text
+
+Two agents, ten districts each, working from the source links recorded in the first pass. For every district: the student cell phone rule, the generative AI rule, the high school and middle school bell schedule, a Wayback Machine capture of every source, and the discipline chapter saved as text under `data/policies/<state>/<nces_id>.md`.
+
+| Metric | Value |
+|---|---|
+| Districts completed | 20 of 20 |
+| Agent tokens total / per district | 481,977 / about 24,100 (batches: 283k, 199k) |
+| Wall time (parallel) | 24 minutes |
+| Phone policy | 20 of 20 bell-to-bell bans; most cite the 2025 state laws (Alabama FOCUS Act, Texas HB 1481, Georgia's Distraction-Free Education Act) |
+| AI policy | 12 silent, 5 mention AI only inside the cheating rule, 3 have a real policy (Butler County AL, Morgan County AL, Marshall County AL) |
+| High school start time found | 9 of 20; every one between 7:30 and 8:05; none at or after the 8:30 the AAP recommends |
+| Sources archived | 20 of 20 corporal punishment sources; a few handbook captures were still in Wayback's rate-limit queue at close |
+| Text saved | 20 discipline chapters, about 500 KB total; two are OCR of scanned PDFs (Coffee, Dale) |
+
+Cost of goods for the index, then: roughly 50,000 agent tokens per district for the corporal punishment policy plus three more policies, archiving and text, in a session without web search. Start times were the hardest field: bell schedules live on individual school sites, often as images, so the school-level pass needs its own method (school sites plus OCR).

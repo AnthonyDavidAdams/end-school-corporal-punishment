@@ -2,28 +2,338 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "District corporal punishment policies for one state",
   "type": "object",
-  "required": ["state", "districts"],
+  "required": [
+    "state",
+    "districts"
+  ],
   "properties": {
-    "state": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
     "districts": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["name", "status"],
+        "required": [
+          "name",
+          "status"
+        ],
         "properties": {
-          "name": { "type": "string" },
-          "county": { "type": ["string", "null"] },
-          "nces_id": { "type": ["string", "null"], "pattern": "^[0-9]{7}$", "description": "NCES LEA ID, 7 digits" },
-          "status": { "enum": ["allows", "bans", "consent_required", "unknown"] },
-          "source": { "type": ["string", "null"], "format": "uri", "description": "URL of the board policy, handbook, or official record that establishes the status" },
-          "quote": { "type": ["string", "null"], "description": "Verbatim sentence from the source that establishes the status" },
-          "policy_code": { "type": ["string", "null"], "description": "Board policy number, e.g. 'JDA' or 'FO(LOCAL)'" },
-          "crdc_students_latest": { "type": ["integer", "null"], "description": "Students receiving CP in the latest CRDC year" },
-          "last_verified": { "type": ["string", "null"], "format": "date" },
-          "notes": { "type": ["string", "null"] }
+          "name": {
+            "type": "string"
+          },
+          "county": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "nces_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9]{7}$",
+            "description": "NCES LEA ID, 7 digits"
+          },
+          "status": {
+            "enum": [
+              "allows",
+              "bans",
+              "consent_required",
+              "unknown"
+            ]
+          },
+          "source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri",
+            "description": "URL of the board policy, handbook, or official record that establishes the status"
+          },
+          "quote": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Verbatim sentence from the source that establishes the status"
+          },
+          "policy_code": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Board policy number, e.g. 'JDA' or 'FO(LOCAL)'"
+          },
+          "crdc_students_latest": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "description": "Students receiving CP in the latest CRDC year"
+          },
+          "last_verified": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "phone_policy": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Student cell phone rule from the handbook or board policy: bell_to_bell_ban = phones off and stored for the whole school day; classroom_ban = prohibited during instruction, allowed at lunch/passing; teacher_discretion = each teacher decides; allowed = generally permitted with limits; unknown = no policy sentence found",
+            "properties": {
+              "status": {
+                "enum": [
+                  "bell_to_bell_ban",
+                  "classroom_ban",
+                  "teacher_discretion",
+                  "allowed",
+                  "unknown"
+                ]
+              },
+              "quote": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "policy_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_verified": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "notes": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "ai_policy": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Generative AI rule: prohibited = students may not use AI tools for schoolwork; permitted_with_guidance = allowed when the teacher or assignment permits, with a stated policy; academic_integrity_only = mentioned only inside the cheating/plagiarism rule; no_policy = handbook was read in full and says nothing; unknown = could not determine",
+            "properties": {
+              "status": {
+                "enum": [
+                  "prohibited",
+                  "permitted_with_guidance",
+                  "academic_integrity_only",
+                  "no_policy",
+                  "unknown"
+                ]
+              },
+              "quote": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "source": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "uri"
+              },
+              "policy_code": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_verified": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "notes": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "archived_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri",
+            "description": "Wayback Machine capture of `source`, taken at scan time"
+          },
+          "document_text_path": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Path in this repo to the extracted text of the discipline section, e.g. data/policies/AL/0100540.md"
+          },
+          "start_times": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Bell schedule for the district's secondary schools. Adolescent sleep research and the AAP recommend secondary schools start no earlier than 8:30.",
+            "properties": {
+              "high_school": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "start": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "First bell / start of instruction, local time, e.g. '7:45'"
+                  },
+                  "end": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "school": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "source": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "quote": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "middle_school": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "start": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "First bell / start of instruction, local time, e.g. '7:45'"
+                  },
+                  "end": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "school": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "source": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "uri"
+                  },
+                  "quote": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "last_verified": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "notes": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
         },
         "allOf": [
-          { "if": { "properties": { "status": { "enum": ["allows", "bans", "consent_required"] } }, "required": ["last_verified"] }, "then": { "required": ["source", "quote"] } }
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "enum": [
+                    "allows",
+                    "bans",
+                    "consent_required"
+                  ]
+                }
+              },
+              "required": [
+                "last_verified"
+              ]
+            },
+            "then": {
+              "required": [
+                "source",
+                "quote"
+              ]
+            }
+          }
         ]
       }
     }
