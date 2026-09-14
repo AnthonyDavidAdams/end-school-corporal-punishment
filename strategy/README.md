@@ -27,7 +27,7 @@ There is also a lever the old playbooks missed. Kentucky reached zero without a 
 
 ## Files
 
-- `playbooks/` how to run each lever
+- `playbooks/` how to run each lever, including `othello.md`: flipping the counties that border a district which has already stopped, which is the cheapest targeting we have
 - `case-studies/` documented wins and losses, with sources
 - `opposition.md` every argument for corporal punishment we have heard in testimony, and the response that has worked
 - `liability.md` what the courts actually do when a paddling goes wrong, and which liability arguments survive (the Fifth Circuit rule matters)
