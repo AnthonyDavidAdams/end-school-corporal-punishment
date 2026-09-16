@@ -2,52 +2,66 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: SC
 districts:
-  - name: "Greenville County Schools"
-    county: "Greenville"
+  - name: Greenville County Schools
+    county: Greenville
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Charleston County Schools"
-    county: "Charleston"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Charleston County Schools
+    county: Charleston
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Richland County Schools"
-    county: "Richland"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Richland County Schools
+    county: Richland
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Horry County Schools"
-    county: "Horry"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Horry County Schools
+    county: Horry
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Orangeburg County Schools"
-    county: "Orangeburg"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Orangeburg County Schools
+    county: Orangeburg
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Clarendon County Schools"
-    county: "Clarendon"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Clarendon County Schools
+    county: Clarendon
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Williamsburg County Schools"
-    county: "Williamsburg"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Williamsburg County Schools
+    county: Williamsburg
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

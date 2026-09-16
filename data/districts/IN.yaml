@@ -2,31 +2,39 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: IN
 districts:
-  - name: "Indianapolis Public Schools"
-    county: "Marion"
+  - name: Indianapolis Public Schools
+    county: Marion
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Fort Wayne Community Schools"
-    county: "Allen"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Fort Wayne Community Schools
+    county: Allen
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Evansville Vanderburgh Schools"
-    county: "Vanderburgh"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Evansville Vanderburgh Schools
+    county: Vanderburgh
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "South Gibson School Corp"
-    county: "Gibson"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: South Gibson School Corp
+    county: Gibson
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

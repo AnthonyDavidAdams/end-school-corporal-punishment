@@ -2,52 +2,66 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: AZ
 districts:
-  - name: "Mesa Public Schools"
-    county: "Maricopa"
+  - name: Mesa Public Schools
+    county: Maricopa
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Phoenix Union High School District"
-    county: "Maricopa"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Phoenix Union High School District
+    county: Maricopa
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Tucson Unified School District"
-    county: "Pima"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Tucson Unified School District
+    county: Pima
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Chandler Unified School District"
-    county: "Maricopa"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Chandler Unified School District
+    county: Maricopa
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Gilbert Public Schools"
-    county: "Maricopa"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Gilbert Public Schools
+    county: Maricopa
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Douglas Unified School District"
-    county: "Cochise"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Douglas Unified School District
+    county: Cochise
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Bisbee Unified School District"
-    county: "Cochise"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Bisbee Unified School District
+    county: Cochise
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

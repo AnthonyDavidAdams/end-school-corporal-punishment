@@ -2,52 +2,66 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: MO
 districts:
-  - name: "St. Louis Public Schools"
-    county: "St. Louis City"
+  - name: St. Louis Public Schools
+    county: St. Louis City
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Kansas City Public Schools"
-    county: "Jackson"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Kansas City Public Schools
+    county: Jackson
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Springfield Public Schools"
-    county: "Greene"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Springfield Public Schools
+    county: Greene
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Columbia Public Schools"
-    county: "Boone"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Columbia Public Schools
+    county: Boone
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Cassville R-IV School District"
-    county: "Barry"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Cassville R-IV School District
+    county: Barry
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Hollister R-V Schools"
-    county: "Taney"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Hollister R-V Schools
+    county: Taney
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Southwest R-V School District"
-    county: "McDonald"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Southwest R-V School District
+    county: McDonald
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

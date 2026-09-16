@@ -309,6 +309,19 @@
                 ]
               }
             }
+          },
+          "legacy_status": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "allows",
+              "bans",
+              "consent_required",
+              null
+            ],
+            "description": "A status carried over from the pre-2026 map that was never sourced. Kept only to prioritise re-scanning; never published as fact."
           }
         },
         "allOf": [
@@ -324,14 +337,25 @@
                 }
               },
               "required": [
-                "last_verified"
+                "status"
               ]
             },
             "then": {
               "required": [
                 "source",
-                "quote"
-              ]
+                "quote",
+                "last_verified"
+              ],
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "format": "uri"
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 10
+                }
+              }
             }
           }
         ]

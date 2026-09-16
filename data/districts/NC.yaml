@@ -2,66 +2,84 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: NC
 districts:
-  - name: "Charlotte-Mecklenburg Schools"
-    county: "Mecklenburg"
+  - name: Charlotte-Mecklenburg Schools
+    county: Mecklenburg
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Wake County Public Schools"
-    county: "Wake"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Wake County Public Schools
+    county: Wake
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Guilford County Schools"
-    county: "Guilford"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Guilford County Schools
+    county: Guilford
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Forsyth County Schools"
-    county: "Forsyth"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Forsyth County Schools
+    county: Forsyth
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Cumberland County Schools"
-    county: "Cumberland"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Cumberland County Schools
+    county: Cumberland
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Durham Public Schools"
-    county: "Durham"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Durham Public Schools
+    county: Durham
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Robeson County Schools"
-    county: "Robeson"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Robeson County Schools
+    county: Robeson
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Sampson County Schools"
-    county: "Sampson"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Sampson County Schools
+    county: Sampson
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Duplin County Schools"
-    county: "Duplin"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Duplin County Schools
+    county: Duplin
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

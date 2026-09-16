@@ -2,59 +2,75 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: TN
 districts:
-  - name: "Metro Nashville Public Schools"
-    county: "Davidson"
+  - name: Metro Nashville Public Schools
+    county: Davidson
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Shelby County Schools"
-    county: "Shelby"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Shelby County Schools
+    county: Shelby
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Knox County Schools"
-    county: "Knox"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Knox County Schools
+    county: Knox
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Hamilton County Schools"
-    county: "Hamilton"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Hamilton County Schools
+    county: Hamilton
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Coffee County Schools"
-    county: "Coffee"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Coffee County Schools
+    county: Coffee
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Putnam County Schools"
-    county: "Putnam"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Putnam County Schools
+    county: Putnam
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Warren County Schools"
-    county: "Warren"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Warren County Schools
+    county: Warren
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Maury County Schools"
-    county: "Maury"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Maury County Schools
+    county: Maury
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

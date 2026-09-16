@@ -2,73 +2,93 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: LA
 districts:
-  - name: "Jefferson Parish Schools"
-    county: "Jefferson"
+  - name: Jefferson Parish Schools
+    county: Jefferson
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "East Baton Rouge Parish"
-    county: "East Baton Rouge"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: East Baton Rouge Parish
+    county: East Baton Rouge
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Orleans Parish Schools"
-    county: "Orleans"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Orleans Parish Schools
+    county: Orleans
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Caddo Parish Schools"
-    county: "Caddo"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Caddo Parish Schools
+    county: Caddo
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Calcasieu Parish Schools"
-    county: "Calcasieu"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Calcasieu Parish Schools
+    county: Calcasieu
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Ouachita Parish Schools"
-    county: "Ouachita"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Ouachita Parish Schools
+    county: Ouachita
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Rapides Parish Schools"
-    county: "Rapides"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Rapides Parish Schools
+    county: Rapides
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Bossier Parish Schools"
-    county: "Bossier"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Bossier Parish Schools
+    county: Bossier
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Tangipahoa Parish Schools"
-    county: "Tangipahoa"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Tangipahoa Parish Schools
+    county: Tangipahoa
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Lafayette Parish Schools"
-    county: "Lafayette"
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Lafayette Parish Schools
+    county: Lafayette
     nces_id: null
-    status: allows
+    status: unknown
     source: null
     quote: null
     last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

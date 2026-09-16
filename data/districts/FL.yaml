@@ -2,108 +2,138 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: FL
 districts:
-  - name: "Miami-Dade County Public Schools"
-    county: "Miami-Dade"
+  - name: Miami-Dade County Public Schools
+    county: Miami-Dade
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Broward County Public Schools"
-    county: "Broward"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Broward County Public Schools
+    county: Broward
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Hillsborough County Schools"
-    county: "Hillsborough"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Hillsborough County Schools
+    county: Hillsborough
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Orange County Public Schools"
-    county: "Orange"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Orange County Public Schools
+    county: Orange
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Palm Beach County Schools"
-    county: "Palm Beach"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Palm Beach County Schools
+    county: Palm Beach
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Duval County Public Schools"
-    county: "Duval"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Duval County Public Schools
+    county: Duval
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Pinellas County Schools"
-    county: "Pinellas"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Pinellas County Schools
+    county: Pinellas
     nces_id: null
-    status: bans
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Suwannee County Schools"
-    county: "Suwannee"
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Suwannee County Schools
+    county: Suwannee
     nces_id: null
-    status: consent_required
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Jackson County Schools"
-    county: "Jackson"
+    legacy_status: consent_required
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Jackson County Schools
+    county: Jackson
     nces_id: null
-    status: consent_required
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Holmes County Schools"
-    county: "Holmes"
+    legacy_status: consent_required
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Holmes County Schools
+    county: Holmes
     nces_id: null
-    status: consent_required
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Washington County Schools"
-    county: "Washington"
+    legacy_status: consent_required
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Washington County Schools
+    county: Washington
     nces_id: null
-    status: consent_required
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Calhoun County Schools"
-    county: "Calhoun"
+    legacy_status: consent_required
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Calhoun County Schools
+    county: Calhoun
     nces_id: null
-    status: consent_required
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Liberty County Schools"
-    county: "Liberty"
+    legacy_status: consent_required
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Liberty County Schools
+    county: Liberty
     nces_id: null
-    status: consent_required
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Lafayette County Schools"
-    county: "Lafayette"
+    legacy_status: consent_required
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Lafayette County Schools
+    county: Lafayette
     nces_id: null
-    status: consent_required
+    status: unknown
     source: null
     quote: null
     last_verified: null
-  - name: "Dixie County Schools"
-    county: "Dixie"
+    legacy_status: consent_required
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Dixie County Schools
+    county: Dixie
     nces_id: null
-    status: consent_required
+    status: unknown
     source: null
     quote: null
     last_verified: null
+    legacy_status: consent_required
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
