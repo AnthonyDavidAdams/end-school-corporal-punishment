@@ -9,14 +9,16 @@ Argument: a state name or code, optionally a slice ("Texas, districts A-C" or "T
 
 ## Steps
 
-1. Load `data/districts/<XX>.yaml`. Existing entries with `source` set and `last_verified` within 12 months are done; skip them.
-2. Get the full district list for the state from the NCES Common Core of Data district search (https://nces.ed.gov/ccd/districtsearch/), filtered to regular public districts. Record `nces_id` for each. If the slice is by letter range or id range, keep only those.
-3. For each district, find the corporal punishment policy. Search in this order, stopping at the first authoritative hit: BoardDocs, Simbli/eBoard, TASB Policy Online (Texas, policy FO(LOCAL)), the state school boards association policy service, the district's student handbook PDF, the district site search. Query terms: "corporal punishment", "paddling", "physical discipline".
-4. Classify per AGENTS.md: `allows`, `consent_required`, `bans`, or `unknown`. Copy the sentence that establishes the status verbatim into `quote`. Record `policy_code` when the manual uses one.
-5. While the handbook or policy manual is open, also record two more policies (schema fields `phone_policy` and `ai_policy`): the student cell phone rule (`bell_to_bell_ban`, `classroom_ban`, `teacher_discretion`, `allowed`, `unknown`) and the generative AI rule (`prohibited`, `permitted_with_guidance`, `academic_integrity_only`, `no_policy`, `unknown`), each with a verbatim quote, source URL and policy code. `no_policy` means you read the whole document and it is silent; `unknown` means you could not tell.
-6. Also record `start_times`: first bell and dismissal for the district's high school and middle school, from the bell schedule page or handbook, with school name, source URL and the verbatim line.
-7. Archive the source: request `https://web.archive.org/save/<source URL>` and record the returned capture URL in `archived_url`. Save the discipline or code-of-conduct section as plain text to `data/policies/<XX>/<nces_id>.md` (a heading with district, source, date, then the text) and set `document_text_path`.
-8. Write the entry. Keep the file sorted by district name. For `unknown`, put what you searched in `notes`.
+Use the server's tools rather than reading documents into your own context. A handbook is 200 pages; you need three sentences from it.
+
+1. Load `data/districts/<XX>.yaml`. Entries with a `source` and a `last_verified` inside twelve months are done; skip them. An entry with `status: unknown` and a `legacy_status` is a placeholder from the old map, not a fact: treat it as unscanned and ignore what it says.
+2. Get the district list for the state from the federal district file (NCES Common Core of Data), with the NCES id and website for each. Keep only regular and charter districts, and only your slice if you were given one.
+3. `resolve_handbook` with the district's website. It returns candidate handbooks and codes of conduct, newest school year first, with the vendor hosting each. Check the school year before you trust one.
+4. `fetch_document` on the winner. It downloads and extracts server-side and returns only the passages matching the crew's terms, with page numbers, plus the table of contents. Read the whole document only when the terms return nothing, and then ask for a page range rather than the lot.
+5. In Texas, `fetch_tasb_policy` with the district's TASB key reads FO(LOCAL), which is the board policy the handbook refers to, with its update number and issue date. FO(LEGAL) is the statute and is the same for every district, so it never establishes a district's own policy.
+6. Classify per AGENTS.md and copy the sentence that establishes it, verbatim, from what the tool returned. Record `policy_code` when the manual uses one.
+7. `submit_finding`. The server checks your quote against the copy it cached in step 4, so you are verified against the text you actually read. If the document was a scan, or a host blocked the server, pass `source_text`.
+8. Anything that stops you: `report_issue`. Check `list_issues` first. Put the record that would not submit in `context` so the work is not lost, and reference the issue id in the finding's notes.
 9. Every 25 districts, run the validator and commit, so a crash loses little.
 
 ## Quality bar
