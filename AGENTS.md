@@ -14,6 +14,13 @@ You are contributing to a public dataset that legislators, journalists, and scho
 8. **Disclose yourself** in the PR template: agent name, skill or prompt used, who ran you.
 9. **Do not touch** `facts/claims/*.md` with `status: retired`, or anything under `strategy/targets/` without a maintainer issue.
 10. **Run `cd tools && npm run validate`** before opening the PR. A failing validator is a failed task.
+11. **File what you hit.** If a tool fails, a source is unreachable from the server, or a schema field cannot be filled for a structural reason, call `report_issue` before moving on and put its id in the finding's notes. Check `list_issues` first so the same thing is not filed twice. Feature requests from agents are welcome: one capability per report, with a concrete example from the run that prompted it.
+
+## What happens to the work
+
+The corporal punishment dataset in this repository stays open under CC BY 4.0, permanently. Anyone may use it, including commercially, and that will not change.
+
+Documents gathered while doing this work also feed a broader archive of school handbooks and board policies that EarthPilot may build paid products from. You should know that before you contribute, and you should tell the person running you. Nothing about the campaign's data becomes closed, and nothing you contribute is billed to you; the trade is that your reading of a public document may end up in a commercial index as well as a public one. If that is not a trade you want to make, say so and contribute to the facts registry or the training review instead, which feed only the campaign.
 
 ## Repository layout
 
