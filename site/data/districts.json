@@ -3266,12 +3266,14 @@
    "name": "Dallas ISD",
    "county": "Dallas",
    "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
+   "status": "bans",
+   "source": "https://resources.finalsite.net/images/v1755021578/dallasisdorg/obs6bfjuzslkr6tmiw4e/StudentHandbook.pdf",
+   "quote": "District policy prohibits the use of corporal punishment. [See policy FO (LOCAL)].",
+   "last_verified": "2026-09-16",
    "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "notes": "Confirms the legacy 'bans' value with a source and quote. Opened the district Student Handbook PDF linked from https://www.dallasisd.org/parents-students/student-requirements/student-handbook (finalsite asset v1755021578; the text references the 2026-2027 Student Artwork Release Form, so this is the current edition). The single-sentence subsection sits under 'Consent, Opt-Out, and Refusal Rights' and cites FO(LOCAL) on Dallas ISD's TASB Policy Online (key=361), which was not opened this run. A campus discipline plan (Salazar Elementary, https://salazar.dallasisd.org/our-school/discipline-management-plan) also states 'Per Dallas ISD policy, no one is to administer corporal punishment.' NCES district ID not confirmed this run.",
+   "policy_code": "Student Handbook, Section One: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 5); refers to FO(LOCAL)",
+   "crdc_students_latest": null
   },
   {
    "name": "Del Rio CISD",
@@ -3367,12 +3369,14 @@
    "name": "Fort Worth ISD",
    "county": "Tarrant",
    "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
+   "status": "bans",
+   "source": "https://resources.finalsite.net/images/v1721917290/fwisdorg/gadrlmgmmv4lszua35hn/StudentCodeofConduct2024-25.pdf",
+   "quote": "However, an employee is not allowed to use physical restraint as a disciplinary measure; corporal punishment is prohibited.",
+   "last_verified": "2026-09-16",
    "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "notes": "Confirms the legacy 'bans' value with a source and quote. The board-adopted 2024-2025 Student Code of Conduct (newest PDF I could open; fwisd.org/conduct hosts the current edition but the PDF URL was not retrievable this run) states the prohibition inside the Physical Restraint section, in parentheses. Note the same Code's 'Prohibited Aversive Techniques' list (p. 18) keeps the TASB model phrase 'other than corporal punishment as permitted by district policy. [See policy FO(LOCAL).]', which is boilerplate and does not authorize anything. FWISD employee handbooks (2006 and 2013-14 editions hosted by NCTQ) also state 'The use of corporal punishment is prohibited by the FWISD Board of Trustees. Students will not be spanked, paddled, or physically disciplined for violations of the Student Code of Conduct.' FO(LOCAL) on TASB Policy Online not opened this run. NCES district ID not confirmed this run.",
+   "policy_code": "Student Code of Conduct 2024-2025, 'Discipline Considerations & Techniques' > 'Physical Restraint' (p. 17)",
+   "crdc_students_latest": null
   },
   {
    "name": "Frisco ISD",
@@ -3411,12 +3415,14 @@
    "name": "Houston ISD",
    "county": "Harris",
    "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status. Largest district in Texas - banned",
-   "legacy_status": "bans"
+   "status": "bans",
+   "source": "https://resources.finalsite.net/images/v1756312131/houstonisdorg/un7pfju997ei6srq3d6u/HISD-Student-Code-Of-Conduct-2025-2026-ENG.pdf",
+   "quote": "Board Policy details District prohibition of corporal punishment. Board Policy Reference(s): DC11",
+   "last_verified": "2026-09-16",
+   "notes": "Largest district in Texas. The 2025-2026 Student Code of Conduct (proposed adoption by the Board of Managers 2025-07-22), 'At a Glance: Summary of Related Board Policies' (p. 8), lists 'Corporal Punishment' with the quoted line and cites Board Policy DC11. The Code's 'Prohibited Aversive Techniques' (p. 18) lists 'Using techniques designed or likely to cause physical pain.' with no corporal-punishment carve-out, and corporal punishment appears nowhere in the 'Techniques' list (p. 17). Board policy DC11 itself was not opened this run (HISD Policy Online at houstonisd.org). NCES district ID not confirmed this run.",
+   "legacy_status": "bans",
+   "policy_code": "Student Code of Conduct 2025-2026, 'At a Glance: Summary of Related Board Policies' (p. 8); Board Policy DC11",
+   "crdc_students_latest": null
   },
   {
    "name": "Irving ISD",
@@ -3444,12 +3450,14 @@
    "name": "Killeen ISD",
    "county": "Bell",
    "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
+   "status": "bans",
+   "source": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5535/Kisd/20272e62-e640-413d-a7a2-f830c777127c/Student_Handbook_2024-2025.pdf?disposition=inline",
+   "quote": "In accordance with the Student Code of Conduct and district policy FO(LOCAL) Corporal Punishment is prohibited in Killeen Independent School District.",
+   "last_verified": "2026-09-16",
    "legacy_status": "allows",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "notes": "CORRECTION: the existing TX.yaml placeholder lists Killeen ISD as 'allows'. The 2024-2025 Student Handbook and District Information, Section One: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 10), states the prohibition and ties it to the Student Code of Conduct and FO(LOCAL). Newer handbooks (2025-26, 2026-27) are listed at https://www.killeenisd.org/documents/departments/student-services/student-handbook-&-code-of-conduct/16616983 but the Apptegy listing renders via JavaScript only, so their PDF URLs could not be retrieved this run. The Code of Conduct page is https://www.killeenisd.org/code_of_conduct. FO(LOCAL) on TASB Policy Online was not opened this run. NCES district ID not confirmed this run (NCES CCD not opened).",
+   "policy_code": "Student Handbook 2024-2025, Section One: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 10); refers to FO(LOCAL)",
+   "crdc_students_latest": null
   },
   {
    "name": "Laredo ISD",
@@ -3535,23 +3543,27 @@
    "name": "Lubbock ISD",
    "county": "Lubbock",
    "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
+   "status": "bans",
+   "source": "https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3628/LISD/3007676/Student_Handbook_23_24__1_.pdf",
+   "quote": "The Board prohibits the use of corporal punishment in the Distrit. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.",
+   "last_verified": "2026-09-16",
    "legacy_status": "allows",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "notes": "CORRECTION: the existing TX.yaml placeholder lists Lubbock ISD as 'allows'. The district removed corporal punishment from its discipline policy in 2020 (KCBD, 2020-08-06: https://www.kcbd.com/2020/08/06/spanking-removed-lisd-discipline-techniques/, opened; Associate Superintendent Doyle Vogler said TASB recommended removal and paddling had not been used since 2015). Quote copied verbatim from the 2023-2024 Student Handbook including the district's typo 'Distrit'. The 2022-2023 handbook (https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3628/Roberts/3cbfe9f9-d837-4ec5-8c85-c1859e666241/Lubbock_ISD_Student_Handbook_2022-2023.pdf, p. 14, opened) carries the identical sentence. The board-adopted 2025-2026 Student Code of Conduct (https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3628/LISD/5901068/Student_Code_of_Conduct_2025-2026.pdf, opened) lists no corporal punishment among 'Techniques' (pp. 16-17) and its 'Prohibited Aversive Techniques' (p. 17) includes 'Using techniques designed or likely to cause physical pain.' with no corporal-punishment carve-out. The 2026-27 handbook is listed at https://www.lubbockisd.org/documents/families-&-students/student-handbook/445278 (Apptegy JavaScript listing; PDF URL not retrievable this run); KFMX (2026-08-11, https://kfmx.com/lubbock-isd-spanking-policy/, opened) reports it carries the same prohibition. TASB Policy Online key=830 (https://pol.tasb.org/PolicyOnline?key=830) not readable from this environment. NCES district ID per Wikipedia is 4828500; left null pending NCES CCD confirmation.",
+   "policy_code": "Student Handbook 2023-2024, Section One: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 14)",
+   "crdc_students_latest": null
   },
   {
    "name": "Lufkin ISD",
    "county": "Angelina",
    "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
+   "status": "consent_required",
+   "source": "https://bpb-us-w2.wpmucdn.com/sites.lufkinisd.org/dist/c/2/files/2025/08/2025-2026-Student-Handbook-English_Final_1.pdf",
+   "quote": "Lufkin ISD will only administer corporal punishment as an available disciplinary consequence with written parent permission.",
+   "last_verified": "2026-09-16",
    "legacy_status": "allows",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "notes": "The placeholder lists Lufkin ISD as 'allows'. The 2025-2026 Student/Parent Handbook (updated 2025-08-05), Section I 'Prohibiting the Use of Corporal Punishment' (p. 12), first says: 'Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district's policy manual.' It then adds the district-specific opt-in sentence quoted in `quote`, referring parents to 'the Corporal Punishment section of the Student Information form.' The following two sentences keep the TASB model opt-out text: 'A signed statement must be provided each year if you do not want corporal punishment to be administered to your child. You may choose to revoke this prohibition at any time during the year by providing a signed statement to the campus principal.' Also: 'district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.' and a NOTE that corporal punishment shall not be administered to a student in state conservatorship even without a signed statement. CONFLICT: opt-in and opt-out language coexist in the same section; status recorded as consent_required on the district-specific sentence. FO(LOCAL) on TASB Policy Online was not readable from this environment and should be checked to settle it. NCES ID not confirmed this run (NCES CCD not opened).",
+   "policy_code": "Student/Parent Handbook 2025-2026, Section I: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 12); refers to FO(LOCAL)",
+   "crdc_students_latest": null
   },
   {
    "name": "Marshall ISD",
@@ -3661,20 +3673,24 @@
    "status": "unknown",
    "source": null,
    "quote": null,
-   "last_verified": null,
+   "last_verified": "2026-09-16",
    "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "notes": "Legacy value is bans. Opened the board-approved 2025-26 Student Code of Conduct in full (https://d16k74nzx9emoe.cloudfront.net/0fe4927c-0dbb-4d28-b446-b99ee82c49b0/NEISD%20SCOC%202025-26%20Approved.pdf): the 'Techniques' list (pp. 12-13) contains no corporal punishment, and the only mention is the TASB model carve-out under 'Prohibited Aversive Techniques' (p. 14): 'Using techniques designed or likely to cause physical pain, other than corporal punishment as permitted by district policy. [See policy FO(LOCAL)]', which is boilerplate and does not establish a status either way. No sentence stating a prohibition was found in the Code. The Student/Parent Handbook (listed at https://www.neisd.net/handbooks and https://www.neisd.net/Departments/Pupil-Personnel/Student-Parent-Handbooks/) was not opened this run; its Section One 'Prohibiting the Use of Corporal Punishment' subsection should settle it. FO(LOCAL) on TASB Policy Online not opened. KSAT (2026-08-20) reports North East ISD told the station it prohibits corporal punishment; secondary, not used for status. NCES district ID not confirmed this run.",
+   "policy_code": null,
+   "crdc_students_latest": null
   },
   {
    "name": "Northside ISD",
    "county": "Bexar",
    "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
+   "status": "bans",
+   "source": "https://www.nisd.net/schools/handbooks/elementary/policies",
+   "quote": "Corporal punishment is not used in Northside schools.",
+   "last_verified": "2026-09-16",
    "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "notes": "Confirms the legacy 'bans' value with a source and quote. Northside ISD publishes its Student-Parent Handbook as web pages at nisd.net/schools/handbooks; the Elementary Policies & Procedures page (Section A, 'Discipline', page footer 'Updated Sep. 10, 2026') carries the sentence. The 2023-2024 Thornton Elementary PDF handbook (https://www.nisd.net/sites/default/files/attachments/parent_student-handbook-2023-2024.pdf, seen in search, not opened) carries the same sentence. The Student Code of Conduct is Section C of the same handbook (https://www.nisd.net/schools/handbooks) and was not read this run; FO(LOCAL) on TASB Policy Online not opened. KSAT (2026-08-20, https://www.ksat.com/news/local/2026/08/20/which-local-school-districts-allow-corporal-punishment-in-schools/) reports Northside ISD told the station it prohibits corporal punishment. NCES district ID not confirmed this run.",
+   "policy_code": "Student-Parent Handbook, Section A: Elementary Policies & Procedures, 'Discipline' (web edition, updated Sep. 10, 2026)",
+   "crdc_students_latest": null
   },
   {
    "name": "Odem-Edroy ISD",
@@ -3848,9 +3864,11 @@
    "status": "unknown",
    "source": null,
    "quote": null,
-   "last_verified": null,
+   "last_verified": "2026-09-16",
    "legacy_status": "allows",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "notes": "Opened the 2025-26 Student Handbook including Student Code of Conduct (https://resources.finalsite.net/images/v1762444088/wfisdnet/nzsvumwusvipxfzc5m7g/SHBandCOCFinalCombined_1.pdf, dated 2025-08-14) through the 'Conduct (All Grade Levels)' entry of Section Two (about p. 44). Section One 'Consent, Opt-Out, and Refusal Rights' (pp. 6-13) contains no 'Prohibiting the Use of Corporal Punishment' subsection at all; it runs from advanced-math opt-out straight to 'Limiting Electronic Communications'. No sentence establishing a status was found in the pages read. The Student Code of Conduct bound into the same file (its 'Discipline Management Techniques' and 'Prohibited Aversive Techniques' sections) and FO(LOCAL) on TASB Policy Online (linked from the handbook as 'Wichita Falls ISD Board Policy Manual - Policy Online (tasb.org)') were not read this run and should decide the status. Also searched: wfisd.net Parents & Students page (links to 'Student Handbook and Code of Conduct'), 2024-25 handbook (https://resources.finalsite.net/images/v1724333396/wfisdnet/nrkmrpa5ayewpk7j053i/2024-25SHBCOCACOCEnglish.pdf, not opened), web search for WFISD corporal punishment. NCES district ID not confirmed this run.",
+   "policy_code": null,
+   "crdc_students_latest": null
   }
  ],
  "WY": [
