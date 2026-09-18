@@ -41,17 +41,20 @@ function countyMap(code, ds) {
     const label = list.length ? list.map(d => `${d.name}: ${({ allows: "allows", bans: "prohibits", consent_required: "consent required", unknown: "policy unknown" })[d.status]}`).join("<br>") : "No district recorded yet. State law applies. Help scan it.";
     return `<path d="${c.d}" fill="${CFILL[st]}" stroke="#fff" stroke-width="${sw}" data-county="${esc(c.name)}" data-status="${esc(CLBL[st])}" data-districts="${esc(label)}" data-key="${esc(norm(c.name))}" tabindex="0"><title>${esc(c.name)}</title></path>`; }).join("\n");
   return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><span class="meta">Hover a county for its districts; click to jump to the table.</span></div>
-<svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" role="img" aria-label="Counties colored by school district corporal punishment policy">
+<svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" data-state="${code}" role="img" aria-label="Counties colored by school district corporal punishment policy">
 ${paths}
 <path d="${statePaths[code]}" fill="none" stroke="#0D132D" stroke-width="${(Math.max(w, h) / 450).toFixed(2)}" pointer-events="none"/>
 </svg><div class="tip" id="ctip"></div>
 <div class="legend">${Object.keys(CLBL).filter(k => counts[k]).map(k => `<span><i style="background:${CFILL[k]}"></i>${CLBL[k]} (${counts[k]})</span>`).join("")}</div></div>
+<p class="meta" id="county-live-note"></p>
 <p class="meta">Counties take the state's status unless a recorded district differs. Boundaries: US Census Bureau (public domain). District policies with a source link are verified; the rest were carried over from the original map and are being re-checked.</p>
 <script>(function(){const tip=document.getElementById("ctip"),box=document.querySelector(".mapbox"),svg=document.querySelector(".countymap");if(!svg)return;
 // The state outline is drawn after the counties, so a highlight painted on a county is cut across by
 // it. This group is appended after everything, and every highlight goes here.
 const NS="http://www.w3.org/2000/svg";
-const layer=document.createElementNS(NS,"g");layer.setAttribute("pointer-events","none");svg.append(layer);
+const liveLayer=document.createElementNS(NS,"g");liveLayer.id="county-live-layer";liveLayer.setAttribute("pointer-events","none");
+const layer=document.createElementNS(NS,"g");layer.id="county-hover-layer";layer.setAttribute("pointer-events","none");
+svg.append(liveLayer,layer);
 const trace=p=>{layer.textContent="";const r=document.createElementNS(NS,"path");r.setAttribute("d",p.getAttribute("d"));r.setAttribute("fill","rgba(255,255,255,.32)");r.setAttribute("stroke","#0D132D");r.setAttribute("stroke-width","2");r.setAttribute("stroke-linejoin","round");r.setAttribute("vector-effect","non-scaling-stroke");layer.append(r);};
 const clear=()=>{layer.textContent="";tip.style.display="none";};
 svg.querySelectorAll("path[data-county]").forEach(p=>{const show=e=>{trace(p);tip.innerHTML="<b>"+p.dataset.county+"</b><span class=st>"+p.dataset.status+"</span><br>"+p.dataset.districts;tip.style.display="block";if(e&&e.clientX){const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+14,r.width-330)+"px";tip.style.top=(e.clientY-r.top+14)+"px";}};
@@ -162,6 +165,11 @@ ul.feed .ev-verified .ev-what strong{color:var(--green-dark)}
 ul.feed li.meta{display:block;color:var(--muted)}
 path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:drop-shadow(0 0 3px rgba(246,224,94,.8))}
 #live-map-note{color:var(--muted);font-size:.85rem;margin:.5rem 0 0}
+/* counties somebody is working on right now, ringed over the settled record */
+.county-live{stroke:#B7791F;stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.county-live-verified{stroke:#F6E05E}
+#county-live-note{margin:.5rem 0 0}
+#county-live-note .county-live-key{display:inline-block;width:.75rem;height:.75rem;border:2px solid #B7791F;border-radius:2px;margin-right:.4rem;vertical-align:-1px}
 .ev-place{display:inline-flex;align-items:center;gap:.22rem;color:var(--muted);font-size:.82rem;white-space:nowrap}
 .ev-place .pin{flex:none;opacity:.8}
 /* social-proof toast */
@@ -173,7 +181,7 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 #live-toast .toast-x:hover{color:var(--ink)}
 #live-toast .toast-map{flex:0 0 7rem}
 #live-toast .osm{position:relative;width:7rem;height:7rem;border-radius:10px;overflow:hidden;background:#dfe3e8;box-shadow:0 0 0 1px var(--rule)}
-#live-toast .osm-empty{background:var(--gray-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%238B95A5' d='M12 2c-3.9 0-7 3.1-7 7 0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") no-repeat center/28px}
+#live-toast .osm-world img{position:absolute;inset:0;width:100%;height:100%;display:block}
 #live-toast .osm-pan{position:absolute;inset:0;will-change:transform}
 #live-toast .osm-pan img{position:absolute;display:block;width:256px;height:256px;max-width:none}
 #live-toast .osm-marker{position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(13,19,45,.45),0 1px 3px rgba(0,0,0,.35)}

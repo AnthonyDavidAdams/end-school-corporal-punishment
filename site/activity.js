@@ -61,8 +61,17 @@ function tileFor(lat, lon, z) {
   return { x, y };
 }
 
+// No location resolved: show the world. Zoom 0 is a single tile holding the whole planet, so this is
+// the same machinery and the same cache, and it says something true rather than showing a grey box.
+function worldSquare() {
+  return `<div class="osm osm-world" role="img" aria-label="Map of the world">
+    <img src="${SERVER}/tiles/0/0/0.png" alt="" loading="lazy" decoding="async" width="256" height="256">
+    <a class="osm-credit" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OSM</a>
+  </div>`;
+}
+
 function mapSquare(place) {
-  if (!place || !Number.isFinite(place.lat) || !Number.isFinite(place.lon)) return "";
+  if (!place || !Number.isFinite(place.lat) || !Number.isFinite(place.lon)) return worldSquare();
   const { x, y } = tileFor(place.lat, place.lon, MAP_ZOOM);
   const tx = Math.floor(x), ty = Math.floor(y);
   const n = 2 ** MAP_ZOOM;
@@ -154,8 +163,11 @@ function markMap(events) {
 // The toast: one recent contribution at a time in the corner, the way a shop shows that somebody
 // else just bought something. It is the same data as the panel above; the panel is for reading and
 // this is for the room feeling occupied. Dismissing it is remembered, and it never covers the page.
-const TOAST_SHOW_MS = 7000, TOAST_GAP_MS = 9000, TOAST_FIRST_MS = 4000, TOAST_MAX = 6;
-let toastQueue = [], toastShown = 0, toastTimer = null, toastOff = false;
+// It cycles for as long as the page is open. It used to stop after six, which meant the whole
+// sequence was over inside two minutes and anyone who scrolled down after that saw nothing at all —
+// which is exactly what a returning visitor does. Dismissing it is still permanent.
+const TOAST_SHOW_MS = 8000, TOAST_GAP_MS = 11000, TOAST_FIRST_MS = 2500;
+let toastCursor = 0, toastEvents = [], toastTimer = null, toastOff = false;
 
 try { toastOff = localStorage.getItem("escp-live-toast") === "off"; } catch { toastOff = false; }
 
@@ -179,13 +191,13 @@ function showToast(e) {
   const el = toastEl();
   // The map column is always rendered, with a placeholder when there is no location, so the box is
   // the same shape every time it appears.
-  const map = mapSquare(e.place) || `<div class="osm osm-empty" aria-hidden="true"></div>`;
+  const map = mapSquare(e.place);
   el.innerHTML = `
     <button class="toast-x" aria-label="Stop showing these">&times;</button>
     <div class="toast-map">${map}</div>
     <div class="toast-body">
       <p class="toast-line">${line(e)}</p>
-      <p class="toast-foot">${placeBit(e) || '<span class="ev-place">Somewhere with an agent</span>'}<span class="toast-when">${esc(e.ago || "")}</span></p>
+      <p class="toast-foot">${placeBit(e) || '<span class="ev-place">Somewhere on Earth</span>'}<span class="toast-when">${esc(e.ago || "")}</span></p>
       <a class="toast-cta" href="/kids/contribute/">Volunteer compute &rarr;</a>
     </div>`;
   el.querySelector(".toast-x").addEventListener("click", () => {
@@ -195,27 +207,71 @@ function showToast(e) {
     clearTimeout(toastTimer);
   });
   el.classList.add("show");
-  toastShown++;
   toastTimer = setTimeout(() => {
     hideToast();
-    if (toastShown < TOAST_MAX) toastTimer = setTimeout(nextToast, TOAST_GAP_MS);
+    toastTimer = setTimeout(nextToast, TOAST_GAP_MS);
   }, TOAST_SHOW_MS);
 }
 
 function nextToast() {
-  if (toastOff || toastShown >= TOAST_MAX) return;
-  const e = toastQueue.shift();
-  if (!e) return;
-  showToast(e);
+  if (toastOff || !toastEvents.length) return;
+  if (toastCursor >= toastEvents.length) toastCursor = 0;   // round again
+  showToast(toastEvents[toastCursor++]);
 }
 
 function primeToasts(events) {
-  if (toastOff || toastShown >= TOAST_MAX) return;
+  if (toastOff) return;
   // Only the substantive events; "proposed an improvement to the tools" is not social proof.
   const good = events.filter((e) => e.kind === "submitted" || e.kind === "verified" || e.kind === "claimed");
   if (!good.length) return;
-  toastQueue = good.slice(0, TOAST_MAX);
+  toastEvents = good.slice(0, 24);
   if (!toastTimer) toastTimer = setTimeout(nextToast, TOAST_FIRST_MS);
+}
+
+// The county map on a state page is built from the merged dataset, so it only moves when findings are
+// approved and the site is rebuilt. This rings the counties somebody's agent has touched since then,
+// so a visitor can see the work in progress rather than only the settled record. The district-to-county
+// mapping is already on the page, in the table under the map.
+function markCountyMap(events) {
+  const svg = document.querySelector(".countymap[data-state]");
+  if (!svg) return false;
+  const layer = svg.querySelector("#county-live-layer");
+  if (!layer) return false;
+  const code = svg.dataset.state;
+
+  const countyOf = new Map();
+  for (const row of document.querySelectorAll("tr[data-key]")) {
+    const name = row.cells[0] && row.cells[0].textContent.trim().toLowerCase();
+    if (name) countyOf.set(name, row.dataset.key);
+  }
+
+  const weekAgo = Date.now() - 7 * 86400000;
+  const hot = new Map();      // county key -> most recent event
+  for (const e of events) {
+    if (e.scope !== code || !e.subject || Date.parse(e.at) < weekAgo) continue;
+    const key = countyOf.get(e.subject.trim().toLowerCase());
+    if (key && !hot.has(key)) hot.set(key, e);
+  }
+
+  layer.textContent = "";
+  for (const [key, e] of hot) {
+    const p = svg.querySelector(`path[data-key="${CSS.escape(key)}"]`);
+    if (!p) continue;
+    const ring = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    ring.setAttribute("d", p.getAttribute("d"));
+    ring.setAttribute("class", `county-live county-live-${esc(e.kind)}`);
+    ring.setAttribute("fill", "none");
+    layer.append(ring);
+  }
+
+  const note = document.getElementById("county-live-note");
+  if (note) {
+    const n = hot.size;
+    note.innerHTML = n
+      ? `<span class="county-live-key"></span>${n} ${n === 1 ? "county has" : "counties have"} been worked on in the last week by contributors' agents. <a href="/kids/contribute/">Bring yours.</a>`
+      : "";
+  }
+  return true;
 }
 
 async function tick() {
@@ -244,6 +300,7 @@ async function tick() {
     let tries = 0;
     const retry = setInterval(() => { if (markMap(events) || ++tries > 12) clearInterval(retry); }, 600);
   }
+  markCountyMap(events);
   primeToasts(events);
 }
 
@@ -252,5 +309,6 @@ async function tick() {
 if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) toastOff = true;
 
 tick();
-// Only keep polling where the panel lives; elsewhere one fetch is enough to fill the toast queue.
-if (document.getElementById("live-feed")) setInterval(tick, POLL_MS);
+// Keep polling anywhere something on the page reflects live work: the panel on the front page, the
+// county rings on a state page. Elsewhere one fetch is enough to fill the toast.
+if (document.getElementById("live-feed") || document.querySelector(".countymap[data-state]")) setInterval(tick, POLL_MS);

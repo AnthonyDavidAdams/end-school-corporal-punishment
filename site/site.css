@@ -52,6 +52,11 @@ ul.feed .ev-verified .ev-what strong{color:var(--green-dark)}
 ul.feed li.meta{display:block;color:var(--muted)}
 path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:drop-shadow(0 0 3px rgba(246,224,94,.8))}
 #live-map-note{color:var(--muted);font-size:.85rem;margin:.5rem 0 0}
+/* counties somebody is working on right now, ringed over the settled record */
+.county-live{stroke:#B7791F;stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.county-live-verified{stroke:#F6E05E}
+#county-live-note{margin:.5rem 0 0}
+#county-live-note .county-live-key{display:inline-block;width:.75rem;height:.75rem;border:2px solid #B7791F;border-radius:2px;margin-right:.4rem;vertical-align:-1px}
 .ev-place{display:inline-flex;align-items:center;gap:.22rem;color:var(--muted);font-size:.82rem;white-space:nowrap}
 .ev-place .pin{flex:none;opacity:.8}
 /* social-proof toast */
@@ -63,7 +68,7 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 #live-toast .toast-x:hover{color:var(--ink)}
 #live-toast .toast-map{flex:0 0 7rem}
 #live-toast .osm{position:relative;width:7rem;height:7rem;border-radius:10px;overflow:hidden;background:#dfe3e8;box-shadow:0 0 0 1px var(--rule)}
-#live-toast .osm-empty{background:var(--gray-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%238B95A5' d='M12 2c-3.9 0-7 3.1-7 7 0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") no-repeat center/28px}
+#live-toast .osm-world img{position:absolute;inset:0;width:100%;height:100%;display:block}
 #live-toast .osm-pan{position:absolute;inset:0;will-change:transform}
 #live-toast .osm-pan img{position:absolute;display:block;width:256px;height:256px;max-width:none}
 #live-toast .osm-marker{position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(13,19,45,.45),0 1px 3px rgba(0,0,0,.35)}
