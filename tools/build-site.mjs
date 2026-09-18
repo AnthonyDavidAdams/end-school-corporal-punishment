@@ -48,8 +48,14 @@ ${paths}
 <div class="legend">${Object.keys(CLBL).filter(k => counts[k]).map(k => `<span><i style="background:${CFILL[k]}"></i>${CLBL[k]} (${counts[k]})</span>`).join("")}</div></div>
 <p class="meta">Counties take the state's status unless a recorded district differs. Boundaries: US Census Bureau (public domain). District policies with a source link are verified; the rest were carried over from the original map and are being re-checked.</p>
 <script>(function(){const tip=document.getElementById("ctip"),box=document.querySelector(".mapbox"),svg=document.querySelector(".countymap");if(!svg)return;
-svg.querySelectorAll("path[data-county]").forEach(p=>{const show=e=>{tip.innerHTML="<b>"+p.dataset.county+"</b><span class=st>"+p.dataset.status+"</span><br>"+p.dataset.districts;tip.style.display="block";if(e&&e.clientX){const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+14,r.width-330)+"px";tip.style.top=(e.clientY-r.top+14)+"px";}};
-p.addEventListener("mousemove",show);p.addEventListener("focus",show);p.addEventListener("mouseleave",()=>tip.style.display="none");p.addEventListener("blur",()=>tip.style.display="none");
+// The state outline is drawn after the counties, so a highlight painted on a county is cut across by
+// it. This group is appended after everything, and every highlight goes here.
+const NS="http://www.w3.org/2000/svg";
+const layer=document.createElementNS(NS,"g");layer.setAttribute("pointer-events","none");svg.append(layer);
+const trace=p=>{layer.textContent="";const r=document.createElementNS(NS,"path");r.setAttribute("d",p.getAttribute("d"));r.setAttribute("fill","rgba(255,255,255,.32)");r.setAttribute("stroke","#0D132D");r.setAttribute("stroke-width","2");r.setAttribute("stroke-linejoin","round");r.setAttribute("vector-effect","non-scaling-stroke");layer.append(r);};
+const clear=()=>{layer.textContent="";tip.style.display="none";};
+svg.querySelectorAll("path[data-county]").forEach(p=>{const show=e=>{trace(p);tip.innerHTML="<b>"+p.dataset.county+"</b><span class=st>"+p.dataset.status+"</span><br>"+p.dataset.districts;tip.style.display="block";if(e&&e.clientX){const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+14,r.width-330)+"px";tip.style.top=(e.clientY-r.top+14)+"px";}};
+p.addEventListener("mousemove",show);p.addEventListener("focus",show);p.addEventListener("mouseleave",clear);p.addEventListener("blur",clear);
 p.addEventListener("click",()=>{const row=document.querySelector('tr[data-key="'+p.dataset.key+'"]');if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.classList.add("hl");setTimeout(()=>row.classList.remove("hl"),2500);}});});
 const q=document.getElementById("dsearch");if(q){q.addEventListener("input",()=>{const v=q.value.trim().toLowerCase();document.querySelectorAll("tr[data-key]").forEach(r=>{r.style.display=!v||r.textContent.toLowerCase().includes(v)?"":"none";});svg.querySelectorAll("path[data-county]").forEach(p=>{p.style.opacity=!v||p.dataset.county.toLowerCase().includes(v)||p.dataset.districts.toLowerCase().includes(v)?"1":".25";});});}})();</script>`;
 }
@@ -115,6 +121,11 @@ h1{font-family:var(--serif);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem)
 .layout{display:grid;grid-template-columns:1fr;gap:1rem}
 .mapbox{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);padding:.75rem;position:relative}
 #map svg{width:100%;height:auto;display:block}.countymap{width:100%;height:auto;max-height:68vh;display:block;margin:0 auto}
+/* A focusable SVG path gets a default focus ring drawn round its bounding box — a rectangle over
+   the map. The county itself is traced instead, so the ring is not wanted. */
+.countymap path[data-county]{cursor:pointer}
+.countymap path[data-county]:focus{outline:none}
+.countymap path[data-county]:focus-visible{outline:none}
 .legend{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;font-size:.92rem;margin:.6rem 0 0;color:var(--charcoal)}.legend i{display:inline-block;width:14px;height:14px;border-radius:2px;margin-right:.45rem;vertical-align:-2px;border:1px solid rgba(0,0,0,.15)}
 .tip{position:absolute;pointer-events:none;background:var(--navy-dark);color:#fff;padding:.55rem .75rem;border-radius:var(--radius);font-size:.9rem;line-height:1.35;max-width:320px;box-shadow:var(--shadow);display:none;z-index:5}.tip b{display:block;font-family:var(--serif);font-size:1rem;margin-bottom:.15rem}.tip .st{color:#D9DEE8}
 .mapctl{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin:0 0 .5rem}.mapctl select,.mapctl input{font:inherit;padding:.4rem .6rem;border:1px solid var(--gray-medium);border-radius:var(--radius);background:#fff;min-width:220px}
