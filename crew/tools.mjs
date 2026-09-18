@@ -57,6 +57,128 @@ function links(html, base) {
   return out;
 }
 
+
+// --- Simbli (eBOARDsolutions) ------------------------------------------------------------------
+// Simbli hosts board policy for a large share of Alabama, Georgia and Kentucky districts. The pages
+// are an Angular shell: a plain fetch gets 18 KB of chrome and no policy text, which is why scans of
+// these districts kept coming back empty. The shell does carry a per-session token, and the two APIs
+// behind it answer an ordinary fetch that presents that token and the session cookies. So no browser
+// is needed — only the page view that mints the session, then the same two calls the page makes.
+
+const SIMBLI = "https://simbli.eboardsolutions.com";
+
+// Imperva hands out a session on the first page view and refuses the APIs without those cookies,
+// so one jar has to carry the whole conversation.
+function cookieJar() {
+  const store = new Map();
+  return {
+    header: () => [...store.entries()].map(([k, v]) => `${k}=${v}`).join("; "),
+    absorb: (res) => {
+      for (const c of res.headers.getSetCookie?.() ?? []) {
+        const [pair] = c.split(";");
+        const i = pair.indexOf("=");
+        if (i > 0) store.set(pair.slice(0, i).trim(), pair.slice(i + 1).trim());
+      }
+    },
+  };
+}
+
+async function simbliGet(url, jar, fetchImpl, { json = false, referer } = {}) {
+  const res = await fetchImpl(url, {
+    headers: {
+      "User-Agent": UA,
+      Accept: json ? "application/json, text/plain, */*" : "text/html,application/xhtml+xml,*/*;q=0.8",
+      "Accept-Language": "en-US,en;q=0.9",
+      ...(json ? { "X-Requested-With": "XMLHttpRequest" } : {}),
+      ...(referer ? { Referer: referer } : {}),
+      ...(jar.header() ? { Cookie: jar.header() } : {}),
+    },
+    redirect: "follow",
+    signal: AbortSignal.timeout(30000),
+  });
+  jar.absorb(res);
+  return { status: res.status, body: await res.text() };
+}
+
+const shellVar = (html, name) => html.match(new RegExp(`var ${name} = '([^']*)'`))?.[1] ?? "";
+
+// The S= number identifies the district. Accept it bare or inside any Simbli URL.
+export function simbliSiteId(input) {
+  const s = String(input ?? "").trim();
+  if (/^\d{2,12}$/.test(s)) return s;
+  return s.match(/[?&]S=(\d{2,12})/i)?.[1] ?? null;
+}
+
+// Simbli sits behind Imperva, which answers a burst of requests with an interstitial instead of an
+// error code. It is worth naming, because it is temporary and a wrong district key is not.
+const challenged = (body) => /Pardon Our Interruption|Incapsula|_Incapsula_Resource/i.test(body) && !/var sToken/.test(body);
+const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// The policy index: every code, title and revision id the district publishes.
+async function simbliListing(site, fetchImpl) {
+  const jar = cookieJar();
+  const page = `${SIMBLI}/Policy/PolicyListing.aspx?S=${site}`;
+  let shell = await simbliGet(page, jar, fetchImpl);
+  if (challenged(shell.body)) {
+    // A fresh jar and a few seconds is usually enough; the challenge is rate-based, not a block.
+    await pause(4000);
+    shell = await simbliGet(page, cookieJar(), fetchImpl);
+    if (challenged(shell.body)) throw new Error(`Simbli's bot protection answered with a challenge page for site ${site} rather than the policy listing. This is rate-based and clears on its own; wait a minute and call again.`);
+  }
+  const sct = shellVar(shell.body, "sToken");
+  const sid = shellVar(shell.body, "enSID");
+  if (!sct) throw new Error(`Simbli did not mint a session for site ${site} (HTTP ${shell.status}, ${shell.body.length} bytes). Check the S= number against the district's own policy link.`);
+  const q = new URLSearchParams({ sct, ensid: sid, enUID: "", ismobile: "false", ptid: "", secid: "" });
+  const api = await simbliGet(`${SIMBLI}/Services/api/PolicyListing/?${q}`, jar, fetchImpl, { json: true, referer: page });
+  let data;
+  try { data = JSON.parse(api.body); } catch { throw new Error(`Simbli's policy listing did not return JSON for site ${site} (HTTP ${api.status}).`); }
+  const dto = data?.PolicyListingDTO ?? {};
+  const policies = (dto.Policies ?? []).map((p) => ({
+    code: p.Policy?.Code ?? null,
+    title: p.Policy?.Description ?? null,
+    revid: p.ID ?? null,
+    status: p.StatusStr ?? null,
+    last_revised: p.Policy?.LastRevisedDate ?? null,
+    originally_adopted: p.Policy?.OriginalAdoptedDate ?? null,
+    url: p.ID ? `${SIMBLI}/Policy/ViewPolicy.aspx?S=${site}&revid=${encodeURIComponent(p.ID)}` : null,
+  })).filter((p) => p.code);
+  return { jar, sct, sid, page, sections: (dto.PolicySections ?? []).map((x) => x.DisplayFullName ?? x.Name).filter(Boolean), policies };
+}
+
+// The text of one policy.
+async function simbliPolicy(ctxs, site, revid) {
+  const { jar, sct, sid } = ctxs;
+  const page = `${SIMBLI}/Policy/ViewPolicy.aspx?S=${site}&revid=${encodeURIComponent(revid)}`;
+  const shell = await simbliGet(page, jar, ctxs.fetchImpl);
+  const q = new URLSearchParams({
+    sct: shellVar(shell.body, "sToken") || sct,
+    ensid: shellVar(shell.body, "enSID") || sid,
+    enUID: "", revid, PG: "", st: "", mt: "",
+  });
+  const api = await simbliGet(`${SIMBLI}/Services/api/ViewPolicy/GetViewPolicyData?${q}`, jar, ctxs.fetchImpl, { json: true, referer: page });
+  let data;
+  try { data = JSON.parse(api.body); } catch { throw new Error(`Simbli returned no policy data for revision ${revid} (HTTP ${api.status}).`); }
+  if (!data) throw new Error(`Simbli has no policy at revision ${revid}. Re-read the listing; revision ids change when a policy is revised.`);
+  if (data.CanViewPolicy === false) throw new Error(`Simbli will not serve revision ${revid} publicly${data.ValidationMsg ? `: ${data.ValidationMsg}` : "."}`);
+  const rev = data.PolicyRevision ?? {};
+  const html = rev.Content ?? rev.ViewContent ?? data.Content ?? "";
+  const text = String(html)
+    .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<\/(p|div|li|tr|h[1-6])>/gi, "\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&").replace(/&#39;|&apos;/gi, "'").replace(/&quot;/gi, '"')
+    .replace(/&sect;/gi, "\u00a7")
+    .replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+  return {
+    page, text,
+    district: data.SiteName ?? null,
+    policy: rev.Policy ?? null,
+    attachments: (rev.Attachments ?? []).length,
+    cross_references: (data.CrossRefs ?? []).length,
+    raw_chars: String(html).length,
+  };
+}
+
 export async function registerTools(server, ctx, { z, text, fail, documents }) {
   const fetchImpl = ctx.fetchImpl ?? fetch;
 
@@ -78,9 +200,23 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
     async ({ website, district, state, max_pages = 4 }) => {
       const origin = (() => { try { return new URL(website).origin; } catch { return null; } })();
       if (!origin) return fail(`'${website}' is not a usable URL.`);
+
+      // A Simbli URL is not a page to crawl; it is a policy system with an index. Hand it straight over.
+      if (/simbli\.eboardsolutions\.com/i.test(website)) {
+        const site = simbliSiteId(website);
+        return text({
+          district: district ?? null, state: state ?? null, website,
+          board_policy_system: site ? { vendor: "Simbli (eBOARDsolutions)", site } : { vendor: "Simbli (eBOARDsolutions)", site: null },
+          candidates: [],
+          next: site
+            ? `This district's policy lives on Simbli, which serves nothing to a plain fetch. Call fetch_simbli_policy with site ${site}.`
+            : "This is a Simbli URL but it carries no S= district key; find the district's own policy link, which does.",
+        });
+      }
       const HUB = /parent|student|famil|handbook|conduct|polic|document|resource|about|district/i;
       const seen = new Set(), queue = [website];
       const candidates = [];
+      const policySystems = new Map();
       let pages = 0;
       while (queue.length && pages < max_pages) {
         const page = queue.shift();
@@ -90,6 +226,15 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
         pages++;
         for (const l of links(got.html, got.final)) {
           const hay = `${l.text} ${safe(l.url)}`;
+          // Board policy usually is not a file at all: it is a link out to a policy vendor. Note it,
+          // because the tool that reads that vendor is the answer for this district.
+          if (/simbli\.eboardsolutions\.com/i.test(l.url)) {
+            const site = simbliSiteId(l.url);
+            if (site && !policySystems.has(site)) policySystems.set(site, { vendor: "Simbli (eBOARDsolutions)", site, read_with: "fetch_simbli_policy", found_on: got.final, link_text: l.text.slice(0, 120) || null });
+          } else if (/pol\.tasb\.org/i.test(l.url)) {
+            const key = l.url.match(/[?&]key=(\d{1,6})/i)?.[1] ?? l.url.match(/\/Code\/(\d{1,6})/i)?.[1];
+            if (key && !policySystems.has(key)) policySystems.set(key, { vendor: "TASB Policy Online", district_key: key, read_with: "fetch_tasb_policy", found_on: got.final, link_text: l.text.slice(0, 120) || null });
+          }
           const isDoc = /\.(pdf|docx?)(\?|#|$)/i.test(l.url) || DOC_HOSTS.some((d) => l.url.includes(d.host));
           if (HANDBOOK.test(hay) && isDoc) {
             const vendor = DOC_HOSTS.find((d) => l.url.includes(d.host))?.vendor ?? "district site";
@@ -108,12 +253,16 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
       }
       const rank = (c) => (c.school_year ? Number(c.school_year.slice(0, 4)) : 0);
       candidates.sort((a, b) => rank(b) - rank(a));
+      const systems = [...policySystems.values()];
       return text({
         district: district ?? null, state: state ?? null, website, pages_examined: pages,
         candidates,
+        board_policy_systems: systems,
         next: candidates.length
           ? "Pass the newest candidate to fetch_document. Check its school_year against the current one before quoting it."
-          : "Nothing found. The site is probably JavaScript-rendered or behind a bot challenge; read it yourself and submit with source_text, and file a report_issue so the pattern gets added.",
+          : systems.length
+            ? `No handbook file, but this district publishes board policy through ${systems.map((x) => x.vendor).join(" and ")}. Call ${systems[0].read_with} with ${systems[0].site ?? systems[0].district_key}. Board policy is the better source anyway: it is what the board voted on.`
+            : "Nothing found. The site is probably JavaScript-rendered or behind a bot challenge; read it yourself and submit with source_text, and file a report_issue so the pattern gets added.",
       });
     }
   );
@@ -203,5 +352,91 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
     }
   );
 
-  return ["resolve_handbook", "fetch_tasb_policy"];
+  server.registerTool(
+    "fetch_simbli_policy",
+    {
+      title: "Read a district's board policy on Simbli",
+      description:
+        "Simbli (eBOARDsolutions) carries board policy for much of Alabama, Georgia and Kentucky. Its pages are JavaScript-only, so a plain fetch of a Simbli URL returns navigation and no policy; this reads the same data the page reads. " +
+        "Called with only a district, it returns the whole policy index — every code, title, revision id and revision date — so you can see what the district actually has. Add a code or terms and it also returns the text of the matching policy, the passages mentioning corporal punishment, and the date the policy was last revised, which is how you date it. " +
+        "The text is cached against the ViewPolicy URL, so submit that URL as `source` and your quote verifies against what you read here. Codes differ by district: Etowah County calls it 6.17 Corporal Punishment, Blount County has it inside 05.13 Discipline. Search by term, not by an assumed code.",
+      inputSchema: {
+        site: z.string().trim().min(2).describe("The district's Simbli key: the number after S= in a simbli.eboardsolutions.com URL, or the whole URL"),
+        code: z.string().trim().optional().describe("An exact policy code from the index, e.g. '6.17'"),
+        revid: z.string().trim().optional().describe("A revision id from the index, when you already know which policy you want"),
+        terms: z.array(z.string().min(3)).optional().describe("Match policy titles against these. Defaults to corporal punishment and discipline."),
+        full_index: z.boolean().optional().describe("Return every policy in the index rather than the matches (default false)"),
+      },
+    },
+    async ({ site: siteArg, code, revid, terms, full_index = false }) => {
+      const site = simbliSiteId(siteArg);
+      if (!site) return fail(`'${siteArg}' does not contain a Simbli district key. Look for S=<number> in the district's policy URL.`);
+
+      let index;
+      try { index = await simbliListing(site, fetchImpl); }
+      catch (err) { return fail(err.message, { site, next: "Check the S= number against the district's own policy link, then file a report_issue if it looks right." }); }
+      index.fetchImpl = fetchImpl;
+
+      const match = terms?.length ? terms : ["corporal punishment", "discipline", "student conduct"];
+      const wanted = revid ? index.policies.filter((p) => p.revid === revid)
+        : code ? index.policies.filter((p) => p.code === code)
+        : index.policies.filter((p) => match.some((t) => (p.title ?? "").toLowerCase().includes(String(t).toLowerCase())));
+
+      const out = {
+        site,
+        sections: index.sections,
+        policies_in_index: index.policies.length,
+        matched: wanted.map((p) => ({ code: p.code, title: p.title, last_revised: p.last_revised, url: p.url })),
+      };
+      if (full_index) out.index = index.policies;
+
+      if (!wanted.length) {
+        out.next = `Nothing in the index matched. ${index.policies.length} policies are published; call again with full_index true to see them all, then pass the code you want.`;
+        return text(out);
+      }
+
+      // Read the matches, newest section of the manual first. Two is enough to settle the question
+      // and keeps a 170-policy district from turning into 170 requests.
+      const docTerms = ctx.crew.crew.document_terms ?? ["corporal punishment"];
+      out.policies = [];
+      let first = true;
+      for (const p of wanted.slice(0, 3)) {
+        // Imperva counts requests, not intentions. A scan that walks a state will be throttled unless
+        // it leaves gaps, and a throttled scan is slower than a polite one.
+        if (!first) await pause(1500);
+        first = false;
+        let got;
+        try { got = await simbliPolicy(index, site, p.revid); }
+        catch (err) { out.policies.push({ code: p.code, title: p.title, url: p.url, error: err.message }); continue; }
+
+        // Cache it under the URL a person would cite, so submit_finding can verify against this text.
+        if (got.text.length > 100) documents?.put?.(p.url, got.text, { content_type: "text/html", extracted_by: "simbli-api", final_url: got.page });
+
+        const low = got.text.toLowerCase();
+        const hits = [];
+        for (const t of docTerms) {
+          const needle = String(t).toLowerCase();
+          let i = 0, n = 0;
+          while (n < 3) {
+            const at = low.indexOf(needle, i);
+            if (at < 0) break;
+            const s0 = Math.max(0, at - 240), e0 = Math.min(got.text.length, at + needle.length + 360);
+            hits.push({ term: t, context: (s0 ? "\u2026 " : "") + got.text.slice(s0, e0).replace(/\s+/g, " ").trim() + (e0 < got.text.length ? " \u2026" : "") });
+            i = at + needle.length; n++;
+          }
+        }
+        out.district ??= got.district ?? null;
+        out.policies.push({
+          code: p.code, title: p.title, url: p.url,
+          last_revised: p.last_revised, originally_adopted: p.originally_adopted, status: p.status,
+          chars: got.text.length, attachments: got.attachments,
+          hits, text: got.text.slice(0, 40000),
+        });
+      }
+      out.next = "Cite the policy's `url` as `source` and quote from its `text`. `last_revised` is the date the district last touched it; use that, not today. If a policy has attachments, they are not in this text.";
+      return text(out);
+    }
+  );
+
+  return ["resolve_handbook", "fetch_tasb_policy", "fetch_simbli_policy"];
 }
