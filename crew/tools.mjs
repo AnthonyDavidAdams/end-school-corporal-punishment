@@ -390,6 +390,10 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
         }
       }
 
+      // Cache the LOCAL text under the URL a finding will cite, so submit_finding verifies against the
+      // text this agent actually read rather than downloading a megabyte of policy manual again.
+      if (local && local.length > 200) documents?.put?.(url, local, { content_type: "text/html", extracted_by: "tasb-local" });
+
       const localFooter = footerFrom(bodies.LOCAL ? plain.slice(0, (markers.find((m) => m.label === "LOCAL")?.end ?? 0) + 400) : null);
       const out = {
         district_key, code, source: url,
