@@ -46,10 +46,19 @@ function schoolYearFrom(text) {
   return b === a + 1 ? `${a}-${String(b).slice(2)}` : null;
 }
 
+// A TASB policy manual page runs to about a megabyte, and the sections are served in the order
+// LEGAL, LOCAL, REGULATION. Truncating the HTML therefore drops LOCAL -- the only section that
+// establishes what a district does -- while keeping LEGAL, which is identical everywhere and
+// establishes nothing. Austin ISD's page is 924,240 characters and the old 900,000 cap silently cut
+// it four thousand characters short of the answer. So: a cap large enough for the real documents,
+// and a flag when it bites, because a silent partial read is worse than a failure.
+const MAX_HTML_CHARS = 4_000_000;
+
 async function getText(url, fetchImpl) {
   const res = await fetchImpl(url, { headers: { "User-Agent": UA, Accept: "text/html,*/*" }, redirect: "follow", signal: AbortSignal.timeout(25000) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return { html: (await res.text()).slice(0, 900000), final: res.url };
+  const full = await res.text();
+  return { html: full.slice(0, MAX_HTML_CHARS), final: res.url, truncated: full.length > MAX_HTML_CHARS, source_chars: full.length };
 }
 
 function links(html, base) {
@@ -297,9 +306,10 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
       inputSchema: {
         district_key: z.string().regex(/^\d{1,6}$/).describe("The district's TASB key, the number in pol.tasb.org/Policy/Code/<key>"),
         code: z.string().trim().default("FO").describe("Policy code, e.g. FO for student discipline and corporal punishment"),
+        include_legal: z.boolean().optional().describe("Also return the full LEGAL body (default false). LEGAL is the state statute, identical in every district, and roughly 35,000 characters; it never establishes a district's own policy, so a scan does not need it. Its update and issue date come back either way."),
       },
     },
-    async ({ district_key, code = "FO" }) => {
+    async ({ district_key, code = "FO", include_legal = false }) => {
       // Policy/Code redirects here; go straight to it.
       const url = `https://pol.tasb.org/PolicyOnline/PolicyDetails?key=${district_key}&code=${encodeURIComponent(code)}`;
       let got;
@@ -336,10 +346,30 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
         return m ? t.slice(m.index + m[0].length).trim() : t;
       };
       const cut = (label) => (bodies[label] ? trimNav(bodies[label]) : null);
-      const footer = plain.match(/UPDATE\s+(\d+)\s*DATE ISSUED:?\s*([0-9/\-]+)/i);
+      // Districts date a policy either "UPDATE 126" (a TASB-wide release) or "LDU 2016.07" (a local
+      // district update). Austin uses the second, and reading only the first dated its local policy
+      // from someone else's release.
+      const footerFrom = (t) => {
+        const m = String(t ?? "").match(/(UPDATE\s+\d+|LDU\s+[0-9.]+)\s*DATE ISSUED:?\s*([0-9/\-]+)/i);
+        return m ? { update: m[1].replace(/\s+/g, " ").toUpperCase(), date_issued: m[2] } : null;
+      };
+      const footer = plain.match(/(?:UPDATE\s+\d+|LDU\s+[0-9.]+)\s*DATE ISSUED:?\s*([0-9/\-]+)/i);
       const local = cut("LOCAL"), legal = cut("LEGAL");
       if (!local && !legal) {
-        return fail("TASB answered but no LOCAL or LEGAL section was found; the page may be JavaScript-only for this district.", { url, chars: plain.length, next: "Read it yourself and submit with source_text." });
+        // TASB answers 200 with a member picker when the key matches no district, so the tell is the
+        // page's size and its "Change Active Member" prompt, not an error code.
+        const noMember = plain.length < 4000 && /Change Active Member|part of the name of a member/i.test(plain);
+        return fail(
+          noMember
+            ? `TASB served its member picker instead of a policy manual for key ${district_key}. Checked against other policy codes and against the manual root, it does the same every time, so this district's manual is not currently being published: it has left Policy Online, withdrawn the manual, or changed key. This is not a fault in the key you passed and not a temporary error worth retrying.`
+            : "TASB answered but no LOCAL or LEGAL section was found for this code.",
+          {
+            url, chars: plain.length, truncated: got.truncated ?? false,
+            next: noMember
+              ? "Go to the district's own site instead: find its board policy or student handbook, read the corporal punishment section there, and submit with source_text. Do not record the district as unknown on the strength of this alone -- TASB not carrying a manual says nothing about what the district does."
+              : "Check the policy code, or read it yourself and submit with source_text.",
+          }
+        );
       }
       // Hand back the sentences that matter rather than making the agent scan 7,000 characters.
       const terms = ctx.crew.crew.document_terms ?? ["corporal punishment"];
@@ -360,14 +390,21 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
         }
       }
 
-      return text({
+      const localFooter = footerFrom(bodies.LOCAL ? plain.slice(0, (markers.find((m) => m.label === "LOCAL")?.end ?? 0) + 400) : null);
+      const out = {
         district_key, code, source: url,
         hits,
-        local, legal,
-        update: footer ? `UPDATE ${footer[1]}` : null,
-        date_issued: footer ? footer[2] : null,
+        local,
+        local_chars: local ? local.length : 0,
+        legal_chars: legal ? legal.length : 0,
+        update: localFooter?.update ?? (footer ? footer[0].replace(/\s*DATE ISSUED[\s\S]*$/i, "").replace(/\s+/g, " ").toUpperCase() : null),
+        date_issued: localFooter?.date_issued ?? (footer ? footer[1] : null),
         note: "Quote LOCAL for what this district does; LEGAL is the statute and is identical across districts, so it does not establish a district's own policy.",
-      });
+      };
+      if (include_legal) out.legal = legal;
+      else if (legal) out.legal_omitted = "LEGAL is the state statute, the same in every district. Pass include_legal true if you actually need it.";
+      if (got.truncated) out.warning = `The page was ${got.source_chars} characters and was read up to ${MAX_HTML_CHARS}; a section may be missing. Report this.`;
+      return text(out);
     }
   );
 
