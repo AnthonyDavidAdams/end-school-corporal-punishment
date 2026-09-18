@@ -1,6 +1,7 @@
 // Static site generator for earthpilot.org/kids. Reads site/data/*.json (run build-site-data.mjs first),
 // data/crdc/*/states.csv, templates/*.md. Writes site/index.html, site/state/<XX>/index.html, site/resources/index.html, site/contribute/index.html.
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -12,6 +13,18 @@ const districts = JSON.parse(readFileSync(join(site, "data/districts.json"), "ut
 const claims = JSON.parse(readFileSync(join(site, "data/claims.json"), "utf8"));
 const summary = JSON.parse(readFileSync(join(site, "data/summary.json"), "utf8"));
 const csv = t => { const [h, ...r] = t.trim().split(/\r?\n/).map(l => l.split(",")); return r.map(x => Object.fromEntries(h.map((k, i) => [k, x[i]]))); };
+
+// Cache-busting for the assets the pages reference. Without this a returning visitor keeps running
+// whatever JavaScript their browser cached last time: the HTML updates, the behaviour does not, and
+// the two disagree in ways that look like the feature is simply broken. Hash is taken lazily because
+// site.css is generated later in this same script.
+const verCache = {};
+const ver = (name) => {
+  if (verCache[name]) return verCache[name];
+  const f = join(site, name);
+  const h = existsSync(f) ? createHash("sha1").update(readFileSync(f)).digest("hex").slice(0, 8) : String(Date.now());
+  return (verCache[name] = h);
+};
 const crdc = {};
 for (const y of readdirSync(join(root, "data/crdc")).filter(f => /^\d{4}-\d{2}$/.test(f))) { const p = join(root, "data/crdc", y, "states.csv"); if (existsSync(p)) crdc[y] = csv(readFileSync(p, "utf8")); }
 const national = csv(readFileSync(join(root, "data/crdc/national.csv"), "utf8"));
@@ -89,7 +102,7 @@ function shell({ title, description, path, body, image = `${BASE}/assets/og-imag
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${image}">
-<link rel="stylesheet" href="/kids/site.css">\n<script defer src="/kids/news.js"></script>\n<script defer src="/kids/activity.js"></script>
+<link rel="stylesheet" href="/kids/site.css?v=${ver("site.css")}">\n<script defer src="/kids/news.js?v=${ver("news.js")}"></script>\n<script defer src="/kids/activity.js?v=${ver("activity.js")}"></script>
 ${extraHead}
 </head>
 <body>
@@ -210,7 +223,7 @@ const stateLink = s => `<a href="/kids/state/${s.code}/">${esc(s.name)}</a>`;
 writeFileSync(join(site, "index.html"), shell({
   title: "Where a teacher may still legally hit a student", path: "/",
   description: "The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.",
-  extraHead: `<script defer src="/kids/map.js"></script>`,
+  extraHead: `<script defer src="/kids/map.js?v=${ver("map.js")}"></script>`,
   body: `<section class="hero"><div class="wrap"><h1>Where a teacher may still legally hit a student</h1>
 <p class="lede">In ${legalStates.length} states a public school employee may paddle a child as punishment, and does. In ${partialStates.length} more it is legal but every district has stopped. Hover or tap a state. Every status links to its statute and every number to its source.</p></div></section>
 <div class="mapbox"><div class="mapctl"><select id="jump" aria-label="Go to a state"><option value="">Go to a state…</option>${Object.values(states).sort((a, b) => a.name.localeCompare(b.name)).map(s => `<option value="${s.code}">${esc(s.name)}</option>`).join("")}</select><span class="meta">Hover a state for its status and numbers; click to open it. County lines show where district policies differ.</span></div>
