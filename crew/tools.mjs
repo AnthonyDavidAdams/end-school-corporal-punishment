@@ -5,7 +5,11 @@
 //
 // Loaded automatically by the server when it finds crew/tools.mjs. Exports registerTools.
 
-const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36";
+// A real browser string, because some vendor WAFs reject anything else, plus who we actually are and
+// where to complain. Tested against Simbli, which accepts even a bare bot string: there is no cost to
+// being identifiable, and a campaign whose only asset is its credibility should not be crawling school
+// district websites in disguise. If a vendor blocks us, we would rather they could write to us.
+const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 groundcrew/0.4 (+https://github.com/AnthonyDavidAdams/end-school-corporal-punishment)";
 
 // The handful of hosts that serve most district documents. A link to one of these is almost
 // certainly a real document rather than a navigation page.
@@ -83,7 +87,26 @@ function cookieJar() {
   };
 }
 
+// Imperva counts requests per source address per minute, and a scan that ignores that gets the whole
+// server blocked for everyone using it, not just the agent that caused it. So the floor is enforced
+// here rather than left to whoever is calling: every Simbli request in this process queues behind the
+// last one. Measured: roughly 130 requests inside five minutes trips the challenge, and it clears on
+// its own in about forty. One request every three seconds is an order of magnitude under that, and
+// still walks a whole state's districts inside an hour.
+const SIMBLI_MIN_INTERVAL_MS = 3000;
+let simbliQueue = Promise.resolve();
+let simbliLast = 0;
+function simbliTurn() {
+  simbliQueue = simbliQueue.then(async () => {
+    const wait = SIMBLI_MIN_INTERVAL_MS - (Date.now() - simbliLast);
+    if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+    simbliLast = Date.now();
+  });
+  return simbliQueue;
+}
+
 async function simbliGet(url, jar, fetchImpl, { json = false, referer } = {}) {
+  await simbliTurn();
   const res = await fetchImpl(url, {
     headers: {
       "User-Agent": UA,
@@ -145,17 +168,13 @@ async function simbliListing(site, fetchImpl) {
   return { jar, sct, sid, page, sections: (dto.PolicySections ?? []).map((x) => x.DisplayFullName ?? x.Name).filter(Boolean), policies };
 }
 
-// The text of one policy.
+// The text of one policy. The session token is per session, not per page, so the listing's token works
+// here and the ViewPolicy page view can be skipped -- a third of the requests for a district scan.
 async function simbliPolicy(ctxs, site, revid) {
   const { jar, sct, sid } = ctxs;
   const page = `${SIMBLI}/Policy/ViewPolicy.aspx?S=${site}&revid=${encodeURIComponent(revid)}`;
-  const shell = await simbliGet(page, jar, ctxs.fetchImpl);
-  const q = new URLSearchParams({
-    sct: shellVar(shell.body, "sToken") || sct,
-    ensid: shellVar(shell.body, "enSID") || sid,
-    enUID: "", revid, PG: "", st: "", mt: "",
-  });
-  const api = await simbliGet(`${SIMBLI}/Services/api/ViewPolicy/GetViewPolicyData?${q}`, jar, ctxs.fetchImpl, { json: true, referer: page });
+  const q = new URLSearchParams({ sct, ensid: sid, enUID: "", revid, PG: "", st: "", mt: "" });
+  const api = await simbliGet(`${SIMBLI}/Services/api/ViewPolicy/GetViewPolicyData?${q}`, jar, ctxs.fetchImpl, { json: true, referer: `${SIMBLI}/Policy/PolicyListing.aspx?S=${site}` });
   let data;
   try { data = JSON.parse(api.body); } catch { throw new Error(`Simbli returned no policy data for revision ${revid} (HTTP ${api.status}).`); }
   if (!data) throw new Error(`Simbli has no policy at revision ${revid}. Re-read the listing; revision ids change when a policy is revised.`);
@@ -399,12 +418,7 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
       // and keeps a 170-policy district from turning into 170 requests.
       const docTerms = ctx.crew.crew.document_terms ?? ["corporal punishment"];
       out.policies = [];
-      let first = true;
       for (const p of wanted.slice(0, 3)) {
-        // Imperva counts requests, not intentions. A scan that walks a state will be throttled unless
-        // it leaves gaps, and a throttled scan is slower than a polite one.
-        if (!first) await pause(1500);
-        first = false;
         let got;
         try { got = await simbliPolicy(index, site, p.revid); }
         catch (err) { out.policies.push({ code: p.code, title: p.title, url: p.url, error: err.message }); continue; }
