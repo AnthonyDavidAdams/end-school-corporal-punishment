@@ -126,9 +126,21 @@ function renderFeed(el, events) {
 function markMap(events) {
   const svg = document.querySelector("#map svg");
   if (!svg) return false;
+  // #state-borders is painted after the state shapes, so a ring drawn on the shape itself gets cut
+  // across by it. map.js appends a #live-layer after everything for exactly this; draw into that.
+  const layer = svg.querySelector("#live-layer");
+  if (!layer) return false;
   const dayAgo = Date.now() - 86400000;
   const hot = new Set(events.filter((e) => Date.parse(e.at) > dayAgo).map((e) => e.scope).filter(Boolean));
-  for (const p of svg.querySelectorAll("path.state")) p.classList.toggle("state-active", hot.has(p.dataset.state));
+  layer.textContent = "";
+  for (const p of svg.querySelectorAll("path.state")) {
+    if (!hot.has(p.dataset.state)) continue;
+    const ring = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    ring.setAttribute("d", p.getAttribute("d"));
+    ring.setAttribute("class", "state-active");
+    ring.setAttribute("fill", "none");
+    layer.append(ring);
+  }
   const note = document.getElementById("live-map-note");
   if (note) {
     const names = [...hot].map(stateName);
@@ -227,7 +239,11 @@ async function tick() {
     const live = document.getElementById("live-dot");
     if (live) { live.classList.remove("beat"); void live.offsetWidth; live.classList.add("beat"); }
   }
-  if (document.getElementById("map") && !markMap(events)) setTimeout(() => markMap(events), 1200);
+  // map.js builds the SVG and its layers after its own fetches, so retry a few times rather than once.
+  if (document.getElementById("map") && !markMap(events)) {
+    let tries = 0;
+    const retry = setInterval(() => { if (markMap(events) || ++tries > 12) clearInterval(retry); }, 600);
+  }
   primeToasts(events);
 }
 
