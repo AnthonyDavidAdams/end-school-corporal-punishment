@@ -3,7 +3,7 @@
 # Railway: set RAILWAY_DOCKERFILE_PATH=crew/Dockerfile, mount a volume at /state, set ESCP_MAINTAINER_TOKEN.
 FROM node:22-alpine
 WORKDIR /app
-RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/4d529dd0668b8ab42694267e05473e771161daf8.tar.gz
+RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/3760fb5df93411d664bf0cf18b71a7fed3351601.tar.gz
 # The crew directory: crew.json, values, tasks and finding schemas from crew/, everything else from the campaign.
 COPY crew/crew.json crew/values.md /crew/
 COPY crew/tasks /crew/tasks

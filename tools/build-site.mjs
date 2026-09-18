@@ -80,7 +80,7 @@ function shell({ title, description, path, body, image = `${BASE}/assets/og-imag
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${image}">
-<link rel="stylesheet" href="/kids/site.css">\n<script defer src="/kids/news.js"></script>
+<link rel="stylesheet" href="/kids/site.css">\n<script defer src="/kids/news.js"></script>\n<script defer src="/kids/activity.js"></script>
 ${extraHead}
 </head>
 <body>
@@ -151,6 +151,34 @@ ul.feed .ev-verified .ev-what strong{color:var(--green-dark)}
 ul.feed li.meta{display:block;color:var(--muted)}
 path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:drop-shadow(0 0 3px rgba(246,224,94,.8))}
 #live-map-note{color:var(--muted);font-size:.85rem;margin:.5rem 0 0}
+.ev-place{display:inline-flex;align-items:center;gap:.22rem;color:var(--muted);font-size:.82rem;white-space:nowrap}
+.ev-place .pin{flex:none;opacity:.8}
+/* social-proof toast */
+/* The toast is a notification, not site chrome: a light card, deliberately unlike the navy header,
+   and a fixed box so it never resizes as the text behind it changes. */
+#live-toast{position:fixed;left:1rem;bottom:1rem;z-index:40;box-sizing:border-box;width:23.5rem;max-width:calc(100vw - 2rem);height:9rem;display:flex;gap:.8rem;align-items:center;background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:14px;box-shadow:0 12px 32px rgba(13,19,45,.18);padding:.85rem;opacity:0;transform:translateY(.75rem);pointer-events:none;transition:opacity .35s ease,transform .35s ease}
+#live-toast.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#live-toast .toast-x{position:absolute;top:.3rem;right:.45rem;background:none;border:0;color:var(--gray-medium);font-size:1.15rem;line-height:1;cursor:pointer;padding:.15rem .3rem}
+#live-toast .toast-x:hover{color:var(--ink)}
+#live-toast .toast-map{flex:0 0 7rem}
+#live-toast .osm{position:relative;width:7rem;height:7rem;border-radius:10px;overflow:hidden;background:#dfe3e8;box-shadow:0 0 0 1px var(--rule)}
+#live-toast .osm-empty{background:var(--gray-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%238B95A5' d='M12 2c-3.9 0-7 3.1-7 7 0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/%3E%3C/svg%3E") no-repeat center/28px}
+#live-toast .osm-pan{position:absolute;inset:0;will-change:transform}
+#live-toast .osm-pan img{position:absolute;display:block;width:256px;height:256px;max-width:none}
+#live-toast .osm-marker{position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;border-radius:50%;background:var(--red);border:2px solid #fff;box-shadow:0 0 0 1px rgba(13,19,45,.45),0 1px 3px rgba(0,0,0,.35)}
+#live-toast .osm-credit{position:absolute;right:0;bottom:0;background:rgba(255,255,255,.85);color:var(--charcoal);font:600 8px/1.35 var(--sans);padding:0 3px;border-top-left-radius:4px;text-decoration:none}
+#live-toast .osm-credit:hover{background:#fff;text-decoration:underline}
+/* The body is the only flexible part, and it is clamped so a long district name cannot grow the box. */
+#live-toast .toast-body{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:.35rem;height:100%}
+#live-toast .toast-line{margin:0;font-size:.88rem;line-height:1.35;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;line-clamp:4;overflow:hidden}
+#live-toast .toast-line strong{font-family:var(--serif);font-weight:700;color:var(--navy-dark)}
+#live-toast .toast-foot{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin:0}
+#live-toast .ev-place{color:var(--muted);font-size:.76rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#live-toast .toast-when{color:var(--muted);font-size:.76rem;flex:none}
+#live-toast .toast-cta{display:inline-block;color:var(--red-dark);font-weight:700;font-size:.8rem;text-decoration:none;border-bottom:1px solid rgba(155,44,44,.35);padding-bottom:.05rem;align-self:flex-start}
+#live-toast .toast-cta:hover{border-bottom-color:var(--red-dark)}
+@media(prefers-reduced-motion:reduce){#live-toast{transition:none}}
+@media print{#live-toast{display:none}}
 @media(max-width:560px){ul.feed li{flex-direction:column;gap:.1rem}ul.feed .ev-when{flex:none}}
 `.trim());
 
@@ -163,7 +191,7 @@ const stateLink = s => `<a href="/kids/state/${s.code}/">${esc(s.name)}</a>`;
 writeFileSync(join(site, "index.html"), shell({
   title: "Where a teacher may still legally hit a student", path: "/",
   description: "The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.",
-  extraHead: `<script defer src="/kids/map.js"></script><script defer src="/kids/activity.js"></script>`,
+  extraHead: `<script defer src="/kids/map.js"></script>`,
   body: `<section class="hero"><div class="wrap"><h1>Where a teacher may still legally hit a student</h1>
 <p class="lede">In ${legalStates.length} states a public school employee may paddle a child as punishment, and does. In ${partialStates.length} more it is legal but every district has stopped. Hover or tap a state. Every status links to its statute and every number to its source.</p></div></section>
 <div class="mapbox"><div class="mapctl"><select id="jump" aria-label="Go to a state"><option value="">Go to a state…</option>${Object.values(states).sort((a, b) => a.name.localeCompare(b.name)).map(s => `<option value="${s.code}">${esc(s.name)}</option>`).join("")}</select><span class="meta">Hover a state for its status and numbers; click to open it. County lines show where district policies differ.</span></div>
@@ -278,6 +306,7 @@ claude
 <div class="card"><h2>Any other agent (MCP)</h2><pre>https://escp-mcp-production.up.railway.app/mcp</pre><p class="small">A Model Context Protocol server with the facts, state law, district data, federal counts, the task queue, and tools to submit a district finding or a fact correction. Works from ChatGPT, Cursor, Claude Desktop, or your own code. <a href="${REPO}/blob/main/mcp/README.md">Setup.</a></p></div>
 <div class="card"><h2>Ground Crew</h2><p>The server above runs <a href="https://github.com/AnthonyDavidAdams/groundcrew" rel="noopener">Ground Crew</a>, EarthPilot's open protocol for pointing many people's agents at one public problem. Any group can run a crew for its own issue.</p></div>
 <div class="card"><h2>The contract</h2><p>Open every source. Quote verbatim. Date everything. Never guess. No student names. <a href="${REPO}/blob/main/AGENTS.md">AGENTS.md</a> is the whole of it, and the validator enforces the schema.</p></div>
+<div class="card"><h2>What we record about you</h2><p>The handle or email you give your agent, and the rough location your connection resolves to when you claim work &mdash; city, region, country, looked up once and stored as those three fields.</p><p class="small">Your email is never published: the live feed shows a six-character one-way hash instead. Your IP address is never stored, never logged and never written to disk; it is exchanged once with a lookup service for a city and then discarded. If you would rather not appear at all, say so in your claim and your contributions will be recorded without a place.</p></div>
 </div>
 <h2>The queue</h2>
 <div class="tablewrap"><table><tr><th>Task</th><th>Unit</th><th>Priority</th></tr>
