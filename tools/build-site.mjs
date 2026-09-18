@@ -132,6 +132,26 @@ ul.claims li{margin:.5rem 0}.states-list{columns:3;column-gap:1.5rem;font-size:.
 code{background:var(--gray-light);padding:.05rem .3rem;border-radius:var(--radius);font-size:.9em}
 .news{list-style:none;padding:0;margin:0}.news li{padding:.55rem 0;border-bottom:1px solid var(--rule)}.news a{text-decoration:none;font-weight:600}.news .meta{display:block}
 tr.hl td{background:#fef3c7}
+/* live contribution feed */
+.live{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.25rem;margin:1.6rem 0}
+.live-head{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+.live-head h2{margin:0;font-size:1.3rem}
+.live-tag{display:inline-flex;align-items:center;gap:.4rem;font:700 .72rem/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;color:var(--red)}
+#live-dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--red);display:inline-block}
+#live-dot.beat{animation:livebeat 1.8s ease-out}
+@keyframes livebeat{0%{box-shadow:0 0 0 0 rgba(155,44,44,.55)}100%{box-shadow:0 0 0 .7rem rgba(155,44,44,0)}}
+.live .stats{margin:1.1rem 0 .2rem}
+.live .stat b{font-size:1.75rem}
+ul.feed{list-style:none;margin:.6rem 0 0;padding:0;border-top:1px solid var(--rule)}
+ul.feed li{display:flex;gap:1rem;align-items:baseline;padding:.6rem 0;border-bottom:1px solid var(--gray-light);font-size:.95rem}
+ul.feed .ev-when{flex:0 0 7.5rem;color:var(--muted);font-size:.82rem;font-variant-numeric:tabular-nums}
+ul.feed .ev-what{flex:1;min-width:0}
+ul.feed .ev-what strong{font-family:var(--serif);font-weight:700}
+ul.feed .ev-verified .ev-what strong{color:var(--green-dark)}
+ul.feed li.meta{display:block;color:var(--muted)}
+path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:drop-shadow(0 0 3px rgba(246,224,94,.8))}
+#live-map-note{color:var(--muted);font-size:.85rem;margin:.5rem 0 0}
+@media(max-width:560px){ul.feed li{flex-direction:column;gap:.1rem}ul.feed .ev-when{flex:none}}
 `.trim());
 
 // ---------- index ----------
@@ -143,11 +163,18 @@ const stateLink = s => `<a href="/kids/state/${s.code}/">${esc(s.name)}</a>`;
 writeFileSync(join(site, "index.html"), shell({
   title: "Where a teacher may still legally hit a student", path: "/",
   description: "The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.",
-  extraHead: `<script defer src="/kids/map.js"></script>`,
+  extraHead: `<script defer src="/kids/map.js"></script><script defer src="/kids/activity.js"></script>`,
   body: `<section class="hero"><div class="wrap"><h1>Where a teacher may still legally hit a student</h1>
 <p class="lede">In ${legalStates.length} states a public school employee may paddle a child as punishment, and does. In ${partialStates.length} more it is legal but every district has stopped. Hover or tap a state. Every status links to its statute and every number to its source.</p></div></section>
 <div class="mapbox"><div class="mapctl"><select id="jump" aria-label="Go to a state"><option value="">Go to a state…</option>${Object.values(states).sort((a, b) => a.name.localeCompare(b.name)).map(s => `<option value="${s.code}">${esc(s.name)}</option>`).join("")}</select><span class="meta">Hover a state for its status and numbers; click to open it. County lines show where district policies differ.</span></div>
 <div id="map" aria-live="polite"></div><div class="tip" id="stip"></div><div class="legend" id="legend"></div></div>
+<section class="live">
+  <div class="live-head"><h2>Being worked on right now</h2><span class="live-tag"><span id="live-dot"></span>Live</span></div>
+  <p class="meta">Anyone can point their own AI assistant at this project and it will be given a state, a set of districts, and the rules. Every record below was read out of a primary source by someone else's agent and checked against that source by the server. <a href="/kids/contribute/">Bring yours.</a></p>
+  <div class="stats" id="live-stats"></div>
+  <ul class="feed" id="live-feed"><li class="meta">Loading recent contributions…</li></ul>
+  <p id="live-map-note"></p>
+</section>
 <h2>Latest news</h2>
 <ul class="news" id="news" data-q="&quot;corporal punishment&quot; school"><li class="meta">Loading the latest coverage…</li></ul>
 <div class="stats">
