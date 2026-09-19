@@ -6,7 +6,12 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse, stringify } from "yaml";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const norm = s => String(s || "").toLowerCase().replace(/\b(school district|schools|school system|public schools|isd|consolidated|county|co\.?|district|dist)\b/g, " ").replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+// "County" and "City" are kept: in Alabama, Georgia, Mississippi and Tennessee a county district and
+// a city district of the same name are two separate districts with their own boards and their own
+// corporal punishment policies. Stripping either word makes them indistinguishable, which silently
+// writes one district's policy onto the other's row.
+const norm = s => String(s || "").toLowerCase().replace(/\b(school district|schools|school system|public schools|isd|consolidated|co\.?|district|dist)\b/g, " ").replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
+const kind = s => { const t = String(s || "").toLowerCase(); return t.includes("county") ? "county" : t.includes("city") ? "city" : null; };
 const VALID = new Set(["allows", "bans", "consent_required", "unknown"]);
 let added = 0, updated = 0, skipped = 0;
 for (const f of process.argv.slice(2)) {
@@ -16,7 +21,13 @@ for (const f of process.argv.slice(2)) {
     const p = join(root, "data/districts", `${r.state}.yaml`);
     const doc = existsSync(p) ? parse(readFileSync(p, "utf8")) : { state: r.state, districts: [] };
     const entry = r.status === null ? Object.fromEntries(Object.entries({ phone_policy: r.phone_policy, ai_policy: r.ai_policy, start_times: r.start_times, archived_url: r.archived_url, document_text_path: r.document_text_path }).filter(([, v]) => v)) : { name: r.name, county: r.county || null, nces_id: r.nces_id || null, status: r.status, source: r.source || null, quote: r.quote || null, policy_code: r.policy_code || null, crdc_students_latest: r.students_2023_24 ?? null, last_verified: r.last_verified || new Date().toISOString().slice(0, 10), ...(r.phone_policy ? { phone_policy: r.phone_policy } : {}), ...(r.ai_policy ? { ai_policy: r.ai_policy } : {}), ...(r.start_times ? { start_times: r.start_times } : {}), ...(r.archived_url ? { archived_url: r.archived_url } : {}), ...(r.document_text_path ? { document_text_path: r.document_text_path } : {}), notes: [r.opt_out_or_consent, r.notes, r.status === "unknown" && r.searched ? `Searched: ${[].concat(r.searched).join("; ")}` : null].filter(Boolean).join(" ") || null };
-    const i = doc.districts.findIndex(d => (r.nces_id && d.nces_id === r.nces_id) || norm(d.name) === norm(r.name) || (r.county && norm(d.county) === norm(r.county) && norm(d.name).includes(norm(r.county))));
+        // An NCES id is definitive. Otherwise the names must agree, and a county district may never be
+    // matched to a city one: the looser "same county, name contains the county" rule that used to be
+    // here matched Talladega City onto Talladega County and overwrote a district that allows corporal
+    // punishment with one that prohibits it.
+    const i = doc.districts.findIndex(d =>
+      (r.nces_id && d.nces_id && d.nces_id === r.nces_id) ||
+      (norm(d.name) === norm(r.name) && kind(d.name) === kind(r.name)));
     if (i >= 0) { doc.districts[i] = { ...doc.districts[i], ...entry, name: !entry.name || doc.districts[i].name.length >= entry.name.length ? doc.districts[i].name : entry.name }; updated++; } else { doc.districts.push(entry); added++; }
     doc.districts.sort((a, b) => a.name.localeCompare(b.name));
     writeFileSync(p, `# District corporal punishment policies for ${r.state}. One entry per district.\n# status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.\n` + stringify(doc, { lineWidth: 0 }));
