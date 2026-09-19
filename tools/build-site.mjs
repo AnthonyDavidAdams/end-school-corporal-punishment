@@ -28,6 +28,13 @@ const ver = (name) => {
 const crdc = {};
 for (const y of readdirSync(join(root, "data/crdc")).filter(f => /^\d{4}-\d{2}$/.test(f))) { const p = join(root, "data/crdc", y, "states.csv"); if (existsSync(p)) crdc[y] = csv(readFileSync(p, "utf8")); }
 const national = csv(readFileSync(join(root, "data/crdc/national.csv"), "utf8"));
+
+// How many districts each state has, from the federal district file. The site used to say "about
+// 4,400 districts" as a flat assertion; it is 5,548, and on a project whose whole claim is that every
+// figure is sourced, a rounded guess that is a thousand out is not a small thing. Derived here so it
+// moves when the data does.
+const leaCounts = Object.fromEntries(csv(readFileSync(join(root, "data/nces/lea-counts-2023-24.csv"), "utf8")).map(r => [r.state, Number(r.total)]));
+const districtsIn = codes => codes.reduce((a, c) => a + (leaCounts[c] || 0), 0);
 // ---- county map: parse the public-domain SVG once, build a per-state county SVG ----
 const usSvg = readFileSync(join(site, "assets/us-map.svg"), "utf8");
 const countyPaths = [...usSvg.matchAll(/<path class="county" data-fips="(\d+)" data-state="([A-Z]{2})" data-name="([^"]*)" d="([^"]*)"\/>/g)].map(m => ({ fips: m[1], state: m[2], name: m[3], d: m[4] }));
@@ -47,13 +54,14 @@ const CFILL = { allows: "#9B2C2C", consent_required: "#C05621", bans: "#2D6A4F",
 const CLBL = { allows: "A district's policy allows it", consent_required: "Parental consent required", bans: "Every sourced district prohibits it", unknown: "District policy not yet checked", state: "No district recorded yet: state law applies" };
 function countyMap(code, ds) {
   const cps = countyPaths.filter(c => c.state === code); if (!cps.length) return "";
+  const s = states[code];
   const byCounty = {}; for (const d of ds) { const k = norm(d.county); if (!k) continue; (byCounty[k] ||= []).push(d); }
   const [x, y, w, h] = bbox(cps.map(c => c.d)); const pad = Math.max(w, h) * 0.03; const sw = (Math.max(w, h) / 700).toFixed(2);
   const counts = {};
   const paths = cps.map(c => { const list = byCounty[norm(c.name)] || []; const st = countyStatus(code, list); counts[st] = (counts[st] || 0) + 1;
     const label = list.length ? list.map(d => `${d.name}: ${({ allows: "allows", bans: "prohibits", consent_required: "consent required", unknown: "policy unknown" })[d.status]}`).join("<br>") : "No district recorded yet. State law applies. Help scan it.";
     return `<path d="${c.d}" fill="${CFILL[st]}" stroke="#fff" stroke-width="${sw}" data-county="${esc(c.name)}" data-status="${esc(CLBL[st])}" data-districts="${esc(label)}" data-key="${esc(norm(c.name))}" tabindex="0"><title>${esc(c.name)}</title></path>`; }).join("\n");
-  return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><span class="meta">Hover a county for its districts; click to jump to the table.</span></div>
+  return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><span class="meta">${esc(s.name)} has ${cps.length} counties and ${leaCounts[code] ? n(leaCounts[code]) : "many"} school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
 <svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" data-state="${code}" role="img" aria-label="Counties colored by school district corporal punishment policy">
 ${paths}
 <path d="${statePaths[code]}" fill="none" stroke="#0D132D" stroke-width="${(Math.max(w, h) / 450).toFixed(2)}" pointer-events="none"/>
@@ -252,7 +260,7 @@ writeFileSync(join(site, "index.html"), shell({
 <h2>How it ends</h2>
 <div class="grid">
   <div class="card"><h2>If you are a parent</h2><p>In every state where this is legal you can refuse in writing. <a href="/kids/resources/#letters">The letter takes two minutes.</a> Districts change policy when the pile of refusals gets tall.</p></div>
-  <div class="card"><h2>If you have an AI agent</h2><p>Most of the remaining work is reading district policy manuals and recording what they say, with sources. About 4,400 districts; ${summary.districts_sourced} sourced so far. <a href="/kids/contribute/">Install the skills and take a state.</a></p></div>
+  <div class="card"><h2>If you have an AI agent</h2><p>Most of the remaining work is reading district policy manuals and recording what they say, with sources. ${n(districtsIn([...legalStates, ...partialStates].map(x => x.code)))} districts in the ${legalStates.length + partialStates.length} states where it is not prohibited; ${summary.districts_sourced} sourced so far. <a href="/kids/contribute/">Install the skills and take a state.</a></p></div>
   <div class="card"><h2>If you run a school</h2><p>A free, open ten-module curriculum for replacing corporal punishment, written for small schools with no behavior specialist. <a href="${REPO}/tree/main/training" rel="noopener">Read the training.</a></p></div>
 </div>
 <h2>Prohibited</h2>
@@ -283,7 +291,7 @@ ${rows.length ? `<div class="tablewrap"><table><tr><th>Year</th><th>Students</th
 ${legal ? `<h2>Counties</h2>
 ${countyMap(s.code, ds)}
 <h2>Districts</h2>
-<p class="meta">${ds.length} districts listed; <b>${ds.filter(d => d.source).length} checked against the district's own policy</b>. The rest are marked not checked: the pre-2026 map carried a status for them with no source, and the first ones re-checked in 2026 were wrong more often than not, so those values are shown only as a note and are not used to colour the map. <a href="/kids/contribute/">Help check this state.</a></p>
+<p class="meta">${ds.length} of ${n(leaCounts[s.code] || 0)} ${esc(s.name)} districts listed; <b>${ds.filter(d => d.source).length} checked against the district's own policy</b>. The rest are marked not checked: the pre-2026 map carried a status for them with no source, and the first ones re-checked in 2026 were wrong more often than not, so those values are shown only as a note and are not used to colour the map. <a href="/kids/contribute/">Help check this state.</a></p>
 ${ds.length ? `<div class="tablewrap"><table><tr><th>District</th><th>County</th><th>Paddling</th><th>Phones</th><th>AI</th><th>HS start</th><th>Source</th><th>Verified</th></tr>${ds.map(d => `<tr data-key="${esc(norm(d.county))}"><td>${esc(d.name)}</td><td>${esc(d.county || "")}</td><td><span class="pill ${d.status}">${{ allows: "Allows", bans: "Prohibits", consent_required: "Consent required", unknown: "Not checked" }[d.status]}</span>${d.status === "unknown" && d.legacy_status ? `<br><span class="meta">old map said ${esc(d.legacy_status)}</span>` : ""}</td><td class="small">${d.phone_policy ? ({ bell_to_bell_ban: "Bell-to-bell ban", classroom_ban: "Classroom ban", teacher_discretion: "Teacher discretion", allowed: "Allowed", unknown: "" })[d.phone_policy.status] : ""}</td><td class="small">${d.ai_policy ? ({ prohibited: "Prohibited", permitted_with_guidance: "Permitted with guidance", academic_integrity_only: "Cheating rule only", no_policy: "Silent", unknown: "" })[d.ai_policy.status] : ""}</td><td class="small">${d.start_times && d.start_times.high_school && d.start_times.high_school.start ? esc(d.start_times.high_school.start) : ""}</td><td>${d.source ? `<a href="${esc(d.source)}" rel="noopener">${esc(d.policy_code || "policy")}</a>${d.archived_url ? ` <a class="meta" href="${esc(d.archived_url)}" rel="noopener">archive</a>` : ""}${d.document_text_path ? ` <a class="meta" href="${REPO}/blob/main/${esc(d.document_text_path)}" rel="noopener">text</a>` : ""}` : "<span class=\"meta\">none yet</span>"}</td><td class="meta">${d.last_verified || ""}</td></tr>`).join("")}</table></div>` : ""}` : ""}
 <h2>In the news</h2>\n<ul class="news" id="news" data-q="${esc(`"corporal punishment" school ${s.name}`)}"><li class="meta">Loading the latest coverage…</li></ul>\n<h2>Do something</h2>
 <div class="grid">
@@ -349,7 +357,7 @@ claude
 <tr><td>Decision-maker dossier</td><td>One board or committee, public record only</td><td>3</td></tr>
 <tr><td>Training review</td><td>One module, by someone who has run a school</td><td>3</td></tr>
 </table></div>
-<p class="meta">Claim a scope first with the <a href="${REPO}/issues/new?template=task-claim.yml">task-claim issue</a> so work is not duplicated. Roughly 4,400 districts in the 17 states; ${summary.districts_sourced} sourced so far.</p>
+<p class="meta">Claim a scope first with the <a href="${REPO}/issues/new?template=task-claim.yml">task-claim issue</a> so work is not duplicated. ${n(districtsIn([...legalStates, ...partialStates].map(x => x.code)))} districts in the ${legalStates.length + partialStates.length} states where it is not prohibited, counted from the federal district file (NCES Common Core of Data, 2023-24); ${summary.districts_sourced} sourced so far.</p>
 <h2>No agent?</h2>
 <div class="grid">
 <div class="card"><h2>Money</h2><p>Compute for the queue, public-records fees, and travel to hearings, in that order, with a <a href="${REPO}/blob/main/FUNDING.md">public ledger</a>. Sponsor the repository on GitHub.</p></div>
