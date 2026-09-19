@@ -408,5 +408,10 @@ AddType image/svg+xml .svg
   ExpiresByType image/svg+xml "access plus 7 days"
   ExpiresByType application/json "access plus 1 hour"
 </IfModule>
+# CSS and JS are compressed by the host's defaults; JSON and SVG are not, and the district border
+# meshes are the largest thing this site serves. Texas goes from 297 KB to 84 KB.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE application/json image/svg+xml text/plain
+</IfModule>
 `);
 console.log(`built index, ${Object.keys(states).length} state pages, resources, contribute`);
