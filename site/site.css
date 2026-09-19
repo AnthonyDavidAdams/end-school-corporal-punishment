@@ -18,7 +18,8 @@ h1{font-family:var(--serif);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem)
 .countymap path[data-county]:focus-visible{outline:none}
 .legend{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;font-size:.92rem;margin:.6rem 0 0;color:var(--charcoal)}.legend i{display:inline-block;width:14px;height:14px;border-radius:2px;margin-right:.45rem;vertical-align:-2px;border:1px solid rgba(0,0,0,.15)}
 .tip{position:absolute;pointer-events:none;background:var(--navy-dark);color:#fff;padding:.55rem .75rem;border-radius:var(--radius);font-size:.9rem;line-height:1.35;max-width:320px;box-shadow:var(--shadow);display:none;z-index:5}.tip b{display:block;font-family:var(--serif);font-size:1rem;margin-bottom:.15rem}.tip .st{color:#D9DEE8}
-.mapctl{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin:0 0 .5rem}.mapctl select,.mapctl input{font:inherit;padding:.4rem .6rem;border:1px solid var(--gray-medium);border-radius:var(--radius);background:#fff;min-width:220px}
+.mapctl{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin:0 0 .5rem}/* text fields only: a checkbox in this bar must not inherit a 220px text-input box */
+.mapctl select,.mapctl input[type=search],.mapctl input[type=text]{font:inherit;padding:.4rem .6rem;border:1px solid var(--gray-medium);border-radius:var(--radius);background:#fff;min-width:220px}
 .card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.3rem;box-shadow:var(--shadow)}.card h2{margin-top:0;font-size:1.25rem}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin:1.5rem 0}.stat{background:var(--navy-dark);color:#fff;border-radius:var(--radius);padding:1rem 1.1rem}.stat b{display:block;font-family:var(--serif);font-size:2rem;line-height:1.1}.stat span{color:var(--gray-pale);font-size:.9rem}.stat.legal b{color:#E57373}.stat.banned b{color:#52B788}
 .status{display:inline-block;padding:.25rem .7rem;border-radius:var(--radius);color:#fff;font-weight:700;font-size:.85rem;letter-spacing:.03em;text-transform:uppercase}.status.banned{background:var(--green)}.status.partial{background:var(--partial)}.status.legal{background:var(--red)}
@@ -54,6 +55,10 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 #live-map-note{color:var(--muted);font-size:.85rem;margin:.5rem 0 0}
 /* counties somebody is working on right now, ringed over the settled record */
 .county-live{stroke:#B7791F;stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+/* school district borders: the unit policy is actually set in, over the county fills */
+.district-lines{stroke:rgba(13,19,45,.42);stroke-width:.6;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.dlines{display:inline-flex;align-items:center;gap:.35rem;font-size:.88rem;color:var(--charcoal);cursor:pointer;white-space:nowrap}
+.dlines input{cursor:pointer}
 .county-live-verified{stroke:#F6E05E}
 #county-live-note{margin:.5rem 0 0}
 #county-live-note .county-live-key{display:inline-block;width:.75rem;height:.75rem;border:2px solid #B7791F;border-radius:2px;margin-right:.4rem;vertical-align:-1px}

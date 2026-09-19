@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Georgia: corporal punishment in schools">
 <meta name="twitter:description" content="Georgia: legal in public schools. 1,127 students struck in 2023-24. Law, limits, bills, districts, sources.">
 <meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
-<link rel="stylesheet" href="/kids/site.css?v=beffcfb5">
+<link rel="stylesheet" href="/kids/site.css?v=e3667e26">
 <script defer src="/kids/news.js?v=6ebc5ffb"></script>
 <script defer src="/kids/activity.js?v=dcb6dfd2"></script>
 
@@ -45,7 +45,8 @@
 </div>
 </div>
 <h2>Counties</h2>
-<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><span class="meta">Georgia has 159 counties and 229 school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
+<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> School district lines</label>
+<span class="meta">Georgia has 159 counties and 229 school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
 <svg viewBox="686.2 370.6 103.9 108.5" class="countymap" data-state="GA" role="img" aria-label="Counties colored by school district corporal punishment policy">
 <path d="M696.008,403.832L699.237,403.523L702.242,403.06L702.496,403.036L702.719,405.132L702.729,407.369L701.125,407.892L698.445,409.299L697.541,409.376Z" fill="#C98383" stroke="#fff" stroke-width="0.15" data-county="Haralson" data-status="No district recorded yet: state law applies" data-districts="No district recorded yet. State law applies. Help scan it." data-key="haralson" tabindex="0"><title>Haralson</title></path>
 <path d="M735.388,432.366L740.109,428.697L742.251,432.117L741.51,431.541L739.368,434.372L739.814,434.723L738.789,436.052L735.54,433.512Z" fill="#C98383" stroke="#fff" stroke-width="0.15" data-county="Bleckley" data-status="No district recorded yet: state law applies" data-districts="No district recorded yet. State law applies. Help scan it." data-key="bleckley" tabindex="0"><title>Bleckley</title></path>
@@ -215,6 +216,7 @@
 // The state outline is drawn after the counties, so a highlight painted on a county is cut across by
 // it. This group is appended after everything, and every highlight goes here.
 const NS="http://www.w3.org/2000/svg";
+const distLayer=document.createElementNS(NS,"g");distLayer.id="district-layer";distLayer.setAttribute("pointer-events","none");svg.append(distLayer);
 const liveLayer=document.createElementNS(NS,"g");liveLayer.id="county-live-layer";liveLayer.setAttribute("pointer-events","none");
 const layer=document.createElementNS(NS,"g");layer.id="county-hover-layer";layer.setAttribute("pointer-events","none");
 svg.append(liveLayer,layer);
@@ -223,6 +225,22 @@ const clear=()=>{layer.textContent="";tip.style.display="none";};
 svg.querySelectorAll("path[data-county]").forEach(p=>{const show=e=>{trace(p);tip.innerHTML="<b>"+p.dataset.county+"</b><span class=st>"+p.dataset.status+"</span><br>"+p.dataset.districts;tip.style.display="block";if(e&&e.clientX){const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+14,r.width-330)+"px";tip.style.top=(e.clientY-r.top+14)+"px";}};
 p.addEventListener("mousemove",show);p.addEventListener("focus",show);p.addEventListener("mouseleave",clear);p.addEventListener("blur",clear);
 p.addEventListener("click",()=>{const row=document.querySelector('tr[data-key="'+p.dataset.key+'"]');if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.classList.add("hl");setTimeout(()=>row.classList.remove("hl"),2500);}});});
+// District borders are a separate, sizeable file, so they load on their own and only once. The state
+// outline and the county fills are already here; this is the layer that shows the unit policy is
+// actually set in.
+const dbox=document.getElementById("dlines");
+let dloaded=false;
+const showLines=on=>{distLayer.style.display=on?"":"none";};
+const loadLines=async()=>{if(dloaded)return;dloaded=true;
+  try{const r=await fetch("/kids/data/districts/districts-"+svg.dataset.state+".json");if(!r.ok)return;const j=await r.json();
+    const pth=document.createElementNS(NS,"path");pth.setAttribute("d",j.d);pth.setAttribute("class","district-lines");pth.setAttribute("fill","none");distLayer.append(pth);
+    const note=document.querySelector(".dlines");if(note&&j.districts)note.title=j.districts+" school districts, US Census Bureau boundaries";
+  }catch(e){}};
+if(dbox){
+  let want=true;try{want=localStorage.getItem("escp-dlines")!=="off";}catch(e){}
+  dbox.checked=want;showLines(want);if(want)loadLines();
+  dbox.addEventListener("change",()=>{const on=dbox.checked;try{localStorage.setItem("escp-dlines",on?"on":"off");}catch(e){}if(on)loadLines();showLines(on);});
+}
 const q=document.getElementById("dsearch");if(q){q.addEventListener("input",()=>{const v=q.value.trim().toLowerCase();document.querySelectorAll("tr[data-key]").forEach(r=>{r.style.display=!v||r.textContent.toLowerCase().includes(v)?"":"none";});svg.querySelectorAll("path[data-county]").forEach(p=>{p.style.opacity=!v||p.dataset.county.toLowerCase().includes(v)||p.dataset.districts.toLowerCase().includes(v)?"1":".25";});});}})();</script>
 <h2>Districts</h2>
 <p class="meta">14 of 229 Georgia districts listed; <b>1 checked against the district's own policy</b>. The rest are marked not checked: the pre-2026 map carried a status for them with no source, and the first ones re-checked in 2026 were wrong more often than not, so those values are shown only as a note and are not used to colour the map. <a href="/kids/contribute/">Help check this state.</a></p>

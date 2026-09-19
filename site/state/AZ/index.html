@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Arizona: corporal punishment in schools">
 <meta name="twitter:description" content="Arizona: legal in public schools. 202 students struck in 2023-24. Law, limits, bills, districts, sources.">
 <meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
-<link rel="stylesheet" href="/kids/site.css?v=beffcfb5">
+<link rel="stylesheet" href="/kids/site.css?v=e3667e26">
 <script defer src="/kids/news.js?v=6ebc5ffb"></script>
 <script defer src="/kids/activity.js?v=dcb6dfd2"></script>
 
@@ -45,7 +45,8 @@
 </div>
 </div>
 <h2>Counties</h2>
-<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><span class="meta">Arizona has 15 counties and 682 school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
+<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> School district lines</label>
+<span class="meta">Arizona has 15 counties and 682 school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
 <svg viewBox="138.0 309.0 130.9 151.5" class="countymap" data-state="AZ" role="img" aria-label="Counties colored by school district corporal punishment policy">
 <path d="M175.343,316.84L176.024,313.302L184.704,314.958L196.338,317.083L202.713,318.211L202.683,319.327L200.419,322.859L200.358,323.915L199.749,325.025L199.739,326.735L198.703,328.456L198.855,331.181L197.932,332.457L196.906,332.362L195.272,333.567L194.013,333.371L193.353,333.882L191.353,333.918L188.703,335.111L187.516,335.271L186.876,336.488L185.363,336.06L184.419,337.028L184.643,339.141L184.135,340.174L184.45,340.922L183.688,342.655L182.541,348.847L177.536,376.081L176.907,376.514L173.719,375.636L172.186,377.143L170.318,377.238L169.76,376.431L167.902,376.449L167.78,375.814L164.511,374.983L163.648,373.902L162.765,373.629L162.258,372.46L161.435,371.914L159.811,369.634L158.907,369.278L159.334,367.687L158.715,366.12L158.897,365.717L158.491,363.247L157.263,361.751L156.948,360.083L156.248,359.074L156.847,356.183L157.689,354.652L157.09,354.029L158.4,353.536L158.715,352.794L158.958,349.06L158.775,347.054L158.227,345.077L159.202,342.442L158.735,341.403L158.725,339.996L159.09,339.034L159.019,337.847L159.496,336.802L160.136,336.464L159.303,334.683L159.699,332.802L159.506,331.383L159.933,331.062L162.176,330.908L163.06,330.587L164.136,330.813L164.166,331.312L166.582,331.478L167.466,333.241L167.252,333.591L168.4,334.832L169.953,334.915L172.166,331.686L172.602,331.454L173.476,327.026Z" fill="#C98383" stroke="#fff" stroke-width="0.20" data-county="Mohave" data-status="No district recorded yet: state law applies" data-districts="No district recorded yet. State law applies. Help scan it." data-key="mohave" tabindex="0"><title>Mohave</title></path>
 <path d="M221.413,443.371L220.845,445.983L219.88,452.317L208.155,450.494L202.937,447.485L203.282,445.348L207.139,445.959L207.87,441.365L213.728,442.285L213.748,442.172Z" fill="#C98383" stroke="#fff" stroke-width="0.20" data-county="Santa Cruz" data-status="No district recorded yet: state law applies" data-districts="No district recorded yet. State law applies. Help scan it." data-key="santa cruz" tabindex="0"><title>Santa Cruz</title></path>
@@ -71,6 +72,7 @@
 // The state outline is drawn after the counties, so a highlight painted on a county is cut across by
 // it. This group is appended after everything, and every highlight goes here.
 const NS="http://www.w3.org/2000/svg";
+const distLayer=document.createElementNS(NS,"g");distLayer.id="district-layer";distLayer.setAttribute("pointer-events","none");svg.append(distLayer);
 const liveLayer=document.createElementNS(NS,"g");liveLayer.id="county-live-layer";liveLayer.setAttribute("pointer-events","none");
 const layer=document.createElementNS(NS,"g");layer.id="county-hover-layer";layer.setAttribute("pointer-events","none");
 svg.append(liveLayer,layer);
@@ -79,6 +81,22 @@ const clear=()=>{layer.textContent="";tip.style.display="none";};
 svg.querySelectorAll("path[data-county]").forEach(p=>{const show=e=>{trace(p);tip.innerHTML="<b>"+p.dataset.county+"</b><span class=st>"+p.dataset.status+"</span><br>"+p.dataset.districts;tip.style.display="block";if(e&&e.clientX){const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+14,r.width-330)+"px";tip.style.top=(e.clientY-r.top+14)+"px";}};
 p.addEventListener("mousemove",show);p.addEventListener("focus",show);p.addEventListener("mouseleave",clear);p.addEventListener("blur",clear);
 p.addEventListener("click",()=>{const row=document.querySelector('tr[data-key="'+p.dataset.key+'"]');if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.classList.add("hl");setTimeout(()=>row.classList.remove("hl"),2500);}});});
+// District borders are a separate, sizeable file, so they load on their own and only once. The state
+// outline and the county fills are already here; this is the layer that shows the unit policy is
+// actually set in.
+const dbox=document.getElementById("dlines");
+let dloaded=false;
+const showLines=on=>{distLayer.style.display=on?"":"none";};
+const loadLines=async()=>{if(dloaded)return;dloaded=true;
+  try{const r=await fetch("/kids/data/districts/districts-"+svg.dataset.state+".json");if(!r.ok)return;const j=await r.json();
+    const pth=document.createElementNS(NS,"path");pth.setAttribute("d",j.d);pth.setAttribute("class","district-lines");pth.setAttribute("fill","none");distLayer.append(pth);
+    const note=document.querySelector(".dlines");if(note&&j.districts)note.title=j.districts+" school districts, US Census Bureau boundaries";
+  }catch(e){}};
+if(dbox){
+  let want=true;try{want=localStorage.getItem("escp-dlines")!=="off";}catch(e){}
+  dbox.checked=want;showLines(want);if(want)loadLines();
+  dbox.addEventListener("change",()=>{const on=dbox.checked;try{localStorage.setItem("escp-dlines",on?"on":"off");}catch(e){}if(on)loadLines();showLines(on);});
+}
 const q=document.getElementById("dsearch");if(q){q.addEventListener("input",()=>{const v=q.value.trim().toLowerCase();document.querySelectorAll("tr[data-key]").forEach(r=>{r.style.display=!v||r.textContent.toLowerCase().includes(v)?"":"none";});svg.querySelectorAll("path[data-county]").forEach(p=>{p.style.opacity=!v||p.dataset.county.toLowerCase().includes(v)||p.dataset.districts.toLowerCase().includes(v)?"1":".25";});});}})();</script>
 <h2>Districts</h2>
 <p class="meta">7 of 682 Arizona districts listed; <b>0 checked against the district's own policy</b>. The rest are marked not checked: the pre-2026 map carried a status for them with no source, and the first ones re-checked in 2026 were wrong more often than not, so those values are shown only as a note and are not used to colour the map. <a href="/kids/contribute/">Help check this state.</a></p>

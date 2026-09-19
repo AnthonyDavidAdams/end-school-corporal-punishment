@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Louisiana: corporal punishment in schools">
 <meta name="twitter:description" content="Louisiana: legal in public schools. 65 students struck in 2023-24. Law, limits, bills, districts, sources.">
 <meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
-<link rel="stylesheet" href="/kids/site.css?v=beffcfb5">
+<link rel="stylesheet" href="/kids/site.css?v=e3667e26">
 <script defer src="/kids/news.js?v=6ebc5ffb"></script>
 <script defer src="/kids/activity.js?v=dcb6dfd2"></script>
 
@@ -45,7 +45,8 @@
 </div>
 </div>
 <h2>Counties</h2>
-<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><span class="meta">Louisiana has 64 counties and 189 school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
+<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> School district lines</label>
+<span class="meta">Louisiana has 64 counties and 189 school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
 <svg viewBox="531.9 430.0 110.2 96.7" class="countymap" data-state="LA" role="img" aria-label="Counties colored by school district corporal punishment policy">
 <path d="M603.3,478.091L603.676,478.067L607.554,477.83L607.696,479.984L608.295,480.281L608.864,482.169L609.513,483.071L609.727,484.27L610.052,485.736L610.437,492.159L611.524,493.299L612.244,494.997L609.412,493.797L605.828,494.409L605.676,492.634L604.458,491.002L603.97,489.731L603.757,486.033Z" fill="#B0A8A0" stroke="#fff" stroke-width="0.15" data-county="Tangipahoa" data-status="District policy not yet checked" data-districts="Tangipahoa Parish Schools: policy unknown" data-key="tangipahoa" tabindex="0"><title>Tangipahoa</title></path>
 <path d="M563.728,491.732L566.439,491.649L571.281,491.471L571.332,492.462L572.652,492.403L572.743,494.385L573.443,495.513L572.834,496.849L571.413,497.769L570.794,499.057L569.078,500.962L568.175,501.39L566.52,500.772L565.494,499.977L564.175,500.559L564.236,498.665L564.753,498.054L564.033,497.424L564.083,494.931L563.86,494.053L564.51,493.091Z" fill="#C98383" stroke="#fff" stroke-width="0.15" data-county="Acadia" data-status="No district recorded yet: state law applies" data-districts="No district recorded yet. State law applies. Help scan it." data-key="acadia" tabindex="0"><title>Acadia</title></path>
@@ -120,6 +121,7 @@
 // The state outline is drawn after the counties, so a highlight painted on a county is cut across by
 // it. This group is appended after everything, and every highlight goes here.
 const NS="http://www.w3.org/2000/svg";
+const distLayer=document.createElementNS(NS,"g");distLayer.id="district-layer";distLayer.setAttribute("pointer-events","none");svg.append(distLayer);
 const liveLayer=document.createElementNS(NS,"g");liveLayer.id="county-live-layer";liveLayer.setAttribute("pointer-events","none");
 const layer=document.createElementNS(NS,"g");layer.id="county-hover-layer";layer.setAttribute("pointer-events","none");
 svg.append(liveLayer,layer);
@@ -128,6 +130,22 @@ const clear=()=>{layer.textContent="";tip.style.display="none";};
 svg.querySelectorAll("path[data-county]").forEach(p=>{const show=e=>{trace(p);tip.innerHTML="<b>"+p.dataset.county+"</b><span class=st>"+p.dataset.status+"</span><br>"+p.dataset.districts;tip.style.display="block";if(e&&e.clientX){const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+14,r.width-330)+"px";tip.style.top=(e.clientY-r.top+14)+"px";}};
 p.addEventListener("mousemove",show);p.addEventListener("focus",show);p.addEventListener("mouseleave",clear);p.addEventListener("blur",clear);
 p.addEventListener("click",()=>{const row=document.querySelector('tr[data-key="'+p.dataset.key+'"]');if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.classList.add("hl");setTimeout(()=>row.classList.remove("hl"),2500);}});});
+// District borders are a separate, sizeable file, so they load on their own and only once. The state
+// outline and the county fills are already here; this is the layer that shows the unit policy is
+// actually set in.
+const dbox=document.getElementById("dlines");
+let dloaded=false;
+const showLines=on=>{distLayer.style.display=on?"":"none";};
+const loadLines=async()=>{if(dloaded)return;dloaded=true;
+  try{const r=await fetch("/kids/data/districts/districts-"+svg.dataset.state+".json");if(!r.ok)return;const j=await r.json();
+    const pth=document.createElementNS(NS,"path");pth.setAttribute("d",j.d);pth.setAttribute("class","district-lines");pth.setAttribute("fill","none");distLayer.append(pth);
+    const note=document.querySelector(".dlines");if(note&&j.districts)note.title=j.districts+" school districts, US Census Bureau boundaries";
+  }catch(e){}};
+if(dbox){
+  let want=true;try{want=localStorage.getItem("escp-dlines")!=="off";}catch(e){}
+  dbox.checked=want;showLines(want);if(want)loadLines();
+  dbox.addEventListener("change",()=>{const on=dbox.checked;try{localStorage.setItem("escp-dlines",on?"on":"off");}catch(e){}if(on)loadLines();showLines(on);});
+}
 const q=document.getElementById("dsearch");if(q){q.addEventListener("input",()=>{const v=q.value.trim().toLowerCase();document.querySelectorAll("tr[data-key]").forEach(r=>{r.style.display=!v||r.textContent.toLowerCase().includes(v)?"":"none";});svg.querySelectorAll("path[data-county]").forEach(p=>{p.style.opacity=!v||p.dataset.county.toLowerCase().includes(v)||p.dataset.districts.toLowerCase().includes(v)?"1":".25";});});}})();</script>
 <h2>Districts</h2>
 <p class="meta">10 of 189 Louisiana districts listed; <b>0 checked against the district's own policy</b>. The rest are marked not checked: the pre-2026 map carried a status for them with no source, and the first ones re-checked in 2026 were wrong more often than not, so those values are shown only as a note and are not used to colour the map. <a href="/kids/contribute/">Help check this state.</a></p>

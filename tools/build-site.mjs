@@ -61,7 +61,8 @@ function countyMap(code, ds) {
   const paths = cps.map(c => { const list = byCounty[norm(c.name)] || []; const st = countyStatus(code, list); counts[st] = (counts[st] || 0) + 1;
     const label = list.length ? list.map(d => `${d.name}: ${({ allows: "allows", bans: "prohibits", consent_required: "consent required", unknown: "policy unknown" })[d.status]}`).join("<br>") : "No district recorded yet. State law applies. Help scan it.";
     return `<path d="${c.d}" fill="${CFILL[st]}" stroke="#fff" stroke-width="${sw}" data-county="${esc(c.name)}" data-status="${esc(CLBL[st])}" data-districts="${esc(label)}" data-key="${esc(norm(c.name))}" tabindex="0"><title>${esc(c.name)}</title></path>`; }).join("\n");
-  return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><span class="meta">${esc(s.name)} has ${cps.length} counties and ${leaCounts[code] ? n(leaCounts[code]) : "many"} school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
+  return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> School district lines</label>
+<span class="meta">${esc(s.name)} has ${cps.length} counties and ${leaCounts[code] ? n(leaCounts[code]) : "many"} school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
 <svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" data-state="${code}" role="img" aria-label="Counties colored by school district corporal punishment policy">
 ${paths}
 <path d="${statePaths[code]}" fill="none" stroke="#0D132D" stroke-width="${(Math.max(w, h) / 450).toFixed(2)}" pointer-events="none"/>
@@ -73,6 +74,7 @@ ${paths}
 // The state outline is drawn after the counties, so a highlight painted on a county is cut across by
 // it. This group is appended after everything, and every highlight goes here.
 const NS="http://www.w3.org/2000/svg";
+const distLayer=document.createElementNS(NS,"g");distLayer.id="district-layer";distLayer.setAttribute("pointer-events","none");svg.append(distLayer);
 const liveLayer=document.createElementNS(NS,"g");liveLayer.id="county-live-layer";liveLayer.setAttribute("pointer-events","none");
 const layer=document.createElementNS(NS,"g");layer.id="county-hover-layer";layer.setAttribute("pointer-events","none");
 svg.append(liveLayer,layer);
@@ -81,6 +83,22 @@ const clear=()=>{layer.textContent="";tip.style.display="none";};
 svg.querySelectorAll("path[data-county]").forEach(p=>{const show=e=>{trace(p);tip.innerHTML="<b>"+p.dataset.county+"</b><span class=st>"+p.dataset.status+"</span><br>"+p.dataset.districts;tip.style.display="block";if(e&&e.clientX){const r=box.getBoundingClientRect();tip.style.left=Math.min(e.clientX-r.left+14,r.width-330)+"px";tip.style.top=(e.clientY-r.top+14)+"px";}};
 p.addEventListener("mousemove",show);p.addEventListener("focus",show);p.addEventListener("mouseleave",clear);p.addEventListener("blur",clear);
 p.addEventListener("click",()=>{const row=document.querySelector('tr[data-key="'+p.dataset.key+'"]');if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.classList.add("hl");setTimeout(()=>row.classList.remove("hl"),2500);}});});
+// District borders are a separate, sizeable file, so they load on their own and only once. The state
+// outline and the county fills are already here; this is the layer that shows the unit policy is
+// actually set in.
+const dbox=document.getElementById("dlines");
+let dloaded=false;
+const showLines=on=>{distLayer.style.display=on?"":"none";};
+const loadLines=async()=>{if(dloaded)return;dloaded=true;
+  try{const r=await fetch("/kids/data/districts/districts-"+svg.dataset.state+".json");if(!r.ok)return;const j=await r.json();
+    const pth=document.createElementNS(NS,"path");pth.setAttribute("d",j.d);pth.setAttribute("class","district-lines");pth.setAttribute("fill","none");distLayer.append(pth);
+    const note=document.querySelector(".dlines");if(note&&j.districts)note.title=j.districts+" school districts, US Census Bureau boundaries";
+  }catch(e){}};
+if(dbox){
+  let want=true;try{want=localStorage.getItem("escp-dlines")!=="off";}catch(e){}
+  dbox.checked=want;showLines(want);if(want)loadLines();
+  dbox.addEventListener("change",()=>{const on=dbox.checked;try{localStorage.setItem("escp-dlines",on?"on":"off");}catch(e){}if(on)loadLines();showLines(on);});
+}
 const q=document.getElementById("dsearch");if(q){q.addEventListener("input",()=>{const v=q.value.trim().toLowerCase();document.querySelectorAll("tr[data-key]").forEach(r=>{r.style.display=!v||r.textContent.toLowerCase().includes(v)?"":"none";});svg.querySelectorAll("path[data-county]").forEach(p=>{p.style.opacity=!v||p.dataset.county.toLowerCase().includes(v)||p.dataset.districts.toLowerCase().includes(v)?"1":".25";});});}})();</script>`;
 }
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -152,7 +170,8 @@ h1{font-family:var(--serif);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem)
 .countymap path[data-county]:focus-visible{outline:none}
 .legend{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;font-size:.92rem;margin:.6rem 0 0;color:var(--charcoal)}.legend i{display:inline-block;width:14px;height:14px;border-radius:2px;margin-right:.45rem;vertical-align:-2px;border:1px solid rgba(0,0,0,.15)}
 .tip{position:absolute;pointer-events:none;background:var(--navy-dark);color:#fff;padding:.55rem .75rem;border-radius:var(--radius);font-size:.9rem;line-height:1.35;max-width:320px;box-shadow:var(--shadow);display:none;z-index:5}.tip b{display:block;font-family:var(--serif);font-size:1rem;margin-bottom:.15rem}.tip .st{color:#D9DEE8}
-.mapctl{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin:0 0 .5rem}.mapctl select,.mapctl input{font:inherit;padding:.4rem .6rem;border:1px solid var(--gray-medium);border-radius:var(--radius);background:#fff;min-width:220px}
+.mapctl{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin:0 0 .5rem}/* text fields only: a checkbox in this bar must not inherit a 220px text-input box */
+.mapctl select,.mapctl input[type=search],.mapctl input[type=text]{font:inherit;padding:.4rem .6rem;border:1px solid var(--gray-medium);border-radius:var(--radius);background:#fff;min-width:220px}
 .card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.3rem;box-shadow:var(--shadow)}.card h2{margin-top:0;font-size:1.25rem}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem;margin:1.5rem 0}.stat{background:var(--navy-dark);color:#fff;border-radius:var(--radius);padding:1rem 1.1rem}.stat b{display:block;font-family:var(--serif);font-size:2rem;line-height:1.1}.stat span{color:var(--gray-pale);font-size:.9rem}.stat.legal b{color:#E57373}.stat.banned b{color:#52B788}
 .status{display:inline-block;padding:.25rem .7rem;border-radius:var(--radius);color:#fff;font-weight:700;font-size:.85rem;letter-spacing:.03em;text-transform:uppercase}.status.banned{background:var(--green)}.status.partial{background:var(--partial)}.status.legal{background:var(--red)}
@@ -188,6 +207,10 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 #live-map-note{color:var(--muted);font-size:.85rem;margin:.5rem 0 0}
 /* counties somebody is working on right now, ringed over the settled record */
 .county-live{stroke:#B7791F;stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+/* school district borders: the unit policy is actually set in, over the county fills */
+.district-lines{stroke:rgba(13,19,45,.42);stroke-width:.6;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.dlines{display:inline-flex;align-items:center;gap:.35rem;font-size:.88rem;color:var(--charcoal);cursor:pointer;white-space:nowrap}
+.dlines input{cursor:pointer}
 .county-live-verified{stroke:#F6E05E}
 #county-live-note{margin:.5rem 0 0}
 #county-live-note .county-live-key{display:inline-block;width:.75rem;height:.75rem;border:2px solid #B7791F;border-radius:2px;margin-right:.4rem;vertical-align:-1px}
