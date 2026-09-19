@@ -16,7 +16,11 @@ if ($xml && ($rss = @simplexml_load_string($xml))) {
     $title = html_entity_decode((string)$it->title, ENT_QUOTES, "UTF-8");
     $source = (string)$it->source;
     if ($source && str_ends_with($title, " - $source")) $title = substr($title, 0, -strlen(" - $source"));
-    $items[] = ["title" => $title, "link" => (string)$it->link, "source" => $source, "date" => date("M j, Y", strtotime((string)$it->pubDate))];
+    // The feed gives the publisher's own site; the news list uses it to show their mark.
+    $domain = "";
+    $srcUrl = (string)($it->source["url"] ?? "");
+    if ($srcUrl && ($h = parse_url($srcUrl, PHP_URL_HOST))) $domain = preg_replace('/^www\./', "", strtolower($h));
+    $items[] = ["title" => $title, "link" => (string)$it->link, "source" => $source, "domain" => $domain, "date" => date("M j, Y", strtotime((string)$it->pubDate))];
     if (count($items) >= 12) break;
   }
 }
