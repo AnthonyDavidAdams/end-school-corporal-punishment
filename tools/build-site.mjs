@@ -193,7 +193,11 @@ code{background:var(--gray-light);padding:.05rem .3rem;border-radius:var(--radiu
 /* the publisher's mark; their initial shows through when they have no usable icon */
 .nthumb{position:relative;flex:0 0 28px;width:28px;height:28px;border-radius:5px;background:var(--gray-light);border:1px solid var(--rule);overflow:hidden;margin-top:.15rem}
 .nthumb::before{content:attr(data-letter);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 .82rem/1 var(--sans);color:var(--muted)}
-.nthumb img{position:relative;width:100%;height:100%;object-fit:contain;background:#fff;display:block}
+/* Hidden until it has actually loaded. A blank <img> sitting on a white background hides the
+   letter behind it, so a publisher whose icon is slow or blocked shows an empty square rather
+   than their initial — which is the case for about half of them from this host. */
+.nthumb img{position:relative;width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity .2s ease}
+.nthumb img.ok{opacity:1;background:#fff}
 tr.hl td{background:#fef3c7}
 /* live contribution feed */
 .live{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.25rem;margin:1.6rem 0}
