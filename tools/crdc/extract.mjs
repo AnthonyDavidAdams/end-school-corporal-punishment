@@ -1,4 +1,6 @@
 // Extracts corporal punishment counts from a CRDC public-use file.
+// Emits every district with at least one student struck, not only the largest: a district's own number
+// is the thing worth telling that district, and there are 832 of them, not 200.
 // Usage: node extract.mjs <path to SCH/Corporal Punishment.csv> [<path to SCH/Enrollment.csv>] > out.json
 // Field names verified against the 2021-22 and 2023-24 files (see data/crdc/README.md). Negative reserve codes are treated as zero.
 import { readFileSync } from "node:fs";
@@ -19,4 +21,4 @@ for (const r of rows) {
   const st = r.LEA_STATE; byState[st] = (byState[st] || 0) + students;
   const lea = `${st}|${r.LEAID}|${r.LEA_NAME}`; byLea[lea] = (byLea[lea] || 0) + students;
 }
-console.log(JSON.stringify({ students: total, instances, boys, black, with_disabilities: wdis, schools, leas: leas.size, byState: Object.fromEntries(Object.entries(byState).sort((a, b) => b[1] - a[1])), topDistricts: Object.entries(byLea).sort((a, b) => b[1] - a[1]).slice(0, 200) }, null, 1));
+console.log(JSON.stringify({ students: total, instances, boys, black, with_disabilities: wdis, schools, leas: leas.size, byState: Object.fromEntries(Object.entries(byState).sort((a, b) => b[1] - a[1])), districts: Object.entries(byLea).sort((a, b) => b[1] - a[1]), topDistricts: Object.entries(byLea).sort((a, b) => b[1] - a[1]).slice(0, 200) }, null, 1));

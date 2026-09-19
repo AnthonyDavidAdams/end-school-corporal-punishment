@@ -41,7 +41,7 @@ districts:
     legacy_status: allows
     notes: "Read the full text of Blount County BOE policy 05.13 'Discipline' on Simbli site S=2086 via the fetch_simbli_policy tool. Policy last revised 06/24/2024 (originally adopted 07/29/1974); status ADOPTED. Corporal punishment has no policy of its own; it sits inside 05.13 under section B, which sets out how it must be administered rather than whether it is permitted. It also appears by name in the sanction menus: 'CLASS I DISCIPLINARY SANCTIONS ... Corporal Punishment' and 'CLASS II DISCIPLINARY SANCTIONS ... Corporal punishment'. The policy contains NO parental consent or opt-out provision of any kind - no mention of parent permission, written consent, or a way to decline. Classified 'allows' on that basis. The policy requires documentation of each incident (student name, reason, type of punishment, signatures of administrator and witness, date), retained until the student graduates."
     policy_code: "05.13"
-    crdc_students_latest: null
+    crdc_students_latest: 92
   - name: Butler County Schools
     county: Butler
     nces_id: "0100510"
@@ -220,7 +220,7 @@ districts:
     legacy_status: allows
     notes: "Read the district's own Board Policy Manual, linked as 'Board Policy Manual' in the footer of ccboe.org. https://5il.co/qsro redirects to https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1904/Ccboe/3148053d-fff6-4980-a3c9-ac6e504488fc/Board-Policy-Sections-Revised-Added--12-18-25-FINAL.pdf (114pp). Policy 6.17 Corporal Punishment is on p.88; policy reference is [ALA. CODE 16-28A-2 (1975)]. Manual page footers read 'Cullman County Board of Education / Policy Manual / Adopted: 12/14/2023'; the posted file is the 12-18-25 revision set. CORROBORATION: the 2024-25 Student Handbook (https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1183523/24-25_Student_Handbook_FINAL.pdf, 'Adopted by the Cullman County Commission on Education APPROVED: August 15, 2024') lists 'Corporal punishment' as a Class I sanction and 'Corporal punishment (6.16)' as a Class II sanction, and sets out administration rules on p.25 ('The decision to administer corporal punishment will be carefully considered...'). The handbook's '(6.16)' cross-reference is stale: in the current manual 6.16 is Searches (Students) and 6.17 is Corporal Punishment. Board policy preferred as the source, per instructions. INPUT DATA FIX: the input row carried Cullman CITY's nces_id (0100990) and website (cullmancats.net); corrected to the county district per coordinator (NCES 0101020, ccboe.org). legacy_status said 'allows' and happens to agree, but was not used."
     policy_code: "6.17"
-    crdc_students_latest: null
+    crdc_students_latest: 27
   - name: Dale County Board of Education (Dale County Schools)
     county: Dale
     nces_id: "0101050"
@@ -311,7 +311,7 @@ districts:
     legacy_status: allows
     notes: "Document is the 'Student Code of Conduct Quick Reference Guide, Condensed Version of the ECPS Student Handbook and Code of Conduct 2026-2027 Grades K-12 - A Statement of Policy Adopted by the Elmore County Board of Education August 2026' (36 pp, sha256 09fc9a3d90721d76075db309c658c501ac6853afbaf346ed1cb5f78b160c4de8). Reached from https://www.elmoreco.com/student-handbook (the PDF filenames on that page are opaque; this is the 'Code of Conduct' one). Classified consent_required, NOT allows: the policy requires affirmative written parental permission on file each school year before any use, i.e. opt-in rather than opt-out. Elmore is not on Simbli; no separate board policy manual is published on the district site. A second, older 98-page Elmore handbook PDF on the same page (vg4kahcq7qeofdnnlid.pdf, still references COVID-19) carries the same section."
     policy_code: Student Code of Conduct, section 'Procedure for K-12 Corporal Punishment' (p. 34)
-    crdc_students_latest: null
+    crdc_students_latest: 5
   - name: Etowah County Schools
     county: Etowah
     nces_id: "0101380"
@@ -322,7 +322,7 @@ districts:
     legacy_status: allows
     notes: "Read Etowah County Schools board policy 6.17 'Corporal Punishment' in the district's Simbli policy manual (site S=36031381, found from ecboe.org). Policy last revised and originally adopted 10/07/2025; status ADOPTED — this is a recent re-adoption, not a stale record. The policy continues: 'Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administrating and documenting corporal punishment, consistent with the terms of this policy. [Reference: ALA. CODE 16-28A-2 (1975)]'. No parental consent or opt-out requirement appears anywhere in the policy text, so this is 'allows', not 'consent_required'. Identity confirmed: policy 6.14 in the same manual refers to conduct enforced 'within Etowah County Schools'."
     policy_code: "6.17"
-    crdc_students_latest: null
+    crdc_students_latest: 6
   - name: Houston County Schools
     county: Houston
     nces_id: "0101770"
@@ -333,7 +333,7 @@ districts:
     legacy_status: allows
     notes: "hcboe.us is JavaScript-rendered; resolve_handbook found nothing, so I opened the site in a browser. The homepage links 'Handbook & Code of Conduct' to this Google Doc (the doc's own header carries www.hcboe.us and its index lists 'Corporal Punishment 46'); I read it server-side via its plain-text export. This is an OPT-OUT scheme, not opt-in: corporal punishment is the default and the parent must deliver a handwritten note in person by the first day of school to prevent it, renewed annually - so 'allows', not 'consent_required'. Corporal punishment is also listed among the sanctions for Class I offenses ('Subsequent Offenses ... Corporal Punishment') and Class II offenses ('First - Student conference and parental contact, disciplinary action such as corporal punishment, ASD, ISS, bus suspension, etc.'). CORROBORATION: the Houston County Board of Education Policy Manual adopted December 12, 2022 (https://s3.amazonaws.com/scschoolfiles/3282/houston_county_policy_manual_2022_1.pdf, policy 6.16 on p.98) says 'The Board allows reasonable corporal punishment of students under the following terms and conditions... A parent or guardian of student may opt out of the use of corporal punishment as a disciplinary consequence for that student by submitting a written, signed statement to the school principal.' Same conclusion. That PDF is on the district's old SchoolInsites CDN and I could not find it linked from the current hcboe.us, which is why the handbook is cited as the source. policy_code 6.16 is from that manual; the handbook itself does not number the section."
     policy_code: "6.16"
-    crdc_students_latest: null
+    crdc_students_latest: 87
   - name: Huntsville City Schools
     county: Madison
     nces_id: "0101800"
@@ -706,4 +706,4 @@ districts:
     legacy_status: allows
     notes: "Found the Simbli link (S=2057) on walkercountyschools.com itself, then read policy 6.16 'Corporal Punishment' with fetch_simbli_policy. Last revised 12/12/2017, originally adopted 12/12/2017, status ADOPTED. The policy contains NO parental consent or opt-out provision; it delegates the operating detail to the Board-approved Parent-Student Handbook, which I did not separately obtain, so an opt-out could exist at handbook level - but the policy as written permits corporal punishment outright, hence 'allows'. Policy index also contains 6.14 Student Conduct, which mentions no corporal punishment. The quote preserves the line breaks as Simbli serves them. Listing page for a reader who prefers it: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=2057"
     policy_code: "6.16"
-    crdc_students_latest: null
+    crdc_students_latest: 82

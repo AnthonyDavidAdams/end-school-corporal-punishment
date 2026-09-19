@@ -322,6 +322,77 @@
               null
             ],
             "description": "A status carried over from the pre-2026 map that was never sourced. Kept only to prioritise re-scanning; never published as fact."
+          },
+          "contact": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Official published contact for the district, taken from the district's own website while scanning its policy. Public record only: the general/superintendent office, the board clerk, the address and phone a member of the public is invited to use. Never a personal address, never a scraped social account, never an individual staff member who is not the published point of contact.",
+            "additionalProperties": false,
+            "properties": {
+              "district_email": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "General or superintendent's office email as published"
+              },
+              "board_email": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Board or board clerk email as published"
+              },
+              "phone": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "mailing_address": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "superintendent": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Name as published"
+              },
+              "board_page": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "URL of the board page listing members and meeting times"
+              },
+              "contact_page": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "URL the contact was read from, so it can be rechecked"
+              },
+              "public_comment": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "How the public signs up to speak at a board meeting, if published"
+              },
+              "as_of": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Date read (YYYY-MM-DD)"
+              }
+            }
           }
         },
         "allOf": [

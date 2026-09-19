@@ -9,3 +9,17 @@ Results: 19,851 students (16,466 without disabilities, 3,385 with, of whom 957 w
 Known error: New Jersey, a ban state, shows 380 students and 1,655 instances, all from three Salem City School District schools. Excluding it, the national total is 19,471. Other ban-state noise: NY 14, WA 12, MI 5, MN 4, CA 3. 1,611 schools (1,606 in New York) carry the -5 missing-data code.
 
 Changes in this collection: preschool corporal punishment instances removed; nonbinary fields suppressed. Re-run `tools/crdc/extract.mjs` against the file and replace this note with the script output and a SHA-256 when the `crdc-refresh` task is executed; retire the computed claim when OCR publishes its own figure.
+
+## District-level counts
+
+`districts.csv` lists every district reporting at least one student struck in 2023-24: 832 of them,
+state, NCES id, name and count, summing to the same 19,851. The extractor had always computed this
+and written only the largest 200, which is enough for a national chart and not enough to tell a
+district its own number. A district's own figure is the only one that means anything to that
+district's board, so all 832 are kept.
+
+Regenerate with `node tools/crdc/extract.mjs "<SCH/Corporal Punishment.csv>"` from
+https://civilrightsdata.ed.gov/assets/ocr/docs/2023-24-crdc-data.zip (95 MB). The New Jersey caveat
+above applies here too: Salem City School District appears with 380 students in a state that
+prohibits corporal punishment, and is third in the national district ranking as a result. Treat any
+ban-state district in this file as a reporting error until checked.
