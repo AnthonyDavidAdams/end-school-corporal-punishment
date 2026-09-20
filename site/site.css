@@ -10,6 +10,9 @@
 .tlmap svg { width:100%; height:auto; display:block; }
 .tlcap { min-height:3.2em; margin:12px 0 0; font-size:15px; line-height:1.5; }
 .tlcap .hl { color:#2D6A4F; font-weight:600; }
+.tlcap .ms { color:#6B5B2E; font-style:italic; }
+.tlcap .ms a { color:inherit; }
+@media (prefers-color-scheme:dark) { .tlcap .ms { color:#C9A227; } }
 @media (prefers-color-scheme:dark) { .tlcap .hl { color:#7CE0A8; } }
 @media (max-width:640px) { .tlbar { flex-wrap:wrap; } .tlbar input[type=range] { flex-basis:100%; order:3; } .tlyear { font-size:22px; } }
 

@@ -6,16 +6,19 @@
 (async () => {
   const host = document.getElementById("tmap");
   if (!host) return;
-  const [svgText, tl, states] = await Promise.all([
+  const [svgText, tl, states, shapes] = await Promise.all([
     fetch("/kids/assets/us-map.svg").then(r => r.text()),
     fetch("/kids/data/timeline.json").then(r => r.json()),
     fetch("/kids/data/states.json").then(r => r.json()),
+    // The real district boundaries, keyed by NCES id. A county was only ever a stand-in: district lines
+    // do not follow county lines, and a county can hold two districts with opposite policies.
+    fetch("/kids/data/district-shapes.json").then(r => r.json()).catch(() => ({ shapes: {} })),
   ]);
   host.innerHTML = svgText;
   const svg = host.querySelector("svg");
   const NS = "http://www.w3.org/2000/svg";
 
-  const GREEN = "#2D6A4F", GREEN_UNDATED = "#4E8C6F", LEGAL = "#9B2C2C", DIM = "#E7E2D9";
+  const GREEN = "#2D6A4F", GREEN_UNDATED = "#4E8C6F", DISTRICT_GREEN = "#3F9D6B", LEGAL = "#9B2C2C", DIM = "#E7E2D9";
   const banYear = Object.fromEntries(tl.states.map(s => [s.code, s.year]));
   // New Hampshire and the District of Columbia prohibit corporal punishment and this project does not
   // hold the year either of them did it. They are drawn as prohibiting for the whole animation, in a
@@ -43,9 +46,30 @@
   // which is honest about the resolution we actually have for it.
   const stateCentre = {};
   for (const p of statePaths) { const b = p.getBBox(); stateCentre[p.dataset.state] = [b.x + b.width / 2, b.y + b.height / 2]; }
+  // Districts are drawn on their own boundary where the Census has one, on their county where it does
+  // not, and on the state's centre as a last resort. Which of the three was used travels with the row
+  // so the map can be honest about its own resolution.
+  const shapeLayer = document.createElementNS(NS, "g");
+  shapeLayer.setAttribute("pointer-events", "none");
+  svg.append(shapeLayer);
   for (const d of tl.districts) {
+    const outline = d.nces_id && shapes.shapes && shapes.shapes[d.nces_id];
+    if (outline) {
+      const el = document.createElementNS(NS, "path");
+      el.setAttribute("d", outline);
+      el.setAttribute("stroke", "#0D132D");
+      el.setAttribute("stroke-width", "0.6");
+      el.setAttribute("vector-effect", "non-scaling-stroke");
+      el.setAttribute("display", "none");
+      shapeLayer.append(el);
+      d.shape = el;
+      const b = el.getBBox();
+      d.xy = [b.x + b.width / 2, b.y + b.height / 2];
+      d.placed = "district";
+      continue;
+    }
     const path = d.county && countyIndex[d.state] && countyIndex[d.state][norm(d.county)];
-    if (path) { const b = path.getBBox(); d.xy = [b.x + b.width / 2, b.y + b.height / 2]; d.placed = "county"; }
+    if (path) { const b = path.getBBox(); d.xy = [b.x + b.width / 2, b.y + b.height / 2]; d.placed = "county"; d.path = path; }
     else if (stateCentre[d.state]) { d.xy = stateCentre[d.state]; d.placed = "state"; }
   }
 
@@ -65,10 +89,15 @@
       c.setAttribute("fill", banned ? GREEN : states[st] ? LEGAL : DIM);
     }
     pins.textContent = "";
-    let shown = 0, kids = 0;
+    for (const d of tl.districts) if (d.shape) d.shape.setAttribute("display", "none");
+    let shown = 0, kids = 0, counties = 0;
     for (const d of tl.districts) {
       if (!d.xy || d.year > year) continue;
       shown++; if (d.students) kids += d.students;
+      // The district's own shape takes the colour, so you watch the red fill in from the inside at the
+      // resolution the decision is actually made at.
+      if (d.shape) { d.shape.setAttribute("display", ""); d.shape.setAttribute("fill", DISTRICT_GREEN); counties++; }
+      else if (d.path) { d.path.setAttribute("fill", DISTRICT_GREEN); counties++; }
       const age = year - d.year;
       const halo = document.createElementNS(NS, "circle");
       halo.setAttribute("cx", d.xy[0]); halo.setAttribute("cy", d.xy[1]);
@@ -89,11 +118,15 @@
     label.textContent = String(year);
     const justNow = tl.districts.filter(d => d.year === year);
     const statesNow = tl.states.filter(s => s.year === year);
+    // A century of the map standing still is the point, not a bug, but it is easier to watch with the
+    // things that were happening off the map written beside it. Every one is a claim in the registry.
+    const marks = (tl.milestones || []).filter(m => m.year === year);
     caption.innerHTML =
       `<b>${nStates}</b> states prohibit it &middot; <b>${shown}</b> districts in this record prohibit it where their state does not` +
       (kids ? ` &middot; <b>${kids.toLocaleString()}</b> children covered by a district that had reported striking them` : "") +
       (statesNow.length ? `<br><span class="hl">${statesNow.map(s => s.name).join(", ")} prohibited it this year</span>` : "") +
-      (justNow.length ? `<br><span class="hl">${justNow.map(d => d.name).join(", ")}</span>` : "");
+      (justNow.length ? `<br><span class="hl">${justNow.map(d => d.name).join(", ")}</span>` : "") +
+      marks.map(m => `<br><span class="ms">${m.source ? `<a href="${m.source}" rel="noopener">${m.label}</a>` : m.label}</span>`).join("");
   }
 
   // The nineteenth century is nearly empty and the last fifteen years are where everything happens, so
