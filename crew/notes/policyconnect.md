@@ -29,6 +29,22 @@ has not found. Guessing has been tried and did not converge; the remaining step 
 in a browser with the network panel recording and read the request off it. Everything else above was
 found exactly that way.
 
+### Tried again 2026-09-20, no progress
+
+- `GET /user/getMyOrg/sherman-isd` still answers 200 with the org and `data.id`
+  `66d126d19b7bf6ccb68f9dac`, so the entry point is stable and unauthenticated.
+- `GET /subSection/getSectionOrSubsectionByOrg/66d126d19b7bf6ccb68f9dac` now answers
+  `{"code":400,"status":false,"data":"Unable to getting subSection"}` without the
+  `?filter[name]=` parameter. Whatever the table above was run with, the bare path is not it; try the
+  filter parameter and any others the browser sends before concluding the endpoint changed.
+- The eleven Nuxt chunks the page loads total 147 KB and contain no literal `api/v1` string and no
+  literal path that looks like a route. The URLs are assembled at runtime, so grepping the bundle for
+  endpoints does not work here even though it usually does.
+
+This is now the second session to try to guess the content route and fail. It needs one browser
+observation with the network panel open, not another round of probing; stop spending time on it
+until someone can do that.
+
 `data.id` is `id`, not `_id`, on the org response — the subsection documents use `_id`. Passing the
 slug where an ObjectId is expected returns a 500 whose body names the model, which is how the shape
 was confirmed.
