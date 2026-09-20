@@ -134,7 +134,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -296,7 +296,7 @@ writeFileSync(join(site, "index.html"), shell({
 <h2>How it ends</h2>
 <div class="grid">
   <div class="card"><h2>If you are a parent</h2><p>In every state where this is legal you can refuse in writing. <a href="/kids/resources/#letters">The letter takes two minutes.</a> Districts change policy when the pile of refusals gets tall.</p></div>
-  <div class="card"><h2>If you have an AI agent</h2><p>Most of the remaining work is reading district policy manuals and recording what they say, with sources. ${n(districtsIn([...legalStates, ...partialStates].map(x => x.code)))} districts in the ${legalStates.length + partialStates.length} states where it is not prohibited; ${summary.districts_sourced} sourced so far. <a href="/kids/contribute/">Install the skills and take a state.</a></p></div>
+  <div class="card"><h2>If you have an AI agent</h2><p>Most of the remaining work is reading district policy manuals and recording what they say, with sources. ${n(districtsIn([...legalStates, ...partialStates].map(x => x.code)))} districts in the ${legalStates.length + partialStates.length} states where it is not prohibited; ${summary.districts_sourced} sourced so far. <a href="/kids/contribute/">Install the skills and take a state</a>, or take one district off <a href="/kids/worklist/">the worklist</a>.</p></div>
   <div class="card"><h2>If you run a school</h2><p>A free, open ten-module curriculum for replacing corporal punishment, written for small schools with no behavior specialist. <a href="${REPO}/tree/main/training" rel="noopener">Read the training.</a></p></div>
 </div>
 <h2>Prohibited</h2>
@@ -394,6 +394,7 @@ claude
 <tr><td>Decision-maker dossier</td><td>One board or committee, public record only</td><td>3</td></tr>
 <tr><td>Training review</td><td>One module, by someone who has run a school</td><td>3</td></tr>
 </table></div>
+<p>The fastest way in is <a href="/kids/worklist/">the worklist</a>: every district that told the federal government it struck a student in 2023-24 and whose policy nobody has read yet, ranked by how many children. Pick a line.</p>
 <p class="meta">Claim a scope first with the <a href="${REPO}/issues/new?template=task-claim.yml">task-claim issue</a> so work is not duplicated. ${n(districtsIn([...legalStates, ...partialStates].map(x => x.code)))} districts in the ${legalStates.length + partialStates.length} states where it is not prohibited, counted from the federal district file (NCES Common Core of Data, 2023-24); ${summary.districts_sourced} sourced so far.</p>
 <h2>No agent?</h2>
 <div class="grid">
@@ -401,6 +402,28 @@ claude
 <div class="card"><h2>Your network</h2><p>Share your state's page. If you are a teacher, physician, psychologist, pastor or lawyer in a paddling state, open an issue titled <code>[witness] Your State</code>.</p></div>
 <div class="card"><h2>An hour</h2><p>Add your own district's policy with the <a href="${REPO}/issues/new?template=district-policy.yml">district finding form</a>, or verify one claim.</p></div>
 </div>`}));
+
+// ---------- worklist ----------
+// The project's own to-do list, in public, with a number beside every line. "Scan a state" is an
+// abstraction; "Greenville R-II struck 141 children last year and nobody has read its policy" is a job
+// somebody will actually pick up.
+mkdirSync(join(site, "worklist"), { recursive: true });
+{
+  const wl = JSON.parse(readFileSync(join(root, "site/data/worklist.json"), "utf8"));
+  const rowsHtml = wl.districts.map((d, i) => `<tr data-s="${esc(d.state)}"><td class="meta">${i + 1}</td><td>${n(d.students)}</td><td>${esc(d.state)}</td><td>${esc(d.name)}${d.flag ? `<br><span class="meta">${esc(d.flag)}</span>` : ""}</td><td class="small">${d.website ? `<a href="${esc(d.website)}" rel="noopener nofollow">site</a>` : ""}</td><td class="meta">${esc(d.nces_id)}</td></tr>`).join("");
+  writeFileSync(join(site, "worklist", "index.html"), shell({
+    title: "The worklist: districts that struck children and nobody has checked",
+    path: "/worklist/",
+    description: `${n(wl.unchecked)} school districts told the federal government they struck a student in 2023-24 and no one has read their policy yet. ${n(wl.students_in_unchecked)} children. Pick one.`,
+    body: `<section class="hero"><div class="wrap"><h1>The worklist</h1>
+<p class="lede">${n(wl.unchecked)} districts told the federal government they struck a student in 2023-24. Nobody has opened their policy. That is ${n(wl.students_in_unchecked)} children whose district's own rule is not on the record anywhere.</p></div></section>
+<p>Every line is a district's own filing to the US Department of Education, ranked by how many of its students were struck. Reading one district's policy and quoting the sentence takes an agent a few minutes. <a href="/kids/contribute/">Here is how to point yours at it.</a></p>
+<p class="meta">Source: ${esc(wl.source)} Generated ${esc(wl.generated)}. Machine-readable: <a href="/kids/data/worklist.json">worklist.json</a>. A district leaves this list when someone records its policy with a source and a verbatim quote.</p>
+<div class="mapctl"><input type="search" id="wsearch" placeholder="Filter by district or state"></div>
+<div class="tablewrap"><table><tr><th>#</th><th>Struck</th><th>State</th><th>District</th><th></th><th>Federal id</th></tr>${rowsHtml}</table></div>
+<script>(function(){var q=document.getElementById("wsearch");if(!q)return;q.addEventListener("input",function(){var v=q.value.trim().toLowerCase();document.querySelectorAll("tr[data-s]").forEach(function(r){r.style.display=!v||r.textContent.toLowerCase().indexOf(v)>-1?"":"none";});});})();</script>`
+  }));
+}
 
 // ---------- htaccess ----------
 writeFileSync(join(site, ".htaccess"), `RewriteEngine On
