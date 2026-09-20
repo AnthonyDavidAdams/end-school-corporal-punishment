@@ -21,6 +21,25 @@ ParentSquare/SmartSites, Finalsite and Apptegy build their document lists in the
 is real HTML and the links are not in it. `resolve_handbook` knows the common file hosts and finds the
 document where the pattern is one it has seen.
 
+## Apptegy / thrillshare: the CMS API is open
+
+Apptegy district sites serve the 3,038-byte challenge shell to curl and to the project server alike,
+but the CMS behind them answers without authentication:
+
+    https://thrillshare-cmsv2.services.thrillshare.com/api/v2/s/<section>/documents
+    https://thrillshare-cmsv2.services.thrillshare.com/api/v2/s/<section>/directories
+
+That is how Suwannee County's 808-page policy manual and Mountain View's handbook were reached during
+the 2026-09 impact scan, on sites that were otherwise closed. The documents themselves live on
+`files-backend.assets.thrillshare.com`, which fetches normally, so the citation is a clean PDF URL.
+
+This is worth building into `resolve_handbook`.
+
+## ParentSquare / SmartSites: ask for HTTP/1.1
+
+These sites return only a `<head>` over the default HTTP/2 negotiation and the full body over
+`curl --http1.1 --compressed`. It looks like a JavaScript-only site and is not one.
+
 ## The text proxy, and its limits
 
 `https://r.jina.ai/<url>` returns the rendered static text of a page and reads several sites that
