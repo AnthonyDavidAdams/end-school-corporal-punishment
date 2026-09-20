@@ -4,6 +4,10 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 
 import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { certificateHtml, certifiable } from "./certificate.mjs";
+// A district's name becomes its certificate URL, so the rule has to be stable: the same district must
+// get the same address on every rebuild or a printed link stops working.
+const slug = (x) => String(x).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const site = join(root, "site");
 const BASE = "https://earthpilot.org/kids";
@@ -419,7 +423,24 @@ mkdirSync(join(site, "stopped"), { recursive: true });
   }
   stopped.sort((a, b) => b.crdc_students_latest - a.crdc_students_latest);
   const total = stopped.reduce((a, d) => a + d.crdc_students_latest, 0);
-  const rows = stopped.map(d => `<tr><td>${n(d.crdc_students_latest)}</td><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${d.policy_code && d.policy_code.length <= 16 ? esc(d.policy_code) : ""}</td><td><a href="${esc(d.source)}" rel="noopener">policy</a></td><td><a href="/kids/state/${d.code}/">record</a></td></tr>`).join("");
+  // Every district that prohibits it gets a certificate, not only the ones that also appear in the
+  // federal count. A district that stopped in 2012 deserves the same page as one that stopped last
+  // year; it just gets a different sentence on it.
+  const certs = [];
+  for (const [code, list] of Object.entries(districts)) {
+    for (const d of list) {
+      if (!certifiable(d)) continue;
+      const rec = { ...d, code, slug: slug(d.name) };
+      const dir = join(site, "stopped", `${code.toLowerCase()}-${rec.slug}`);
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(join(dir, "index.html"), certificateHtml({ d: rec, stateName: states[code].name, esc, n, base: BASE }));
+      certs.push(rec);
+    }
+  }
+  certs.sort((a, b) => (b.policy_revised || b.policy_adopted || "").localeCompare(a.policy_revised || a.policy_adopted || "") || a.name.localeCompare(b.name));
+  const certLink = (d) => `/kids/stopped/${d.code.toLowerCase()}-${slug(d.name)}/`;
+  const rows = stopped.map(d => `<tr><td>${n(d.crdc_students_latest)}</td><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${d.policy_code && d.policy_code.length <= 16 ? esc(d.policy_code) : ""}</td><td><a href="${esc(d.source)}" rel="noopener">policy</a></td><td><a href="${certLink({ ...d, code: d.code })}">certificate</a></td></tr>`).join("");
+  const certRows = certs.map(d => `<tr><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${(d.policy_revised || d.policy_adopted || "").slice(0, 10) || '<span class="meta">date not printed on the policy</span>'}</td><td><a href="${certLink(d)}">certificate</a></td></tr>`).join("");
   const quotes = stopped.map(d => `<blockquote><p>${esc(d.quote)}</p><footer>${esc(d.name)}${d.policy_code && d.policy_code.length <= 16 ? `, policy ${esc(d.policy_code)}` : ""} &middot; ${n(d.crdc_students_latest)} student${d.crdc_students_latest === 1 ? "" : "s"} struck in 2023-24 &middot; read ${esc(d.last_verified || "")}</p></footer></blockquote>`).join("");
   writeFileSync(join(site, "stopped", "index.html"), shell({
     title: "Districts that used to paddle and stopped",
@@ -436,6 +457,9 @@ ${quotes}
 <li><b>The district changed its policy after the filing.</b> Pike County, Alabama revised policy 5.30.1 on 17 June 2024, after the school year in which it reported 252 students struck. That is a district that stopped.</li>
 <li><b>The filing does not match a policy that was already in place.</b> Lubbock ISD removed corporal punishment in 2020 and its 2023-24 filing still shows two students. That is a reporting question, not a change of heart, and it is on this page because hiding it would make the other rows less believable.</li>
 </ul>
+<h2>Every district in this record that prohibits it</h2>
+<p>${n(certs.length)} districts, ${n(certs.filter(c => c.policy_revised || c.policy_adopted).length)} of them with a date the board acted. Each has a certificate it can print, download or be sent. They are granted on the district's own published policy and they link to it, so anyone can check the claim in one click.</p>
+<div class="tablewrap"><table><tr><th>District</th><th>Board acted</th><th></th></tr>${certRows}</table></div>
 <p class="meta">Counts are from the US Department of Education's Civil Rights Data Collection for 2023-24; see <a href="/kids/data/">the data page</a>. Policy text is quoted from each district's own current policy, with the link beside it. If a district on this page has been read wrong, <a href="/kids/contribute/">the record is public and correctable</a>.</p>
 <p><a href="/kids/worklist/">${n(0)}</a></p>`.replace('<p><a href="/kids/worklist/">0</a></p>', '<p><a href="/kids/worklist/">The districts nobody has checked yet &rarr;</a></p>')
   }));
