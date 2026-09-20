@@ -1,3 +1,10 @@
+.roster { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:16px 0 8px; }
+.roster figure { margin:0; text-align:center; }
+.roster img { width:100%; aspect-ratio:1; border-radius:10px; display:block; background:#101A3D; }
+.roster figcaption { font-size:14px; margin-top:8px; line-height:1.45; }
+.roster .tier { color:#2D6A4F; font-weight:600; }
+@media (prefers-color-scheme:dark) { .roster .tier { color:#7CE0A8; } }
+
 /* The contribute page leads with the command, then shows one real district going through the whole
    pipeline, because "bring an agent" is accurate and tells you nothing. */
 .herocmd { display:inline-block; margin:18px auto 0; padding:14px 22px; border-radius:8px;

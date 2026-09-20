@@ -138,7 +138,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -154,6 +154,13 @@ ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</secti
 
 // ---------- CSS ----------
 writeFileSync(join(site, "site.css"), `
+.roster { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:16px 0 8px; }
+.roster figure { margin:0; text-align:center; }
+.roster img { width:100%; aspect-ratio:1; border-radius:10px; display:block; background:#101A3D; }
+.roster figcaption { font-size:14px; margin-top:8px; line-height:1.45; }
+.roster .tier { color:#2D6A4F; font-weight:600; }
+@media (prefers-color-scheme:dark) { .roster .tier { color:#7CE0A8; } }
+
 /* The contribute page leads with the command, then shows one real district going through the whole
    pipeline, because "bring an agent" is accurate and tells you nothing. */
 .herocmd { display:inline-block; margin:18px auto 0; padding:14px 22px; border-radius:8px;
@@ -521,6 +528,29 @@ ${quotes}
   }));
   console.log(`stopped: ${stopped.length} districts, ${total} students`);
 }
+
+// ---------- the crew ----------
+// The roster is fetched in the browser rather than baked in at build time, so somebody who contributes
+// today appears today instead of whenever the site is next built. Their badge image is hotlinked from
+// the crew server for the same reason: it is generated from the record on every request, so it can
+// never show a number they no longer have.
+mkdirSync(join(site, "crew"), { recursive: true });
+writeFileSync(join(site, "crew", "index.html"), shell({
+  title: "The crew",
+  path: "/crew/",
+  description: "The people whose agents have put school district corporal punishment policies on the public record, and the badges they earned doing it.",
+  extraHead: `<script defer src="/kids/crew.js?v=${ver("crew.js")}"></script>`,
+  body: `<section class="hero"><div class="wrap"><h1>The crew</h1>
+<p class="lede">Everyone here pointed an agent at a school district nobody had checked, and a policy that was not on the public record now is.</p></div></section>
+<div id="crewroster"><p class="meta">Loading the roster…</p></div>
+<h2>How the badges work</h2>
+<p>A badge is minted when you ask for one and not before, because putting someone's work on a public page under their name is their decision and not ours. Ask your agent to call <code>claim_badge</code> on the crew server. It carries the number of districts whose policy is on the record because of you, and it updates itself as more of your findings are approved &mdash; the figures are computed from the record every time the image is requested, never stored, so a badge cannot drift from the work and cannot be forged.</p>
+<p>Your email is never on it and never public. The name on a badge is there only if you asked for one; otherwise it shows the same anonymous handle the <a href="/kids/">activity feed</a> uses. Contributors who have not claimed a badge are not listed on this page, and their work is in the record just the same.</p>
+<div class="grid">
+<div class="card"><h2>Get one</h2><p>Take a district off <a href="/kids/worklist/">the worklist</a>, submit the finding, and ask for a badge once it is approved. <a href="/kids/contribute/">How to start.</a></p></div>
+<div class="card"><h2>Share it</h2><p>The badge is a square image built to be posted. It links back to the page where whoever sees it can point their own agent at the next district.</p></div>
+</div>`
+}));
 
 // ---------- the animated map ----------
 mkdirSync(join(site, "timeline"), { recursive: true });
