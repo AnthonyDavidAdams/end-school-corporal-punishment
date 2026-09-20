@@ -25,9 +25,14 @@ for (const f of process.argv.slice(2)) {
     // matched to a city one: the looser "same county, name contains the county" rule that used to be
     // here matched Talladega City onto Talladega County and overwrote a district that allows corporal
     // punishment with one that prohibits it.
+    // An NCES id only wins where the names also agree. A scan carrying a wrong id — and a work order
+    // that mis-joins districts will produce those — otherwise matches a completely different row and
+    // renames it: Coahoma's id arrived on Choctaw's record and quietly turned Choctaw's row into a
+    // second Coahoma. The id is strong evidence of identity, not proof of it.
+    const sameName = (a, b) => norm(a) === norm(b) && kind(a) === kind(b);
     const i = doc.districts.findIndex(d =>
-      (r.nces_id && d.nces_id && d.nces_id === r.nces_id) ||
-      (norm(d.name) === norm(r.name) && kind(d.name) === kind(r.name)));
+      (r.nces_id && d.nces_id && d.nces_id === r.nces_id && sameName(d.name, r.name)) ||
+      sameName(d.name, r.name));
     if (i >= 0) { doc.districts[i] = { ...doc.districts[i], ...entry, name: !entry.name || doc.districts[i].name.length >= entry.name.length ? doc.districts[i].name : entry.name }; updated++; } else { doc.districts.push(entry); added++; }
     doc.districts.sort((a, b) => a.name.localeCompare(b.name));
     writeFileSync(p, `# District corporal punishment policies for ${r.state}. One entry per district.\n# status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.\n` + stringify(doc, { lineWidth: 0 }));

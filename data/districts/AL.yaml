@@ -677,13 +677,15 @@ districts:
     notes: "DATA-QUALITY WARNING ON THE INPUT ROW, READ BEFORE USING: the input 'name' says 'Tuscaloosa County Schools' but the nces_id (0103360), the nces_name ('Tuscaloosa City') and the website (tuscaloosacityschools.com) all identify TUSCALOOSA CITY SCHOOLS, a separate independent district. I verified NCES LEA 0103360 against the CCD directory (Urban Institute education data API, 2022): lea_name 'Tuscaloosa City', state_leaid AL-200, 1210 21st Ave, Tuscaloosa, 20 schools, 11,186 students. The status recorded here is TUSCALOOSA CITY's, matching the nces_id, and the district name should be corrected to 'Tuscaloosa City Schools'. TUSCALOOSA COUNTY SCHOOLS (tcss.net) is a DIFFERENT district and was NOT scanned — do not carry this answer over to it. Source read: Tuscaloosa City board policy 6.16 'Corporal Punishment' in the district's Simbli policy manual, site S=2088, linked from tuscaloosacityschools.com; last revised and originally adopted 02/17/2015, status ADOPTED. Identity re-confirmed inside the manual: policy 6.14 Student Conduct says conduct is enforced 'within Tuscaloosa City Schools'. NOTE: the legacy_status hint said 'allows' and is WRONG for this district."
   - name: Tuscaloosa County Schools
     county: Tuscaloosa
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "0103390"
+    status: allows
+    source: https://resources.finalsite.net/images/v1707237231/tcssnet/igtdhitc9s6ggasbh3j2/TuscaloosaCoPolicyManualApr2013Edited11202023Re-Tagged.pdf
+    quote: "The Tuscaloosa County Board of Education permits the use of corporal punishment (paddling) as a last resort and under the following conditions:"
+    last_verified: 2026-09-19
     legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: "Tuscaloosa COUNTY School System policy manual, policy 5.30.1 CORPORAL PUNISHMENT, pages 116-117. Policy history printed at the end of the section: \"HISTORY: ADOPTED: MARCH 9, 1992 REVISED: APRIL 8, 2013 FORMERLY: JDA\"; manual cover/footer dated 4/27/2013, file re-tagged 11.20.2023. Fetched server-side: 2488373 bytes, application/pdf, 336 pages, sha256 0315574cde84ed46f38d38b02f3c56cae920446830b5573cf32d979a091f472a. This is tcss.net's own Finalsite-hosted copy (www.tcss.net answers 403 to non-browser clients; the same file is also at https://al01001644.schoolwires.net/cms/lib/AL01001644/Centricity/Domain/3836/Tuscaloosa%20Co%20Policy%20Manual%20Apr%202013%20Edited%2011.20.2023%20Re-Tagged.pdf). The county's own manual was read for this record; NOTHING was taken from Tuscaloosa City Schools. The policy sets no parental opt-in or opt-out: parents are only notified after the fact (\"VII. Parents/guardians shall be notified that their child has received corporal punishment\"), and \"VIII. Corporal punishment shall consist of no more than three (3) licks administered to the buttocks with a smooth surface paddle free of holes and/or cracks.\" Therefore \"allows\", not \"consent_required\"."
+    policy_code: 5.30.1
+    crdc_students_latest: null
   - name: Walker County Schools
     county: Walker
     nces_id: "0103450"
