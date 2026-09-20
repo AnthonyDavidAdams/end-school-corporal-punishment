@@ -1048,8 +1048,50 @@
  ],
  "AR": [
   {
-   "name": "Little Rock School District",
-   "county": "Pulaski",
+   "name": "Bentonville Schools",
+   "county": "Benton",
+   "nces_id": null,
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "last_verified": null,
+   "legacy_status": "allows",
+   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Conway School District",
+   "county": "Faulkner",
+   "nces_id": null,
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "last_verified": null,
+   "legacy_status": "allows",
+   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Dewitt School District",
+   "county": "Dewitt",
+   "nces_id": "0500001",
+   "status": "allows",
+   "source": "https://docs.google.com/document/d/1m-qoIQ-OmMabFiAjJl-s_JXoVPnAHh1qimiK8cJL_2o/export?format=txt",
+   "quote": "Discipline: Corporal Punishment The DeWitt School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the Superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment Prior to the administration of corporal punishment, the student receiving the corporal punishment shall be given an explanation of the reasons for the punishment and be given an opportunity to refute the charges.",
+   "policy_code": null,
+   "crdc_students_latest": 40,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "district_email": "hbeaton@dewittdragons.net",
+    "phone": "870.946.3576",
+    "mailing_address": "1841 S. Grandview Drive, DeWitt, AR 72042",
+    "board_page": "https://www.dewittdragons.net/page/schoolboard",
+    "contact_page": "https://www.dewittdragons.net/",
+    "as_of": "2026-09-19"
+   },
+   "notes": "NOTE ON DOMAIN: the website in the input (dewittschooldistrict.net) is now a parked 'Coming Soon' page; the district's live site is www.dewittdragons.net. Source is the All Students Handbook 2026-2027, linked from https://www.dewittdragons.net/documents/student-handbooks/2026-2027-handbooks/28455800 as Google Doc id 1m-qoIQ-OmMabFiAjJl-s_JXoVPnAHh1qimiK8cJL_2o. Fetched server-side with fetch_document as the txt export: HTTP 200, text/plain; charset=utf-8, 492,440 bytes, 490,541 chars, no OCR needed; quote at offset ~207,253 (handbook page 77 per its own table of contents). No opt-in or opt-out provision, so 'allows'. The same section also states: 'Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.' The handbook's discipline schedule elsewhere makes corporal punishment a listed consequence, e.g. 'Failure to serve additional assigned days will result in the student being given Corporal Punishment or Out of School Suspension.' No adoption/revision date is printed in the handbook. WARNING FOR REVIEWERS: a plain curl of this export URL from some networks returns a truncated 114,786-char copy that stops before the policy; the server-side fetch returns the full 490,541 chars."
+  },
+  {
+   "name": "Fayetteville Public Schools",
+   "county": "Washington",
    "nces_id": null,
    "status": "unknown",
    "source": null,
@@ -1070,8 +1112,8 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
-   "name": "Springdale School District",
-   "county": "Washington",
+   "name": "Jonesboro School District",
+   "county": "Craighead",
    "nces_id": null,
    "status": "unknown",
    "source": null,
@@ -1081,8 +1123,19 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
-   "name": "Bentonville Schools",
-   "county": "Benton",
+   "name": "Little Rock School District",
+   "county": "Pulaski",
+   "nces_id": null,
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "last_verified": null,
+   "legacy_status": "bans",
+   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Pine Bluff School District",
+   "county": "Jefferson",
    "nces_id": null,
    "status": "unknown",
    "source": null,
@@ -1103,30 +1156,26 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
-   "name": "Fayetteville Public Schools",
+   "name": "Spring Hill School District",
+   "county": "Hope",
+   "nces_id": "0512630",
+   "status": "allows",
+   "source": "https://docs.google.com/document/d/1j5DdCTN1MMhrv20ZT9m4tJvWEkyeOsIL/export?format=txt",
+   "quote": "4.39—CORPORAL PUNISHMENT The SPRING HILL School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.",
+   "policy_code": "4.39",
+   "crdc_students_latest": 50,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "phone": "+1 870-777-8236",
+    "mailing_address": "633 Spring Lake Road, Hope, AR 71801-9033",
+    "contact_page": "http://shbears.org/",
+    "as_of": "2026-09-19"
+   },
+   "notes": "The district's published board policy manual is at http://shbears.org/page/district-policies (shbears.org is the live site; the NCES-listed springhill.k12.ar.us refuses TLS connections). Each policy is a separate Google Doc; 4.39—CORPORAL PUNISHMENT is doc id 1j5DdCTN1MMhrv20ZT9m4tJvWEkyeOsIL. Fetched server-side with fetch_document as the txt export: HTTP 200, text/plain; charset=utf-8, 1,664 bytes, 1,653 chars, single page, no OCR. No parental consent or opt-out provision appears anywhere in the policy, so 'allows'. ADOPTION/REVISION DATES: the document's own footer reads 'Date Adopted: Last Revised: ________________' — both are blank in the published copy. Legal references cited: A.C.A. § 6-18-503(b), DESE Rules Governing Student Discipline and School Safety."
+  },
+  {
+   "name": "Springdale School District",
    "county": "Washington",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
-  },
-  {
-   "name": "Conway School District",
-   "county": "Faulkner",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "legacy_status": "allows",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
-  },
-  {
-   "name": "Jonesboro School District",
-   "county": "Craighead",
    "nces_id": null,
    "status": "unknown",
    "source": null,
@@ -1138,17 +1187,6 @@
   {
    "name": "Texarkana School District",
    "county": "Miller",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "legacy_status": "allows",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
-  },
-  {
-   "name": "Pine Bluff School District",
-   "county": "Jefferson",
    "nces_id": null,
    "status": "unknown",
    "source": null,
@@ -2040,36 +2078,34 @@
  ],
  "MO": [
   {
-   "name": "St. Louis Public Schools",
-   "county": "St. Louis City",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+   "name": "Campbell R-Ii",
+   "county": "Campbell",
+   "nces_id": "2907050",
+   "status": "allows",
+   "source": "https://drive.google.com/uc?export=download&id=1SkG4IGcNR-S3E3xY6fDafsje51yoqGH7",
+   "quote": "SECTION VIII DISCIPLINE POLICY GRADES SEVEN THROUGH TWELVE FORMS OF PUNISHMENT a. Verbal reprimand b. Corporal punishment (swats) c. Lunch detention",
+   "policy_code": null,
+   "crdc_students_latest": 46,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "district_email": "afry@campbell.k12.mo.us",
+    "phone": "(573)246-2576",
+    "mailing_address": "801 South St Hwy 53, Campbell, MO 63933",
+    "board_page": "https://www.campbell.k12.mo.us/page/board-of-education",
+    "contact_page": "https://www.campbell.k12.mo.us/documents",
+    "as_of": "2026-09-19"
+   },
+   "notes": "Source is the JH/HS Handbook the district itself publishes under Documents > STUDENTS/PARENTS (https://www.campbell.k12.mo.us/documents/students%2Fparents/20471863), where it is labelled 'JH/HS Handbook 2022-2023' and linked as Google Drive file 1SkG4IGcNR-S3E3xY6fDafsje51yoqGH7. Fetched server-side with fetch_document: HTTP 200, application/octet-stream (PDF), 895,850 bytes, 64 pages, 114,294 chars, no OCR. Quote from page 36. This is the most recent handbook the district publishes; a reviewer should note the 2022-2023 label. No parental consent or opt-out provision appears; searches for 'parental permission' and 'written permission' near the corporal punishment text returned nothing, so 'allows'. The handbook also makes it an explicit consequence in the offence schedule, e.g. '8.2 TRUANCY 1st offense Corporal Punishment, ASD, AEP 1 - 10 days'. BOARD POLICY GAP: the district's board policy index (Google Doc 1C41fVnkmUOzKzldDO_p7E4neNYJfrKTzrs0AvKOh3Jo, linked from https://www.campbell.k12.mo.us/documents/school-board-information/board-policies/20471899) lists 'P 2670 Corporal Punishment PRF' but, unlike policies 2100-2255, 2670 carries no hyperlink and its text is not published online, so the handbook is the only published primary source."
   },
   {
-   "name": "Kansas City Public Schools",
-   "county": "Jackson",
+   "name": "Cassville R-IV School District",
+   "county": "Barry",
    "nces_id": null,
    "status": "unknown",
    "source": null,
    "quote": null,
    "last_verified": null,
-   "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
-  },
-  {
-   "name": "Springfield Public Schools",
-   "county": "Greene",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "legacy_status": "bans",
+   "legacy_status": "allows",
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
@@ -2084,17 +2120,6 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
-   "name": "Cassville R-IV School District",
-   "county": "Barry",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "legacy_status": "allows",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
-  },
-  {
    "name": "Hollister R-V Schools",
    "county": "Taney",
    "nces_id": null,
@@ -2106,6 +2131,17 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
+   "name": "Kansas City Public Schools",
+   "county": "Jackson",
+   "nces_id": null,
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "last_verified": null,
+   "legacy_status": "bans",
+   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
    "name": "Southwest R-V School District",
    "county": "McDonald",
    "nces_id": null,
@@ -2114,6 +2150,28 @@
    "quote": null,
    "last_verified": null,
    "legacy_status": "allows",
+   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Springfield Public Schools",
+   "county": "Greene",
+   "nces_id": null,
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "last_verified": null,
+   "legacy_status": "bans",
+   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "St. Louis Public Schools",
+   "county": "St. Louis City",
+   "nces_id": null,
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "last_verified": null,
+   "legacy_status": "bans",
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   }
  ],
@@ -4011,41 +4069,39 @@
  ],
  "OK": [
   {
-   "name": "Oklahoma City Public Schools",
-   "county": "Oklahoma",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
-  },
-  {
-   "name": "Tulsa Public Schools",
+   "name": "Broken Arrow Public Schools",
    "county": "Tulsa",
    "nces_id": null,
    "status": "unknown",
    "source": null,
    "quote": null,
    "last_verified": null,
-   "legacy_status": "bans",
+   "legacy_status": "allows",
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Deborah Brown (Charter)",
+   "county": "Tulsa",
+   "nces_id": "4000751",
+   "status": "consent_required",
+   "source": "https://dbcstulsa.org/wp-content/uploads/2026/08/sy2627-dbcs-parent-student-handbook.pdf",
+   "quote": "As a parent, I have the option to allow the administration to administer corporal punishment to my child upon presenting such a request in writing to the DBCS Administration. This request shall serve as permission for the administration to administer corporal punishment if necessary. Corporal punishment shall be administered by an Administrator only and shall consist of not more than two (2) swats.",
+   "policy_code": null,
+   "crdc_students_latest": 75,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "district_email": "drown@dbcschool.org",
+    "phone": "(918) 425-1407",
+    "superintendent": "Deborah Brown, Head of School (Board President: Kenneth James)",
+    "board_page": "https://dbcstulsa.org/board-of-directors/",
+    "contact_page": "https://dbcstulsa.org/contact/",
+    "as_of": "2026-09-19"
+   },
+   "notes": "Source: Deborah Brown Community School Parent/Student Handbook SY2026-2027, linked from the school's own page https://dbcstulsa.org/sy26-27-school-year-information/. Fetched server-side with fetch_document: HTTP 200, application/pdf, 862,902 bytes, 64 pages, 134,126 chars of text, no OCR needed. The quote is from the HOLD HARMLESS AGREEMENT BETWEEN PARENT AND DEBORAH BROWN COMMUNITY SCHOOL, page 15. Classified consent_required because permission is affirmative and in writing (opt IN), not opt-out. The handbook's narrative CORPORAL PUNISHMENT section, page 13-14, reads in part: 'One approach to discipline used at Deborah Brown Community School (DBCS) is corporal punishment. This form of discipline is defined by Oklahoma Law as ordinary force for disciplining children, including but not limited to spanking or paddling.' and 'Parents will be notified in writing when corporal punishment is used by the Administration.' The handbook carries no adoption/revision date of its own; the school's separate board policies posted alongside it are dated Approved: September 23, 2025. A separate DBCS board policy manual PDF exists at https://dbcstulsa.org/wp-content/uploads/2025/10/new-dbcs-board-policy-manual-format-1.pdf but the server fetch of it did not complete; the handbook is the school's own published discipline policy and is the cited source."
   },
   {
    "name": "Edmond Public Schools",
    "county": "Oklahoma",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
-   "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
-  },
-  {
-   "name": "Norman Public Schools",
-   "county": "Cleveland",
    "nces_id": null,
    "status": "unknown",
    "source": null,
@@ -4066,8 +4122,8 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
-   "name": "Broken Arrow Public Schools",
-   "county": "Tulsa",
+   "name": "Moore Public Schools",
+   "county": "Cleveland",
    "nces_id": null,
    "status": "unknown",
    "source": null,
@@ -4077,14 +4133,36 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
-   "name": "Moore Public Schools",
+   "name": "Norman Public Schools",
    "county": "Cleveland",
    "nces_id": null,
    "status": "unknown",
    "source": null,
    "quote": null,
    "last_verified": null,
-   "legacy_status": "allows",
+   "legacy_status": "bans",
+   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Oklahoma City Public Schools",
+   "county": "Oklahoma",
+   "nces_id": null,
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "last_verified": null,
+   "legacy_status": "bans",
+   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Tulsa Public Schools",
+   "county": "Tulsa",
+   "nces_id": null,
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "last_verified": null,
+   "legacy_status": "bans",
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   }
  ],
@@ -4645,6 +4723,24 @@
    }
   },
   {
+   "name": "Hemphill Isd",
+   "county": "Hemphill",
+   "nces_id": "4822890",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1045&code=FO",
+   "quote": "Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.",
+   "policy_code": "FO(LOCAL)",
+   "crdc_students_latest": 61,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "phone": "409-787-3371",
+    "mailing_address": "1000 Milam Street, Hemphill, Texas 75948",
+    "contact_page": "https://www.hemphillisd.net/",
+    "as_of": "2026-09-19"
+   },
+   "notes": "Read server-side with fetch_tasb_policy district_key=1045. TASB key found on www.hemphillisd.net (link to pol.tasb.org/PolicyOnline?key=1045). FO(LOCAL) UPDATE 126, DATE ISSUED 10/29/2025; LOCAL section 6,498 chars. Opt-out, so 'allows'. The FO(LOCAL) page is JavaScript-rendered; re-read with fetch_tasb_policy."
+  },
+  {
    "name": "Houston ISD",
    "county": "Harris",
    "nces_id": "4823640",
@@ -4685,6 +4781,25 @@
    "last_verified": null,
    "legacy_status": "bans",
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Kilgore Isd",
+   "county": "Kilgore",
+   "nces_id": "4825620",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=539&code=FO",
+   "quote": "Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.",
+   "policy_code": "FO(LOCAL)",
+   "crdc_students_latest": 66,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "district_email": "info@kisd.org",
+    "phone": "903-988-3900",
+    "mailing_address": "301 N. Kilgore Street, Kilgore, TX 75662",
+    "contact_page": "https://www.kisd.org/our-district/contact-us",
+    "as_of": "2026-09-19"
+   },
+   "notes": "Read server-side with fetch_tasb_policy district_key=539. TASB key found on www.kisd.org (link to pol.tasb.org/PolicyOnline?key=539). FO(LOCAL) UPDATE 126, DATE ISSUED 10/31/2025; LOCAL section 6,498 chars. Opt-out, so 'allows'. Plain curl to https://pol.tasb.org/PolicyOnline?key=539 returned HTTP 200, 311,280 bytes, text/html, <title>Kilgore ISD Board Policy Manual - Policy Online</title> - confirming the key belongs to Kilgore ISD. The policy text itself is JavaScript-rendered; re-read with fetch_tasb_policy."
   },
   {
    "name": "Killeen ISD",
@@ -5068,6 +5183,24 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
+   "name": "Pine Tree Isd",
+   "county": "Longview",
+   "nces_id": "4834980",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=541&code=FO",
+   "quote": "Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.",
+   "policy_code": "FO(LOCAL)",
+   "crdc_students_latest": 108,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "phone": "903-295-5000",
+    "mailing_address": "1701 Pine Tree Road, Longview, TX 75604",
+    "contact_page": "https://www.ptisd.org/page/contact-us",
+    "as_of": "2026-09-19"
+   },
+   "notes": "Read server-side with fetch_tasb_policy district_key=541 (TASB Policy Online, Pine Tree ISD Board Policy Manual; page title confirms the district). FO(LOCAL) UPDATE 126, DATE ISSUED 10/9/2025; LOCAL section 6,570 chars. Opt-out, so 'allows'. Pine Tree's LOCAL adds a variation other districts in this slice do not have: 'Corporal punishment shall be administered only by an administrator. In grades 7-12, the administrator shall be of the same sex as the student.' Verified separately by plain curl to https://pol.tasb.org/PolicyOnline?key=541 -> HTTP 200, text/html, title 'Pine Tree ISD Board Policy Manual - Policy Online'. Machine-fetchable via the project's fetch_tasb_policy tool; the PolicyDetails URL itself is a JavaScript-rendered ASP.NET page, so a reviewer should re-read it with that tool rather than plain curl."
+  },
+  {
    "name": "Plano ISD",
    "county": "Collin",
    "nces_id": null,
@@ -5183,6 +5316,25 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
+   "name": "Tidehaven Isd",
+   "county": "El Maton",
+   "nces_id": "4842810",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=850&code=FO",
+   "quote": "Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.",
+   "policy_code": "FO(LOCAL)",
+   "crdc_students_latest": 38,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "district_email": "businessoffice@tidehavenisd.com",
+    "phone": "(979) 843-4300",
+    "mailing_address": "47 Cr 427 Doman Rd., El Maton, TX 77440",
+    "contact_page": "https://www.tidehavenisd.com/",
+    "as_of": "2026-09-19"
+   },
+   "notes": "Read server-side with fetch_tasb_policy district_key=850. TASB key found on www.tidehavenisd.com (link to pol.tasb.org/PolicyOnline?key=850). FO(LOCAL) UPDATE 126, DATE ISSUED 10/28/2025; LOCAL 6,498 chars. Opt-out, so 'allows'. Plain curl to https://pol.tasb.org/PolicyOnline?key=850 returned HTTP 206 on a range request with <title>Tidehaven ISD Board Policy Manual - Policy Online</title>, confirming the key. FO(LOCAL) is JavaScript-rendered; re-read with fetch_tasb_policy."
+  },
+  {
    "name": "Tyler ISD",
    "county": "Smith",
    "nces_id": null,
@@ -5214,6 +5366,46 @@
    "last_verified": null,
    "legacy_status": "allows",
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Wall Isd",
+   "county": "Wall",
+   "nces_id": "4844410",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1141&code=FO",
+   "quote": "Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.",
+   "policy_code": "FO(LOCAL)",
+   "crdc_students_latest": 54,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "district_email": "russell.dacy@wallisd.net",
+    "phone": "(325) 651-7790",
+    "mailing_address": "Wall ISD, 8065 Loop 570, Wall, TX 76957 (mailing: PO Box 259, Wall, TX 76957)",
+    "superintendent": "Russell Dacy",
+    "contact_page": "https://www.wallisd.net/documents",
+    "as_of": "2026-09-19"
+   },
+   "notes": "Read server-side with fetch_tasb_policy district_key=1141 (key found by enumerating pol.tasb.org/PolicyOnline?key=N and matching the page <title>: 'Wall ISD Board Policy Manual - Policy Online'; the district website does not link TASB). FO(LOCAL) UPDATE 126, DATE ISSUED 10/28/2025; LOCAL 6,498 chars. Opt-out, so 'allows'. CORROBORATED by the district's own board-adopted Student Code of Conduct, machine-fetchable PDF at https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1638/Wall_Isd/28ce2df8-075c-49be-925f-ef4c8e8ba1e4/WISD-Code-of-Conduct-Revised-November--2025-2026.pdf (HTTP 200, application/pdf, 701,846 bytes, 52 pages), which lists among discipline management techniques on page 16: 'Corporal punishment, unless the student's parent or guardian has provided a signed statement prohibiting its use.'"
+  },
+  {
+   "name": "West Orange-Cove Cisd",
+   "county": "Orange",
+   "nces_id": "4845090",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=967&code=FO",
+   "quote": "Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.",
+   "policy_code": "FO(LOCAL)",
+   "crdc_students_latest": 82,
+   "last_verified": "2026-09-19",
+   "contact": {
+    "phone": "(409) 882-5500",
+    "mailing_address": "902 W. Park Avenue, Orange, TX 77630",
+    "board_page": "https://www.woccisd.net/page/board-of-trustees",
+    "contact_page": "https://www.woccisd.net/",
+    "public_comment": "Board meeting agendas/packets published through BoardBook: https://meetings.boardbook.org/Public/Organization/2102",
+    "as_of": "2026-09-19"
+   },
+   "notes": "Read server-side with fetch_tasb_policy district_key=967. TASB key found on the district's own site (www.woccisd.net links 'Policy Online' -> https://pol.tasb.org/PolicyOnline?key=967). FO(LOCAL) UPDATE 126, DATE ISSUED 10/28/2025; LOCAL section 6,596 chars. Opt-out, so 'allows'. WOCCISD's LOCAL adds 'Corporal punishment shall be administered only by an employee who is the same sex as the student.' NOTE ON NAME: input nces_name and name agree (West Orange-Cove CISD); the policy manual header names West Orange-Cove CISD, matching. The FO(LOCAL) page is JavaScript-rendered; use fetch_tasb_policy to re-read."
   },
   {
    "name": "Wichita Falls ISD",

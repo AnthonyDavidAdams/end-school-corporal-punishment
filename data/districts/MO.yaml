@@ -2,32 +2,31 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: MO
 districts:
-  - name: St. Louis Public Schools
-    county: St. Louis City
+  - name: Campbell R-Ii
+    county: Campbell
+    nces_id: "2907050"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1SkG4IGcNR-S3E3xY6fDafsje51yoqGH7
+    quote: SECTION VIII DISCIPLINE POLICY GRADES SEVEN THROUGH TWELVE FORMS OF PUNISHMENT a. Verbal reprimand b. Corporal punishment (swats) c. Lunch detention
+    policy_code: null
+    crdc_students_latest: 46
+    last_verified: 2026-09-19
+    contact:
+      district_email: afry@campbell.k12.mo.us
+      phone: (573)246-2576
+      mailing_address: 801 South St Hwy 53, Campbell, MO 63933
+      board_page: https://www.campbell.k12.mo.us/page/board-of-education
+      contact_page: https://www.campbell.k12.mo.us/documents
+      as_of: 2026-09-19
+    notes: "Source is the JH/HS Handbook the district itself publishes under Documents > STUDENTS/PARENTS (https://www.campbell.k12.mo.us/documents/students%2Fparents/20471863), where it is labelled 'JH/HS Handbook 2022-2023' and linked as Google Drive file 1SkG4IGcNR-S3E3xY6fDafsje51yoqGH7. Fetched server-side with fetch_document: HTTP 200, application/octet-stream (PDF), 895,850 bytes, 64 pages, 114,294 chars, no OCR. Quote from page 36. This is the most recent handbook the district publishes; a reviewer should note the 2022-2023 label. No parental consent or opt-out provision appears; searches for 'parental permission' and 'written permission' near the corporal punishment text returned nothing, so 'allows'. The handbook also makes it an explicit consequence in the offence schedule, e.g. '8.2 TRUANCY 1st offense Corporal Punishment, ASD, AEP 1 - 10 days'. BOARD POLICY GAP: the district's board policy index (Google Doc 1C41fVnkmUOzKzldDO_p7E4neNYJfrKTzrs0AvKOh3Jo, linked from https://www.campbell.k12.mo.us/documents/school-board-information/board-policies/20471899) lists 'P 2670 Corporal Punishment PRF' but, unlike policies 2100-2255, 2670 carries no hyperlink and its text is not published online, so the handbook is the only published primary source."
+  - name: Cassville R-IV School District
+    county: Barry
     nces_id: null
     status: unknown
     source: null
     quote: null
     last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Kansas City Public Schools
-    county: Jackson
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Springfield Public Schools
-    county: Greene
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
+    legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Columbia Public Schools
     county: Boone
@@ -38,15 +37,6 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Cassville R-IV School District
-    county: Barry
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Hollister R-V Schools
     county: Taney
     nces_id: null
@@ -56,6 +46,15 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Kansas City Public Schools
+    county: Jackson
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Southwest R-V School District
     county: McDonald
     nces_id: null
@@ -64,4 +63,22 @@ districts:
     quote: null
     last_verified: null
     legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Springfield Public Schools
+    county: Greene
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: St. Louis Public Schools
+    county: St. Louis City
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

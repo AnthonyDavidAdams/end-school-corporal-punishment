@@ -2,8 +2,43 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: AR
 districts:
-  - name: Little Rock School District
-    county: Pulaski
+  - name: Bentonville Schools
+    county: Benton
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Conway School District
+    county: Faulkner
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Dewitt School District
+    county: Dewitt
+    nces_id: "0500001"
+    status: allows
+    source: https://docs.google.com/document/d/1m-qoIQ-OmMabFiAjJl-s_JXoVPnAHh1qimiK8cJL_2o/export?format=txt
+    quote: "Discipline: Corporal Punishment The DeWitt School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the Superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment Prior to the administration of corporal punishment, the student receiving the corporal punishment shall be given an explanation of the reasons for the punishment and be given an opportunity to refute the charges."
+    policy_code: null
+    crdc_students_latest: 40
+    last_verified: 2026-09-19
+    contact:
+      district_email: hbeaton@dewittdragons.net
+      phone: 870.946.3576
+      mailing_address: 1841 S. Grandview Drive, DeWitt, AR 72042
+      board_page: https://www.dewittdragons.net/page/schoolboard
+      contact_page: https://www.dewittdragons.net/
+      as_of: 2026-09-19
+    notes: "NOTE ON DOMAIN: the website in the input (dewittschooldistrict.net) is now a parked 'Coming Soon' page; the district's live site is www.dewittdragons.net. Source is the All Students Handbook 2026-2027, linked from https://www.dewittdragons.net/documents/student-handbooks/2026-2027-handbooks/28455800 as Google Doc id 1m-qoIQ-OmMabFiAjJl-s_JXoVPnAHh1qimiK8cJL_2o. Fetched server-side with fetch_document as the txt export: HTTP 200, text/plain; charset=utf-8, 492,440 bytes, 490,541 chars, no OCR needed; quote at offset ~207,253 (handbook page 77 per its own table of contents). No opt-in or opt-out provision, so 'allows'. The same section also states: 'Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.' The handbook's discipline schedule elsewhere makes corporal punishment a listed consequence, e.g. 'Failure to serve additional assigned days will result in the student being given Corporal Punishment or Out of School Suspension.' No adoption/revision date is printed in the handbook. WARNING FOR REVIEWERS: a plain curl of this export URL from some networks returns a truncated 114,786-char copy that stops before the policy; the server-side fetch returns the full 490,541 chars."
+  - name: Fayetteville Public Schools
+    county: Washington
     nces_id: null
     status: unknown
     source: null
@@ -20,8 +55,8 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Springdale School District
-    county: Washington
+  - name: Jonesboro School District
+    county: Craighead
     nces_id: null
     status: unknown
     source: null
@@ -29,8 +64,17 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Bentonville Schools
-    county: Benton
+  - name: Little Rock School District
+    county: Pulaski
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Pine Bluff School District
+    county: Jefferson
     nces_id: null
     status: unknown
     source: null
@@ -47,26 +91,23 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Fayetteville Public Schools
+  - name: Spring Hill School District
+    county: Hope
+    nces_id: "0512630"
+    status: allows
+    source: https://docs.google.com/document/d/1j5DdCTN1MMhrv20ZT9m4tJvWEkyeOsIL/export?format=txt
+    quote: 4.39—CORPORAL PUNISHMENT The SPRING HILL School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
+    crdc_students_latest: 50
+    last_verified: 2026-09-19
+    contact:
+      phone: +1 870-777-8236
+      mailing_address: 633 Spring Lake Road, Hope, AR 71801-9033
+      contact_page: http://shbears.org/
+      as_of: 2026-09-19
+    notes: "The district's published board policy manual is at http://shbears.org/page/district-policies (shbears.org is the live site; the NCES-listed springhill.k12.ar.us refuses TLS connections). Each policy is a separate Google Doc; 4.39—CORPORAL PUNISHMENT is doc id 1j5DdCTN1MMhrv20ZT9m4tJvWEkyeOsIL. Fetched server-side with fetch_document as the txt export: HTTP 200, text/plain; charset=utf-8, 1,664 bytes, 1,653 chars, single page, no OCR. No parental consent or opt-out provision appears anywhere in the policy, so 'allows'. ADOPTION/REVISION DATES: the document's own footer reads 'Date Adopted: Last Revised: ________________' — both are blank in the published copy. Legal references cited: A.C.A. § 6-18-503(b), DESE Rules Governing Student Discipline and School Safety."
+  - name: Springdale School District
     county: Washington
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Conway School District
-    county: Faulkner
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Jonesboro School District
-    county: Craighead
     nces_id: null
     status: unknown
     source: null
@@ -76,15 +117,6 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Texarkana School District
     county: Miller
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Pine Bluff School District
-    county: Jefferson
     nces_id: null
     status: unknown
     source: null

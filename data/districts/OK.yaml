@@ -2,6 +2,68 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: OK
 districts:
+  - name: Broken Arrow Public Schools
+    county: Tulsa
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Deborah Brown (Charter)
+    county: Tulsa
+    nces_id: "4000751"
+    status: consent_required
+    source: https://dbcstulsa.org/wp-content/uploads/2026/08/sy2627-dbcs-parent-student-handbook.pdf
+    quote: As a parent, I have the option to allow the administration to administer corporal punishment to my child upon presenting such a request in writing to the DBCS Administration. This request shall serve as permission for the administration to administer corporal punishment if necessary. Corporal punishment shall be administered by an Administrator only and shall consist of not more than two (2) swats.
+    policy_code: null
+    crdc_students_latest: 75
+    last_verified: 2026-09-19
+    contact:
+      district_email: drown@dbcschool.org
+      phone: (918) 425-1407
+      superintendent: "Deborah Brown, Head of School (Board President: Kenneth James)"
+      board_page: https://dbcstulsa.org/board-of-directors/
+      contact_page: https://dbcstulsa.org/contact/
+      as_of: 2026-09-19
+    notes: "Source: Deborah Brown Community School Parent/Student Handbook SY2026-2027, linked from the school's own page https://dbcstulsa.org/sy26-27-school-year-information/. Fetched server-side with fetch_document: HTTP 200, application/pdf, 862,902 bytes, 64 pages, 134,126 chars of text, no OCR needed. The quote is from the HOLD HARMLESS AGREEMENT BETWEEN PARENT AND DEBORAH BROWN COMMUNITY SCHOOL, page 15. Classified consent_required because permission is affirmative and in writing (opt IN), not opt-out. The handbook's narrative CORPORAL PUNISHMENT section, page 13-14, reads in part: 'One approach to discipline used at Deborah Brown Community School (DBCS) is corporal punishment. This form of discipline is defined by Oklahoma Law as ordinary force for disciplining children, including but not limited to spanking or paddling.' and 'Parents will be notified in writing when corporal punishment is used by the Administration.' The handbook carries no adoption/revision date of its own; the school's separate board policies posted alongside it are dated Approved: September 23, 2025. A separate DBCS board policy manual PDF exists at https://dbcstulsa.org/wp-content/uploads/2025/10/new-dbcs-board-policy-manual-format-1.pdf but the server fetch of it did not complete; the handbook is the school's own published discipline policy and is the cited source."
+  - name: Edmond Public Schools
+    county: Oklahoma
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Lawton Public Schools
+    county: Comanche
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Moore Public Schools
+    county: Cleveland
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Norman Public Schools
+    county: Cleveland
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Oklahoma City Public Schools
     county: Oklahoma
     nces_id: null
@@ -19,49 +81,4 @@ districts:
     quote: null
     last_verified: null
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Edmond Public Schools
-    county: Oklahoma
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Norman Public Schools
-    county: Cleveland
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Lawton Public Schools
-    county: Comanche
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Broken Arrow Public Schools
-    county: Tulsa
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Moore Public Schools
-    county: Cleveland
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
