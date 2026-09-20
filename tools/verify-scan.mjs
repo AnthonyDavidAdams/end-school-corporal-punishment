@@ -48,6 +48,16 @@ for (const file of process.argv.slice(2)) {
   for (const r of JSON.parse(readFileSync(file, "utf8"))) {
     const tag = `${r.state} ${r.name}`;
     if (r.status === "unknown") { pass.push({ file, r, how: "unknown, nothing to check" }); console.log(`--   ${tag}: unknown`); continue; }
+    // source_text is the documented escape hatch: the contributor read a document this server cannot
+    // parse -- a .docx, a scan -- and attached the text. It is weaker evidence and it is not a failed
+    // verification, so it is reported as its own thing rather than lumped in with a quote that is not
+    // in its source, which is a different and much worse problem.
+    if (r.source_text) {
+      const inAttached = norm(r.source_text).includes(norm(r.quote ?? ""));
+      if (inAttached) { pass.push({ file, r, how: "agent-attested, quote matches the attached text" }); console.log(`ATT  ${tag}: agent-attested (server cannot parse the source), quote is in the attached text`); }
+      else { fail.push({ file, r, why: "source_text is attached but the quote is not in it" }); console.log(`FAIL ${tag}: quote is not in its own attached text`); }
+      continue;
+    }
     if (!r.source || !r.quote) { fail.push({ file, r, why: "status is not unknown but there is no source and quote" }); console.log(`FAIL ${tag}: no source/quote`); continue; }
     const q = norm(r.quote), head = q.split(" ").slice(0, 10).join(" ");
     let body = "", how = "", detail = "";
@@ -68,6 +78,31 @@ for (const file of process.argv.slice(2)) {
       if (res._err || res.bytes === undefined) { fail.push({ file, r, why: `source did not fetch: ${JSON.stringify(res).slice(0, 160)}` }); console.log(`FAIL ${tag}: source did not fetch`); continue; }
       body = norm((res.hits || []).map(h => h.context).join(" ")); how = `document ${res.bytes}B ${res.page_count || "?"}p`;
       detail = res.needs_ocr ? "NEEDS OCR" : "";
+      // A term hit returns a window around the term, and a quote longer than the window is cut in half
+      // by it. Carlisle's policy is verbatim on page 62 and this reported it missing, which would have
+      // thrown away a good record. So when the windows do not contain the quote, read the pages they
+      // point at in full before saying anything.
+      if (q && !body.includes(q)) {
+        // Searching the generic terms again would land on the same pages. Carlisle's policy is on page
+        // 62 and the four standing terms returned pages 1, 2, 3, 15, 34, 35, 46, 49, 51 and 55 -- the
+        // one page that mattered was not among them. So the second pass asks for phrases out of the
+        // quote itself, which is the only thing guaranteed to be where the quote is.
+        const words = String(r.quote).split(/\s+/).filter(Boolean);
+        const phrases = [words.slice(0, 6).join(" "), words.slice(Math.floor(words.length / 2), Math.floor(words.length / 2) + 6).join(" ")]
+          .map(x => x.replace(/[^\w\s'-]/g, " ").trim()).filter(x => x.split(/\s+/).length >= 3);
+        if (phrases.length) {
+          const again = await call("fetch_document", { url: r.source, terms: phrases, context_words: 260, toc: false });
+          const body2 = norm((again.hits || []).map(h => h.context).join(" "));
+          if (body2.includes(q)) { body = body2; how += " (found by phrase)"; }
+          else {
+            const pages = [...new Set([...(again.hits || []), ...(res.hits || [])].map(h => h.page).filter(Boolean))].slice(0, 8);
+            for (const pg of pages) {
+              const full = await call("fetch_document", { url: r.source, pages: String(pg), toc: false });
+              if (full.text && norm(full.text).includes(q)) { body = norm(full.text); how += ` p${pg}`; break; }
+            }
+          }
+        }
+      }
     }
     if (q && body.includes(q)) { pass.push({ file, r, how: `${how} exact` }); console.log(`OK   ${tag}  ${how} ${detail}`); }
     else if (head && body.includes(head)) { pass.push({ file, r, how: `${how} opening matched` }); console.log(`OK*  ${tag}  ${how} ${detail} (quote spans the fetched windows; opening 10 words matched)`); }

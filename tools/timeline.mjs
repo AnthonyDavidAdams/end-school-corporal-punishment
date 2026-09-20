@@ -28,14 +28,22 @@ for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith
   const doc = parse(readFileSync(join(root, "data/districts", f), "utf8"));
   for (const d of doc.districts) {
     if (d.status !== "bans" || !d.source) continue;
+    // A policy with no date on it still prohibits corporal punishment, and leaving those districts off
+    // the map entirely was worse than placing them imperfectly: thirty of the forty-nine were invisible.
+    // They go on at the date this project first recorded them, which is the earliest date anyone here
+    // can stand behind, and every one is marked so the map can draw it as what it is -- the date we
+    // found out, not the date they decided. Dating them properly is its own task, date-the-change.
     const when = d.policy_revised || d.policy_adopted || null;
-    if (!when) { undatedBans++; continue; }
+    const at = when || d.last_verified || null;
+    if (!at) { undatedBans++; continue; }
+    if (!when) undatedBans++;
     districts.push({
-      state: doc.state, name: d.name, county: d.county ?? null, nces_id: d.nces_id ?? null, date: when,
-      year: Number(when.slice(0, 4)),
+      state: doc.state, name: d.name, county: d.county ?? null, nces_id: d.nces_id ?? null, date: at,
+      year: Number(at.slice(0, 10).slice(0, 4)),
       students: d.crdc_students_latest ?? null,
       // Weaker provenance travels with the row rather than being flattened away.
-      from: d.policy_dates_from ?? "policy",
+      from: when ? (d.policy_dates_from ?? "policy") : "first_recorded",
+      dated: Boolean(when),
     });
   }
 }
@@ -87,4 +95,4 @@ writeFileSync(join(root, "site/data/timeline.json"), JSON.stringify({
   districts_prohibiting_without_a_date: undatedBans,
   note: "State years are the year the state prohibited corporal punishment in public schools. District dates are the date printed on that district's own policy, which is usually the date it was last revised. Districts prohibiting with no date on the policy are counted but not placed in time.",
 }, null, 1));
-console.log(`timeline: ${milestones.length} milestones, ${states.length} dated states ${states[0]?.year}-${states[states.length - 1]?.year}, ${statesBannedUndated.length} banned states with no year (${statesBannedUndated.map(s => s.code).join(", ")}), ${districts.length} dated districts, ${undatedBans} districts prohibiting without a date`);
+console.log(`timeline: ${districts.filter(d => d.dated).length} districts on their policy date, ${districts.filter(d => !d.dated).length} on the date we first recorded them, ${milestones.length} milestones, ${states.length} dated states ${states[0]?.year}-${states[states.length - 1]?.year}, ${statesBannedUndated.length} banned states with no year (${statesBannedUndated.map(s => s.code).join(", ")}), ${districts.length} dated districts, ${undatedBans} districts prohibiting without a date`);

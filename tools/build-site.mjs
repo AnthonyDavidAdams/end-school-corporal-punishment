@@ -184,6 +184,8 @@ ol.walk q { display:block; margin:8px 0 0; padding:10px 14px; border-left:3px so
 .tlcap { min-height:3.2em; margin:12px 0 0; font-size:15px; line-height:1.5; }
 .tlcap .hl { color:#2D6A4F; font-weight:600; }
 .tlcap .ms { color:#6B5B2E; font-style:italic; }
+.tlcap .und { color:#5E6A8A; }
+@media (prefers-color-scheme:dark) { .tlcap .und { color:#9AA6C4; } }
 .tlcap .ms a { color:inherit; }
 @media (prefers-color-scheme:dark) { .tlcap .ms { color:#C9A227; } }
 @media (prefers-color-scheme:dark) { .tlcap .hl { color:#7CE0A8; } }
@@ -580,7 +582,7 @@ mkdirSync(join(site, "timeline"), { recursive: true });
 <h2>What you are looking at</h2>
 <p>Green is a state that prohibits corporal punishment in its public schools; red is a state that still permits it. Inside the red states, a county turns green in the year a school district there prohibited it, with a dot that flares for a year or two so you can see what just changed. Italic lines under the map are the things happening off it: a court ruling, a medical body taking a position, a bill. Each links to the claim it comes from.</p>
 <p>Two things are worth watching for. The state map barely moves for a century and then moves in bursts. And from about 2004 the red states stop being uniformly red: districts in Alabama, Georgia and Mississippi start making the decision their legislatures would not, one board at a time, and the pace of it picks up sharply after 2019.</p>
-<p class="meta">New Hampshire and the District of Columbia prohibit corporal punishment and this project does not hold the year either of them did it, so they are drawn in a lighter green for the whole animation rather than being given a year they may not have had. State years are the year the state prohibited it. District dates are the date printed on that district's own policy, usually the date it was last revised, so a district appears when its board last affirmed the prohibition rather than necessarily the first time it did. A further <b id="tundated">${tl.districts_prohibiting_without_a_date}</b> districts in this record prohibit corporal punishment but print no date on the policy; they are counted on <a href="/kids/stopped/">the districts that stopped</a> and cannot be placed in a year here, because choosing one would mean inventing it. Generated ${esc(tl.generated)} from <a href="/kids/data/timeline.json">timeline.json</a>.</p>`
+<p class="meta">A district whose policy prints no date appears in the year this project first recorded it and is drawn hatched rather than solid, because that is the date we found out and not the date its board decided. Dating those properly is <a href="/kids/contribute/">its own job in the queue</a>. New Hampshire and the District of Columbia prohibit corporal punishment and this project does not hold the year either of them did it, so they are drawn in a lighter green for the whole animation rather than being given a year they may not have had. State years are the year the state prohibited it. District dates are the date printed on that district's own policy, usually the date it was last revised, so a district appears when its board last affirmed the prohibition rather than necessarily the first time it did. <b id="tundated">${tl.districts_prohibiting_without_a_date}</b> of the districts shown are on the map this way. Generated ${esc(tl.generated)} from <a href="/kids/data/timeline.json">timeline.json</a>.</p>`
   }));
 }
 

@@ -34,6 +34,12 @@
   const borders = svg.querySelector("#state-borders");
   if (borders) { borders.setAttribute("stroke", "#fff"); borders.style.pointerEvents = "none"; }
 
+  // The hatch a district gets when we know it prohibits corporal punishment but not since when.
+  const defs = document.createElementNS(NS, "defs");
+  defs.innerHTML = `<pattern id="undated" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(45)">
+    <rect width="4" height="4" fill="#24523A"/><rect width="2" height="4" fill="#3F9D6B"/></pattern>`;
+  svg.append(defs);
+
   const pins = document.createElementNS(NS, "g");
   pins.setAttribute("pointer-events", "none");
   svg.append(pins);
@@ -60,11 +66,14 @@
       el.setAttribute("stroke", "#0D132D");
       el.setAttribute("stroke-width", "0.6");
       el.setAttribute("vector-effect", "non-scaling-stroke");
-      el.setAttribute("display", "none");
       shapeLayer.append(el);
       d.shape = el;
+      // Measure first, hide second. getBBox on a display:none element returns zeros, so hiding before
+      // measuring put every district's marker at the origin -- forty-nine of them stacked in the
+      // top-left corner of the map, which read as one stray green blob.
       const b = el.getBBox();
       d.xy = [b.x + b.width / 2, b.y + b.height / 2];
+      el.setAttribute("display", "none");
       d.placed = "district";
       continue;
     }
@@ -96,16 +105,23 @@
       shown++; if (d.students) kids += d.students;
       // The district's own shape takes the colour, so you watch the red fill in from the inside at the
       // resolution the decision is actually made at.
-      if (d.shape) { d.shape.setAttribute("display", ""); d.shape.setAttribute("fill", DISTRICT_GREEN); counties++; }
-      else if (d.path) { d.path.setAttribute("fill", DISTRICT_GREEN); counties++; }
+      // A district whose policy prints no date is on the map at the year this project first recorded
+      // it, which is not when it decided. It is drawn hatched rather than solid so the map never
+      // silently claims a year it does not have.
+      const fill = d.dated ? DISTRICT_GREEN : "url(#undated)";
+      if (d.shape) { d.shape.setAttribute("display", ""); d.shape.setAttribute("fill", fill); counties++; }
+      else if (d.path) { d.path.setAttribute("fill", fill); counties++; }
       const age = year - d.year;
+      // A new prohibition flares for a couple of years and then settles into a steady dot, so the eye
+      // is drawn to what just changed rather than to the accumulated total. A district with no date on
+      // its policy never flares: it is on the map at the year we recorded it, and flaring would say
+      // "this just changed" about thirty districts at once, which is the one thing it must not say.
+      const flare = d.dated && age <= 1;
       const halo = document.createElementNS(NS, "circle");
       halo.setAttribute("cx", d.xy[0]); halo.setAttribute("cy", d.xy[1]);
-      // A new prohibition flares for a couple of years and then settles into a steady dot, so the eye
-      // is drawn to what just changed rather than to the accumulated total.
-      halo.setAttribute("r", age <= 1 ? 13 : 7);
+      halo.setAttribute("r", flare ? 13 : 7);
       halo.setAttribute("fill", "#7CE0A8");
-      halo.setAttribute("opacity", age <= 1 ? 0.5 : 0.22);
+      halo.setAttribute("opacity", flare ? 0.5 : 0.22);
       const dot = document.createElementNS(NS, "circle");
       dot.setAttribute("cx", d.xy[0]); dot.setAttribute("cy", d.xy[1]);
       dot.setAttribute("r", 3.4);
@@ -125,7 +141,8 @@
       `<b>${nStates}</b> states prohibit it &middot; <b>${shown}</b> districts in this record prohibit it where their state does not` +
       (kids ? ` &middot; <b>${kids.toLocaleString()}</b> children covered by a district that had reported striking them` : "") +
       (statesNow.length ? `<br><span class="hl">${statesNow.map(s => s.name).join(", ")} prohibited it this year</span>` : "") +
-      (justNow.length ? `<br><span class="hl">${justNow.map(d => d.name).join(", ")}</span>` : "") +
+      (justNow.filter(d => d.dated).length ? `<br><span class="hl">${justNow.filter(d => d.dated).map(d => d.name).join(", ")}</span>` : "") +
+      (justNow.filter(d => !d.dated).length ? `<br><span class="und">first recorded this year, actual date unknown: ${justNow.filter(d => !d.dated).map(d => d.name).join(", ")}</span>` : "") +
       marks.map(m => `<br><span class="ms">${m.source ? `<a href="${m.source}" rel="noopener">${m.label}</a>` : m.label}</span>`).join("");
   }
 

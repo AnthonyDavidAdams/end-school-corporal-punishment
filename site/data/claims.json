@@ -285,6 +285,31 @@
   "body": "The 2011 statute left the decision to local boards but required a witness, written parental notice, records, an annual report to the State Board by race, gender and disability, and a written parental opt-out at enrollment. NC Child led two decades of advocacy; Robeson County ended the practice in April 2018 and Graham County (34 incidents at Robbinsville High in 2016-17) followed unanimously. 2025 ban bills HB 983 and S714 were parked in Rules committees. The map shows North Carolina as 'partial'.\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "crdc-ban-state-reports-2023-24",
+  "claim": "In the 2023-24 Civil Rights Data Collection, 19 school districts in states that prohibit corporal punishment reported students struck, totalling 418 students; 380 of those come from one New Jersey district whose ratio of instances to students, 4.4, is roughly three times that of any state where corporal punishment is lawful.",
+  "status": "verified",
+  "figure": 418,
+  "as_of": "2023-24",
+  "sources": [
+   {
+    "url": "https://civilrightsdata.ed.gov/assets/ocr/docs/2023-24-crdc-data.zip",
+    "title": "2023-24 Civil Rights Data Collection, SCH/Corporal Punishment.csv",
+    "publisher": "US Department of Education, Office for Civil Rights",
+    "date": "2026-08-06",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "crdc",
+   "caveat",
+   "computed",
+   "ban-states"
+  ],
+  "last_verified": "2026-09-20",
+  "verified_by": "agent:claude (computed from the public-use file)",
+  "body": "Computed by this project from the same file as the national figure; see `data/crdc/2023-24/SOURCE.md`.\n\n## Why these numbers are almost certainly not corporal punishment\n\n**One district is 91% of it.** Salem City School District, New Jersey, reports 380 students and 1,655\ninstances across three schools. New Jersey has prohibited corporal punishment in its schools since\n1867, the first state to do so.\n\n**The ratio is wrong for paddling.** Instances per student in the states where corporal punishment is\nlawful sit in a narrow band: Texas 1.6, Arkansas 1.4, Alabama 1.2, Mississippi 1.2. A paddled student\nis typically paddled once or twice in a year. Salem City reports 4.4 instances per student, about\nthree times the highest lawful-state figure.\n\n**The disability share is wrong too.** 89 of Salem City's 380 students, 23%, are students with\ndisabilities. In Mississippi the figure is 22 of 2,653, under 1%. A rate that far out of line is the\nsignature of a different practice being entered in this field.\n\nBoth patterns fit physical restraint or seclusion rather than corporal punishment: a small number of\nstudents, each involved in repeated incidents, concentrated among students with disabilities. The CRDC\ncollects restraint and seclusion separately, and a district that files them in the wrong column\nproduces exactly this shape.\n\n## The other eighteen\n\nThe remaining 38 students are spread across 18 districts and 14 of them report one or two students,\nwhich is the ordinary single-cell noise of a collection this size. Three are not ordinary districts at\nall but regional service agencies serving students with disabilities across member districts:\nNorthwest Educational Service District 189 in Washington, and two New York BOCES. That is again where\nrestraint and seclusion happen.\n\n## What follows from this\n\nThe national total of 19,851 should be read as 19,471 in the states where the practice is lawful, plus\n380 from one filing that does not behave like corporal punishment. Neither figure is corrected here:\nthe raw number is what the district filed and this project does not edit federal data. It is flagged,\nand any ban-state district in `districts.csv` should be treated as a reporting question rather than a\nscanning target until someone has asked the district what it filed.\n\nNone of this is a finding about what happened to any child in Salem City. It is a finding about a\nnumber in a spreadsheet, and the way to resolve it is to ask the district, which nobody has yet.\n\n## History\n- 2026-09-20: created."
+ },
+ {
   "id": "crdc-black-students-share-2021-22",
   "claim": "Black students were 26 percent of students receiving corporal punishment in 2021-22 and 15 percent of enrollment; Black boys alone were 8 percent of enrollment and 20 percent of students struck.",
   "status": "verified",
