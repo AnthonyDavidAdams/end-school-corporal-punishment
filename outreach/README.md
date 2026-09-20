@@ -5,6 +5,11 @@ have on file for it, quoted and linked, and the district's own figure from the f
 Data Collection. One message per district, assembled from verified fields, sent to the district's
 published address.
 
+**Read `CHANNELS.md` first.** School districts overwhelmingly do not publish an email address; they
+publish a phone, a mailing address and a web contact form. That was measured, not assumed, and it
+means post is the channel that reaches every district and email is the channel that reaches the few
+that publish a mailbox. The message is the same either way.
+
 It is a notice and a correction request, not a campaign. The difference is not cosmetic:
 
 - **Every factual sentence comes from a field, not from a model.** `tools/outreach/assemble.mjs` fills
