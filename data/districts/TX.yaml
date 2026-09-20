@@ -690,6 +690,23 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Odessa ISD as 'allows'. The district serving Odessa is Ector County ISD (ECISD); there is no 'Odessa ISD'. FO(LOCAL) on TASB Policy Online (Ector County ISD Board Policy Manual key=421, https://pol.tasb.org/home/index/421) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 10/27/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+  - name: Onalaska Isd
+    county: Onalaska
+    nces_id: "4833690"
+    status: allows
+    source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1002&code=FO
+    quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child.
+    policy_code: FO(LOCAL)
+    crdc_students_latest: 99
+    last_verified: 2026-09-20
+    contact:
+      district_email: amaichetti@onalaskaisd.net
+      phone: 936-646-1000
+      mailing_address: PO BOX 2289, 134 N FM 356, Onalaska, TX 77360
+      board_page: https://www.onalaskaisd.net/meet-the-board-members
+      contact_page: https://www.onalaskaisd.net/meet-the-board-members
+      as_of: 2026-09-20
+    notes: "TASB district key 1002 confirmed by provenance, not by guess: https://www.onalaskaisd.net/policy-online 302-redirects to https://pol.tasb.org/PolicyOnline?key=1002. Read with fetch_tasb_policy {\"district_key\":\"1002\"}: FO(LOCAL) is 6,596 characters, footer reads UPDATE 126, date issued 11/10/2025. Quote is from the LOCAL body (not LEGAL). Opt-OUT, so 'allows', not 'consent_required'. The LOCAL text continues verbatim: \"The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.\" and \"Corporal punishment shall be limited to spanking or paddling the student\". The district site itself (onalaskaisd.net) is JavaScript-rendered; pol.tasb.org refuses plain curl (403), so fetch_tasb_policy is the only machine route."
   - name: Paris ISD
     county: Lamar
     nces_id: "4834290"

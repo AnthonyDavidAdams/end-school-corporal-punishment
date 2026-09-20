@@ -14,8 +14,8 @@ districts:
     policy_code: null
     crdc_students_latest: null
     contact:
-      phone: "(404)802-3500"
-      mailing_address: "210 Pryor Rd., Atlanta, GA 30335"
+      phone: (404)802-3500
+      mailing_address: 210 Pryor Rd., Atlanta, GA 30335
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Cherokee County Schools
@@ -41,8 +41,8 @@ districts:
     policy_code: JCD-R
     crdc_students_latest: null
     contact:
-      phone: "(770)426-3300"
-      mailing_address: "514 Glover Street, Marietta, GA 30060"
+      phone: (770)426-3300
+      mailing_address: 514 Glover Street, Marietta, GA 30060
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Coffee County Schools
@@ -57,8 +57,8 @@ districts:
     policy_code: JDA
     crdc_students_latest: 3
     contact:
-      phone: "(912)384-2086"
-      mailing_address: "P. O. Drawer 1290, Douglas, GA 31534"
+      phone: (912)384-2086
+      mailing_address: P. O. Drawer 1290, Douglas, GA 31534
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Colquitt County Schools
@@ -73,8 +73,8 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     contact:
-      phone: "(229)890-6200"
-      mailing_address: "710 Lane Street, Moultrie, GA 31768"
+      phone: (229)890-6200
+      mailing_address: 710 Lane Street, Moultrie, GA 31768
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: DeKalb County Schools
@@ -89,8 +89,8 @@ districts:
     policy_code: JCD
     crdc_students_latest: null
     contact:
-      phone: "(678)676-1200"
-      mailing_address: "1701 Mountain Industrial Blvd, Stone Mountain, GA 30083"
+      phone: (678)676-1200
+      mailing_address: 1701 Mountain Industrial Blvd, Stone Mountain, GA 30083
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Forsyth County Schools
@@ -116,8 +116,8 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     contact:
-      phone: "(404)763-6890"
-      mailing_address: "6201 Powers Ferry Road, Atlanta, GA 30339"
+      phone: (404)763-6890
+      mailing_address: 6201 Powers Ferry Road, Atlanta, GA 30339
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Gwinnett County Public Schools
@@ -132,8 +132,8 @@ districts:
     policy_code: JCD
     crdc_students_latest: null
     contact:
-      phone: "(678)301-6000"
-      mailing_address: "52 Gwinnett Dr, Lawrenceville, GA 30045"
+      phone: (678)301-6000
+      mailing_address: 52 Gwinnett Dr, Lawrenceville, GA 30045
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Henry County Schools
@@ -187,11 +187,27 @@ districts:
       notes: "East Laurens High School 2026-27 regular bell: 1st Block 8:00 – 9:30, 4th Block 1:25 – 2:55 (https://files.smartsites.parentsquare.com/11159/student_handbookdocx_2.pdf). East Laurens Middle (2025-26 handbook): 8:00 AM tardy bell, students leave around 3:15 PM."
     document_text_path: data/policies/GA/1301890.md
     contact:
-      phone: "(478)272-4767"
-      mailing_address: "467 Firetower Road, Dublin, GA 31021"
-      website: "http://lcboe.net"
+      phone: (478)272-4767
+      mailing_address: 467 Firetower Road, Dublin, GA 31021
+      website: http://lcboe.net
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Pulaski County
+    county: Hawkinsville
+    nces_id: "1304220"
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    crdc_students_latest: 40
+    last_verified: 2026-09-20
+    contact:
+      phone: (478) 783-7200
+      mailing_address: 72 Warren St, Hawkinsville, GA 31036
+      board_page: https://www.pulaski.k12.ga.us/apps/pages/index.jsp?uREC_ID=3817946&type=d&pREC_ID=2469923
+      contact_page: https://www.pulaski.k12.ga.us/apps/contact/
+      as_of: 2026-09-20
+    notes: "BLOCKED ON THE SHARED SIMBLI READER, not on finding the source. The district publishes board policy through Simbli and the site key is 4132, confirmed two independent ways: (1) resolve_handbook {\"website\":\"https://www.pulaski.k12.ga.us\",\"state\":\"GA\"} returns board_policy_systems = [{vendor: \"Simbli (eBOARDsolutions)\", site: \"4132\", found_on: \"https://www.pulaskicountyschools.org/\", link_text: \"Eboard\"}]; (2) a plain fetch of https://simbli.eboardsolutions.com/index.aspx?s=4132 returns a page whose <title> is \"Simbli Board Management Software | Pulaski County Schools\" and whose inline JS sets siteIdStr = '4132'. But fetch_simbli_policy {\"site\":\"4132\"} returned the vendor bot-challenge message on SEVEN attempts spaced over roughly two hours (2026-09-20 ~06:20 to ~08:25 UTC), with and without code/terms arguments. In the same window and from the same agent, fetch_simbli_policy succeeded on three 8-digit sites (36031078 Cleburne County AL, 36031758 North Pike MS, 36031699 Copiah County MS), so this does not look like a rate limit on my side - it looks specific to the short 4-digit GSBA/Georgia keys. Filed as bug issue_1ae6b40f6e8e on the project server. NEXT CONTRIBUTOR: retry fetch_simbli_policy {\"site\":\"4132\"} once the bug is fixed; the Georgia codes to match on are titles like \"Corporal Punishment\" / \"Student Discipline\" (GSBA codes JD/JDA or 6.x). No handbook or code-of-conduct PDF was found on the district's Edlio site as an alternative (resolve_handbook found no candidates; the site's only policy link is the Eboard link)."
   - name: Thomas County Schools
     county: Thomas
     nces_id: "1304890"
@@ -204,8 +220,8 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     contact:
-      phone: "(229)225-4380"
-      mailing_address: "11343 U.S. Hwy. 319N, Thomasville, GA 31757"
+      phone: (229)225-4380
+      mailing_address: 11343 U.S. Hwy. 319N, Thomasville, GA 31757
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Tift County Schools
@@ -220,8 +236,8 @@ districts:
     policy_code: JDA
     crdc_students_latest: 4
     contact:
-      phone: "(229)386-6500"
-      mailing_address: "P O Box 389, Tifton, GA 31793"
+      phone: (229)386-6500
+      mailing_address: P O Box 389, Tifton, GA 31793
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Ware County Schools
@@ -236,8 +252,8 @@ districts:
     policy_code: JDA
     crdc_students_latest: 8
     contact:
-      phone: "(912)283-8656"
-      mailing_address: "P.O. Box 1789, Waycross, GA 31502"
-      website: "http://www.ware.k12.ga.us"
+      phone: (912)283-8656
+      mailing_address: P.O. Box 1789, Waycross, GA 31502
+      website: http://www.ware.k12.ga.us
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip

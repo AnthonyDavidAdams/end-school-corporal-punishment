@@ -55,6 +55,22 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Green Forest School District
+    county: Green Forest
+    nces_id: "0506870"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/6620/26-27_final_handbook_2.pdf
+    quote: The Green Forest School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the Superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
+    crdc_students_latest: 136
+    last_verified: 2026-09-20
+    contact:
+      phone: 870-438-5201
+      mailing_address: 400 East 10th Street, Green Forest, AR 72638
+      board_page: https://www.gf.k12.ar.us/board-of-education
+      contact_page: https://www.gf.k12.ar.us/board-of-education
+      as_of: 2026-09-20
+    notes: "Source is the district's own 2026-2027 K-12 Student/Parent Handbook, linked from https://www.gf.k12.ar.us/student-handbook. Fetched server-side with fetch_document: 1,974,313 bytes, application/pdf, 161 pages, sha256 7158af07cb34b76305a74c7cd291e90703e40bfbde0c6d540c3a3eea2f1c502f. Policy 4.39 CORPORAL PUNISHMENT is on PDF page 32 (printed page 21). Classified 'allows' and not 'consent_required' because the policy is opt-OUT: verbatim, \"If a parent/guardian does not want their child administered corporal punishment, an alternative punishment form must be completed, signed and filed in the principal’s office.\" The handbook also lists corporal punishment as a consequence in the tardy ladder (PDF p.22) and marks it unavailable as an ISS alternative for fighting (Infraction 11). The handbook carries no per-policy adoption/revision date; it is the 2026-2027 edition. The district's board-policy section pages (/section-4-students) are JavaScript-rendered and return an empty shell to curl. CROSS-CHECK AVAILABLE: Green Forest also publishes its board policy manual through Simbli, site S=36032223 (linked from https://www.gf.k12.ar.us/board-of-education as \"Section 4 - Students\"). I did not read it because fetch_simbli_policy was returning the vendor bot challenge for every site during my window; a later contributor can call fetch_simbli_policy {\"site\":\"36032223\",\"code\":\"4.39\"} to confirm the board-adopted text and its revision date, which the handbook does not give."
   - name: Jonesboro School District
     county: Craighead
     nces_id: null
@@ -64,6 +80,23 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Lafayette County School District
+    county: Lewisville
+    nces_id: "0500065"
+    status: bans
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3982/Lcsd/efd6deec-4d13-4dbb-a3c1-73ba6f961300/2026-2027-Lafayette-County-School-District-Student-Handbook.pdf
+    quote: The Lafayette County School Board prohibits the use of corporal punishment by any employee of the District against any student.
+    policy_code: null
+    crdc_students_latest: 57
+    last_verified: 2026-09-20
+    contact:
+      phone: 870-921-5500
+      mailing_address: 712 Chestnut St, Lewisville, AR 71845
+      superintendent: Mr. Richard (Jon) Estes
+      board_page: https://www.lcscougars.org/page/board-of-ed
+      contact_page: https://www.lcscougars.org/documents
+      as_of: 2026-09-20
+    notes: "*** POLICY CHANGE - THIS DISTRICT NOW PROHIBITS CORPORAL PUNISHMENT, after reporting 57 students struck in 2023-24. *** Source is the district's own 2026-2027 Student Handbook. Fetched server-side with fetch_document: 5,571,519 bytes, application/pdf, 232 pages, 614,056 chars extracted, sha256 dff476e285feea2c917f4e62e47ad357070d61d4594f701c97ae58e0ecf1e4eb. The prohibition is on PDF page 100, under the heading \"Corporal Punishment\", inside the Student Policies section; the handbook's own index (PDF p.18) lists \"Contact with Students While at School/Corporal Punishment Page 101\". DATES: the handbook states no adoption or revision date for this policy - there are no per-policy \"Date Adopted / Last Revised\" lines anywhere in this handbook, unlike Valley View's. What the handbook does say, verbatim (PDF p.20): \"It shall be the policy of the Lafayette County School District that the most recently adopted version of the Student Handbook be incorporated by referencing the policies of the district.\" Google's index dates this PDF 2026-08-28. EVIDENCE THE DISTRICT PREVIOUSLY PERMITTED IT, for whoever dates the change: an older district document on core-docs.s3.amazonaws.com (\"Lafayette County School District STUDENTS\") still carries the Arkansas model permitting language \"Prior to the administration of corporal punishment, the student...\", and an older LCSD handbook acknowledgement form asked parents \"2. I give permission for corporal punishment. YES NO\". NEXT CONTRIBUTOR: to date the change, open the prior handbooks listed at https://www.lcscougars.org/documents/handbooks (the page names a \"2023-2024 Lafayette County School District Handbook\" and a \"2025-2026 Lafayette County School District Student Handbook\") and the board minutes under https://www.lcscougars.org/page/board-of-ed. Both are Apptegy pages behind an Imperva bot challenge; the text proxy https://r.jina.ai/<url> reads the static parts of lcscougars.org but does not expand the JavaScript document accordions. WEBSITE CORRECTION: the NCES website for this district, http://lafayette.k12.ar.us/, no longer resolves to a working server (CNAME to lcs.k12.ar.us, 66.204.161.66, no response on 80 or 443). The live site is https://www.lcscougars.org. Do not confuse this district with Lafayette County School District in Oxford, Mississippi (gocommodores.org) or Lafayette Parish, Louisiana."
   - name: Little Rock School District
     county: Pulaski
     nces_id: null
@@ -124,3 +157,34 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Valley View School District
+    county: Jonesboro
+    nces_id: "0513380"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4350/Vvsd/4ff5f40d-ac03-42f4-9eb1-fc714e598ba4/2026-2027-Section-4%2B-Student-Handbook-combined.pdf
+    quote: The Valley View School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
+    crdc_students_latest: 45
+    last_verified: 2026-09-20
+    contact:
+      district_email: webmaster@valleyviewschools.net
+      phone: (870) 935-6200
+      mailing_address: 2131 Valley View Dr, Jonesboro, AR 72404
+      contact_page: https://www.valleyviewschools.net/
+      as_of: 2026-09-20
+    notes: "Source is the district's own \"2026-2027 Student Handbook Board Policy Section 4+\", which is the Valley View Public Schools Board Policy Manual (its running footer says \"Board Policy ManualValley View Public Schools\"). Fetched server-side with fetch_document: 5,345,135 bytes, application/pdf, 232 pages, 559,635 chars, sha256 a5cbbfd2d5fec725dcf0cdfea0d7a7a8ea88048110a6674343d004e4d4e3cc2c. Policy 4.39 CORPORAL PUNISHMENT is on PDF page 80. The policy carries its own dates in the document: \"Status: ADOPTED / Original Adopted Date: 07/05/2011 | Last Revised Date: 07/07/2020 | Last Reviewed Date: 07/07/2020\". Classified 'allows', not 'consent_required', because it is opt-OUT; verbatim: \"Students who parents do not want them paddled may send a letter requesting no corporal punishment for their child.\" and \"Every student/parent has the right to deny corporal punishment\" (the grammatical error in the first sentence is the district's, left as printed). Also verbatim: \"Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.\" Separately, Policy 4.23 (tobacco/vaping, last revised 07/07/2025) sets \"Minimum punishment will be corporal punishment or one (1) day of ISS\". The district's own site, valleyviewschools.net, is behind an Imperva bot challenge and returns 3,038 bytes to curl; resolve_handbook found nothing there."
+  - name: West Memphis School District
+    county: West Memphis
+    nces_id: "0508040"
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    crdc_students_latest: 52
+    last_verified: 2026-09-20
+    contact:
+      phone: (870) 735-1915
+      mailing_address: 301 South Avalon, West Memphis, Arkansas 72301
+      contact_page: https://www.wmsd.net/page/board-policies
+      as_of: 2026-09-20
+    notes: "HONEST UNKNOWN for the CURRENT policy, and a likely second policy change worth a browser-equipped contributor's time. What I opened, all without a browser. (1) https://www.wmsd.net/page/state-required-information - the site is behind an Imperva 'Client Challenge' and returns a 3,038-byte stub to curl and never finishes loading in Chrome, but the text proxy https://r.jina.ai/<url> reads it. That page lists \"Student Discipline Policies\" by year, and for WMSD those ARE the student handbooks, published as Google Drive folders. (2) CURRENT YEAR, secondary: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3381/Awm/8dd1988f-4bda-42cb-bd55-154e68fd3fb5/WMSD-Secondary-Schools-Student-Handbook-2026-2027.pdf - fetch_document: 2,235,125 bytes, application/pdf, 86 pages, 239,325 chars, sha256 d7d955bc4d041df738baf5f041ff71d04423c9d56e1300a29f563cf6d985dd89. ZERO hits for \"corporal punishment\", \"paddl\" or \"spank\". Its table of contents has no corporal-punishment entry. (3) 2024/2025 filing (Drive folder 13-G8fc2K6TmEstXl7s7x9o_5Iq0VvoVE) - BOTH handbooks from that year DO permit it. Elementary: https://drive.google.com/uc?export=download&id=1KO0pJYyTHECezhbl_Eyn9qyelNMXOg9v (\"2024-2025 Elementary School Handbook.pdf\", 9,543,262 bytes, 105 pages, 295,134 chars, sha256 ede68559f1402e3ff020189748394d4a36702b77005616fa773815433662d627), \"CORPORAL PUNISHMENT POLICY\" on page 59, verbatim: \"Corporal Punishment may be administered by any certified employee of the district to any pupil for disruptive or unmanageable conduct, insubordination, profane, violent, vulgar or insulting language or other conduct that would tend to disrupt the educational process.\" Senior high: https://drive.google.com/uc?export=download&id=1NtduDzUFJTBSpC0WUT83KTLpZ7V3_6ks (1,729,003 bytes, 159 pages), \"CORPORAL PUNISHMENT POLICY\" on page 92. (4) 2025/2026 filing (Drive folder 1U62JliDIjT7cEv3Ztbpjj48RWSLlXuiD) - THIS IS THE BLOCKER. It holds \"2025-2026 Elementary School Handbook\" (Drive id 19WN6r1nc6PIbBgS35Jtvb_McBDRBXEhv, whose actual document title is \"2026-2027 Elementary School Handbook (EDITING)\") and \"WMSD Secondary Schools Student Handbook\" (13ldjoQ0IRH0Xoa_sTPGBKFeZOu7OjtJe). Both are native Google Docs with export disabled: /export?format=txt, /export?format=pdf and /feeds/download/documents/export/Export all return HTTP 404, and drive.google.com/uc?export=download returns a 1,789-byte HTML stub. \"Virtual Academy Student Handbook.pdf\" (1WKfXwqbU29cesAqCDBx-GS9QMEYqh_N9, 2,684,646 bytes) is a scan with no text layer (needs_ocr true). (5) No WMSD board policy manual is published or indexed; https://www.wmsd.net/page/board-policies returns 404. resolve_handbook on wmsd.net returns no candidates. SUGGESTIVE BUT NOT PROOF OF A BAN: a WMSD board-minutes PDF under files-backend.assets.thrillshare.com/.../Wmsd is indexed by Google with the sentence \"Foister requested corporal punishment policy be deleted from district policy.\" SO: permitting language was in place for and after the CRDC year, and is absent from the current secondary handbook. I will not call that a ban, and I will not call a 2024-25 document the current policy. NEXT CONTRIBUTOR: open Google Doc 19WN6r1nc6PIbBgS35Jtvb_McBDRBXEhv in a browser (it renders, it just cannot be exported) and submit with source_text - elementary is where this district's paddling happens, so that one document decides this record. Then find the board-minutes PDF to date the deletion."
