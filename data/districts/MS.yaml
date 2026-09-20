@@ -22,6 +22,9 @@ districts:
     notes: "Document is the district's own 2026-2027 Student Handbook (cover page reads '2026-2027 Student Handbook'; filename still says 25-26). Fetched via fetch_document: 1,931,132 bytes, application/pdf, 54 pages, text layer present; quote is on PDF page 25. INPUT ROW WAS MISMATCHED: nces_name was 'LINCOLN COUNTY SCHOOL DISTRICT' and website was lcsd.k12.ms.us (Lincoln County), so nces_id 2802640 was dropped rather than filed wrong. Site actually used: https://www.alcornschools.org (the county district is branded 'Alcorn School District'; Corinth School District is the separate city district in the same county). Board policy corroborates and is NOT stale: Simbli/MSBA (alcorn.msbapolicy.org -> S=36031677), 'View Policy JDB: Corporal Punishment | Alcorn County School District', adopted 12/04/2008, amended May 13 2024, last reviewed 04/13/2026, same '(3) licks' text plus paddle specifications. No parental consent or opt-out mechanism for corporal punishment appears anywhere in the handbook; the handbook's 'Parental Opt-Out Letter' (p.53) is a FERPA directory-information/military-recruiter form, not a corporal punishment form."
     policy_code: JDB
     crdc_students_latest: null
+    policy_adopted: "2008-12-04"
+    policy_revised: "2026-04-13"
+    policy_dates_from: notes
   - name: Amite County Schools
     county: Amite
     nces_id: "2800420"
@@ -39,6 +42,9 @@ districts:
       website: "http://www.amite.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2018-01-11"
+    policy_revised: "2025-03-13"
+    policy_dates_from: notes
   - name: Attala County Schools
     county: Attala
     nces_id: "2800510"
@@ -56,6 +62,9 @@ districts:
       website: "http://www.attala.k12.ms.us/"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_revised: "2023-10-05"
+    policy_dates_from: notes
   - name: Benton County Schools
     county: Benton
     nces_id: "2800600"
@@ -73,6 +82,9 @@ districts:
       website: "http://www.benton.k12.ms.us/"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_revised: "2019-06-10"
+    policy_dates_from: notes
   - name: Biloxi Public Schools
     county: Harrison
     nces_id: "2800630"
@@ -90,6 +102,9 @@ districts:
       website: "http://www.biloxischools.net"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2005-06-14"
+    policy_revised: "2025-07-16"
+    policy_dates_from: notes
   - name: Bolivar County Schools
     county: Bolivar
     nces_id: null
@@ -118,6 +133,9 @@ districts:
       website: "http://www.calhounk12.com"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2010-02-22"
+    policy_revised: "2019-06-24"
+    policy_dates_from: notes
   - name: Carroll County Schools
     county: Carroll
     nces_id: "2800930"
@@ -135,6 +153,9 @@ districts:
       website: "http://www.ccsd.ms"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_revised: "2026-06-11"
+    policy_dates_from: notes
   - name: Chickasaw County School District
     county: Chickasaw
     nces_id: "2800200"
@@ -180,6 +201,9 @@ districts:
       website: "http://www.chickasaw.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2012-07-20"
+    policy_revised: "2026-06-08"
+    policy_dates_from: notes
   - name: Choctaw County Schools
     county: Choctaw
     nces_id: "2800990"
@@ -214,6 +238,8 @@ districts:
       website: "http://www.claiborne.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_dates_from: notes
   - name: Clarke County Schools
     county: Clarke
     nces_id: null
@@ -270,6 +296,9 @@ districts:
       website: "http://www.copiah.ms"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2017-08-07"
+    policy_revised: "2019-07-01"
+    policy_dates_from: notes
   - name: Covington County Schools
     county: Covington
     nces_id: "2801290"
@@ -287,6 +316,9 @@ districts:
       website: "http://covingtoncountyschools.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2002-10-01"
+    policy_revised: "2025-06-26"
+    policy_dates_from: notes
   - name: DeSoto County Schools
     county: DeSoto
     nces_id: "2801320"
@@ -303,6 +335,9 @@ districts:
       mailing_address: "Five East South Street, Hernando, MS 38632"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2008-07-01"
+    policy_revised: "2026-01-23"
+    policy_dates_from: notes
   - name: Forrest County Schools
     county: Forrest
     nces_id: "2801490"
@@ -320,6 +355,9 @@ districts:
       website: "http://www.fcsd.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2019-06-24"
+    policy_revised: "2019-06-24"
+    policy_dates_from: notes
   - name: Franklin County Schools
     county: Franklin
     nces_id: "2801530"
@@ -353,6 +391,9 @@ districts:
       website: "http://www.gcsd.us/"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2014-11-04"
+    policy_revised: "2026-04-07"
+    policy_dates_from: notes
   - name: Greene County Schools
     county: Greene
     nces_id: "2801590"
@@ -370,6 +411,9 @@ districts:
       website: "http://www.greene.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2011-05-10"
+    policy_revised: "2025-12-11"
+    policy_dates_from: notes
   - name: Greenwood-Leflore Consolidated School District
     county: Leflore
     nces_id: "2800198"
@@ -386,6 +430,8 @@ districts:
       website: "http://www.glcsd.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2019-06-04"
+    policy_dates_from: notes
   - name: Grenada County Schools
     county: Grenada
     nces_id: null
@@ -442,6 +488,9 @@ districts:
       website: "http://www.harrison.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2016-03-07"
+    policy_revised: "2025-06-23"
+    policy_dates_from: notes
   - name: Hinds County School District
     county: Hinds
     nces_id: "2801860"
@@ -459,6 +508,9 @@ districts:
       website: "http://www.hinds.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2004-07-01"
+    policy_revised: "2026-09-10"
+    policy_dates_from: notes
   - name: Holmes County Schools
     county: Holmes
     nces_id: null
@@ -515,6 +567,9 @@ districts:
       website: "http://www.itawambacountyschools.com"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2001-04-02"
+    policy_revised: "2025-03-03"
+    policy_dates_from: notes
   - name: Jackson County School District
     county: Jackson
     nces_id: "2802160"
@@ -532,6 +587,9 @@ districts:
       website: "http://www.jcsd.ms/"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1996-08-05"
+    policy_revised: "2017-04-10"
+    policy_dates_from: notes
   - name: Jackson Public Schools
     county: Hinds
     nces_id: "2802190"
@@ -587,6 +645,9 @@ districts:
       website: "http://www.jonesk12.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2014-06-02"
+    policy_revised: "2020-05-04"
+    policy_dates_from: notes
   - name: Kemper County Schools
     county: Kemper
     nces_id: "2802310"
@@ -604,6 +665,9 @@ districts:
       website: "http://kempercountyschools.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_revised: "2026-03-20"
+    policy_dates_from: notes
   - name: Lafayette County School District
     county: Lafayette
     nces_id: "2802370"
@@ -621,6 +685,9 @@ districts:
       website: "http://gocommodores.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1998-06-29"
+    policy_revised: "2025-11-03"
+    policy_dates_from: notes
   - name: Lamar County School District
     county: Lamar
     nces_id: "2802400"
@@ -654,6 +721,9 @@ districts:
       mailing_address: "Post Office Box 5498, Meridian, MS 39305"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2016-07-28"
+    policy_revised: "2019-06-27"
+    policy_dates_from: notes
   - name: Lawrence County Schools
     county: Lawrence
     nces_id: "2802490"
@@ -671,6 +741,9 @@ districts:
       website: "http://www.lawcosd.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_revised: "2026-07-30"
+    policy_dates_from: notes
   - name: Leake County Schools
     county: Leake
     nces_id: "2802520"
@@ -705,6 +778,9 @@ districts:
       website: "http://www.leecountyschools.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1987-12-21"
+    policy_revised: "2019-06-18"
+    policy_dates_from: notes
   - name: Leflore County Schools
     county: Leflore
     nces_id: null
@@ -731,6 +807,9 @@ districts:
       website: "http://lcsd.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2013-11-18"
+    policy_revised: "2025-03-20"
+    policy_dates_from: notes
   - name: Louisville Municipal School District
     county: Winston
     nces_id: "2802700"
@@ -751,6 +830,9 @@ districts:
       website: "http://louisville.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2011-07-19"
+    policy_revised: "2026-08-11"
+    policy_dates_from: notes
   - name: Lowndes County School District
     county: Lowndes
     nces_id: "2802730"
@@ -768,6 +850,9 @@ districts:
       website: "http://lowndes.k12.ms.us/"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2006-05-08"
+    policy_revised: "2019-09-13"
+    policy_dates_from: notes
   - name: Madison County Schools
     county: Madison
     nces_id: "2802790"
@@ -802,6 +887,8 @@ districts:
       website: "http://WWW.MARIONK12.ORG"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2019-07-30"
+    policy_dates_from: notes
   - name: Marshall County School District
     county: Marshall
     nces_id: "2802850"
@@ -819,6 +906,9 @@ districts:
       website: "http://www.marshallcountysd.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_revised: "2026-09-08"
+    policy_dates_from: notes
   - name: Monroe County School District
     county: Monroe
     nces_id: "2802940"
@@ -836,6 +926,9 @@ districts:
       website: "http://www.mcsd.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2002-07-02"
+    policy_revised: "2019-10-07"
+    policy_dates_from: notes
   - name: Montgomery County Schools
     county: Montgomery
     nces_id: null
@@ -861,6 +954,9 @@ districts:
       website: "http://www.natchez.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2014-05-13"
+    policy_revised: "2022-05-17"
+    policy_dates_from: notes
   - name: Neshoba County Schools
     county: Neshoba
     nces_id: "2803060"
@@ -878,6 +974,9 @@ districts:
       website: "http://www.neshobacentral.com"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1997-06-01"
+    policy_revised: "2026-03-06"
+    policy_dates_from: notes
   - name: Newton County Schools
     county: Newton
     nces_id: "2803150"
@@ -895,6 +994,9 @@ districts:
       website: "http://www.newton.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2010-03-08"
+    policy_revised: "2025-11-10"
+    policy_dates_from: notes
   - name: Noxubee County Schools
     county: Noxubee
     nces_id: "2803300"
@@ -912,6 +1014,8 @@ districts:
       website: "http://www.ourncsd.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_dates_from: notes
   - name: Oktibbeha County Schools
     county: Oktibbeha
     nces_id: null
@@ -954,6 +1058,8 @@ districts:
       website: "http://www.pcsdms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2002-09-02"
+    policy_dates_from: notes
   - name: Pike County Schools
     county: Pike
     nces_id: null
@@ -982,6 +1088,9 @@ districts:
       website: "http://www.pcsd.ms"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1999-01-01"
+    policy_revised: "2026-02-10"
+    policy_dates_from: notes
   - name: Prentiss County Schools
     county: Prentiss
     nces_id: "2803750"
@@ -1031,6 +1140,9 @@ districts:
       website: "http://www.rcsd.ms"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1994-09-14"
+    policy_revised: "2022-08-10"
+    policy_dates_from: notes
   - name: Scott County School District
     county: Scott
     nces_id: "2803900"
@@ -1076,6 +1188,9 @@ districts:
       website: "http://www.scott.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2014-04-08"
+    policy_revised: "2019-06-11"
+    policy_dates_from: notes
   - name: Sharkey County Schools
     county: Sharkey
     nces_id: null
@@ -1102,6 +1217,9 @@ districts:
       website: "http://www.simpson.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "1990-08-16"
+    policy_revised: "2025-10-14"
+    policy_dates_from: notes
   - name: Smith County Schools
     county: Smith
     nces_id: "2804020"
@@ -1134,6 +1252,9 @@ districts:
       mailing_address: "P. O. Box 219, Rolling Fork, MS 39159"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2015-02-09"
+    policy_revised: "2022-09-13"
+    policy_dates_from: notes
   - name: South Panola School District
     county: Panola
     nces_id: "2804050"
@@ -1195,6 +1316,9 @@ districts:
       website: "http://starkvillesd.com"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2005-06-07"
+    policy_revised: "2026-04-14"
+    policy_dates_from: notes
   - name: Stone County Schools
     county: Stone
     nces_id: "2804170"
@@ -1212,6 +1336,9 @@ districts:
       website: "http://Stoneschools.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2013-10-07"
+    policy_revised: "2026-03-02"
+    policy_dates_from: notes
   - name: Sunflower County Schools
     county: Sunflower
     nces_id: "2800187"
@@ -1229,6 +1356,9 @@ districts:
       website: "http://www.sunflower.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2015-09-15"
+    policy_revised: "2019-07-22"
+    policy_dates_from: notes
   - name: Tallahatchie County Schools
     county: Tallahatchie
     nces_id: null
@@ -1268,6 +1398,9 @@ districts:
     notes: "North Tippah and South Tippah are separate districts; this record was read from South Tippah. The row should be split. QUOTE LOCATION: page 5 of the cited PDF, in the definitions list directly under the district-wide heading \"SOUTH TIPPAH SCHOOL DISTRICT CODE OF DISCIPLINE-GRADES K-12\"; the bullet glyph preceding it is a Wingdings character (U+F0A8) and is not reproduced. Page 6 lists it as a consequence, e.g. Level I \"Maximum: Teacher/student/parent conference, home suspension, corporal punishment\" and Level II \"First Violation Minimum: Corporal punishment, in School Suspension (ISS), detention, community service\". NAME PROBLEM - READ BEFORE MERGING. There is no \"Tippah County\" school district in Mississippi. Tippah County is served by TWO separate districts, North Tippah School District (Falkner/Walnut/Chalybeate) and South Tippah School District (Ripley/Blue Mountain/Dumas), each with its own board. BOTH permit corporal punishment, which is why this row is filed \"allows\"; a reviewer may prefer to split it into two records. (1) SOUTH TIPPAH - the cited source: 2025-26 Blue Mountain handbook on the district site southtippahschools.com; fetch_document: 2,252,177 bytes, application/pdf, 36 pages; quote on page 5 under the district-wide heading \"SOUTH TIPPAH SCHOOL DISTRICT CODE OF DISCIPLINE-GRADES K-12\"; corporal punishment appears as a listed consequence at Levels I-III on page 6. South Tippah's board policy JDB \"Corporal Punishment\" (southtippah.msbapolicy.org -> simbli.eboardsolutions.com/Index.aspx?S=36031788; listing title \"Policy Listing | South Tippah School District\"), adopted 10/05/2010, revised 06/11/2019, opens \"Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure...\". (2) NORTH TIPPAH - district site northtippah.org; its Student Handbook at https://content.myconnectsuite.com/api/documents/32a6b22e54f340ea8b3b08cf91a09da3.pdf (1,597,791 bytes, application/pdf, 27 pages) says on page 18: \"Corporal punishment administered by a teacher or principal may be substituted for ISS at the discretion of Principal\", and on page 15 lists \"corporal punishment\" as the 1st-offense bus consequence. North Tippah's board policy manual is at ntippah.msbapolicy.org -> simbli.eboardsolutions.com/Index.aspx?S=36031759 but was blocked by the Imperva challenge on every attempt. INPUT ROW WAS MIS-MATCHED: nces_id 2804290 / nces_name \"TUNICA COUNTY SCHOOL DISTRICT\" / website tunicak12.org belong to Tunica County; nces_id left null."
     policy_code: JDB
     crdc_students_latest: null
+    policy_adopted: "2010-10-05"
+    policy_revised: "2019-06-11"
+    policy_dates_from: notes
   - name: Tishomingo County Schools
     county: Tishomingo
     nces_id: "2804260"
@@ -1285,6 +1418,8 @@ districts:
       website: "http://www.tcsk12.com"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2007-02-12"
+    policy_dates_from: notes
   - name: Tunica County Schools
     county: Tunica
     nces_id: "2804290"
@@ -1302,6 +1437,9 @@ districts:
       website: "http://www.tunicak12.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2013-02-13"
+    policy_revised: "2023-05-11"
+    policy_dates_from: notes
   - name: Union County Schools
     county: Union
     nces_id: "2804350"
@@ -1319,6 +1457,9 @@ districts:
       website: "http://www.union.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2012-04-09"
+    policy_revised: "2019-06-24"
+    policy_dates_from: notes
   - name: Vicksburg Warren School District
     county: Warren
     nces_id: "2804470"
@@ -1335,6 +1476,9 @@ districts:
       website: "http://www.vwsd.org"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2015-09-24"
+    policy_revised: "2026-03-26"
+    policy_dates_from: notes
   - name: Walthall County Schools
     county: Walthall
     nces_id: "2804440"
@@ -1389,6 +1533,9 @@ districts:
       website: "http://www.wcsdms.com/"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2011-03-07"
+    policy_revised: "2026-05-26"
+    policy_dates_from: notes
   - name: Webster County Schools
     county: Webster
     nces_id: "2804560"
@@ -1468,6 +1615,9 @@ districts:
       website: "http://www.wilkinson.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2018-06-20"
+    policy_revised: "2018-06-20"
+    policy_dates_from: notes
   - name: Winona-Montgomery Consolidated School District
     county: Montgomery
     nces_id: "2800196"
@@ -1484,6 +1634,9 @@ districts:
       website: "http://www.winonamontgomerycsd.com"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2018-02-13"
+    policy_revised: "2020-09-08"
+    policy_dates_from: notes
   - name: Winston County Schools
     county: Winston
     nces_id: null
@@ -1521,3 +1674,6 @@ districts:
       website: "http://www.yazoo.k12.ms.us"
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_adopted: "2014-08-05"
+    policy_revised: "2019-06-04"
+    policy_dates_from: notes

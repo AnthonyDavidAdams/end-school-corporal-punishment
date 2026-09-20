@@ -408,6 +408,32 @@
         "description": "Where this contact block was read: a district page, or the federal LEA directory file it came out of"
        }
       }
+     },
+     "policy_adopted": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Date the corporal punishment policy was originally adopted, as the policy itself prints it (YYYY-MM-DD). The policy's own date, not the date we read it and not the handbook's publication date."
+     },
+     "policy_revised": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Date the corporal punishment policy was last revised or reissued, as the policy itself prints it (YYYY-MM-DD). For TASB this is the LOCAL section's DATE ISSUED."
+     },
+     "policy_dates_from": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "policy",
+       "notes",
+       null
+      ],
+      "description": "Where policy_adopted/policy_revised came from: 'policy' means a contributor read them off the policy, 'notes' means they were extracted from an existing note by tools/dates/extract.mjs and are weaker evidence."
      }
     },
     "allOf": [

@@ -173,6 +173,9 @@ districts:
       contact_page: https://www.valleyviewschools.net/
       as_of: 2026-09-20
     notes: "Source is the district's own \"2026-2027 Student Handbook Board Policy Section 4+\", which is the Valley View Public Schools Board Policy Manual (its running footer says \"Board Policy ManualValley View Public Schools\"). Fetched server-side with fetch_document: 5,345,135 bytes, application/pdf, 232 pages, 559,635 chars, sha256 a5cbbfd2d5fec725dcf0cdfea0d7a7a8ea88048110a6674343d004e4d4e3cc2c. Policy 4.39 CORPORAL PUNISHMENT is on PDF page 80. The policy carries its own dates in the document: \"Status: ADOPTED / Original Adopted Date: 07/05/2011 | Last Revised Date: 07/07/2020 | Last Reviewed Date: 07/07/2020\". Classified 'allows', not 'consent_required', because it is opt-OUT; verbatim: \"Students who parents do not want them paddled may send a letter requesting no corporal punishment for their child.\" and \"Every student/parent has the right to deny corporal punishment\" (the grammatical error in the first sentence is the district's, left as printed). Also verbatim: \"Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.\" Separately, Policy 4.23 (tobacco/vaping, last revised 07/07/2025) sets \"Minimum punishment will be corporal punishment or one (1) day of ISS\". The district's own site, valleyviewschools.net, is behind an Imperva bot challenge and returns 3,038 bytes to curl; resolve_handbook found nothing there."
+    policy_adopted: "2011-07-05"
+    policy_revised: "2025-07-07"
+    policy_dates_from: notes
   - name: West Memphis School District
     county: West Memphis
     nces_id: "0508040"

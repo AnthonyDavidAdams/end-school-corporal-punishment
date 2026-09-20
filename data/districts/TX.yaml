@@ -19,6 +19,8 @@ districts:
       website: http://www.abileneisd.org
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2025-11-10"
+    policy_dates_from: notes
   - name: Amarillo ISD
     county: Potter
     nces_id: "4808130"
@@ -108,6 +110,8 @@ districts:
       website: http://www.bsisd.esc18.net
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2025-10-17"
+    policy_dates_from: notes
   - name: Brownsville ISD
     county: Cameron
     nces_id: "4811680"
@@ -233,6 +237,8 @@ districts:
       website: http://www.dumasisd.org
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2025-11-11"
+    policy_dates_from: notes
   - name: Eagle Pass ISD
     county: Maverick
     nces_id: "4817730"
@@ -267,6 +273,8 @@ districts:
       website: http://www.ecisd.us
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2025-11-10"
+    policy_dates_from: notes
   - name: El Paso ISD
     county: El Paso
     nces_id: null
@@ -343,6 +351,8 @@ districts:
       contact_page: https://www.hemphillisd.net/
       as_of: 2026-09-19
     notes: Read server-side with fetch_tasb_policy district_key=1045. TASB key found on www.hemphillisd.net (link to pol.tasb.org/PolicyOnline?key=1045). FO(LOCAL) UPDATE 126, DATE ISSUED 10/29/2025; LOCAL section 6,498 chars. Opt-out, so 'allows'. The FO(LOCAL) page is JavaScript-rendered; re-read with fetch_tasb_policy.
+    policy_revised: "2025-10-29"
+    policy_dates_from: notes
   - name: Houston ISD
     county: Harris
     nces_id: "4823640"
@@ -394,6 +404,8 @@ districts:
       contact_page: https://www.kisd.org/our-district/contact-us
       as_of: 2026-09-19
     notes: Read server-side with fetch_tasb_policy district_key=539. TASB key found on www.kisd.org (link to pol.tasb.org/PolicyOnline?key=539). FO(LOCAL) UPDATE 126, DATE ISSUED 10/31/2025; LOCAL section 6,498 chars. Opt-out, so 'allows'. Plain curl to https://pol.tasb.org/PolicyOnline?key=539 returned HTTP 200, 311,280 bytes, text/html, <title>Kilgore ISD Board Policy Manual - Policy Online</title> - confirming the key belongs to Kilgore ISD. The policy text itself is JavaScript-rendered; re-read with fetch_tasb_policy.
+    policy_revised: "2025-10-31"
+    policy_dates_from: notes
   - name: Killeen ISD
     county: Bell
     nces_id: "4825660"
@@ -483,6 +495,8 @@ districts:
       website: http://www.livingstonisd.com
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2025-10-09"
+    policy_dates_from: notes
   - name: Longview ISD
     county: Gregg
     nces_id: "4828110"
@@ -551,6 +565,8 @@ districts:
       website: http://www.marshallisd.com
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2025-10-27"
+    policy_dates_from: notes
   - name: McAllen ISD
     county: Hidalgo
     nces_id: "4829670"
@@ -631,6 +647,8 @@ districts:
       website: http://www.mpisd.net
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2025-11-11"
+    policy_dates_from: notes
   - name: Nacogdoches ISD
     county: Nacogdoches
     nces_id: "4832090"
@@ -707,6 +725,8 @@ districts:
       contact_page: https://www.onalaskaisd.net/meet-the-board-members
       as_of: 2026-09-20
     notes: "TASB district key 1002 confirmed by provenance, not by guess: https://www.onalaskaisd.net/policy-online 302-redirects to https://pol.tasb.org/PolicyOnline?key=1002. Read with fetch_tasb_policy {\"district_key\":\"1002\"}: FO(LOCAL) is 6,596 characters, footer reads UPDATE 126, date issued 11/10/2025. Quote is from the LOCAL body (not LEGAL). Opt-OUT, so 'allows', not 'consent_required'. The LOCAL text continues verbatim: \"The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.\" and \"Corporal punishment shall be limited to spanking or paddling the student\". The district site itself (onalaskaisd.net) is JavaScript-rendered; pol.tasb.org refuses plain curl (403), so fetch_tasb_policy is the only machine route."
+    policy_revised: "2025-11-10"
+    policy_dates_from: notes
   - name: Paris ISD
     county: Lamar
     nces_id: "4834290"
@@ -724,6 +744,8 @@ districts:
       website: http://www.parisisd.net/
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    policy_revised: "2025-11-10"
+    policy_dates_from: notes
   - name: Pasadena ISD
     county: Harris
     nces_id: null
@@ -748,6 +770,8 @@ districts:
       contact_page: https://www.ptisd.org/page/contact-us
       as_of: 2026-09-19
     notes: "Read server-side with fetch_tasb_policy district_key=541 (TASB Policy Online, Pine Tree ISD Board Policy Manual; page title confirms the district). FO(LOCAL) UPDATE 126, DATE ISSUED 10/9/2025; LOCAL section 6,570 chars. Opt-out, so 'allows'. Pine Tree's LOCAL adds a variation other districts in this slice do not have: 'Corporal punishment shall be administered only by an administrator. In grades 7-12, the administrator shall be of the same sex as the student.' Verified separately by plain curl to https://pol.tasb.org/PolicyOnline?key=541 -> HTTP 200, text/html, title 'Pine Tree ISD Board Policy Manual - Policy Online'. Machine-fetchable via the project's fetch_tasb_policy tool; the PolicyDetails URL itself is a JavaScript-rendered ASP.NET page, so a reviewer should re-read it with that tool rather than plain curl."
+    policy_revised: "2025-10-09"
+    policy_dates_from: notes
   - name: Plano ISD
     county: Collin
     nces_id: null
@@ -860,6 +884,8 @@ districts:
       contact_page: https://www.tidehavenisd.com/
       as_of: 2026-09-19
     notes: Read server-side with fetch_tasb_policy district_key=850. TASB key found on www.tidehavenisd.com (link to pol.tasb.org/PolicyOnline?key=850). FO(LOCAL) UPDATE 126, DATE ISSUED 10/28/2025; LOCAL 6,498 chars. Opt-out, so 'allows'. Plain curl to https://pol.tasb.org/PolicyOnline?key=850 returned HTTP 206 on a range request with <title>Tidehaven ISD Board Policy Manual - Policy Online</title>, confirming the key. FO(LOCAL) is JavaScript-rendered; re-read with fetch_tasb_policy.
+    policy_revised: "2025-10-28"
+    policy_dates_from: notes
   - name: Tyler ISD
     county: Smith
     nces_id: null
@@ -904,6 +930,8 @@ districts:
       contact_page: https://www.wallisd.net/documents
       as_of: 2026-09-19
     notes: "Read server-side with fetch_tasb_policy district_key=1141 (key found by enumerating pol.tasb.org/PolicyOnline?key=N and matching the page <title>: 'Wall ISD Board Policy Manual - Policy Online'; the district website does not link TASB). FO(LOCAL) UPDATE 126, DATE ISSUED 10/28/2025; LOCAL 6,498 chars. Opt-out, so 'allows'. CORROBORATED by the district's own board-adopted Student Code of Conduct, machine-fetchable PDF at https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1638/Wall_Isd/28ce2df8-075c-49be-925f-ef4c8e8ba1e4/WISD-Code-of-Conduct-Revised-November--2025-2026.pdf (HTTP 200, application/pdf, 701,846 bytes, 52 pages), which lists among discipline management techniques on page 16: 'Corporal punishment, unless the student's parent or guardian has provided a signed statement prohibiting its use.'"
+    policy_revised: "2025-10-28"
+    policy_dates_from: notes
   - name: West Orange-Cove Cisd
     county: Orange
     nces_id: "4845090"
@@ -921,6 +949,8 @@ districts:
       public_comment: "Board meeting agendas/packets published through BoardBook: https://meetings.boardbook.org/Public/Organization/2102"
       as_of: 2026-09-19
     notes: "Read server-side with fetch_tasb_policy district_key=967. TASB key found on the district's own site (www.woccisd.net links 'Policy Online' -> https://pol.tasb.org/PolicyOnline?key=967). FO(LOCAL) UPDATE 126, DATE ISSUED 10/28/2025; LOCAL section 6,596 chars. Opt-out, so 'allows'. WOCCISD's LOCAL adds 'Corporal punishment shall be administered only by an employee who is the same sex as the student.' NOTE ON NAME: input nces_name and name agree (West Orange-Cove CISD); the policy manual header names West Orange-Cove CISD, matching. The FO(LOCAL) page is JavaScript-rendered; use fetch_tasb_policy to re-read."
+    policy_revised: "2025-10-28"
+    policy_dates_from: notes
   - name: Wichita Falls ISD
     county: Wichita
     nces_id: null
