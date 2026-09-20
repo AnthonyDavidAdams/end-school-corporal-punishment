@@ -1,3 +1,18 @@
+/* The animated map. The controls sit above the map so a thumb on a phone is not covering the thing it
+   is scrubbing. */
+.tl { margin:18px 0 8px; }
+.tlbar { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+.tlplay { font:inherit; font-size:15px; padding:8px 20px; border:0; border-radius:6px; cursor:pointer;
+          background:#0D132D; color:#fff; min-width:92px; }
+.tlyear { font-variant-numeric:tabular-nums; font-size:28px; font-weight:700; min-width:3.1em; }
+.tlbar input[type=range] { flex:1; accent-color:#2D6A4F; height:26px; }
+.tlmap { background:#0D132D; border-radius:10px; padding:8px; }
+.tlmap svg { width:100%; height:auto; display:block; }
+.tlcap { min-height:3.2em; margin:12px 0 0; font-size:15px; line-height:1.5; }
+.tlcap .hl { color:#2D6A4F; font-weight:600; }
+@media (prefers-color-scheme:dark) { .tlcap .hl { color:#7CE0A8; } }
+@media (max-width:640px) { .tlbar { flex-wrap:wrap; } .tlbar input[type=range] { flex-basis:100%; order:3; } .tlyear { font-size:22px; } }
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&display=swap');
 :root{--navy-dark:#0D132D;--navy:#151A30;--charcoal:#293340;--gray-pale:#D9DEE8;--gray-light:#E8ECF1;--gray-medium:#8B95A5;--ink:#0D132D;--muted:#5A6577;--bg:#F5F7FA;--card:#FFFFFF;--rule:#D9DEE8;--green:#2D6A4F;--green-dark:#1B4332;--red:#9B2C2C;--red-dark:#742A2A;--partial:#C05621;--gold:#B7791F;--serif:'Merriweather',Georgia,serif;--sans:'Source Sans 3','Source Sans Pro',-apple-system,system-ui,sans-serif;--radius:2px;--shadow:0 2px 8px rgba(0,0,0,.15)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 var(--sans)}

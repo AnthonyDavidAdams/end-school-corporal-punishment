@@ -138,7 +138,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -154,6 +154,21 @@ ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</secti
 
 // ---------- CSS ----------
 writeFileSync(join(site, "site.css"), `
+/* The animated map. The controls sit above the map so a thumb on a phone is not covering the thing it
+   is scrubbing. */
+.tl { margin:18px 0 8px; }
+.tlbar { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+.tlplay { font:inherit; font-size:15px; padding:8px 20px; border:0; border-radius:6px; cursor:pointer;
+          background:#0D132D; color:#fff; min-width:92px; }
+.tlyear { font-variant-numeric:tabular-nums; font-size:28px; font-weight:700; min-width:3.1em; }
+.tlbar input[type=range] { flex:1; accent-color:#2D6A4F; height:26px; }
+.tlmap { background:#0D132D; border-radius:10px; padding:8px; }
+.tlmap svg { width:100%; height:auto; display:block; }
+.tlcap { min-height:3.2em; margin:12px 0 0; font-size:15px; line-height:1.5; }
+.tlcap .hl { color:#2D6A4F; font-weight:600; }
+@media (prefers-color-scheme:dark) { .tlcap .hl { color:#7CE0A8; } }
+@media (max-width:640px) { .tlbar { flex-wrap:wrap; } .tlbar input[type=range] { flex-basis:100%; order:3; } .tlyear { font-size:22px; } }
+
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&display=swap');
 :root{--navy-dark:#0D132D;--navy:#151A30;--charcoal:#293340;--gray-pale:#D9DEE8;--gray-light:#E8ECF1;--gray-medium:#8B95A5;--ink:#0D132D;--muted:#5A6577;--bg:#F5F7FA;--card:#FFFFFF;--rule:#D9DEE8;--green:#2D6A4F;--green-dark:#1B4332;--red:#9B2C2C;--red-dark:#742A2A;--partial:#C05621;--gold:#B7791F;--serif:'Merriweather',Georgia,serif;--sans:'Source Sans 3','Source Sans Pro',-apple-system,system-ui,sans-serif;--radius:2px;--shadow:0 2px 8px rgba(0,0,0,.15)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 var(--sans)}
@@ -464,6 +479,33 @@ ${quotes}
 <p><a href="/kids/worklist/">${n(0)}</a></p>`.replace('<p><a href="/kids/worklist/">0</a></p>', '<p><a href="/kids/worklist/">The districts nobody has checked yet &rarr;</a></p>')
   }));
   console.log(`stopped: ${stopped.length} districts, ${total} students`);
+}
+
+// ---------- the animated map ----------
+mkdirSync(join(site, "timeline"), { recursive: true });
+{
+  const tl = JSON.parse(readFileSync(join(root, "site/data/timeline.json"), "utf8"));
+  writeFileSync(join(site, "timeline", "index.html"), shell({
+    title: "Watch the map change",
+    path: "/timeline/",
+    description: `From 1867 to now: ${tl.states.length} states prohibiting corporal punishment in their schools, and then the districts inside the states that never did.`,
+    extraHead: `<script defer src="/kids/timeline.js?v=${ver("timeline.js")}"></script>`,
+    body: `<section class="hero"><div class="wrap"><h1>Watch the map change</h1>
+<p class="lede">New Jersey prohibited corporal punishment in its schools in 1867. It took another hundred and four years for a second state to follow. Press play.</p></div></section>
+<div class="tl">
+  <div class="tlbar">
+    <button id="tplay" class="tlplay">Play</button>
+    <span id="tlabel" class="tlyear">${tl.last_year}</span>
+    <input type="range" id="tyear" aria-label="Year">
+  </div>
+  <div id="tmap" class="tlmap"></div>
+  <p id="tcaption" class="tlcap"></p>
+</div>
+<h2>What you are looking at</h2>
+<p>Green is a state that prohibits corporal punishment in its public schools; red is a state that still permits it. The dots are individual school districts inside those red states that have prohibited it themselves, each appearing in the year its own board acted and flaring for a year or two so you can see what just changed.</p>
+<p>Two things are worth watching for. The state map barely moves for a century and then moves in bursts. And from about 2004 the red states stop being uniformly red: districts in Alabama, Georgia and Mississippi start making the decision their legislatures would not, one board at a time, and the pace of it picks up sharply after 2019.</p>
+<p class="meta">New Hampshire and the District of Columbia prohibit corporal punishment and this project does not hold the year either of them did it, so they are drawn in a lighter green for the whole animation rather than being given a year they may not have had. State years are the year the state prohibited it. District dates are the date printed on that district's own policy, usually the date it was last revised, so a district appears when its board last affirmed the prohibition rather than necessarily the first time it did. A further <b id="tundated">${tl.districts_prohibiting_without_a_date}</b> districts in this record prohibit corporal punishment but print no date on the policy; they are counted on <a href="/kids/stopped/">the districts that stopped</a> and cannot be placed in a year here, because choosing one would mean inventing it. Generated ${esc(tl.generated)} from <a href="/kids/data/timeline.json">timeline.json</a>.</p>`
+  }));
 }
 
 // ---------- worklist ----------
