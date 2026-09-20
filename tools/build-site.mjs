@@ -154,6 +154,16 @@ ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</secti
 
 // ---------- CSS ----------
 writeFileSync(join(site, "site.css"), `
+/* The contribute page leads with the command, then shows one real district going through the whole
+   pipeline, because "bring an agent" is accurate and tells you nothing. */
+.herocmd { display:inline-block; margin:18px auto 0; padding:14px 22px; border-radius:8px;
+           background:rgba(0,0,0,.28); border:1px solid rgba(255,255,255,.18); color:#B7F7CE;
+           font-size:18px; text-align:left; }
+ol.walk { margin:0 0 6px; padding-left:22px; }
+ol.walk li { margin:0 0 14px; line-height:1.6; }
+ol.walk q { display:block; margin:8px 0 0; padding:10px 14px; border-left:3px solid #2D6A4F;
+            font-style:italic; quotes:none; }
+
 /* The animated map. The controls sit above the map so a thumb on a phone is not covering the thing it
    is scrubbing. */
 .tl { margin:18px 0 8px; }
@@ -391,12 +401,40 @@ ${templates.map(t => `<h3 id="${t.f.replace(".md", "")}">${esc(t.title)}</h3>${t
 </ul>`}));
 
 // ---------- contribute ----------
+// The walkthrough on the contribute page is a real district out of the record, not an illustration, so
+// it cannot quietly become untrue. If this district is ever re-read and the answer changes, the page
+// changes with it.
+const WALK_ID = "0500065";   // Lafayette County School District, Arkansas
+const WALKTHROUGH = (() => {
+  for (const [code, list] of Object.entries(districts)) {
+    for (const d of list) {
+      if (d.nces_id !== WALK_ID) continue;
+      return { name: d.name, state: states[code].name, students: d.crdc_students_latest, quote: d.quote,
+               date: d.last_verified, cert: `/kids/stopped/${code.toLowerCase()}-${slug(d.name)}/` };
+    }
+  }
+  throw new Error(`contribute page walkthrough: no district with NCES id ${WALK_ID} in the record`);
+})();
+
 mkdirSync(join(site, "contribute"), { recursive: true });
 writeFileSync(join(site, "contribute", "index.html"), shell({
   title: "Bring an agent: help end school corporal punishment", path: "/contribute/",
   description: "Point your AI agent at the open task queue: scan district policies, verify claims, watch bills. Or give money, share your state, or file the parent letter.",
   body: `<section class="hero"><div class="wrap"><h1>Bring an agent</h1>
-<p class="lede">Most of the remaining work is reading thousands of district policy manuals and recording what they say, with a source and a verbatim quote. That is agent work, and the tools are ready.</p></div></section>
+<p class="lede">Give your AI one command. It takes one unfinished piece of this project, reads the primary source itself, quotes it, and submits the result to be checked against that source before it enters the record.</p>
+<pre class="herocmd">&gt; /escp:district-policy-scan Arkansas</pre></div></section>
+
+<h2>What that actually does</h2>
+<p>This is not a worked example. It is a district that was scanned on ${esc(WALKTHROUGH.date)}, and every line of it is in the record now.</p>
+<ol class="walk">
+<li><b>It takes a district nobody has opened.</b> ${esc(WALKTHROUGH.name)}, ${esc(WALKTHROUGH.state)}. The federal civil rights collection says this district struck ${n(WALKTHROUGH.students)} of its students in 2023-24. Nobody had ever read its policy.</li>
+<li><b>It finds the district's own document.</b> Not a news article, not a summary, not the neighbouring district. The address in the federal directory was dead, so the agent found the live site and the current handbook on it.</li>
+<li><b>It reads it and quotes the sentence.</b> Verbatim, with the page number, out of a 232-page PDF:<br><q>${esc(WALKTHROUGH.quote)}</q></li>
+<li><b>The server checks the quote against the source.</b> Not the copy the agent read &mdash; a copy the server fetches itself. A quote that is not in the document is refused.</li>
+<li><b>A person reviews it, and the map changes.</b> ${esc(WALKTHROUGH.name)} had reported striking ${n(WALKTHROUGH.students)} children, and now prohibits it. It is on <a href="/kids/stopped/">the districts that stopped</a>, on <a href="/kids/timeline/">the timeline</a>, and it has <a href="${WALKTHROUGH.cert}">a certificate</a>.</li>
+</ol>
+<p>That is one district. <a href="/kids/worklist/">${n(JSON.parse(readFileSync(join(root, "site/data/worklist.json"), "utf8")).unchecked)} more</a> that reported striking a student are still unopened, and each one is about ten minutes of an agent's time.</p>
+<h2>How to start</h2>
 <div class="grid">
 <div class="card"><h2>Claude Code</h2><pre>claude plugin marketplace add AnthonyDavidAdams/end-school-corporal-punishment
 claude plugin install escp@escp

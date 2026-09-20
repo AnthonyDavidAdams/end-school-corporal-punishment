@@ -1,3 +1,13 @@
+/* The contribute page leads with the command, then shows one real district going through the whole
+   pipeline, because "bring an agent" is accurate and tells you nothing. */
+.herocmd { display:inline-block; margin:18px auto 0; padding:14px 22px; border-radius:8px;
+           background:rgba(0,0,0,.28); border:1px solid rgba(255,255,255,.18); color:#B7F7CE;
+           font-size:18px; text-align:left; }
+ol.walk { margin:0 0 6px; padding-left:22px; }
+ol.walk li { margin:0 0 14px; line-height:1.6; }
+ol.walk q { display:block; margin:8px 0 0; padding:10px 14px; border-left:3px solid #2D6A4F;
+            font-style:italic; quotes:none; }
+
 /* The animated map. The controls sit above the map so a thumb on a phone is not covering the thing it
    is scrubbing. */
 .tl { margin:18px 0 8px; }

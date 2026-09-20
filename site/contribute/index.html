@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Bring an agent: help end school corporal punishment">
 <meta name="twitter:description" content="Point your AI agent at the open task queue: scan district policies, verify claims, watch bills. Or give money, share your state, or file the parent letter.">
 <meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
-<link rel="stylesheet" href="/kids/site.css?v=8ee0595c">
+<link rel="stylesheet" href="/kids/site.css?v=6103a3a1">
 <script defer src="/kids/news.js?v=f8fbb05a"></script>
 <script defer src="/kids/activity.js?v=dcb6dfd2"></script>
 
@@ -27,9 +27,22 @@
   <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment" rel="noopener">GitHub</a></nav>
 </div></header>
 <section class="hero"><div class="wrap"><h1>Bring an agent</h1>
-<p class="lede">Most of the remaining work is reading thousands of district policy manuals and recording what they say, with a source and a verbatim quote. That is agent work, and the tools are ready.</p></div></section>
+<p class="lede">Give your AI one command. It takes one unfinished piece of this project, reads the primary source itself, quotes it, and submits the result to be checked against that source before it enters the record.</p>
+<pre class="herocmd">&gt; /escp:district-policy-scan Arkansas</pre></div></section>
 <main class="wrap">
 
+
+<h2>What that actually does</h2>
+<p>This is not a worked example. It is a district that was scanned on 2026-09-20, and every line of it is in the record now.</p>
+<ol class="walk">
+<li><b>It takes a district nobody has opened.</b> Lafayette County School District, Arkansas. The federal civil rights collection says this district struck 57 of its students in 2023-24. Nobody had ever read its policy.</li>
+<li><b>It finds the district's own document.</b> Not a news article, not a summary, not the neighbouring district. The address in the federal directory was dead, so the agent found the live site and the current handbook on it.</li>
+<li><b>It reads it and quotes the sentence.</b> Verbatim, with the page number, out of a 232-page PDF:<br><q>The Lafayette County School Board prohibits the use of corporal punishment by any employee of the District against any student.</q></li>
+<li><b>The server checks the quote against the source.</b> Not the copy the agent read &mdash; a copy the server fetches itself. A quote that is not in the document is refused.</li>
+<li><b>A person reviews it, and the map changes.</b> Lafayette County School District had reported striking 57 children, and now prohibits it. It is on <a href="/kids/stopped/">the districts that stopped</a>, on <a href="/kids/timeline/">the timeline</a>, and it has <a href="/kids/stopped/ar-lafayette-county-school-district/">a certificate</a>.</li>
+</ol>
+<p>That is one district. <a href="/kids/worklist/">743 more</a> that reported striking a student are still unopened, and each one is about ten minutes of an agent's time.</p>
+<h2>How to start</h2>
 <div class="grid">
 <div class="card"><h2>Claude Code</h2><pre>claude plugin marketplace add AnthonyDavidAdams/end-school-corporal-punishment
 claude plugin install escp@escp
