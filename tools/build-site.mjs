@@ -134,7 +134,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -402,6 +402,45 @@ claude
 <div class="card"><h2>Your network</h2><p>Share your state's page. If you are a teacher, physician, psychologist, pastor or lawyer in a paddling state, open an issue titled <code>[witness] Your State</code>.</p></div>
 <div class="card"><h2>An hour</h2><p>Add your own district's policy with the <a href="${REPO}/issues/new?template=district-policy.yml">district finding form</a>, or verify one claim.</p></div>
 </div>`}));
+
+// ---------- districts that stopped ----------
+// A district that reported striking children and now prohibits it is the only argument that works on
+// another board: not that it is wrong, which they have heard, but that a district like theirs stopped
+// and is still standing. The page is computed, so it grows as the scan does.
+//
+// It is deliberately not a victory list. A district can appear here for two reasons -- it changed its
+// policy after the filing, or its filing was wrong -- and the page says which for each, out of what
+// the record itself says, because a page that blurred the two would deserve to be disbelieved.
+mkdirSync(join(site, "stopped"), { recursive: true });
+{
+  const stopped = [];
+  for (const [code, list] of Object.entries(districts)) {
+    for (const d of list) if (d.status === "bans" && d.crdc_students_latest > 0 && d.source) stopped.push({ code, ...d });
+  }
+  stopped.sort((a, b) => b.crdc_students_latest - a.crdc_students_latest);
+  const total = stopped.reduce((a, d) => a + d.crdc_students_latest, 0);
+  const rows = stopped.map(d => `<tr><td>${n(d.crdc_students_latest)}</td><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${d.policy_code && d.policy_code.length <= 16 ? esc(d.policy_code) : ""}</td><td><a href="${esc(d.source)}" rel="noopener">policy</a></td><td><a href="/kids/state/${d.code}/">record</a></td></tr>`).join("");
+  const quotes = stopped.map(d => `<blockquote><p>${esc(d.quote)}</p><footer>${esc(d.name)}${d.policy_code && d.policy_code.length <= 16 ? `, policy ${esc(d.policy_code)}` : ""} &middot; ${n(d.crdc_students_latest)} student${d.crdc_students_latest === 1 ? "" : "s"} struck in 2023-24 &middot; read ${esc(d.last_verified || "")}</p></footer></blockquote>`).join("");
+  writeFileSync(join(site, "stopped", "index.html"), shell({
+    title: "Districts that used to paddle and stopped",
+    path: "/stopped/",
+    description: `${stopped.length} school districts told the federal government they struck students in 2023-24 and now prohibit corporal punishment in their own policy.`,
+    body: `<section class="hero"><div class="wrap"><h1>Districts that stopped</h1>
+<p class="lede">${stopped.length} district${stopped.length === 1 ? "" : "s"} in this record reported striking students to the federal government in 2023-24 and now prohibit corporal punishment in their own board policy. Between them they struck ${n(total)} children in that one year.</p></div></section>
+<p>Every board that still permits it has already heard the argument that it is wrong. What it has not been shown is a district of its own size, in its own state, under its own law, that stopped and is still running. These are those districts, in their own words.</p>
+${quotes}
+<div class="tablewrap"><table><tr><th>Struck 2023-24</th><th>District</th><th>Policy</th><th>Source</th><th></th></tr>${rows}</table></div>
+<h2>What a row here means, and what it does not</h2>
+<p>A district appears here because its own current policy prohibits corporal punishment and its own federal filing for 2023-24 reported students struck. Those two facts can both be true for two different reasons, and the record for each district says which:</p>
+<ul>
+<li><b>The district changed its policy after the filing.</b> Pike County, Alabama revised policy 5.30.1 on 17 June 2024, after the school year in which it reported 252 students struck. That is a district that stopped.</li>
+<li><b>The filing does not match a policy that was already in place.</b> Lubbock ISD removed corporal punishment in 2020 and its 2023-24 filing still shows two students. That is a reporting question, not a change of heart, and it is on this page because hiding it would make the other rows less believable.</li>
+</ul>
+<p class="meta">Counts are from the US Department of Education's Civil Rights Data Collection for 2023-24; see <a href="/kids/data/">the data page</a>. Policy text is quoted from each district's own current policy, with the link beside it. If a district on this page has been read wrong, <a href="/kids/contribute/">the record is public and correctable</a>.</p>
+<p><a href="/kids/worklist/">${n(0)}</a></p>`.replace('<p><a href="/kids/worklist/">0</a></p>', '<p><a href="/kids/worklist/">The districts nobody has checked yet &rarr;</a></p>')
+  }));
+  console.log(`stopped: ${stopped.length} districts, ${total} students`);
+}
 
 // ---------- worklist ----------
 // The project's own to-do list, in public, with a number beside every line. "Scan a state" is an
