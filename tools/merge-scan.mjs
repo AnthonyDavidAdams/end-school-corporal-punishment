@@ -34,7 +34,26 @@ for (const f of process.argv.slice(2)) {
     const i = doc.districts.findIndex(d =>
       (r.nces_id && d.nces_id && d.nces_id === r.nces_id && sameName(d.name, r.name)) ||
       sameName(d.name, r.name));
-    if (i >= 0) { doc.districts[i] = { ...doc.districts[i], ...entry, name: !entry.name || doc.districts[i].name.length >= entry.name.length ? doc.districts[i].name : entry.name }; updated++; } else { doc.districts.push(entry); added++; }
+    if (i >= 0) {
+      const prev = doc.districts[i];
+      // A later scan is not automatically a better one. Two ways a merge can quietly make a record
+      // worse, both seen in the 2026-09 impact scan:
+      //   - county gets overwritten with the town the district office sits in. Monroe County School
+      //     District came back as county "Amory", which is a city inside Monroe County and the name of
+      //     a different district. A county already on file is kept and the disagreement is reported.
+      //   - a board policy citation gets replaced by a handbook citation for the same status. Both are
+      //     real sources and the board policy is the governing one, so the swap is reported rather than
+      //     made silently; re-run with the record removed if the new source is genuinely better.
+      if (prev.county && entry.county && norm(prev.county) !== norm(entry.county)) {
+        console.error(`keep county for ${prev.name}: on file "${prev.county}", scan said "${entry.county}"`);
+        entry.county = prev.county;
+      }
+      if (prev.source && entry.source && prev.source !== entry.source && prev.status === entry.status) {
+        console.error(`NOTE ${prev.name}: source replaced, status unchanged (${prev.status})\n  was ${prev.source}\n  now ${entry.source}`);
+      }
+      doc.districts[i] = { ...prev, ...entry, name: !entry.name || prev.name.length >= entry.name.length ? prev.name : entry.name };
+      updated++;
+    } else { doc.districts.push(entry); added++; }
     doc.districts.sort((a, b) => a.name.localeCompare(b.name));
     writeFileSync(p, `# District corporal punishment policies for ${r.state}. One entry per district.\n# status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.\n` + stringify(doc, { lineWidth: 0 }));
   }
