@@ -95,3 +95,57 @@ tasks:
     collection: training-reviews
     done_means:
       - Every citation in the module was opened and is marked ok or not, with a note.
+
+  - id: contact-capture
+    title: Find a district's published contact
+    description: >
+      For a district already in the record, find the contact it publishes for the public and record it:
+      the general or superintendent's office email, the board or board clerk email, the phone and
+      mailing address, the superintendent's name, the board page, and how the public signs up to speak
+      at a meeting. Public record only. This is what stands between the record and being able to write
+      to a district about its own policy, and it is cheap when someone is already on the site and
+      expensive to go back for.
+    unit: One state's already-scanned districts
+    output: contact blocks in data/districts/<XX>.yaml
+    priority: 1
+    schema: schemas/district-finding.schema.json
+    collection: districts
+    scopes: [AL, AR, FL, GA, MO, MS, OK, TN, TX]
+    done_means:
+      - Every field is a page the district publishes for the public, with contact_page recording where it was read.
+      - Nothing is a personal address, a staff member who is not the published point of contact, or anything behind a login.
+      - A district that publishes only a web form says so, rather than getting a guessed address.
+
+  - id: date-the-change
+    title: Date a district's decision
+    description: >
+      For a district whose policy prohibits corporal punishment but prints no adoption or revision date,
+      find the date its board acted, from board minutes, an agenda, or a dated policy manual. This is
+      the difference between "they never did" and "they stopped", and only the second is an example
+      another board can be shown.
+    unit: One district
+    output: policy_adopted / policy_revised in data/districts/<XX>.yaml
+    priority: 2
+    schema: schemas/district-finding.schema.json
+    collection: districts
+    done_means:
+      - The date comes from a document the board itself published, not from a news report.
+      - policy_dates_from is set to policy, and the source is recorded.
+      - A district whose minutes are not published online is filed as still undated, with what was searched.
+
+  - id: recover-blocked-source
+    title: Recover a source the server cannot read
+    description: >
+      Some districts publish their policy behind a vendor wall the project server cannot get through --
+      a JavaScript-only policy portal, a scanned PDF with no text layer, a .docx the extractor cannot
+      parse. Open it yourself, quote the policy verbatim, and resubmit with source_text attached so a
+      reviewer can confirm it. crew/notes/blocked-sites.md has what is already known about each vendor.
+    unit: One district, or one vendor's districts
+    output: Entries in data/districts/<XX>.yaml with source_text
+    priority: 2
+    schema: schemas/district-finding.schema.json
+    collection: districts
+    done_means:
+      - The policy text is attached verbatim, with the page or section it came from.
+      - Notes say which wall it was and what was tried through the shared tools first.
+      - Anything learned about the vendor is added to crew/notes/blocked-sites.md.

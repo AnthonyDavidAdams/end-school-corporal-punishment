@@ -1,0 +1,87 @@
+{
+ "generated": "2026-09-20",
+ "tasks": [
+  {
+   "id": "district-policy-scan",
+   "title": "District policy scan",
+   "priority": 1,
+   "unit": "districts that reported striking a student and whose policy nobody has read",
+   "scopes": 17,
+   "count": 743,
+   "where": "/kids/worklist/"
+  },
+  {
+   "id": "contact-capture",
+   "title": "Find a district's published contact",
+   "priority": 1,
+   "unit": "districts in the record with no published email, so nothing can be sent to them",
+   "scopes": 9,
+   "count": 158
+  },
+  {
+   "id": "crdc-refresh",
+   "title": "CRDC refresh",
+   "priority": 1,
+   "unit": "federal release years",
+   "scopes": 4,
+   "count": null
+  },
+  {
+   "id": "recover-blocked-source",
+   "title": "Recover a source the server cannot read",
+   "priority": 2,
+   "unit": "districts left unknown after a real search, most of them behind a vendor wall",
+   "scopes": null,
+   "count": 151
+  },
+  {
+   "id": "date-the-change",
+   "title": "Date a district's decision",
+   "priority": 2,
+   "unit": "districts that prohibit it with no date on the policy, so they cannot be placed on the timeline",
+   "scopes": null,
+   "count": 30,
+   "where": "/kids/timeline/"
+  },
+  {
+   "id": "verify-claim",
+   "title": "Verify a claim",
+   "priority": 2,
+   "unit": "claims still marked reported rather than verified",
+   "scopes": null,
+   "count": 5
+  },
+  {
+   "id": "bill-watch",
+   "title": "Bill watch",
+   "priority": 2,
+   "unit": "states, each one legislative session",
+   "scopes": 17,
+   "count": null
+  },
+  {
+   "id": "decision-maker-dossier",
+   "title": "Decision-maker dossier",
+   "priority": 3,
+   "unit": "school boards and state education committees",
+   "scopes": null,
+   "count": null
+  },
+  {
+   "id": "training-review",
+   "title": "Training review",
+   "priority": 3,
+   "unit": "modules in the replacement curriculum",
+   "scopes": null,
+   "count": null
+  },
+  {
+   "id": "share-kit",
+   "title": "Share kit",
+   "priority": 4,
+   "unit": "states",
+   "scopes": 17,
+   "count": null
+  }
+ ]
+}

@@ -97,7 +97,37 @@ Cursor (`.cursor/mcp.json`), and the generic shape most HTTP-capable clients acc
 }
 ```
 
-ChatGPT: Settings > Connectors > Create, with the server URL `https://your-host.example/mcp`, no authentication. ChatGPT requires a public HTTPS host, so deploy first (below).
+### ChatGPT
+
+ChatGPT reaches a custom MCP server through developer mode. As of 2026-09-20, following OpenAI's
+current MCP documentation:
+
+1. **Settings → Connectors → Advanced → Developer mode**, and turn it on. (OpenAI's docs also describe
+   the toggle under Settings → Security and login; it has moved before and may move again. It is the
+   one that mentions MCP.)
+2. In a new chat, open the **+** menu, choose to add a connector, and paste the server URL:
+
+   ```
+   https://escp-mcp-production.up.railway.app/mcp
+   ```
+
+3. **No authentication.** This server reads and writes nothing that needs a key: findings are reviewed
+   by a person before they enter the record, and the maintainer token is only for review.
+4. Ask it to call `get_started`. It will explain the contract and hand you the first calls.
+
+Two things worth knowing before you try:
+
+- **`search` and `fetch` exist for this.** OpenAI's research connectors look for tools with exactly
+  those names and a particular result shape, so this server provides them as aliases over
+  `search_facts`, `get_fact` and `get_record`. `search` returns individual districts rather than the
+  state file they live in, so asking about one district gives you that district's status, quote and
+  source rather than a blob.
+- **The transport is Streamable HTTP**, which is the current MCP standard. Some of OpenAI's examples
+  still show an older `/sse/` endpoint. If a client insists on SSE, this server does not speak it;
+  open an issue and say which client.
+
+Any other client that takes a plain MCP URL uses the same address. Nothing about it is
+ChatGPT-specific.
 
 ## Environment variables
 

@@ -411,6 +411,7 @@ ${templates.map(t => `<h3 id="${t.f.replace(".md", "")}">${esc(t.title)}</h3>${t
 // The walkthrough on the contribute page is a real district out of the record, not an illustration, so
 // it cannot quietly become untrue. If this district is ever re-read and the answer changes, the page
 // changes with it.
+const QUEUE = JSON.parse(readFileSync(join(root, "site/data/queue.json"), "utf8"));
 const WALK_ID = "0500065";   // Lafayette County School District, Arkansas
 const WALKTHROUGH = (() => {
   for (const [code, list] of Object.entries(districts)) {
@@ -447,7 +448,8 @@ writeFileSync(join(site, "contribute", "index.html"), shell({
 claude plugin install escp@escp
 claude
 &gt; /escp:district-policy-scan Mississippi</pre><p class="small">Six skills: district scan, verify claim, bill watch, federal data refresh, decision-maker dossier, share kit. Each ends in a validated pull request.</p></div>
-<div class="card"><h2>Any other agent (MCP)</h2><pre>https://escp-mcp-production.up.railway.app/mcp</pre><p class="small">A Model Context Protocol server with the facts, state law, district data, federal counts, the task queue, and tools to submit a district finding or a fact correction. Works from ChatGPT, Cursor, Claude Desktop, or your own code. <a href="${REPO}/blob/main/mcp/README.md">Setup.</a></p></div>
+<div class="card"><h2>ChatGPT</h2><pre>https://escp-mcp-production.up.railway.app/mcp</pre><p class="small">Turn on <b>developer mode</b> in ChatGPT's settings, then add that URL as a connector from the <b>+</b> menu in a new chat. No authentication. Ask it to call <code>get_started</code>. It has <code>search</code> and <code>fetch</code>, so asking it about one district gives you that district's status, quote and source. <a href="${REPO}/blob/main/mcp/README.md#chatgpt">Full setup.</a></p></div>
+<div class="card"><h2>Any other agent (MCP)</h2><pre>https://escp-mcp-production.up.railway.app/mcp</pre><p class="small">The same address in Cursor, Claude Desktop, or your own code. A Model Context Protocol server with the facts, state law, district data, federal counts, the task queue, and tools to submit a district finding or a fact correction. <a href="${REPO}/blob/main/mcp/README.md">Setup.</a></p></div>
 <div class="card"><h2>Ground Crew</h2><p>The server above runs <a href="https://github.com/AnthonyDavidAdams/groundcrew" rel="noopener">Ground Crew</a>, EarthPilot's open protocol for pointing many people's agents at one public problem. Any group can run a crew for its own issue.</p></div>
 <div class="card"><h2>The contract</h2><p>Open every source. Quote verbatim. Date everything. Never guess. No student names. <a href="${REPO}/blob/main/AGENTS.md">AGENTS.md</a> is the whole of it, and the validator enforces the schema.</p></div>
 <div class="card"><h2>What we record about you</h2><p>The handle or email you give your agent, and the rough location your connection resolves to when you claim work &mdash; city, region, country, looked up once and stored as those three fields.</p><p class="small">Your email is never published: the live feed shows a six-character one-way hash instead. Your IP address is never stored, never logged and never written to disk; it is exchanged once with a lookup service for a city and then discarded. If you would rather not appear at all, say so in your claim and your contributions will be recorded without a place.</p></div>
@@ -462,6 +464,9 @@ claude
 <tr><td>Training review</td><td>One module, by someone who has run a school</td><td>3</td></tr>
 </table></div>
 <p>The fastest way in is <a href="/kids/worklist/">the worklist</a>: every district that told the federal government it struck a student in 2023-24 and whose policy nobody has read yet, ranked by how many children. Pick a line.</p>
+<p>It is not the only job. Reading policies is the one there is most of, but a record is only useful if someone can act on it, and several of these are what stand between the record and that.</p>
+<div class="tablewrap"><table><tr><th>Task</th><th>Open</th><th>Unit</th></tr>${QUEUE.tasks.map(t => `<tr><td>${esc(t.title)}<br><code class="small">${esc(t.id)}</code></td><td>${t.count === null ? '<span class="meta">ongoing</span>' : `<b>${n(t.count)}</b>`}</td><td class="small">${t.where ? `<a href="${t.where}">${esc(t.unit)}</a>` : esc(t.unit)}</td></tr>`).join("")}</table></div>
+<p class="meta">Counts are computed from the record, not estimated: ${n(QUEUE.tasks.filter(t => t.count !== null).reduce((a, t) => a + t.count, 0))} units of work are open right now. Ask your agent for the task by its id, or call <code>list_tasks</code> on the crew server.</p>
 <p class="meta">Claim a scope first with the <a href="${REPO}/issues/new?template=task-claim.yml">task-claim issue</a> so work is not duplicated. ${n(districtsIn([...legalStates, ...partialStates].map(x => x.code)))} districts in the ${legalStates.length + partialStates.length} states where it is not prohibited, counted from the federal district file (NCES Common Core of Data, 2023-24); ${summary.districts_sourced} sourced so far.</p>
 <h2>No agent?</h2>
 <div class="grid">
