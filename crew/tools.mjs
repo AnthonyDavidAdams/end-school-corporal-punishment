@@ -54,11 +54,46 @@ function schoolYearFrom(text) {
 // and a flag when it bites, because a silent partial read is worse than a failure.
 const MAX_HTML_CHARS = 4_000_000;
 
-async function getText(url, fetchImpl) {
-  const res = await fetchImpl(url, { headers: { "User-Agent": UA, Accept: "text/html,*/*" }, redirect: "follow", signal: AbortSignal.timeout(25000) });
+// A lot of district sites answer with an F5 "Client Challenge" or simply drop the connection, and it
+// is worth being precise about why, because two plausible theories were tested and both were wrong.
+//
+// It is not the user agent. Head to head on 2026-09-20, woodvilleeagles.org, whitehallsd.org and
+// rivercrestcolts.org each served the same 1.1-1.2 MB page to a Chrome string and to a crawler string,
+// back to back. The earlier observation that `curl/8.0` got through where Chrome did not was two
+// requests minutes apart inside a rate-limit window, not a rule.
+//
+// It is the rate. The challenge follows a burst from one address and clears on its own, which means a
+// single failure says almost nothing and a retry a few seconds later usually succeeds. So: retry,
+// briefly and with a different user agent each time, since that costs nothing if a site ever does care.
+// What actually fixes this class of failure is fewer agents through one address, not a cleverer header.
+const CRAWLER_UA = "groundcrew/0.4 (+https://github.com/AnthonyDavidAdams/end-school-corporal-punishment)";
+const CHALLENGE = /Client Challenge|Pardon Our Interruption|_Incapsula_Resource|Just a moment\.\.\./i;
+
+async function getOnce(url, fetchImpl, ua) {
+  const res = await fetchImpl(url, {
+    headers: { ...(ua ? { "User-Agent": ua } : {}), Accept: "text/html,*/*" },
+    redirect: "follow", signal: AbortSignal.timeout(25000),
+  });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const full = await res.text();
   return { html: full.slice(0, MAX_HTML_CHARS), final: res.url, truncated: full.length > MAX_HTML_CHARS, source_chars: full.length };
+}
+
+async function getText(url, fetchImpl) {
+  let first = null;
+  try {
+    first = await getOnce(url, fetchImpl, UA);
+    if (!CHALLENGE.test(first.html) && first.source_chars > 5000) return first;
+  } catch { /* fall through and try as a crawler */ }
+  for (const [i, ua] of [CRAWLER_UA, null, UA].entries()) {
+    await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
+    try {
+      const alt = await getOnce(url, fetchImpl, ua);
+      if (!CHALLENGE.test(alt.html) && alt.source_chars > (first?.source_chars ?? 0)) return { ...alt, retried: true, ua_used: ua ?? "none" };
+    } catch { /* try the next one */ }
+  }
+  if (first) return first;
+  throw new Error(`nothing served this URL after four attempts across ten seconds. These sites rate-limit by address and clear on their own, so this is usually worth retrying later rather than worked around.`);
 }
 
 function links(html, base) {
@@ -86,6 +121,7 @@ function cookieJar() {
   const store = new Map();
   return {
     header: () => [...store.entries()].map(([k, v]) => `${k}=${v}`).join("; "),
+    get: (name) => store.get(name) ?? null,
     absorb: (res) => {
       for (const c of res.headers.getSetCookie?.() ?? []) {
         const [pair] = c.split(";");
@@ -114,6 +150,11 @@ function simbliTurn() {
   return simbliQueue;
 }
 
+// Simbli's own page code sends `Authorization: Bearer <auth_Token cookie>` on these API calls, which
+// looks like a contract this tool is missing. It is not one, and the check is written down here so the
+// next person does not spend an afternoon on it: `auth_Token` is set by JavaScript and never appears in
+// the shell's Set-Cookie, and the listing API answers 200 to the request below with no bearer at all.
+// Measured 2026-09-20 against site 36031758.
 async function simbliGet(url, jar, fetchImpl, { json = false, referer } = {}) {
   await simbliTurn();
   const res = await fetchImpl(url, {
@@ -164,6 +205,10 @@ async function simbliListing(site, fetchImpl) {
   const api = await simbliGet(`${SIMBLI}/Services/api/PolicyListing/?${q}`, jar, fetchImpl, { json: true, referer: page });
   let data;
   try { data = JSON.parse(api.body); } catch { throw new Error(`Simbli's policy listing did not return JSON for site ${site} (HTTP ${api.status}).`); }
+  // A 500 here is not the rate limiter: the page was served and a session token was minted, so the
+  // request got through and the API itself refused it. Worth saying differently, because "wait and
+  // retry" is the right response to a challenge and the wrong response to this.
+  if (api.status >= 500) throw new Error(`Simbli served the page for site ${site} and then answered ${api.status} on its own policy listing API. The shell loaded and a session was minted, so this is not the rate limiter. Retrying will not help; check the S= number, and file a report_issue if it is right.`);
   const dto = data?.PolicyListingDTO ?? {};
   const policies = (dto.Policies ?? []).map((p) => ({
     code: p.Policy?.Code ?? null,
