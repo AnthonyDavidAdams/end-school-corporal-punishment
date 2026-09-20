@@ -207,6 +207,50 @@ async function simbliPolicy(ctxs, site, revid) {
   };
 }
 
+// Apptegy districts serve the same page to everybody and the documents are not in it: the site renders
+// its file list from a CMS that answers, unauthenticated, at a section id embedded in the page. So the
+// id is scraped once and the folder tree is walked through the API, which is not challenged even when
+// the district's own site is. A district whose HTML we cannot get at all is still out of reach; many
+// Apptegy sites serve theirs fine and those are the ones this rescues.
+const THRILLSHARE = "https://thrillshare-cmsv2.services.thrillshare.com/api/v2/s";
+// Folder names likely to hold discipline policy. This orders the walk rather than restricting it: the
+// first version only descended into folders matching this, and on the district it was written for the
+// handbooks sit two levels down inside a folder called plainly "District", which matches nothing here.
+// A promising name goes first; everything else still gets visited until the budget runs out.
+const DOC_FOLDERS = /handbook|discipline|conduct|polic|board|state required|student|district|parent/i;
+async function apptegyDocuments(html, fetchImpl, limit = 60) {
+  const section = html.match(/api\/v2\/s\/(\d+)\/documents/)?.[1];
+  if (!section) return null;
+  const get = async (u) => {
+    for (let i = 0; i < 3; i++) {                       // the CMS returns sporadic empty responses
+      try {
+        const r = await fetchImpl(u, { headers: { "User-Agent": UA, Accept: "application/json" }, signal: AbortSignal.timeout(20000) });
+        if (r.ok) return await r.json();
+      } catch { /* retry */ }
+      await new Promise((res) => setTimeout(res, 800 * (i + 1)));
+    }
+    return null;
+  };
+  const out = [], queue = [{ id: null, depth: 0 }], seen = new Set();
+  let visited = 0;
+  while (queue.length && out.length < limit && visited < 24) {
+    const { id, depth } = queue.shift();
+    if (seen.has(String(id))) continue;
+    seen.add(String(id));
+    const j = await get(id === null ? `${THRILLSHARE}/${section}/documents` : `${THRILLSHARE}/${section}/documents?folder_id=${id}`);
+    visited++;
+    if (!j) continue;
+    for (const d of j.documents ?? []) {
+      if (d.url) out.push({ title: d.file_name ?? null, url: d.url, vendor: "Apptegy (Thrillshare) CMS", folder: j.meta?.current_folder ?? null });
+    }
+    if (depth >= 3) continue;
+    const kids = (j.items ?? []).filter((it) => it.id && it.folder_name).map((it) => ({ id: it.id, depth: depth + 1, name: it.folder_name }));
+    kids.sort((a, b) => Number(DOC_FOLDERS.test(b.name)) - Number(DOC_FOLDERS.test(a.name)));
+    for (const k of kids) queue.push(k);
+  }
+  return { section, documents: out };
+}
+
 export async function registerTools(server, ctx, { z, text, fail, documents }) {
   const fetchImpl = ctx.fetchImpl ?? fetch;
 
@@ -245,13 +289,21 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
       const seen = new Set(), queue = [website];
       const candidates = [];
       const policySystems = new Map();
-      let pages = 0;
+      let pages = 0, apptegy = null;
       while (queue.length && pages < max_pages) {
         const page = queue.shift();
         if (seen.has(page)) continue;
         seen.add(page);
         let got; try { got = await getText(page, fetchImpl); } catch { continue; }
         pages++;
+        if (!apptegy && /api\/v2\/s\/\d+\/documents/.test(got.html)) {
+          apptegy = await apptegyDocuments(got.html, fetchImpl);
+          for (const d of apptegy?.documents ?? []) {
+            if (!HANDBOOK.test(`${d.title} ${d.folder}`)) continue;
+            if (candidates.some((c) => c.url === d.url)) continue;
+            candidates.push({ title: d.title, url: d.url, vendor: d.vendor, school_year: schoolYearFrom(`${d.title} ${d.folder}`), found_on: `${d.folder ?? "CMS"} (Apptegy CMS section ${apptegy.section})` });
+          }
+        }
         for (const l of links(got.html, got.final)) {
           const hay = `${l.text} ${safe(l.url)}`;
           // Board policy usually is not a file at all: it is a link out to a policy vendor. Note it,
@@ -284,6 +336,7 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
       const systems = [...policySystems.values()];
       return text({
         district: district ?? null, state: state ?? null, website, pages_examined: pages,
+        ...(apptegy ? { apptegy_cms_section: apptegy.section, apptegy_documents_found: apptegy.documents.length } : {}),
         candidates,
         board_policy_systems: systems,
         next: candidates.length
