@@ -45,7 +45,7 @@ districts:
     legacy_status: allows
     notes: "Read with the project's fetch_simbli_policy tool, site 4041 (S number taken from the district's own board page https://www.coffee.k12.ga.us/boe, which links simbli.eboardsolutions.com/SB_ePolicy/SB_PolicyOverview.aspx?S=4041). Tool response 12,012 bytes, application/json; it reported district 'Coffee County Schools' and 203 policies in the index, so the S number is confirmed against the right district. Board Policy JDA 'Corporal Punishment', status ADOPTED, originally adopted 12/21/2000, last revised 09/28/2006. This is OPT-OUT, not opt-in: corporal punishment is authorized by default and is withheld only from students whose parents have affirmatively filed a written objection -- hence 'allows'. The bracketed [...] in the quote elides four intervening bulleted conditions (not excessive or unduly severe; not the first line of punishment; administered in the presence of certified educational personnel informed beforehand in the student's presence; written explanation on request); both quoted sentences are verbatim from the policy text. Companion records exist: JDA-R(0) 'Corporal Punishment' (adopted 01/02/2009) is a CORPORAL PUNISHMENT EXEMPTION LETTER which states 'Georgia School Law 20-2-730 allows for corporal punishment to be administered. It also provides that the parent/guardian may request exemption.' and 'If you elect for your child not to have corporal punishment administered (be paddled), then an alternate punishment will result, i.e., in-school suspension, detention and/or suspension from school.' Simbli is JavaScript-only and Imperva-protected, so this URL cannot be curled directly; it is machine-readable via fetch_simbli_policy."
     policy_code: JDA
-    crdc_students_latest: null
+    crdc_students_latest: 3
   - name: Colquitt County Schools
     county: Colquitt
     nces_id: "1301380"
@@ -172,7 +172,7 @@ districts:
     legacy_status: allows
     notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Board Policy JDA 'Corporal Punishment', status ADOPTED, Original Adopted Date 07/12/1977, Last Revised Date 04/16/2020, Last Reviewed Date 04/16/2020. Classified 'allows' (OPT-OUT, not opt-in): the policy authorises corporal punishment by default and withholds it only where parents have said otherwise -- verbatim, 'Corporal punishment shall not be administered to a child whose parents, or legal guardian, have stated they do not desire paddling used as punishment for their child.' The policy also states, verbatim, 'Corporal punishment shall never be used as a first line of punishment for misbehavior with two (2) exceptions;' and '*The Superintendent will ensure there are clear procedures in the board approved student handbook for implementation of this policy.' S number 4157 is Tift County Schools' Simbli site and the page header reads 'Tift County Schools'. NOT machine-fetchable: Simbli is JavaScript-only behind an Imperva challenge and fetch_simbli_policy for site 4157 returned the bot-challenge error, so I read the policy in a real browser and supply the full verbatim text in source_text."
     policy_code: JDA
-    crdc_students_latest: null
+    crdc_students_latest: 4
   - name: Ware County Schools
     county: Ware
     nces_id: "1305430"
@@ -183,4 +183,4 @@ districts:
     legacy_status: allows
     notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Board Policy JDA \"Corporal Punishment\", status ADOPTED, Original Adopted Date 11/13/2007, Last Reviewed Date 04/21/2020 (the listing row shows Last Revised 11/13/2007). Simbli site 4170; confirmed as Ware County's by opening the manual (header \"Policy Listing | Ware County Schools\", Ware County Schools logo on the policy page) and by the S=4170 link printed in Ware County Board of Education's own Personnel Handbook. Simbli is JavaScript-only and its bot protection refused fetch_simbli_policy repeatedly during this scan, so I read the policy in a browser and the verbatim text is in source_text below. OPT-OUT, therefore \"allows\": requirement 5 reads \"Corporal punishment shall not be administered to a child whose parents or legal guardian have, upon the day of enrollment of the pupil, filed with the principal of the school a statement objecting to its use.\" NOTE for the reviewer: www.ware.k12.ga.us itself answers a Finalsite \"Client Challenge\" JavaScript page to non-browser clients (3038 bytes, text/html), and resolve_handbook found nothing there."
     policy_code: JDA
-    crdc_students_latest: null
+    crdc_students_latest: 8
