@@ -6,12 +6,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse, stringify } from "yaml";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-// "County" and "City" are kept: in Alabama, Georgia, Mississippi and Tennessee a county district and
-// a city district of the same name are two separate districts with their own boards and their own
-// corporal punishment policies. Stripping either word makes them indistinguishable, which silently
-// writes one district's policy onto the other's row.
-const norm = s => String(s || "").toLowerCase().replace(/\b(school district|schools|school system|public schools|isd|consolidated|co\.?|district|dist)\b/g, " ").replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
-const kind = s => { const t = String(s || "").toLowerCase(); return t.includes("county") ? "county" : t.includes("city") ? "city" : null; };
+import { norm, kind, sameName } from "./lib/district-name.mjs";
 const VALID = new Set(["allows", "bans", "consent_required", "unknown"]);
 let added = 0, updated = 0, skipped = 0;
 for (const f of process.argv.slice(2)) {
@@ -29,7 +24,6 @@ for (const f of process.argv.slice(2)) {
     // that mis-joins districts will produce those — otherwise matches a completely different row and
     // renames it: Coahoma's id arrived on Choctaw's record and quietly turned Choctaw's row into a
     // second Coahoma. The id is strong evidence of identity, not proof of it.
-    const sameName = (a, b) => norm(a) === norm(b) && kind(a) === kind(b);
     const i = doc.districts.findIndex(d =>
       (r.nces_id && d.nces_id && d.nces_id === r.nces_id && sameName(d.name, r.name)) ||
       sameName(d.name, r.name));

@@ -4,7 +4,7 @@ state: TX
 districts:
   - name: Abilene ISD
     county: Taylor
-    nces_id: null
+    nces_id: "4807440"
     status: allows
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1118&code=FO
     quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
@@ -13,9 +13,15 @@ districts:
     notes: "Confirms the legacy 'allows' value with a source and quote. Opt-out, not opt-in: a parent must submit a signed statement to the principal each school year to prohibit it and may reinstate permission at any time. Guidelines: limited to spanking or paddling; the student is told the reason first; administered only by the principal or designee; administered only by an employee who is the same sex as the student; instrument approved by the principal; administered in the presence of one other District professional employee in a designated place out of view of other students. Disciplinary record must include the administrator, the witness, and the date and time. No disability exemption in FO(LOCAL); FO(LEGAL) carries the Education Code 37.0011 parent-statement text. Read on TASB Policy Online, Abilene ISD Board Policy Manual key=1118 (https://pol.tasb.org/Home/Index/1118), Local Policy tab of FO. Footer: UPDATE 126, DATE ISSUED: 11/10/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(325)677-1444"
+      mailing_address: "P O BOX 981, ABILENE, TX 79604"
+      website: "http://www.abileneisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Amarillo ISD
     county: Potter
-    nces_id: null
+    nces_id: "4808130"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1004&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -24,9 +30,15 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Amarillo ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Amarillo ISD Board Policy Manual key=1004, https://pol.tasb.org/Home/Index/1004) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 11/4/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID per Wikipedia is 4808130; left null pending NCES CCD confirmation."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(806)326-1000"
+      mailing_address: "7200 I 40 W, AMARILLO, TX 79106"
+      website: "http://www.amaisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Arlington ISD
     county: Tarrant
-    nces_id: null
+    nces_id: "4808700"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1098&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -35,6 +47,12 @@ districts:
     notes: "Confirms the legacy 'bans' value with a source and quote. FO(LOCAL) on TASB Policy Online (Arlington ISD Board Policy Manual key=1098, https://pol.tasb.org/Home/Index/1098) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 10/17/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(682)867-4611"
+      mailing_address: "690 E LAMAR BLVD, ARLINGTON, TX 76011"
+      website: "http://www.aisd.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Austin ISD
     county: Travis
     nces_id: null
@@ -84,9 +102,15 @@ districts:
       notes: "Searched the 2026-2027 BSHS and BSJH Student Handbooks (114 and 106 pp.) for 'bell schedule', 'school hours', 'first period', 'tardy bell' and 7:xx/8:xx times: none. BSHS handbook says only that areas are open to students 'before school, beginning at 7:15 a.m.'; BSJH 'beginning at 7:00 a.m.' The BSHS site menu offers 'When do we have school?' which links to the calendar. No bell schedule page found on either campus site."
     archived_url: https://web.archive.org/web/20260910032244/https://pol.tasb.org/PolicyOnline/PolicyDetails?key=685&code=FO#legalTabContent
     document_text_path: data/policies/TX/4810200.md
+    contact:
+      phone: "(432)264-3600"
+      mailing_address: "708 E 11TH PL, BIG SPRING, TX 79720"
+      website: "http://www.bsisd.esc18.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Brownsville ISD
     county: Cameron
-    nces_id: null
+    nces_id: "4811680"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=254&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -95,9 +119,15 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Brownsville ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Brownsville ISD Board Policy Manual key=254, https://pol.tasb.org/Home/Index/254) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 10/27/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(956)548-8011"
+      mailing_address: "1900 PRICE RD, BROWNSVILLE, TX 78521"
+      website: "http://www.bisd.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Bryan ISD
     county: Brazos
-    nces_id: null
+    nces_id: "4811790"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=225&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -106,6 +136,12 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Bryan ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Bryan ISD Board Policy Manual key=225, https://pol.tasb.org/Home/Index/225) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 11/11/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID per Wikipedia is 4811790; left null pending NCES CCD confirmation."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(979)209-1000"
+      mailing_address: "801 S ENNIS ST, BRYAN, TX 77803"
+      website: "http://www.bryanisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Corpus Christi ISD
     county: Nueces
     nces_id: null
@@ -126,7 +162,7 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Dallas ISD
     county: Dallas
-    nces_id: null
+    nces_id: "4816230"
     status: bans
     source: https://resources.finalsite.net/images/v1755021578/dallasisdorg/obs6bfjuzslkr6tmiw4e/StudentHandbook.pdf
     quote: District policy prohibits the use of corporal punishment. [See policy FO (LOCAL)].
@@ -135,6 +171,12 @@ districts:
     notes: Confirms the legacy 'bans' value with a source and quote. Opened the district Student Handbook PDF linked from https://www.dallasisd.org/parents-students/student-requirements/student-handbook (finalsite asset v1755021578; the text references the 2026-2027 Student Artwork Release Form, so this is the current edition). The single-sentence subsection sits under 'Consent, Opt-Out, and Refusal Rights' and cites FO(LOCAL) on Dallas ISD's TASB Policy Online (key=361), which was not opened this run. A campus discipline plan (Salazar Elementary, https://salazar.dallasisd.org/our-school/discipline-management-plan) also states 'Per Dallas ISD policy, no one is to administer corporal punishment.' NCES district ID not confirmed this run.
     policy_code: "Student Handbook, Section One: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 5); refers to FO(LOCAL)"
     crdc_students_latest: null
+    contact:
+      phone: "(972)925-3700"
+      mailing_address: "9400 N CENTRAL EXPY, DALLAS, TX 75231"
+      website: "http://www.dallasisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Del Rio CISD
     county: Val Verde
     nces_id: null
@@ -185,9 +227,15 @@ districts:
         quote: ""
       notes: "No bell schedule found. Searched: 2026-27 Student Code of Conduct (no times), Dumas HS home page, DHS About Us page (https://www.dumasisd.org/o/dhs/page/dhs-about-us), DHS Documents folder, Dumas Junior High home page, district Documents library. The district's separate campus 'Student Handbook' (referenced in the Code for dress code) was not found on the Apptegy document library."
     document_text_path: data/policies/TX/4817610.md
+    contact:
+      phone: "(806)935-6461"
+      mailing_address: "P O BOX 615, DUMAS, TX 79029"
+      website: "http://www.dumasisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Eagle Pass ISD
     county: Maverick
-    nces_id: null
+    nces_id: "4817730"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=854&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -196,9 +244,15 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Eagle Pass ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Eagle Pass ISD Board Policy Manual key=854, https://pol.tasb.org/PolicyOnline?key=854; the district's own site links http://pol.tasb.org/Home/Index/854) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 11/6/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(830)773-5181"
+      mailing_address: "587 MADISON ST, EAGLE PASS, TX 78852"
+      website: "http://www.eaglepassisd.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Edinburg CISD
     county: Hidalgo
-    nces_id: null
+    nces_id: "4818180"
     status: allows
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=635&code=FO
     quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
@@ -207,6 +261,12 @@ districts:
     notes: "Confirms the legacy 'allows' value with a source and quote. One of the largest districts in the Rio Grande Valley (about 33,800 students). Opt-out, not opt-in: a parent must submit a signed statement to the principal each school year to prohibit it and may reinstate permission at any time. Guidelines: limited to spanking or paddling; the student is told the reason first; administered only by the principal or designee; instrument approved by the principal; administered in the presence of one other District professional employee in a designated place out of view of other students. District-specific clause: 'Except on elementary campuses, corporal punishment shall be administered only by an employee who is the same sex as the student. On an elementary campus, corporal punishment may be administered by an employee who is not of the same sex as the student.' Disciplinary record must include the administrator, the witness, and the date and time. No disability exemption in FO(LOCAL); FO(LEGAL) carries the Education Code 37.0011 parent-statement text. Read on TASB Policy Online, Edinburg CISD Board Policy Manual key=635 (https://pol.tasb.org/home/index/635). Footer: UPDATE 126, DATE ISSUED: 11/10/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID per Wikipedia is 4818180; left null pending NCES CCD confirmation."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(956)289-2300"
+      mailing_address: "P O BOX 990, EDINBURG, TX 78540"
+      website: "http://www.ecisd.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: El Paso ISD
     county: El Paso
     nces_id: null
@@ -218,7 +278,7 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Fort Worth ISD
     county: Tarrant
-    nces_id: null
+    nces_id: "4819700"
     status: bans
     source: https://resources.finalsite.net/images/v1721917290/fwisdorg/gadrlmgmmv4lszua35hn/StudentCodeofConduct2024-25.pdf
     quote: However, an employee is not allowed to use physical restraint as a disciplinary measure; corporal punishment is prohibited.
@@ -227,6 +287,12 @@ districts:
     notes: Confirms the legacy 'bans' value with a source and quote. The board-adopted 2024-2025 Student Code of Conduct (newest PDF I could open; fwisd.org/conduct hosts the current edition but the PDF URL was not retrievable this run) states the prohibition inside the Physical Restraint section, in parentheses. Note the same Code's 'Prohibited Aversive Techniques' list (p. 18) keeps the TASB model phrase 'other than corporal punishment as permitted by district policy. [See policy FO(LOCAL).]', which is boilerplate and does not authorize anything. FWISD employee handbooks (2006 and 2013-14 editions hosted by NCTQ) also state 'The use of corporal punishment is prohibited by the FWISD Board of Trustees. Students will not be spanked, paddled, or physically disciplined for violations of the Student Code of Conduct.' FO(LOCAL) on TASB Policy Online not opened this run. NCES district ID not confirmed this run.
     policy_code: Student Code of Conduct 2024-2025, 'Discipline Considerations & Techniques' > 'Physical Restraint' (p. 17)
     crdc_students_latest: null
+    contact:
+      phone: "(817)814-2000"
+      mailing_address: "7060 CAMP BOWIE BLVD, FORT WORTH, TX 76116"
+      website: "http://www.fwisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Frisco ISD
     county: Collin
     nces_id: null
@@ -247,7 +313,7 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Harlingen CISD
     county: Cameron
-    nces_id: null
+    nces_id: "4822530"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=255&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -256,9 +322,15 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Harlingen CISD as 'allows'. FO(LOCAL) on TASB Policy Online (Harlingen CISD Board Policy Manual key=255, https://pol.tasb.org/home/index/255) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 11/12/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(956)430-9502"
+      mailing_address: "407 N 77 SUNSHINE STRIP, HARLINGEN, TX 78550"
+      website: "http://www.hcisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Houston ISD
     county: Harris
-    nces_id: null
+    nces_id: "4823640"
     status: bans
     source: https://resources.finalsite.net/images/v1756312131/houstonisdorg/un7pfju997ei6srq3d6u/HISD-Student-Code-Of-Conduct-2025-2026-ENG.pdf
     quote: "Board Policy details District prohibition of corporal punishment. Board Policy Reference(s): DC11"
@@ -267,6 +339,12 @@ districts:
     legacy_status: bans
     policy_code: "Student Code of Conduct 2025-2026, 'At a Glance: Summary of Related Board Policies' (p. 8); Board Policy DC11"
     crdc_students_latest: null
+    contact:
+      phone: "(713)556-6005"
+      mailing_address: "4400 W 18TH ST, HOUSTON, TX 77092"
+      website: "http://www.houstonisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Irving ISD
     county: Dallas
     nces_id: null
@@ -287,7 +365,7 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Killeen ISD
     county: Bell
-    nces_id: null
+    nces_id: "4825660"
     status: bans
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5535/Kisd/20272e62-e640-413d-a7a2-f830c777127c/Student_Handbook_2024-2025.pdf?disposition=inline
     quote: In accordance with the Student Code of Conduct and district policy FO(LOCAL) Corporal Punishment is prohibited in Killeen Independent School District.
@@ -296,9 +374,15 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Killeen ISD as 'allows'. The 2024-2025 Student Handbook and District Information, Section One: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 10), states the prohibition and ties it to the Student Code of Conduct and FO(LOCAL). Newer handbooks (2025-26, 2026-27) are listed at https://www.killeenisd.org/documents/departments/student-services/student-handbook-&-code-of-conduct/16616983 but the Apptegy listing renders via JavaScript only, so their PDF URLs could not be retrieved this run. The Code of Conduct page is https://www.killeenisd.org/code_of_conduct. FO(LOCAL) on TASB Policy Online was not opened this run. NCES district ID not confirmed this run (NCES CCD not opened)."
     policy_code: "Student Handbook 2024-2025, Section One: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 10); refers to FO(LOCAL)"
     crdc_students_latest: null
+    contact:
+      phone: "(254)336-0003"
+      mailing_address: "P O BOX 967, KILLEEN, TX 76540"
+      website: "http://www.killeenisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Laredo ISD
     county: Webb
-    nces_id: null
+    nces_id: "4826790"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1208&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -307,6 +391,12 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Laredo ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Laredo ISD Board Policy Manual key=1208, https://pol.tasb.org/home/index/1208) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 10/9/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID per Wikipedia is 4826790; left null pending NCES CCD confirmation."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(956)273-1000"
+      mailing_address: "2400 SAN BERNARDO AVE, LAREDO, TX 78040"
+      website: "http://www.laredoisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Lewisville ISD
     county: Denton
     nces_id: null
@@ -356,9 +446,15 @@ districts:
       notes: "From 'Daily School Schedule' in the Student Handbook (PDF p. 5): 'Grades K-5th PRP & Elem. Campuses 7:30 – 3:15; Grades 6th-12th Junior High Campus 8:00 AM – 3:45 PM, High School Campus 8:00 AM - 3:45 PM'."
     archived_url: https://web.archive.org/web/20260910031824/https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1001&code=FO#legalTabContent
     document_text_path: data/policies/TX/4827780.md
+    contact:
+      phone: "(936)328-2100"
+      mailing_address: "P O BOX 1297, LIVINGSTON, TX 77351"
+      website: "http://www.livingstonisd.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Longview ISD
     county: Gregg
-    nces_id: null
+    nces_id: "4828110"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=540&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force or threat of physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -367,9 +463,15 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Longview ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Longview ISD Board Policy Manual key=540, https://pol.tasb.org/Home/Index/540) prohibits corporal punishment under the 'Corporal Punishment' heading. The district's wording is broader than the TASB model: it adds 'or threat of physical force' to the prohibited means of discipline. No opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 10/9/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(903)381-2200"
+      mailing_address: "P O BOX 3268, LONGVIEW, TX 75606"
+      website: "http://www.lisd.org/"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Lubbock ISD
     county: Lubbock
-    nces_id: null
+    nces_id: "4828500"
     status: bans
     source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3628/LISD/3007676/Student_Handbook_23_24__1_.pdf
     quote: The Board prohibits the use of corporal punishment in the Distrit. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -378,9 +480,15 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Lubbock ISD as 'allows'. The district removed corporal punishment from its discipline policy in 2020 (KCBD, 2020-08-06: https://www.kcbd.com/2020/08/06/spanking-removed-lisd-discipline-techniques/, opened; Associate Superintendent Doyle Vogler said TASB recommended removal and paddling had not been used since 2015). Quote copied verbatim from the 2023-2024 Student Handbook including the district's typo 'Distrit'. The 2022-2023 handbook (https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3628/Roberts/3cbfe9f9-d837-4ec5-8c85-c1859e666241/Lubbock_ISD_Student_Handbook_2022-2023.pdf, p. 14, opened) carries the identical sentence. The board-adopted 2025-2026 Student Code of Conduct (https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3628/LISD/5901068/Student_Code_of_Conduct_2025-2026.pdf, opened) lists no corporal punishment among 'Techniques' (pp. 16-17) and its 'Prohibited Aversive Techniques' (p. 17) includes 'Using techniques designed or likely to cause physical pain.' with no corporal-punishment carve-out. The 2026-27 handbook is listed at https://www.lubbockisd.org/documents/families-&-students/student-handbook/445278 (Apptegy JavaScript listing; PDF URL not retrievable this run); KFMX (2026-08-11, https://kfmx.com/lubbock-isd-spanking-policy/, opened) reports it carries the same prohibition. TASB Policy Online key=830 (https://pol.tasb.org/PolicyOnline?key=830) not readable from this environment. NCES district ID per Wikipedia is 4828500; left null pending NCES CCD confirmation."
     policy_code: "Student Handbook 2023-2024, Section One: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 14)"
     crdc_students_latest: 2
+    contact:
+      phone: "(806)219-0000"
+      mailing_address: "1628 19TH ST, LUBBOCK, TX 79401"
+      website: "http://www.lubbockisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Lufkin ISD
     county: Angelina
-    nces_id: null
+    nces_id: "4828550"
     status: consent_required
     source: https://bpb-us-w2.wpmucdn.com/sites.lufkinisd.org/dist/c/2/files/2025/08/2025-2026-Student-Handbook-English_Final_1.pdf
     quote: Lufkin ISD will only administer corporal punishment as an available disciplinary consequence with written parent permission.
@@ -389,9 +497,15 @@ districts:
     notes: "The placeholder lists Lufkin ISD as 'allows'. The 2025-2026 Student/Parent Handbook (updated 2025-08-05), Section I 'Prohibiting the Use of Corporal Punishment' (p. 12), first says: 'Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district's policy manual.' It then adds the district-specific opt-in sentence quoted in `quote`, referring parents to 'the Corporal Punishment section of the Student Information form.' The following two sentences keep the TASB model opt-out text: 'A signed statement must be provided each year if you do not want corporal punishment to be administered to your child. You may choose to revoke this prohibition at any time during the year by providing a signed statement to the campus principal.' Also: 'district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.' and a NOTE that corporal punishment shall not be administered to a student in state conservatorship even without a signed statement. CONFLICT: opt-in and opt-out language coexist in the same section; status recorded as consent_required on the district-specific sentence. FO(LOCAL) on TASB Policy Online was not readable from this environment and should be checked to settle it. NCES ID not confirmed this run (NCES CCD not opened)."
     policy_code: "Student/Parent Handbook 2025-2026, Section I: Parental Rights, 'Prohibiting the Use of Corporal Punishment' (p. 12); refers to FO(LOCAL)"
     crdc_students_latest: null
+    contact:
+      phone: "(936)634-6696"
+      mailing_address: "P O BOX 1407, LUFKIN, TX 75902"
+      website: "http://www.lufkinisd.org/"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Marshall ISD
     county: Harrison
-    nces_id: null
+    nces_id: "4829160"
     status: allows
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=605&code=FO
     quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
@@ -400,9 +514,15 @@ districts:
     notes: "Confirms the legacy 'allows' value with a source and quote. Opt-out, not opt-in: a parent must submit a signed statement to the principal each school year to prohibit it and may reinstate permission at any time. Guidelines: limited to spanking or paddling; the student is told the reason first; administered only by the principal or designee; instrument approved by the principal; administered in the presence of one other District professional employee in a designated place out of view of other students. No same-sex-administrator clause. Disciplinary record must include the administrator, the witness, and the date and time. No disability exemption in FO(LOCAL); FO(LEGAL) carries the Education Code 37.0011 parent-statement text. Read on TASB Policy Online, Marshall ISD Board Policy Manual key=605 (https://pol.tasb.org/Home/Index/605). Footer: UPDATE 126, DATE ISSUED: 10/27/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: 37
+    contact:
+      phone: "(903)927-8701"
+      mailing_address: "P O BOX 43, MARSHALL, TX 75671"
+      website: "http://www.marshallisd.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: McAllen ISD
     county: Hidalgo
-    nces_id: null
+    nces_id: "4829670"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=637&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -411,6 +531,12 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists McAllen ISD as 'allows'. FO(LOCAL) on TASB Policy Online (McAllen ISD Board Policy Manual key=637, https://pol.tasb.org/Home/Index/637) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 11/10/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(956)618-6000"
+      mailing_address: "2000 N 23RD ST, MCALLEN, TX 78501"
+      website: "http://www.mcallenisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: McKinney ISD
     county: Collin
     nces_id: null
@@ -468,9 +594,15 @@ districts:
         quote: MPJH Bell Schedule 2026-2027 Period 7th 8th 1 8:01 – 8:53 8:05 – 8:57 ... 8 3:03 -- 3:53 3:07 -- 3:57
       notes: "MPJH runs staggered grade schedules: 7th grade 8:01-3:53, 8th grade 8:05-3:57. MPHS regular schedule (handbook Section V, p. 94) 1st period 8:05, 8th period ends 3:57."
     document_text_path: data/policies/TX/4831760.md
+    contact:
+      phone: "(903)575-2000"
+      mailing_address: "P O BOX 1117, MOUNT PLEASANT, TX 75456"
+      website: "http://www.mpisd.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Nacogdoches ISD
     county: Nacogdoches
-    nces_id: null
+    nces_id: "4832090"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=923&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -479,6 +611,12 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Nacogdoches ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Nacogdoches ISD Board Policy Manual key=923, https://pol.tasb.org/Home/Index/923) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 10/20/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(936)569-5000"
+      mailing_address: "DRAWER 631521, NACOGDOCHES, TX 75963"
+      website: "http://www.nacisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: North East ISD
     county: Bexar
     nces_id: null
@@ -523,7 +661,7 @@ districts:
     crdc_students_latest: null
   - name: Paris ISD
     county: Lamar
-    nces_id: null
+    nces_id: "4834290"
     status: allows
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=786&code=FO
     quote: Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct. Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child. The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
@@ -532,6 +670,12 @@ districts:
     notes: "Confirms the legacy 'allows' value with a source and quote. Opt-out, not opt-in: a parent must submit a signed statement to the principal each school year to prohibit it and may reinstate permission at any time. Guidelines: limited to spanking or paddling; the student is told the reason first; administered only by the principal or designee; instrument approved by the principal; administered in the presence of one other District professional employee in a designated place out of view of other students. No same-sex-administrator clause. Disciplinary record must include the administrator, the witness, and the date and time. No disability exemption in FO(LOCAL); FO(LEGAL) carries the Education Code 37.0011 parent-statement text. Read on TASB Policy Online, Paris ISD Board Policy Manual key=786 (https://pol.tasb.org/Home/Index/786). Footer: UPDATE 126, DATE ISSUED: 11/10/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID per a Wikipedia citation is 4834290; left null pending NCES CCD confirmation."
     policy_code: FO(LOCAL)
     crdc_students_latest: 35
+    contact:
+      phone: "(903)737-7473"
+      mailing_address: "1920 CLARKSVILLE, PARIS, TX 75460"
+      website: "http://www.parisisd.net/"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Pasadena ISD
     county: Harris
     nces_id: null
@@ -561,7 +705,7 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: San Angelo ISD
     county: Tom Green
-    nces_id: null
+    nces_id: "4838700"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1139&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -570,6 +714,12 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists San Angelo ISD as 'allows'. FO(LOCAL) on TASB Policy Online (San Angelo ISD Board Policy Manual key=1139, https://pol.tasb.org/Home/Index/1139) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 11/4/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(325)947-3838"
+      mailing_address: "1621 UNIVERSITY AVE, SAN ANGELO, TX 76904"
+      website: "http://www.saisd.org/"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: San Antonio ISD
     county: Bexar
     nces_id: null
@@ -590,7 +740,7 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Temple ISD
     county: Bell
-    nces_id: null
+    nces_id: "4842330"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=169&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -599,9 +749,15 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Temple ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Temple ISD Board Policy Manual key=169, https://pol.tasb.org/Home/Index/169) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 10/28/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(254)215-6760"
+      mailing_address: "P O BOX 788, TEMPLE, TX 76503"
+      website: "http://www.tisd.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Texarkana ISD
     county: Bowie
-    nces_id: null
+    nces_id: "4842480"
     status: bans
     source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=206&code=FO
     quote: The Board prohibits the use of corporal punishment in the District. Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct.
@@ -610,6 +766,12 @@ districts:
     notes: "CORRECTION: the existing TX.yaml placeholder lists Texarkana ISD as 'allows'. FO(LOCAL) on TASB Policy Online (Texarkana ISD Board Policy Manual key=206, https://pol.tasb.org/Home/Index/206) carries the TASB model prohibition text under the 'Corporal Punishment' heading; no opt-out or guidelines section follows. FO(LEGAL) on the same page carries the Education Code 37.0011 parent-statement text, which is the statute and does not establish district practice. Footer: UPDATE 126, DATE ISSUED: 10/29/2025. Student handbook and Code of Conduct not opened this run, so phone, AI and bell-schedule fields are not filled. NCES district ID not confirmed this run."
     policy_code: FO(LOCAL)
     crdc_students_latest: null
+    contact:
+      phone: "(903)794-3651"
+      mailing_address: "4241 SUMMERHILL RD, TEXARKANA, TX 75503"
+      website: "http://www.txkisd.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Three Rivers ISD
     county: Live Oak
     nces_id: null

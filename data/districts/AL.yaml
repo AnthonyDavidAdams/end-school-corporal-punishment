@@ -13,6 +13,12 @@ districts:
     notes: "Quote is from PAGE 96 of the Baldwin County Board of Education Policy Manual (Policy2025.pdf, 126 pp, 928,414 bytes, application/pdf, sha256 b231767615565345031e53a2b8c8135bf5757de5605225e4b2b9ef7a70cbb9c5). Direct curl returns HTTP 200 application/pdf - no browser needed. The district landing page that links it is https://www.bcbe.org/board-of-education/ethics-policy-manual ('Code of Ethics & Policy Manual'), where the download link is /fs/resource-manager/view/68a978ab-553f-4f54-ac72-e4c22e226cb7 and redirects to the resources.finalsite.net URL above. Policy 6.18 is the only corporal-punishment provision in the manual; the manual shows no per-policy revision dates. REVIEWER NOTE: the wording is 'should not be administered' rather than 'shall not' / 'is prohibited' - a prohibition in substance but phrased permissively, unlike Jefferson's and Mobile's flat bans. Legacy map said 'allows'; that is not supported by this manual."
     policy_code: "6.18"
     crdc_students_latest: null
+    contact:
+      phone: "(251)937-0308"
+      mailing_address: "2600 North Hand Ave, Bay Minette, AL 36507"
+      website: "http://www.bcbe.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Birmingham City Schools
     county: Jefferson
     nces_id: "0100390"
@@ -24,6 +30,12 @@ districts:
     notes: "Read Birmingham City Schools board policy 6.17 'Corporal Punishment' in the district's own Simbli policy manual (site S=2005, linked as 'eBoard'/'Board Policies' from bhamcityschools.org/page/board-policies/). Policy last revised and originally adopted 12/11/2012; status ADOPTED. Identity confirmed independently: companion policy 6.15 Student Conduct in the same manual says the code of conduct is enforced 'within Birmingham City Schools'. Birmingham City is independent of Jefferson County Schools; this record covers only the city district. Legacy hint 'bans' happens to agree, but was not used as evidence."
     policy_code: "6.17"
     crdc_students_latest: null
+    contact:
+      phone: "(205)231-4220"
+      mailing_address: "PO Box 10007, Birmingham, AL 35202"
+      website: "http://www.bhamcityschools.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Blount County Schools
     county: Blount
     nces_id: "0100420"
@@ -42,6 +54,12 @@ districts:
     notes: "Read the full text of Blount County BOE policy 05.13 'Discipline' on Simbli site S=2086 via the fetch_simbli_policy tool. Policy last revised 06/24/2024 (originally adopted 07/29/1974); status ADOPTED. Corporal punishment has no policy of its own; it sits inside 05.13 under section B, which sets out how it must be administered rather than whether it is permitted. It also appears by name in the sanction menus: 'CLASS I DISCIPLINARY SANCTIONS ... Corporal Punishment' and 'CLASS II DISCIPLINARY SANCTIONS ... Corporal punishment'. The policy contains NO parental consent or opt-out provision of any kind - no mention of parent permission, written consent, or a way to decline. Classified 'allows' on that basis. The policy requires documentation of each incident (student name, reason, type of punishment, signatures of administrator and witness, date), retained until the student graduates."
     policy_code: "05.13"
     crdc_students_latest: 92
+    contact:
+      phone: "(205)775-1950"
+      mailing_address: "415 5th Avenue East, Oneonta, AL 35121"
+      website: "http://www.blountboe.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Butler County Schools
     county: Butler
     nces_id: "0100510"
@@ -81,6 +99,12 @@ districts:
         quote: ""
       notes: "No bell schedule found. Searched: 2026-27 Code of Conduct (only the 7:00 a.m.-3:30 p.m. phone-ban window), Greenville HS and Greenville MS home, About Us, Our School, For Students and Calendar pages, district Schools and For Parents pages. Georgiana School and McKenzie School (K-12) not checked."
     document_text_path: data/policies/AL/0100510.md
+    contact:
+      phone: "(334)382-2665"
+      mailing_address: "211 School Highlands Rd, Greenville, AL 36037"
+      website: "http://www.butlerco.k12.al.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Calhoun County School District
     county: Calhoun
     nces_id: "0100540"
@@ -121,6 +145,12 @@ districts:
       notes: Searched the Code of Conduct and Student Handbook text for bell times (none) and the home/About Us/Contact pages of ahs, ams, wphs, wpms, shs, whs .calhouncountyschools.com (Finalsite; no hours in served HTML).
     archived_url: https://web.archive.org/web/20260910031710/https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031575&revid=ov1mAh6MTHdOGkeRYUu1aw==&ptid=opluslgy5YBB1lFkXrdgY4anQ==&secid=PIt0EdqGusPq6JYPplus1xJww==&PG=6&IRP=0&isPndg=false
     document_text_path: data/policies/AL/0100540.md
+    contact:
+      phone: "(256)741-7400"
+      mailing_address: "4400 McClellan Blvd, Anniston, AL 36206"
+      website: "http://www.calhouncountyschools.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Coffee County Schools
     county: Coffee
     nces_id: "0100810"
@@ -161,6 +191,12 @@ districts:
       notes: District-wide opening/closing times from the guide ('SCHOOL OPENING AND CLOSING', PDF p. 33), not a per-school bell schedule. Each school site has a 'School Hours' page (e.g. https://nbhs.coffeecountyschools.org/school-hours) but it renders no times to a non-JavaScript client.
     archived_url: https://web.archive.org/web/20260910031412/https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2070&revid=eIilrJZeyhbzPmuNcNFFMg==&ptid=nWlQpJkYTAuW9bslshR3E96RA==&secid=qHu2lGamQmtT4oCqzZ6LAA==&PG=6&IRP=0&isPndg=false
     document_text_path: data/policies/AL/0100810.md
+    contact:
+      phone: "(334)897-5016"
+      mailing_address: "400 Reddoch Hill Rd, Elba, AL 36323"
+      website: "http://www.coffeecountyschools.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Covington County Schools
     county: Covington
     nces_id: "0100930"
@@ -200,6 +236,12 @@ districts:
         quote: ""
       notes: "No bell schedule found. Searched: 2026-27 Code of Student Conduct (only the Alternative School hours 8:00 A.M.-3:00 P.M. appear), district home page school list, Straughn High School home page, Straughn Middle School home page and its Students information page. Apptegy school sites show only events and live feeds."
     document_text_path: data/policies/AL/0100930.md
+    contact:
+      phone: "(334)222-7571"
+      mailing_address: "807 C C Baker Ave, Andalusia, AL 36421"
+      website: "http://www.cov.k12.al.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Cullman City Schools
     county: Cullman
     nces_id: "0100990"
@@ -210,6 +252,12 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-19
     notes: "BONUS RECORD, not in the input slice - added at the coordinator's request after the county/city mismatch was found. Cullman CITY Schools (cullmancats.net), a separate district from Cullman County. SOURCE: 'Students' (Section VI) volume of the Cullman City Board of Education Policy Manual. The district publishes it as a Google Drive file, linked as 'Students' under Board Policy Manual > Table of Contents on https://www.cullmancats.net/board-policies (that HTML page is only the index and does NOT contain the policy text - the cited URL is the direct-download form of the PDF itself). Human-viewable equivalent: https://drive.google.com/file/d/1PVFjIfaA_22JXAzmKv3Naou0JVi5L40B/view . The direct URL redirects to https://drive.usercontent.google.com/download?id=1PVFjIfaA_22JXAzmKv3Naou0JVi5L40B&export=download and serves a 41-page PDF, 318,327 bytes, sha256 2ce8261f262f682e89e3396258b3a855ca80017160a3f85044f026f9ad1287af. Policy 6.17 Corporal Punishment is on PDF PAGE 22 of 41 (the manual has no printed page numbers; page footers read 'Cullman City Board of Education / Students Policy Manual / ADOPTED 10/20/15 / Revised 4/19/16, 11/10/16, 5/16/17, 2/19/19, 10/22/19, 9/14/20, 1/8/21, 5/16/23, 6/24/25, 4/21/26'). Policy reference [ALA. CODE 16-28A-2 (1975)]. Confirmed readable by the project's fetch_document tool at this URL, which located the quote on page 22. Text matches Cullman County's 6.17 word for word (both follow the AASB model policy). No legacy_status existed for this district."
+    contact:
+      phone: "(256)775-5803"
+      mailing_address: "301 1st St NE, Cullman, AL 35055"
+      website: "http://www.cullmancats.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Cullman County Schools
     county: Cullman
     nces_id: "0101020"
@@ -221,6 +269,12 @@ districts:
     notes: "Read the district's own Board Policy Manual, linked as 'Board Policy Manual' in the footer of ccboe.org. https://5il.co/qsro redirects to https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1904/Ccboe/3148053d-fff6-4980-a3c9-ac6e504488fc/Board-Policy-Sections-Revised-Added--12-18-25-FINAL.pdf (114pp). Policy 6.17 Corporal Punishment is on p.88; policy reference is [ALA. CODE 16-28A-2 (1975)]. Manual page footers read 'Cullman County Board of Education / Policy Manual / Adopted: 12/14/2023'; the posted file is the 12-18-25 revision set. CORROBORATION: the 2024-25 Student Handbook (https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1183523/24-25_Student_Handbook_FINAL.pdf, 'Adopted by the Cullman County Commission on Education APPROVED: August 15, 2024') lists 'Corporal punishment' as a Class I sanction and 'Corporal punishment (6.16)' as a Class II sanction, and sets out administration rules on p.25 ('The decision to administer corporal punishment will be carefully considered...'). The handbook's '(6.16)' cross-reference is stale: in the current manual 6.16 is Searches (Students) and 6.17 is Corporal Punishment. Board policy preferred as the source, per instructions. INPUT DATA FIX: the input row carried Cullman CITY's nces_id (0100990) and website (cullmancats.net); corrected to the county district per coordinator (NCES 0101020, ccboe.org). legacy_status said 'allows' and happens to agree, but was not used."
     policy_code: "6.17"
     crdc_students_latest: 27
+    contact:
+      phone: "(256)734-2933"
+      mailing_address: "402 Arnold St NE, Cullman, AL 35055"
+      website: "http://www.ccboe.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Dale County Board of Education (Dale County Schools)
     county: Dale
     nces_id: "0101050"
@@ -261,6 +315,12 @@ districts:
       notes: "DCHS 2026-2027 bell schedule is an image (https://content.myconnectsuite.com/api/documents/cbff928cc0584dd699467fbc475ba7b6.png), read by OCR: 'BEGIN 7:25 END 7:50 Lockers & Breakfast in Classrooms; 7:50 9:30 1st Block; ... 1:35 3:05 4th Block'. The /schoolhours page image reads 'SCHOOL HOURS 7:25 AM - 3:05 PM'. South Dale Middle: the site and 2025-2026 handbook give only office hours ('7:30 AM to 3:30 PM') and 'Students should not be on campus before 7:25 a.m.' / 'should not remain on campus after 3:30 p.m.'; no bell schedule found."
     archived_url: https://web.archive.org/web/20250416120350/https://content.myconnectsuite.com/api/documents/920e45d83bd747a2bc643eb8c1ea510a
     document_text_path: data/policies/AL/0101050.md
+    contact:
+      phone: "(334)774-2355"
+      mailing_address: "202 S Hwy 123 Suite E, Ozark, AL 36360"
+      website: "http://www.dalecountyboe.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: DeKalb County Board of Education (DeKalb County Schools)
     county: DeKalb
     nces_id: "0101140"
@@ -301,6 +361,12 @@ districts:
       notes: Searched the 2026-27 handbook text for bell times (none) and the home/About pages of crhs, crms, fhs, ghs, phs, shs, ihs .dekalbk12.org (SmartSites; no hours in served HTML; /school-hours returns 404).
     archived_url: https://web.archive.org/web/20260910032002/https://files.smartsites.parentsquare.com/12948/26-27_policy_and_procedure_final.pdf
     document_text_path: data/policies/AL/0101140.md
+    contact:
+      phone: "(256)638-6921"
+      mailing_address: "PO Box 1668, Rainsville, AL 35986"
+      website: "http://www.dekalbk12.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Elmore County Schools
     county: Elmore
     nces_id: "0101290"
@@ -312,6 +378,12 @@ districts:
     notes: "Document is the 'Student Code of Conduct Quick Reference Guide, Condensed Version of the ECPS Student Handbook and Code of Conduct 2026-2027 Grades K-12 - A Statement of Policy Adopted by the Elmore County Board of Education August 2026' (36 pp, sha256 09fc9a3d90721d76075db309c658c501ac6853afbaf346ed1cb5f78b160c4de8). Reached from https://www.elmoreco.com/student-handbook (the PDF filenames on that page are opaque; this is the 'Code of Conduct' one). Classified consent_required, NOT allows: the policy requires affirmative written parental permission on file each school year before any use, i.e. opt-in rather than opt-out. Elmore is not on Simbli; no separate board policy manual is published on the district site. A second, older 98-page Elmore handbook PDF on the same page (vg4kahcq7qeofdnnlid.pdf, still references COVID-19) carries the same section."
     policy_code: Student Code of Conduct, section 'Procedure for K-12 Corporal Punishment' (p. 34)
     crdc_students_latest: 5
+    contact:
+      phone: "(334)567-1200"
+      mailing_address: "100 H H Robison Drive, Wetumpka, AL 36092"
+      website: "http://www.elmoreco.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Etowah County Schools
     county: Etowah
     nces_id: "0101380"
@@ -323,6 +395,12 @@ districts:
     notes: "Read Etowah County Schools board policy 6.17 'Corporal Punishment' in the district's Simbli policy manual (site S=36031381, found from ecboe.org). Policy last revised and originally adopted 10/07/2025; status ADOPTED — this is a recent re-adoption, not a stale record. The policy continues: 'Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administrating and documenting corporal punishment, consistent with the terms of this policy. [Reference: ALA. CODE 16-28A-2 (1975)]'. No parental consent or opt-out requirement appears anywhere in the policy text, so this is 'allows', not 'consent_required'. Identity confirmed: policy 6.14 in the same manual refers to conduct enforced 'within Etowah County Schools'."
     policy_code: "6.17"
     crdc_students_latest: 6
+    contact:
+      phone: "(256)549-7560"
+      mailing_address: "401 Broad Street, Gadsden, AL 35901"
+      website: "http://ecboe.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Houston County Schools
     county: Houston
     nces_id: "0101770"
@@ -334,6 +412,12 @@ districts:
     notes: "hcboe.us is JavaScript-rendered; resolve_handbook found nothing, so I opened the site in a browser. The homepage links 'Handbook & Code of Conduct' to this Google Doc (the doc's own header carries www.hcboe.us and its index lists 'Corporal Punishment 46'); I read it server-side via its plain-text export. This is an OPT-OUT scheme, not opt-in: corporal punishment is the default and the parent must deliver a handwritten note in person by the first day of school to prevent it, renewed annually - so 'allows', not 'consent_required'. Corporal punishment is also listed among the sanctions for Class I offenses ('Subsequent Offenses ... Corporal Punishment') and Class II offenses ('First - Student conference and parental contact, disciplinary action such as corporal punishment, ASD, ISS, bus suspension, etc.'). CORROBORATION: the Houston County Board of Education Policy Manual adopted December 12, 2022 (https://s3.amazonaws.com/scschoolfiles/3282/houston_county_policy_manual_2022_1.pdf, policy 6.16 on p.98) says 'The Board allows reasonable corporal punishment of students under the following terms and conditions... A parent or guardian of student may opt out of the use of corporal punishment as a disciplinary consequence for that student by submitting a written, signed statement to the school principal.' Same conclusion. That PDF is on the district's old SchoolInsites CDN and I could not find it linked from the current hcboe.us, which is why the handbook is cited as the source. policy_code 6.16 is from that manual; the handbook itself does not number the section."
     policy_code: "6.16"
     crdc_students_latest: 87
+    contact:
+      phone: "(334)792-8331"
+      mailing_address: "404 W Washington St, Dothan, AL 36301"
+      website: "http://www.hcboe.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Huntsville City Schools
     county: Madison
     nces_id: "0101800"
@@ -345,6 +429,12 @@ districts:
     notes: "AGENT-SUPPLIED TEXT, NEEDS HUMAN CONFIRMATION: Simbli's bot protection refused every automated read, so this policy was transcribed from the page in a browser and could not be checked against a machine-fetchable copy. Huntsville City Schools board policy manual on Simbli, site S=36030149 (listing: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36030149 , section '6. Students'). Page header: 'Policy 6.20: Corporal Punishment  Status: ADOPTED  Original Adopted Date: 06/21/2012 | Last Revised Date: 07/10/2019'. Policy reference [ALA. CODE 16-28A-2 (1975)]. Read in-browser because Simbli is a JavaScript SPA and the escp fetch_simbli_policy tool was repeatedly answered with a bot-challenge page for this site (three attempts over ~8 minutes). The S number was recovered from an archived copy of the district's Documents page, since huntsvillecityschools.org itself sits behind a Radware bot challenge that blocks both curl and the server-side fetch tools. Also checked the 2023-24 Student-Parent Information Guide and the 219-page Student Discipline exhibit (core-docs): neither mentions corporal punishment at all, so the board policy is the only primary source. legacy_status 'bans' agrees but was not used."
     policy_code: "6.20"
     crdc_students_latest: null
+    contact:
+      phone: "(256)428-6812"
+      mailing_address: "714 Bob Wallace Avenue, Huntsville, AL 35801"
+      website: "http://www.huntsvillecityschools.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Jackson County Board of Education
     county: Jackson
     nces_id: "0101830"
@@ -384,6 +474,12 @@ districts:
         quote: ""
       notes: "No bell schedule found. Searched: the 2026-27 handbook (no clock times at all), district School List page, North Jackson HS, North Sand Mountain HS, Stevenson Middle and Bridgeport Middle SmartSites home pages and site maps (they carry only ParentSquare feeds), NSM 'About Us' page. Bridgeport Middle links a Google Drive student handbook that was not opened."
     document_text_path: data/policies/AL/0101830.md
+    contact:
+      phone: "(256)259-9500"
+      mailing_address: "PO Box 549, Hollywood, AL 35752"
+      website: "http://www.jackson.k12.al.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Jefferson County Schools
     county: Jefferson
     nces_id: "0101920"
@@ -398,6 +494,12 @@ districts:
     notes: "Policy 6.15 Corporal Punishment on the district's own Simbli site (S=2003, linked as 'Policy Manual' from https://www.jefcoed.com/page/school-board). Status ADOPTED; originally adopted 07/01/2012; LAST REVISED 09/26/2024 - the 2024 revision is what makes this a ban. Corroborating: the board-approved Student and Parent Handbook (rev. 05/22/2025, https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/5107/JCS/4788990/Handbook_Bd_Approved_Simbli_5_22_25.pdf) contains no mention of corporal punishment or paddling. REVIEWER NOTE: widely-cited 2016 news coverage (WBRC) describes Jefferson County as paddling with parental opt-out. That reporting is stale - the current policy prohibits it. Legacy map 'allows' is wrong. The remainder of policy 6.15 quotes the Ala. Code Title 26 immunity language and does not authorize use."
     policy_code: "6.15"
     crdc_students_latest: null
+    contact:
+      phone: "(205)379-2000"
+      mailing_address: "2100 18th Street S, Birmingham, AL 35209"
+      website: "http://www.jefcoed.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Lee County Schools
     county: Lee
     nces_id: "0102070"
@@ -409,6 +511,12 @@ districts:
     notes: "Lee County is not on Simbli. Read the district's own 'Lee County Board of Education Policy Manual' PDF, linked from https://www.lee.k12.al.us/lee-county-board-of-education-polic. 186 pages, 2,845,746 bytes, sha256 0c902a959fb5d6d8b8e265a93482e9792dc79774107ca678d8dc2acd7d32b7b8. Quote is from section 6.17, titled 'Corporal Punishment/Use of appropriate physical contact or intervention', appearing on PDF page 137 (manual page 132); the table of contents on PDF page 4 lists it at manual page 127. The filename ('rev_71426') and the companion code-of-conduct/handbook on the same site ('board approved July 14, 2026') indicate a 2026-07-14 revision. NOTE: the legacy_status hint said 'allows' and is WRONG for this district."
     policy_code: "6.17"
     crdc_students_latest: null
+    contact:
+      phone: "(334)705-6000"
+      mailing_address: "2410 Society Hill Road, Opelika, AL 36804"
+      website: "http://www.lee.k12.al.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Limestone County Schools
     county: Limestone
     nces_id: "0102100"
@@ -420,6 +528,12 @@ districts:
     notes: "Limestone is NOT on Simbli. lcsk12.org is an Apptegy site behind a bot challenge (plain curl and the MCP fetcher both got the 'Client Challenge' shell), so I opened the Board Policy Manual folder in a browser at https://www.lcsk12.org/documents/board-documents/board-policy-manual/16900760 and read the file list. The manual is published as separate section PDFs; the newest Students section is 'VI. Students - LCBoE Policy Manual (Updated 06/30/2025)', which I then read server-side. The PDF's running footer reads 'Limestone County Board of Education Students Policy Manual July 15, 2014 Revised: June 30, 2025'. Policy 6.17 is on p.15 of that 34-page PDF. NO parental consent or opt-out clause appears anywhere in the policy. Corroborated by the district's 2026-2027 Student Handbook (https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4026/Lcs/3f4fb76e-b696-4534-9369-89f8bd109b68/2026-2027-LCS-Student-Handbook-Publish-Updated-4-15-26.pdf, p.51), whose Class I Sanctions include 'Other sanction(s) as approved by the local board of education to include corporal punishment'. Note the code differs from its neighbors: Limestone numbers it 6.17 because 6.16 is Searches (Students)."
     policy_code: "6.17"
     crdc_students_latest: null
+    contact:
+      phone: "(256)232-5353"
+      mailing_address: "300 S Jefferson St, Athens, AL 35611"
+      website: "http://www.lcsk12.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Madison City Schools
     county: Madison
     nces_id: "0100008"
@@ -430,6 +544,12 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-19
     notes: "BONUS RECORD, not in the input slice — added at the coordinator's request. Madison CITY Schools, a separate district from Madison County and from Huntsville City. Source is the 'Madison City School Board Policy Manual', filename mcs_policy_manualrevised_july_9_2026_1.pdf, embedded in the viewer on https://www.madisoncity.k12.al.us/district-policies (the PDF URL had to be read out of the page's iframe src; nothing on the page links it as plain text). Policy 6.17: Corporal Punishment appears on manual page 136; header reads 'Status: ADOPTED  Original Adopted Date: 09/02/2011 | Last Reviewed Date: 09/02/2011'. Policy reference [ALA. CODE 16-28A-2 (1975)]. REVIEWER NOTE ON THE QUOTE: this PDF's embedded font maps the 'ti' ligature to '#', so every text extractor (pdftotext and pypdf alike) renders the word 'intervention' as 'interven#on'. The quote above spells it 'intervention', which is what the page displays; that single word is the only place the transcription departs from raw extracted bytes. No legacy_status existed for this district."
+    contact:
+      phone: "(256)464-8370"
+      mailing_address: "211 Celtic Dr, Madison, AL 35758"
+      website: "http://www.madisoncity.k12.al.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Madison County Schools
     county: Madison
     nces_id: "0102220"
@@ -441,6 +561,12 @@ districts:
     notes: "Madison County School System board policy manual on Simbli, site S=36031352, found from the district's own 'Board Policies' link at https://www.mcssk12.org/our-district/board-of-education/board-policies. Page header: 'Policy 6.13: Corporal Punishment  Status: ADOPTED  Original Adopted Date: 07/01/2011 | Last Reviewed Date: 07/01/2011'. Policy reference [ALA. CODE 16-28A-2 (1975)]. Verified twice: once via the escp fetch_simbli_policy tool (which reported district 'Madison County School System') and once by opening the page in a browser. This is the COUNTY district, distinct from Madison City and Huntsville City. INPUT DATA FIX: the input row carried Madison CITY's nces_id (0100008) and website (madisoncity.k12.al.us); corrected per coordinator to NCES 0102220 / mcssk12.org. legacy_status said 'allows' — that is WRONG; the board policy prohibits it."
     policy_code: "6.13"
     crdc_students_latest: null
+    contact:
+      phone: "(256)852-2557"
+      mailing_address: "1275F Jordan Rd Bldg B, Huntsville, AL 35811"
+      website: "http://www.mcssk12.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Marion County Board of Education (Marion County Schools)
     county: Marion
     nces_id: "0102310"
@@ -481,6 +607,12 @@ districts:
       notes: "Searched the handbook text for bell times (none) and the Apptegy pages /o/hamiltonhigh, /o/hamiltonmiddle and their /documents listings on the Thrillshare mirror (mcbe.net serves a bot challenge to non-browser clients): no bell schedule or hours found."
     archived_url: https://web.archive.org/web/20260910032919/https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2664/Mcbe/0b295940-bea3-4387-ab1f-1af38c7ba6a8/Z-Full_Policy_Manual_Merged.pdf?disposition=inline
     document_text_path: data/policies/AL/0102310.md
+    contact:
+      phone: "(205)921-3191"
+      mailing_address: "188 Winchester Dr, Hamilton, AL 35570"
+      website: "http://www.mcbe.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Marshall County Board of Education (Marshall County School District)
     county: Marshall
     nces_id: "0100006"
@@ -521,6 +653,12 @@ districts:
       notes: "DAR High bell schedule (Mon-Wed modified block) is on its site; Friday is 'Even Periods + Early Dismissal'. DAR Middle's linked schedule PDF is dated 2024-2025 (updated 8/19/24), the only version linked. District handbook: 'School personnel are on campus for supervision of students from 7:15 a.m. to 3:00 p.m. Monday, Tuesday, Wednesday, and Thursday. Friday is early release day and students are dismissed at 2:00 p.m.' Douglas High/Middle and Asbury/Brindlee Mountain bell-schedule pages returned no times to curl (Douglas Middle embeds an Adobe share link)."
     archived_url: https://web.archive.org/web/20260910031936/https://drive.google.com/file/d/1CTcyVJ-5XBRx0rR-le1G_jet_UvvBO10/view
     document_text_path: data/policies/AL/0100006.md
+    contact:
+      phone: "(256)582-3171"
+      mailing_address: "12380 US Highway 431 S, Guntersville, AL 35976"
+      website: "http://www.marshallk12.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Mobile County Public Schools
     county: Mobile
     nces_id: "0102370"
@@ -532,6 +670,12 @@ districts:
     notes: "Quote is from PAGE 36 of the MCPSS Policy Book 'Chapter 5 - Students', revision dated 3.24.26 (80 pp, 2,643,367 bytes, application/pdf, sha256 e5563aef0fc5735c14e54b1d7d41006d56d7976ebf4a06f6a6f1184ff2bfac6e). Direct curl returns HTTP 200 application/pdf with or without the '?disposition=inline' query the district page appends - no browser needed. The district page that lists and links this chapter is https://www.mcpss.com/documents/departments/human-resources/district-policies-and-procedures/policies-and-procedures/policy-&-procedures/16301199 (that page is JS-rendered and returns a 3KB shell to plain fetch; the PDF itself does not). Policy 5.25 dates to 12/11/2007 but sits in a chapter the board re-issued 3/24/2026. Corroborating: the current 2025-2027 Student Code of Conduct (approved 8-6-25, 94 pp) contains no mention of corporal punishment or paddling. REVIEWER NOTE: an Oct 2023 Lagniappe story reported the board DISCUSSING bringing paddling back; as of the 3/24/2026 policy book it has not been reinstated. Legacy map 'allows' is wrong. Mobile is not on Simbli. CAUTION: a Board-Approved-Policy-Book---01.28.2026.pdf URL that appears in search results 403s - it is stale. Always re-derive asset URLs from the district document page."
     policy_code: "5.25"
     crdc_students_latest: null
+    contact:
+      phone: "(251)221-4394"
+      mailing_address: "PO Box 180069, Mobile, AL 36618"
+      website: "http://www.mcpss.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Montgomery County Schools
     county: Montgomery
     nces_id: "0102430"
@@ -543,6 +687,12 @@ districts:
     notes: "District operates as Montgomery Public Schools (MPS). Read board policy 6.17 'Corporal Punishment' in the district's Simbli policy manual, site S=36030924, which is linked from https://www.mps.k12.al.us/page/board-of-education/. Policy last revised and originally adopted 02/26/2019; status ADOPTED. Identity confirmed: policy 6.15 Student Conduct in the same manual says conduct rules are enforced 'within Montgomery Public Schools'. NOTE: the legacy_status hint said 'allows' and is WRONG for this district."
     policy_code: "6.17"
     crdc_students_latest: null
+    contact:
+      phone: "(334)223-6710"
+      mailing_address: "632 S Union Street Building C, Montgomery, AL 36104"
+      website: "http://www.mps.k12.al.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Morgan County Schools
     county: Morgan
     nces_id: "0102480"
@@ -583,6 +733,12 @@ districts:
       notes: Searched the 65-page 2026-27 Student Code of Conduct for bell times (only a summer-school line '9:00 am – 1:00 pm'), and the home and About Us pages of phs, pjhs, dhs, dms, wmhs, wmms, bhs, fhs .morgank12.org (no hours in the served HTML; /school-hours returns 404). Chrome could not open morgank12.org in this session (domain not permitted).
     archived_url: https://web.archive.org/web/20260910031543/https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36030917&revid=gOko5w3EpF8hJ3HfHCrajw==&ptid=tgXX6LPA166ygZS74CSPMA==&secid=rXWF48YTyHX6J1LHrKnhVA==&PG=6&IRP=0&isPndg=false
     document_text_path: data/policies/AL/0102480.md
+    contact:
+      phone: "(256)309-2105"
+      mailing_address: "235 Highway 67 South, Decatur, AL 35603"
+      website: "http://www.morgank12.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Pike County Schools
     county: Pike
     nces_id: "0102790"
@@ -622,6 +778,12 @@ districts:
         quote: "Instruction Hours: 7:40 AM – 3:10 PM"
       notes: "No stand-alone middle school. Pike County HS and Goshen HS both list 'Instruction Hours: 7:40 AM – 3:10 PM' in the site header; PCHS bell schedule block gives First Bell 7:45 AM, Dismissal 3:10 PM. Banks School (Pre-K-8) header: Instruction Hours 7:40 AM – 3:10 PM."
     document_text_path: data/policies/AL/0102790.md
+    contact:
+      phone: "(334)566-1850"
+      mailing_address: "101 W Love St, Troy, AL 36081"
+      website: "http://www.pikecountyschools.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Shelby County Schools
     county: Shelby
     nces_id: "0103030"
@@ -633,6 +795,12 @@ districts:
     notes: "MACHINE-VERIFIABLE SOURCE (the cited page is JS-only and answers a 3,038-byte challenge shell to any plain fetch): https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3646/Scs/d2663911-d00c-42d2-be18-6def7dab1280/SCBOE-Full-Policy-v2025-08-04.pdf?disposition=inline - 'Shelby County Board of Education Policy Manual', 85 pages, 1,128,915 bytes, sha256 25de7b86a0b4765169744faf46278825c8095f21e198a3db32da44a82fae0ea0, HTTP 200 to plain curl with no cookie or UA needed. Policy 6.16 Corporal Punishment spans PAGES 68-69. CAVEAT FOR A STRING MATCHER: the consent sentence is broken by the page boundary. Page 68 ends '...School administrators shall obtain written consent of the parent, guardian, or other parental' followed by the footer 'Page 68 of 85'; page 69 opens with the running header 'Shelby County Board of Education Policy Manual' then 'representative prior to the administration of corporal punishment.' So the quote below will not match the raw extraction as one contiguous run - match it against pages 68 and 69 separately, or strip the running header/footer first. The PDF also wraps lines, so its whitespace differs from the live page. CORRECTS THE LEGACY VALUE: legacy_status said 'allows'; the policy requires affirmative written parental consent BEFORE corporal punishment ('shall obtain written consent ... prior to the administration'), which is opt-in, so consent_required. Shelby is not on Simbli; it publishes the full manual as an accordion on its own site. I opened https://www.shelbyed.k12.al.us/page/policy in a browser on 2026-09-19, expanded '6.16 Corporal Punishment' and read the text live; that page's footer reads 'Effective 7/1/12 / Updated 10/28/25'. The quote is transcribed from that expanded live panel. The live page is cited as `source` because it is the current authoritative text and is newer than the PDF (it shows policy 6.25 amended 10/23/25, after the PDF's 2025-08-04 build), but the wording of 6.16 is identical in both. The PDF ends the policy with '[Reference: ALA. CODE §16-28A-2 (1975)]'."
     policy_code: "6.16"
     crdc_students_latest: null
+    contact:
+      phone: "(205)682-7000"
+      mailing_address: "PO Box 1910, Columbiana, AL 35051"
+      website: "http://www.shelbyed.k12.al.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: St. Clair County Schools
     county: St. Clair
     nces_id: "0103062"
@@ -644,6 +812,12 @@ districts:
     notes: "AGENT-SUPPLIED TEXT, NEEDS HUMAN CONFIRMATION: Simbli's bot protection refused every automated read, so this policy was transcribed from the page in a browser and could not be checked against a machine-fetchable copy. St. Clair County Schools board policy manual on Simbli, site S=2032 (listing: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=2032 , section '6. Students'; page title confirms 'St. Clair County Schools'). Page header: 'Policy 6.16: Corporal Punishment  Status: ADOPTED  Original Adopted Date: 06/24/2025 | Last Reviewed Date: 06/24/2025'. Policy reference [ALA. CODE 16-28A-2 (1975)]. sccboe.org does not link its policy manual from any nav or footer; the S number was recovered by crawling all 193 pages of the site and finding embedded ViewPolicy links on /safety-home and /bullying-and-harassment-reporting. Read in-browser (fetch_simbli_policy was bot-challenged). Also checked, and found ZERO mentions of corporal punishment / paddling in: the 2026-27 Code of Conduct (42pp), 2026-27 Discipline Infractions (15pp), and the district Employee Handbook (57pp) — so the ban rests on the board policy alone. legacy_status said 'allows' — that is WRONG."
     policy_code: "6.16"
     crdc_students_latest: null
+    contact:
+      phone: "(205)594-7131"
+      mailing_address: "410 Roy Dr, Ashville, AL 35953"
+      website: "http://www.sccboe.org"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Talladega City Schools
     county: Talladega
     nces_id: "0103150"
@@ -654,6 +828,12 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-19
     notes: "BONUS RECORD - not in the original slice; added because the input row for 'Talladega County Schools' mistakenly carried this district's website. Policy 5.30.1 Corporal Punishment, Chapter 5.00 - Students, one-page PDF listed on the district's Policy Manual page https://www.talladega-cs.net/apps/pages/index.jsp?uREC_ID=804476&type=d&pREC_ID=1193010. The policy's own history block reads: 'ADOPTED: MARCH 11, 2004  REVISION DATE(S): OCTOBER 21, 2002; NOVEMBER 3, 2008  FORMERLY: JDC' (dates printed in that order in the source). Corroborating: the 2026-2027 Talladega City Student Handbook (https://4.files.edl.io/1783/08/14/26/201336-c82403ff-520f-4bee-afd7-84363088b157.pdf, 64 pp) contains no mention of corporal punishment or paddling."
+    contact:
+      phone: "(256)315-5600"
+      mailing_address: "PO Box 946, Talladega, AL 35161"
+      website: "http://www.talladega-cs.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Talladega County Schools
     county: Talladega
     nces_id: "0103180"
@@ -665,6 +845,11 @@ districts:
     notes: "CORRECTED DISTRICT: the input row pointed at talladega-cs.net (Talladega CITY). This record is the COUNTY district, tcboe.org, NCES 0103180. Source is 'Code of Conduct/Attendance, 26-27' linked from https://www.tcboe.org/for-parents/code-of-conductattendance; the link resolves to https://resources.finalsite.net/images/v1784127767/tcboeorg/lsb9ocbayi0loxydbeii/26-27StudentCodeofConduct.pdf (50 pp, sha256 96c0412df2db1e7420991996340c6a8e53b090114712b36e3488f6573ee2da20). Quote from p.28 (PDF p.31). Corporal punishment is also listed as an administrative option for Class I offenses for BOTH elementary (K-6) and secondary (7-12) students. Classified allows: parents may ask in writing for alternative methods (opt-out), no affirmative opt-in is required. Talladega County's board policy manual is on Simbli S=36031879 (linked from https://www.tcboe.org/board-of-education23/board-policies) but the fetch tool hit Simbli's bot challenge on six attempts, so no board-policy code was obtained; the code of conduct is board-adopted and sufficient on its own."
     policy_code: Student Code of Conduct, section X (Corporal Punishment)
     crdc_students_latest: null
+    contact:
+      phone: "(256)315-5126"
+      mailing_address: "106 W South St, Talladega, AL 35160"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Tuscaloosa City Schools
     county: Tuscaloosa
     nces_id: "0103360"
@@ -675,6 +860,12 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-19
     notes: "DATA-QUALITY WARNING ON THE INPUT ROW, READ BEFORE USING: the input 'name' says 'Tuscaloosa County Schools' but the nces_id (0103360), the nces_name ('Tuscaloosa City') and the website (tuscaloosacityschools.com) all identify TUSCALOOSA CITY SCHOOLS, a separate independent district. I verified NCES LEA 0103360 against the CCD directory (Urban Institute education data API, 2022): lea_name 'Tuscaloosa City', state_leaid AL-200, 1210 21st Ave, Tuscaloosa, 20 schools, 11,186 students. The status recorded here is TUSCALOOSA CITY's, matching the nces_id, and the district name should be corrected to 'Tuscaloosa City Schools'. TUSCALOOSA COUNTY SCHOOLS (tcss.net) is a DIFFERENT district and was NOT scanned — do not carry this answer over to it. Source read: Tuscaloosa City board policy 6.16 'Corporal Punishment' in the district's Simbli policy manual, site S=2088, linked from tuscaloosacityschools.com; last revised and originally adopted 02/17/2015, status ADOPTED. Identity re-confirmed inside the manual: policy 6.14 Student Conduct says conduct is enforced 'within Tuscaloosa City Schools'. NOTE: the legacy_status hint said 'allows' and is WRONG for this district."
+    contact:
+      phone: "(205)759-3560"
+      mailing_address: "PO Box 038991, Tuscaloosa, AL 35403"
+      website: "http://www.tuscaloosacityschools.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Tuscaloosa County Schools
     county: Tuscaloosa
     nces_id: "0103390"
@@ -686,6 +877,12 @@ districts:
     notes: "Tuscaloosa COUNTY School System policy manual, policy 5.30.1 CORPORAL PUNISHMENT, pages 116-117. Policy history printed at the end of the section: \"HISTORY: ADOPTED: MARCH 9, 1992 REVISED: APRIL 8, 2013 FORMERLY: JDA\"; manual cover/footer dated 4/27/2013, file re-tagged 11.20.2023. Fetched server-side: 2488373 bytes, application/pdf, 336 pages, sha256 0315574cde84ed46f38d38b02f3c56cae920446830b5573cf32d979a091f472a. This is tcss.net's own Finalsite-hosted copy (www.tcss.net answers 403 to non-browser clients; the same file is also at https://al01001644.schoolwires.net/cms/lib/AL01001644/Centricity/Domain/3836/Tuscaloosa%20Co%20Policy%20Manual%20Apr%202013%20Edited%2011.20.2023%20Re-Tagged.pdf). The county's own manual was read for this record; NOTHING was taken from Tuscaloosa City Schools. The policy sets no parental opt-in or opt-out: parents are only notified after the fact (\"VII. Parents/guardians shall be notified that their child has received corporal punishment\"), and \"VIII. Corporal punishment shall consist of no more than three (3) licks administered to the buttocks with a smooth surface paddle free of holes and/or cracks.\" Therefore \"allows\", not \"consent_required\"."
     policy_code: 5.30.1
     crdc_students_latest: 4
+    contact:
+      phone: "(205)758-0411"
+      mailing_address: "PO Drawer 2568, Tuscaloosa, AL 35403"
+      website: "http://www.tcss.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Walker County Schools
     county: Walker
     nces_id: "0103450"
@@ -709,3 +906,9 @@ districts:
     notes: "Found the Simbli link (S=2057) on walkercountyschools.com itself, then read policy 6.16 'Corporal Punishment' with fetch_simbli_policy. Last revised 12/12/2017, originally adopted 12/12/2017, status ADOPTED. The policy contains NO parental consent or opt-out provision; it delegates the operating detail to the Board-approved Parent-Student Handbook, which I did not separately obtain, so an opt-out could exist at handbook level - but the policy as written permits corporal punishment outright, hence 'allows'. Policy index also contains 6.14 Student Conduct, which mentions no corporal punishment. The quote preserves the line breaks as Simbli serves them. Listing page for a reader who prefers it: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=2057"
     policy_code: "6.16"
     crdc_students_latest: 82
+    contact:
+      phone: "(205)387-0555"
+      mailing_address: "PO Box 311, Jasper, AL 35502"
+      website: "http://www.walkercountyschools.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip

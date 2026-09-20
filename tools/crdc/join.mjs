@@ -19,16 +19,7 @@ const write = process.argv.includes("--write");
 // Education (Dale County Schools)" against "Dale County", "CARROLL COUNTY SCHOOL DIST" against "Carroll
 // County Schools". Every one of those noise words is dropped. What is never dropped is "county" and
 // "city", which kind() guards: they are the whole difference between two real districts.
-const NOISE = /\b(board of education|school district|school dist|public schools|school system|schools|school|isd|independent|municipal|sp mun|consolidated|cons|district|dist|sch)\b/g;
-// "Co" is expanded rather than dropped. Dropping it left the federal "CHICKASAW CO SCHOOL DIST" as
-// "chickasaw" and the project's "Chickasaw County School District" as "chickasaw county", so the two
-// spellings of one district could never meet.
-const norm = s => String(s || "").toLowerCase().replace(/\(.*\)/g, " ").replace(/\bco\.?\b/g, "county").replace(NOISE, " ").replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
-// The one distinction that must survive normalization. The federal file abbreviates county to "CO",
-// so that has to count as county too, or "CHICKASAW CO SCHOOL DIST" reads as neither and never joins
-// to Chickasaw County. "Municipal" is deliberately not read as city: in Mississippi, "Tishomingo Co Sp
-// Mun Sch Dist" is a county district.
-const kind = s => { const t = String(s || "").toLowerCase(); return /\bcount(y|ies)\b|\bco\.?\b/.test(t) ? "county" : /\bcity\b/.test(t) ? "city" : null; };
+import { norm, kind } from "../lib/district-name.mjs";
 
 // districts.csv: state,nces_id,district,students
 const rows = readFileSync(join(root, "data/crdc/2023-24/districts.csv"), "utf8").trim().split("\n").slice(1).map(l => {

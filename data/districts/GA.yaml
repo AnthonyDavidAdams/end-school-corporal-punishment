@@ -13,6 +13,11 @@ districts:
     notes: "Atlanta Public Schools Employee Handbook 2025-26, page 10, section headed \"Corporal Punishment\"; the handbook's own date line reads \"Atlanta Public Schools Employee Handbook 2025-26 January 28, 2026\". Fetched server-side from the district's own Finalsite CDN (atlantapublicschoolsus): 1663603 bytes, application/pdf, 43 pages, sha256 acf82d1bf467a2d7f1808d154d5a2ce579051f41cb80fb05012b69bce23e7325. The surrounding text continues: \"Corporal punishment includes any consequence that results in physical pain or harm to students. On rare occasions, physical force may be necessary to restrain a person or to prevent injury in accordance with policy JGF (2) Seclusion or Restraint of Students and related administrative regulations.\" WHY NOT A BOARD POLICY: APS publishes board policy on Simbli site 36031014 (confirmed by resolve_handbook on https://www.atlantapublicschools.us and by opening the manual, whose header reads \"Policy Listing | Atlanta Public Schools\"). I read the whole J. Students section (43 entries, JAA through JS) and the whole G. Personnel section in a browser: there is NO policy or regulation titled Corporal Punishment. I opened JCDA-R(1) Student Code of Conduct (adopted 07/12/2010, last revised 06/30/2023) and searched its full rendered text (135,695 characters) for corporal/paddl/spank — zero matches. The handbook is therefore the district's own primary statement and is machine-fetchable, which the Simbli pages are not."
     policy_code: null
     crdc_students_latest: null
+    contact:
+      phone: "(404)802-3500"
+      mailing_address: "210 Pryor Rd., Atlanta, GA 30335"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Cherokee County Schools
     county: Cherokee
     nces_id: "1301110"
@@ -35,6 +40,11 @@ districts:
     notes: "District Administrative Rule JCD-R (Student Conduct), page 1, section D.2 (\"DIRECTIVES\"). Document history on page 3: \"Adopted: 7/22/82 Revised: 4/13/83; 8/8/84; 5/25/00; 7/27/00; 9/18/00 Reclassified an Administrative Rule: 9/1/04 Revised: 2/9/05; 8/10/05; 1/11/06; 1/18/12; 2/8/12 Revised and re-coded: 1/7/13 (Previously coded as Administrative Rules JIC and JKG) Revised: 8/10/16; 10/15/20\" — so last revised 10/15/2020. Fetched server-side: 173826 bytes, application/pdf, 3 pages, sha256 492b01005dd7e2c28e7c9905cfd56ba4482033b93fd56365d2b9d7c5de7402e0. This exact PDF URL is the one linked from Cobb's own Section J (Students) policy index at https://www.cobbk12.org/section-j-students. Board Policy JCD itself (https://media.cobbk12.org/media/WWWCobb/medialib/81bb1528176.pdf, adopted 1/7/13, revised 7/17/20) contains no corporal-punishment language; it delegates the code of conduct to administrative rule, so JCD-R is the operative text."
     policy_code: JCD-R
     crdc_students_latest: null
+    contact:
+      phone: "(770)426-3300"
+      mailing_address: "514 Glover Street, Marietta, GA 30060"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Coffee County Schools
     county: Coffee
     nces_id: "1301350"
@@ -46,6 +56,11 @@ districts:
     notes: "Read with the project's fetch_simbli_policy tool, site 4041 (S number taken from the district's own board page https://www.coffee.k12.ga.us/boe, which links simbli.eboardsolutions.com/SB_ePolicy/SB_PolicyOverview.aspx?S=4041). Tool response 12,012 bytes, application/json; it reported district 'Coffee County Schools' and 203 policies in the index, so the S number is confirmed against the right district. Board Policy JDA 'Corporal Punishment', status ADOPTED, originally adopted 12/21/2000, last revised 09/28/2006. This is OPT-OUT, not opt-in: corporal punishment is authorized by default and is withheld only from students whose parents have affirmatively filed a written objection -- hence 'allows'. The bracketed [...] in the quote elides four intervening bulleted conditions (not excessive or unduly severe; not the first line of punishment; administered in the presence of certified educational personnel informed beforehand in the student's presence; written explanation on request); both quoted sentences are verbatim from the policy text. Companion records exist: JDA-R(0) 'Corporal Punishment' (adopted 01/02/2009) is a CORPORAL PUNISHMENT EXEMPTION LETTER which states 'Georgia School Law 20-2-730 allows for corporal punishment to be administered. It also provides that the parent/guardian may request exemption.' and 'If you elect for your child not to have corporal punishment administered (be paddled), then an alternate punishment will result, i.e., in-school suspension, detention and/or suspension from school.' Simbli is JavaScript-only and Imperva-protected, so this URL cannot be curled directly; it is machine-readable via fetch_simbli_policy."
     policy_code: JDA
     crdc_students_latest: 3
+    contact:
+      phone: "(912)384-2086"
+      mailing_address: "P. O. Drawer 1290, Douglas, GA 31534"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Colquitt County Schools
     county: Colquitt
     nces_id: "1301380"
@@ -57,6 +72,11 @@ districts:
     notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Policy JDA \"Corporal Punishment\", status ADOPTED, originally adopted 02/22/1999, last revised 08/23/2021. Read with fetch_simbli_policy site 4042 (the S number on Colquitt's own Board of Education page, https://www.colquitt.k12.ga.us/board-of-education); the tool reported the district as \"Colquitt County Schools\". Simbli is JavaScript-only, so plain curl of the ViewPolicy URL returns a shell; full policy text is in source_text below. OPT-OUT, therefore \"allows\": \"Corporal punishment shall not be administered to a student whose parents or legal guardian file in writing with the principal of the school a statement requesting that corporal punishment not be administered.\""
     policy_code: JDA
     crdc_students_latest: null
+    contact:
+      phone: "(229)890-6200"
+      mailing_address: "710 Lane Street, Moultrie, GA 31768"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: DeKalb County Schools
     county: DeKalb
     nces_id: "1301740"
@@ -68,6 +88,11 @@ districts:
     notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Board Policy JCD 'Student Conduct', status ADOPTED, originally adopted 09/11/2000, last revised 05/16/2012, last reviewed 05/16/2012. The prohibition is inside JCD Student Conduct, not in a JDA -- DeKalb's Section J (Students) has NO policy titled Corporal Punishment (full J listing read: JAA through JS, 47 entries), so a reviewer looking for JDA will not find one. Policy JD 'Student Discipline' (revised 05/16/2012) does not mention corporal punishment. S number 4054 is confirmed from the district's own policy link on https://www.dekalbschoolsga.org (PolicyListing.aspx?S=4054) and the Simbli page header reads 'DeKalb County School District'. NOT machine-fetchable: Simbli is JavaScript-only behind an Imperva 'Pardon Our Interruption' challenge; plain curl of simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=4054 returns 200 / 6,058 bytes / text/html of the challenge page, and fetch_simbli_policy for site 4054 returned the bot-challenge error on 6 attempts over ~25 minutes (the whole fleet was hitting the same rate limit). I therefore read the policy in a real browser and supply source_text. I also checked the district's 2025-2026 DCSD Code of Student Conduct (https://barackobamaes.dekalb.k12.ga.us/Downloads/2025-2026%20DCSD%20Code%20of%20Student%20Conduct%20(1)%20(1).pdf; fetch_document: 3,449,363 bytes, application/pdf, 98 pages, 299,312 chars) -- zero hits for 'corporal punishment'/'paddl'/'spank', so the board policy is the only place the ban is stated."
     policy_code: JCD
     crdc_students_latest: null
+    contact:
+      phone: "(678)676-1200"
+      mailing_address: "1701 Mountain Industrial Blvd, Stone Mountain, GA 30083"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Forsyth County Schools
     county: Forsyth
     nces_id: "1302220"
@@ -90,6 +115,11 @@ districts:
     notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Board Policy JDA 'Corporal Punishment', status ADOPTED, Original Adopted Date 03/18/2011, Last Reviewed Date 08/18/2016 (the policy shows no separate last-revised date). The quoted sentence is the entire operative text of the policy. S number 36031609 comes from the district's own 'Board Policies' link on https://www.fultonschools.org/all-departments/academics/student-services/student-discipline/student-discipline-resources, and the Simbli page header reads 'Fulton County Schools'. NOT machine-fetchable: Simbli is JavaScript-only behind an Imperva challenge and fetch_simbli_policy for site 36031609 returned the bot-challenge error, so I read it in a real browser and supply source_text. Cross-check: the district's 2026-2027 Student Code of Conduct PDF (https://resources.finalsite.net/images/v1782310229/fultonschoolsorg/bymj79nkpd6pdxwayioh/2026-2027CodeofConduct-ENGLISH.pdf; fetch_document: 4,474,279 bytes, application/pdf, 73 pages, 231,121 chars) returned zero hits for 'corporal punishment'/'paddl'/'spank' -- the ban lives only in the board policy. Note Fulton County Schools is a separate district from Atlanta Public Schools, which is the city system inside the same county; this record is the COUNTY district (NCES 1302280)."
     policy_code: JDA
     crdc_students_latest: null
+    contact:
+      phone: "(404)763-6890"
+      mailing_address: "6201 Powers Ferry Road, Atlanta, GA 30339"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Gwinnett County Public Schools
     county: Gwinnett
     nces_id: "1302550"
@@ -101,6 +131,11 @@ districts:
     notes: "Board Policy JCD \"Student Conduct Behavior Code\", page 2, in the \"Purpose of the Code\" section. The PDF carries a BoardDocs print stamp of 07/25/2025. Fetched server-side from the district's BoardDocs file host: 201278 bytes, application/pdf, 17 pages, sha256 3c3f9468d48d45c1e36f950aff720e7ecba20434a6837006ca5b02e20eea7f08. Direct-download URL, machine-fetchable."
     policy_code: JCD
     crdc_students_latest: null
+    contact:
+      phone: "(678)301-6000"
+      mailing_address: "52 Gwinnett Dr, Lawrenceville, GA 30045"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Henry County Schools
     county: Henry
     nces_id: "1302820"
@@ -151,6 +186,12 @@ districts:
         quote: 8:05AM – 3:05PM – School Hours
       notes: "East Laurens High School 2026-27 regular bell: 1st Block 8:00 – 9:30, 4th Block 1:25 – 2:55 (https://files.smartsites.parentsquare.com/11159/student_handbookdocx_2.pdf). East Laurens Middle (2025-26 handbook): 8:00 AM tardy bell, students leave around 3:15 PM."
     document_text_path: data/policies/GA/1301890.md
+    contact:
+      phone: "(478)272-4767"
+      mailing_address: "467 Firetower Road, Dublin, GA 31021"
+      website: "http://lcboe.net"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Thomas County Schools
     county: Thomas
     nces_id: "1304890"
@@ -162,6 +203,11 @@ districts:
     notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Policy JDA \"Corporal Punishment\", status ADOPTED, originally adopted 06/12/2001, last revised 03/26/2013. Read with fetch_simbli_policy site 4154 — the S number from Thomas County Schools' own Board of Education page (https://www.tcjackets.net/quick-links/board-of-education, which links simbli.eboardsolutions.com/SB_ePolicy/SB_PolicyOverview.aspx?S=4154); the tool reported the district as Thomas County Schools. This is the COUNTY district, separate from Thomasville City Schools. Simbli is JavaScript-only so plain curl returns a shell; full text in source_text. OPT-OUT, therefore \"allows\": \"Corporal punishment shall not be administered to a child whose parents or legal guardian have filed with the principal of the school a written and signed statement requesting that the child not be subject to such punishment and agreeing to a specified alternative punishment for offenses which normally would result in corporal punishment.\""
     policy_code: JDA
     crdc_students_latest: null
+    contact:
+      phone: "(229)225-4380"
+      mailing_address: "11343 U.S. Hwy. 319N, Thomasville, GA 31757"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Tift County Schools
     county: Tift
     nces_id: "1304980"
@@ -173,6 +219,11 @@ districts:
     notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Board Policy JDA 'Corporal Punishment', status ADOPTED, Original Adopted Date 07/12/1977, Last Revised Date 04/16/2020, Last Reviewed Date 04/16/2020. Classified 'allows' (OPT-OUT, not opt-in): the policy authorises corporal punishment by default and withholds it only where parents have said otherwise -- verbatim, 'Corporal punishment shall not be administered to a child whose parents, or legal guardian, have stated they do not desire paddling used as punishment for their child.' The policy also states, verbatim, 'Corporal punishment shall never be used as a first line of punishment for misbehavior with two (2) exceptions;' and '*The Superintendent will ensure there are clear procedures in the board approved student handbook for implementation of this policy.' S number 4157 is Tift County Schools' Simbli site and the page header reads 'Tift County Schools'. NOT machine-fetchable: Simbli is JavaScript-only behind an Imperva challenge and fetch_simbli_policy for site 4157 returned the bot-challenge error, so I read the policy in a real browser and supply the full verbatim text in source_text."
     policy_code: JDA
     crdc_students_latest: 4
+    contact:
+      phone: "(229)386-6500"
+      mailing_address: "P O Box 389, Tifton, GA 31793"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Ware County Schools
     county: Ware
     nces_id: "1305430"
@@ -184,3 +235,9 @@ districts:
     notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Board Policy JDA \"Corporal Punishment\", status ADOPTED, Original Adopted Date 11/13/2007, Last Reviewed Date 04/21/2020 (the listing row shows Last Revised 11/13/2007). Simbli site 4170; confirmed as Ware County's by opening the manual (header \"Policy Listing | Ware County Schools\", Ware County Schools logo on the policy page) and by the S=4170 link printed in Ware County Board of Education's own Personnel Handbook. Simbli is JavaScript-only and its bot protection refused fetch_simbli_policy repeatedly during this scan, so I read the policy in a browser and the verbatim text is in source_text below. OPT-OUT, therefore \"allows\": requirement 5 reads \"Corporal punishment shall not be administered to a child whose parents or legal guardian have, upon the day of enrollment of the pupil, filed with the principal of the school a statement objecting to its use.\" NOTE for the reviewer: www.ware.k12.ga.us itself answers a Finalsite \"Client Challenge\" JavaScript page to non-browser clients (3038 bytes, text/html), and resolve_handbook found nothing there."
     policy_code: JDA
     crdc_students_latest: 8
+    contact:
+      phone: "(912)283-8656"
+      mailing_address: "P.O. Box 1789, Waycross, GA 31502"
+      website: "http://www.ware.k12.ga.us"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
