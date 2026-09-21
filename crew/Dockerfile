@@ -2,8 +2,11 @@
 #   docker build -f crew/Dockerfile -t escp-crew .
 # Railway: set RAILWAY_DOCKERFILE_PATH=crew/Dockerfile, mount a volume at /state, set ESCP_MAINTAINER_TOKEN.
 FROM node:22-alpine
+# Fonts. resvg renders the badge, and with no fonts installed it silently draws every shape and none of
+# the text -- a valid PNG of an empty circle. Alpine ships none, so they have to be asked for.
+RUN apk add --no-cache font-dejavu fontconfig && fc-cache -f
 WORKDIR /app
-RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/41907e7a95dcc85cf64a815ca87caf3bfbedf02a.tar.gz
+RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/d0217e21ffb537aaafd025405f470f29b4d922d5.tar.gz
 # The crew directory: crew.json, values, tasks and finding schemas from crew/, everything else from the campaign.
 COPY crew/crew.json crew/values.md /crew/
 COPY crew/tasks /crew/tasks
