@@ -155,9 +155,14 @@ function simbliTurn() {
 // next person does not spend an afternoon on it: `auth_Token` is set by JavaScript and never appears in
 // the shell's Set-Cookie, and the listing API answers 200 to the request below with no bearer at all.
 // Measured 2026-09-20 against site 36031758.
+let simbliSend = fetch;   // replaced at registration with the pooled sender
+let vendorFetch = fetch; // ditto: the pooled sender for other rate-limiting vendors
 async function simbliGet(url, jar, fetchImpl, { json = false, referer } = {}) {
   await simbliTurn();
-  const res = await fetchImpl(url, {
+  // Simbli rate-limits by source address, so where a proxy pool is configured these go out across it.
+  // With none configured egressFetch is fetch and nothing changes. The User-Agent is unchanged either
+  // way: this spreads load, it does not disguise who is asking.
+  const res = await simbliSend(url, {
     headers: {
       "User-Agent": UA,
       Accept: json ? "application/json, text/plain, */*" : "text/html,application/xhtml+xml,*/*;q=0.8",
@@ -191,6 +196,21 @@ const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 // publishes, and it changes when a board votes, not between one agent's call and the next one's.
 // Caching it for an hour removes two Simbli requests from every repeat read of the same district,
 // which on a fleet re-reading a district to verify it is most of the traffic.
+// TASB rate-limits like Simbli does, and for the same reason: one district is read once by a scanner
+// and again by each agent checking it. Cache the response and pace the misses.
+const TASB_TTL_MS = 60 * 60 * 1000;
+const tasbCache = new Map();
+const TASB_MIN_INTERVAL_MS = 1500;
+let tasbQueue = Promise.resolve(), tasbLast = 0;
+function tasbTurn() {
+  tasbQueue = tasbQueue.then(async () => {
+    const wait = TASB_MIN_INTERVAL_MS - (Date.now() - tasbLast);
+    if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+    tasbLast = Date.now();
+  });
+  return tasbQueue;
+}
+
 const SIMBLI_INDEX_TTL_MS = 60 * 60 * 1000;
 const simbliIndexCache = new Map();
 
@@ -311,8 +331,12 @@ async function apptegyDocuments(html, fetchImpl, limit = 60) {
   return { section, documents: out };
 }
 
-export async function registerTools(server, ctx, { z, text, fail, documents }) {
+export async function registerTools(server, ctx, { z, text, fail, documents, egressFetch }) {
   const fetchImpl = ctx.fetchImpl ?? fetch;
+  // Where the engine has a proxy pool configured, vendor requests go out across it. Handed in rather
+  // than imported, because this file is loaded from the crew directory and the engine lives elsewhere.
+  vendorFetch = egressFetch ? egressFetch(fetchImpl) : fetchImpl;
+  simbliSend = vendorFetch;
 
   server.registerTool(
     "resolve_handbook",
@@ -426,7 +450,17 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
       // Policy/Code redirects here; go straight to it.
       const url = `https://pol.tasb.org/PolicyOnline/PolicyDetails?key=${district_key}&code=${encodeURIComponent(code)}`;
       let got;
-      try { got = await getText(url, fetchImpl); } catch (err) { return fail(`TASB returned ${err.message} for key ${district_key}. Check the key, or read it yourself and submit with source_text.`); }
+      // Same amplification that broke Simbli: an agent reads a district's policy, then every agent
+      // checking that agent's quote reads it again. Twenty Texas districts scanned and re-checked put
+      // TASB over its limit and thirteen came back "none could open the source" -- unverifiable
+      // findings about a source that had answered minutes earlier. Held for an hour, and paced.
+      const cached = tasbCache.get(url);
+      if (cached && Date.now() - cached.at < TASB_TTL_MS) got = cached.got;
+      else {
+        await tasbTurn();
+        try { got = await getText(url, vendorFetch); } catch (err) { return fail(`TASB returned ${err.message} for key ${district_key}. Check the key, or read it yourself and submit with source_text.`); }
+        tasbCache.set(url, { at: Date.now(), got });
+      }
       const plain = got.html
         .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, " ")
         .replace(/<\/(p|div|li|tr|h[1-6])>/gi, "\n")
