@@ -68,13 +68,14 @@ const VERDICT = {
   type: 'object',
   properties: {
     name: { type: 'string' },
+    could_check: { type: 'boolean', description: 'Did you actually open the source and read it in this session? False if it would not fetch, was blocked, or rendered empty.' },
     quote_is_in_the_source: { type: 'boolean' },
     status_follows_from_the_quote: { type: 'boolean' },
     document_belongs_to_this_district: { type: 'boolean' },
-    refuted: { type: 'boolean' },
+    refuted: { type: 'boolean', description: 'The finding is WRONG. Not "I could not check it" -- that is could_check false.' },
     why: { type: 'string' },
   },
-  required: ['name', 'refuted', 'why'],
+  required: ['name', 'could_check', 'refuted', 'why'],
 }
 
 // args is the list of {state, districts} to work. A scheduled run stages that list and passes it
@@ -170,17 +171,27 @@ If the source is a Simbli URL, call fetch_document on it rather than fetch_simbl
 2. Does the status follow? "allows" includes a policy a parent may opt OUT of. "consent_required" means advance written permission, opt IN. These are easy to inject backwards and that is the most common error here.
 3. Does the document name THIS district? Not a neighbour, not a same-named district in another state, and note that a county district and a city district of the same name are two different districts with two different policies.
 
-refuted=true if any check fails or you could not fetch the source.`,
+Two different outcomes, and keeping them apart is the whole point:
+- You opened the source and one of the three checks fails: could_check=true, refuted=true. The finding is wrong.
+- You could not open the source at all -- blocked, empty, dead link: could_check=FALSE, refuted=false. You are abstaining, not objecting. Say what you tried.
+
+Do not vote to refute something you could not read. On the last run a district verified in a browser by one agent was killed by two who never loaded the page, which measured the vendor's uptime rather than the finding's truth.`,
       { label: `check${k + 1}:${f.name.slice(0, 20)}`, phase: 'Check', schema: VERDICT, model: 'sonnet' }
     ))).then(vs => {
       const got = vs.filter(Boolean)
       if (!got.length) return null
-      const against = got.filter(v => v.refuted).length
+      // Only agents that actually opened the source get a vote. An agent that could not fetch it has
+      // not refuted anything; it has failed to check. Counting those as votes against turns the panel
+      // into a measurement of the vendor's uptime -- Monroe County was verified in a browser by one
+      // agent and killed by two who never loaded the page.
+      const able = got.filter(v => v.could_check)
+      const against = able.filter(v => v.refuted).length
       return {
-        refuted: against * 2 > got.length,          // a majority, not a plurality
-        split: against > 0 && against < got.length,  // the ones a human should look at
-        votes: `${against} of ${got.length} refuted`,
-        why: got.map(v => `${v.refuted ? 'REFUTED' : 'passed'}: ${v.why}`).join('\n\n'),
+        unverifiable: able.length === 0,
+        refuted: able.length > 0 && against * 2 > able.length,
+        split: against > 0 && against < able.length,
+        votes: able.length ? `${against} of ${able.length} who could read it refuted; ${got.length - able.length} could not check` : `none of ${got.length} could open the source`,
+        why: got.map(v => `${!v.could_check ? 'ABSTAINED' : v.refuted ? 'REFUTED' : 'passed'}: ${v.why}`).join('\n\n'),
       }
     }))).then(verdicts => {
       const checks = new Map()
@@ -207,12 +218,13 @@ const refuted = checked.filter(f => f._check.refuted)
 // the first version's filter silently discarded any finding whose check did not come back, which is
 // indistinguishable in the output from a finding that was never made.
 const unknown = all.filter(f => f.status === 'unknown')
-const passed = all.filter(f => f.status !== 'unknown' && f._check && !f._check.refuted)
+const passed = all.filter(f => f.status !== 'unknown' && f._check && !f._check.refuted && !f._check.unverifiable)
+const unverifiable = all.filter(f => f.status !== 'unknown' && f._check && f._check.unverifiable)
 const unchecked = all.filter(f => f.status !== 'unknown' && !f._check)
 const survived = [...unknown, ...passed, ...unchecked.map(f => ({ ...f, _unchecked: true }))]
 const skipped = done.filter(s => s.skipped)
 
-log(`${all.length} districts read across ${done.length - skipped.length} states, ${checked.length} quotes checked, ${refuted.length} refuted, ${unchecked.length} not checked`)
+log(`${all.length} districts read across ${done.length - skipped.length} states, ${checked.length} quotes checked, ${refuted.length} refuted, ${unverifiable.length} unverifiable, ${unchecked.length} not checked`)
 if (all.length !== unknown.length + passed.length + unchecked.length + refuted.length) log(`WARNING: ${all.length} findings do not account for ${unknown.length + passed.length + unchecked.length + refuted.length}`)
 
 return {
@@ -220,6 +232,9 @@ return {
   districts_read: all.length,
   quotes_checked: checked.length,
   not_checked: unchecked.map(f => ({ state: f.state, name: f.name, status: f.status })),
+  // Nobody could open the source. These are not wrong, they are unread, and they are worth retrying
+  // rather than rejecting.
+  unverifiable: unverifiable.map(f => ({ state: f.state, name: f.name, status: f.status, source: f.source, votes: f._check.votes })),
   refuted: refuted.map(f => ({ state: f.state, name: f.name, votes: f._check.votes, why: f._check.why })),
   // Findings the refuters disagreed about. These survived on a majority and are the ones worth a human
   // reading, because a split is the panel telling you the call is genuinely hard.
