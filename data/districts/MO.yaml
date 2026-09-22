@@ -62,8 +62,8 @@ districts:
       board_page: https://www.bears.k12.mo.us/district_info/school_board_members
       contact_page: https://www.bears.k12.mo.us/district_info/building_contact_information
     notes: "District's own /district_info/school_board_policy_manual page redirects to Simbli (S=513, final URL https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=513&Sch=513/greenviller2, 18,026 bytes text/html, confirmed via project fetch_document). Read via project fetch_simbli_policy tool (site=513): policy JGA-1 'CORPORAL PUNISHMENT', status ADOPTED, originally adopted 11/17/1994, last revised 09/15/2022 -- dates as printed in Simbli's own policy metadata. Policy's own header reads '(Permitted)' but the operative sentence requires prior written parental permission before any corporal punishment is administered, which is opt-in, so classified consent_required per project rule (opt-in beats opt-out/permitted framing). District mailing address and phone confirmed 2026-09-21 on bears.k12.mo.us/district_info/building_contact_information. Superintendent name and any district/board email were not found -- the staff-directory pages (administrative_staff, district_staff) render via JS/AJAX that curl could not execute, so those contact fields are left null rather than guessed."
-    policy_adopted: "1994-11-17"
-    policy_revised: "2022-09-15"
+    policy_adopted: 1994-11-17
+    policy_revised: 2022-09-15
     policy_dates_from: notes
   - name: Holcomb R-Iii
     county: Holcomb
@@ -184,8 +184,8 @@ districts:
       contact_page: https://southpemiscot.com/en-US
       as_of: 2026-09-20
     notes: "South Pemiscot County R-V, Board Policy Manual, JGA-1 CORPORAL PUNISHMENT, header '(Permitted)'. The policy page's own dates: 'Original Adopted Date: 11/13/2014 | Last Revised Date: 08/16/2022 | Last Reviewed Date: 08/16/2022 | Status: ADOPTED'; footer 'Version JGA-1C.1D (08/22)', (c) 2022 Missouri School Boards' Association. CLASSIFIED consent_required, NOT allows: the policy permits corporal punishment in general but conditions every use on affirmative advance written permission from the parent/guardian (opt IN), which is the quoted sentence. The district still reported striking 52 students in CRDC 2023-24. Simbli site 356 identity confirmed twice: the page title is 'Policy Listing | South Pemiscot R-V', and the district's own homepage southpemiscot.com links 'Board Policies' to SB_PolicyOverview.aspx?S=356&Sch=356. fetch_simbli_policy returned the vendor bot-challenge on every one of ~10 spaced attempts over more than two hours (reported as issue_8839706bb552), so this policy was read in a browser through the manual's own keyword search and source_text is supplied."
-    policy_adopted: "2014-11-13"
-    policy_revised: "2022-08-16"
+    policy_adopted: 2014-11-13
+    policy_revised: 2022-08-16
     policy_dates_from: notes
   - name: Southwest R-V School District
     county: McDonald
@@ -207,10 +207,12 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: St. Louis Public Schools
     county: St. Louis City
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "2929280"
+    status: bans
+    source: https://resources.finalsite.net/images/v1762801596/xv43al1eaygdns5aesey/codeofconduct-2026-updated.pdf
+    quote: Per Saint Louis Public School Board Policy 5144.1, District employees and volunteers are prohibited from administering corporal punishment to students attending St. Louis Public Schools, and from causing such punishment to be administered.
+    last_verified: 2026-09-21
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: null
+    policy_code: "5144.1"
+    crdc_students_latest: null
