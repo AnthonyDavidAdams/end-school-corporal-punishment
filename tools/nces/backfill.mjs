@@ -63,7 +63,12 @@ for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith
     }
     const mailing = [hit.street, `${hit.city}, ${hit.zip_state} ${hit.zip}`].filter(Boolean).join(", ");
     const needsId = !d.nces_id;
-    const needsContact = !d.contact?.phone || !d.contact?.mailing_address;
+    // Only ADD a contact block where there is none. The earlier version appended one whenever the
+    // phone or address was missing, which on a record that already had a partial contact -- a
+    // contact_page from a scan, say -- produced a second `contact:` key under the same district and
+    // broke the file. Filling individual fields into an existing block is a different job; a record
+    // that has a contact keeps it, and tools/contact/harvest.mjs adds to it.
+    const needsContact = !d.contact;
     if (!needsId && !needsContact) { already++; continue; }
     if (needsId) idFilled++;
     if (needsContact) contactFilled++;

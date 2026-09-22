@@ -2,6 +2,59 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: AZ
 districts:
+  - name: Bisbee Unified School District
+    county: Cochise
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Chandler Unified School District
+    county: Maricopa
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Douglas Unified School District
+    county: Cochise
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Gilbert Public Schools
+    county: Maricopa
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Harvest Power Community Development Group Inc. (79501)
+    county: Yuma
+    nces_id: "0400282"
+    status: allows
+    source: https://www.harvestprep.com/media/website_pages/family-resources/student-handbooks/10-2025/MSHS-handbook-2526_merged.pdf
+    quote: Expulsion, suspension, or corporal punishment may result upon the first incident, parental notification, and are subject to student’s due process rights.
+    policy_code: null
+    crdc_students_latest: 71
+    last_verified: 2026-09-20
+    contact:
+      phone: (928) 782-2052
+      mailing_address: HPA Yuma, 350 E. 18th St., Yuma, AZ 85364
+      board_page: https://www.harvestprep.com/district-meeting-notices/
+      contact_page: https://www.harvestprep.com/contact-us/
+      public_comment: "Contact page states: 'Pursuant to A.R.S. §38-431.02, Harvest Power Community Development Group, Inc, dba Harvest Preparatory Academy hereby states that all notices of the meeting...' Meeting notices are posted at harvestprep.com/district-meeting-notices. No public-comment sign-up procedure is published."
+      as_of: 2026-09-20
+    notes: "Harvest Power Community Development Group Inc. operates Harvest Preparatory Academy (Yuma, AZ). Source is the charter holder's own 2025-26 MS/HS Parent-Student Handbook, linked from harvestprep.com. fetch_document: 2,443,880 bytes, application/pdf, 66 pages; quote on page 44. The same handbook lists corporal punishment among the sanctions a hearing may impose (p.43) and on p.39 says severe infractions may bring 'Corporal punishment, suspension or expulsion ... upon the first incident with parental notice. ... (A.R.S 15-843 (B)(2)(2022)'. The parallel Elementary handbook (Elem-Handbook-2526_merged.pdf, 2,533,007 bytes, 64 pp) carries the same language on pp.36 and 40. No parental opt-in or opt-out is required, only notice, so 'allows'. The handbook carries no adoption or revision date; the URL path dates it to 10-2025."
   - name: Mesa Public Schools
     county: Maricopa
     nces_id: null
@@ -20,6 +73,24 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: The Paideia Academies Inc (91250)
+    county: Phoenix
+    nces_id: "0400863"
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-20
+    contact:
+      district_email: info@paideiamail.com
+      phone: (602) 343-3040
+      mailing_address: 7777 S 15th Terrace, Phoenix, AZ 85042
+      board_page: https://www.paideiaacademy.com/public-notices-policies/
+      contact_page: https://www.paideiaacademy.com/contact-us/
+      public_comment: "Site publishes a web contact form plus phone/email; board meeting notices are posted at paideiaacademy.com/public-notices-policies/. No sign-up procedure for public comment is stated. Records requests: registrar@paideiamail.com"
+      as_of: 2026-09-20
+    notes: "No primary source found that either authorizes or prohibits corporal punishment. The website in the input (paideiaacademies.com) no longer has DNS; the charter holder Paideia Academies Inc now publishes at paideiaacademy.com (7777 S 15th Terrace, Phoenix AZ 85042). Searched: (1) the 2026-2027 Paideia ELEMENTARY ACADEMY Family Guidebook (fetch_document: 1,340,504 bytes, application/pdf, 67 pages, 170,100 chars) - zero hits for 'corporal punishment', 'corporal', 'paddl', 'spank' or 'physical punishment'; I also read its full discipline chapter, pages 34-36 ('School Consequences and Due Process', 'Alternatives to Suspension ARS 15-841 p1', OCS, short- and long-term suspension), which lists no physical consequence; (2) the 2026-2027 Paideia LIBERAL ARTS ACADEMY Family Guidebook (1,718,735 bytes, 73 pages, 188,525 chars) - same, zero hits; (3) paideiaacademy.com/offical-board-policies, the board's complete published policy list (Cybersecurity, Closed Campus, Concurrent/Dual Enrollment, Homeless Education, Kindergarten Enrollment, Parent and Family Engagement, Student Cell Phone, Moment of Silence, Excused Absences, Parent Classroom Visits, Dress Code PEA and PLA, School Safety/Hazing, Suspension or Expulsion of K-4 Students, Violence on Campus) - no corporal punishment policy exists in it; (4) paideiaacademy.com/public-notices-policies board meeting notices index. The absence of any provision is NOT a prohibition, so this is filed unknown rather than 'bans'. Worth a records request to registrar@paideiamail.com given the district reported 131 students struck in 2023-24."
   - name: Tucson Unified School District
     county: Pima
     nces_id: null
@@ -28,40 +99,4 @@ districts:
     quote: null
     last_verified: null
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Chandler Unified School District
-    county: Maricopa
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Gilbert Public Schools
-    county: Maricopa
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Douglas Unified School District
-    county: Cochise
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Bisbee Unified School District
-    county: Cochise
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.

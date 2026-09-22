@@ -37,6 +37,38 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Idabel
+    county: Idabel
+    nces_id: "4015370"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/282/Ims/87504849-4ba7-452f-b870-a8d643a3870f/Student_Handbook_2025-26__1_.pdf
+    quote: While the Idabel School Board recognizes the need for firmness in disciplinary action, corporal punishment will only be used as a last resort, and only with a signed release form on file.
+    policy_code: C. Corporal Punishment
+    crdc_students_latest: 37
+    last_verified: 2026-09-19
+    contact:
+      phone: 580-286-7639
+      mailing_address: Idabel Public Schools, 200 NE Ave C, Idabel, OK 74745
+      contact_page: https://www.idabelps.org/page/contact-us
+      as_of: 2026-09-19
+    notes: "OPT-IN district. Source is the Student Handbook 2025-2026 published on the Idabel Public Schools website under Idabel Middle School's documents; its cover page reads 'Student Handbook / Idabel Middle School / 2025-2026' and it contains an 'Idabel School District Resolution' section, and the corporal punishment paragraph speaks for the district board ('the Idabel School Board'). fetch_document: application/pdf, 1,469,686 bytes, 69 pages, text layer present; the quoted sentence is on page 21, under DISCIPLINE, heading 'C. Corporal Punishment'. Corporal punishment appears in the Class 1 and Class 2 consequence ladders on page 22 ('1st Offense: Conference and/or Corporal Punishment'), and the policy adds it 'will be administered for class I and II offenses only, and will be administered by the Principal and his/her designee to both male and female students.' Caveat for the reviewer: the district-level documents that would state this for the whole district - 'Student Behavior.pdf' and 'Discipline.pdf' in the district's Documents folders - are image-only scans (fetch_document returned needs_ocr true, 0 characters of text, 485,073 and 1,471,265 bytes), so the school-level handbook is the only machine-readable district-published statement found. No adoption or revision date is printed."
+  - name: Krebs
+    county: Krebs
+    nces_id: "4016720"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/10291/26-27_krebs_student_handbook_1.docx
+    quote: While corporal punishment is not prohibited by the Board of Education, it is recommended for use as a final measure.
+    policy_code: null
+    crdc_students_latest: 52
+    last_verified: 2026-09-19
+    contact:
+      district_email: pturner@krebs.k12.ok.us
+      phone: 918-426-4700
+      mailing_address: Krebs Public School, P.O. Box 67, 20 SW 5th, Krebs, OK 74554
+      board_page: https://krebs.k12.ok.us/board-of-education
+      contact_page: https://krebs.k12.ok.us/board-of-education
+      as_of: 2026-09-19
+    notes: "Source is the district's '26 27 Krebs Student Handbook', the only handbook the district publishes, linked from https://krebs.k12.ok.us/krebs-student-handbook. It is a Word .docx, not a PDF: curl returned HTTP 200, content-type application/vnd.openxmlformats-officedocument.wordprocessingml.document, 110,772 bytes. The project's fetch_document downloaded the same file but its extractor treated the .docx as plain text (extracted_by 'text', 105,209 characters of binary) and found no term hits, so the quote is supplied in source_text; the text here was extracted locally from word/document.xml. The section is headed CORPORAL PUNISHMENT, with no section number. It also states 'The disciplinary response for use of profane or obscene language by students will be corporal punishment' and offers out-of-school suspension as the alternative if a parent declines, i.e. opt-out, not consent in advance."
   - name: Lawton Public Schools
     county: Comanche
     nces_id: null

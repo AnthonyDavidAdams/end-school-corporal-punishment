@@ -29,6 +29,23 @@ districts:
     notes: "No primary source states a position either way. Cherokee County School District (GA) does NOT use Simbli; it publishes its own Online Policy Manual as HTML pages at https://www.cherokeek12.net/board-of-education/online-policy-manual (fetched 200, 83,297 bytes, text/html). Section J (Students) lists 27 policies (JAA, JBC, JBC(1), JBC(2), JBC(4), JBCC, JBD, JCAB, JCAC, JCAC(2), JCDAA, JCEB, JD, JDD, JG, JGC, JGCC, JGF, JGF(2), JGI, JHC, JHCB, JHCC, JK, JQK, JR, JS) -- there is no JDA or any policy titled Corporal Punishment, and the whole manual index page contains zero occurrences of the string 'corporal'. Policy JD - Student Discipline (https://www.cherokeek12.net/j-students/jd-student-discipline, 200, 57,597 bytes, text/html; ADOPTED August 2, 2001, REVISED July 16, 2020) says only: 'The Cherokee County Board of Education each year will approve student conduct and discipline procedures in the “Student Code of Conduct.” That Policy, as approved on a yearly basis, is incorporated herein by reference.' That incorporated Code of Conduct SY2026-27 (https://resources.finalsite.net/images/v1785441549/cherokeek12net/wbynmydgcfgtjdnlmus8/CodeofConductSY2026-27.pdf; fetch_document: 7,612,179 bytes, application/pdf, 99 pages, 315,344 chars extracted) returned ZERO hits for 'corporal punishment', 'paddl' and 'spank'. The SY2026-27 Student Parent Handbook (https://resources.finalsite.net/images/v1783513870/cherokeek12net/c1batzough6fn1wncj9n/StudentParentHandbookSY2026-27.pdf; 2,543,337 bytes, application/pdf, 43 pages, 179,406 chars) also returned zero hits. resolve_handbook on cherokeek12.net found no board_policy_systems. The district is silent in every primary document I could open; silence is not a prohibition, so this is filed unknown rather than 'bans' as the legacy map claimed. A reviewer wanting to close this would need a records request or an administrative regulation not published online."
     policy_code: null
     crdc_students_latest: null
+  - name: Clinch County
+    county: Clinch
+    nces_id: "1301260"
+    status: allows
+    source: https://resources.finalsite.net/images/v1785430718/clinchcountycom/ls8ptmkrmvk60zl7tcd6/CCHSStudentHandbookfor2026-2027.pdf
+    quote: If a parent does not wish for corporal punishment to be administered to their child, a form from the front office will have to be filled out. This must be done annually and in writing.
+    policy_code: null
+    crdc_students_latest: 52
+    last_verified: 2026-09-22
+    contact:
+      district_email: clinchpr@clinchcounty.com
+      phone: 912-487-5321
+      mailing_address: 46 South College Street, Homerville, GA 31634
+      superintendent: Dr. Lori James
+      board_page: https://www.clinchcounty.com/about-us/governing-board
+      contact_page: https://www.clinchcounty.com/email-us
+    notes: Submitted to Ground Crew (escp-mcp) as finding_c78bf707db1b under task district-policy-scan, scope GA, lease_b76f666c2805; status pending review, quote_check matched server-side. Opt-out policy quoted from Clinch County High School's 2026-2027 Student Handbook (direct Finalsite CDN PDF, 2,428,828 bytes, 70 pages, unpdf-extracted, quote on PDF page 35). District-wide www.clinchcounty.com/for-parents/student-handbooks page had no document listing in static HTML, so I went to the individual school site instead; this is a school-level handbook, not a board-adopted manual naming 'Clinch County School System' on its cover, though it appears to carry the district's standard discipline code (also defines corporal punishment as 'Physical punishment (paddling) by the principal or his/her designee', p.33). Simbli board-policy portal is site S=4039 but returned a bot-challenge on 4 spaced retries (same known fleet-wide block, issue_0314d441932d etc.), so no board policy_code or adoption/revision date -- a follow-up contributor should retry site 4039. nces_id 1301260 confirmed correct via NCES/Urban Institute CCD lookup. district_email is the site's published general contact address (decoded from its footer contact widget), not a personal address; no separate board-clerk email found so board_email is null. Board meets 4th Thursday of each month, 6:00pm; public-comment procedure is Policy BCBI (last updated 7/22/21), full text at https://www.clinchcounty.com/fs/resource-manager/view/2325c805-7e41-4c58-a5b2-42bdf53e9465.
   - name: Cobb County School District
     county: Cobb
     nces_id: "1301290"
@@ -45,7 +62,7 @@ districts:
       mailing_address: 514 Glover Street, Marietta, GA 30060
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_revised: "2020-10-15"
+    policy_revised: 2020-10-15
     policy_dates_from: notes
   - name: Coffee County Schools
     county: Coffee
@@ -79,8 +96,8 @@ districts:
       mailing_address: 710 Lane Street, Moultrie, GA 31768
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "1999-02-22"
-    policy_revised: "2021-08-23"
+    policy_adopted: 1999-02-22
+    policy_revised: 2021-08-23
     policy_dates_from: notes
   - name: DeKalb County Schools
     county: DeKalb
@@ -98,8 +115,8 @@ districts:
       mailing_address: 1701 Mountain Industrial Blvd, Stone Mountain, GA 30083
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "2000-09-11"
-    policy_revised: "2012-05-16"
+    policy_adopted: 2000-09-11
+    policy_revised: 2012-05-16
     policy_dates_from: notes
   - name: Forsyth County Schools
     county: Forsyth
@@ -128,8 +145,8 @@ districts:
       mailing_address: 6201 Powers Ferry Road, Atlanta, GA 30339
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "2011-03-18"
-    policy_revised: "2016-08-18"
+    policy_adopted: 2011-03-18
+    policy_revised: 2016-08-18
     policy_dates_from: notes
   - name: Gwinnett County Public Schools
     county: Gwinnett
@@ -158,6 +175,24 @@ districts:
     notes: "No primary source states a position either way. Henry County Schools publishes board policy on Simbli, site 4088 (confirmed two ways: the district's own link on https://www.henry.k12.ga.us/ -> simbli.eboardsolutions.com/sb_meetings/sb_meetinglisting.aspx?s=4088, and resolve_handbook on https://www.henry.k12.ga.us which returned board_policy_systems [{vendor: 'Simbli (eBOARDsolutions)', site: '4088'}]; the Simbli page header reads 'Henry County Schools'). I read Section J (Students) in full in a browser -- 47 entries, JAA through JRA -- and there is NO policy titled Corporal Punishment and no JDA. Section G (Personnel) has only four entries (GAAA, GAAA-E(1), GAD, GAE) and none mention it. Board Policy JD 'Student Discipline' (ADOPTED, originally adopted 10/01/1990, last revised and reviewed 04/14/2025) was read in full: the string 'corporal' does not appear anywhere on the page. The district's SY2026-27 Code of Conduct (https://resources.finalsite.net/images/v1783626540/henryk12gaus/mpsec6pj8coggpjt24jm/SY2026-27CodeofConduct_weblinks_FINAL.pdf, reached via https://www.henry.k12.ga.us/fs/resource-manager/view/789ef6d8-0848-4275-9406-9ddfcf9950b8; fetch_document: 782,449 bytes, application/pdf, 35 pages, 146,475 chars) returned ZERO hits for 'corporal punishment', 'paddl' and 'spank'. Simbli's built-in full-text search would settle whether the phrase appears in some other section, but the search panel would not submit under automation, and fetch_simbli_policy was bot-challenged throughout this session. Filed unknown rather than 'bans' as the legacy map claimed, because nothing I opened says so."
     policy_code: null
     crdc_students_latest: null
+  - name: Jeff Davis County
+    county: Hazlehurst
+    nces_id: "1303000"
+    status: allows
+    source: https://4.files.edl.io/6593/07/24/26/181406-96b43548-c24a-4e21-b2b5-639b8d22450a.pdf
+    quote: Corporal punishment will not be administered to a child whose parents or legal guardian has filed with the principal of the school the student is attending, a statement requesting that corporal punishment not be administered to the child.
+    policy_code: null
+    crdc_students_latest: 69
+    last_verified: 2026-09-19
+    contact:
+      phone: (912) 375-6700
+      mailing_address: Jeff Davis County Schools, 71 Burketts Ferry Rd., Hazlehurst, GA 31539
+      superintendent: Dr. Chris Roppe
+      board_page: https://simbli.eboardsolutions.com/aboutus/aboutus.aspx?S=4093&TID=1
+      contact_page: https://www.jeff-davis.k12.ga.us/
+      public_comment: The district publishes a Public Participation page at https://www.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031048&type=d&pREC_ID=2371790 and board meeting dates at https://www.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031048&type=d&pREC_ID=2108284 (not read in detail).
+      as_of: 2026-09-19
+    notes: "Opt-out district, so 'allows'. Source is the JDHS Student Handbook (26-27), the PDF behind http://hs.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031192&type=d&pREC_ID=2108368 (Edlio file host, listed by the brief as machine-fetchable). fetch_document: application/pdf, 1,379,549 bytes, 53 pages, text layer present. The quoted sentence is on page 41, in the Student Code of Conduct definitions, immediately after 'Corporal Punishment - Moderate use of physical force or physical contact by a principal or designee in the presence of another school official as may be necessary to maintain discipline or to enforce school rules.' Corporal punishment is listed as an available disciplinary action for any violation of the Code of Conduct (page 35), as the disciplinary action for Level I offenses (page 36) and as the first and subsequent offense penalty for Level II offenses (page 38). The handbook is district-wide in substance: it carries the Jeff Davis County School System mission, nondiscrimination notice, admission rules and the board's code of conduct, and cites board policy by code elsewhere (e.g. 'Jeff Davis Co. Bd. of Ed. Policy JCDA 12-08-08' for verbal assault); no policy code is printed against the corporal punishment entry, and no adoption or revision date appears on the document (the web page it hangs off was published 2026-07-24). CAVEAT for the reviewer: the board's own policy manual is on Simbli at https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=4093 (site number confirmed both from the district's own 'Policies' link and independently by resolve_handbook). fetch_simbli_policy for site 4093 returned Imperva's bot-challenge page on every attempt over several hours of spaced retries, so the board policy itself (Georgia code JD/JDA) has not been read and its adoption date is unknown. The next contributor should open that Simbli listing once the vendor's rate limit clears."
   - name: Laurens County Schools
     county: Laurens
     nces_id: "1301890"
@@ -203,9 +238,25 @@ districts:
       website: http://lcboe.net
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "2008-02-14"
-    policy_revised: "2020-08-13"
+    policy_adopted: 2008-02-14
+    policy_revised: 2020-08-13
     policy_dates_from: notes
+  - name: Montgomery County
+    county: Montgomery
+    nces_id: "1302670"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1QSNIMxYAfPMplZUJQ95Yz_-pLJPUHjcn
+    quote: Any parent who does not wish for his/her child to receive corporal punishment, must submit a written statement that corporal punishment is not to be used as a consequence. Additionally, the sign off list in first day packets must be signed and returned. Every reasonable attempt to contact the parent/guardian prior to administering corporal punishment shall be made by an administrator.
+    policy_code: null
+    crdc_students_latest: 106
+    last_verified: 2026-09-22
+    notes: "Submitted to Ground Crew (escp-mcp) as finding_5d1b757fb9f1 under task district-policy-scan, scope GA, lease_b76f666c2805; status pending review. Opt-out policy in the FY27 Student Handbook (source: Google Drive PDF, 1,891,493 bytes, 46 pages, unpdf-extracted, quote confirmed on PDF page 24 / printed page 23). Simbli board-policy portal is site S=4118 but returned a bot-challenge on 5 spaced retries over ~10 min (known fleet-wide Simbli block, see open issue issue_0314d441932d and related), so no board policy_code or adoption/revision date could be captured -- a follow-up contributor should retry fetch_simbli_policy for site 4118. Also flagged: the input row's nces_id 1302670 actually maps (per NCES/Urban Institute CCD) to Haralson County, not Montgomery County; the correct current LEAID for Montgomery County School System (Mt. Vernon GA) is 1303750. district_email/board_email left null -- site only offers a contact form, no published address found."
+    contact:
+      phone: (912) 583-2301
+      mailing_address: 703 Dobbins St., Mount Vernon, GA 30445
+      superintendent: Dr. Ronda Hightower
+      board_page: https://www.montgomery.k12.ga.us/apps/pages/index.jsp?uREC_ID=533804&type=d&termREC_ID=&pREC_ID=1024434&hideMenu=0
+      contact_page: https://www.montgomery.k12.ga.us/apps/contact/
   - name: Pulaski County
     county: Hawkinsville
     nces_id: "1304220"
@@ -222,6 +273,23 @@ districts:
       contact_page: https://www.pulaski.k12.ga.us/apps/contact/
       as_of: 2026-09-20
     notes: "BLOCKED ON THE SHARED SIMBLI READER, not on finding the source. The district publishes board policy through Simbli and the site key is 4132, confirmed two independent ways: (1) resolve_handbook {\"website\":\"https://www.pulaski.k12.ga.us\",\"state\":\"GA\"} returns board_policy_systems = [{vendor: \"Simbli (eBOARDsolutions)\", site: \"4132\", found_on: \"https://www.pulaskicountyschools.org/\", link_text: \"Eboard\"}]; (2) a plain fetch of https://simbli.eboardsolutions.com/index.aspx?s=4132 returns a page whose <title> is \"Simbli Board Management Software | Pulaski County Schools\" and whose inline JS sets siteIdStr = '4132'. But fetch_simbli_policy {\"site\":\"4132\"} returned the vendor bot-challenge message on SEVEN attempts spaced over roughly two hours (2026-09-20 ~06:20 to ~08:25 UTC), with and without code/terms arguments. In the same window and from the same agent, fetch_simbli_policy succeeded on three 8-digit sites (36031078 Cleburne County AL, 36031758 North Pike MS, 36031699 Copiah County MS), so this does not look like a rate limit on my side - it looks specific to the short 4-digit GSBA/Georgia keys. Filed as bug issue_1ae6b40f6e8e on the project server. NEXT CONTRIBUTOR: retry fetch_simbli_policy {\"site\":\"4132\"} once the bug is fixed; the Georgia codes to match on are titles like \"Corporal Punishment\" / \"Student Discipline\" (GSBA codes JD/JDA or 6.x). No handbook or code-of-conduct PDF was found on the district's Edlio site as an alternative (resolve_handbook found no candidates; the site's only policy link is the Eboard link)."
+  - name: State Charter Schools- Georgia School for Innovation and th
+    county: Hephzibah
+    nces_id: "1300238"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1s7UYg4co3gclESsHiH2Z4S4IMaTpi0QE
+    quote: Level Three Consequences • Suspension of 1 to 10 days • Corporal Punishment
+    policy_code: null
+    crdc_students_latest: 39
+    last_verified: 2026-09-19
+    contact:
+      phone: (706) 434-8085
+      mailing_address: 5073 Storey Mill Road, Hephzibah, GA 30815
+      superintendent: Jody Boulineau
+      board_page: https://www.gsiccharter.com/governing-board/
+      contact_page: https://www.gsiccharter.com/contact/
+      as_of: 2026-09-19
+    notes: "NAME CORRECTION for the reviewer: the NCES row is truncated and the school's actual published name is 'Georgia School for Innovation and the Classics' (GSIC), not '...and the Arts'. Identity confirmed by matching the NCES directory record for 1300238 (5073 Storey Mill Rd, Hephzibah GA 30815, (706) 434-8085, independent charter district, Richmond County) against the school's own site www.gsiccharter.com, which publishes the same address and phone. The domain gsia.org in the slice's neighbourhood is a parked GoDaddy for-sale page and is NOT this school. Source: GSIC Family Handbook 2026-2027, page 22 of the PDF (printed page 22-23), under 'Student Discipline Code' > 'Level Three Consequences'. Found via the project's resolve_handbook on gsiccharter.com, which located it on https://www.gsiccharter.com/family-handbook/ as a Google Drive file (view link 1s7UYg4co3gclESsHiH2Z4S4IMaTpi0QE); cited as the Drive direct-download form. Fetched server-side with fetch_document: 719,654 bytes, served as application/octet-stream, 41 pages, 101,053 characters of text, sha256 b58d6b1e4ffc17152fb26648f825c46dea3e334a632c6c279d2ed1c4f2b567b9. 'Corporal Punishment' appears exactly once in the whole handbook, as one of the listed Level Three consequences; there is no separate corporal punishment policy, no parental opt-in and no opt-out anywhere in the document, so this is 'allows' rather than 'consent_required'. No board policy manual was found published on the school's site; the Governing Board page (https://www.gsiccharter.com/governing-board/) carries no policy manual. The handbook bullets are rendered with the character U+2022 in the extracted text; the quote reproduces them as they appear. Quote-matching note for the reviewer: the quoted passage runs across line breaks in the PDF's own text layer, so an exact raw-substring search on the extracted text will miss it; it matches once whitespace is normalized, which is how it was checked here against the server's cached extraction."
   - name: Thomas County Schools
     county: Thomas
     nces_id: "1304890"
@@ -238,8 +306,8 @@ districts:
       mailing_address: 11343 U.S. Hwy. 319N, Thomasville, GA 31757
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "2001-06-12"
-    policy_revised: "2013-03-26"
+    policy_adopted: 2001-06-12
+    policy_revised: 2013-03-26
     policy_dates_from: notes
   - name: Tift County Schools
     county: Tift
@@ -257,8 +325,8 @@ districts:
       mailing_address: P O Box 389, Tifton, GA 31793
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "1977-07-12"
-    policy_revised: "2020-04-16"
+    policy_adopted: 1977-07-12
+    policy_revised: 2020-04-16
     policy_dates_from: notes
   - name: Ware County Schools
     county: Ware
@@ -277,6 +345,6 @@ districts:
       website: http://www.ware.k12.ga.us
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "2007-11-13"
-    policy_revised: "2020-04-21"
+    policy_adopted: 2007-11-13
+    policy_revised: 2020-04-21
     policy_dates_from: notes

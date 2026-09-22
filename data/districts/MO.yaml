@@ -28,6 +28,16 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Charleston R-I
+    county: Charleston
+    nces_id: "2908670"
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-19
+    notes: null
   - name: Columbia Public Schools
     county: Boone
     nces_id: null
@@ -37,6 +47,40 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: GREENVILLE R-II
+    county: Wayne
+    nces_id: "2913380"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=513&revid=lqslj56r3RkTkDYjLmxMtA%3D%3D
+    quote: Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment. Corporal punishment shall be administered only by swatting the buttocks with a paddle.
+    policy_code: JGA-1
+    crdc_students_latest: 141
+    last_verified: 2026-09-22
+    contact:
+      phone: 573-224-5000
+      mailing_address: 191 Walnut Street, PO Box 320, Greenville, MO 63944
+      board_page: https://www.bears.k12.mo.us/district_info/school_board_members
+      contact_page: https://www.bears.k12.mo.us/district_info/building_contact_information
+    notes: "District's own /district_info/school_board_policy_manual page redirects to Simbli (S=513, final URL https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=513&Sch=513/greenviller2, 18,026 bytes text/html, confirmed via project fetch_document). Read via project fetch_simbli_policy tool (site=513): policy JGA-1 'CORPORAL PUNISHMENT', status ADOPTED, originally adopted 11/17/1994, last revised 09/15/2022 -- dates as printed in Simbli's own policy metadata. Policy's own header reads '(Permitted)' but the operative sentence requires prior written parental permission before any corporal punishment is administered, which is opt-in, so classified consent_required per project rule (opt-in beats opt-out/permitted framing). District mailing address and phone confirmed 2026-09-21 on bears.k12.mo.us/district_info/building_contact_information. Superintendent name and any district/board email were not found -- the staff-directory pages (administrative_staff, district_staff) render via JS/AJAX that curl could not execute, so those contact fields are left null rather than guessed."
+    policy_adopted: "1994-11-17"
+    policy_revised: "2022-09-15"
+    policy_dates_from: notes
+  - name: Holcomb R-Iii
+    county: Holcomb
+    nces_id: "2914460"
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-19
+    contact:
+      phone: 573-792-3113
+      mailing_address: Holcomb R-III School District, 102 S. Cherry, Holcomb, MO 63852
+      contact_page: https://holcombschools.com/contact/
+      public_comment: The district publishes a web contact form on https://holcombschools.com/contact/ headed "E-mail Central Office" and no email address; no public-comment procedure is published.
+      as_of: 2026-09-19
+    notes: "DEAD END, needs one Simbli read. What the next contributor should open: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=151 and find the corporal punishment policy (Missouri MSBA code is normally JGA; match on TITLE, not the code). The site number 151 is confirmed: the district's District Information page (https://holcombschools.com/district-information-189/) links 'School Board Policy' to exactly that URL, and the page title returned is 'Policy Listing | Holcomb R-III'. fetch_simbli_policy for site 151 was called roughly 30 times over about three and a half hours, spaced 45 to 240 seconds apart, with and without terms and once with code JGA; every call that returned anything returned Imperva's bot-challenge message, and the rest timed out. The block was not specific to this district (site 4093 failed identically and interleaved) and it never cleared. Filed as bug issue_bf315135987e on the crew server. The district publishes nothing else: holcomb.k12.mo.us (the NCES address) no longer resolves to a served site, and the live site https://holcombschools.com has no student handbook or code of conduct anywhere. Places searched on it: the home page's complete link list, the WordPress site search for 'handbook' (only the site's own pages) and for 'corporal' (no results), /district-information-189/, /public-notice/, /non-discrimination/, /504-2/, /contact/ and the wp-content/uploads PDFs, which are only the bullying incident report form, ESEA complaint procedures, ESEA schoolwide plan, CSIP plan, the June 30 2025 audit and a quarterly financial report. resolve_handbook returned nothing for the NCES website. The district reported 41 students struck in 2023-24, so a policy almost certainly exists; it is simply behind the vendor's bot wall."
   - name: Hollister R-V Schools
     county: Taney
     nces_id: null
@@ -55,6 +99,94 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Kennett 39
+    county: Kennett
+    nces_id: "2916500"
+    status: unknown
+    source: null
+    quote: null
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-19
+    contact:
+      phone: 573-717-1100
+      mailing_address: 510 College Ave, Kennett, MO 63857
+      superintendent: Dr. Richie Leeker
+      board_page: https://www.kennett.k12.mo.us/page/board-policy-manual/
+      contact_page: https://www.kennett.k12.mo.us/
+      as_of: 2026-09-19
+    notes: "POLICY LOCATED BUT TEXT NOT READ - a short follow-up should finish this one. The district's Board Policy Manual is on Simbli, site S=155 (the district's own 'MSBA Online Policy' link from https://www.kennett.k12.mo.us/page/board-policy-manual/ points to simbli.eboardsolutions.com/SB_ePolicy/SB_PolicyOverview.aspx?S=155&Sch=155). I confirmed in a real browser that S=155 is titled 'Kennett 39' and that an exact-phrase Simbli search for \"corporal punishment\" in its Board Policy Manual returns 3 policies: JED-R2 STUDENT ABSENCES AND EXCUSES (R, ADOPTED 11/18/2025), JG-R1 STUDENT DISCIPLINE (R, ADOPTED 08/19/2025), and JGA-1 CORPORAL PUNISHMENT (P, ADOPTED 08/16/2022). I could not open JGA-1's text: the result row is an Angular button that opens the policy in a browser window outside the automation tab group, and it issues no network request I could capture. fetch_simbli_policy returned the bot-challenge message for site 155 on ~13 spaced attempts over two hours (see issue_0314d441932d). Because the policy's direction (authorize vs prohibit) was never read, I am NOT guessing: status unknown. Also searched, with nothing usable: the district site's /documents and per-school /o/<school>/documents Apptegy payloads (empty or unrelated), the Google Docs linked from the board-policy page (Hall of Fame form, Chromebook info, board roster), and kennett.msbapolicy.org / kennett39.msbapolicy.org (both 404). CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
+  - name: Malden R-I
+    county: Malden
+    nces_id: "2919890"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3231/Malden/4f9399db-4968-4914-a7e1-2b93336d4763/Elementary-Student-Handbook-25-26-__.docx.pdf
+    quote: Under Board policy JGA-1, the Malden School District retains the legal right to administer reasonable corporal punishment to a student.
+    policy_code: JGA-1
+    crdc_students_latest: 62
+    last_verified: 2026-09-19
+    contact:
+      board_email: dentonkooyman@maldenmoschools.org
+      phone: (573) 276-5794
+      mailing_address: Malden R-I School District, 601 W Burkhart Street, Malden, MO 63863
+      board_page: https://www.maldenmoschools.org/page/school-board
+      contact_page: https://www.maldenmoschools.org/page/contact-us
+      public_comment: Board meets the third Tuesday of each month. Patrons wishing to address the Board must complete the 'Request to be on BOE Agenda' form and submit it to the central office at 601 West Burkhart Street no later than five days before the meeting.
+      as_of: 2026-09-19
+    notes: "Source is the district's elementary student handbook, posted in the district Documents > HANDBOOKS folder as 'Elementary Student Handbook 26-27'; the file itself is titled 'Handbook 2025-2026'. fetch_document: application/pdf, 1,667,511 bytes, 63 pages, text layer present; the quoted sentence is on page 18 under 'Definitions of Discipline'. The handbook also states on page 10 that 'A complete manuscript of the District Discipline Code and corporal punishment guidelines are contained in the Malden R-I School District Policy Manual' and cites policies JG-R1, JGA, JGB, JGD, JGE, JGF. Refusal by student or parent is answered with out-of-school suspension, not consent in advance, so this is 'allows', not 'consent_required'. The underlying board policy manual is on Simbli (the district links to simbli.eboardsolutions.com/mo/maldenr1); Simbli's Imperva bot protection refused both the project's fetch_simbli_policy tool and a browser throughout this session, so the board policy text itself was not read. The district's separate 'JH and HS Student Handbook 2026-2027' (69 pages) contains no mention of corporal punishment."
+  - name: Portageville
+    county: Portageville
+    nces_id: "2900003"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1acXmG-XjZ3-7gC57pVzSA1dB1sSBOmpr
+    quote: Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
+    policy_code: "2670"
+    crdc_students_latest: 54
+    last_verified: 2026-09-19
+    contact:
+      phone: 573-379-3855
+      board_page: https://www.portageville.k12.mo.us/school_board_info
+      contact_page: https://www.portageville.k12.mo.us/school_board_info
+      public_comment: "The district publishes a 'Board Meeting Public Participation' page: https://www.portageville.k12.mo.us/school_board_info/boardmeetingpublicparticipation"
+      as_of: 2026-09-19
+    notes: "Policy 2670, headed 'Corporal Punishment: Authorized'. Found in the district's own board-policy Google Drive folder linked from https://www.portageville.k12.mo.us/school_board_info/boardpolicies (folder id 1nNJMeVjVQt5zO6oCsRRloXUATUpjKOzu, enumerated via drive.google.com/embeddedfolderview). Document's own date line: 'October, 2010'. Fetched: 5,350 bytes, application/octet-stream, 1 page, hit on page 1; also confirmed locally with pdftotext. No parental opt-out or opt-in in the policy text. CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
+  - name: Senath-Hornersville C-8
+    county: Senath
+    nces_id: "2927870"
+    status: allows
+    source: http://moconed.com/district/SenathHornersvilleC8/district.php?pol=309
+    quote: Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
+    policy_code: "2670"
+    crdc_students_latest: 56
+    last_verified: 2026-09-20
+    contact:
+      district_email: jgurley@shs.k12.mo.us
+      phone: 573-738-2669
+      mailing_address: "PO Box 370, Senath, MO 63876 (physical: 803 S State Street, Senath, MO 63876)"
+      superintendent: Jared Gurley
+      board_page: https://www.shslions.org/school-board.html
+      contact_page: https://www.shslions.org/district-contact-information.html
+      as_of: 2026-09-20
+    notes: "The district's own board policy manual, hosted by Missouri Consultants for Education and linked as 'School Board Policies' from shslions.org/school-board.html. Page title: 'Senath Hornersville C-8 | P 2670 Corporal Punishment: Authorized'; 'Last Updated: August 2010'. fetch_document on the policy page: 3,850 bytes, text/html, 1,111 chars of text, hit at offset 322. IMPORTANT for the reviewer: moconed.com serves any pol id for any district, so the adopted variant was confirmed from the district's own policy index (district.php, 58,347 bytes, text/html) which lists '2670 Corporal Punishment: Authorized' and NOT the alternative '2670 Corporal Punishment: Prohibited' (pol=97). No parental consent requirement, so 'allows'."
+  - name: South Pemiscot Co. R-V
+    county: Steele
+    nces_id: "2928530"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=356&revid=RaE2Y7SXJxMDOtDuLCrMwg%3D%3D
+    quote: Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    policy_code: JGA-1
+    crdc_students_latest: 52
+    last_verified: 2026-09-20
+    contact:
+      phone: 573-695-4426
+      mailing_address: 611 Beasley Rd, Steele, MO 63877
+      board_page: https://simbli.eboardsolutions.com/SB_ePolicy/SB_PolicyOverview.aspx?S=356&Sch=356
+      contact_page: https://southpemiscot.com/en-US
+      as_of: 2026-09-20
+    notes: "South Pemiscot County R-V, Board Policy Manual, JGA-1 CORPORAL PUNISHMENT, header '(Permitted)'. The policy page's own dates: 'Original Adopted Date: 11/13/2014 | Last Revised Date: 08/16/2022 | Last Reviewed Date: 08/16/2022 | Status: ADOPTED'; footer 'Version JGA-1C.1D (08/22)', (c) 2022 Missouri School Boards' Association. CLASSIFIED consent_required, NOT allows: the policy permits corporal punishment in general but conditions every use on affirmative advance written permission from the parent/guardian (opt IN), which is the quoted sentence. The district still reported striking 52 students in CRDC 2023-24. Simbli site 356 identity confirmed twice: the page title is 'Policy Listing | South Pemiscot R-V', and the district's own homepage southpemiscot.com links 'Board Policies' to SB_PolicyOverview.aspx?S=356&Sch=356. fetch_simbli_policy returned the vendor bot-challenge on every one of ~10 spaced attempts over more than two hours (reported as issue_8839706bb552), so this policy was read in a browser through the manual's own keyword search and source_text is supplied."
+    policy_adopted: "2014-11-13"
+    policy_revised: "2022-08-16"
+    policy_dates_from: notes
   - name: Southwest R-V School District
     county: McDonald
     nces_id: null

@@ -7,6 +7,21 @@ import { fileURLToPath } from "node:url";
 import { parse, stringify } from "yaml";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 import { norm, kind, sameName } from "./lib/district-name.mjs";
+
+// The county map already knows every county in every state; there is no reason to guess.
+let COUNTIES = null;
+const countyKey = (s) => String(s ?? "").toLowerCase().replace(/\s+(county|parish|borough|census area|municipality)$/i, "").replace(/^st\.?\s/, "st ").replace(/[^a-z0-9 ]/g, "").trim();
+function countiesOf(state) {
+  if (!COUNTIES) {
+    COUNTIES = {};
+    const svg = readFileSync(join(root, "site/assets/us-map.svg"), "utf8");
+    for (const m of svg.matchAll(/data-state="([A-Z]{2})"[^>]*data-name="([^"]+)"|data-name="([^"]+)"[^>]*data-state="([A-Z]{2})"/g)) {
+      const st = m[1] ?? m[4], nm = m[2] ?? m[3];
+      if (st && nm) (COUNTIES[st] ||= new Set()).add(countyKey(nm));
+    }
+  }
+  return COUNTIES[state] ?? new Set();
+}
 const VALID = new Set(["allows", "bans", "consent_required", "unknown"]);
 let added = 0, updated = 0, skipped = 0;
 for (const f of process.argv.slice(2)) {
@@ -45,8 +60,16 @@ for (const f of process.argv.slice(2)) {
       //     real sources and the board policy is the governing one, so the swap is reported rather than
       //     made silently; re-run with the record removed if the new source is genuinely better.
       if (prev.county && entry.county && norm(prev.county) !== norm(entry.county)) {
-        console.error(`keep county for ${prev.name}: on file "${prev.county}", scan said "${entry.county}"`);
-        entry.county = prev.county;
+        // Keeping whatever was on file was too blunt. It was written to stop Monroe County's county
+        // being overwritten with Amory, the town its office sits in -- and then it kept Longview over
+        // Gregg, Covington over Tipton, Vernon over Lamar: four districts whose stored "county" was
+        // the city all along and whose scan had it right. So ask the map which of the two is a county
+        // in that state, and only fall back to the stored value when that cannot decide.
+        const known = countiesOf(r.state);
+        const prevIsCounty = known.has(countyKey(prev.county)), entryIsCounty = known.has(countyKey(entry.county));
+        if (entryIsCounty && !prevIsCounty) console.error(`county for ${prev.name}: taking "${entry.county}" over "${prev.county}", which is not a county in ${r.state}`);
+        else if (prevIsCounty && !entryIsCounty) { console.error(`county for ${prev.name}: keeping "${prev.county}"; scan said "${entry.county}", which is not a county in ${r.state}`); entry.county = prev.county; }
+        else { console.error(`county for ${prev.name}: on file "${prev.county}", scan said "${entry.county}", cannot tell which -- keeping the one on file`); entry.county = prev.county; }
       }
       if (prev.source && entry.source && prev.source !== entry.source && prev.status === entry.status) {
         console.error(`NOTE ${prev.name}: source replaced, status unchanged (${prev.status})\n  was ${prev.source}\n  now ${entry.source}`);
