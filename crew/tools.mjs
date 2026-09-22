@@ -187,8 +187,23 @@ export function simbliSiteId(input) {
 const challenged = (body) => /Pardon Our Interruption|Incapsula|_Incapsula_Resource/i.test(body) && !/var sToken/.test(body);
 const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// The index is the expensive part and the least volatile: two requests to learn what a district
+// publishes, and it changes when a board votes, not between one agent's call and the next one's.
+// Caching it for an hour removes two Simbli requests from every repeat read of the same district,
+// which on a fleet re-reading a district to verify it is most of the traffic.
+const SIMBLI_INDEX_TTL_MS = 60 * 60 * 1000;
+const simbliIndexCache = new Map();
+
 // The policy index: every code, title and revision id the district publishes.
 async function simbliListing(site, fetchImpl) {
+  const hit = simbliIndexCache.get(site);
+  if (hit && Date.now() - hit.at < SIMBLI_INDEX_TTL_MS) return { ...hit.index, from_cache: true };
+  const fresh = await simbliListingLive(site, fetchImpl);
+  simbliIndexCache.set(site, { at: Date.now(), index: fresh });
+  return fresh;
+}
+
+async function simbliListingLive(site, fetchImpl) {
   const jar = cookieJar();
   const page = `${SIMBLI}/Policy/PolicyListing.aspx?S=${site}`;
   let shell = await simbliGet(page, jar, fetchImpl);
@@ -517,7 +532,8 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
       description:
         "Simbli (eBOARDsolutions) carries board policy for much of Alabama, Georgia and Kentucky. Its pages are JavaScript-only, so a plain fetch of a Simbli URL returns navigation and no policy; this reads the same data the page reads. " +
         "Called with only a district, it returns the whole policy index — every code, title, revision id and revision date — so you can see what the district actually has. Add a code or terms and it also returns the text of the matching policy, the passages mentioning corporal punishment, and the date the policy was last revised, which is how you date it. " +
-        "The text is cached against the ViewPolicy URL, so submit that URL as `source` and your quote verifies against what you read here. Codes differ by district: Etowah County calls it 6.17 Corporal Punishment, Blount County has it inside 05.13 Discipline. Search by term, not by an assumed code.",
+        "The text is cached against the ViewPolicy URL, so submit that URL as `source` and your quote verifies against what you read here. " +
+        "Reading a district a second time is free: the index is cached for an hour and a policy already read is served from the server's copy without touching Simbli, so verifying somebody else's finding costs the vendor nothing. Codes differ by district: Etowah County calls it 6.17 Corporal Punishment, Blount County has it inside 05.13 Discipline. Search by term, not by an assumed code.",
       inputSchema: {
         site: z.string().trim().min(2).describe("The district's Simbli key: the number after S= in a simbli.eboardsolutions.com URL, or the whole URL"),
         code: z.string().trim().optional().describe("An exact policy code from the index, e.g. '6.17'"),
@@ -559,11 +575,21 @@ export async function registerTools(server, ctx, { z, text, fail, documents }) {
       out.policies = [];
       for (const p of wanted.slice(0, 3)) {
         let got;
-        try { got = await simbliPolicy(index, site, p.revid); }
-        catch (err) { out.policies.push({ code: p.code, title: p.title, url: p.url, error: err.message }); continue; }
+        // Already read this policy? Use the copy the server kept. A verifier re-reading a district to
+        // check someone else's quote is the commonest reason this tool is called twice, and going back
+        // to Simbli for text we already hold is how a fleet rate-limits itself out of its own work.
+        // read(), not get(): get() would FETCH a url it has not seen, and fetching a Simbli url returns
+        // the JavaScript shell rather than the policy. read() only ever answers from the cache.
+        const cached = documents?.read?.(p.url);
+        if (cached?.text && cached.text.length > 100) {
+          got = { text: cached.text, page: cached.final_url ?? p.url, from_cache: true };
+        } else {
+          try { got = await simbliPolicy(index, site, p.revid); }
+          catch (err) { out.policies.push({ code: p.code, title: p.title, url: p.url, error: err.message }); continue; }
+        }
 
         // Cache it under the URL a person would cite, so submit_finding can verify against this text.
-        if (got.text.length > 100) documents?.put?.(p.url, got.text, { content_type: "text/html", extracted_by: "simbli-api", final_url: got.page });
+        if (!got.from_cache && got.text.length > 100) documents?.put?.(p.url, got.text, { content_type: "text/html", extracted_by: "simbli-api", final_url: got.page });
 
         const low = got.text.toLowerCase();
         const hits = [];

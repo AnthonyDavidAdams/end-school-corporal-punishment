@@ -77,6 +77,8 @@ const VERDICT = {
   required: ['name', 'refuted', 'why'],
 }
 
+// args is the list of {state, districts} to work. A scheduled run stages that list and passes it
+// through verbatim; there is no filesystem access inside a workflow, so it cannot be a path.
 const states = args
 log(`${states.length} states, ${states.reduce((a, s) => a + s.districts.length, 0)} districts, ${states.reduce((a, s) => a + s.districts.reduce((b, d) => b + d.students, 0), 0)} students struck between them`)
 
@@ -160,7 +162,9 @@ A district you genuinely cannot read is status "unknown", with notes saying exac
 
 ${JSON.stringify({ state: f.state, name: f.name, status: f.status, source: f.source, quote: f.quote, policy_code: f.policy_code }, null, 1)}
 
-Fetch the source yourself from the crew server at ${SERVER} — fetch_document, or fetch_tasb_policy / fetch_simbli_policy if it is one of those. Take nothing on the other agent's word. Check three things:
+Fetch the source yourself from the crew server at ${SERVER} — fetch_document, or fetch_tasb_policy / fetch_simbli_policy if it is one of those. Take nothing on the other agent's word.
+
+If the source is a Simbli URL, call fetch_document on it rather than fetch_simbli_policy: the server already holds the policy text under that exact URL from when it was first read, so you get the same copy submit_finding checks against without another request to a vendor that rate-limits the whole fleet. Only fall back to fetch_simbli_policy if fetch_document has nothing. Check three things:
 
 1. Is that exact sentence in that document? A term search returns a window around the match and a quote longer than the window gets cut in half by it, so if the windowed text does not contain the quote, search again on a distinctive phrase FROM THE QUOTE, or read the page it sits on in full. Absence from a term window is not absence from the document. A real policy was nearly thrown away today for exactly this.
 2. Does the status follow? "allows" includes a policy a parent may opt OUT of. "consent_required" means advance written permission, opt IN. These are easy to inject backwards and that is the most common error here.
@@ -178,7 +182,7 @@ refuted=true if any check fails or you could not fetch the source.`,
         votes: `${against} of ${got.length} refuted`,
         why: got.map(v => `${v.refuted ? 'REFUTED' : 'passed'}: ${v.why}`).join('\n\n'),
       }
-    })))).then(verdicts => {
+    }))).then(verdicts => {
       const checks = new Map()
       checkable.forEach((f, i) => { if (verdicts[i]) checks.set(f, verdicts[i]) })
       return { ...scanned, findings: scanned.findings.map(f => (checks.has(f) ? { ...f, _check: checks.get(f) } : f)) }
