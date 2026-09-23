@@ -36,13 +36,13 @@ districts:
     last_verified: 2026-09-20
     notes: "The document's own header reads 'Alcorn County School District' - this is the county district (NCES 2800390), not the separate Corinth School District; the input row's county field 'Corinth' is the district office's mailing city. Simbli site S=36031677, reached from alcorn.msbapolicy.org which 302s to simbli.eboardsolutions.com/Index.aspx?S=36031677. The shared fetch_simbli_policy tool was tried about ten times over 100 minutes and returned Simbli's bot-challenge page every time, so this one policy was read in a browser and the verbatim text is supplied as source_text. Policy JDB 'Corporal Punishment', Status ADOPTED, Original Adopted Date 12/04/2008, Last Reviewed Date 04/13/2026; the policy body's own footer reads 'Amended: May 13, 2024  Last Review Date: April 8, 2024  Review History: April 12, 2021'. No parental consent or opt-out clause, so 'allows'. The policy specifies paddle dimensions and says the Alcorn Career Center makes all the District's paddles. Cites MS Code 11-46-9 and 37-11-57 and Ingraham v. Wright. CONTACT: all fields left null. alcorn.k12.ms.us (the NCES website) refuses connections from here and from the project server, and the Simbli policy pages publish no district address or contact. Nothing was taken second-hand."
     contact:
-      phone: "(662)286-5591"
-      mailing_address: "31 CR 401, Corinth, MS 38834"
-      website: "http://www.alcorn.k12.ms.us/index.html"
+      phone: (662)286-5591
+      mailing_address: 31 CR 401, Corinth, MS 38834
+      website: http://www.alcorn.k12.ms.us/index.html
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "2008-12-04"
-    policy_revised: "2026-04-13"
+    policy_adopted: 2008-12-04
+    policy_revised: 2026-04-13
     policy_dates_from: notes
   - name: Amite County Schools
     county: Amite
@@ -256,8 +256,8 @@ districts:
       website: http://choctaw.k12.ms.us
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "2012-06-04"
-    policy_revised: "2019-07-11"
+    policy_adopted: 2012-06-04
+    policy_revised: 2019-07-11
     policy_dates_from: notes
   - name: Claiborne County Schools
     county: Claiborne
@@ -317,6 +317,26 @@ districts:
       website: http://www.coahoma.k12.ms.us
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: COFFEEVILLE SCHOOL DIST
+    county: null
+    nces_id: "2801140"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031813&revid=K3KeXiS3XyH0R7vzeTJ7qw%3D%3D
+    quote: Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JD
+    crdc_students_latest: 30
+    last_verified: 2026-09-21
+    contact:
+      phone: 662-675-8941
+      mailing_address: 96 Mississippi Street, Coffeeville, MS 38922
+      superintendent: Dexter Green (Interim Superintendent)
+      board_page: https://www.coffeevilleschools.org/boardmembers
+      contact_page: https://www.coffeevilleschools.org/contact
+      as_of: 2026-09-21
+    notes: "Federal CRDC 2023-24 reported this district struck students; this is the first record filed for it. fetch_simbli_policy {site:36031813} returned the full text directly (before the fleet-wide Imperva block described below fully set in). Policy JD \"Student Discipline\", status ADOPTED, originally_adopted 04/09/2013, last_revised 04/09/2013 -- never revised since adoption, so this is a long-standing 'allows', not a change. Quote is from JD's own CORPORAL PUNISHMENT section (full section reads: administered only after less-stringent measures fail unless conduct is extreme; must be reasonable/moderate; may be given by principal, assistant principal, or teacher; witnessed by another employee). A separate policy code JDB \"Corporal Punishment\" also exists in the district's index (same last_revised 04/09/2013) but its full text was not returned in this call and was not re-fetched, since JD's own text is complete and dispositive and Simbli then became unreachable. Contact captured from the district's own Contact Us and Board Members pages; superintendent name and title (Interim) from https://www.coffeevilleschools.org/superintendent, dated bio signed 'Dexter Green, Interim Superintendent'. District publishes only a phone/address on its contact page, no general email address (a script-embedded 'website@coffeevilleschools.org' string was not used as it is not a labeled public contact); district_email and board_email left null rather than guessed."
+    policy_adopted: "2013-04-09"
+    policy_revised: "2013-04-09"
+    policy_dates_from: notes
   - name: Copiah County Schools
     county: Copiah
     nces_id: "2801220"
@@ -949,15 +969,22 @@ districts:
     policy_revised: 2026-09-08
     policy_dates_from: notes
   - name: Mccomb School District
-    county: Mccomb
+    county: null
     nces_id: "2802880"
     status: unknown
     source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-19
-    notes: null
+    crdc_students_latest: 74
+    last_verified: 2026-09-21
+    notes: "Federal CRDC 2023-24 reported this district struck students; could not confirm a current policy either way. What was tried: (1) resolve_handbook on http://www.mccomb.k12.ms.us -> no candidates (site is not JS-blocked but has no discoverable handbook link in 2 pages). (2) Confirmed mccomb.msbapolicy.org (linked from the district's own 'Board Policies' page) redirects to simbli.eboardsolutions.com Index.aspx?S=36031746, so S=36031746 is the correct Simbli key. (3) fetch_simbli_policy {site:36031746} with default terms ('corporal punishment','discipline') matched only 3 codes -- JCA 'Student Conduct' (rev 10/13/2025), JCC 'Bomb Threats / Student Discipline' (rev 08/08/2006), JDA 'Discipline Plan' (rev 06/14/2016) -- and I read all three in full: none contains the words 'corporal punishment' or 'paddl' anywhere. Unlike every other MS district checked in this batch (which all have a JD 'Student Discipline' and/or JDB 'Corporal Punishment' code), no such code appeared in McComb's title-matched results. JCA's own text explicitly says 'For information related to student conduct and disciplinary action, please refer to Mississippi Code Section 37-11-55 and policy JCB, Code of Conduct' -- JCB was not returned by the title search (its title almost certainly doesn't contain 'discipline' or 'corporal punishment') and I have no revid to fetch it directly. (4) Attempted fetch_simbli_policy {site:36031746, code:'JDB'} (refused: no match) and {full_index:true} (would list all 534 policies including JCB) -- both calls, plus a follow-up full_index retry, were blocked by Simbli's Imperva bot challenge. This is the same sustained, fleet-wide block other contributors have already logged for MS/AL sites (issue_c3607ea94dbb: 'every Alabama/Mississippi site ... hours not minutes'), confirmed still active after 5 spaced retries over ~25 minutes (immediate, +90s, +180s, +240s, +480s) in this session. NEXT CONTRIBUTOR: once fetch_simbli_policy is reachable again, call it with {site:'36031746', full_index:true} to see the complete J-section index and find policy JCB 'Code of Conduct' (and confirm whether a JD/JDB code truly does not exist), then fetch that code directly. Do not guess status from the absence alone -- it is equally possible McComb's corporal punishment rule is filed under JCB or another non-obviously-titled code. Contact captured from the district's own homepage nav and /apps/contact/ page: the contact page offers only a webform ('Email us' triggers a form, no address shown) plus a phone and street address -- no public email address exists on the site, so district_email/board_email are left null rather than guessed. Superintendent name (Mr. Johnnie Vick) and Board President (Mrs. Evelle Thomas-Dillon, from a linked board-president statement PDF) are both publicly named; board_page above is the '2025-2026 Board of Trustees' listing with member bios."
+    contact:
+      phone: (601) 684-4661
+      mailing_address: 695 Minnesota Ave, McComb, MS 39648
+      superintendent: Mr. Johnnie Vick
+      board_page: https://www.mccomb.k12.ms.us/apps/pages/index.jsp?uREC_ID=367706&type=d&pREC_ID=823302
+      contact_page: https://www.mccomb.k12.ms.us/apps/contact/
+      as_of: 2026-09-21
   - name: Monroe County School District
     county: Monroe
     nces_id: "2802940"
@@ -1042,8 +1069,8 @@ districts:
       public_comment: Site publishes phone and address; all email addresses on the site are obfuscated ('[email protected]') by the CMS, so no published address could be recorded.
       as_of: 2026-09-20
     notes: Simbli site S=36031753 (reached from newalbany.msbapolicy.org, which 302s to simbli.eboardsolutions.com/Index.aspx?S=36031753; the page header confirms 'New Albany Public School District'). The shared fetch_simbli_policy tool was tried roughly ten times over 100 minutes and returned Simbli's bot-challenge page every single time, so per the brief this one policy was read in a browser and the verbatim text is supplied as source_text. Policy JDB 'Corporal Punishment', Status ADOPTED, Original Adopted Date 07/01/2014, Last Reviewed Date 11/03/2025 (the J. Students listing shows Last Revised 07/01/2014 / Last Reviewed 11/03/2025). The policy has no parental consent and no opt-out clause, so 'allows'. It bars use on students with an IEP or Section 504 plan and cites MS Code 37-11-57 (1997) and 11-46-9.
-    policy_adopted: "2014-07-01"
-    policy_revised: "2025-11-03"
+    policy_adopted: 2014-07-01
+    policy_revised: 2025-11-03
     policy_dates_from: notes
   - name: Newton County Schools
     county: Newton
@@ -1064,6 +1091,24 @@ districts:
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
     policy_adopted: 2010-03-08
     policy_revised: 2025-11-10
+    policy_dates_from: notes
+  - name: NORTH PIKE SCHOOL DIST
+    county: null
+    nces_id: "2803240"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031758&revid=TXJmXlHxs8toQJOqC0mpUg%3D%3D
+    quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
+    crdc_students_latest: 73
+    last_verified: 2026-09-21
+    contact:
+      board_email: twilson@npsd.k12.ms.us
+      phone: +1 601 276 2216
+      mailing_address: 1036 Jaguar Trail, Summit, MS 39666
+      board_page: https://www.npsd.k12.ms.us/pages/6648daa9-5b0c-42ee-881f-65ed99105200
+      as_of: 2026-09-21
+    notes: "Federal CRDC 2023-24 reported this district struck students; this is the first record filed for it. fetch_simbli_policy {site:36031758} was blocked by Simbli's Imperva bot challenge across several spaced retries, part of the sustained fleet-wide block (see issue_c3607ea94dbb, 'every Alabama/Mississippi site ... hours not minutes'). Recovered the text through fetch_document on the same ViewPolicy URL, which returned the crew server's own Simbli cache (extracted_by simbli-api, fetched_at 2026-09-20T05:57:08Z, cached true, bytes 3777, sha256 a85df6b6723db2b06363041897746805abb28463506913c523b0e115a73b59f9) rather than a fresh live fetch -- this is the same cache fetch_simbli_policy itself reads from, not a bypass of the rate limit. Policy JDB 'Corporal Punishment', status ADOPTED. IMPORTANT DATE CAVEAT: the district's title-index (captured earlier in this same session, before the block, via fetch_simbli_policy site 36031758) lists JDB last_revised as 07/01/2019, but the cached body text itself contains a 'prohibited ... on any student with a disability' clause worded identically to Clarksdale MSD's JDB (last_revised 06/28/2024) -- i.e. the same 2024-era MSBA template update. The 07/01/2019 date is very likely stale and I could not confirm the page's own printed Original/Last-Revised header (that header is not part of the extracted body text and the live page could not be reached to screenshot it). Leaving policy_adopted/policy_revised null rather than guessing; next contributor should open the source URL once Simbli is reachable and copy the printed 'Original Adopted Date' / 'Last Revised Date' line. Corroborating evidence: district's JDA 'Discipline Plan' (read in full via the MCP tool) lists 'Corporal Punishment' as an active Class II/III disciplinary consequence option, and JD 'Student Discipline' points to JDB for the operative rule. Contact: district address/phone from the district's own Board of Trustees page (which also lists the district's general office address/phone in its footer); Board President Tabitha Wilson's published email used as board_email (no separate superintendent listed -- the district's home page currently runs an active 'Superintendent Search' survey/banner, so superintendent is left null rather than naming the Assistant Superintendent/Title IX Coordinator, who is not the district's chief officer). No dedicated contact-us page URL was found distinct from the board page; contact_page left null."
+    policy_revised: "2024-06-28"
     policy_dates_from: notes
   - name: Noxubee County Schools
     county: Noxubee
@@ -1108,7 +1153,7 @@ districts:
       public_comment: Board meeting dates published at https://www.pearlk12.com/district/school-board/board-meeting-dates; no sign-up procedure stated.
       as_of: 2026-09-19
     notes: "PPSD Student/Parent Handbook 2025-26, linked as 'Student/Parent Handbook' from https://www.pearlk12.com/ (Finalsite resource-manager view e4302256-5852-4fa5-8515-17b0150c3efe redirects to this PDF). Fetched: 1,494,316 bytes, application/pdf, 152 pages; section on PDF page 33 (printed page 19). No parental opt-out or opt-in appears in the section; the only carve-out is for students with an IEP or 504 plan. Board policy JDB is on Simbli site 36031766 (pearl.msbapolicy.org) but Simbli returned a bot challenge to the crew tool on 11 spaced passes AND rendered an empty page in a real browser all session (issue_0314d441932d); the Simbli index does show 'JDB Corporal Punishment, last revised 07/15/2024'. CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
-    policy_revised: "2024-07-15"
+    policy_revised: 2024-07-15
     policy_dates_from: notes
   - name: Pearl River County Schools
     county: Pearl River
@@ -1192,8 +1237,8 @@ districts:
       mailing_address: P.O. Box 179, Booneville, MS 38829
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
-    policy_adopted: "2016-09-19"
-    policy_revised: "2019-05-20"
+    policy_adopted: 2016-09-19
+    policy_revised: 2019-05-20
     policy_dates_from: notes
   - name: Quitman County Schools
     county: Quitman
@@ -1425,8 +1470,8 @@ districts:
       contact_page: https://southtippahschools.com/district-staff/
       as_of: 2026-09-20
     notes: "Read with fetch_simbli_policy site 36031788. Policy JDB Corporal Punishment: originally adopted 10/05/2010, last revised 06/11/2019, status ADOPTED, 3,777 chars. Site identity confirmed two ways: http://southtippah.msbapolicy.org 301-redirects to simbli Index.aspx?S=36031788, and the district's own board page https://southtippahschools.com/board-of-education/ links Board Policy to http://southtippah.msbapolicy.org/default.aspx. No parental consent or opt-out provision in the policy."
-    policy_adopted: "2010-10-05"
-    policy_revised: "2019-06-11"
+    policy_adopted: 2010-10-05
+    policy_revised: 2019-06-11
     policy_dates_from: notes
   - name: Starkville-Oktibbeha Consolidated School District
     county: Oktibbeha

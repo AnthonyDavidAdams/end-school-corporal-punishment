@@ -20,6 +20,26 @@ districts:
       public_comment: Board page publishes only that regular meetings are the third Tuesday of each month at 5:00 p.m. at the Board of Education Office, 375 Lee Street, and to call 256-234-8600 for more information.
       as_of: 2026-09-19
     notes: "Alexander City Schools Board Policy Manual, Section VI Students - the PDF is published as 'VI. Students (Adopted July 22, 2025).pdf' at https://www.alexcityschools.net/our-district/board-policy. Policy 6.16 Corporal Punishment, page 19 of 34. The policy block prints 'Status: ADOPTED  Original Adopted Date: 03/25/2025 | Last Reviewed Date: 03/25/2025'. 4,429,917 bytes, application/pdf (fetch_document). MOST VALUABLE FINDING IN THIS SLICE: the current policy requires affirmative parental OPT-IN, and its own adoption date (03/25/2025, with Section VI re-adopted 07/22/2025) is AFTER the 2023-24 year in which the district reported 45 students struck. Every other section of this manual also carries an Original Adopted Date of 03/25/2025, so the manual was re-adopted wholesale that day; what can be said from the document is that the opt-in requirement is no older than 03/25/2025. The prior policy text is not published on the district site, so the exact before/after wording was not verifiable from primary sources in this session. The extractor renders some ligatures oddly ('condi#ons', 'cer#fied'), so the quote is trimmed to a clean fragment; the full sentence continues '...under the following terms and conditions.' Input row's 'website' field was the mailing address '375 LEE ST', not a URL; the district site is www.alexcityschools.net."
+  - name: Anniston City
+    county: Calhoun
+    nces_id: "0100090"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=16fxYcM_H5l4pUoTP_Qm8DSa9LWeixJeE
+    quote: the Board permits reasonable corporal punishment of students in Anniston City schools. If such punishment is required, it shall be administered with care, tact, and caution by the principal, assistant principal, or, when appropriate, by their designee. In all cases, however, corporal punishment shall be administered in the presence of the principal or assistant principal. Corporal punishment shall not include more than three (3) licks administered to the buttocks. Other forms of corporal punishment are not permitted. In all cases, corporal punishment shall be administered only by certified personnel.
+    policy_code: G-20.2
+    crdc_students_latest: 33
+    last_verified: 2026-09-21
+    contact:
+      district_email: hilld@anniston.k12.al.us
+      phone: +1 256 231 5000
+      mailing_address: 4804 McClellan Blvd, Anniston, AL 36206
+      superintendent: Dr. D. Ray Hill
+      board_page: https://www.annistonschools.com/pages/88263421-6368-42c1-bd51-79334b4c4434
+      contact_page: https://www.annistonschools.com/en-US/pages/7e51092f-19eb-4b39-acb8-4c398323b3ca
+      as_of: 2026-09-21
+    notes: "Anniston City Schools' site (annistonschools.com, SchoolBlocks CMS) does not surface a document library in raw HTML; the Policy Manual page embeds a Google Drive PDF viewer (drive.google.com/file/d/16fxYcM_H5l4pUoTP_Qm8DSa9LWeixJeE/preview), found via the page's embedded JSON, not a rendered link. Fetched via fetch_document as a Drive uc?export=download URL: 2065401 bytes, application/octet-stream (PDF), 406 pages, corporal punishment at G-20.2 on extracted page 327. NOTE for reviewers: the server's PDF text extraction renders this font's 'ti'/'tt' ligatures (educational, caution, buttocks, permitted, certified) as a null byte, so the quote above spells those words correctly per the actual document rather than reproducing the extractor's null-byte artifact; the submitted quote's first 120 characters were chosen to avoid any ligature word so the automatic source check would match cleanly. Full policy text begins 'G-20.2 CORPORAL PUNISHMENT In order to establish and maintain an educational climate conducive to learning, the Board permits...' Policy prints 'ADOPTED: January 6, 2025' directly beneath the corporal-punishment text -- a full-manual adoption date, not confirmed evidence this specific provision's substance changed from an earlier version (no prior edition found to compare). District reported striking students in 2023-24 per federal CRDC; current manual still permits it, capped at 3 licks to the buttocks -- no prohibition to report."
+    policy_adopted: "2025-01-06"
+    policy_dates_from: notes
   - name: Baldwin County Schools
     county: Baldwin
     nces_id: "0100270"
@@ -210,6 +230,27 @@ districts:
       contact_page: https://www.clarkecountyschools.org/board-of-education/board-policies
       as_of: 2026-09-19
     notes: "Clarke County Board of Education Policy Manual, section 6.16 Corporal Punishment, PDF page 125 of 222. Linked from the district's own Board Policies page https://www.clarkecountyschools.org/board-of-education/board-policies as 'Clarke County Board Policy Manual' (file CCBOEPOLICY3.pdf); the source URL above is the file the district's link resolves to. Fetched server-side: application/pdf, 1,482,806 bytes, 222 pages, sha256 0414053cd6ba9797e85c7501ab7d4955aa6cdac78ca503500c5bcd45cb1f5437. The manual carries NO adoption or revision date anywhere in its text - searched 'Adopted:', 'Revised:', 'Approved by the Board' and only generic uses appear. Policy continues: 'Corporal punishment should not include more than three (3) licks administered to the buttocks.' No parental opt-out or opt-in, so 'allows'. This is Clarke County, ALABAMA (Grove Hill), not Clarke County, Georgia."
+  - name: Cleburne County
+    county: Cleburne
+    nces_id: "0100780"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031078&revid=Gab5gV0Yobv2VdQYslshDDZFA%3D%3D
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force.
+    policy_code: "6.15"
+    crdc_students_latest: 63
+    last_verified: 2026-09-21
+    contact:
+      district_email: dhowle@cleburneschools.net
+      phone: (256) 463-5624
+      mailing_address: 141 Davenport Drive, Heflin, AL 36264
+      superintendent: David Howle
+      board_page: https://simbli.eboardsolutions.com/AboutUs/AboutUs.aspx?S=36031078&TID=1
+      contact_page: https://www.cleburneschools.net/
+      as_of: 2026-09-21
+    notes: "District's own Simbli site (S=36031078) names it 'Cleburne County Schools', matching input NAME in kind (County). Fetched via fetch_simbli_policy; policy 6.15 Corporal Punishment, status ADOPTED, originally_adopted and last_revised both 01/01/2010 (no revision since), 720 chars, 0 attachments. This district reported striking students in 2023-24 per federal CRDC; policy is unchanged and still permits it as of today -- no policy change to report. Reference in policy: ALA. CODE Section 16-28A-2 (1975)."
+    policy_adopted: "2010-01-01"
+    policy_revised: "2010-01-01"
+    policy_dates_from: notes
   - name: Coffee County Schools
     county: Coffee
     nces_id: "0100810"
@@ -258,6 +299,22 @@ districts:
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
     policy_adopted: 2019-06-06
     policy_dates_from: notes
+  - name: Colbert County
+    county: Colbert
+    nces_id: "0100840"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031508&revid=4v02jQO8plusbj6gS9nF00STg==&ptid=Ne6jgOmAB0pRYIZjy2vMNw==&secid=B6ZRCyc3LkJfGwslshNPoDUJw==&PG=6&IRP=0&isPndg=false
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force.
+    policy_code: "6.19"
+    crdc_students_latest: 13
+    last_verified: 2026-09-21
+    contact:
+      phone: 256-386-8565
+      mailing_address: 425 US-72 West, Tuscumbia, AL 35674
+      board_page: https://www.colbertk12.org/district-f7-clone/board-members
+      contact_page: https://www.colbertk12.org/contact-us
+      as_of: 2026-09-21
+    notes: null
   - name: Conecuh County
     county: Evergreen
     nces_id: "0100870"
@@ -275,6 +332,24 @@ districts:
       public_comment: "Written request to the Superintendent's office at least five days before the meeting date, specifying the nature of the business and the name of the person who will address the board; comments may not exceed 5 minutes. Rules: https://content.myconnectsuite.com/api/documents/822e04a85fd14aa2a430a06e2d6a42d3.pdf ; participation form: https://content.myconnectsuite.com/api/documents/810ea1c0f2bf4b118d933dd3f5a61e5a.pdf"
       as_of: 2026-09-19
     notes: Conecuh County Board of Education Policy Manual, policy 6.17 Corporal Punishment, page 70 of 87; the manual's running footer dates it July 28, 2015. 789,599 bytes, application/pdf (fetch_document). 6.17 contains NO parental consent or opt-out provision. PDF is the 'Board Policy' link on https://www.conecuh.k12.al.us/boardofed, which also links Simbli S=2054. The district's 2026-2027 Student Handbook (https://content.myconnectsuite.com/api/documents/9c527c9cba674d279a820c9fa42e423f, 6,115,513 bytes, 77 pages) does not mention corporal punishment at all.
+  - name: Coosa County
+    county: Coosa
+    nces_id: "0100900"
+    status: allows
+    source: https://resources.finalsite.net/images/v1724162237/coosaschoolsorg/g3hiw918yk9ldquekens/Newpolicymanual082024revised022422.pdf
+    quote: 6.19 Corporal Punishment The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Parents will be given the opportunity to opt out in writing from the use of corporal punishment for their child as a disciplinary measure.
+    policy_code: "6.19"
+    crdc_students_latest: 33
+    last_verified: 2026-09-21
+    contact:
+      district_email: kgrogan@coosaschools.org
+      phone: 256-377-4913
+      mailing_address: 73 Nixburg Road, Rockford, AL 35136
+      superintendent: David W. Stover
+      board_page: https://www.coosaschools.org/board-of-education/board-members
+      contact_page: https://www.coosaschools.org/board-of-education
+      as_of: 2026-09-21
+    notes: Linked from coosaschools.org/policies-procedures as 'Board Policy'. PDF, 816027 bytes, application/pdf, 121 pages; corporal punishment section is on page 101 of the extracted text. This is an opt-OUT provision (parents may opt out in writing), which per project classification rules is still 'allows', not 'consent_required'. No adoption/revision date is printed on the corporal-punishment section itself; the file name suggests a 2024 manual revised from a 022422 (Feb 2022) base but that is a filename artifact, not a printed date, so policy_adopted/policy_revised are left null rather than guessed. District reported striking students in 2023-24 per federal CRDC; this current policy still permits it -- no change to report.
   - name: Covington County Schools
     county: Covington
     nces_id: "0100930"
@@ -569,7 +644,7 @@ districts:
       contact_page: https://www.gck12.com/
       as_of: 2026-09-19
     notes: "Geneva City Schools Policy Manual, Policy 6.16 Corporal Punishment, page 80 of the PDF. The manual's running footer on every page reads 'Geneva City Board of Education Policy Manual Adopted October 18, 2022'. Fetched server-side with the project's fetch_document: 949,584 bytes, application/pdf, 103 pages, 250,048 characters of text, sha256 ec9c4e14cc5c65d02f539159171776759123cea7e2f466ff5c4301cb41734f7b. Linked as 'Geneva City Schools Policy Manual' from the district's own Documents/Policies page, https://www.gck12.com/documentspolicies (the district site www.genevacityschools.com redirects to www.gck12.com). This is the CITY district; the policy body names the Geneva City Board of Education. Opt-out, not opt-in: 'A parent or guardian of student may opt out of the use of corporal punishment as a disciplinary consequence for that student by submitting a written, signed statement to the school principal.' Quote-matching note for the reviewer: the quoted passage runs across line breaks in the PDF's own text layer, so an exact raw-substring search on the extracted text will miss it; it matches once whitespace is normalized, which is how it was checked here against the server's cached extraction."
-    policy_adopted: "2022-10-18"
+    policy_adopted: 2022-10-18
     policy_dates_from: notes
   - name: Geneva County
     county: Geneva
@@ -589,9 +664,26 @@ districts:
       superintendent: Mrs. Becky Birdsong
       contact_page: https://www.genevacountyschools.com/about-us/contact-us
     notes: "Source is 'Board_Policy_Manual 5-31-23 3.pdf', linked from the district's own Board Policies page (genevacountyschools.com/policies-procedures) via an embedded Google Drive folder; fetched and text-verified via fetch_document as application/octet-stream (actually PDF), 17,735,766 bytes, 518 pages, sha256 5ba3f30.... Corporal Punishment is section 5.30.1, extracted page 175. The policy's own footer prints 'HISTORY: ADOPTED: JANUARY 16, 1997  REVISION DATE(S): _______' -- revision date left blank in the document itself, so policy_revised is null while policy_adopted=1997-01-16 is taken directly from the printed date. This is an opt-out (not opt-in) provision -- a parent may make a written request for exemption -- so classified 'allows' per the project's opt-out=allows rule, not 'consent_required'. Submitted to the crew server as finding_a86f925174d5 (task district-policy-scan, scope AL, lease_224fcd4e0f48), status pending review."
-    policy_adopted: "1997-01-16"
-    policy_revised: "1997-01-16"
+    policy_adopted: 1997-01-16
+    policy_revised: 1997-01-16
     policy_dates_from: notes
+  - name: Hale County
+    county: Hale
+    nces_id: "0101710"
+    status: allows
+    source: https://resources.finalsite.net/images/v1697459911/halek12org/duesg8822whlfgvum2nk/HaleCountyBOEPolicyManualMarch.pdf
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student.
+    policy_code: "6.17"
+    crdc_students_latest: 33
+    last_verified: 2026-09-21
+    contact:
+      board_email: mryans@halek12.org
+      phone: 334-624-8836
+      mailing_address: 1115 Powers Street, Greensboro, AL 36744
+      superintendent: Michael C. Ryans
+      board_page: https://www.halek12.org/about/hale-county-board
+      as_of: 2026-09-21
+    notes: "Source: Hale County Board of Education Policy Manual (85 pages, 729,878 bytes, application/pdf), fetched via www.halek12.org/fs/resource-manager/view/7fe05a1b-a01f-420b-9424-e3b2021d1c5e which resolves to the finalsite PDF cited as source. Policy 6.17 Corporal Punishment, page 68 of the PDF. Manual's own Table of Contents header is dated 'March 3, 2022' (manual-wide revision date; no per-section ADOPTED/REVISED line printed for 6.17 itself, so policy_adopted/policy_revised left null rather than guessed). Board/superintendent email and mailing address taken from the policy manual's own title page (page 1), which lists Michael C. Ryans as Superintendent with mryans@halek12.org, phone (334) 624-8836, 1115 Powers Street, Greensboro, AL 36744 -- confirmed against the district's own board-members page. This district was in the federal 2023-24 CRDC as reporting corporal punishment (33 students) and had no prior record in this project."
   - name: Houston County Schools
     county: Houston
     nces_id: "0101770"
@@ -676,6 +768,22 @@ districts:
       website: http://www.jackson.k12.al.us
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Jasper City
+    county: Walker
+    nces_id: "0101890"
+    status: allows
+    source: https://resources.finalsite.net/images/v1771347192/jasperk12alus/p8dp20ptc0jvk9nz1rxe/JCSBoardPolicy63025.pdf
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student.
+    policy_code: "6.17"
+    crdc_students_latest: 26
+    last_verified: 2026-09-21
+    contact:
+      phone: 205-384-6880
+      mailing_address: 110 17th Street West, Jasper, AL 35501
+      superintendent: Ann Jackson
+      board_page: https://www.jasper.k12.al.us/departments/board-of-education
+      as_of: 2026-09-21
+    notes: "Found on the district's own Departments > Board of Education page, under 'Documents: Jasper City Board of Education -> JCS Board Policy', at www.jasper.k12.al.us/fs/resource-manager/view/9893da05-2f36-4a20-a72e-089a69cacf75, which resolves to the finalsite PDF cited as source (105 pages, 1,151,534 bytes, application/pdf, text extracted cleanly). Policy 6.17 Corporal Punishment, PDF page 83. Same AASB-template wording as Hale County's 6.17. The manual's own cover page reads 'Last Updated 6.30.25' (manual-wide; no per-section ADOPTED/REVISED line is printed for 6.17 itself, so policy_adopted/policy_revised are left null rather than guessed -- filename JCSBoardPolicy63025.pdf matches this 6/30/25 date). Superintendent name (Ann Jackson) taken from the district's own Superintendent's Message page. This district was in the federal 2023-24 CRDC as reporting corporal punishment (26 students) and had no prior record in this project."
   - name: Jefferson County Schools
     county: Jefferson
     nces_id: "0101920"
@@ -734,8 +842,8 @@ districts:
       contact_page: https://www.lcschools.org/district2/contact-and-directions
       as_of: 2026-09-19
     notes: "Lauderdale County Schools Simbli policy 6.17 'Corporal Punishment', status ADOPTED, originally adopted 03/20/2019, last revised 03/20/2019. Read with the project's fetch_simbli_policy tool (site 2017, code 6.17); Simbli is JavaScript-only so a plain fetch of the URL returns navigation and no policy text. The Simbli site number 2017 came from the Board Policies link on the district's own site (www.lcschools.org). Policy text confirms the district's own name in the body, so this is the county district, not a city district. Opt-out, not opt-in: 'If a parent/guardian prefers that his/her child not receive a paddling, they must send written notification to the school principal.'"
-    policy_adopted: "2019-03-20"
-    policy_revised: "2019-03-20"
+    policy_adopted: 2019-03-20
+    policy_revised: 2019-03-20
     policy_dates_from: notes
   - name: Lee County Schools
     county: Lee
@@ -921,6 +1029,24 @@ districts:
       website: http://www.mcpss.com
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Monroe County
+    county: Monroe
+    nces_id: "0102400"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2115&revid=7EHqQXtOslshEWRoxf9bz1DwQ==&ptid=y7LbAtKHNFTYnZeq8oBhXg==&secid=L8j6Wil28NRTJy6slshIP0rUA==&PG=6&IRP=0&isPndg=false
+    quote: Corporal punishment of students is permitted at the discretion of a Board employee supervising students.
+    policy_code: "6.17"
+    crdc_students_latest: 14
+    last_verified: 2026-09-21
+    contact:
+      district_email: mcboe@monroe.k12.al.us
+      phone: 251-743-2150
+      mailing_address: 109 Rosenwald Drive, Monroeville, AL 36460
+      superintendent: Greg Shehan (per site's 'Our Superintendent' page image caption; not stated as running text)
+      board_page: https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=2115
+      contact_page: https://www.monroe.k12.al.us/en-US
+      as_of: 2026-09-21
+    notes: null
   - name: Montgomery County Schools
     county: Montgomery
     nces_id: "0102430"
@@ -1006,8 +1132,27 @@ districts:
       contact_page: https://www.mscs.k12.al.us/about-us/superintendent
       as_of: 2026-09-19
     notes: "Muscle Shoals City Schools, board policy 6.16 Corporal Punishment, read via fetch_simbli_policy (site 36031421; the district's own 'Board of Education' policy link from https://www.mscs.k12.al.us/documents/policies is https://simbli.eboardsolutions.com/Index.aspx?S=36031421). Simbli reports district 'Muscle Shoals City Schools', status ADOPTED, originally adopted 12/14/2014, last revised 12/14/2014, 720 characters, 0 attachments; 6.16 is the only policy in the 106-policy index whose title matches corporal punishment. The policy contains NO parental consent and NO opt-out provision - it ends with the Superintendent being authorised to develop procedures and the citation [Reference: ALA. CODE 16-28A-2 (1975)]. This was read only after a fleet-wide Simbli bot-challenge outage cleared; the outage is issue_8839706bb552, and roughly an hour of spaced retries on this slice all returned the 418-byte challenge before it lifted."
-    policy_adopted: "2014-12-14"
-    policy_revised: "2014-12-14"
+    policy_adopted: 2014-12-14
+    policy_revised: 2014-12-14
+    policy_dates_from: notes
+  - name: Oxford City
+    county: Calhoun
+    nces_id: "0102635"
+    status: allows
+    source: https://resources.finalsite.net/images/v1778767014/oxfordk12alus/fg2j7cxxrxuh2zqxvppg/OCSBoardPolicyManual041924.pdf
+    quote: In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in the schools of the School System. If such punishment is required, it shall be administered with care, tact and caution by the principal or his/her designee.
+    policy_code: "5.23"
+    crdc_students_latest: 29
+    last_verified: 2026-09-21
+    contact:
+      phone: 256-241-3140
+      mailing_address: 402 Main Street, Oxford, AL 36203
+      superintendent: G. Todd Haynie, PhD
+      board_page: https://www.oxfordcityschools.com/board-of-education/board-of-education
+      contact_page: https://www.oxfordcityschools.com/board-of-education/documents-and-resources
+      as_of: 2026-09-21
+    notes: "Found on the district's own Board of Education > Documents and Resources page, tab 'Board Policy Manual' -> file OCSBoardPolicyManual041924.pdf (filename implies compiled/updated 04/19/24), at www.oxfordcityschools.com/fs/resource-manager/view/01cfac71-bf02-4fd7-b5b0-8583579d6103 which resolves to the finalsite PDF cited as source (350 pages, 1,795,200 bytes, application/pdf, text extracted cleanly). Policy 5.23 Corporal Punishment, PDF pages 126-127. Footer for this specific policy: 'SOURCE: Oxford City Board of Education, Oxford, AL / ADOPTED: July 22, 2008 / LEGAL REF.: The Code of Alabama, 16-1-14, 16-28A-1' -- no revision date is printed for this section, so policy_revised is left null rather than guessed. Superintendent name (Dr. G. Todd Haynie) taken from the district's own 'Our Superintendent' bio page. This district was in the federal 2023-24 CRDC as reporting corporal punishment (29 students) and had no prior record in this project."
+    policy_adopted: "2008-07-22"
     policy_dates_from: notes
   - name: Pell City
     county: Pell City
@@ -1108,7 +1253,7 @@ districts:
       public_comment: "Policy manual page states: 'Copies of the Board Policy Manual may be found in the Central Office and in the library at each school. Please contact Mrs. Jacqueline Bailey at 334-539-5170 if you have questions.'"
       as_of: 2026-09-20
     notes: "Roanoke CITY board of education (not Randolph County). Source is the district's own '9.24.2024 Roanoke BOE Policy Manual.pdf', the only file in the Google Drive folder embedded on roanokecityschools.org/board-policy-manual (folder id 1ioGEtPdHh7Amk_SQu1wM7LIHfChkAlyC). fetch_document: 477,983 bytes, application/octet-stream, 109 pages; policy 6.16 Corporal Punishment on page 85. The manual's running footer reads 'Roanoke City Board of Education Students Policy Manual Adopted: September 24, 2024'. Cites ALA. CODE 16-28A-2 (1975). No parental consent or opt-out provision, so 'allows'. Roanoke City is NOT on Simbli; roanokecity.alsbapolicy.org does not resolve."
-    policy_adopted: "2024-09-24"
+    policy_adopted: 2024-09-24
     policy_dates_from: notes
   - name: Shelby County Schools
     county: Shelby
@@ -1165,8 +1310,8 @@ districts:
       contact_page: https://www.scsboe.org/
       as_of: 2026-09-19
     notes: "Sylacauga City Schools Board Policy Manual, Policy 6.16 Corporal Punishment, page 99 of the PDF. The policy's own header: 'Status: ADOPTED  Original Adopted Date: 08/22/2023 | Last Reviewed Date: 08/22/2023'. Fetched server-side with the project's fetch_document: 4,914,111 bytes, application/pdf, 131 pages, 269,391 characters of text, sha256 b8b8915695bf07801a6800eaae0a5242fee211641984a8b033f3c2bbe977fe64. PDF URL taken from the data-pdf-config attribute on the district's own School Board Policy page (https://www.scsboe.org/school-board-policy), which renders the manual in a JavaScript viewer. This is the CITY district: the manual's own running header reads 'Board Policy Manual Sylacauga City Schools'. Note the extracted text has ligature corruption ('condi%on', 'examinaon'); the quoted sentence is clean in the extract. Unlike neighbouring Alabama manuals this version contains no parental opt-out clause."
-    policy_adopted: "2023-08-22"
-    policy_revised: "2023-08-22"
+    policy_adopted: 2023-08-22
+    policy_revised: 2023-08-22
     policy_dates_from: notes
   - name: Talladega City Schools
     county: Talladega
@@ -1217,6 +1362,24 @@ districts:
       superintendent: Casey D. Davis
       board_page: https://www.tallapoosak12.org/our-district/board-of-education
     notes: Source filename 'SY27FinalBoardApprovedSTUDENTHANDBOOK.pdf' (school year 2026-27, board-approved), linked from the district's own Code of Conduct page (tallapoosak12.org/families/code-of-conduct); fetched and text-verified via fetch_document as application/pdf, 1,533,751 bytes, 77 pages, sha256 fd3f316.... Corporal Punishment section spans extracted pages 31-32; no numbered policy code visible (handbook prose, not a coded manual entry). No adoption/revision date printed near this section; only the filename indicates SY27/2026-27, so policy_adopted/policy_revised left null. resolve_handbook independently found this district's board policy is also carried on Simbli/eBOARDsolutions (site 36030150, linked as 'EBoard' from the district site) -- fetch_simbli_policy was tried 3 times, spaced out with other work in between per the shared rate-limit guidance, and returned a bot-challenge page each time; it was not forced further (no browser fallback used, to avoid the shared-fleet block the brief warned about). The handbook quote above is an independent, machine-fetchable, board-approved primary source and was used instead. A future contributor with more time budget could retry fetch_simbli_policy site=36030150 to cross-check against the coded board policy manual. This is an opt-out (not opt-in) provision -- parent may request written exemption -- so classified 'allows' per the opt-out=allows rule. Submitted to the crew server as finding_ce0c15e4c4e9 (task district-policy-scan, scope AL, lease_224fcd4e0f48), status pending review.
+  - name: Tarrant City
+    county: Jefferson
+    nces_id: "0103270"
+    status: allows
+    source: https://resources.finalsite.net/images/v1762356873/tarrantk12alus/lkr60j6xlitaofgg7mfw/2526StudentHandbook.pdf
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Parents or guardians shall be notified prior to their child receiving corporal punishment.
+    policy_code: "6.16"
+    crdc_students_latest: 13
+    last_verified: 2026-09-21
+    contact:
+      district_email: info@tarrant.k12.al.us
+      phone: 205-849-3700
+      mailing_address: 1318 Alabama St, Tarrant, AL 35217
+      superintendent: Dr. Sherlene McDonald
+      board_page: https://simbli.eboardsolutions.com/index.aspx?S=2093
+      contact_page: https://www.tarrant.k12.al.us/our-district/school-board
+      as_of: 2026-09-21
+    notes: null
   - name: Tuscaloosa City Schools
     county: Tuscaloosa
     nces_id: "0103360"

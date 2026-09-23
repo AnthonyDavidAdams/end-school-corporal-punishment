@@ -28,7 +28,7 @@ districts:
       board_page: https://www.calhounflschools.org/members
       contact_page: https://www.calhounflschools.org/district-directory
     notes: "Quote from the 2026-2027 Code of Conduct (CCSB Approved July 14, 2026), opened directly: 1,024,309 bytes, application/pdf, 52 pages, hit on printed page 8, section 'AUTHORITY OF THE TEACHER F.S. 1003.32'. Cross-checked against the underlying School Board Policy 5.30 'Student Control' (https://files.smartsites.parentsquare.com/8214/policy_530.pdf, 104,259 bytes, 2 pages), which says corporal punishment may be administered 'as provided by law and defined in the Code of Conduct' and that the Board must review the provisions for corporal punishment every 3 years. Policy 5.30's own footer/history block reads 'Revised: 10/8/2024' and 'ADOPTED: 6/12/2204; REVISION DATE(S): 4/13/10;10/8/2024' -- the '2204' adoption year is a typo in the source document itself (almost certainly 2004); left policy_adopted null rather than guess, and quoted the typo verbatim here for the record. Searched both documents for opt-in/advance-consent language ('object to the use of corporal', 'written permission', 'opt', 'prior consent') and found none -- only after-the-fact parent notification on request -- so classified 'allows', not 'consent_required'. District/county names agree, no city/county split issue. Struck 56 students in 2023-24 per federal CRDC; no evidence of any policy change since then. Submitted to Ground Crew as finding_2ae3979e29a3 (status pending review)."
-    policy_revised: "2024-10-08"
+    policy_revised: 2024-10-08
     policy_dates_from: notes
   - name: Calhoun County Schools
     county: Calhoun
@@ -74,6 +74,16 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Gilchrist County School District
+    county: Gilchrist
+    nces_id: "1200630"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/342/District/f52dc297-345b-4271-9164-069beb130b6d/GCSD-Student-Code-of-Conduct-2025-2026.pdf?disposition=inline
+    quote: Corporal Punishment Per FS 1002.20 a parent must provide consent for the school to administer corporal punishment. This permission should be obtained prior to each administration.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-21
+    notes: null
   - name: Hillsborough County Schools
     county: Hillsborough
     nces_id: null
@@ -108,33 +118,39 @@ districts:
     last_verified: null
     legacy_status: consent_required
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Jackson County Schools
+  - name: Jackson County School District
     county: Jackson
-    nces_id: null
+    nces_id: "1200960"
     status: unknown
     source: null
     quote: null
-    last_verified: null
+    last_verified: 2026-09-21
     legacy_status: consent_required
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Lafayette County Schools
+    notes: null
+    policy_code: null
+    crdc_students_latest: null
+  - name: Lafayette County School District
     county: Lafayette
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "1201020"
+    status: consent_required
+    source: https://les.lafayette.k12.fl.us/_theme/files/26-27/LES%20Parent-Student%20Handbook%2026-27_docx.pdf
+    quote: "Corporal Punishment: If corporal punishment is required, it shall be administered with extreme care, tact and caution, and then only by the principal and/or designee in the presence of another professional school employee and only upon written/oral consent of the parent."
+    last_verified: 2026-09-21
     legacy_status: consent_required
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Liberty County Schools
+    notes: null
+    policy_code: null
+    crdc_students_latest: null
+  - name: Liberty County School District
     county: Liberty
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "1201170"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/8783/2026-27_code_of_student_conduct.pdf
+    quote: "Corporal Punishment – The moderate use of paddling in front of a witness by a teacher, principal/administrator may be necessary to maintain discipline or to enforce school rules. Parents may opt out to permit corporal punishment as a disciplinary intervention by signing and returning the consent/authorization form in this Code. [SBP: 5630; §§1003.32(1)(k), 1002.20(4), and 1003.01(7), Florida Statutes]"
+    last_verified: 2026-09-21
     legacy_status: consent_required
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: null
+    policy_code: SBP 5630
+    crdc_students_latest: null
   - name: Miami-Dade County Public Schools
     county: Miami-Dade
     nces_id: null
@@ -231,7 +247,7 @@ districts:
       contact_page: https://www.wcsdschools.com/board-policies_1
       as_of: 2026-09-19
     notes: "'Code of Student Conduct For Washington County School District', linked as 'Student Code of Conduct' from https://www.wcsdschools.com/parent-resources and /back-to-school. Fetched by curl: HTTP 200, application/pdf, 328,788 bytes, Content-Disposition filename=Code-of-Conduct-revised-editorial-8-8-2025.pdf, S3 Last-Modified 2025-08-11; document's own title page says 'Revised: April 8, 2024' and names Thomas Register, Superintendent. Re-read server-side with fetch_document: 40 pages, 77,416 chars of text; quote on PDF page 19 (printed page 17) under 'AUTHORITY OF THE TEACHER'. Corporal punishment is also listed as a consequence for 'Misconduct of a More Serious Nature' (printed p.21). No parental opt-out or opt-in in the Code. The underlying board policy 5.302 itself is NOT online: the district's Board Policies page says policies are in BoardDocs, but go.boarddocs.com/fl/wcsdschools is a BoardDocs LT site with no Policies module (all BD-GetPolicy* endpoints 404). CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
-    policy_revised: "2024-04-08"
+    policy_revised: 2024-04-08
     policy_dates_from: notes
   - name: Washington County Schools
     county: Washington

@@ -29,6 +29,41 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Lewis County
+    county: Lewis
+    nces_id: "4702430"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/4465/lcis_student_handbook_2026-2027.pdf
+    quote: "The Lewis County Board of Education has approved the following forms of discipline for use in Lewis County Schools: 1. Counseling through teacher/pupil/parent conferences. 2. Assigning written work. 3. Corporal punishment (paddling). 4. Suspension from class and/or school sponsored activities. 5. In-school suspension. 6. Suspension from school. 7. Assignment to the Alternative School. 8. Detention."
+    policy_code: null
+    crdc_students_latest: 29
+    last_verified: 2026-09-22
+    contact:
+      phone: 931-796-3264
+      mailing_address: 206 S. Court St., Hohenwald, TN 38462
+      superintendent: Dr. Tracy McAbee, Director of Schools
+      board_page: https://www.lewisk12.org/68623_2
+      contact_page: https://www.lewisk12.org/68637_2
+      public_comment: Request placement on the agenda by contacting the office of the Director of Schools within 72 hours before the meeting; 3-minute limit.
+      as_of: 2026-09-22
+    notes: null
+  - name: Marion County
+    county: Marion
+    nces_id: "4702640"
+    status: allows
+    source: https://content.schoolinsites.com/api/documents/b7e05f065b6549dc820bbed6538268cf.pdf
+    quote: Any principal, assistant principal or teacher may use corporal punishment in a reasonable manner against any student for good cause in order to maintain discipline and order within the public schools
+    policy_code: "6.314"
+    crdc_students_latest: 20
+    last_verified: 2026-09-21
+    contact:
+      phone: 423-942-3434
+      mailing_address: 204 Betsy Pack Drive, Jasper, TN 37347
+      superintendent: Mark Griffith, Director of Schools
+      board_page: http://www.marionschools.org/boardmembersandpolicies
+      contact_page: http://www.marionschools.org/contact
+      as_of: 2026-09-21
+    notes: null
   - name: Marshall County
     county: Marshall
     nces_id: "4702670"
@@ -63,6 +98,39 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Overton County
+    county: Overton
+    nces_id: "4703330"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4903/Ocs/be52ee53-07f3-487a-90f4-c3f92f99cb76/OCS_High_School_Parent_-_Student_Handbook.pdf?disposition=inline
+    quote: CORPORAL PUNISHMENT - Corporal punishment may be used as one of the consequences for student misconduct at Livingston Academy. Parents/guardians may choose to opt for alternate types of punishment. If parents/guardians do not want corporal punishment to be used as a punishment for your child, the parent or legal guardian must appear at the school in person and sign a No Corporal Punishment Form. These forms will not be sent home by the students for parent signatures.
+    policy_code: null
+    crdc_students_latest: 26
+    last_verified: 2026-09-22
+    notes: null
+    contact:
+      phone: "(931)823-1287"
+      mailing_address: "302 Zachary ST, Livingston, TN 38570"
+      website: "http://www.oc-sd.com"
+      as_of: 2023-24
+      source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Paris
+    county: Henry
+    nces_id: "4703360"
+    status: consent_required
+    source: https://files.smartsites.parentsquare.com/7231/planner_revision_for_26-27_002.pdf
+    quote: In School Suspension (ISS) and Corporal Punishment Inman Middle has an ISS program for students that need a short-term punishment for behavior violations. ISS is assigned for a period of 1 to 5 days and, depending on a parent's wishes, may be reduced or replaced with corporal punishment per PSSD board Policy 6.314.
+    policy_code: "6.314"
+    crdc_students_latest: 29
+    last_verified: 2026-09-22
+    contact:
+      phone: 731-642-9322
+      mailing_address: 1219 HWY 641 South, Paris, TN 38242
+      superintendent: Mr. Shane Paschall, Director of Schools
+      board_page: https://www.parisssd.org/board-of-education
+      contact_page: https://www.parisssd.org/about-us
+      as_of: 2026-09-22
+    notes: null
   - name: Putnam County Schools
     county: Putnam
     nces_id: null
@@ -106,3 +174,13 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Wayne County
+    county: Wayne
+    nces_id: "4704440"
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    crdc_students_latest: 31
+    last_verified: 2026-09-22
+    notes: null
