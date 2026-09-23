@@ -1,0 +1,105 @@
+{
+ "year": "2023-24",
+ "reported": {
+  "students": 19851,
+  "instances": 28310,
+  "students_excluding_known_error": 19471,
+  "states_with_any": 19,
+  "by_state": [
+   {
+    "state": "TX",
+    "students": 5359,
+    "instances": 8528
+   },
+   {
+    "state": "AL",
+    "students": 4352,
+    "instances": 5333
+   },
+   {
+    "state": "MS",
+    "students": 2653,
+    "instances": 3173
+   },
+   {
+    "state": "AR",
+    "students": 2596,
+    "instances": 3671
+   },
+   {
+    "state": "GA",
+    "students": 1127,
+    "instances": 1681
+   },
+   {
+    "state": "MO",
+    "students": 1002,
+    "instances": 1231
+   },
+   {
+    "state": "OK",
+    "students": 991,
+    "instances": 1185
+   },
+   {
+    "state": "TN",
+    "students": 616,
+    "instances": 752
+   },
+   {
+    "state": "FL",
+    "students": 467,
+    "instances": 719
+   },
+   {
+    "state": "NJ",
+    "students": 380,
+    "instances": 1655
+   },
+   {
+    "state": "AZ",
+    "students": 202,
+    "instances": 260
+   },
+   {
+    "state": "LA",
+    "students": 65,
+    "instances": 81
+   }
+  ],
+  "districts": 832
+ },
+ "floor": {
+  "headline": "at least",
+  "value": 28310,
+  "basis": "recorded instances, 2023-24",
+  "reasons": [
+   {
+    "text": "The Department of Education calls its own count “likely underreported.”",
+    "claim": "crdc-undercount-caveat"
+   },
+   {
+    "text": "It counts students once a year, not the number of times each child was hit.",
+    "claim": "crdc-undercount-caveat"
+   },
+   {
+    "text": "Virtual schools are skipped, and districts file the number themselves with nobody checking it.",
+    "claim": "crdc-undercount-caveat"
+   },
+   {
+    "text": "No federal or academic estimate of the true national figure has ever been published.",
+    "claim": null
+   }
+  ]
+ },
+ "record": {
+  "districts_sourced": 281,
+  "districts_recorded": 436,
+  "states_prohibiting": 34,
+  "states_permitting": 15,
+  "unchecked_districts": 631,
+  "children_in_unchecked": 6852
+ },
+ "generated": "2026-09-23",
+ "source": "US Department of Education, Civil Rights Data Collection 2023-24, computed by this project; see data/crdc/2023-24/SOURCE.md"
+}

@@ -5,6 +5,7 @@ import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { certificateHtml, certifiable } from "./certificate.mjs";
+import { toll as buildToll } from "./toll.mjs";
 // A district's name becomes its certificate URL, so the rule has to be stable: the same district must
 // get the same address on every rebuild or a printed link stops working.
 const slug = (x) => String(x).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -137,7 +138,7 @@ ${extraHead}
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
+  <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
   <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
@@ -147,6 +148,9 @@ ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</secti
 <footer class="wrap foot">
   <p>End School Corporal Punishment™ is an open project of <a href="https://earthpilot.ai">EarthPilot</a>. Every figure on this site is a file in the <a href="${REPO}/tree/main/facts/claims">claims registry</a> with its source and verification date; data generated ${summary.generated}. Content CC BY 4.0, code MIT. Map boundaries: US Census Bureau (public domain).</p>
   <p>No student is named on this site. Officials' public positions are documented; their private lives are not.</p>
+  <p class="builtwith"><img src="/kids/assets/earthpilot.png" alt="" width="26" height="26">
+    <span>Created with <a href="https://github.com/AnthonyDavidAdams/groundcrew" rel="noopener">Ground Crew</a> &mdash; an open protocol for pointing many agents at one public problem.
+    Ground Crew is part of <a href="https://earthpilot.ai">EarthPilot</a>: mission support for Spaceship Earth.</span></p>
 </footer>
 </body>
 </html>`;
@@ -154,38 +158,93 @@ ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</secti
 
 // ---------- CSS ----------
 writeFileSync(join(site, "site.css"), `
-/* The live board. Sized for a projector: the numbers carry the room, the map carries the story. */
-.livewrap { max-width:1500px; margin:0 auto; padding:0 16px 24px; }
-.livehead { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:18px 0; }
-.livehead div { background:#0D132D; border-radius:12px; padding:18px 20px; }
-.livehead span { display:block; font-size:44px; font-weight:700; color:#7CE0A8; font-variant-numeric:tabular-nums; line-height:1.05; }
-.livehead label { display:block; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:#9AA6C4; margin-top:6px; }
-.liveboard { display:grid; grid-template-columns:1fr 340px; gap:16px; align-items:start; }
-/* The globe carries the story, so it gets the room. */
+/* The live board, as a command centre. Sized for a projector at the back of a room: the toll carries
+   the stakes, the globe carries the swarm, and every panel is the same dark card so the eye reads it
+   as one instrument rather than a page of widgets. */
+.cc { max-width:1640px; margin:0 auto; padding:0 16px 28px; color:#F4F1E8; }
+.cc a { color:#7CE0A8; }
+.ccbar { display:flex; align-items:center; gap:14px; background:#0D132D; border:1px solid rgba(124,224,168,.18);
+         border-radius:12px; padding:12px 18px; margin:14px 0; }
+.ccbar img { width:44px; height:44px; border-radius:50%; flex:0 0 auto; }
+.ccid b { display:block; font:700 13px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.22em; color:#7CE0A8; }
+.ccid span { display:block; font-size:13px; color:#9AA6C4; margin-top:3px; }
+.ccstatus { margin-left:auto; display:flex; align-items:center; gap:10px;
+            font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.14em; color:#9AA6C4; }
+.ccstatus i { width:9px; height:9px; border-radius:50%; background:#5E6A8A; box-shadow:0 0 0 0 rgba(124,224,168,.6); }
+.ccstatus.on i { background:#7CE0A8; animation:ccpulse 2s ease-out infinite; }
+.ccstatus.off i { background:#9B2C2C; }
+@keyframes ccpulse { 0% { box-shadow:0 0 0 0 rgba(124,224,168,.55); } 100% { box-shadow:0 0 0 12px rgba(124,224,168,0); } }
+.ccstatus time { color:#C9A227; font-variant-numeric:tabular-nums; }
+
+/* The toll. Two numbers large enough to be the point of the room, then the working figures under them. */
+.toll { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+.toll > div { background:#0D132D; border-radius:12px; padding:20px 22px; border-left:4px solid #9B2C2C; }
+.toll > div.floor { border-left-color:#C9A227; }
+.toll label { display:block; font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.16em;
+              text-transform:uppercase; color:#9AA6C4; }
+.toll b { display:block; font-size:clamp(40px,5.2vw,68px); font-weight:700; color:#F4F1E8;
+          font-variant-numeric:tabular-nums; line-height:1.02; margin:8px 0 6px; }
+.toll .floor b { color:#C9A227; }
+.toll p { margin:0; font-size:13px; color:#9AA6C4; line-height:1.5; }
+.toll .pre { font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.16em; color:#C9A227; }
+
+.livehead { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:14px; }
+.livehead div { background:#0D132D; border-radius:12px; padding:14px 16px; }
+.livehead span { display:block; font-size:30px; font-weight:700; color:#7CE0A8; font-variant-numeric:tabular-nums; line-height:1.05; }
+.livehead label { display:block; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:#9AA6C4; margin-top:6px; line-height:1.35; }
+
+.liveboard { display:grid; grid-template-columns:1fr 340px; gap:14px; align-items:start; }
 .livepanes { display:grid; grid-template-columns:1.25fr 1fr; gap:14px; align-items:start; }
-/* The globe is square; the map beside it is wide. Cap the globe so the two panes end level instead of
-   the globe running half a screen taller than everything next to it. */
+/* The globe is square and the overlay sits on top of it, so the pane has to be the positioning root. */
+.globewrap { position:relative; }
 .globe { background:#080D1F; border-radius:12px; padding:6px; display:flex; align-items:center; justify-content:center; }
 .globe svg { width:100%; max-height:52vh; height:auto; display:block; }
+/* The readout over the globe: a line of what the crew is doing, typed out and left to decay like
+   phosphor. Text, not decoration, so a projector at the back of the room can still read it. */
+.gterm { position:absolute; left:14px; right:14px; bottom:12px; pointer-events:none;
+         font:500 13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.02em;
+         text-shadow:0 0 12px rgba(124,224,168,.45); }
+.gterm p { margin:0; color:#7CE0A8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+           transition:opacity .9s linear, color .9s linear; }
+.gterm p.d1 { opacity:.62; color:#5FBF8C; } .gterm p.d2 { opacity:.38; color:#4C9E74; }
+.gterm p.d3 { opacity:.20; color:#3E7F5E; } .gterm p.d4 { opacity:.09; color:#356B50; }
+.gterm .cur { display:inline-block; width:.55em; background:#7CE0A8; animation:ccblink 1.05s steps(1) infinite; }
+@keyframes ccblink { 50% { opacity:0; } }
+@media (prefers-reduced-motion:reduce) { .gterm .cur { animation:none; } .ccstatus.on i { animation:none; } }
+
 .livemap { background:#0D132D; border-radius:12px; padding:10px; display:flex; align-items:center; }
-@media (max-width:1100px) { .livepanes { grid-template-columns:1fr; } }
 .livemap svg { width:100%; height:auto; display:block; }
-.liveside h2 { font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:#9AA6C4; margin:0 0 8px; }
+.ccpanel { background:#0D132D; border-radius:12px; padding:14px 16px; min-width:0; }
+.ccpanel h2 { margin:0 0 6px; }
+.liveside h2, .ccpanel h2 { font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.16em;
+               text-transform:uppercase; color:#9AA6C4; margin:0 0 8px; }
 .liveside h2 + ul { margin:0 0 20px; }
 .crewlist, .ticker { list-style:none; padding:0; margin:0; }
 .crewlist li { background:#0D132D; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:15px; color:#F4F1E8; }
 .crewlist li b { display:block; color:#C9A227; }
 .crewlist li span { color:#9AA6C4; font-size:13px; }
 .ticker li { font-size:14px; line-height:1.4; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); }
-.ticker li .meta { display:block; font-size:12px; }
+.ticker li .meta { display:block; font-size:12px; color:#9AA6C4; }
 .ticker li.fresh { animation:flash 2.5s ease-out; }
 @keyframes flash { from { background:rgba(124,224,168,.22); } to { background:transparent; } }
 .k { display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:99px; margin-right:8px; background:#1B2340; color:#9AA6C4; }
 .k-added, .k-approved { background:#12331F; color:#7CE0A8; }
 .k-claimed { background:#33290F; color:#C9A227; }
 .rep { color:#C9A227; font-weight:600; font-size:12px; }
-.livefoot { color:#9AA6C4; font-size:13px; margin-top:16px; }
-@media (max-width:1000px) { .liveboard { grid-template-columns:1fr; } .livehead { grid-template-columns:repeat(2,1fr); } .livehead span { font-size:34px; } }
+/* Headlines, in the same card as everything else. They are not verified facts and the list says so. */
+#news { list-style:none; padding:0; margin:0; }
+#news li { display:flex; gap:9px; align-items:flex-start; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:13px; line-height:1.4; }
+#news a { color:#F4F1E8; text-decoration:none; }
+#news a:hover { color:#7CE0A8; text-decoration:underline; }
+#news .nthumb { flex:0 0 22px; }
+#news .nthumb img { width:22px; height:22px; border-radius:4px; display:block; }
+#news .meta { display:block; color:#9AA6C4; font-size:11px; margin-top:2px; }
+.livefoot { color:#9AA6C4; font-size:13px; margin-top:16px; line-height:1.6; }
+.livefoot b { color:#7CE0A8; }
+@media (max-width:1240px) { .livehead { grid-template-columns:repeat(3,1fr); } }
+@media (max-width:1100px) { .livepanes { grid-template-columns:1fr; } }
+@media (max-width:1000px) { .liveboard { grid-template-columns:1fr; } .toll { grid-template-columns:1fr; }
+  .livehead { grid-template-columns:repeat(2,1fr); } }
 
 .roster { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:16px 0 8px; }
 .roster figure { margin:0; text-align:center; }
@@ -229,7 +288,7 @@ ol.walk q { display:block; margin:8px 0 0; padding:10px 14px; border-left:3px so
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 var(--sans)}
 a{color:var(--navy-dark)}.wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
 .top{background:var(--navy-dark);color:#fff;border-bottom:3px solid var(--red)}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1.25rem;flex-wrap:wrap}
-.wordmark{font-family:var(--serif);font-weight:700;font-size:1.35rem;text-decoration:none;color:#fff;letter-spacing:.02em}.wordmark span{color:#fff}
+.wordmark{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--serif);font-weight:700;font-size:1.35rem;text-decoration:none;color:#fff;letter-spacing:.02em}.wordmark span{color:#fff}.epmark{width:30px;height:30px;border-radius:50%;flex:0 0 auto;display:block}/* The line every Ground Crew site carries: this crew owns the mission, the protocol is somebody else's. */.builtwith{display:flex;align-items:flex-start;gap:.6rem;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule)}.builtwith img{width:26px;height:26px;border-radius:50%;flex:0 0 auto;margin-top:.1rem}
 .top nav{display:flex;gap:2rem;flex-wrap:wrap}.top nav a{text-decoration:none;color:var(--gray-pale);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid transparent;padding-bottom:2px}.top nav a:hover{color:#fff;border-color:#fff}
 h1{font-family:var(--serif);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem);line-height:1.12;margin:1.6rem 0 .6rem}h2{font-family:var(--serif);font-size:1.45rem;margin:2.2rem 0 .7rem;color:var(--navy-dark)}h3{font-size:1.05rem;margin:1.3rem 0 .4rem;text-transform:uppercase;letter-spacing:.04em;color:var(--charcoal)}
 .hero{background:var(--navy-dark);color:#fff;text-align:center;padding:2.5rem 1.25rem 2rem}.hero h1{color:#fff;margin:0 0 .5rem;font-size:clamp(1.9rem,3.8vw,2.6rem)}.hero .lede{color:var(--gray-pale);margin:0 auto;max-width:70ch}.hero .status{margin-top:.6rem}.hero .crumb{color:var(--gray-pale);font-size:.9rem;margin-bottom:.5rem}.hero .crumb a{color:#fff}
@@ -418,7 +477,7 @@ ${legal ? `<div class="card"><h2>Parents</h2><p><a href="/kids/resources/#letter
 const verified = claims.filter(c => c.status === "verified");
 const groups = [["The numbers", ["crdc", "national"]], ["States and the law", ["law", "states"]], ["Campaigns that worked", ["campaign"]], ["The research", ["study", "harm"]], ["What works instead", ["alternatives"]], ["The rest of the world", ["international"]], ["Who has taken a position", ["organizations"]], ["Courts", ["courts", "litigation"]]];
 const used = new Set();
-const claimHtml = c => { used.add(c.id); const src = (c.sources || []).find(s => s.primary) || (c.sources || [])[0]; return `<li>${esc(c.claim)} <span class="meta">${c.as_of ? `(${esc(c.as_of)}) ` : ""}${src ? `<a href="${esc(src.url)}" rel="noopener">source</a>` : ""} · <a href="${REPO}/blob/main/facts/claims/${c.id}.md">file</a></span></li>`; };
+const claimHtml = c => { used.add(c.id); const src = (c.sources || []).find(s => s.primary) || (c.sources || [])[0]; return `<li id="${esc(c.id)}">${esc(c.claim)} <span class="meta">${c.as_of ? `(${esc(c.as_of)}) ` : ""}${src ? `<a href="${esc(src.url)}" rel="noopener">source</a>` : ""} · <a href="${REPO}/blob/main/facts/claims/${c.id}.md">file</a></span></li>`; };
 const facts = groups.map(([t, tags]) => { const cs = verified.filter(c => !used.has(c.id) && (c.tags || []).some(x => tags.includes(x))); return cs.length ? `<h3>${t}</h3><ul class="claims">${cs.map(claimHtml).join("")}</ul>` : ""; }).join("");
 const templates = readdirSync(join(root, "templates")).filter(f => f.endsWith(".md")).map(f => { const t = readFileSync(join(root, "templates", f), "utf8"); const title = (t.match(/^# (.+)$/m) || [, f])[1]; const intro = t.split("```")[0].split("\n").slice(1).join(" ").trim(); const code = (t.match(/```\n([\s\S]*?)\n```/) || [, ""])[1]; return { f, title, intro, code }; });
 writeFileSync(join(site, "resources", "index.html").replace(/resources\/index/, (mkdirSync(join(site, "resources"), { recursive: true }), "resources/index")), shell({
@@ -572,6 +631,9 @@ ${quotes}
   console.log(`stopped: ${stopped.length} districts, ${total} students`);
 }
 
+const toll = buildToll();
+writeFileSync(join(root, "site/data/toll.json"), JSON.stringify(toll, null, 1) + "\n");
+
 // ---------- the live board ----------
 // Built to be projected. Everything is large, nothing needs a mouse, and it answers one question a
 // room actually has: who is working on this right now, and where.
@@ -580,32 +642,68 @@ writeFileSync(join(site, "live", "index.html"), shell({
   title: "Live: agents working on this right now",
   path: "/live/",
   description: "A live board of the agents currently reading school district corporal punishment policy, where they are, and which state each one is working.",
-  extraHead: `<script defer src="/kids/globe.js?v=${ver("globe.js")}"></script>\n<script defer src="/kids/live.js?v=${ver("live.js")}"></script>`,
-  body: `<div class="livewrap">
-  <div class="livehead">
-    <div><span id="nlive">0</span><label>agents working now</label><i id="gLive" hidden></i></div>
-    <div><span id="nrecords">—</span><label>districts on the record</label><i id="gRecords" hidden></i></div>
-    <div><span id="ndocs">—</span><label>documents read</label><i id="gDocs" hidden></i></div>
-    <div><span id="npeople">—</span><label>contributors</label><i id="gPeople" hidden></i></div>
+  extraHead: `<script defer src="/kids/globe.js?v=${ver("globe.js")}"></script>\n<script defer src="/kids/live.js?v=${ver("live.js")}"></script>\n<script defer src="/kids/terminal.js?v=${ver("terminal.js")}"></script>`,
+  body: `<div class="cc">
+  <div class="ccbar">
+    <img src="/kids/assets/earthpilot.png" alt="EarthPilot" width="44" height="44">
+    <div class="ccid"><b>EARTHPILOT &middot; MISSION CONTROL</b><span>End School Corporal Punishment &mdash; live operations</span></div>
+    <div class="ccstatus" id="ccstatus"><i></i><span id="ccstate">LINKING</span><time id="ccclock"></time></div>
   </div>
+
+  <div class="toll">
+    <div>
+      <label>Children struck &mdash; reported</label>
+      <b id="tReported">${n(toll.reported.students)}</b>
+      <p>Federal count for the ${esc(toll.year)} school year, filed by the districts themselves.
+      <a href="/kids/resources/#crdc-national-total-2023-24-computed">The claim and its source.</a></p>
+    </div>
+    <div class="floor">
+      <label>Times a child was struck &mdash; floor</label>
+      <b id="tFloor"><span class="pre">AT LEAST</span> ${n(toll.reported.instances)}</b>
+      <p>Recorded instances. The Department of Education calls its own count &ldquo;likely underreported&rdquo;;
+      it counts a child once a year, skips virtual schools, and nobody checks the filings.
+      No estimate of the true number has ever been published, so this board shows the floor and says why.
+      <a href="/kids/resources/#crdc-undercount-caveat">The caveat, in the Department's words.</a></p>
+    </div>
+  </div>
+
+  <div class="livehead">
+    <div><span id="nlive">0</span><label>agents working now</label></div>
+    <div><span id="nrecords">${n(toll.record.districts_sourced)}</span><label>districts on the record</label></div>
+    <div><span id="nunchecked">${n(toll.record.unchecked_districts)}</span><label>districts nobody has checked</label></div>
+    <div><span id="nkids">${n(toll.record.children_in_unchecked)}</span><label>children behind those districts</label></div>
+    <div><span id="ndocs">&mdash;</span><label>documents read</label></div>
+    <div><span id="npeople">&mdash;</span><label>contributors</label></div>
+  </div>
+
   <div class="liveboard">
     <div class="livepanes">
-      <div id="globe" class="globe"></div>
+      <div class="globewrap">
+        <div id="globe" class="globe"></div>
+        <div id="gterm" class="gterm" aria-live="polite" aria-label="What the crew is doing right now"></div>
+      </div>
       <div id="livemap" class="livemap"></div>
+      <div class="ccpanel">
+        <h2>Just happened</h2>
+        <ul id="ticker" class="ticker"><li class="meta">Loading&hellip;</li></ul>
+      </div>
+      <div class="ccpanel">
+        <h2>In the news</h2>
+        <ul id="news" data-q="school corporal punishment paddling"><li class="meta">Loading&hellip;</li></ul>
+      </div>
     </div>
     <aside class="liveside">
       <h2>Connecting from</h2>
-      <ul id="gPlaces" class="crewlist"><li class="meta">Connecting…</li></ul>
+      <ul id="gPlaces" class="crewlist"><li class="meta">Connecting&hellip;</li></ul>
       <h2>Working now</h2>
-      <ul id="crew" class="crewlist"><li class="meta">Connecting…</li></ul>
-      <h2>Just happened</h2>
-      <ul id="ticker" class="ticker"><li class="meta">Loading…</li></ul>
+      <ul id="crew" class="crewlist"><li class="meta">Connecting&hellip;</li></ul>
     </aside>
   </div>
   <p class="livefoot"><span id="livestatus"></span>
     Gold is a state an agent holds right now; green a state that prohibits corporal punishment, red one that permits it.
     A line runs from the person to the work. Contributors appear as a one-way hash of the address they gave and a city-level
-    location; neither the address nor the IP is stored. Join at <b>${esc(BASE.replace(/^https?:\/\//, ""))}/contribute</b>.</p>
+    location; neither the address nor the IP is stored. Join at <b>${esc(BASE.replace(/^https?:\/\//, ""))}/contribute</b>.
+    Figures ${esc(toll.generated)}; ${esc(toll.source)}</p>
 </div>`
 }));
 

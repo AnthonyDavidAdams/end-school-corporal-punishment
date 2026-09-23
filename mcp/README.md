@@ -65,37 +65,25 @@ npm test
 
 ## Connecting clients
 
-Claude Code:
+**There is one server and one address.** Every client below connects to the same thing and gets the
+same tools; nothing here is built for one vendor. The address is:
 
-```sh
-claude mcp add escp -- node /absolute/path/to/end-school-corporal-punishment/mcp/server.mjs
-# or a hosted instance:
-claude mcp add --transport http escp https://your-host.example/mcp
+```
+https://escp-mcp-production.up.railway.app/mcp
 ```
 
-Claude Desktop (`claude_desktop_config.json`):
+No account, no key, no authentication. It speaks Streamable HTTP, which is the current MCP standard.
+Anything that takes a plain MCP server URL will work whether or not it is listed here.
 
-```json
-{
-  "mcpServers": {
-    "escp": {
-      "command": "node",
-      "args": ["/absolute/path/to/end-school-corporal-punishment/mcp/server.mjs"],
-      "env": { "GITHUB_TOKEN": "ghp_optional" }
-    }
-  }
-}
-```
+Whatever you connect with, the first thing to do is ask it to call `get_started`. That returns the
+contract, what contributing means, and the exact first calls to make.
 
-Cursor (`.cursor/mcp.json`), and the generic shape most HTTP-capable clients accept:
+### Claude (claude.ai, web or desktop)
 
-```json
-{
-  "mcpServers": {
-    "escp": { "url": "https://your-host.example/mcp" }
-  }
-}
-```
+1. **Settings → Connectors → Add custom connector**.
+2. Name it whatever you like and paste the URL above.
+3. No authentication.
+4. Start a chat and say: *call get_started on the corporal punishment connector.*
 
 ### ChatGPT
 
@@ -126,8 +114,70 @@ Two things worth knowing before you try:
   still show an older `/sse/` endpoint. If a client insists on SSE, this server does not speak it;
   open an issue and say which client.
 
-Any other client that takes a plain MCP URL uses the same address. Nothing about it is
-ChatGPT-specific.
+`search` and `fetch` are not a ChatGPT feature. They are aliases over tools this server already had,
+on the same server everything else uses, and every client gets them.
+
+### Claude Code
+
+```sh
+claude mcp add --transport http escp https://escp-mcp-production.up.railway.app/mcp
+```
+
+There is also a plugin with six skills that wrap the same tools into one command each:
+
+```sh
+claude plugin marketplace add AnthonyDavidAdams/end-school-corporal-punishment
+claude plugin install escp@escp
+claude
+> /escp:district-policy-scan Mississippi
+```
+
+### Cursor, Windsurf, Zed, and most other HTTP-capable clients
+
+The generic shape, in `.cursor/mcp.json` or that client's equivalent:
+
+```json
+{
+  "mcpServers": {
+    "escp": { "url": "https://escp-mcp-production.up.railway.app/mcp" }
+  }
+}
+```
+
+### Your own code
+
+```sh
+curl -s -X POST https://escp-mcp-production.up.railway.app/mcp \
+  -H 'content-type: application/json' \
+  -H 'accept: application/json, text/event-stream' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"get_started","arguments":{}}}'
+```
+
+### Running it yourself
+
+Everything above points at the hosted instance, which is the one the record lives on. To run a local
+copy against your own checkout, for development or offline work:
+
+```sh
+claude mcp add escp -- node /absolute/path/to/end-school-corporal-punishment/mcp/server.mjs
+```
+
+Or in a config file that wants a command rather than a URL:
+
+```json
+{
+  "mcpServers": {
+    "escp": {
+      "command": "node",
+      "args": ["/absolute/path/to/end-school-corporal-punishment/mcp/server.mjs"],
+      "env": { "GITHUB_TOKEN": "ghp_optional" }
+    }
+  }
+}
+```
+
+A local copy has its own state and submits nowhere. Findings you want in the record go to the hosted
+server.
 
 ## Environment variables
 

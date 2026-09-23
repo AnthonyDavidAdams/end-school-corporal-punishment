@@ -1,35 +1,90 @@
-/* The live board. Sized for a projector: the numbers carry the room, the map carries the story. */
-.livewrap { max-width:1500px; margin:0 auto; padding:0 16px 24px; }
-.livehead { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:18px 0; }
-.livehead div { background:#0D132D; border-radius:12px; padding:18px 20px; }
-.livehead span { display:block; font-size:44px; font-weight:700; color:#7CE0A8; font-variant-numeric:tabular-nums; line-height:1.05; }
-.livehead label { display:block; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:#9AA6C4; margin-top:6px; }
-.liveboard { display:grid; grid-template-columns:1fr 340px; gap:16px; align-items:start; }
-/* The globe carries the story, so it gets the room. */
+/* The live board, as a command centre. Sized for a projector at the back of a room: the toll carries
+   the stakes, the globe carries the swarm, and every panel is the same dark card so the eye reads it
+   as one instrument rather than a page of widgets. */
+.cc { max-width:1640px; margin:0 auto; padding:0 16px 28px; color:#F4F1E8; }
+.cc a { color:#7CE0A8; }
+.ccbar { display:flex; align-items:center; gap:14px; background:#0D132D; border:1px solid rgba(124,224,168,.18);
+         border-radius:12px; padding:12px 18px; margin:14px 0; }
+.ccbar img { width:44px; height:44px; border-radius:50%; flex:0 0 auto; }
+.ccid b { display:block; font:700 13px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.22em; color:#7CE0A8; }
+.ccid span { display:block; font-size:13px; color:#9AA6C4; margin-top:3px; }
+.ccstatus { margin-left:auto; display:flex; align-items:center; gap:10px;
+            font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.14em; color:#9AA6C4; }
+.ccstatus i { width:9px; height:9px; border-radius:50%; background:#5E6A8A; box-shadow:0 0 0 0 rgba(124,224,168,.6); }
+.ccstatus.on i { background:#7CE0A8; animation:ccpulse 2s ease-out infinite; }
+.ccstatus.off i { background:#9B2C2C; }
+@keyframes ccpulse { 0% { box-shadow:0 0 0 0 rgba(124,224,168,.55); } 100% { box-shadow:0 0 0 12px rgba(124,224,168,0); } }
+.ccstatus time { color:#C9A227; font-variant-numeric:tabular-nums; }
+
+/* The toll. Two numbers large enough to be the point of the room, then the working figures under them. */
+.toll { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+.toll > div { background:#0D132D; border-radius:12px; padding:20px 22px; border-left:4px solid #9B2C2C; }
+.toll > div.floor { border-left-color:#C9A227; }
+.toll label { display:block; font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.16em;
+              text-transform:uppercase; color:#9AA6C4; }
+.toll b { display:block; font-size:clamp(40px,5.2vw,68px); font-weight:700; color:#F4F1E8;
+          font-variant-numeric:tabular-nums; line-height:1.02; margin:8px 0 6px; }
+.toll .floor b { color:#C9A227; }
+.toll p { margin:0; font-size:13px; color:#9AA6C4; line-height:1.5; }
+.toll .pre { font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.16em; color:#C9A227; }
+
+.livehead { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:14px; }
+.livehead div { background:#0D132D; border-radius:12px; padding:14px 16px; }
+.livehead span { display:block; font-size:30px; font-weight:700; color:#7CE0A8; font-variant-numeric:tabular-nums; line-height:1.05; }
+.livehead label { display:block; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:#9AA6C4; margin-top:6px; line-height:1.35; }
+
+.liveboard { display:grid; grid-template-columns:1fr 340px; gap:14px; align-items:start; }
 .livepanes { display:grid; grid-template-columns:1.25fr 1fr; gap:14px; align-items:start; }
-/* The globe is square; the map beside it is wide. Cap the globe so the two panes end level instead of
-   the globe running half a screen taller than everything next to it. */
+/* The globe is square and the overlay sits on top of it, so the pane has to be the positioning root. */
+.globewrap { position:relative; }
 .globe { background:#080D1F; border-radius:12px; padding:6px; display:flex; align-items:center; justify-content:center; }
 .globe svg { width:100%; max-height:52vh; height:auto; display:block; }
+/* The readout over the globe: a line of what the crew is doing, typed out and left to decay like
+   phosphor. Text, not decoration, so a projector at the back of the room can still read it. */
+.gterm { position:absolute; left:14px; right:14px; bottom:12px; pointer-events:none;
+         font:500 13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.02em;
+         text-shadow:0 0 12px rgba(124,224,168,.45); }
+.gterm p { margin:0; color:#7CE0A8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+           transition:opacity .9s linear, color .9s linear; }
+.gterm p.d1 { opacity:.62; color:#5FBF8C; } .gterm p.d2 { opacity:.38; color:#4C9E74; }
+.gterm p.d3 { opacity:.20; color:#3E7F5E; } .gterm p.d4 { opacity:.09; color:#356B50; }
+.gterm .cur { display:inline-block; width:.55em; background:#7CE0A8; animation:ccblink 1.05s steps(1) infinite; }
+@keyframes ccblink { 50% { opacity:0; } }
+@media (prefers-reduced-motion:reduce) { .gterm .cur { animation:none; } .ccstatus.on i { animation:none; } }
+
 .livemap { background:#0D132D; border-radius:12px; padding:10px; display:flex; align-items:center; }
-@media (max-width:1100px) { .livepanes { grid-template-columns:1fr; } }
 .livemap svg { width:100%; height:auto; display:block; }
-.liveside h2 { font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:#9AA6C4; margin:0 0 8px; }
+.ccpanel { background:#0D132D; border-radius:12px; padding:14px 16px; min-width:0; }
+.ccpanel h2 { margin:0 0 6px; }
+.liveside h2, .ccpanel h2 { font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.16em;
+               text-transform:uppercase; color:#9AA6C4; margin:0 0 8px; }
 .liveside h2 + ul { margin:0 0 20px; }
 .crewlist, .ticker { list-style:none; padding:0; margin:0; }
 .crewlist li { background:#0D132D; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:15px; color:#F4F1E8; }
 .crewlist li b { display:block; color:#C9A227; }
 .crewlist li span { color:#9AA6C4; font-size:13px; }
 .ticker li { font-size:14px; line-height:1.4; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); }
-.ticker li .meta { display:block; font-size:12px; }
+.ticker li .meta { display:block; font-size:12px; color:#9AA6C4; }
 .ticker li.fresh { animation:flash 2.5s ease-out; }
 @keyframes flash { from { background:rgba(124,224,168,.22); } to { background:transparent; } }
 .k { display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:99px; margin-right:8px; background:#1B2340; color:#9AA6C4; }
 .k-added, .k-approved { background:#12331F; color:#7CE0A8; }
 .k-claimed { background:#33290F; color:#C9A227; }
 .rep { color:#C9A227; font-weight:600; font-size:12px; }
-.livefoot { color:#9AA6C4; font-size:13px; margin-top:16px; }
-@media (max-width:1000px) { .liveboard { grid-template-columns:1fr; } .livehead { grid-template-columns:repeat(2,1fr); } .livehead span { font-size:34px; } }
+/* Headlines, in the same card as everything else. They are not verified facts and the list says so. */
+#news { list-style:none; padding:0; margin:0; }
+#news li { display:flex; gap:9px; align-items:flex-start; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:13px; line-height:1.4; }
+#news a { color:#F4F1E8; text-decoration:none; }
+#news a:hover { color:#7CE0A8; text-decoration:underline; }
+#news .nthumb { flex:0 0 22px; }
+#news .nthumb img { width:22px; height:22px; border-radius:4px; display:block; }
+#news .meta { display:block; color:#9AA6C4; font-size:11px; margin-top:2px; }
+.livefoot { color:#9AA6C4; font-size:13px; margin-top:16px; line-height:1.6; }
+.livefoot b { color:#7CE0A8; }
+@media (max-width:1240px) { .livehead { grid-template-columns:repeat(3,1fr); } }
+@media (max-width:1100px) { .livepanes { grid-template-columns:1fr; } }
+@media (max-width:1000px) { .liveboard { grid-template-columns:1fr; } .toll { grid-template-columns:1fr; }
+  .livehead { grid-template-columns:repeat(2,1fr); } }
 
 .roster { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:16px 0 8px; }
 .roster figure { margin:0; text-align:center; }
@@ -73,7 +128,7 @@ ol.walk q { display:block; margin:8px 0 0; padding:10px 14px; border-left:3px so
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 var(--sans)}
 a{color:var(--navy-dark)}.wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
 .top{background:var(--navy-dark);color:#fff;border-bottom:3px solid var(--red)}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1.25rem;flex-wrap:wrap}
-.wordmark{font-family:var(--serif);font-weight:700;font-size:1.35rem;text-decoration:none;color:#fff;letter-spacing:.02em}.wordmark span{color:#fff}
+.wordmark{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--serif);font-weight:700;font-size:1.35rem;text-decoration:none;color:#fff;letter-spacing:.02em}.wordmark span{color:#fff}.epmark{width:30px;height:30px;border-radius:50%;flex:0 0 auto;display:block}/* The line every Ground Crew site carries: this crew owns the mission, the protocol is somebody else's. */.builtwith{display:flex;align-items:flex-start;gap:.6rem;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule)}.builtwith img{width:26px;height:26px;border-radius:50%;flex:0 0 auto;margin-top:.1rem}
 .top nav{display:flex;gap:2rem;flex-wrap:wrap}.top nav a{text-decoration:none;color:var(--gray-pale);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid transparent;padding-bottom:2px}.top nav a:hover{color:#fff;border-color:#fff}
 h1{font-family:var(--serif);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem);line-height:1.12;margin:1.6rem 0 .6rem}h2{font-family:var(--serif);font-size:1.45rem;margin:2.2rem 0 .7rem;color:var(--navy-dark)}h3{font-size:1.05rem;margin:1.3rem 0 .4rem;text-transform:uppercase;letter-spacing:.04em;color:var(--charcoal)}
 .hero{background:var(--navy-dark);color:#fff;text-align:center;padding:2.5rem 1.25rem 2rem}.hero h1{color:#fff;margin:0 0 .5rem;font-size:clamp(1.9rem,3.8vw,2.6rem)}.hero .lede{color:var(--gray-pale);margin:0 auto;max-width:70ch}.hero .status{margin-top:.6rem}.hero .crumb{color:var(--gray-pale);font-size:.9rem;margin-bottom:.5rem}.hero .crumb a{color:#fff}

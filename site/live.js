@@ -51,16 +51,29 @@
   const n = v => v == null ? "—" : Number(v).toLocaleString("en-US");
   const el = id => document.getElementById(id);
 
+  // The status light in the command bar: linked, linked-and-working, or lost. A board on a wall has to
+  // say which of those it is without anyone walking up to it.
+  const bar = el("ccstatus"), state = el("ccstate"), clock = el("ccclock");
+  const setStatus = (cls, text) => {
+    if (!bar) return;
+    bar.className = "ccstatus " + cls;
+    if (state) state.textContent = text;
+  };
+  if (clock) {
+    const tickClock = () => { clock.textContent = new Date().toLocaleTimeString("en-US", { hour12: false }); };
+    tickClock(); setInterval(tickClock, 1000);
+  }
+
   let lastEventAt = null;
   async function tick() {
     let d;
     try { d = await (await fetch(`${SERVER}/activity.json?limit=40`)).json(); }
-    catch { el("livestatus").textContent = "crew server unreachable"; return; }
+    catch { el("livestatus").textContent = "crew server unreachable"; setStatus("off", "LINK LOST"); return; }
     el("livestatus").textContent = "";
 
     const live = d.live ?? [];
+    setStatus("on", live.length ? `${live.length} WORKING` : "LINKED");
     el("nlive").textContent = String(live.length);
-    el("nrecords").textContent = n(d.totals?.records);
     el("ndocs").textContent = n(d.totals?.documents_read);
     el("npeople").textContent = n(d.totals?.contributors);
 
