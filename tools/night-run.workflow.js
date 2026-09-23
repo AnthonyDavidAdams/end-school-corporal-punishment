@@ -10,6 +10,10 @@ export const meta = {
 }
 
 const SERVER = 'https://escp-mcp-production.up.railway.app/mcp'
+// The contract every scan agent opens first. In the repository, not /tmp: a session scoped to the
+// project cannot read outside it, and the first unattended night sent agents at a file they could
+// not open.
+const BRIEF = '/Users/anthony/end-school-corporal-punishment/tools/night-run.brief.md'
 const HUMAN = 'a@175g.com'
 
 const CLAIM = {
@@ -112,7 +116,7 @@ A lease now blocks any overlapping scope, so if someone holds "${s.state}" or a 
     const batches = []
     for (let i = 0; i < s.districts.length; i += 4) batches.push(s.districts.slice(i, i + 4))
     return parallel(batches.map((batch, i) => () => agent(
-      `Read /tmp/work/BRIEF.md first and follow it exactly. It is the contract: open the primary source yourself, quote verbatim, date everything, never guess.
+      `Read the scanning contract at ${BRIEF} first and follow it exactly. It is the contract: open the primary source yourself, quote verbatim, date everything, never guess.
 
 You are working under lease ${claim.lease_id} on scope "${s.state}".
 
