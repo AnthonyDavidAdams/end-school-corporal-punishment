@@ -252,10 +252,17 @@ writeFileSync(join(site, "site.css"), `
 /* Connect page: one address to read out loud, then a procedure per client. */
 .copywrap { position:relative; margin:1rem 0; }
 .copywrap pre { margin:0; padding:1rem 5.5rem 1rem 1rem; overflow-x:auto; }
-.copywrap pre.big { font-size:1.15rem; font-weight:600; }
-.copybtn { position:absolute; top:.6rem; right:.6rem; border:1px solid var(--rule); background:var(--card);
-           color:var(--ink); border-radius:6px; padding:.35rem .7rem; font:600 .8rem/1 var(--sans); cursor:pointer; }
-.copybtn:hover { border-color:var(--green); color:var(--green); }
+/* A command block, dark by design. The inline-code chip is meant for a word inside a sentence on a
+   light page; inside a dark block it paints a pale rectangle under pale text and the text disappears.
+   Anywhere code sits on dark, it carries no chip of its own and takes the block's colours. */
+.cmd { background:var(--navy-dark); color:#EAF7EF; border:1px solid rgba(255,255,255,.14); }
+.cmd code, .hero pre code { background:none; padding:0; color:inherit; font-size:inherit; }
+.copywrap pre.big { font-size:1.15rem; font-weight:600; letter-spacing:.01em; }
+/* Same problem in running text on the dark hero: a light chip under light type. */
+.hero code { background:rgba(255,255,255,.14); color:#EAF7EF; }
+.copybtn { position:absolute; top:.6rem; right:.6rem; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.1);
+           color:#EAF7EF; border-radius:6px; padding:.4rem .75rem; font:600 .8rem/1 var(--sans); cursor:pointer; }
+.copybtn:hover { border-color:#B7F7CE; color:#B7F7CE; background:rgba(255,255,255,.18); }
 .clientjump { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.6rem 0 .5rem; }
 .clientjump a { border:1px solid var(--rule); border-radius:99px; padding:.4rem .85rem; font-size:.9rem; text-decoration:none; }
 .clientjump a:hover { border-color:var(--green); }
@@ -278,8 +285,7 @@ writeFileSync(join(site, "site.css"), `
            font-size:18px; text-align:left; }
 .hero .copywrap { max-width:640px; margin:18px auto 0; }
 .hero .herocmd { padding:16px 92px 16px 22px; font-size:19px; font-weight:600; }
-.hero .copybtn { top:50%; transform:translateY(-50%); right:12px; background:rgba(0,0,0,.35); color:#B7F7CE; border-color:rgba(255,255,255,.28); }
-.hero .copybtn:hover { color:#fff; border-color:#B7F7CE; }
+.hero .copybtn { top:50%; transform:translateY(-50%); right:12px; }
 .herohow { margin:14px 0 0; font-size:15px; opacity:.92; }
 .herohow a { display:block; margin-top:4px; }
 ol.walk { margin:0 0 6px; padding-left:22px; }
@@ -549,7 +555,7 @@ writeFileSync(join(site, "contribute", "index.html"), shell({
   extraHead: `<script>document.addEventListener("click",function(e){var b=e.target.closest(".copybtn");if(!b)return;var c=b.previousElementSibling;navigator.clipboard.writeText(c.innerText).then(function(){var t=b.innerText;b.innerText="Copied";setTimeout(function(){b.innerText=t},1500)})});</script>`,
   body: `<section class="hero"><div class="wrap"><h1>Bring an agent</h1>
 <p class="lede">Point your AI at this address. It takes one unfinished piece of this project, reads the primary source itself, quotes it, and submits the result to be checked against that source before it enters the record.</p>
-<div class="copywrap"><pre class="herocmd copy">${MCP_URL}</pre><button class="copybtn" type="button">Copy</button></div>
+<div class="copywrap"><pre class="herocmd cmd">${MCP_URL}</pre><button class="copybtn" type="button">Copy</button></div>
 <p class="herohow">No account, no key. Then say <b>get_started</b> and it takes the next thing that needs doing.
 <a href="/kids/connect/">Claude, ChatGPT, Cursor and the rest, step by step &rarr;</a></p></div></section>
 
@@ -741,6 +747,7 @@ mkdirSync(join(site, "connect"), { recursive: true });
 {
   const { preamble, sections } = connectSections();
   const slug = (t) => t.toLowerCase().split(/[\s(,]/)[0].replace(/[^a-z0-9]/g, "");
+  const shortName = (t) => t.replace(/\s*\([^)]*\)/g, "").replace(/,.*$/, "").trim();
   writeFileSync(join(site, "connect", "index.html"), shell({
     title: "Connect your agent",
     path: "/connect/",
@@ -748,9 +755,9 @@ mkdirSync(join(site, "connect"), { recursive: true });
     extraHead: `<script>document.addEventListener("click",function(e){var b=e.target.closest(".copybtn");if(!b)return;var c=b.previousElementSibling;navigator.clipboard.writeText(c.innerText).then(function(){var t=b.innerText;b.innerText="Copied";setTimeout(function(){b.innerText=t},1500)})});</script>`,
     body: `<section class="hero"><div class="wrap"><h1>Connect your agent</h1>
 <p class="lede">One address. No account, no key, no waiting to be approved. Whatever you connect with, the first thing to ask it is <code>get_started</code> &mdash; it returns the contract and the exact first calls.</p></div></section>
-<div class="copywrap"><pre class="copy big"><code>${esc(MCP_URL)}</code></pre><button class="copybtn" type="button">Copy</button></div>
+<div class="copywrap"><pre class="cmd big"><code>${esc(MCP_URL)}</code></pre><button class="copybtn" type="button">Copy</button></div>
 ${mdToHtml(preamble).replace(/<div class="copywrap">[\s\S]*?<\/div>/, "")}
-<nav class="clientjump">${sections.map((x) => `<a href="#${slug(x.title)}">${esc(x.title.replace(/,.*/, ""))}</a>`).join("")}</nav>
+<nav class="clientjump">${sections.map((x) => `<a href="#${slug(x.title)}">${esc(shortName(x.title))}</a>`).join("")}</nav>
 ${sections.map((x) => `<section class="client" id="${slug(x.title)}"><h2>${esc(x.title)}</h2>${mdToHtml(x.body)}</section>`).join("")}
 <section class="client"><h2>Then what</h2>
 <p>Ask it to call <code>get_started</code>, then take one state off <a href="/kids/worklist/">the worklist</a>. ${n(toll.record.unchecked_districts)} districts told the federal government they struck a child in ${esc(toll.year)} and nobody has read their policy; that is ${n(toll.record.children_in_unchecked)} children. Each district is about ten minutes of an agent's time.</p>

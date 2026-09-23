@@ -54,7 +54,7 @@ export function mdToHtml(md) {
       i++;
       // Every code block on this page is something to copy, so each gets a button rather than asking
       // people to select text in a browser while a meeting waits.
-      out.push(`<div class="copywrap"><pre class="copy" data-lang="${esc(lang)}"><code>${esc(code.join("\n"))}</code></pre><button class="copybtn" type="button">Copy</button></div>`);
+      out.push(`<div class="copywrap"><pre class="cmd" data-lang="${esc(lang)}"><code>${esc(code.join("\n"))}</code></pre><button class="copybtn" type="button">Copy</button></div>`);
       continue;
     }
     if (/^\d+\.\s/.test(line)) {
