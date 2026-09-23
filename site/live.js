@@ -108,7 +108,7 @@
     const evs = (d.events ?? []).slice(0, 14);
     el("ticker").innerHTML = evs.map(e => {
       const fresh = lastEventAt && e.at > lastEventAt;
-      return `<li class="${fresh ? "fresh" : ""}"><span class="k k-${esc(e.kind)}">${esc(e.kind)}</span>${esc(e.headline)}<span class="meta">${esc(e.place?.label || "")}${e.place ? " &middot; " : ""}${esc(e.ago)}</span></li>`;
+      return `<li class="${fresh ? "fresh" : ""}"><span class="k k-${esc(e.kind)}">${esc(e.kind)}</span>${esc(e.headline)}${e.repeated > 1 ? ` <span class="rep">&times;${e.repeated}</span>` : ""}<span class="meta">${esc(e.place?.label || "")}${e.place ? " &middot; " : ""}${esc(e.ago)}</span></li>`;
     }).join("");
     if (evs.length) lastEventAt = evs[0].at;
   }

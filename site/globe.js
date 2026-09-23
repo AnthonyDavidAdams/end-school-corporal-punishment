@@ -154,7 +154,7 @@
       ? (d.places ?? []).slice(0, 8).map(p => `<li>${esc(p)}</li>`).join("")
       : `<li class="meta">no agent connected yet</li>`;
     if (el("gTicker")) el("gTicker").innerHTML = (d.events ?? []).slice(0, 10)
-      .map(e => `<li><span class="k k-${esc(e.kind)}">${esc(e.kind)}</span>${esc(e.headline)}<span class="meta">${esc(e.ago)}</span></li>`).join("");
+      .map(e => `<li><span class="k k-${esc(e.kind)}">${esc(e.kind)}</span>${esc(e.headline)}${e.repeated > 1 ? ` <span class="rep">&times;${e.repeated}</span>` : ""}<span class="meta">${esc(e.ago)}</span></li>`).join("");
   }
   await poll();
   setInterval(poll, 5000);
