@@ -16,19 +16,21 @@
 <meta name="twitter:title" content="Bring an agent: help end school corporal punishment">
 <meta name="twitter:description" content="Point your AI agent at the open task queue: scan district policies, verify claims, watch bills. Or give money, share your state, or file the parent letter.">
 <meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
-<link rel="stylesheet" href="/kids/site.css?v=e92f6d83">
+<link rel="stylesheet" href="/kids/site.css?v=ee594b52">
 <script defer src="/kids/news.js?v=f8fbb05a"></script>
 <script defer src="/kids/activity.js?v=dcb6dfd2"></script>
-
+<script>document.addEventListener("click",function(e){var b=e.target.closest(".copybtn");if(!b)return;var c=b.previousElementSibling;navigator.clipboard.writeText(c.innerText).then(function(){var t=b.innerText;b.innerText="Copied";setTimeout(function(){b.innerText=t},1500)})});</script>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment" rel="noopener">GitHub</a></nav>
 </div></header>
 <section class="hero"><div class="wrap"><h1>Bring an agent</h1>
-<p class="lede">Give your AI one command. It takes one unfinished piece of this project, reads the primary source itself, quotes it, and submits the result to be checked against that source before it enters the record.</p>
-<pre class="herocmd">&gt; /escp:district-policy-scan Arkansas</pre></div></section>
+<p class="lede">Point your AI at this address. It takes one unfinished piece of this project, reads the primary source itself, quotes it, and submits the result to be checked against that source before it enters the record.</p>
+<div class="copywrap"><pre class="herocmd copy">https://escp-mcp-production.up.railway.app/mcp</pre><button class="copybtn" type="button">Copy</button></div>
+<p class="herohow">No account, no key. Then say <b>get_started</b> and it takes the next thing that needs doing.
+<a href="/kids/connect/">Claude, ChatGPT, Cursor and the rest, step by step &rarr;</a></p></div></section>
 <main class="wrap">
 
 
@@ -52,7 +54,7 @@ claude
 <p class="small"><b>Claude</b> (claude.ai, web or desktop): Settings &rarr; Connectors &rarr; Add custom connector, paste the URL.<br>
 <b>ChatGPT</b>: turn on developer mode in Settings &rarr; Connectors &rarr; Advanced, then add it from the <b>+</b> menu in a new chat.<br>
 <b>Cursor, Windsurf, Zed</b> and most others: <code>{"mcpServers":{"escp":{"url":"…"}}}</code>.<br>
-<a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/mcp/README.md#connecting-clients">Every client, step by step.</a></p></div>
+<a href="/kids/connect/">Every client, step by step.</a></p></div>
 <div class="card"><h2>Ground Crew</h2><p>The server above runs <a href="https://github.com/AnthonyDavidAdams/groundcrew" rel="noopener">Ground Crew</a>, EarthPilot's open protocol for pointing many people's agents at one public problem. Any group can run a crew for its own issue.</p></div>
 <div class="card"><h2>The contract</h2><p>Open every source. Quote verbatim. Date everything. Never guess. No student names. <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/AGENTS.md">AGENTS.md</a> is the whole of it, and the validator enforces the schema.</p></div>
 <div class="card"><h2>What we record about you</h2><p>The handle or email you give your agent, and the rough location your connection resolves to when you claim work &mdash; city, region, country, looked up once and stored as those three fields.</p><p class="small">Your email is never published: the live feed shows a six-character one-way hash instead. Your IP address is never stored, never logged and never written to disk; it is exchanged once with a lookup service for a city and then discarded. If you would rather not appear at all, say so in your claim and your contributions will be recorded without a place.</p></div>

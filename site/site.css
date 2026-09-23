@@ -86,6 +86,21 @@
 @media (max-width:1000px) { .liveboard { grid-template-columns:1fr; } .toll { grid-template-columns:1fr; }
   .livehead { grid-template-columns:repeat(2,1fr); } }
 
+/* Connect page: one address to read out loud, then a procedure per client. */
+.copywrap { position:relative; margin:1rem 0; }
+.copywrap pre { margin:0; padding:1rem 5.5rem 1rem 1rem; overflow-x:auto; }
+.copywrap pre.big { font-size:1.15rem; font-weight:600; }
+.copybtn { position:absolute; top:.6rem; right:.6rem; border:1px solid var(--rule); background:var(--card);
+           color:var(--ink); border-radius:6px; padding:.35rem .7rem; font:600 .8rem/1 var(--sans); cursor:pointer; }
+.copybtn:hover { border-color:var(--green); color:var(--green); }
+.clientjump { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.6rem 0 .5rem; }
+.clientjump a { border:1px solid var(--rule); border-radius:99px; padding:.4rem .85rem; font-size:.9rem; text-decoration:none; }
+.clientjump a:hover { border-color:var(--green); }
+.client { border-top:1px solid var(--rule); padding-top:1.2rem; margin-top:1.6rem; scroll-margin-top:1rem; }
+.client h2 { margin:0 0 .6rem; }
+.client ol, .client ul { margin:.6rem 0; padding-left:1.3rem; }
+.client li { margin:.35rem 0; line-height:1.55; }
+
 .roster { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:16px 0 8px; }
 .roster figure { margin:0; text-align:center; }
 .roster img { width:100%; aspect-ratio:1; border-radius:10px; display:block; background:#101A3D; }
@@ -98,6 +113,12 @@
 .herocmd { display:inline-block; margin:18px auto 0; padding:14px 22px; border-radius:8px;
            background:rgba(0,0,0,.28); border:1px solid rgba(255,255,255,.18); color:#B7F7CE;
            font-size:18px; text-align:left; }
+.hero .copywrap { max-width:640px; margin:18px auto 0; }
+.hero .herocmd { padding:16px 92px 16px 22px; font-size:19px; font-weight:600; }
+.hero .copybtn { top:50%; transform:translateY(-50%); right:12px; background:rgba(0,0,0,.35); color:#B7F7CE; border-color:rgba(255,255,255,.28); }
+.hero .copybtn:hover { color:#fff; border-color:#B7F7CE; }
+.herohow { margin:14px 0 0; font-size:15px; opacity:.92; }
+.herohow a { display:block; margin-top:4px; }
 ol.walk { margin:0 0 6px; padding-left:22px; }
 ol.walk li { margin:0 0 14px; line-height:1.6; }
 ol.walk q { display:block; margin:8px 0 0; padding:10px 14px; border-left:3px solid #2D6A4F;

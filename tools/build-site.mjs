@@ -6,6 +6,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { certificateHtml, certifiable } from "./certificate.mjs";
 import { toll as buildToll } from "./toll.mjs";
+import { connectSections, mdToHtml } from "./connect-page.mjs";
 // A district's name becomes its certificate URL, so the rule has to be stable: the same district must
 // get the same address on every rebuild or a printed link stops working.
 const slug = (x) => String(x).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -13,6 +14,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const site = join(root, "site");
 const BASE = "https://earthpilot.org/kids";
 const REPO = "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment";
+// The one address. Everything on the site that tells somebody where to point an agent uses this.
+const MCP_URL = "https://escp-mcp-production.up.railway.app/mcp";
 const states = JSON.parse(readFileSync(join(site, "data/states.json"), "utf8"));
 const districts = JSON.parse(readFileSync(join(site, "data/districts.json"), "utf8"));
 const claims = JSON.parse(readFileSync(join(site, "data/claims.json"), "utf8"));
@@ -139,7 +142,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -246,6 +249,21 @@ writeFileSync(join(site, "site.css"), `
 @media (max-width:1000px) { .liveboard { grid-template-columns:1fr; } .toll { grid-template-columns:1fr; }
   .livehead { grid-template-columns:repeat(2,1fr); } }
 
+/* Connect page: one address to read out loud, then a procedure per client. */
+.copywrap { position:relative; margin:1rem 0; }
+.copywrap pre { margin:0; padding:1rem 5.5rem 1rem 1rem; overflow-x:auto; }
+.copywrap pre.big { font-size:1.15rem; font-weight:600; }
+.copybtn { position:absolute; top:.6rem; right:.6rem; border:1px solid var(--rule); background:var(--card);
+           color:var(--ink); border-radius:6px; padding:.35rem .7rem; font:600 .8rem/1 var(--sans); cursor:pointer; }
+.copybtn:hover { border-color:var(--green); color:var(--green); }
+.clientjump { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.6rem 0 .5rem; }
+.clientjump a { border:1px solid var(--rule); border-radius:99px; padding:.4rem .85rem; font-size:.9rem; text-decoration:none; }
+.clientjump a:hover { border-color:var(--green); }
+.client { border-top:1px solid var(--rule); padding-top:1.2rem; margin-top:1.6rem; scroll-margin-top:1rem; }
+.client h2 { margin:0 0 .6rem; }
+.client ol, .client ul { margin:.6rem 0; padding-left:1.3rem; }
+.client li { margin:.35rem 0; line-height:1.55; }
+
 .roster { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:16px 0 8px; }
 .roster figure { margin:0; text-align:center; }
 .roster img { width:100%; aspect-ratio:1; border-radius:10px; display:block; background:#101A3D; }
@@ -258,6 +276,12 @@ writeFileSync(join(site, "site.css"), `
 .herocmd { display:inline-block; margin:18px auto 0; padding:14px 22px; border-radius:8px;
            background:rgba(0,0,0,.28); border:1px solid rgba(255,255,255,.18); color:#B7F7CE;
            font-size:18px; text-align:left; }
+.hero .copywrap { max-width:640px; margin:18px auto 0; }
+.hero .herocmd { padding:16px 92px 16px 22px; font-size:19px; font-weight:600; }
+.hero .copybtn { top:50%; transform:translateY(-50%); right:12px; background:rgba(0,0,0,.35); color:#B7F7CE; border-color:rgba(255,255,255,.28); }
+.hero .copybtn:hover { color:#fff; border-color:#B7F7CE; }
+.herohow { margin:14px 0 0; font-size:15px; opacity:.92; }
+.herohow a { display:block; margin-top:4px; }
 ol.walk { margin:0 0 6px; padding-left:22px; }
 ol.walk li { margin:0 0 14px; line-height:1.6; }
 ol.walk q { display:block; margin:8px 0 0; padding:10px 14px; border-left:3px solid #2D6A4F;
@@ -522,9 +546,12 @@ mkdirSync(join(site, "contribute"), { recursive: true });
 writeFileSync(join(site, "contribute", "index.html"), shell({
   title: "Bring an agent: help end school corporal punishment", path: "/contribute/",
   description: "Point your AI agent at the open task queue: scan district policies, verify claims, watch bills. Or give money, share your state, or file the parent letter.",
+  extraHead: `<script>document.addEventListener("click",function(e){var b=e.target.closest(".copybtn");if(!b)return;var c=b.previousElementSibling;navigator.clipboard.writeText(c.innerText).then(function(){var t=b.innerText;b.innerText="Copied";setTimeout(function(){b.innerText=t},1500)})});</script>`,
   body: `<section class="hero"><div class="wrap"><h1>Bring an agent</h1>
-<p class="lede">Give your AI one command. It takes one unfinished piece of this project, reads the primary source itself, quotes it, and submits the result to be checked against that source before it enters the record.</p>
-<pre class="herocmd">&gt; /escp:district-policy-scan Arkansas</pre></div></section>
+<p class="lede">Point your AI at this address. It takes one unfinished piece of this project, reads the primary source itself, quotes it, and submits the result to be checked against that source before it enters the record.</p>
+<div class="copywrap"><pre class="herocmd copy">${MCP_URL}</pre><button class="copybtn" type="button">Copy</button></div>
+<p class="herohow">No account, no key. Then say <b>get_started</b> and it takes the next thing that needs doing.
+<a href="/kids/connect/">Claude, ChatGPT, Cursor and the rest, step by step &rarr;</a></p></div></section>
 
 <h2>What that actually does</h2>
 <p>This is not a worked example. It is a district that was scanned on ${esc(WALKTHROUGH.date)}, and every line of it is in the record now.</p>
@@ -542,11 +569,11 @@ writeFileSync(join(site, "contribute", "index.html"), shell({
 claude plugin install escp@escp
 claude
 &gt; /escp:district-policy-scan Mississippi</pre><p class="small">Six skills: district scan, verify claim, bill watch, federal data refresh, decision-maker dossier, share kit. Each ends in a validated pull request.</p></div>
-<div class="card"><h2>Any assistant</h2><pre>https://escp-mcp-production.up.railway.app/mcp</pre><p class="small">One address, one server, no account and no key. Everything that connects gets the same tools: the facts, state law, district data, federal counts, the task queue, and the tools to submit a finding or a correction. Then ask it to <code>get_started</code>.</p>
+<div class="card"><h2>Any assistant</h2><pre>${MCP_URL}</pre><p class="small">One address, one server, no account and no key. Everything that connects gets the same tools: the facts, state law, district data, federal counts, the task queue, and the tools to submit a finding or a correction. Then ask it to <code>get_started</code>.</p>
 <p class="small"><b>Claude</b> (claude.ai, web or desktop): Settings &rarr; Connectors &rarr; Add custom connector, paste the URL.<br>
 <b>ChatGPT</b>: turn on developer mode in Settings &rarr; Connectors &rarr; Advanced, then add it from the <b>+</b> menu in a new chat.<br>
 <b>Cursor, Windsurf, Zed</b> and most others: <code>{"mcpServers":{"escp":{"url":"…"}}}</code>.<br>
-<a href="${REPO}/blob/main/mcp/README.md#connecting-clients">Every client, step by step.</a></p></div>
+<a href="/kids/connect/">Every client, step by step.</a></p></div>
 <div class="card"><h2>Ground Crew</h2><p>The server above runs <a href="https://github.com/AnthonyDavidAdams/groundcrew" rel="noopener">Ground Crew</a>, EarthPilot's open protocol for pointing many people's agents at one public problem. Any group can run a crew for its own issue.</p></div>
 <div class="card"><h2>The contract</h2><p>Open every source. Quote verbatim. Date everything. Never guess. No student names. <a href="${REPO}/blob/main/AGENTS.md">AGENTS.md</a> is the whole of it, and the validator enforces the schema.</p></div>
 <div class="card"><h2>What we record about you</h2><p>The handle or email you give your agent, and the rough location your connection resolves to when you claim work &mdash; city, region, country, looked up once and stored as those three fields.</p><p class="small">Your email is never published: the live feed shows a six-character one-way hash instead. Your IP address is never stored, never logged and never written to disk; it is exchanged once with a lookup service for a city and then discarded. If you would rather not appear at all, say so in your claim and your contributions will be recorded without a place.</p></div>
@@ -706,6 +733,32 @@ writeFileSync(join(site, "live", "index.html"), shell({
     Figures ${esc(toll.generated)}; ${esc(toll.source)}</p>
 </div>`
 }));
+
+// ---------- connect your agent ----------
+// One URL to say out loud in a meeting. The per-client procedures come from mcp/README.md so they
+// cannot drift from the copy a developer reads in the repository.
+mkdirSync(join(site, "connect"), { recursive: true });
+{
+  const { preamble, sections } = connectSections();
+  const slug = (t) => t.toLowerCase().split(/[\s(,]/)[0].replace(/[^a-z0-9]/g, "");
+  writeFileSync(join(site, "connect", "index.html"), shell({
+    title: "Connect your agent",
+    path: "/connect/",
+    description: "How to point Claude, ChatGPT, Claude Code, Cursor or your own code at the End School Corporal Punishment crew server. One address, no account, no key.",
+    extraHead: `<script>document.addEventListener("click",function(e){var b=e.target.closest(".copybtn");if(!b)return;var c=b.previousElementSibling;navigator.clipboard.writeText(c.innerText).then(function(){var t=b.innerText;b.innerText="Copied";setTimeout(function(){b.innerText=t},1500)})});</script>`,
+    body: `<section class="hero"><div class="wrap"><h1>Connect your agent</h1>
+<p class="lede">One address. No account, no key, no waiting to be approved. Whatever you connect with, the first thing to ask it is <code>get_started</code> &mdash; it returns the contract and the exact first calls.</p></div></section>
+<div class="copywrap"><pre class="copy big"><code>${esc(MCP_URL)}</code></pre><button class="copybtn" type="button">Copy</button></div>
+${mdToHtml(preamble).replace(/<div class="copywrap">[\s\S]*?<\/div>/, "")}
+<nav class="clientjump">${sections.map((x) => `<a href="#${slug(x.title)}">${esc(x.title.replace(/,.*/, ""))}</a>`).join("")}</nav>
+${sections.map((x) => `<section class="client" id="${slug(x.title)}"><h2>${esc(x.title)}</h2>${mdToHtml(x.body)}</section>`).join("")}
+<section class="client"><h2>Then what</h2>
+<p>Ask it to call <code>get_started</code>, then take one state off <a href="/kids/worklist/">the worklist</a>. ${n(toll.record.unchecked_districts)} districts told the federal government they struck a child in ${esc(toll.year)} and nobody has read their policy; that is ${n(toll.record.children_in_unchecked)} children. Each district is about ten minutes of an agent's time.</p>
+<p>Give your agent a handle or an email when it claims work, and you appear on <a href="/kids/live/">the live board</a> and can claim <a href="/kids/crew/">a badge</a>. Your email is never published: the feed shows a six-character one-way hash. Your IP address is never stored.</p>
+<p>If a state you want is already leased, take another &mdash; that is what the lease is for. On a big state, claim a slice (<code>Texas, districts 1-10</code>) rather than the whole thing, so other people can work beside you.</p></section>`
+  }));
+  console.log(`connect: ${sections.length} clients`);
+}
 
 // ---------- the crew ----------
 // The roster is fetched in the browser rather than baked in at build time, so somebody who contributes

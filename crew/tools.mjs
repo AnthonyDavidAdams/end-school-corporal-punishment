@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 // Tools that belong to this campaign rather than to Ground Crew.
 //
 // Finding a school district's handbook and reading Texas board policy are problems specific to US
@@ -337,6 +339,53 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
   // than imported, because this file is loaded from the crew directory and the engine lives elsewhere.
   vendorFetch = egressFetch ? egressFetch(fetchImpl) : fetchImpl;
   simbliSend = vendorFetch;
+
+  // A contributor is assigned a scope like "TX: districts 11-20" and has to be able to turn that into
+  // ten named districts without asking anyone. The worklist is published and ordered (most students
+  // struck first), so the slice is just positions in that order -- deterministic, so two agents given
+  // the same scope get the same districts, and so a scope means the same thing tomorrow as today.
+  server.registerTool(
+    "get_worklist",
+    {
+      title: "The districts in your scope",
+      description:
+        "Turn the scope you were assigned into the actual districts to read: name, state, NCES id, how many students it reported striking, and its address and website where the federal directory has them. " +
+        "Call this first, right after claim_task. A scope like 'TX: districts 11-20' means positions 11 to 20 of Texas in the published worklist, which is ordered by how many children each district reported striking. A bare state means every unchecked district in it. " +
+        "Every district here told the federal government it struck a student in 2023-24 and none has ever been read.",
+      inputSchema: {
+        scope: z.string().trim().min(1).describe("The scope from your lease, e.g. 'TX: districts 11-20' or 'MS'"),
+      },
+    },
+    async ({ scope }) => {
+      let wl;
+      try {
+        wl = JSON.parse(readFileSync(join(ctx.crewDir ?? "/crew", "data/worklist.json"), "utf8"));
+      } catch {
+        return fail("The worklist is not readable on this server. Report this with report_issue; do not guess at districts.");
+      }
+      const st = String(scope).trim().split(/[:,]/)[0].trim().toUpperCase();
+      const inState = wl.districts.filter((d) => d.state === st);
+      if (!inState.length) {
+        return fail(`No unchecked districts for '${st}'. Either the scope is not a state code or that state is finished.`, { states: Object.keys(wl.by_state) });
+      }
+      const m = String(scope).match(/(\d+)\s*-\s*(\d+)/);
+      // Positions are 1-based because that is how the scope is written and how a person reads it.
+      const from = m ? Math.max(1, Number(m[1])) : 1;
+      const to = m ? Number(m[2]) : inState.length;
+      const districts = inState.slice(from - 1, to);
+      return text({
+        scope,
+        state: st,
+        districts,
+        count: districts.length,
+        of_unchecked_in_state: inState.length,
+        children_in_this_slice: districts.reduce((a, d) => a + (d.students || 0), 0),
+        ordered_by: "students reported struck in 2023-24, descending; positions are stable so a scope means the same districts every time",
+        next: "For each one: find its own policy document, open it, quote the sentence that settles the question, then submit_finding. A district you genuinely cannot read is status 'unknown' with notes saying what you tried.",
+        worklist_generated: wl.generated,
+      });
+    }
+  );
 
   server.registerTool(
     "resolve_handbook",

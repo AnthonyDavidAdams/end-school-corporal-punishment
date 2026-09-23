@@ -6,7 +6,7 @@ FROM node:22-alpine
 # the text -- a valid PNG of an empty circle. Alpine ships none, so they have to be asked for.
 RUN apk add --no-cache font-dejavu fontconfig && fc-cache -f
 WORKDIR /app
-RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/f5bf487909d75092434d3814ed6ffccc73291308.tar.gz
+RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/4977abf493b14b9bd4a8c5ebe3fe6dfdb9865bdc.tar.gz
 # The crew directory: crew.json, values, tasks and finding schemas from crew/, everything else from the campaign.
 COPY crew/crew.json crew/values.md /crew/
 COPY crew/tasks /crew/tasks
@@ -21,6 +21,8 @@ COPY data/schema /crew/data/schema
 COPY data/states /crew/data/states
 COPY data/districts /crew/data/districts
 COPY data/crdc /crew/data/crdc
+# The ordered worklist, so get_worklist can turn an assigned scope into the actual districts to read.
+COPY site/data/worklist.json /crew/data/worklist.json
 ENV NODE_ENV=production PORT=3000 GROUNDCREW_CREW=/crew GROUNDCREW_STATE=/state/state.json GROUNDCREW_ISSUES_DIR=/state/issues GROUNDCREW_DOCS_DIR=/state/documents
 RUN mkdir -p /state
 EXPOSE 3000
