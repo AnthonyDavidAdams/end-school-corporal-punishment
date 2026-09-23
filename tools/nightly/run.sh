@@ -16,7 +16,9 @@ mkdir -p "$LOG"
 exec > >(tee -a "$LOG/run.log") 2>&1
 echo "=== $(date -u +%FT%TZ) nightly start"
 
-SLICE=${ESCP_NIGHTLY_SLICE:-60}     # districts per night; one workflow stays well under the agent cap
+SLICE=${ESCP_NIGHTLY_SLICE:-120}    # districts per night. 120 is roughly 200 agents, well under the
+                                    # 1000 cap, and finishes the federal-count districts in about six
+                                    # nights instead of eleven.
 
 # 1. Take the next slice. Skips ban-state filings, which are a reporting question and not a policy read.
 node - "$SLICE" <<'JS' > "$LOG/slice.json" || { echo "slice failed"; exit 1; }

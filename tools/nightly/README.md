@@ -26,12 +26,12 @@ So the worst realistic outcome of an unattended night is that nothing happens an
 
 | Variable | Default | |
 |---|---|---|
-| `ESCP_NIGHTLY_SLICE` | 60 | districts per night |
+| `ESCP_NIGHTLY_SLICE` | 120 | districts per night |
 | `~/.escp-deploy.env` | — | `DEPLOY_PASS`, `DEPLOY_HOST`, `DEPLOY_PATH`; without it the run commits and pushes but does not deploy |
 | `~/.proxies.env` | — | set on the server, not read here |
 
-60 a night finishes the districts that reported striking a child in about eleven nights. Raising it is
-mostly a question of how long you want one workflow to run; the agent cap allows roughly 250.
+120 a night finishes the districts that reported striking a child in about six nights. The agent cap
+allows roughly 250 districts in one workflow, so this has headroom.
 
 ## When it stops being useful
 
