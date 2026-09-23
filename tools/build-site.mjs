@@ -163,7 +163,7 @@ writeFileSync(join(site, "site.css"), `
    as one instrument rather than a page of widgets. */
 .cc { max-width:1640px; margin:0 auto; padding:0 16px 28px; color:#F4F1E8; }
 .cc a { color:#7CE0A8; }
-.ccbar { display:flex; align-items:center; gap:14px; background:#0D132D; border:1px solid rgba(124,224,168,.18);
+.ccbar { display:flex; align-items:center; flex-wrap:wrap; gap:14px; background:#0D132D; border:1px solid rgba(124,224,168,.18);
          border-radius:12px; padding:12px 18px; margin:14px 0; }
 .ccbar img { width:44px; height:44px; border-radius:50%; flex:0 0 auto; }
 .ccid b { display:block; font:700 13px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.22em; color:#7CE0A8; }
