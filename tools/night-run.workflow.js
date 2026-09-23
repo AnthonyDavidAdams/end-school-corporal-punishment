@@ -144,7 +144,11 @@ A district you genuinely cannot read is status "unknown", with notes saying exac
       lease_id: claim.lease_id,
       skipped: false,
       findings: rs.filter(Boolean).flatMap(r => r.findings || []),
-    }))
+    // A stage that throws drops its item out of the pipeline and skips every stage after it, including
+    // the release. So this one cannot be allowed to throw: it hands the lease id forward with no
+    // findings instead, and the release still runs. Eight whole states sat leased for four hours once
+    // because the comment on the release stage said "whatever happened above" and that was not true.
+    })).catch(e => ({ state: s.state, lease_id: claim.lease_id, skipped: false, failed: String(e), findings: [] }))
   },
 
   // Check. A different agent, told to refute rather than confirm.
@@ -207,10 +211,13 @@ Do not vote to refute something you could not read. On the last run a district v
       const checks = new Map()
       checkable.forEach((f, i) => { if (verdicts[i]) checks.set(f, verdicts[i]) })
       return { ...scanned, findings: scanned.findings.map(f => (checks.has(f) ? { ...f, _check: checks.get(f) } : f)) }
-    })
+    // Unchecked findings are already handled downstream as their own outcome, so a failed check costs
+    // the verdicts and nothing else. Leaking the lease would cost the next four hours of that state.
+    }).catch(e => ({ ...scanned, failed: String(e) }))
   },
 
-  // Release, whatever happened above, so a crash does not sit on a scope for four hours.
+  // Release. The stages above are written so they cannot throw past this point, and a sweep after
+  // the pipeline catches the case where this agent is itself the thing that failed.
   (scanned) => {
     if (!scanned.lease_id) return scanned
     return agent(
@@ -219,6 +226,23 @@ Do not vote to refute something you could not read. On the last run a district v
     ).then(() => scanned)
   }
 )
+
+// Belt and braces. The release stage is an agent and an agent can fail, so before anything else is
+// reported, ask the server what is still held under this run's lease ids and hand back whatever is.
+// A leaked whole-state lease blocks every district in that state for the rest of the TTL, including
+// for outside contributors, which is the opposite of what the protocol is for.
+const claimed = perState.filter(Boolean).map(s => s.lease_id).filter(Boolean)
+if (claimed.length) {
+  const swept = await agent(
+    `Call list_leases on the crew server at ${SERVER}. For every lease whose id is in this list and is still held, call release_lease on it:
+
+${JSON.stringify(claimed, null, 1)}
+
+Release nothing that is not in that list. Report which ids you released and which were already gone.`,
+    { label: 'sweep', phase: 'Release', model: 'sonnet' }
+  )
+  log(`lease sweep: ${String(swept).slice(0, 300)}`)
+}
 
 const done = perState.filter(Boolean)
 const all = done.flatMap(s => s.findings)
