@@ -38,7 +38,7 @@ districts:
       contact_page: https://www.annistonschools.com/en-US/pages/7e51092f-19eb-4b39-acb8-4c398323b3ca
       as_of: 2026-09-21
     notes: "Anniston City Schools' site (annistonschools.com, SchoolBlocks CMS) does not surface a document library in raw HTML; the Policy Manual page embeds a Google Drive PDF viewer (drive.google.com/file/d/16fxYcM_H5l4pUoTP_Qm8DSa9LWeixJeE/preview), found via the page's embedded JSON, not a rendered link. Fetched via fetch_document as a Drive uc?export=download URL: 2065401 bytes, application/octet-stream (PDF), 406 pages, corporal punishment at G-20.2 on extracted page 327. NOTE for reviewers: the server's PDF text extraction renders this font's 'ti'/'tt' ligatures (educational, caution, buttocks, permitted, certified) as a null byte, so the quote above spells those words correctly per the actual document rather than reproducing the extractor's null-byte artifact; the submitted quote's first 120 characters were chosen to avoid any ligature word so the automatic source check would match cleanly. Full policy text begins 'G-20.2 CORPORAL PUNISHMENT In order to establish and maintain an educational climate conducive to learning, the Board permits...' Policy prints 'ADOPTED: January 6, 2025' directly beneath the corporal-punishment text -- a full-manual adoption date, not confirmed evidence this specific provision's substance changed from an earlier version (no prior edition found to compare). District reported striking students in 2023-24 per federal CRDC; current manual still permits it, capped at 3 licks to the buttocks -- no prohibition to report."
-    policy_adopted: "2025-01-06"
+    policy_adopted: 2025-01-06
     policy_dates_from: notes
   - name: Baldwin County Schools
     county: Baldwin
@@ -248,8 +248,8 @@ districts:
       contact_page: https://www.cleburneschools.net/
       as_of: 2026-09-21
     notes: "District's own Simbli site (S=36031078) names it 'Cleburne County Schools', matching input NAME in kind (County). Fetched via fetch_simbli_policy; policy 6.15 Corporal Punishment, status ADOPTED, originally_adopted and last_revised both 01/01/2010 (no revision since), 720 chars, 0 attachments. This district reported striking students in 2023-24 per federal CRDC; policy is unchanged and still permits it as of today -- no policy change to report. Reference in policy: ALA. CODE Section 16-28A-2 (1975)."
-    policy_adopted: "2010-01-01"
-    policy_revised: "2010-01-01"
+    policy_adopted: 2010-01-01
+    policy_revised: 2010-01-01
     policy_dates_from: notes
   - name: Coffee County Schools
     county: Coffee
@@ -1152,7 +1152,7 @@ districts:
       contact_page: https://www.oxfordcityschools.com/board-of-education/documents-and-resources
       as_of: 2026-09-21
     notes: "Found on the district's own Board of Education > Documents and Resources page, tab 'Board Policy Manual' -> file OCSBoardPolicyManual041924.pdf (filename implies compiled/updated 04/19/24), at www.oxfordcityschools.com/fs/resource-manager/view/01cfac71-bf02-4fd7-b5b0-8583579d6103 which resolves to the finalsite PDF cited as source (350 pages, 1,795,200 bytes, application/pdf, text extracted cleanly). Policy 5.23 Corporal Punishment, PDF pages 126-127. Footer for this specific policy: 'SOURCE: Oxford City Board of Education, Oxford, AL / ADOPTED: July 22, 2008 / LEGAL REF.: The Code of Alabama, 16-1-14, 16-28A-1' -- no revision date is printed for this section, so policy_revised is left null rather than guessed. Superintendent name (Dr. G. Todd Haynie) taken from the district's own 'Our Superintendent' bio page. This district was in the federal 2023-24 CRDC as reporting corporal punishment (29 students) and had no prior record in this project."
-    policy_adopted: "2008-07-22"
+    policy_adopted: 2008-07-22
     policy_dates_from: notes
   - name: Pell City
     county: Pell City
