@@ -158,7 +158,13 @@ A district you genuinely cannot read is status "unknown", with notes saying exac
     // also allows opting out -- which is exactly the opt-in/opt-out judgment the check exists to catch.
     // One refuter is a coin flip on the hard cases, and the hard cases are the point. Kill on a
     // majority, and surface a split rather than letting whichever one ran stand as the answer.
-    return parallel(checkable.map(f => () => parallel([0, 1, 2].map(k => () => agent(
+    // How many refuters a finding is worth. A routine "allows" quoting a model policy is cheap to get
+    // right and the deterministic verifier re-checks its quote against the live source afterwards
+    // anyway, so one is enough. A prohibition, an opt-in requirement, or a policy dated after the
+    // reporting year is the consequential kind -- those get the panel. Three refuters on everything
+    // made a district cost 243k tokens; most of that was spent agreeing about boilerplate.
+    const panelSize = (f) => (f.status === 'bans' || f.status === 'consent_required' || f.policy_revised >= '2024-06-01' ? 3 : 1)
+    return parallel(checkable.map(f => () => parallel(Array.from({ length: panelSize(f) }, (_, k) => k).map(k => () => agent(
       `Try to REFUTE this finding. Another agent produced it and it enters a public record if it survives you. Default to refuted=true when unsure.
 
 ${JSON.stringify({ state: f.state, name: f.name, status: f.status, source: f.source, quote: f.quote, policy_code: f.policy_code }, null, 1)}

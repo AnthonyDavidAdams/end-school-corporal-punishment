@@ -138,7 +138,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -154,6 +154,38 @@ ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</secti
 
 // ---------- CSS ----------
 writeFileSync(join(site, "site.css"), `
+/* The live board. Sized for a projector: the numbers carry the room, the map carries the story. */
+.livewrap { max-width:1500px; margin:0 auto; padding:0 16px 24px; }
+.livehead { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:18px 0; }
+.livehead div { background:#0D132D; border-radius:12px; padding:18px 20px; }
+.livehead span { display:block; font-size:44px; font-weight:700; color:#7CE0A8; font-variant-numeric:tabular-nums; line-height:1.05; }
+.livehead label { display:block; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:#9AA6C4; margin-top:6px; }
+.liveboard { display:grid; grid-template-columns:1fr 340px; gap:16px; align-items:start; }
+/* The globe carries the story, so it gets the room. */
+.livepanes { display:grid; grid-template-columns:1.25fr 1fr; gap:14px; align-items:start; }
+/* The globe is square; the map beside it is wide. Cap the globe so the two panes end level instead of
+   the globe running half a screen taller than everything next to it. */
+.globe { background:#080D1F; border-radius:12px; padding:6px; display:flex; align-items:center; justify-content:center; }
+.globe svg { width:100%; max-height:52vh; height:auto; display:block; }
+.livemap { background:#0D132D; border-radius:12px; padding:10px; display:flex; align-items:center; }
+@media (max-width:1100px) { .livepanes { grid-template-columns:1fr; } }
+.livemap svg { width:100%; height:auto; display:block; }
+.liveside h2 { font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:#9AA6C4; margin:0 0 8px; }
+.liveside h2 + ul { margin:0 0 20px; }
+.crewlist, .ticker { list-style:none; padding:0; margin:0; }
+.crewlist li { background:#0D132D; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:15px; color:#F4F1E8; }
+.crewlist li b { display:block; color:#C9A227; }
+.crewlist li span { color:#9AA6C4; font-size:13px; }
+.ticker li { font-size:14px; line-height:1.4; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+.ticker li .meta { display:block; font-size:12px; }
+.ticker li.fresh { animation:flash 2.5s ease-out; }
+@keyframes flash { from { background:rgba(124,224,168,.22); } to { background:transparent; } }
+.k { display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:99px; margin-right:8px; background:#1B2340; color:#9AA6C4; }
+.k-added, .k-approved { background:#12331F; color:#7CE0A8; }
+.k-claimed { background:#33290F; color:#C9A227; }
+.livefoot { color:#9AA6C4; font-size:13px; margin-top:16px; }
+@media (max-width:1000px) { .liveboard { grid-template-columns:1fr; } .livehead { grid-template-columns:repeat(2,1fr); } .livehead span { font-size:34px; } }
+
 .roster { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:16px 0 8px; }
 .roster figure { margin:0; text-align:center; }
 .roster img { width:100%; aspect-ratio:1; border-radius:10px; display:block; background:#101A3D; }
@@ -538,6 +570,43 @@ ${quotes}
   }));
   console.log(`stopped: ${stopped.length} districts, ${total} students`);
 }
+
+// ---------- the live board ----------
+// Built to be projected. Everything is large, nothing needs a mouse, and it answers one question a
+// room actually has: who is working on this right now, and where.
+mkdirSync(join(site, "live"), { recursive: true });
+writeFileSync(join(site, "live", "index.html"), shell({
+  title: "Live: agents working on this right now",
+  path: "/live/",
+  description: "A live board of the agents currently reading school district corporal punishment policy, where they are, and which state each one is working.",
+  extraHead: `<script defer src="/kids/globe.js?v=${ver("globe.js")}"></script>\n<script defer src="/kids/live.js?v=${ver("live.js")}"></script>`,
+  body: `<div class="livewrap">
+  <div class="livehead">
+    <div><span id="nlive">0</span><label>agents working now</label><i id="gLive" hidden></i></div>
+    <div><span id="nrecords">—</span><label>districts on the record</label><i id="gRecords" hidden></i></div>
+    <div><span id="ndocs">—</span><label>documents read</label><i id="gDocs" hidden></i></div>
+    <div><span id="npeople">—</span><label>contributors</label><i id="gPeople" hidden></i></div>
+  </div>
+  <div class="liveboard">
+    <div class="livepanes">
+      <div id="globe" class="globe"></div>
+      <div id="livemap" class="livemap"></div>
+    </div>
+    <aside class="liveside">
+      <h2>Connecting from</h2>
+      <ul id="gPlaces" class="crewlist"><li class="meta">Connecting…</li></ul>
+      <h2>Working now</h2>
+      <ul id="crew" class="crewlist"><li class="meta">Connecting…</li></ul>
+      <h2>Just happened</h2>
+      <ul id="ticker" class="ticker"><li class="meta">Loading…</li></ul>
+    </aside>
+  </div>
+  <p class="livefoot"><span id="livestatus"></span>
+    Gold is a state an agent holds right now; green a state that prohibits corporal punishment, red one that permits it.
+    A line runs from the person to the work. Contributors appear as a one-way hash of the address they gave and a city-level
+    location; neither the address nor the IP is stored. Join at <b>${esc(BASE.replace(/^https?:\/\//, ""))}/contribute</b>.</p>
+</div>`
+}));
 
 // ---------- the crew ----------
 // The roster is fetched in the browser rather than baked in at build time, so somebody who contributes

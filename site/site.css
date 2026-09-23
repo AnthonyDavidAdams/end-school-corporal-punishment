@@ -1,3 +1,35 @@
+/* The live board. Sized for a projector: the numbers carry the room, the map carries the story. */
+.livewrap { max-width:1500px; margin:0 auto; padding:0 16px 24px; }
+.livehead { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin:18px 0; }
+.livehead div { background:#0D132D; border-radius:12px; padding:18px 20px; }
+.livehead span { display:block; font-size:44px; font-weight:700; color:#7CE0A8; font-variant-numeric:tabular-nums; line-height:1.05; }
+.livehead label { display:block; font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:#9AA6C4; margin-top:6px; }
+.liveboard { display:grid; grid-template-columns:1fr 340px; gap:16px; align-items:start; }
+/* The globe carries the story, so it gets the room. */
+.livepanes { display:grid; grid-template-columns:1.25fr 1fr; gap:14px; align-items:start; }
+/* The globe is square; the map beside it is wide. Cap the globe so the two panes end level instead of
+   the globe running half a screen taller than everything next to it. */
+.globe { background:#080D1F; border-radius:12px; padding:6px; display:flex; align-items:center; justify-content:center; }
+.globe svg { width:100%; max-height:52vh; height:auto; display:block; }
+.livemap { background:#0D132D; border-radius:12px; padding:10px; display:flex; align-items:center; }
+@media (max-width:1100px) { .livepanes { grid-template-columns:1fr; } }
+.livemap svg { width:100%; height:auto; display:block; }
+.liveside h2 { font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:#9AA6C4; margin:0 0 8px; }
+.liveside h2 + ul { margin:0 0 20px; }
+.crewlist, .ticker { list-style:none; padding:0; margin:0; }
+.crewlist li { background:#0D132D; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:15px; color:#F4F1E8; }
+.crewlist li b { display:block; color:#C9A227; }
+.crewlist li span { color:#9AA6C4; font-size:13px; }
+.ticker li { font-size:14px; line-height:1.4; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); }
+.ticker li .meta { display:block; font-size:12px; }
+.ticker li.fresh { animation:flash 2.5s ease-out; }
+@keyframes flash { from { background:rgba(124,224,168,.22); } to { background:transparent; } }
+.k { display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:99px; margin-right:8px; background:#1B2340; color:#9AA6C4; }
+.k-added, .k-approved { background:#12331F; color:#7CE0A8; }
+.k-claimed { background:#33290F; color:#C9A227; }
+.livefoot { color:#9AA6C4; font-size:13px; margin-top:16px; }
+@media (max-width:1000px) { .liveboard { grid-template-columns:1fr; } .livehead { grid-template-columns:repeat(2,1fr); } .livehead span { font-size:34px; } }
+
 .roster { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:16px 0 8px; }
 .roster figure { margin:0; text-align:center; }
 .roster img { width:100%; aspect-ratio:1; border-radius:10px; display:block; background:#101A3D; }
