@@ -59,9 +59,15 @@ export function mdToHtml(md) {
     }
     if (/^\d+\.\s/.test(line)) {
       const items = [];
-      while (i < lines.length && (/^\d+\.\s/.test(lines[i]) || /^\s{3,}\S/.test(lines[i]) || (items.length && lines[i].trim() === ""))) {
-        if (/^\d+\.\s/.test(lines[i])) items.push(lines[i].replace(/^\d+\.\s/, ""));
-        else if (items.length && lines[i].trim()) items[items.length - 1] += " " + lines[i].trim();
+      let fenced = false;
+      while (i < lines.length && (/^\d+\.\s/.test(lines[i]) || /^\s{3,}\S/.test(lines[i]) || fenced || (items.length && lines[i].trim() === ""))) {
+        const t = lines[i].trim();
+        // A fenced block indented under a step. The content is a single line -- a URL, a command --
+        // so it belongs inline in the step rather than as a block that breaks the numbering. Without
+        // this the fence markers survived into the text and the step read "paste the URL: `` ... ``".
+        if (t.startsWith("```")) { fenced = !fenced; i++; continue; }
+        if (/^\d+\.\s/.test(lines[i]) && !fenced) items.push(lines[i].replace(/^\d+\.\s/, ""));
+        else if (items.length && t) items[items.length - 1] += (fenced ? " `" + t + "`" : " " + t);
         i++;
       }
       out.push(`<ol>${items.map((t) => `<li>${inline(t)}</li>`).join("")}</ol>`);
