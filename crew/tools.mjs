@@ -71,27 +71,36 @@ const MAX_HTML_CHARS = 4_000_000;
 const CRAWLER_UA = "groundcrew/0.4 (+https://github.com/AnthonyDavidAdams/end-school-corporal-punishment)";
 const CHALLENGE = /Client Challenge|Pardon Our Interruption|_Incapsula_Resource|Just a moment\.\.\./i;
 
-async function getOnce(url, fetchImpl, ua) {
+async function getOnce(url, fetchImpl, ua, expect) {
   const res = await fetchImpl(url, {
     headers: { ...(ua ? { "User-Agent": ua } : {}), Accept: "text/html,*/*" },
     redirect: "follow", signal: AbortSignal.timeout(25000),
+    // Handed to the egress layer so a vendor serving this address a stub gets routed around. Ignored
+    // when no proxy pool is configured.
+    ...(expect ? { expect } : {}),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const full = await res.text();
   return { html: full.slice(0, MAX_HTML_CHARS), final: res.url, truncated: full.length > MAX_HTML_CHARS, source_chars: full.length };
 }
 
-async function getText(url, fetchImpl) {
+async function getText(url, fetchImpl, expect) {
+  // "Not a challenge page and over 5,000 characters" is too weak a test on its own. A caller that
+  // knows what the page must contain passes `expect`, and a response that lacks it is treated as a
+  // failed read rather than a short document -- which is what TASB's 70,000-byte stub was.
+  const good = (r) => !CHALLENGE.test(r.html) && r.source_chars > 5000 && (!expect || expect(r.html));
   let first = null;
   try {
-    first = await getOnce(url, fetchImpl, UA);
-    if (!CHALLENGE.test(first.html) && first.source_chars > 5000) return first;
+    first = await getOnce(url, fetchImpl, UA, expect);
+    if (good(first)) return first;
   } catch { /* fall through and try as a crawler */ }
   for (const [i, ua] of [CRAWLER_UA, null, UA].entries()) {
     await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
     try {
-      const alt = await getOnce(url, fetchImpl, ua);
-      if (!CHALLENGE.test(alt.html) && alt.source_chars > (first?.source_chars ?? 0)) return { ...alt, retried: true, ua_used: ua ?? "none" };
+      const alt = await getOnce(url, fetchImpl, ua, expect);
+      if (good(alt) || (!CHALLENGE.test(alt.html) && alt.source_chars > (first?.source_chars ?? 0))) {
+        return { ...alt, retried: true, ua_used: ua ?? "none" };
+      }
     } catch { /* try the next one */ }
   }
   if (first) return first;
@@ -507,7 +516,10 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
       if (cached && Date.now() - cached.at < TASB_TTL_MS) got = cached.got;
       else {
         await tasbTurn();
-        try { got = await getText(url, vendorFetch); } catch (err) { return fail(`TASB returned ${err.message} for key ${district_key}. Check the key, or read it yourself and submit with source_text.`); }
+        // Every real TASB policy page carries the section marker for its own code. A page without it
+        // is not a short policy, it is not the policy at all.
+        const wantsMarker = (html) => new RegExp(`${code}\\((LOCAL|LEGAL|REGULATION|EXHIBIT)\\)`, "i").test(html);
+        try { got = await getText(url, vendorFetch, wantsMarker); } catch (err) { return fail(`TASB returned ${err.message} for key ${district_key}. Check the key, or read it yourself and submit with source_text.`); }
         tasbCache.set(url, { at: Date.now(), got });
       }
       const plain = got.html
