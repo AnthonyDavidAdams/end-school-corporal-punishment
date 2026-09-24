@@ -1,6 +1,6 @@
 // Static site generator for earthpilot.org/kids. Reads site/data/*.json (run build-site-data.mjs first),
 // data/crdc/*/states.csv, templates/*.md. Writes site/index.html, site/state/<XX>/index.html, site/resources/index.html, site/contribute/index.html.
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { statSync, readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -20,6 +20,17 @@ const states = JSON.parse(readFileSync(join(site, "data/states.json"), "utf8"));
 const districts = JSON.parse(readFileSync(join(site, "data/districts.json"), "utf8"));
 const claims = JSON.parse(readFileSync(join(site, "data/claims.json"), "utf8"));
 const summary = JSON.parse(readFileSync(join(site, "data/summary.json"), "utf8"));
+// This file renders what the earlier build steps computed; it does not compute anything itself. Run
+// standalone after the record changes and it will happily publish yesterday's headline figures, which
+// is what happened on 2026-09-24: 141 findings merged and the site went out still saying 281 districts
+// sourced. Nothing looked wrong, because a stale number looks exactly like a fresh one.
+{
+  const newest = readdirSync(join(root, "data/districts")).map((f) => statSync(join(root, "data/districts", f)).mtimeMs);
+  if (newest.length && Math.max(...newest) > statSync(join(site, "data/summary.json")).mtimeMs) {
+    console.error("site/data/summary.json is older than data/districts/. Run `npm --prefix tools run build-site`, which regenerates the data before rendering it.");
+    process.exit(1);
+  }
+}
 const csv = t => { const [h, ...r] = t.trim().split(/\r?\n/).map(l => l.split(",")); return r.map(x => Object.fromEntries(h.map((k, i) => [k, x[i]]))); };
 
 // Cache-busting for the assets the pages reference. Without this a returning visitor keeps running
