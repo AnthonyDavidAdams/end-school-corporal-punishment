@@ -23,7 +23,19 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
 const IN = join(root, arg("in", "data/tasb/harvest.jsonl"));
 const OUT = join(root, arg("out", "data/tasb/classified.json"));
+// Two thresholds, because they are two different jobs and only one of them has been measured.
+//
+// Status classification was validated against 311 human-reviewed findings: 99.4% agreement overall and
+// 100% on the 295 at or above 0.99 confidence (research/jev/README.md). That number is earned.
+//
+// Choosing WHICH sentence is operative was never in that validation. It is a harder task -- thirteen
+// sentences of a Mississippi JDB policy all mention corporal punishment and several sound like rules --
+// and its confidence sits lower for that reason, not because the answer is wrong. Holding it to a bar
+// measured on a different task held every correct Mississippi finding. So it gets its own threshold and
+// its own caveat: this one is a judgement, not a measurement, until quote selection is validated the
+// same way. Findings recorded on it carry the quote's confidence so a reviewer can see what it rested on.
 const THRESHOLD = Number(arg("threshold", 0.99));
+const QUOTE_THRESHOLD = Number(arg("quote-threshold", 0.90));
 const MODEL = "typesafe/jev-1.13";
 const KEY = process.env.OPENROUTER_API_KEY;
 if (!KEY) { console.error("OPENROUTER_API_KEY is not set."); process.exit(1); }
@@ -51,8 +63,24 @@ async function decide(state, questions) {
   }
 }
 
+// Two harvesters, one shape. TASB gives one policy per district; Simbli gives several (JD, JDA, JDB
+// and so on), so its candidate sentences are pooled and the source recorded is the policy the chosen
+// sentence came from. Everything downstream is identical, which is the point of separating harvesting
+// from deciding.
 const rows = readFileSync(IN, "utf8").trim().split("\n").filter(Boolean).map((l) => JSON.parse(l))
-  .filter((r) => r.district && r.candidates?.length);
+  .map((r) => {
+    if (r.candidates?.length) return r;           // TASB shape
+    if (!r.policies?.length) return null;          // Simbli shape
+    const pool = [];
+    for (const p of r.policies) for (const c of p.candidates) pool.push({ text: c, url: p.url, code: p.code, revised: p.last_revised });
+    if (!pool.length) return null;
+    return {
+      key: r.site, district: (r.district || "").trim(), url: pool[0].url,
+      candidates: pool.map((x) => x.text), _by: pool,
+      date_issued: pool[0].revised ?? null,
+    };
+  })
+  .filter((r) => r && r.district && r.candidates?.length);
 console.log(`${rows.length} districts with candidate sentences`);
 
 const out = [];
@@ -69,7 +97,7 @@ async function worker() {
       {
         operative: {
           type: "choice",
-          instructions: "Which ONE of these sentences from the district's own discipline policy states whether corporal punishment may be used in this district? Choose the sentence that establishes the rule, not one that describes how it is carried out, who witnesses it, or what records are kept.",
+          instructions: "Which ONE of these sentences from the district's own discipline policy STATES THE RULE about whether corporal punishment may be used in this district? Choose the sentence that grants, forbids or conditions its use. Do NOT choose a sentence that merely DEFINES what corporal punishment means, nor one describing how it is carried out, who must witness it, who may administer it, or what records are kept. A definition beginning \"Corporal punishment means...\" is never the rule.",
           criteria: options,
         },
         status: {
@@ -83,13 +111,15 @@ async function worker() {
     cost += d.usage?.cost ?? 0;
     const op = d.answers.operative, st = d.answers.status;
     const quote = options[op.choice] ?? null;
-    const confident = Math.min(op.confidence, st.confidence) >= THRESHOLD;
+    const confident = st.confidence >= THRESHOLD && op.confidence >= QUOTE_THRESHOLD;
     if (confident) recorded++; else held++;
+    const from = r._by?.find((x) => x.text === quote);
     out.push({
-      key: r.key, district: r.district, source: r.url,
+      key: r.key, district: r.district, source: from?.url ?? r.url,
+      ...(from?.code ? { policy_code: from.code } : {}),
       status: st.choice, quote,
       status_confidence: st.confidence, quote_confidence: op.confidence,
-      date_issued: r.date_issued, update: r.update,
+      date_issued: from?.revised ?? r.date_issued, update: r.update,
       decision: confident ? "record" : "needs_review",
     });
   }
@@ -104,6 +134,6 @@ if (bad.length) { console.error(`${bad.length} quotes are not verbatim candidate
 writeFileSync(OUT, JSON.stringify(out, null, 1));
 const by = {};
 for (const r of out) if (r.status) by[r.status] = (by[r.status] || 0) + 1;
-console.log(`${recorded} at or above ${THRESHOLD} confidence, ${held} held for review, ${out.filter(r=>r.error).length} errors`);
+console.log(`${recorded} recorded (status >= ${THRESHOLD}, quote >= ${QUOTE_THRESHOLD}), ${held} held for review, ${out.filter(r=>r.error).length} errors`);
 console.log(`statuses: ${JSON.stringify(by)}`);
 console.log(`cost: $${cost.toFixed(4)}  (${(cost / Math.max(1, out.length)).toFixed(6)} per district)`);
