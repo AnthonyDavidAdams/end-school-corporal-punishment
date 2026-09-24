@@ -516,10 +516,18 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
       if (cached && Date.now() - cached.at < TASB_TTL_MS) got = cached.got;
       else {
         await tasbTurn();
-        // Every real TASB policy page carries the section marker for its own code. A page without it
-        // is not a short policy, it is not the policy at all.
-        const wantsMarker = (html) => new RegExp(`${code}\\((LOCAL|LEGAL|REGULATION|EXHIBIT)\\)`, "i").test(html);
-        try { got = await getText(url, vendorFetch, wantsMarker); } catch (err) { return fail(`TASB returned ${err.message} for key ${district_key}. Check the key, or read it yourself and submit with source_text.`); }
+        // What a rendered TASB policy page has that a stub does not.
+        //
+        // The marker alone is not enough: the navigation index lists "FO(LOCAL)" as a link label, so a
+        // 70,000-byte page of nav passes a marker test while containing none of the policy. On a real
+        // page the first marker sits at byte 793,671 of 875,082 -- the body comes first and the marker
+        // closes it -- so size is the honest signal, together with the DATE ISSUED footer that only
+        // appears when a section actually rendered. Smallest real page seen is several hundred KB.
+        const wantsPolicy = (html) =>
+          html.length > 200_000 &&
+          /DATE ISSUED/i.test(html) &&
+          new RegExp(`${code}\\((LOCAL|LEGAL|REGULATION|EXHIBIT)\\)`, "i").test(html);
+        try { got = await getText(url, vendorFetch, wantsPolicy); } catch (err) { return fail(`TASB returned ${err.message} for key ${district_key}. Check the key, or read it yourself and submit with source_text.`); }
         tasbCache.set(url, { at: Date.now(), got });
       }
       const plain = got.html
@@ -570,7 +578,9 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
         return fail(
           noMember
             ? `TASB served its member picker instead of a policy manual for key ${district_key}. Checked against other policy codes and against the manual root, it does the same every time, so this district's manual is not currently being published: it has left Policy Online, withdrawn the manual, or changed key. This is not a fault in the key you passed and not a temporary error worth retrying.`
-            : "TASB answered but no LOCAL or LEGAL section was found for this code.",
+            : plain.length < 40_000
+              ? `TASB served only ${plain.length} characters for this key -- a real policy page is several hundred thousand. This address is being given a stub rather than the manual, which is a fetch problem and not a missing policy. Read it yourself and submit with source_text.`
+              : "TASB answered but no LOCAL or LEGAL section was found for this code.",
           {
             url, chars: plain.length, truncated: got.truncated ?? false,
             next: noMember
