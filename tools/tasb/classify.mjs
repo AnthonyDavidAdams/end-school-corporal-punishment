@@ -105,11 +105,24 @@ async function worker() {
           instructions: "Taking the district's whole policy excerpt together, what is this district's position on corporal punishment?",
           criteria: STATUS,
         },
+        // Whether a parent can stop it is a separate question from whether the district does it, and
+        // collapsing the two hid the worst case: a district that permits corporal punishment and gives
+        // a parent no way to refuse it reads identically to Texas, where a signed statement ends it.
+        parent_control: {
+          type: "choice",
+          instructions: "What say does a PARENT have over whether their own child is struck, according to this policy? Answer only from what the text says; if it does not address a parent's role at all, say not_stated rather than assuming.",
+          criteria: {
+            opt_out: "Corporal punishment may be used, but a parent can refuse it for their child -- by filing a written objection, signing a form, or otherwise saying no in advance.",
+            opt_in: "Corporal punishment is not used on a child unless the parent has first given permission.",
+            none: "Corporal punishment may be used and the policy gives the parent no way to prevent it. The parent may be notified, or present, or asked -- but cannot refuse.",
+            not_stated: "This text does not say what say a parent has. It may be settled in another document.",
+          },
+        },
       }
     );
     if (d?.error) { out.push({ ...r, error: d.error }); continue; }
     cost += d.usage?.cost ?? 0;
-    const op = d.answers.operative, st = d.answers.status;
+    const op = d.answers.operative, st = d.answers.status, pc = d.answers.parent_control;
     const quote = options[op.choice] ?? null;
     const confident = st.confidence >= THRESHOLD && op.confidence >= QUOTE_THRESHOLD;
     if (confident) recorded++; else held++;
@@ -118,6 +131,8 @@ async function worker() {
       key: r.key, district: r.district, source: from?.url ?? r.url,
       ...(from?.code ? { policy_code: from.code } : {}),
       status: st.choice, quote,
+      parent_control: pc ? (pc.choice === "not_stated" ? "unknown" : pc.choice) : null,
+      parent_control_confidence: pc?.confidence ?? null,
       status_confidence: st.confidence, quote_confidence: op.confidence,
       date_issued: from?.revised ?? r.date_issued, update: r.update,
       decision: confident ? "record" : "needs_review",

@@ -520,10 +520,38 @@
                     "null"
                   ],
                   "description": "Who or what read it"
+                },
+                "parent_control": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "opt_out",
+                    "opt_in",
+                    "none",
+                    "unknown",
+                    null
+                  ],
+                  "description": "What this document says about a parent's say"
                 }
               },
               "additionalProperties": false
             }
+          },
+          "parent_control": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "opt_out",
+              "opt_in",
+              "none",
+              "unknown",
+              null
+            ],
+            "description": "What say a parent has, which `status` alone does not capture. `opt_out`: permitted by default, a parent may refuse it in writing. `opt_in`: not used unless a parent agrees first (the same districts as status consent_required). `none`: permitted and a parent CANNOT prevent it -- the district may strike a child over a parent's objection, which is materially worse than opt-out and was previously indistinguishable from it. `unknown`: the document read does not say, which is common because the mechanics often live in a different document from the permission."
           }
         },
         "allOf": [
