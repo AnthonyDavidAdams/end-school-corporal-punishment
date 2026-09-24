@@ -1,0 +1,109 @@
+// Turn harvested candidate sentences into district records, using a decision model and no writer.
+//
+// Two questions per district, both answered by picking rather than writing:
+//
+//   1. Which of these sentences establishes the district's position? A `choice` over the verbatim
+//      strings the harvester clipped. The answer is an index into our own list, so the quote that
+//      lands in the record is a substring of the document. Nothing generates it. The verbatim-quote
+//      contract survives untouched, which a text model could not promise.
+//   2. What does that sentence establish? A `choice` over the four statuses, with the opt-in versus
+//      opt-out distinction spelled out, because it is the one this corpus actually turns on.
+//
+// Both come back with calibrated probabilities. Measured against 311 human-reviewed findings on
+// 2026-09-24: 99.4% agreement overall and 100% on the 295 above 0.99 confidence
+// (research/jev/README.md). So anything at or above the threshold is recorded; anything below is left
+// for a person or a frontier agent, which is roughly one district in twenty.
+//
+//   node tools/tasb/classify.mjs [--in data/tasb/harvest.jsonl] [--out data/tasb/classified.json] [--threshold 0.99]
+import { readFileSync, writeFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
+const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
+const IN = join(root, arg("in", "data/tasb/harvest.jsonl"));
+const OUT = join(root, arg("out", "data/tasb/classified.json"));
+const THRESHOLD = Number(arg("threshold", 0.99));
+const MODEL = "typesafe/jev-1.13";
+const KEY = process.env.OPENROUTER_API_KEY;
+if (!KEY) { console.error("OPENROUTER_API_KEY is not set."); process.exit(1); }
+
+const STATUS = {
+  allows: "Corporal punishment is permitted. This INCLUDES a policy a parent may opt OUT of by filing a written objection: the default is that it may be used unless a parent objects.",
+  bans: "Corporal punishment is prohibited, not permitted, shall not be used, or has been eliminated in this district.",
+  consent_required: "Corporal punishment may be used ONLY if a parent has first given affirmative permission. Opt-IN: the default is that it may NOT be used until a parent agrees.",
+};
+
+async function decide(state, questions) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const res = await fetch("https://openrouter.ai/api/alpha/decisions", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ model: MODEL, state, questions }),
+        signal: AbortSignal.timeout(60_000),
+      });
+      const j = await res.json();
+      if (j.answers) return j;
+      if (attempt === 3) return { error: j.error?.message ?? "no answers" };
+    } catch (err) { if (attempt === 3) return { error: String(err.message || err) }; }
+    await new Promise((r) => setTimeout(r, 1500 * attempt));
+  }
+}
+
+const rows = readFileSync(IN, "utf8").trim().split("\n").filter(Boolean).map((l) => JSON.parse(l))
+  .filter((r) => r.district && r.candidates?.length);
+console.log(`${rows.length} districts with candidate sentences`);
+
+const out = [];
+let cost = 0, recorded = 0, held = 0;
+const CONCURRENCY = 8;
+let cursor = 0;
+async function worker() {
+  while (cursor < rows.length) {
+    const r = rows[cursor++];
+    // Options are OUR strings, keyed by index. The model selects; it never composes.
+    const options = Object.fromEntries(r.candidates.map((s, i) => [`s${i}`, s]));
+    const d = await decide(
+      { district: `${r.district}, Texas`, policy_excerpt_sentences: options },
+      {
+        operative: {
+          type: "choice",
+          instructions: "Which ONE of these sentences from the district's own discipline policy states whether corporal punishment may be used in this district? Choose the sentence that establishes the rule, not one that describes how it is carried out, who witnesses it, or what records are kept.",
+          criteria: options,
+        },
+        status: {
+          type: "choice",
+          instructions: "Taking the district's whole policy excerpt together, what is this district's position on corporal punishment?",
+          criteria: STATUS,
+        },
+      }
+    );
+    if (d?.error) { out.push({ ...r, error: d.error }); continue; }
+    cost += d.usage?.cost ?? 0;
+    const op = d.answers.operative, st = d.answers.status;
+    const quote = options[op.choice] ?? null;
+    const confident = Math.min(op.confidence, st.confidence) >= THRESHOLD;
+    if (confident) recorded++; else held++;
+    out.push({
+      key: r.key, district: r.district, source: r.url,
+      status: st.choice, quote,
+      status_confidence: st.confidence, quote_confidence: op.confidence,
+      date_issued: r.date_issued, update: r.update,
+      decision: confident ? "record" : "needs_review",
+    });
+  }
+}
+await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+
+// A quote that is not a substring of what we clipped would mean something invented one. It cannot
+// happen with a choice model, and it is asserted anyway, because that is the whole basis of the record.
+const bad = out.filter((r) => r.quote && !rows.find((x) => x.key === r.key)?.candidates.includes(r.quote));
+if (bad.length) { console.error(`${bad.length} quotes are not verbatim candidates -- refusing to write`); process.exit(1); }
+
+writeFileSync(OUT, JSON.stringify(out, null, 1));
+const by = {};
+for (const r of out) if (r.status) by[r.status] = (by[r.status] || 0) + 1;
+console.log(`${recorded} at or above ${THRESHOLD} confidence, ${held} held for review, ${out.filter(r=>r.error).length} errors`);
+console.log(`statuses: ${JSON.stringify(by)}`);
+console.log(`cost: $${cost.toFixed(4)}  (${(cost / Math.max(1, out.length)).toFixed(6)} per district)`);
