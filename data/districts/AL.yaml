@@ -2,6 +2,16 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: AL
 districts:
+  - name: Albertville City
+    county: null
+    nces_id: "0100005"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2037&revid=plusKmZp8BWfZeaUGWs0yeKslshA%3D%3D
+    quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior.
+    policy_code: "6.15"
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy 6.15 from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Alexander City
     county: Alexander City
     nces_id: "0100030"
@@ -539,6 +549,16 @@ districts:
       website: http://www.dekalbk12.org
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Dothan City
+    county: null
+    nces_id: "0101230"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2058&revid=tFPch6c6WomjF7TCm802dw%3D%3D
+    quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior.
+    policy_code: "6.18"
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy 6.18 from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Elmore County Schools
     county: Elmore
     nces_id: "0101290"
@@ -668,6 +688,16 @@ districts:
     policy_adopted: 1997-01-16
     policy_revised: 1997-01-16
     policy_dates_from: notes
+  - name: Guntersville City
+    county: null
+    nces_id: "0101690"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2045&revid=AYDDOQ8OlftPzJbrirTV8Q%3D%3D
+    quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
+    policy_code: "6.17"
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy 6.17 from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Hale County
     county: Hale
     nces_id: "0101710"
@@ -685,6 +715,16 @@ districts:
       board_page: https://www.halek12.org/about/hale-county-board
       as_of: 2026-09-21
     notes: "Source: Hale County Board of Education Policy Manual (85 pages, 729,878 bytes, application/pdf), fetched via www.halek12.org/fs/resource-manager/view/7fe05a1b-a01f-420b-9424-e3b2021d1c5e which resolves to the finalsite PDF cited as source. Policy 6.17 Corporal Punishment, page 68 of the PDF. Manual's own Table of Contents header is dated 'March 3, 2022' (manual-wide revision date; no per-section ADOPTED/REVISED line printed for 6.17 itself, so policy_adopted/policy_revised left null rather than guessed). Board/superintendent email and mailing address taken from the policy manual's own title page (page 1), which lists Michael C. Ryans as Superintendent with mryans@halek12.org, phone (334) 624-8836, 1115 Powers Street, Greensboro, AL 36744 -- confirmed against the district's own board-members page. This district was in the federal 2023-24 CRDC as reporting corporal punishment (33 students) and had no prior record in this project."
+  - name: Hartselle City
+    county: null
+    nces_id: "0101730"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2009&revid=YRZDYmkvUdkn5RLDGWseplusg%3D%3D
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
+    policy_code: "6.16"
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy 6.16 from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Houston County Schools
     county: Houston
     nces_id: "0101770"
@@ -1014,6 +1054,16 @@ districts:
       website: http://www.marshallk12.org
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Midfield City
+    county: null
+    nces_id: "0102350"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2098&revid=KCI2KROnlMIZ6XBZPAQQ4w%3D%3D
+    quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
+    policy_code: "6.18"
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy 6.18 from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Mobile County Public Schools
     county: Mobile
     nces_id: "0102370"
@@ -1277,14 +1327,14 @@ districts:
     policy_revised: 2025-08-04
     policy_dates_from: notes
   - name: St. Clair County Schools
-    county: St. Clair
+    county: null
     nces_id: "0103062"
     status: bans
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2032&revid=NChA2OqxOuuhVB6hGyIvuw==&ptid=0EMmxT5AUW3lCK4TkSa0Hg==&secid=xlBVvc1EstQ2pU2F7Ptzpw==&PG=6&IRP=0&isPndg=false
-    quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior. However, school personnel may use appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
-    last_verified: 2026-09-19
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2032&revid=NChA2OqxOuuhVB6hGyIvuw%3D%3D
+    quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior.
+    last_verified: 2026-09-24
     legacy_status: allows
-    notes: "AGENT-SUPPLIED TEXT, NEEDS HUMAN CONFIRMATION: Simbli's bot protection refused every automated read, so this policy was transcribed from the page in a browser and could not be checked against a machine-fetchable copy. St. Clair County Schools board policy manual on Simbli, site S=2032 (listing: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=2032 , section '6. Students'; page title confirms 'St. Clair County Schools'). Page header: 'Policy 6.16: Corporal Punishment  Status: ADOPTED  Original Adopted Date: 06/24/2025 | Last Reviewed Date: 06/24/2025'. Policy reference [ALA. CODE 16-28A-2 (1975)]. sccboe.org does not link its policy manual from any nav or footer; the S number was recovered by crawling all 193 pages of the site and finding embedded ViewPolicy links on /safety-home and /bullying-and-harassment-reporting. Read in-browser (fetch_simbli_policy was bot-challenged). Also checked, and found ZERO mentions of corporal punishment / paddling in: the 2026-27 Code of Conduct (42pp), 2026-27 Discipline Infractions (15pp), and the district Employee Handbook (57pp) — so the ban rests on the board policy alone. legacy_status said 'allows' — that is WRONG."
+    notes: Board policy 6.16 from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
     policy_code: "6.16"
     crdc_students_latest: null
     contact:
@@ -1297,21 +1347,21 @@ districts:
     policy_revised: 2025-06-24
     policy_dates_from: notes
   - name: Sylacauga City
-    county: Sylacauga
+    county: null
     nces_id: "0103120"
     status: allows
-    source: https://files.smartsites.parentsquare.com/10263/scs_board_policy_manual.pdf
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2134&revid=IdMBqrh4UIidPETCGmBWSA%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.16"
-    crdc_students_latest: 75
-    last_verified: 2026-09-19
+    crdc_students_latest: null
+    last_verified: 2026-09-24
     contact:
       phone: 256-245-5256
       mailing_address: 43 North Broadway Avenue, Sylacauga, AL 35150
       board_page: https://www.scsboe.org/meet-the-school-board
       contact_page: https://www.scsboe.org/
       as_of: 2026-09-19
-    notes: "Sylacauga City Schools Board Policy Manual, Policy 6.16 Corporal Punishment, page 99 of the PDF. The policy's own header: 'Status: ADOPTED  Original Adopted Date: 08/22/2023 | Last Reviewed Date: 08/22/2023'. Fetched server-side with the project's fetch_document: 4,914,111 bytes, application/pdf, 131 pages, 269,391 characters of text, sha256 b8b8915695bf07801a6800eaae0a5242fee211641984a8b033f3c2bbe977fe64. PDF URL taken from the data-pdf-config attribute on the district's own School Board Policy page (https://www.scsboe.org/school-board-policy), which renders the manual in a JavaScript viewer. This is the CITY district: the manual's own running header reads 'Board Policy Manual Sylacauga City Schools'. Note the extracted text has ligature corruption ('condi%on', 'examinaon'); the quoted sentence is clean in the extract. Unlike neighbouring Alabama manuals this version contains no parental opt-out clause."
+    notes: Board policy 6.16 from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
     policy_adopted: 2023-08-22
     policy_revised: 2023-08-22
     policy_dates_from: notes

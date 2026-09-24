@@ -274,6 +274,16 @@ districts:
       public_comment: Not stated on any page reachable. The district site is behind an F5 'Client Challenge', so only its CMS feeds were readable; the superintendent name, email and phone are from the district's own published staff directory feed. Mailing address left null rather than taken second-hand (the site footer reads 210 High School Drive, Mountain View, AR 72560, but I could not read that page directly).
       as_of: 2026-09-20
     notes: "The NCES website in the input (mvschools.k12.ar.us) resolves to 165.29.77.104 but refuses connections; the district's live site is mountainviewschooldistrict.k12.ar.us, which is behind an F5 'Client Challenge' (3,038-byte shell), so resolve_handbook and plain curl both fail. Documents were reached through the site's Apptegy CMS API (api/v2/s/71664/documents, org 1221/Mvsd). Source is the board-adopted 2026-2027 Elementary Student Handbook; fetch_document: 1,270,938 bytes, application/pdf, 85 pages, corporal punishment policy on page 65 (handbook page 64), headed 'CORPORAL PUNISHMENT (Ref. ASBA 4.39)' and listed in the TOC as 'Corporal Punishment 64'. The K-2 and 3rd-4th grade bullying consequence tables on the same page offer corporal punishment as an alternative to suspension. The standalone board document 'Discipline Policies 2026-2027 SY.pdf' in the district's State Required Information folder is a 5.7 MB scan with no text layer (needs_ocr true) and could not be read. No adoption or revision date is printed in the handbook. No parental consent or opt-out clause found, so 'allows'."
+  - name: NETTLETON SCHOOL DISTRICT
+    county: null
+    nces_id: "0510440"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031752&revid=KYJWEnr4K69slsh89d1RojE2g%3D%3D
+    quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Nevada School District
     county: Rosston
     nces_id: "0500030"
@@ -317,6 +327,16 @@ districts:
     notes: "Source is the district's current (2026-2027) Section 4 -- Students board policy manual, filename 'PSD-student-policy-section-4-2627.pdf', fetched from the district's own Apptegy/Thrillshare CMS file host files-backend.assets.thrillshare.com, application/pdf, 935,651 bytes, 205 pages. Policy 4.39 quoted verbatim on p.125 of the extracted text; 'Date Adopted: February 24, 2004 Last Revised: August 17, 2020' printed at the end of the same policy block. No opt-out/consent clause stated. This shows the policy is UNCHANGED and still in force as of the current 2026-2027 manual -- no policy change since the 2023-24 CRDC reporting year. Live site found because the federal directory's URL (prescott.k12.ar.us) times out on both http and https; the district's actual current site is www.curleywolves.org (confirmed via DNS CNAME chain from www.prescott.k12.ar.us -> www.curleywolves.org -> Apptegy/Fastly, and via Wikipedia's infobox for Prescott School District (Arkansas), NCES ID 0511820). The landing page at .../documents/state-required/student-discipline-policy/85006 answered the known 3,038-byte Imperva-style stub on the first fetch_document call; a direct curl retry a few seconds later returned the full 1.1MB rendered page with the real PDF link, consistent with BRIEF's guidance that the stub is a rate limiter, not a wall."
     policy_revised: 2025-07-17
     policy_dates_from: notes
+  - name: QUITMAN SCHOOL DISTRICT
+    county: null
+    nces_id: "0511880"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031778&revid=plusQYthe0bAFkQ5JV4xS9oyg%3D%3D
+    quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Rivercrest School District
     county: Wilson
     nces_id: "0500045"

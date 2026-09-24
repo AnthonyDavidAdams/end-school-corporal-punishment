@@ -18,6 +18,36 @@ districts:
       mailing_address: 210 Pryor Rd., Atlanta, GA 30335
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Calhoun City
+    county: null
+    nces_id: "1300720"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4023&revid=hZBYlTk8sX4KyJNkfnUXkQ%3D%3D
+    quote: Corporal punishment shall not be used as a disciplinary procedure in the Calhoun City Schools.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Cartersville City
+    county: null
+    nces_id: "1300900"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4029&revid=xo5DPuHERJPqK6AtixTcMw%3D%3D
+    quote: Corporal punishment is not permitted in the Cartersville City School System.
+    policy_code: JD-R(2)
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JD-R(2) from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Charlton County
+    county: null
+    nces_id: "1300990"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4031&revid=dwxQybsRpP2DBaznVTDjag%3D%3D
+    quote: "Corporal Punishment The Charlton County Board of Education authorizes the use of corporal punishment to a student, subject to the following conditions:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Cherokee County Schools
     county: Cherokee
     nces_id: "1301110"
@@ -29,6 +59,26 @@ districts:
     notes: "No primary source states a position either way. Cherokee County School District (GA) does NOT use Simbli; it publishes its own Online Policy Manual as HTML pages at https://www.cherokeek12.net/board-of-education/online-policy-manual (fetched 200, 83,297 bytes, text/html). Section J (Students) lists 27 policies (JAA, JBC, JBC(1), JBC(2), JBC(4), JBCC, JBD, JCAB, JCAC, JCAC(2), JCDAA, JCEB, JD, JDD, JG, JGC, JGCC, JGF, JGF(2), JGI, JHC, JHCB, JHCC, JK, JQK, JR, JS) -- there is no JDA or any policy titled Corporal Punishment, and the whole manual index page contains zero occurrences of the string 'corporal'. Policy JD - Student Discipline (https://www.cherokeek12.net/j-students/jd-student-discipline, 200, 57,597 bytes, text/html; ADOPTED August 2, 2001, REVISED July 16, 2020) says only: 'The Cherokee County Board of Education each year will approve student conduct and discipline procedures in the “Student Code of Conduct.” That Policy, as approved on a yearly basis, is incorporated herein by reference.' That incorporated Code of Conduct SY2026-27 (https://resources.finalsite.net/images/v1785441549/cherokeek12net/wbynmydgcfgtjdnlmus8/CodeofConductSY2026-27.pdf; fetch_document: 7,612,179 bytes, application/pdf, 99 pages, 315,344 chars extracted) returned ZERO hits for 'corporal punishment', 'paddl' and 'spank'. The SY2026-27 Student Parent Handbook (https://resources.finalsite.net/images/v1783513870/cherokeek12net/c1batzough6fn1wncj9n/StudentParentHandbookSY2026-27.pdf; 2,543,337 bytes, application/pdf, 43 pages, 179,406 chars) also returned zero hits. resolve_handbook on cherokeek12.net found no board_policy_systems. The district is silent in every primary document I could open; silence is not a prohibition, so this is filed unknown rather than 'bans' as the legacy map claimed. A reviewer wanting to close this would need a records request or an administrative regulation not published online."
     policy_code: null
     crdc_students_latest: null
+  - name: City Schools of Decatur
+    county: null
+    nces_id: "1301680"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4052&revid=d7LVF22wiAkhs5sbjquhWw%3D%3D
+    quote: City Schools of Decatur personnel do not use corporal punishment.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Clayton County
+    county: null
+    nces_id: "1301230"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4038&revid=1h5CdFtvdplusyfe5XtBI5ZQQ%3D%3D
+    quote: The use of corporal punishment in the Clayton County Schools is prohibited.
+    policy_code: JD
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JD from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Clinch County
     county: Clinch
     nces_id: "1301260"
@@ -150,6 +200,16 @@ districts:
     policy_adopted: 2011-03-18
     policy_revised: 2016-08-18
     policy_dates_from: notes
+  - name: Griffin-Spalding County
+    county: null
+    nces_id: "1302520"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4079&revid=5DmrplusdplusNNVyOyP0htR5Grw%3D%3D
+    quote: CORPORAL PUNISHMENT Corporal punishment is not permitted with the Griffin-Spalding County School System (GSCS).
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Gwinnett County Public Schools
     county: Gwinnett
     nces_id: "1302550"
@@ -243,6 +303,16 @@ districts:
     policy_adopted: 2008-02-14
     policy_revised: 2020-08-13
     policy_dates_from: notes
+  - name: Lumpkin County
+    county: null
+    nces_id: "1303420"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4107&revid=3qsplusgNBnVhhYw6LBb3dYmA%3D%3D
+    quote: Corporal Punishment The Lumpkin County Board of Education does not authorize the use of corporal punishment as a means of disciplinary action.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Montgomery County
     county: Montgomery
     nces_id: "1302670"
@@ -261,6 +331,26 @@ districts:
       contact_page: https://www.montgomery.k12.ga.us/apps/contact/
       public_comment: "Board Meeting Public Participation Form: https://www.mcboe.net/apps/forms2/?f=56404"
       as_of: 2026-09-21
+  - name: Muscogee County
+    county: null
+    nces_id: "1303870"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4121&revid=8gjiunLslshSQLnRiGqlNWQ1w%3D%3D
+    quote: Corporal Punishment The Muscogee County Board of Education prohibits the use of corporal punishment by its employees.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Oglethorpe County
+    county: null
+    nces_id: "1303990"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4124&revid=EVlplusfw0gslshslshPvIxzTfRaXiw%3D%3D
+    quote: Corporal punishment may not be used as a form of discipline in the Oglethorpe County School System.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Pulaski County
     county: Hawkinsville
     nces_id: "1304220"
@@ -277,6 +367,36 @@ districts:
       contact_page: https://www.pulaski.k12.ga.us/apps/contact/
       as_of: 2026-09-20
     notes: "BLOCKED ON THE SHARED SIMBLI READER, not on finding the source. The district publishes board policy through Simbli and the site key is 4132, confirmed two independent ways: (1) resolve_handbook {\"website\":\"https://www.pulaski.k12.ga.us\",\"state\":\"GA\"} returns board_policy_systems = [{vendor: \"Simbli (eBOARDsolutions)\", site: \"4132\", found_on: \"https://www.pulaskicountyschools.org/\", link_text: \"Eboard\"}]; (2) a plain fetch of https://simbli.eboardsolutions.com/index.aspx?s=4132 returns a page whose <title> is \"Simbli Board Management Software | Pulaski County Schools\" and whose inline JS sets siteIdStr = '4132'. But fetch_simbli_policy {\"site\":\"4132\"} returned the vendor bot-challenge message on SEVEN attempts spaced over roughly two hours (2026-09-20 ~06:20 to ~08:25 UTC), with and without code/terms arguments. In the same window and from the same agent, fetch_simbli_policy succeeded on three 8-digit sites (36031078 Cleburne County AL, 36031758 North Pike MS, 36031699 Copiah County MS), so this does not look like a rate limit on my side - it looks specific to the short 4-digit GSBA/Georgia keys. Filed as bug issue_1ae6b40f6e8e on the project server. NEXT CONTRIBUTOR: retry fetch_simbli_policy {\"site\":\"4132\"} once the bug is fixed; the Georgia codes to match on are titles like \"Corporal Punishment\" / \"Student Discipline\" (GSBA codes JD/JDA or 6.x). No handbook or code-of-conduct PDF was found on the district's Edlio site as an alternative (resolve_handbook found no candidates; the site's only policy link is the Eboard link)."
+  - name: Quitman County
+    county: null
+    nces_id: "1304290"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031777&revid=lfIgi9nGLTC1fhss1yZhLA%3D%3D
+    quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Rockdale County
+    county: null
+    nces_id: "1304410"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4138&revid=tHLY1AOfHuIfBNyaJplusnOeA%3D%3D
+    quote: Corporal Punishment The Rockdale County Board of Education prohibits the use of corporal punishment by any of its employees.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Savannah-Chatham County
+    county: null
+    nces_id: "1301020"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4140&revid=Bk3RdkhTTqdIaQvwN657FA%3D%3D
+    quote: The Board of Education does not authorize principals, teachers or other employees of the system to administer corporal punishment (paddling) on any student as provided in O.C.G.A.
+    policy_code: JD
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JD from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: State Charter Schools- Georgia School for Innovation and th
     county: Hephzibah
     nces_id: "1300238"
@@ -332,6 +452,26 @@ districts:
     policy_adopted: 1977-07-12
     policy_revised: 2020-04-16
     policy_dates_from: notes
+  - name: Troup County
+    county: null
+    nces_id: "1300001"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4162&revid=jq9fW09RHdbmh6mS5SplusDnQ%3D%3D
+    quote: It is not used as first line punishment unless the pupil was informed beforehand that the particular misbehavior in question could occasion corporal punishment except with respect to misconduct which is so antisocial or disruptive in nature as to shock the conscience.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Vidalia City
+    county: null
+    nces_id: "1305340"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4167&revid=NslshMdZ4fgVwYslshryVakUjpPw%3D%3D
+    quote: "Corporal punishment may be used as a disciplinary measure under the following conditions:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
   - name: Ware County Schools
     county: Ware
     nces_id: "1305430"

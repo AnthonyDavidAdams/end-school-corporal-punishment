@@ -2,71 +2,8 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: KY
 districts:
-  - name: Jefferson County Public Schools
-    county: Jefferson
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status. Louisville metro area
-    legacy_status: bans
-  - name: Fayette County Public Schools
-    county: Fayette
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status. Lexington
-    legacy_status: bans
-  - name: Kenton County Schools
-    county: Kenton
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Boone County Schools
     county: Boone
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Warren County Schools
-    county: Warren
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status. Bowling Green
-    legacy_status: bans
-  - name: Hardin County Schools
-    county: Hardin
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Daviess County Schools
-    county: Daviess
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Madison County Schools
-    county: Madison
     nces_id: null
     status: unknown
     source: null
@@ -83,6 +20,60 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Daviess County Schools
+    county: Daviess
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Fayette County Public Schools
+    county: Fayette
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status. Lexington
+    legacy_status: bans
+  - name: Hardin County Schools
+    county: Hardin
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Jefferson County Public Schools
+    county: Jefferson
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status. Louisville metro area
+    legacy_status: bans
+  - name: Kenton County Schools
+    county: Kenton
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Madison County Schools
+    county: Madison
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Pulaski County Schools
     county: Pulaski
     nces_id: null
@@ -92,3 +83,22 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Simpson County
+    county: null
+    nces_id: "2105400"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031783&revid=ZudCXVzToevLbtl4mrQ4gA%3D%3D
+    quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Warren County Schools
+    county: Warren
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status. Bowling Green
+    legacy_status: bans

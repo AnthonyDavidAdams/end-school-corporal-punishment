@@ -1,0 +1,14 @@
+# District corporal punishment policies for MI. One entry per district.
+# status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
+state: MI
+districts:
+  - name: McBain Rural Agricultural Schools
+    county: null
+    nces_id: "2623310"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031858&revid=afyg6rqleOCvslsh8plusJuI5QcA%3D%3D
+    quote: Prohibition Employees will not inflict, or cause to be inflicted, corporal punishment upon any student under any circumstances.
+    policy_code: "4203"
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy 4203 from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
