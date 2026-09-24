@@ -92,13 +92,15 @@ districts:
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Kansas City Public Schools
     county: Jackson
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "2916400"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=228&revid=C9dya4zlDslsh7ATEA37uOCvw==&ptid=amIgTZiB9plushNjl6WXhfiOQ==&secid=p6v70fD4K8ukRv6vtplusTtSg==&PG=6&IRP=0&isPndg=false
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    last_verified: 2026-09-21
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: null
+    policy_code: JGA-2
+    crdc_students_latest: null
   - name: Kennett 39
     county: Kennett
     nces_id: "2916500"

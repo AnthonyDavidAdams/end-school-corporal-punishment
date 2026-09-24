@@ -37,7 +37,7 @@ districts:
     quote: If a parent does not wish for corporal punishment to be administered to their child, a form from the front office will have to be filled out. This must be done annually and in writing.
     policy_code: null
     crdc_students_latest: 52
-    last_verified: 2026-09-22
+    last_verified: 2026-09-21
     contact:
       district_email: clinchpr@clinchcounty.com
       phone: 912-487-5321
@@ -45,7 +45,9 @@ districts:
       superintendent: Dr. Lori James
       board_page: https://www.clinchcounty.com/about-us/governing-board
       contact_page: https://www.clinchcounty.com/email-us
-    notes: Submitted to Ground Crew (escp-mcp) as finding_c78bf707db1b under task district-policy-scan, scope GA, lease_b76f666c2805; status pending review, quote_check matched server-side. Opt-out policy quoted from Clinch County High School's 2026-2027 Student Handbook (direct Finalsite CDN PDF, 2,428,828 bytes, 70 pages, unpdf-extracted, quote on PDF page 35). District-wide www.clinchcounty.com/for-parents/student-handbooks page had no document listing in static HTML, so I went to the individual school site instead; this is a school-level handbook, not a board-adopted manual naming 'Clinch County School System' on its cover, though it appears to carry the district's standard discipline code (also defines corporal punishment as 'Physical punishment (paddling) by the principal or his/her designee', p.33). Simbli board-policy portal is site S=4039 but returned a bot-challenge on 4 spaced retries (same known fleet-wide block, issue_0314d441932d etc.), so no board policy_code or adoption/revision date -- a follow-up contributor should retry site 4039. nces_id 1301260 confirmed correct via NCES/Urban Institute CCD lookup. district_email is the site's published general contact address (decoded from its footer contact widget), not a personal address; no separate board-clerk email found so board_email is null. Board meets 4th Thursday of each month, 6:00pm; public-comment procedure is Policy BCBI (last updated 7/22/21), full text at https://www.clinchcounty.com/fs/resource-manager/view/2325c805-7e41-4c58-a5b2-42bdf53e9465.
+      public_comment: "Per Policy BCBI (last updated 7/22/21): 24 hours' advance notice required, procedures available from the Superintendent's office; full 'Rules of Conduct for Public Participation' document at https://www.clinchcounty.com/fs/resource-manager/view/2325c805-7e41-4c58-a5b2-42bdf53e9465"
+      as_of: 2026-09-21
+    notes: null
   - name: Cobb County School District
     county: Cobb
     nces_id: "1301290"
@@ -249,14 +251,16 @@ districts:
     quote: Any parent who does not wish for his/her child to receive corporal punishment, must submit a written statement that corporal punishment is not to be used as a consequence. Additionally, the sign off list in first day packets must be signed and returned. Every reasonable attempt to contact the parent/guardian prior to administering corporal punishment shall be made by an administrator.
     policy_code: null
     crdc_students_latest: 106
-    last_verified: 2026-09-22
-    notes: "Submitted to Ground Crew (escp-mcp) as finding_5d1b757fb9f1 under task district-policy-scan, scope GA, lease_b76f666c2805; status pending review. Opt-out policy in the FY27 Student Handbook (source: Google Drive PDF, 1,891,493 bytes, 46 pages, unpdf-extracted, quote confirmed on PDF page 24 / printed page 23). Simbli board-policy portal is site S=4118 but returned a bot-challenge on 5 spaced retries over ~10 min (known fleet-wide Simbli block, see open issue issue_0314d441932d and related), so no board policy_code or adoption/revision date could be captured -- a follow-up contributor should retry fetch_simbli_policy for site 4118. Also flagged: the input row's nces_id 1302670 actually maps (per NCES/Urban Institute CCD) to Haralson County, not Montgomery County; the correct current LEAID for Montgomery County School System (Mt. Vernon GA) is 1303750. district_email/board_email left null -- site only offers a contact form, no published address found."
+    last_verified: 2026-09-21
+    notes: null
     contact:
       phone: (912) 583-2301
       mailing_address: 703 Dobbins St., Mount Vernon, GA 30445
       superintendent: Dr. Ronda Hightower
       board_page: https://www.montgomery.k12.ga.us/apps/pages/index.jsp?uREC_ID=533804&type=d&termREC_ID=&pREC_ID=1024434&hideMenu=0
       contact_page: https://www.montgomery.k12.ga.us/apps/contact/
+      public_comment: "Board Meeting Public Participation Form: https://www.mcboe.net/apps/forms2/?f=56404"
+      as_of: 2026-09-21
   - name: Pulaski County
     county: Hawkinsville
     nces_id: "1304220"

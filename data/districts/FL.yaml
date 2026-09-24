@@ -18,8 +18,8 @@ districts:
     source: https://files.smartsites.parentsquare.com/8214/2026-2027_code_of_conduct.pdf
     quote: "If a teacher feels that corporal punishment is necessary, at least the following procedures shall be followed: 1. The use of corporal punishment shall be approved in principle by the principal before it is used, but approval is not necessary for each specific instance in which it is used."
     policy_code: "5.30"
-    crdc_students_latest: 56
-    last_verified: 2026-09-22
+    crdc_students_latest: null
+    last_verified: 2026-09-20
     contact:
       district_email: darryl.taylor@calhounflschools.org
       phone: 850-674-5927
@@ -27,7 +27,7 @@ districts:
       superintendent: Darryl Taylor, Jr.
       board_page: https://www.calhounflschools.org/members
       contact_page: https://www.calhounflschools.org/district-directory
-    notes: "Quote from the 2026-2027 Code of Conduct (CCSB Approved July 14, 2026), opened directly: 1,024,309 bytes, application/pdf, 52 pages, hit on printed page 8, section 'AUTHORITY OF THE TEACHER F.S. 1003.32'. Cross-checked against the underlying School Board Policy 5.30 'Student Control' (https://files.smartsites.parentsquare.com/8214/policy_530.pdf, 104,259 bytes, 2 pages), which says corporal punishment may be administered 'as provided by law and defined in the Code of Conduct' and that the Board must review the provisions for corporal punishment every 3 years. Policy 5.30's own footer/history block reads 'Revised: 10/8/2024' and 'ADOPTED: 6/12/2204; REVISION DATE(S): 4/13/10;10/8/2024' -- the '2204' adoption year is a typo in the source document itself (almost certainly 2004); left policy_adopted null rather than guess, and quoted the typo verbatim here for the record. Searched both documents for opt-in/advance-consent language ('object to the use of corporal', 'written permission', 'opt', 'prior consent') and found none -- only after-the-fact parent notification on request -- so classified 'allows', not 'consent_required'. District/county names agree, no city/county split issue. Struck 56 students in 2023-24 per federal CRDC; no evidence of any policy change since then. Submitted to Ground Crew as finding_2ae3979e29a3 (status pending review)."
+    notes: null
     policy_revised: 2024-10-08
     policy_dates_from: notes
   - name: Calhoun County Schools
@@ -100,15 +100,15 @@ districts:
     source: https://www.hdsb.org/_cache/files/8/b/8b7cd080-2650-4d0a-8359-17c3b7903681/333EBD5E310BEE831DF60A12FEB5E655.code-of-student-conduct-2026-27.pdf
     quote: The Holmes County Board of Education has no rule against reasonable and proper paddling of students for disciplinary reasons. Before corporal punishment is administered as a disciplinary method, parent approval is required.
     policy_code: null
-    crdc_students_latest: 63
-    last_verified: 2026-09-22
+    crdc_students_latest: null
+    last_verified: 2026-09-20
     contact:
       phone: 850-547-9341
       mailing_address: 307 W. North Ave., Bonifay, FL 32425
       superintendent: Buddy L. Brown (buddy.brown@hdsb.org)
       board_page: https://www.hdsb.org/school-board
       contact_page: https://www.hdsb.org/contact-us
-    notes: 2026-27 Code of Student Conduct, opened directly (1,192,444 bytes, application/pdf, 47 pages), 'adopted by the Holmes County School Board on July 27, 2026' per its own p.2. Corporal-punishment section on printed page 15. Classified consent_required, not plain 'allows', because the document requires affirmative parent approval IN ADVANCE of administering ('Before corporal punishment is administered as a disciplinary method, parent approval is required') -- opt-in, per the project's own allows/consent_required distinction. Found via hdsb.org -> Parents -> 'Code of Student Conduct 2026-27' link. District's official BoardDocs policy manual (go.boarddocs.com/fl/hdsb) is JS-only and unreadable server-side (no text layer; r.jina.ai only surfaced the app shell/search UI, not policy content), so this board-adopted Code of Conduct was used as the primary source instead. Struck 63 students in 2023-24 per federal CRDC; no sign of a policy change since then -- this current handbook still requires parental approval, so this is a straightforward, expected 'permits it' finding, not a reversal. Submitted to Ground Crew as finding_52b62eb3452f (status pending review).
+    notes: null
   - name: Holmes County Schools
     county: Holmes
     nces_id: null

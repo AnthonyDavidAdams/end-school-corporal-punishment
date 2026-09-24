@@ -154,17 +154,19 @@ districts:
     nces_id: "4703480"
     status: allows
     source: https://4.files.edl.io/563c/07/17/26/152226-7020bb46-2e1f-4785-86ea-456c274bb388.pdf
-    quote: Corporal Punishment The Board authorizes the Superintendent to determine whether corporal punishment shall be administered.
-    policy_code: null
+    quote: "The Board authorizes the Superintendent to determine whether corporal punishment shall be administered. If it is administered, the following guidelines shall apply: 1. Corporal punishment shall be administered only after other less stringent measures have failed, or if the conduct of a student is of such nature that corporal punishment is the only reasonable form of punishment under the circumstances."
+    policy_code: TCBOE 6.314
     crdc_students_latest: 123
-    last_verified: 2026-09-22
+    last_verified: 2026-09-20
     contact:
       phone: (901) 476-7148
       mailing_address: 1580 Highway 51 South, Covington, TN 38019
-      superintendent: Dr. William E. Bibb
-      board_page: https://www.tipton-county.com/apps/pages/index.jsp?uREC_ID=652060&type=d
+      superintendent: Dr. Rebekah Byrd
+      board_page: https://www.tipton-county.com/apps/pages/index.jsp?uREC_ID=652060&type=d&pREC_ID=1107810
       contact_page: https://www.tipton-county.com/apps/contact/
-    notes: "The input website http://www.tipton-county.com/ is in fact the school district's own Edlio-hosted site (Apptegy/Edlio orgId confirms WebsiteName 'Tipton County', DistrictExternalId TIPC), not the county government, so no live-site substitution was needed. resolve_handbook's first candidate ('Code of Conduct for Families, Volunteers, and Visitors', 4.files.edl.io/a1be/...) contained no corporal-punishment hits (fetch_document terms search returned zero hits on that 173,122-byte, 2-page PDF), so it was set aside. The actual 'Student Handbook' link (found via the site's Students department page) resolves to https://4.files.edl.io/563c/07/17/26/152226-7020bb46-2e1f-4785-86ea-456c274bb388.pdf, titled '2026-2027 TIPTON COUNTY SCHOOLS | 1580 HWY 51 SOUTH, COVINGTON, Student Handbook' on its own cover page (p.1) -- 1,564,399 bytes, application/pdf, 52 pages, fetched successfully via fetch_document (no OCR needed). The 'Corporal Punishment' section (p.29) states the quote above, then lists guidelines: administered only after other measures fail or as the only reasonable option, documented consultation with the parent/guardian beforehand, principal-approved instrument, administered by a principal/assistant principal/approved teacher, in the presence of another employee, and -- only for a student WITH A DISABILITY -- 'corporal punishment shall be administered only when the school has received written parental permission.' Because that advance-written-permission requirement is limited to students with disabilities and not general policy, this is classified 'allows' (parent is consulted/notified, not required to opt in in advance for the general student population), per the opt-out=allows / opt-in=consent_required rule. No TCBOE policy number is printed for this specific section in the handbook (neighboring sections cite e.g. 'policy 6.311' and 'policy 6.319' but the Corporal Punishment paragraph does not), so policy_code is left null rather than guessed. The district's actual TCBOE policy manual is linked from the site footer as a Disclaimer to https://tsbanet-my.sharepoint.com/:w:/g/personal/policy_tsba_net/... and a separate 'Administrative Procedures' doc at https://tiptoncountyschools-my.sharepoint.com/:o:/g/personal/msimmerman_tipton-county_com/...; fetch_document on the TSBA link redirected to login.microsoftonline.com (Microsoft org auth wall, needs_ocr:true, text_chars:156) and was not attempted on the second (also a personal, presumably login-walled, SharePoint share), so no adoption/revision date could be sourced from the primary policy text -- only the handbook's 2026-2027 cover year is confirmed current. Next contributor: an authenticated browser session against the tsbanet-my.sharepoint.com policy link would get the policy's own dates and exact code. Contact fields are from tipton-county.com's Superintendent's Message, School Board and homepage footer pages (read 2026-09-20/21; board meets 2nd Thursday of each month, 6:00 p.m., board room at the Tipton County Department of Public Instruction, 1580 Highway 51 South, Covington). No general district or board email is published; the only email found site-wide (via Cloudflare email-obfuscation decode) is labeled 'Webmaster: Melissa Simmerman' -- a named individual, not a general point of contact -- so per instructions it is excluded and district_email/board_email are left null."
+      public_comment: Board meets 2nd Thursday of each month, 6:00 p.m., in the board room at the Dept. of Public Instruction, 1580 Highway 51 South, Covington TN; to be placed on the agenda contact Sheryl Shahan by phone (901-476-7148) or in writing one week prior to the meeting.
+      as_of: 2026-09-20
+    notes: null
   - name: Warren County Schools
     county: Warren
     nces_id: null
