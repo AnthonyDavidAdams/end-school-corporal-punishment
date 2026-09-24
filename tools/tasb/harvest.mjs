@@ -27,9 +27,24 @@ const OUT = join(root, arg("out", "data/tasb/harvest.jsonl"));
 const CODE = arg("code", "FO");
 const PACE_MS = Number(arg("pace", 1200));
 
-// A real page is several hundred thousand characters and carries the footer a rendered section leaves
-// behind. Anything smaller is the stub, and believing it is how 200 districts looked unreadable.
-const looksReal = (html) => html.length > 200_000 && /DATE ISSUED/i.test(html);
+// A real page is several hundred thousand characters; the stub TASB serves a rate-limited address is
+// about 70,000. Size alone separates them, and size alone is the right test: requiring a DATE ISSUED
+// footer as well rejected Texarkana College's genuine 632,735-byte page, which simply has no FO policy
+// to date. TASB hosts colleges as well as school districts, and an entity with nothing to say about
+// corporal punishment is a real answer, not a failed fetch.
+const looksReal = (html) => html.length > 150_000;
+
+// Every request through the pool leaves from a different US residential address, so TASB's per-address
+// rate limit stops applying and the harvest can run several at a time instead of one every 2.5 seconds.
+const PROXY = process.env.EGRESS_PROXIES?.split(",")[0]?.trim() || null;
+let dispatcher = null;
+if (PROXY) {
+  const { ProxyAgent } = await import("undici");
+  dispatcher = new ProxyAgent(PROXY);
+  console.log(`routing through the proxy pool (${PROXY.replace(/\/\/[^@]*@/, "//***@")})`);
+}
+const { fetch: undiciFetch } = PROXY ? await import("undici") : { fetch };
+const get = (url, init) => (dispatcher ? undiciFetch(url, { ...init, dispatcher }) : fetch(url, init));
 
 const unescape = (s) => s
   .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
@@ -74,7 +89,7 @@ async function fetchKey(key) {
   const url = `https://pol.tasb.org/PolicyOnline/PolicyDetails?key=${key}&code=${encodeURIComponent(CODE)}`;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const res = await fetch(url, {
+      const res = await get(url, {
         headers: { "User-Agent": UA, Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9" },
         redirect: "follow", signal: AbortSignal.timeout(45_000),
       });
@@ -101,17 +116,26 @@ const done = new Set(
 );
 console.log(`harvesting TASB ${CODE} keys ${FROM}..${TO}; ${done.size} already on file`);
 
-let found = 0, stubs = 0, misses = 0;
-for (let key = FROM; key <= TO; key++) {
-  if (done.has(key)) continue;
-  const row = await fetchKey(key);
-  appendFileSync(OUT, JSON.stringify(row) + "\n");
-  if (row.district) { found++; if (row.candidates?.length) process.stdout.write(`\n  ${key} ${row.district} — ${row.candidates.length} candidate sentences`); }
-  else if (row.stub) stubs++;
-  else misses++;
-  // Empty keys are the common case and cost nothing; do not pace them like a real fetch.
-  if (row.absent) continue;
-  if (key % 25 === 0) process.stdout.write(`\n[${key}] ${found} districts, ${stubs} stubs, ${misses} misses`);
-  await new Promise((r) => setTimeout(r, PACE_MS));
+let found = 0, stubs = 0, misses = 0, seen = 0;
+const queue = [];
+for (let key = FROM; key <= TO; key++) if (!done.has(key)) queue.push(key);
+const CONCURRENCY = Number(arg("workers", PROXY ? 8 : 1));
+console.log(`${queue.length} keys to do, ${CONCURRENCY} at a time`);
+
+async function worker() {
+  for (;;) {
+    const key = queue.shift();
+    if (key === undefined) return;
+    const row = await fetchKey(key);
+    appendFileSync(OUT, JSON.stringify(row) + "\n");
+    seen++;
+    if (row.district) { found++; if (row.candidates?.length) process.stdout.write(`\n  ${key} ${row.district} — ${row.candidates.length} candidates`); }
+    else if (row.stub) stubs++;
+    else misses++;
+    if (seen % 25 === 0) process.stdout.write(`\n[${seen}/${queue.length + seen}] ${found} districts, ${stubs} stubs, ${misses} empty`);
+    // An absent key cost one cheap 404; only pace after a real page.
+    if (!row.absent) await new Promise((r) => setTimeout(r, PACE_MS));
+  }
 }
+await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 console.log(`\ndone: ${found} districts, ${stubs} stubs, ${misses} misses -> ${OUT}`);

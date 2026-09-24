@@ -33,7 +33,10 @@ const summary = JSON.parse(readFileSync(join(site, "data/summary.json"), "utf8")
 // standalone after the record changes and it will happily publish yesterday's headline figures, which
 // is what happened on 2026-09-24: 141 findings merged and the site went out still saying 281 districts
 // sourced. Nothing looked wrong, because a stale number looks exactly like a fresh one.
-{
+// Skipped inside `npm run build-site`, which regenerates the data first and then, in a later step,
+// writes back into data/districts -- leaving summary.json looking eight seconds stale when it is not.
+// The check exists for the standalone invocation, which is the one that actually publishes old numbers.
+if (!process.env.ESCP_BUILT_DATA) {
   const newest = readdirSync(join(root, "data/districts")).map((f) => statSync(join(root, "data/districts", f)).mtimeMs);
   if (newest.length && Math.max(...newest) > statSync(join(site, "data/summary.json")).mtimeMs) {
     console.error("site/data/summary.json is older than data/districts/. Run `npm --prefix tools run build-site`, which regenerates the data before rendering it.");

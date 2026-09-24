@@ -7,7 +7,7 @@
     "build-site-data": "node build-site-data.mjs",
     "test": "node validate.mjs && node lib/district-name.test.mjs",
     "build-worklist": "node crdc/worklist.mjs",
-    "build-site": "node build-site-data.mjs && node crdc/worklist.mjs && node timeline.mjs && node queue.mjs && node build-site.mjs",
+    "build-site": "node build-site-data.mjs && node crdc/worklist.mjs && node timeline.mjs && node queue.mjs && ESCP_BUILT_DATA=1 node build-site.mjs",
     "build-timeline": "node timeline.mjs"
   },
   "dependencies": {
