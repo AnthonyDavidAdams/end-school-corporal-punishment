@@ -100,6 +100,13 @@
 .copybtn { position:absolute; top:.6rem; right:.6rem; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.1);
            color:#EAF7EF; border-radius:6px; padding:.4rem .75rem; font:600 .8rem/1 var(--sans); cursor:pointer; }
 .copybtn:hover { border-color:#B7F7CE; color:#B7F7CE; background:rgba(255,255,255,.18); }
+.installrow { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.4rem 0 .8rem; }
+.install { display:inline-flex; align-items:center; gap:.4rem; border:1px solid var(--rule); border-radius:8px;
+           padding:.7rem 1.1rem; text-decoration:none; font-weight:600; background:var(--card); }
+.install:hover { border-color:var(--green); color:var(--green); }
+.install.claude { background:var(--navy-dark); color:#EAF7EF; border-color:transparent; }
+.install.claude:hover { color:#B7F7CE; border-color:#B7F7CE; }
+.installnote { color:var(--muted); font-size:.9rem; margin:.2rem 0 .6rem; }
 .clientjump { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.6rem 0 .5rem; }
 .clientjump a { border:1px solid var(--rule); border-radius:99px; padding:.4rem .85rem; font-size:.9rem; text-decoration:none; }
 .clientjump a:hover { border-color:var(--green); }

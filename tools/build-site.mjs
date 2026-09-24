@@ -16,6 +16,15 @@ const BASE = "https://earthpilot.org/kids";
 const REPO = "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment";
 // The one address. Everything on the site that tells somebody where to point an agent uses this.
 const MCP_URL = "https://escp-mcp-production.up.railway.app/mcp";
+// One-click install links. Every client that has one takes a different shape, so they are derived from
+// MCP_URL rather than written out: Claude prefills a dialog from query params, Cursor wants base64 JSON,
+// VS Code wants URL-encoded JSON, and ChatGPT has nothing at all and gets the address to paste.
+// Verified against live endpoints on 2026-09-24; each only prefills, the person still confirms.
+const INSTALL = {
+  claude: `https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=${encodeURIComponent("End School Corporal Punishment")}&connectorUrl=${encodeURIComponent(MCP_URL)}`,
+  cursor: `https://cursor.com/install-mcp?name=escp&config=${encodeURIComponent(Buffer.from(JSON.stringify({ url: MCP_URL })).toString("base64"))}`,
+  vscode: `https://vscode.dev/redirect/mcp/install?name=escp&config=${encodeURIComponent(JSON.stringify({ name: "escp", type: "http", url: MCP_URL }))}`,
+};
 const states = JSON.parse(readFileSync(join(site, "data/states.json"), "utf8"));
 const districts = JSON.parse(readFileSync(join(site, "data/districts.json"), "utf8"));
 const claims = JSON.parse(readFileSync(join(site, "data/claims.json"), "utf8"));
@@ -274,6 +283,13 @@ writeFileSync(join(site, "site.css"), `
 .copybtn { position:absolute; top:.6rem; right:.6rem; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.1);
            color:#EAF7EF; border-radius:6px; padding:.4rem .75rem; font:600 .8rem/1 var(--sans); cursor:pointer; }
 .copybtn:hover { border-color:#B7F7CE; color:#B7F7CE; background:rgba(255,255,255,.18); }
+.installrow { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.4rem 0 .8rem; }
+.install { display:inline-flex; align-items:center; gap:.4rem; border:1px solid var(--rule); border-radius:8px;
+           padding:.7rem 1.1rem; text-decoration:none; font-weight:600; background:var(--card); }
+.install:hover { border-color:var(--green); color:var(--green); }
+.install.claude { background:var(--navy-dark); color:#EAF7EF; border-color:transparent; }
+.install.claude:hover { color:#B7F7CE; border-color:#B7F7CE; }
+.installnote { color:var(--muted); font-size:.9rem; margin:.2rem 0 .6rem; }
 .clientjump { display:flex; flex-wrap:wrap; gap:.5rem; margin:1.6rem 0 .5rem; }
 .clientjump a { border:1px solid var(--rule); border-radius:99px; padding:.4rem .85rem; font-size:.9rem; text-decoration:none; }
 .clientjump a:hover { border-color:var(--green); }
@@ -766,6 +782,12 @@ mkdirSync(join(site, "connect"), { recursive: true });
     extraHead: `<script>document.addEventListener("click",function(e){var b=e.target.closest(".copybtn");if(!b)return;var c=b.previousElementSibling;navigator.clipboard.writeText(c.innerText).then(function(){var t=b.innerText;b.innerText="Copied";setTimeout(function(){b.innerText=t},1500)})});</script>`,
     body: `<section class="hero"><div class="wrap"><h1>Connect your agent</h1>
 <p class="lede">One address. No account, no key, no waiting to be approved. Whatever you connect with, the first thing to ask it is <code>get_started</code> &mdash; it returns the contract and the exact first calls.</p></div></section>
+<div class="installrow">
+  <a class="install claude" href="${INSTALL.claude}" rel="noopener">Add to Claude</a>
+  <a class="install" href="${INSTALL.cursor}" rel="noopener">Add to Cursor</a>
+  <a class="install" href="${INSTALL.vscode}" rel="noopener">Add to VS Code</a>
+</div>
+<p class="installnote">One click opens your client's own add-connector dialog with the name and address filled in. You still confirm it &mdash; nothing installs itself. ChatGPT has no install link yet, so paste the address:</p>
 <div class="copywrap"><pre class="cmd big"><code>${esc(MCP_URL)}</code></pre><button class="copybtn" type="button">Copy</button></div>
 ${mdToHtml(preamble).replace(/<div class="copywrap">[\s\S]*?<\/div>/, "")}
 <nav class="clientjump">${sections.map((x) => `<a href="#${slug(x.title)}">${esc(shortName(x.title))}</a>`).join("")}</nav>
