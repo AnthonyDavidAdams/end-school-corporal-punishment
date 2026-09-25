@@ -277,7 +277,7 @@ export function createServer() {
       description: "District-level corporal punishment policy entries for one state (data/districts/<XX>.yaml): name, county, nces_id, status (allows | bans | consent_required | unknown), source URL, verbatim quote, policy_code, last_verified, notes. An entry with source null is unsourced and is a candidate for the district-policy-scan task. Filter with status.",
       inputSchema: {
         state: z.string().min(2).describe("Two-letter state code or full state name"),
-        status: z.enum(["allows", "bans", "consent_required", "unknown"]).optional().describe("Only return districts with this status"),
+        status: z.enum(["allows", "bans", "consent_required", "silent", "unknown"]).optional().describe("Only return districts with this status"),
       },
     },
     async ({ state, status }) => {
