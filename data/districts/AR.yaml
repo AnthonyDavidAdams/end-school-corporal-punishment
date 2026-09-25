@@ -278,12 +278,12 @@ districts:
     county: null
     nces_id: "0506240"
     status: allows
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4118/Foreman_Ps/d7940288-2183-4fda-92b9-536d632ae6c8/25_26_Handbook.docx.pdf?disposition=inline
-    quote: CORPORAL PUNISHMENT The Foreman School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment or who are an administrator or teacher employed under a waiver from licensure.
+    source: https://www.fpsb.us/Downloads/Corporal%20Punishment%20Policy.pdf
+    quote: GAMC Franklin Parish School Board 1 of 2 CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Fort Smith Public Schools
     county: Sebastian
     nces_id: null
@@ -487,6 +487,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: MCGEHEE SCHOOL DISTRICT
+    county: null
+    nces_id: "0509630"
+    status: bans
+    source: https://content.myconnectsuite.com/api/documents/c099ef75df6e4fb9b2442c3b69f62249.pdf
+    quote: It is the policy of this district that corporal punishment shall not be administered.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: MELBOURNE SCHOOL DISTRICT
     county: null
     nces_id: "0509720"
@@ -864,3 +874,13 @@ districts:
       contact_page: https://www.whitehallsd.org/page/contact-us
       as_of: 2026-09-19
     notes: "Board policy 4.39-CORPORAL PUNISHMENT, a standalone PDF in the district's 'Handbook Policy References' document folder. Downloaded with curl: HTTP 200, application/pdf, 545,818 bytes, 1 page, text layer present (pdftotext). The policy's own footer reads 'Date Adopted: July 2009' and 'Last Revised: July 2018'; legal reference A.C.A. 6-18-503(b), 6-18-505(c)(1). No parental opt-in or opt-out clause. The district site (Apptegy) sits behind a 'Client Challenge' bot wall that returns a 3,038-byte shell to curl and to the project's resolve_handbook; the document listing was read through a rendering proxy to obtain this direct file URL, and the file host itself serves the PDF to a plain fetch."
+  - name: YELLVILLE-SUMMIT SCHOOL DISTRICT.
+    county: null
+    nces_id: "0514490"
+    status: allows
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/4865/YSS/4262920/district-policies-and-student-handbook-2021-2022-22744.pdf
+    quote: Other consequences could include corporal punishment, in-school suspension, out- of-school suspension, referral to juvenile services, loss of course credit, and/or a recommendation of expulsion.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.

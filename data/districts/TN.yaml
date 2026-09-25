@@ -41,6 +41,16 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Lawrence County
+    county: null
+    nces_id: "4702340"
+    status: allows
+    source: http://images.pcmac.org/Uploads/LawrenceCounty/LawrenceCounty/Divisions/DocumentsCategories/Documents/LCCodeofConduct.pdf
+    quote: Corporal punishment may be administered by the principal or by a teacher in the presence of another certified employee.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Lewis County
     county: Lewis
     nces_id: "4702430"

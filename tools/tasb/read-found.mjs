@@ -38,27 +38,40 @@ const done = new Set(existsSync(OUT) ? readFileSync(OUT, "utf8").trim().split("\
 const queue = rows.filter((r) => !done.has(r.district));
 console.log(`${queue.length} districts with documents to read`);
 
-let cur = 0, hit = 0, silent = 0, n = 0;
+let cur = 0, hit = 0, silent = 0, unreadable = 0, n = 0;
 async function worker() {
   for (;;) {
     const r = queue[cur++]; if (!r) return;
     const policies = [];
     // Best-scoring first, and stop once something carries the rule: a district's own board policy
     // beats its handbook, and the ranking already put it first.
+    // Four outcomes, not two. A fetch that returns 744 characters of "404 - Enrollment" is not a
+    // document that is silent on corporal punishment; it is no document. Of 108 documents this had
+    // recorded as silent, a sample of 30 held 20 stubs and 3 scans and only 7 real silent documents --
+    // and "silent" was about to become a public status meaning "no written policy found". Absent and
+    // negative are different answers, and this file had been reporting the first as the second.
+    const outcomes = [];
     for (const d of r.documents.slice(0, 4)) {
       const got = await mcp("fetch_document", { url: d.url, terms: ANCHORS.slice(0, 6), context_words: 500 });
-      if (!got || got.error) continue;
-      let j; try { j = JSON.parse(got.text); } catch { continue; }
+      if (!got || got.error) { outcomes.push({ url: d.url, outcome: "unreadable", chars: 0 }); continue; }
+      let j; try { j = JSON.parse(got.text); } catch { outcomes.push({ url: d.url, outcome: "unreadable", chars: 0 }); continue; }
+      const chars = j.text_chars ?? 0;
+      if (j.needs_ocr) { outcomes.push({ url: d.url, outcome: "scan", chars }); continue; }
+      if (chars < 2000) { outcomes.push({ url: d.url, outcome: "stub", chars }); continue; }
       const text = (j.hits || []).map((h) => h.context).join("\n");
       const cands = clip(text);
-      if (cands.length) { policies.push({ code: null, title: d.title, url: d.url, candidates: cands, last_revised: null }); break; }
+      if (cands.length) { policies.push({ code: null, title: d.title, url: d.url, candidates: cands, last_revised: null }); outcomes.push({ url: d.url, outcome: "rule", chars }); break; }
+      outcomes.push({ url: d.url, outcome: "silent", chars });
     }
     n++;
-    if (policies.length) hit++; else silent++;
-    appendFileSync(OUT, JSON.stringify({ site: null, district: r.district, _state: r.state, policies }) + "\n");
+    // A district is only "silent" if at least one REAL document was read and none carried the rule.
+    const realSilent = !policies.length && outcomes.some((o) => o.outcome === "silent");
+    if (policies.length) hit++; else if (realSilent) silent++; else unreadable++;
+    appendFileSync(OUT, JSON.stringify({ site: null, district: r.district, _state: r.state, policies, outcomes,
+      verdict: policies.length ? "rule" : realSilent ? "silent" : "unreadable" }) + "\n");
     if (policies.length) console.log(`  ${r.state} ${r.district} — ${policies[0].candidates.length} sentences`);
     if (n % 25 === 0) console.log(`[${n}/${queue.length}] ${hit} with the rule, ${silent} silent`);
   }
 }
 await Promise.all(Array.from({ length: WORKERS }, worker));
-console.log(`\n${hit}/${n} documents carry the rule, ${silent} mention it nowhere`);
+console.log(`\n${hit}/${n} carry the rule | ${silent} real documents silent | ${unreadable} nothing readable (stubs, scans, dead links)`);

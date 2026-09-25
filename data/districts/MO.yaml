@@ -172,14 +172,14 @@ districts:
     policy_code: JGA-2
     crdc_students_latest: null
   - name: Kennett 39
-    county: Kennett
+    county: null
     nces_id: "2916500"
-    status: unknown
-    source: null
-    quote: null
-    policy_code: JGA-1
+    status: bans
+    source: https://www.kcsd.org/our-district/handbooks
+    quote: Restorative practices may be used when appropriate, and corporal punishment is strictly prohibited.
+    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-19
+    last_verified: 2026-09-24
     contact:
       phone: 573-717-1100
       mailing_address: 510 College Ave, Kennett, MO 63857
@@ -187,7 +187,7 @@ districts:
       board_page: https://www.kennett.k12.mo.us/page/board-policy-manual/
       contact_page: https://www.kennett.k12.mo.us/
       as_of: 2026-09-19
-    notes: "POLICY LOCATED BUT TEXT NOT READ - a short follow-up should finish this one. The district's Board Policy Manual is on Simbli, site S=155 (the district's own 'MSBA Online Policy' link from https://www.kennett.k12.mo.us/page/board-policy-manual/ points to simbli.eboardsolutions.com/SB_ePolicy/SB_PolicyOverview.aspx?S=155&Sch=155). I confirmed in a real browser that S=155 is titled 'Kennett 39' and that an exact-phrase Simbli search for \"corporal punishment\" in its Board Policy Manual returns 3 policies: JED-R2 STUDENT ABSENCES AND EXCUSES (R, ADOPTED 11/18/2025), JG-R1 STUDENT DISCIPLINE (R, ADOPTED 08/19/2025), and JGA-1 CORPORAL PUNISHMENT (P, ADOPTED 08/16/2022). I could not open JGA-1's text: the result row is an Angular button that opens the policy in a browser window outside the automation tab group, and it issues no network request I could capture. fetch_simbli_policy returned the bot-challenge message for site 155 on ~13 spaced attempts over two hours (see issue_0314d441932d). Because the policy's direction (authorize vs prohibit) was never read, I am NOT guessing: status unknown. Also searched, with nothing usable: the district site's /documents and per-school /o/<school>/documents Apptegy payloads (empty or unrelated), the Google Docs linked from the board-policy page (Hall of Fame form, Chromebook info, board roster), and kennett.msbapolicy.org / kennett39.msbapolicy.org (both 404). CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
+    notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Malden R-I
     county: Malden
     nces_id: "2919890"
