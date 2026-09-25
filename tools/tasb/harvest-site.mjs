@@ -226,3 +226,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   await closeBrowser();
   console.log(`\n${withDocs}/${n} districts yielded a document, $${cost.toFixed(4)}`);
 }
+// The MCP child and the browser are finished; do not let an open handle keep the process alive.
+process.exit(0);

@@ -12,7 +12,7 @@ districts:
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: BRUSHY
-    county: null
+    county: Sequoyah
     nces_id: "4005580"
     status: allows
     method: searched_document
@@ -24,7 +24,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: CACHE
-    county: null
+    county: Comanche
     nces_id: "4006120"
     status: allows
     method: searched_document
@@ -36,7 +36,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: CADDO
-    county: null
+    county: Bryan
     nces_id: "4006150"
     status: bans
     method: searched_document
@@ -48,7 +48,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: CANEY VALLEY
-    county: null
+    county: Washington
     nces_id: "4025470"
     status: allows
     method: searched_document
@@ -60,7 +60,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: CANTON
-    county: null
+    county: Blaine
     nces_id: "4006480"
     status: allows
     method: searched_document
@@ -83,7 +83,7 @@ districts:
     notes: "The classifier held this at 0.82; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard for two reasons. (1) The policy contains two rule sentences that pull opposite ways: the board's own grant (\"shall allow reasonable corporal punishment of unruly students\") and a blanket prohibition-unless-written-consent. The second is Louisiana's statute (La. R.S. 17:416.1 as amended 2023) reproduced in the board's policy F-11.3, and it conditions the grant: the board allows the practice, b"
     county_source: nces_edge_geocode_2023_24
   - name: CLAYTON
-    county: null
+    county: Pushmataha
     nces_id: "4007800"
     status: allows
     method: searched_document
@@ -95,7 +95,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: CLEVELAND
-    county: null
+    county: Pawnee
     nces_id: "4008040"
     status: bans
     method: searched_document
@@ -107,7 +107,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: COMMERCE
-    county: null
+    county: Ottawa
     nces_id: "4008490"
     status: allows
     method: searched_document
@@ -137,7 +137,7 @@ districts:
       as_of: 2026-09-19
     notes: "Source: Deborah Brown Community School Parent/Student Handbook SY2026-2027, linked from the school's own page https://dbcstulsa.org/sy26-27-school-year-information/. Fetched server-side with fetch_document: HTTP 200, application/pdf, 862,902 bytes, 64 pages, 134,126 chars of text, no OCR needed. The quote is from the HOLD HARMLESS AGREEMENT BETWEEN PARENT AND DEBORAH BROWN COMMUNITY SCHOOL, page 15. Classified consent_required because permission is affirmative and in writing (opt IN), not opt-out. The handbook's narrative CORPORAL PUNISHMENT section, page 13-14, reads in part: 'One approach to discipline used at Deborah Brown Community School (DBCS) is corporal punishment. This form of discipline is defined by Oklahoma Law as ordinary force for disciplining children, including but not limited to spanking or paddling.' and 'Parents will be notified in writing when corporal punishment is used by the Administration.' The handbook carries no adoption/revision date of its own; the school's separate board policies posted alongside it are dated Approved: September 23, 2025. A separate DBCS board policy manual PDF exists at https://dbcstulsa.org/wp-content/uploads/2025/10/new-dbcs-board-policy-manual-format-1.pdf but the server fetch of it did not complete; the handbook is the school's own published discipline policy and is the cited source."
   - name: DURANT
-    county: null
+    county: Bryan
     nces_id: "4010350"
     status: allows
     method: searched_document
@@ -158,7 +158,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: FORT TOWSON
-    county: null
+    county: Choctaw
     nces_id: "4012300"
     status: allows
     method: searched_document
@@ -170,7 +170,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: FOX
-    county: null
+    county: Carter
     nces_id: "4012060"
     status: consent_required
     method: searched_document
@@ -182,7 +182,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: HARMONY
-    county: null
+    county: Atoka
     nces_id: "4013830"
     status: bans
     method: searched_document
@@ -194,7 +194,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: HENNESSEY
-    county: null
+    county: Kingfisher
     nces_id: "4014340"
     status: allows
     method: searched_document
@@ -206,7 +206,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: HOLLY CREEK
-    county: null
+    county: McCurtain
     nces_id: "4014890"
     status: allows
     source: https://s3.amazonaws.com/scschoolfiles/314/holly_creek_school_student_handbook.pdf
@@ -215,8 +215,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: HOMINY
-    county: null
+    county: Osage
     nces_id: "4014970"
     status: allows
     method: searched_document
@@ -228,7 +229,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: HUGO
-    county: null
+    county: Choctaw
     nces_id: "4015210"
     status: consent_required
     method: searched_document
@@ -256,7 +257,7 @@ districts:
       as_of: 2026-09-19
     notes: "OPT-IN district. Source is the Student Handbook 2025-2026 published on the Idabel Public Schools website under Idabel Middle School's documents; its cover page reads 'Student Handbook / Idabel Middle School / 2025-2026' and it contains an 'Idabel School District Resolution' section, and the corporal punishment paragraph speaks for the district board ('the Idabel School Board'). fetch_document: application/pdf, 1,469,686 bytes, 69 pages, text layer present; the quoted sentence is on page 21, under DISCIPLINE, heading 'C. Corporal Punishment'. Corporal punishment appears in the Class 1 and Class 2 consequence ladders on page 22 ('1st Offense: Conference and/or Corporal Punishment'), and the policy adds it 'will be administered for class I and II offenses only, and will be administered by the Principal and his/her designee to both male and female students.' Caveat for the reviewer: the district-level documents that would state this for the whole district - 'Student Behavior.pdf' and 'Discipline.pdf' in the district's Documents folders - are image-only scans (fetch_document returned needs_ocr true, 0 characters of text, 485,073 and 1,471,265 bytes), so the school-level handbook is the only machine-readable district-published statement found. No adoption or revision date is printed."
   - name: INOLA
-    county: null
+    county: Rogers
     nces_id: "4015480"
     status: allows
     method: searched_document
@@ -356,7 +357,7 @@ districts:
     notes: "The classifier held this at 0.94; a frontier agent read the clipped sentences and settled it at 0.95. Its reasoning: Hard because the clips mix a grant (\"may be used by the principal\"), a consent condition, and an opt-out-sounding line (\"If you do not allow your child to be paddled... we need a phone number\"), which a classifier can read as opt_out. But the condition is stated as a precondition on the district's action: paddling happens only after WRITTEN permission from the parent, and the attached form is an a"
     county_source: nces_edge_geocode_2023_24
   - name: POND CREEK-HUNTER
-    county: null
+    county: Grant
     nces_id: "4024720"
     status: allows
     method: searched_document
@@ -368,7 +369,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: ROCK CREEK
-    county: null
+    county: Bryan
     nces_id: "4033601"
     status: bans
     method: searched_document
@@ -380,7 +381,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: SEQUOYAH
-    county: null
+    county: Rogers
     nces_id: "4027390"
     status: allows
     method: searched_document
@@ -392,7 +393,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: SMITHVILLE
-    county: null
+    county: McCurtain
     nces_id: "4027840"
     status: consent_required
     method: searched_document
@@ -404,7 +405,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: SPIRO
-    county: null
+    county: Le Flore
     nces_id: "4028200"
     status: allows
     method: searched_document
@@ -416,7 +417,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: STERLING
-    county: null
+    county: Comanche
     nces_id: "4028590"
     status: bans
     method: searched_document
@@ -448,7 +449,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: VALLIANT
-    county: null
+    county: McCurtain
     nces_id: "4030870"
     status: allows
     method: searched_document
@@ -471,7 +472,7 @@ districts:
     notes: The document sat behind a JavaScript challenge; read 2026-09-25 with a real browser session. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
     county_source: nces_edge_geocode_2023_24
   - name: WAUKOMIS
-    county: null
+    county: Garfield
     nces_id: "4031950"
     status: allows
     method: searched_document
@@ -483,7 +484,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: WAURIKA
-    county: null
+    county: Jefferson
     nces_id: "4031980"
     status: allows
     method: searched_document

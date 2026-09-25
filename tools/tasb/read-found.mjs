@@ -85,3 +85,5 @@ async function worker() {
 await Promise.all(Array.from({ length: WORKERS }, worker));
 await closeBrowser();
 console.log(`\n${hit}/${n} carry the rule | ${silent} real documents silent | ${unreadable} nothing readable (stubs, scans, dead links)`);
+// The MCP child and the browser are finished; do not let an open handle keep the process alive.
+process.exit(0);

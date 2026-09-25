@@ -74,6 +74,10 @@ for (const f of process.argv.slice(2)) {
       if (prev.source && entry.source && prev.source !== entry.source && prev.status === entry.status) {
         console.error(`NOTE ${prev.name}: source replaced, status unchanged (${prev.status})\n  was ${prev.source}\n  now ${entry.source}`);
       }
+      // A scan that does not know the county must not erase one already on file (the geocode fill
+      // put 1,192 of them there on 2026-09-25 and one re-merge of 125 records took them straight back off).
+      if (!entry.county && prev.county) entry.county = prev.county;
+      else if (entry.county && prev.county_source && norm(entry.county) !== norm(prev.county)) entry.county_source = null;
       doc.districts[i] = { ...prev, ...entry, name: !entry.name || prev.name.length >= entry.name.length ? prev.name : entry.name };
       updated++;
     } else { doc.districts.push(entry); added++; }

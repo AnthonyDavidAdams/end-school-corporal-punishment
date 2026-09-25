@@ -3,7 +3,7 @@
 state: MO
 districts:
   - name: ALTON R-IV
-    county: null
+    county: Oregon
     nces_id: "2903060"
     status: allows
     method: searched_document
@@ -15,7 +15,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: ARCADIA VALLEY R-II
-    county: null
+    county: Iron
     nces_id: "2903150"
     status: allows
     method: searched_document
@@ -95,7 +95,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: COOTER R-IV
-    county: null
+    county: Pemiscot
     nces_id: "2910140"
     status: allows
     method: searched_document
@@ -107,7 +107,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: EAST CARTER CO. R-II
-    county: null
+    county: Carter
     nces_id: "2911100"
     status: allows
     method: searched_document
@@ -119,7 +119,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: EMINENCE R-I
-    county: null
+    county: Shannon
     nces_id: "2911450"
     status: allows
     method: searched_document
@@ -131,7 +131,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: GLENWOOD R-VIII
-    county: null
+    county: Howell
     nces_id: "2915180"
     status: allows
     method: searched_document
@@ -162,7 +162,7 @@ districts:
     policy_revised: 2022-09-15
     policy_dates_from: notes
   - name: HALFWAY R-III
-    county: null
+    county: Polk
     nces_id: "2913530"
     status: allows
     method: searched_document
@@ -211,7 +211,7 @@ districts:
     policy_code: JGA-2
     crdc_students_latest: null
   - name: Kennett 39
-    county: null
+    county: Dunklin
     nces_id: "2916500"
     status: bans
     method: searched_document
@@ -277,7 +277,7 @@ districts:
       as_of: 2026-09-19
     notes: "Policy 2670, headed 'Corporal Punishment: Authorized'. Found in the district's own board-policy Google Drive folder linked from https://www.portageville.k12.mo.us/school_board_info/boardpolicies (folder id 1nNJMeVjVQt5zO6oCsRRloXUATUpjKOzu, enumerated via drive.google.com/embeddedfolderview). Document's own date line: 'October, 2010'. Fetched: 5,350 bytes, application/octet-stream, 1 page, hit on page 1; also confirmed locally with pdftotext. No parental opt-out or opt-in in the policy text. CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
   - name: RICHWOODS R-VII
-    county: null
+    county: Washington
     nces_id: "2931230"
     status: allows
     method: searched_document
@@ -358,7 +358,7 @@ districts:
     policy_code: "5144.1"
     crdc_students_latest: null
   - name: SUMMERSVILLE R-II
-    county: null
+    county: Texas
     nces_id: "2929810"
     status: allows
     method: searched_document
@@ -370,7 +370,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: WESTVIEW C-6
-    county: null
+    county: Newton
     nces_id: "2931890"
     status: allows
     method: searched_document

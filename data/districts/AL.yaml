@@ -55,7 +55,7 @@ districts:
     policy_adopted: 2025-01-06
     policy_dates_from: notes
   - name: Athens City
-    county: null
+    county: Limestone
     nces_id: "0100120"
     status: allows
     method: searched_document
@@ -702,7 +702,7 @@ districts:
       as_of: 2026-09-20
     notes: "Fort Payne City Board of Education Policy Manual, policy 6.16 Corporal Punishment, PDF page 98. Manual cover page: 'November 19, 2020 / Updated August 28, 2026'. Opt-out: 'A parent or guardian of student may opt out of the use of corporal punishment as a disciplinary consequence for that student by submitting a written, signed statement to the school principal.' Fetched via fetch_document: 845,021 bytes, application/pdf, 126 pages, 281,349 chars, sha256 18b403e6...  Linked from https://www.fpcsk12.com/policies-plans. This is the CITY district, and the manual's own header says 'Fort Payne City Board of Education'."
   - name: Franklin County
-    county: null
+    county: Franklin
     nces_id: "0101590"
     status: allows
     method: searched_document
@@ -787,7 +787,7 @@ districts:
       as_of: 2026-09-21
     notes: "Source: Hale County Board of Education Policy Manual (85 pages, 729,878 bytes, application/pdf), fetched via www.halek12.org/fs/resource-manager/view/7fe05a1b-a01f-420b-9424-e3b2021d1c5e which resolves to the finalsite PDF cited as source. Policy 6.17 Corporal Punishment, page 68 of the PDF. Manual's own Table of Contents header is dated 'March 3, 2022' (manual-wide revision date; no per-section ADOPTED/REVISED line printed for 6.17 itself, so policy_adopted/policy_revised left null rather than guessed). Board/superintendent email and mailing address taken from the policy manual's own title page (page 1), which lists Michael C. Ryans as Superintendent with mryans@halek12.org, phone (334) 624-8836, 1115 Powers Street, Greensboro, AL 36744 -- confirmed against the district's own board-members page. This district was in the federal 2023-24 CRDC as reporting corporal punishment (33 students) and had no prior record in this project."
   - name: Haleyville City
-    county: null
+    county: Winston
     nces_id: "0101720"
     status: allows
     method: searched_document
@@ -980,7 +980,7 @@ districts:
     policy_revised: 2019-03-20
     policy_dates_from: notes
   - name: Lawrence County
-    county: null
+    county: Lawrence
     nces_id: "0102040"
     status: allows
     method: searched_document
@@ -1010,7 +1010,7 @@ districts:
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
   - name: Leeds City
-    county: null
+    county: Jefferson
     nces_id: "0100011"
     status: allows
     source: https://files.smartsites.parentsquare.com/7749/26-27_student-parent_handbook_and_code_of_student_conduct.pdf
@@ -1019,6 +1019,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Limestone County Schools
     county: Limestone
     nces_id: "0102100"
@@ -1353,7 +1354,7 @@ districts:
       as_of: 2026-09-20
     notes: "Pell City Board of Education Student Code of Conduct, cover page dated 2026-2027; corporal punishment is listed as a Disciplinary Option/Action for both Class 1 (Minor) and Class 2 (Intermediate) offences, on page 15, with the note '****Refer to Board Policy regarding guidelines to be used in administering corporal punishment'. Parental NOTIFICATION, not consent, so classified allows. Fetched via fetch_document: 2,475,483 bytes, content-type application/octet-stream, 60 pages, 249,618 chars, sha256 d2245499...  The board policy manual itself is Simbli site 36030886 (title confirmed in a browser as 'Policy Listing | Pell City Schools'), but fetch_simbli_policy returned the vendor bot-challenge on eight spaced attempts over roughly ninety minutes, so the board-adopted Code of Conduct is cited instead."
   - name: Phenix City
-    county: null
+    county: Russell
     nces_id: "0102700"
     status: allows
     method: searched_document
@@ -1365,7 +1366,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Pickens County
-    county: null
+    county: Pickens
     nces_id: "0102730"
     status: allows
     method: searched_document
@@ -1464,7 +1465,7 @@ districts:
     policy_adopted: 2024-09-24
     policy_dates_from: notes
   - name: Russell County
-    county: null
+    county: Russell
     nces_id: "0102880"
     status: bans
     method: searched_document
@@ -1476,7 +1477,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Scottsboro City
-    county: null
+    county: Jackson
     nces_id: "0102940"
     status: allows
     method: searched_document
@@ -1488,7 +1489,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Sheffield City
-    county: null
+    county: Colbert
     nces_id: "0103000"
     status: allows
     method: searched_document
@@ -1636,7 +1637,7 @@ districts:
       as_of: 2026-09-21
     notes: null
   - name: Thomasville City
-    county: null
+    county: Clarke
     nces_id: "0103300"
     status: allows
     method: searched_document
@@ -1752,7 +1753,7 @@ districts:
       as_of: 2026-09-19
     notes: "2026-2027 Washington County Student Handbook (current; the site also still links the 2025-2026 edition, which carries the identical sentence on its own page 19). Quote is on page 19 of 70, in the Code of Conduct section 'Violations of the Code of Conduct are grouped into four classes'. 3,588,031 bytes, application/pdf (fetch_document). NOTABLE: the district expressly refuses parental opt-out. Corporal punishment is listed as a disciplinary action for Class I (p.20, elementary subsequent offenses and middle/high) and Class II (p.21) offenses. This is Washington County (AL) COUNTY schools, wcbek12.org, 229 Granade Ave, Chatom; the handbook's running footer reads '2026-2027 Washington County Student Handbook'. Both handbooks linked from https://www.wcbek12.org/about-us/student-handbook. Prior-year copy for comparison: https://resources.finalsite.net/images/v1755636971/wcbek12org/rubgisplfy9vgh2uj69l/ACFrOgDRYi2ma_lrMy0b5TcPdpAg5Fdc8sN_2DTs7QfjYDIc4onjL9OAsgUK3FrGzH6SWDkzkaRH5Ijvjdj1Dlr9mPMoOLsfI4Tz_xrENl63Vtd229xtlOdgIwVJv0g4ZuV2pXsulazE6JbFuCND7MI3z-0RxF3Zmo_iTJHiDA.pdf (662,071 bytes, 66 pages)."
   - name: Wilcox County
-    county: null
+    county: Wilcox
     nces_id: "0103510"
     status: allows
     method: searched_document

@@ -12,7 +12,7 @@ districts:
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Greene County
-    county: null
+    county: Greene
     nces_id: "4701470"
     status: allows
     method: searched_document
@@ -24,7 +24,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Hamilton County Schools
-    county: null
+    county: Hamilton
     nces_id: "4701590"
     status: allows
     method: searched_document
@@ -77,7 +77,7 @@ districts:
       as_of: 2026-09-22
     notes: null
   - name: Lincoln County
-    county: null
+    county: Lincoln
     nces_id: "4702490"
     status: consent_required
     method: searched_document
@@ -144,7 +144,7 @@ districts:
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: McKenzie
-    county: null
+    county: Carroll
     nces_id: "4702790"
     status: allows
     method: searched_document
@@ -156,7 +156,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: McMinn County
-    county: null
+    county: McMinn
     nces_id: "4702820"
     status: allows
     method: searched_document
@@ -189,7 +189,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Moore County
-    county: null
+    county: Moore
     nces_id: "4703060"
     status: bans
     method: searched_document
@@ -201,7 +201,7 @@ districts:
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Obion County
-    county: null
+    county: Obion
     nces_id: "4703270"
     status: allows
     method: searched_document
