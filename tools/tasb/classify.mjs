@@ -172,7 +172,12 @@ await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 
 // A quote that is not a substring of what we clipped would mean something invented one. It cannot
 // happen with a choice model, and it is asserted anyway, because that is the whole basis of the record.
-const bad = out.filter((r) => r.quote && !rows.find((x) => x.key === r.key)?.candidates.includes(r.quote));
+// Match the row back by district, not by key. A harvest that leaves `key` null -- the search-and-read
+// path does, because a searched document has no vendor site number -- made every row match the FIRST
+// null-keyed row, so each district's quote was checked against a different district's sentences. The
+// assertion fired on 95 of 97 and refused to write, which is what it is for; a quote check that
+// compares the wrong two things is worse than no check.
+const bad = out.filter((r) => r.quote && !rows.find((x) => x.district === r.district)?.candidates.includes(r.quote));
 if (bad.length) { console.error(`${bad.length} quotes are not verbatim candidates -- refusing to write`); process.exit(1); }
 
 writeFileSync(OUT, JSON.stringify(out, null, 1));

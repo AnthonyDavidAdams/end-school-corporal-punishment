@@ -11,6 +11,16 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Greene County
+    county: null
+    nces_id: "4701470"
+    status: allows
+    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/2955/GCTSD/3337077/Primary.pdf
+    quote: 2 CORPORAL PUNISHMENT POLICY Corporal punishment is administered to students only after other negative consequences have been attempted.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; where that name matched more than one district, nothing was recorded.
   - name: Hamilton County Schools
     county: Hamilton
     nces_id: null
@@ -47,6 +57,16 @@ districts:
       public_comment: Request placement on the agenda by contacting the office of the Director of Schools within 72 hours before the meeting; 3-minute limit.
       as_of: 2026-09-22
     notes: null
+  - name: Lincoln County
+    county: null
+    nces_id: "4702490"
+    status: consent_required
+    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/732147/student_handbook_19-20.pdf
+    quote: The Board does permit use of corporal punishment as a disciplinary technique with written parental permission.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; where that name matched more than one district, nothing was recorded.
   - name: Marion County
     county: Marion
     nces_id: "4702640"
@@ -89,6 +109,16 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: McKenzie
+    county: null
+    nces_id: "4702790"
+    status: allows
+    source: https://content.myconnectsuite.com/api/documents/3513edb619954db0b8c8ea0b1ee3ff11.pdf
+    quote: "Examples (Not an exclusive listing) Fighting (mutual combativeness) Threats to others Vandalism (minor) Truancy Stealing Gambling Sexual Harassment (verbal) Continuation of Level 1 and 2 Insubordination Harassment/Bullying/Cyberbullying DISCIPLINE – LEVEL 3 Examples (Not an exclusive listing) Extended Time-out Detention (After School) Corporal Punishment Out-of-School Suspension Restitution from loss, damaged, or stolen … … 1 Minor Infractions:"
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; where that name matched more than one district, nothing was recorded.
   - name: Metro Nashville Public Schools
     county: Davidson
     nces_id: null
@@ -98,6 +128,26 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Moore County
+    county: null
+    nces_id: "4703060"
+    status: bans
+    source: https://cdnsm5-ss10.sharpschool.com/UserFiles/Servers/Server_19566293/File/Students/Student_Parent%20Handbook%20and%20Code%20of%20Student%20Conduct/Parent-Student%20Handbook%2020-21%20FINAL.pdf
+    quote: Corporal Punishment Prohibited The Board strictly prohibits all forms of corporal punishment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; where that name matched more than one district, nothing was recorded.
+  - name: Obion County
+    county: null
+    nces_id: "4703270"
+    status: allows
+    source: https://resources.finalsite.net/images/v1724336251/obioncountyschoolscom/ia2hnogqneyh8wmqunrb/2023-2024studentandparenthandbook.pdf
+    quote: Any teacher or school principal may use corporal punishment in a reasonable manner against any pupil for good cause in order to maintain discipline and order within the public schools.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; where that name matched more than one district, nothing was recorded.
   - name: Overton County
     county: Overton
     nces_id: "4703330"
