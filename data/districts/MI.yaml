@@ -2,6 +2,16 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: MI
 districts:
+  - name: Bloomfield Hills Schools
+    county: null
+    nces_id: "2606090"
+    status: bans
+    source: https://www.bloomfield.org/uploaded/Board_of_Education/BHS-Administrative_Regulations_042519.pdf
+    quote: "Further, the Board of Educa\x0eon does not approve of the administra\x0eon of corporal punishment to students."
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: McBain Rural Agricultural Schools
     county: null
     nces_id: "2623310"

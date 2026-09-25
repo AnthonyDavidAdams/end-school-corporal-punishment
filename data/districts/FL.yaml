@@ -74,6 +74,16 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: FRANKLIN
+    county: null
+    nces_id: "1200570"
+    status: bans
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5338/Fcs/22bd2317-447e-4773-ae93-ad664cbd284f/2025-2026_Code_of_Conduct.docx.pdf?disposition=inline
+    quote: A process for the parent or emancipated youth to request a debriefing session 5.8 CORPORAL PUNISHMENT (09.433) Corporal punishment is defined as the deliberate infliction of physical pain by any means upon the whole or any part of a student's body as a penalty or punishment for student misbehavior.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Gilchrist County School District
     county: Gilchrist
     nces_id: "1200630"
@@ -118,6 +128,16 @@ districts:
     last_verified: null
     legacy_status: consent_required
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: JACKSON
+    county: null
+    nces_id: "1200960"
+    status: bans
+    source: https://resources.finalsite.net/images/v1639574332/jackson/lfh7njcjswimkvsgfcr2/JCPSStudentHandbook.pdf
+    quote: 49 No school plan for managing student behavior may authorize the use of corporal punishment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Jackson County School District
     county: Jackson
     nces_id: "1200960"
@@ -140,6 +160,16 @@ districts:
     notes: null
     policy_code: null
     crdc_students_latest: null
+  - name: LEVY
+    county: null
+    nces_id: "1201140"
+    status: allows
+    source: http://digitalbell-bucket.s3.amazonaws.com/EC0284BC-5056-907D-8DDC-63B2ACFAAB65.pdf
+    quote: One would not, for example, impose corporal punishment and a suspension from school.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Liberty County School District
     county: Liberty
     nces_id: "1201170"

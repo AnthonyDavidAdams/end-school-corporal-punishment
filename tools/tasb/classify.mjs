@@ -75,7 +75,7 @@ const rows = readFileSync(IN, "utf8").trim().split("\n").filter(Boolean).map((l)
     for (const p of r.policies) for (const c of p.candidates) pool.push({ text: c, url: p.url, code: p.code, revised: p.last_revised });
     if (!pool.length) return null;
     return {
-      key: r.site, district: (r.district || "").trim(), url: pool[0].url,
+      key: r.site, district: (r.district || "").trim(), _state: r._state ?? null, url: pool[0].url,
       candidates: pool.map((x) => x.text), _by: pool,
       date_issued: pool[0].revised ?? null,
     };
@@ -157,7 +157,7 @@ async function worker() {
     if (confident) recorded++; else held++;
     const from = r._by?.find((x) => x.text === quote);
     out.push({
-      key: r.key, district: r.district, source: from?.url ?? r.url,
+      key: r.key, district: r.district, _state: r._state ?? null, source: from?.url ?? r.url,
       ...(from?.code ? { policy_code: from.code } : {}),
       status: st.choice, quote: cited[0] ?? quote, quotes: cited,
       parent_control: pc ? (pc.choice === "not_stated" ? "unknown" : pc.choice) : null,
@@ -177,7 +177,13 @@ await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 // null-keyed row, so each district's quote was checked against a different district's sentences. The
 // assertion fired on 95 of 97 and refused to write, which is what it is for; a quote check that
 // compares the wrong two things is worse than no check.
-const bad = out.filter((r) => r.quote && !rows.find((x) => x.district === r.district)?.candidates.includes(r.quote));
+// Match by district AND state. Wilcox County exists in both Georgia and Alabama, and matching on the
+// name alone compared Alabama's quote against Georgia's sentences. That is the same identity problem
+// that cost 34 districts earlier today -- a district name is not unique in the United States -- and the
+// assertion caught it here rather than a reviewer catching it later.
+const rowFor = (r) => rows.find((x) => x.district === r.district && (x._state ?? null) === (r._state ?? null))
+                   ?? rows.find((x) => x.district === r.district);
+const bad = out.filter((r) => r.quote && !rowFor(r)?.candidates.includes(r.quote));
 if (bad.length) { console.error(`${bad.length} quotes are not verbatim candidates -- refusing to write`); process.exit(1); }
 
 writeFileSync(OUT, JSON.stringify(out, null, 1));

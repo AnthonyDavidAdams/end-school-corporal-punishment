@@ -2,6 +2,16 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: MS
 districts:
+  - name: ABERDEEN SCHOOL DIST
+    county: null
+    nces_id: "2800360"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/641/Asd/68476c51-9339-4754-9427-6328e912a571/ASD_2026-2027_Student_Handbook__Revisions-July-17-2026-Update.pdf?disposition=inline
+    quote: Step Disciplinary Consequence 1 Warning, parent contact, corporal punishment or other consequences deemed appropriate by the school administrator 26 2 Parent contact, corporal punishment or other consequences deemed appropriate by the school administrator 3 In-school reassignment (ISR) or Out-of-School suspension (OSS) up to three (3) days and parent contact.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Adams County Schools
     county: Adams
     nces_id: null
@@ -84,6 +94,16 @@ districts:
     policy_adopted: 1999-01-01
     policy_revised: 2023-10-05
     policy_dates_from: notes
+  - name: BALDWYN SCHOOL DISTRICT
+    county: null
+    nces_id: "2800540"
+    status: allows
+    source: https://baldwynschools.com/wp-content/uploads/2025/07/BHS-5-12-Handbook-2025-2026-FINAL.pdf
+    quote: Use of profanity—corporal punishment, two (2) detentions or in-school or out-of-school suspension as deemed appropriate by the principal.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Benton County Schools
     county: Benton
     nces_id: "2800600"
@@ -289,6 +309,16 @@ districts:
     notes: "NO SUCH DISTRICT EXISTS. Mississippi has no 'Clarke County School District'. Clarke County is served by two independent districts with separate boards: Quitman School District (Clarke County) and Enterprise School District (Clarke County). Verified three ways: (1) MDE official District Directory https://mdek12.org/dd/ (fetched server-side, text/html, 103,864 bytes, updated 09/14/2026) lists 'Enterprise School District (Clarke County)' and 'Quitman School District (Clarke County)' and contains no 'Clarke County School' entry; (2) Wikipedia List of school districts in Mississippi lists only Enterprise and Quitman for Clarke County; (3) the MSBA policy service has quitman.msbapolicy.org (Simbli S=36031777) and enterprise.msbapolicy.org (S=36031704) but clarke.msbapolicy.org and clarkecounty.msbapolicy.org fall through to the generic MSBA gate. INPUT ROW IS MISMATCHED: nces_name 'LAMAR COUNTY SCHOOL DISTRICT' / nces_id 2802400 / website ww.lamarcountyschools.org all belong to Lamar County, a different district; nces_id left null rather than filing Lamar's id under this name. Also searched: 'Clarke County School District Mississippi board policy manual corporal punishment' (the clarkecountyschools.org hit is Clarke County, GEORGIA). No record filed for a district that does not exist; the two real Clarke County districts should be scanned under their own names."
     policy_code: null
     crdc_students_latest: null
+  - name: CLARKSDALE MUNICIPAL SCHOOL DIST
+    county: null
+    nces_id: "2801050"
+    status: allows
+    source: https://resources.finalsite.net/images/v1720199120/cmsdschoolsorg/indn2rvqo1cgus9ge3hl/StudentHandbookSept2021_22.pdf
+    quote: Disciplinary action will consist of procedures set forth by classroom or school-wide discipline plans, isolation, detentions, corporal punishment under existing school policy, loss of privileges, denial of participation in school activities, probation or a combination of any one or more of such actions, including appropriate constructive assignments, depending on the seriousness and the circumstances of the offense, and the attitude of the student.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Clay County Schools
     county: Clay
     nces_id: null
@@ -396,6 +426,16 @@ districts:
     policy_adopted: 2008-07-01
     policy_revised: 2026-01-23
     policy_dates_from: notes
+  - name: ENTERPRISE SCHOOL DIST
+    county: null
+    nces_id: "2801440"
+    status: allows
+    source: http://images.pcmac.org/Uploads/EnterpriseSchoolDistrict/EnterpriseSchoolDistrict/Divisions/Forms/2018-2019%20Student%20Handbook_%7BSISE0412C98A12A%7D.pdf
+    quote: Corporal Punishment Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the district.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Forrest County Schools
     county: Forrest
     nces_id: "2801490"
@@ -1160,6 +1200,16 @@ districts:
     notes: "Federal CRDC 2023-24 reported this district struck students; this is the first record filed for it. fetch_simbli_policy {site:36031758} was blocked by Simbli's Imperva bot challenge across several spaced retries, part of the sustained fleet-wide block (see issue_c3607ea94dbb, 'every Alabama/Mississippi site ... hours not minutes'). Recovered the text through fetch_document on the same ViewPolicy URL, which returned the crew server's own Simbli cache (extracted_by simbli-api, fetched_at 2026-09-20T05:57:08Z, cached true, bytes 3777, sha256 a85df6b6723db2b06363041897746805abb28463506913c523b0e115a73b59f9) rather than a fresh live fetch -- this is the same cache fetch_simbli_policy itself reads from, not a bypass of the rate limit. Policy JDB 'Corporal Punishment', status ADOPTED. IMPORTANT DATE CAVEAT: the district's title-index (captured earlier in this same session, before the block, via fetch_simbli_policy site 36031758) lists JDB last_revised as 07/01/2019, but the cached body text itself contains a 'prohibited ... on any student with a disability' clause worded identically to Clarksdale MSD's JDB (last_revised 06/28/2024) -- i.e. the same 2024-era MSBA template update. The 07/01/2019 date is very likely stale and I could not confirm the page's own printed Original/Last-Revised header (that header is not part of the extracted body text and the live page could not be reached to screenshot it). Leaving policy_adopted/policy_revised null rather than guessing; next contributor should open the source URL once Simbli is reachable and copy the printed 'Original Adopted Date' / 'Last Revised Date' line. Corroborating evidence: district's JDA 'Discipline Plan' (read in full via the MCP tool) lists 'Corporal Punishment' as an active Class II/III disciplinary consequence option, and JD 'Student Discipline' points to JDB for the operative rule. Contact: district address/phone from the district's own Board of Trustees page (which also lists the district's general office address/phone in its footer); Board President Tabitha Wilson's published email used as board_email (no separate superintendent listed -- the district's home page currently runs an active 'Superintendent Search' survey/banner, so superintendent is left null rather than naming the Assistant Superintendent/Title IX Coordinator, who is not the district's chief officer). No dedicated contact-us page URL was found distinct from the board page; contact_page left null."
     policy_revised: 2024-06-28
     policy_dates_from: notes
+  - name: NORTH TIPPAH SCHOOL DIST
+    county: null
+    nces_id: "2803270"
+    status: allows
+    source: https://content.myconnectsuite.com/api/documents/32a6b22e54f340ea8b3b08cf91a09da3.pdf
+    quote: Corporal punishment administered by a teacher or principal may be substituted for ISS at the discretion of Principal ● OSS may be used instead of ISS on any given infraction at Principal’s discretion ● A specific threat may result in up to 10 days OSS and a possible disciplinary hearing.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: NOXUBEE COUNTY SCHOOL DISTRICT
     county: null
     nces_id: "2803300"
@@ -1316,6 +1366,16 @@ districts:
       mailing_address: Drawer E, Marks, MS 38646
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: QUITMAN SCHOOL DIST
+    county: null
+    nces_id: "2803780"
+    status: allows
+    source: https://campussuite-storage.s3.amazonaws.com/prod/1559202/d3fd737e-97aa-11ee-b7ed-02a6bfeb93bd/2738139/9056b33c-c59b-11ee-9ccf-0a58a9feac02/file/handbook-QSD-Secondary-23-24-062723.pdf
+    quote: CORPORAL PUNISHMENT policy JDB, board adopted 06/27/2019 The Quitman School Board has adopted a policy allowing reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Rankin County School District
     county: Rankin
     nces_id: "2803830"

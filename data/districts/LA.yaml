@@ -2,32 +2,14 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: LA
 districts:
-  - name: Jefferson Parish Schools
-    county: Jefferson
+  - name: Bossier Parish Schools
+    county: Bossier
     nces_id: null
     status: unknown
     source: null
     quote: null
     last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: East Baton Rouge Parish
-    county: East Baton Rouge
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Orleans Parish Schools
-    county: Orleans
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: bans
+    legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Caddo Parish Schools
     county: Caddo
@@ -47,6 +29,42 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: East Baton Rouge Parish
+    county: East Baton Rouge
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Jefferson Parish Schools
+    county: Jefferson
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Lafayette Parish Schools
+    county: Lafayette
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Orleans Parish Schools
+    county: Orleans
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Ouachita Parish Schools
     county: Ouachita
     nces_id: null
@@ -65,15 +83,16 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Bossier Parish Schools
-    county: Bossier
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Sabine Parish
+    county: null
+    nces_id: "2201380"
+    status: consent_required
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3043/SPSD/4684163/SPSB_District_Student_Handbook_24-25.pdf
+    quote: 100 CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Tangipahoa Parish Schools
     county: Tangipahoa
     nces_id: null
@@ -83,12 +102,23 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Lafayette Parish Schools
-    county: Lafayette
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Union Parish
+    county: null
+    nces_id: "2201770"
+    status: allows
+    source: https://unionparishschools.org/docs/UPSDhandbook1516.pdf
+    quote: Corporal punishment should be used only after other methods of seeking the student’s cooperation in developing self- discipline have failed or as an alternative to suspension.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: Webster Parish
+    county: null
+    nces_id: "2201890"
+    status: allows
+    source: https://s3.amazonaws.com/scschoolfiles/1236/handbook20212022-high_school_handbook.pdf
+    quote: CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.

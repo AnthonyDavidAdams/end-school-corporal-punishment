@@ -770,6 +770,38 @@ writeFileSync(join(site, "live", "index.html"), shell({
 </div>`
 }));
 
+// ---------- shareable install links ----------
+// One short address per client, so a link pasted into a message previews as this project rather than
+// as a wall of query parameters. A social crawler does not follow a redirect and would show nothing at
+// all for claude.ai's install URL, so each of these is a real page carrying its own card, which then
+// sends a person on. The parameters are built from MCP_URL like everywhere else.
+{
+  const targets = [
+    { slug: "claude", name: "Claude", url: INSTALL.claude,
+      blurb: "Opens Claude's add-connector dialog with the address filled in. You confirm it; nothing installs itself." },
+    { slug: "cursor", name: "Cursor", url: INSTALL.cursor, blurb: "Opens Cursor and offers to add the server." },
+    { slug: "vscode", name: "VS Code", url: INSTALL.vscode, blurb: "Opens VS Code and offers to add the server." },
+  ];
+  for (const t of targets) {
+    mkdirSync(join(site, "add", t.slug), { recursive: true });
+    writeFileSync(join(site, "add", t.slug, "index.html"), shell({
+      title: `Add the corporal punishment crew to ${t.name}`,
+      path: `/add/${t.slug}/`,
+      description: `${n(toll.record.unchecked_districts)} US school districts told the federal government they struck a child and nobody has read their policy. Point your agent at the record and it takes the next one.`,
+      image: `${BASE}/assets/og-image.png`,
+      extraHead: `<meta http-equiv="refresh" content="3;url=${esc(t.url)}">`,
+      body: `<section class="hero"><div class="wrap"><h1>Adding to ${esc(t.name)}&hellip;</h1>
+<p class="lede">${esc(t.blurb)}</p></div></section>
+<p style="text-align:center;margin:2rem 0"><a class="install claude" href="${esc(t.url)}" rel="noopener">Open ${esc(t.name)} now</a></p>
+<p class="meta" style="text-align:center">Not redirecting? <a href="${esc(t.url)}" rel="noopener">Use this link</a>, or add the address by hand from <a href="/kids/connect/">the connect page</a>.</p>
+<div class="copywrap"><pre class="cmd"><code>${esc(MCP_URL)}</code></pre><button class="copybtn" type="button">Copy</button></div>
+<script>setTimeout(function(){location.replace(${JSON.stringify(t.url)})},1200)</script>
+<script>document.addEventListener("click",function(e){var b=e.target.closest(".copybtn");if(!b)return;var c=b.previousElementSibling;navigator.clipboard.writeText(c.innerText).then(function(){var x=b.innerText;b.innerText="Copied";setTimeout(function(){b.innerText=x},1500)})});</script>`
+    }));
+  }
+  console.log(`install redirects: ${targets.map((t) => `/add/${t.slug}/`).join(" ")}`);
+}
+
 // ---------- connect your agent ----------
 // One URL to say out loud in a meeting. The per-client procedures come from mcp/README.md so they
 // cannot drift from the copy a developer reads in the repository.
@@ -786,9 +818,9 @@ mkdirSync(join(site, "connect"), { recursive: true });
     body: `<section class="hero"><div class="wrap"><h1>Connect your agent</h1>
 <p class="lede">One address. No account, no key, no waiting to be approved. Whatever you connect with, the first thing to ask it is <code>get_started</code> &mdash; it returns the contract and the exact first calls.</p></div></section>
 <div class="installrow">
-  <a class="install claude" href="${INSTALL.claude}" rel="noopener">Add to Claude</a>
-  <a class="install" href="${INSTALL.cursor}" rel="noopener">Add to Cursor</a>
-  <a class="install" href="${INSTALL.vscode}" rel="noopener">Add to VS Code</a>
+  <a class="install claude" href="/kids/add/claude/">Add to Claude</a>
+  <a class="install" href="/kids/add/cursor/">Add to Cursor</a>
+  <a class="install" href="/kids/add/vscode/">Add to VS Code</a>
 </div>
 <p class="installnote">One click opens your client's own add-connector dialog with the name and address filled in. You still confirm it &mdash; nothing installs itself. ChatGPT has no install link yet, so paste the address:</p>
 <div class="copywrap"><pre class="cmd big"><code>${esc(MCP_URL)}</code></pre><button class="copybtn" type="button">Copy</button></div>
