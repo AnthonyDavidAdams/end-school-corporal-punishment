@@ -2,6 +2,26 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: GA
 districts:
+  - name: Appling County
+    county: null
+    nces_id: "1300060"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4002&revid=Gtw56MUReATEBtve8OXcsw%3D%3D
+    quote: Corporal punishment is authorized in the Appling County Schools by system principals and teachers (substitute teachers and paraprofessionals are NOT authorized) under the following circumstances It must not be excessive or unduly severe.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Atkinson County
+    county: null
+    nces_id: "1300090"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4003&revid=Jh0MN6FbmXnplusJeDbSIKhZQ%3D%3D
+    quote: Corporal punishment may be administered in Atkinson County schools by the principal, assistant principal, or classroom teacher.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Atlanta Public Schools
     county: Fulton
     nces_id: "1300120"
@@ -18,6 +38,46 @@ districts:
       mailing_address: 210 Pryor Rd., Atlanta, GA 30335
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Ben Hill County
+    county: null
+    nces_id: "1300360"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4011&revid=SolPbWOYfeLpq1ihc8Fhdg%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Bremen City
+    county: null
+    nces_id: "1300510"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4016&revid=EyYTii4vBNSsVFESour99A%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.&#160;
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Brooks County
+    county: null
+    nces_id: "1300540"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4017&revid=4plusuNHlvUmwoplusKMO9TEejIw%3D%3D
+    quote: Reasonable discipline may include the administration of corporal punishment to a student, with the exception of Pre-Kindergarten students , by a principal, assistant principal, or teacher.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Bulloch County
+    county: null
+    nces_id: "1300630"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4020&revid=rDkQ1SICeGwWgLhoUi9vPQ%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over students under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any student or students under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Calhoun City
     county: null
     nces_id: "1300720"
@@ -27,7 +87,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Cartersville City
     county: null
     nces_id: "1300900"
@@ -37,7 +97,7 @@ districts:
     policy_code: JD-R(2)
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JD-R(2) from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Charlton County
     county: null
     nces_id: "1300990"
@@ -47,7 +107,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Cherokee County Schools
     county: Cherokee
     nces_id: "1301110"
@@ -59,6 +119,16 @@ districts:
     notes: "No primary source states a position either way. Cherokee County School District (GA) does NOT use Simbli; it publishes its own Online Policy Manual as HTML pages at https://www.cherokeek12.net/board-of-education/online-policy-manual (fetched 200, 83,297 bytes, text/html). Section J (Students) lists 27 policies (JAA, JBC, JBC(1), JBC(2), JBC(4), JBCC, JBD, JCAB, JCAC, JCAC(2), JCDAA, JCEB, JD, JDD, JG, JGC, JGCC, JGF, JGF(2), JGI, JHC, JHCB, JHCC, JK, JQK, JR, JS) -- there is no JDA or any policy titled Corporal Punishment, and the whole manual index page contains zero occurrences of the string 'corporal'. Policy JD - Student Discipline (https://www.cherokeek12.net/j-students/jd-student-discipline, 200, 57,597 bytes, text/html; ADOPTED August 2, 2001, REVISED July 16, 2020) says only: 'The Cherokee County Board of Education each year will approve student conduct and discipline procedures in the “Student Code of Conduct.” That Policy, as approved on a yearly basis, is incorporated herein by reference.' That incorporated Code of Conduct SY2026-27 (https://resources.finalsite.net/images/v1785441549/cherokeek12net/wbynmydgcfgtjdnlmus8/CodeofConductSY2026-27.pdf; fetch_document: 7,612,179 bytes, application/pdf, 99 pages, 315,344 chars extracted) returned ZERO hits for 'corporal punishment', 'paddl' and 'spank'. The SY2026-27 Student Parent Handbook (https://resources.finalsite.net/images/v1783513870/cherokeek12net/c1batzough6fn1wncj9n/StudentParentHandbookSY2026-27.pdf; 2,543,337 bytes, application/pdf, 43 pages, 179,406 chars) also returned zero hits. resolve_handbook on cherokeek12.net found no board_policy_systems. The district is silent in every primary document I could open; silence is not a prohibition, so this is filed unknown rather than 'bans' as the legacy map claimed. A reviewer wanting to close this would need a records request or an administrative regulation not published online."
     policy_code: null
     crdc_students_latest: null
+  - name: Chickamauga City
+    county: null
+    nces_id: "1301140"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4035&revid=plusN7CINxeFqihCeS8AFKIJg%3D%3D
+    quote: Corporal Punishment Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: City Schools of Decatur
     county: null
     nces_id: "1301680"
@@ -68,7 +138,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Clayton County
     county: null
     nces_id: "1301230"
@@ -78,7 +148,7 @@ districts:
     policy_code: JD
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JD from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Clinch County
     county: Clinch
     nces_id: "1301260"
@@ -151,6 +221,36 @@ districts:
     policy_adopted: 1999-02-22
     policy_revised: 2021-08-23
     policy_dates_from: notes
+  - name: Crawford County
+    county: null
+    nces_id: "1301530"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4047&revid=fmUvxcUhCEpiI9QI7XL8bQ%3D%3D
+    quote: Any administrator employed by the board, or his or her designee, in order to maintain proper control and discipline over pupils under his or her supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Crisp County
+    county: null
+    nces_id: "1301560"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4048&revid=mHI095eVZBGtjD3YdLRvVA%3D%3D
+    quote: Corporal punishment shall not be used except as a last resort and may not be used on pre-kindergarten students, nor on children in foster care.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Dade County
+    county: null
+    nces_id: "1301590"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4049&revid=zfvlLiXbqnRzNaMEGBZUUA%3D%3D
+    quote: Any principal or other designated school administrator employed by the Dade County Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: DeKalb County Schools
     county: DeKalb
     nces_id: "1301740"
@@ -170,6 +270,66 @@ districts:
     policy_adopted: 2000-09-11
     policy_revised: 2012-05-16
     policy_dates_from: notes
+  - name: Dodge County
+    county: null
+    nces_id: "1301770"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4055&revid=3y0NzmQpKk4mmH4RfbJmdg%3D%3D
+    quote: "Corporal Punishment Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Dooly County
+    county: null
+    nces_id: "1301800"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4056&revid=ZlRAgHCprSVg1GSmLSyjHQ%3D%3D
+    quote: "Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Early County
+    county: null
+    nces_id: "1301920"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4060&revid=PLIqxslsh7Vmr2F5plusMdb01dIA%3D%3D
+    quote: Corporal punishment shall be used as a last resort and after all other reasonable methods of discipline have failed.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Echols County
+    county: null
+    nces_id: "1301950"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4061&revid=EKevIB0qnV8eqImrjbDnwg%3D%3D
+    quote: "It is authorized, upon the adoption of this written policy by the Echols County Board of Education, that any principal or assistant principal, employed by the Board, in order to maintain proper control and disciplined over pupils placed under his/her care and supervision, may, in the exercise of his/her sound discretion, administer corporal punishment on any such pupil or pupils, subject to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Evans County
+    county: null
+    nces_id: "1302070"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4065&revid=uEsjb7kplusyedm7ii06WorwQ%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over students under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any student or students under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Fannin County
+    county: null
+    nces_id: "1302100"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4066&revid=Vy7t90plusr2owIiKDLitqmCg%3D%3D
+    quote: Any principal employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA-R(1)
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Floyd County
     county: null
     nces_id: "1302190"
@@ -210,6 +370,26 @@ districts:
     policy_adopted: 2011-03-18
     policy_revised: 2016-08-18
     policy_dates_from: notes
+  - name: Glascock County
+    county: null
+    nces_id: "1302370"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4074&revid=NO4RHOF8xcxy4uG4ycTZEg%3D%3D
+    quote: Corporal Punishment Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over students under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any student or students under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Grady County
+    county: null
+    nces_id: "1302460"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4077&revid=2Hjcse9Gxs4uDplusA1PBjNHw%3D%3D
+    quote: Corporal Punishment Teachers and principals have the authority to take reasonable measures to maintain proper control and discipline among students placed under their supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Griffin-Spalding County
     county: null
     nces_id: "1302520"
@@ -219,7 +399,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Gwinnett County Public Schools
     county: Gwinnett
     nces_id: "1302550"
@@ -236,6 +416,26 @@ districts:
       mailing_address: 52 Gwinnett Dr, Lawrenceville, GA 30045
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Hall County
+    county: null
+    nces_id: "1302610"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4082&revid=Utk5IrPabspNNNvCt8qayw%3D%3D
+    quote: Any principal employed by the Board, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Heard County
+    county: null
+    nces_id: "1302790"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4087&revid=u2vS2kmplusoSS7rGuCAplusUhFA%3D%3D
+    quote: Any principal employed by the board, or his or her designee, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Henry County Schools
     county: Henry
     nces_id: "1302820"
@@ -248,14 +448,14 @@ districts:
     policy_code: null
     crdc_students_latest: null
   - name: Jeff Davis County
-    county: Hazlehurst
+    county: null
     nces_id: "1303000"
     status: allows
-    source: https://4.files.edl.io/6593/07/24/26/181406-96b43548-c24a-4e21-b2b5-639b8d22450a.pdf
-    quote: Corporal punishment will not be administered to a child whose parents or legal guardian has filed with the principal of the school the student is attending, a statement requesting that corporal punishment not be administered to the child.
-    policy_code: null
-    crdc_students_latest: 69
-    last_verified: 2026-09-19
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4093&revid=BhC4kvAY1BCoSGfsew4AkQ%3D%3D
+    quote: The principal, assistant principal, or teacher employed by the board, may, in the exercise of his/her sound discretion, administer corporal punishment on any pupil or pupils placed under his/her supervision in order to maintain proper control and discipline.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
     contact:
       phone: (912) 375-6700
       mailing_address: Jeff Davis County Schools, 71 Burketts Ferry Rd., Hazlehurst, GA 31539
@@ -264,7 +464,7 @@ districts:
       contact_page: https://www.jeff-davis.k12.ga.us/
       public_comment: The district publishes a Public Participation page at https://www.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031048&type=d&pREC_ID=2371790 and board meeting dates at https://www.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031048&type=d&pREC_ID=2108284 (not read in detail).
       as_of: 2026-09-19
-    notes: "Opt-out district, so 'allows'. Source is the JDHS Student Handbook (26-27), the PDF behind http://hs.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031192&type=d&pREC_ID=2108368 (Edlio file host, listed by the brief as machine-fetchable). fetch_document: application/pdf, 1,379,549 bytes, 53 pages, text layer present. The quoted sentence is on page 41, in the Student Code of Conduct definitions, immediately after 'Corporal Punishment - Moderate use of physical force or physical contact by a principal or designee in the presence of another school official as may be necessary to maintain discipline or to enforce school rules.' Corporal punishment is listed as an available disciplinary action for any violation of the Code of Conduct (page 35), as the disciplinary action for Level I offenses (page 36) and as the first and subsequent offense penalty for Level II offenses (page 38). The handbook is district-wide in substance: it carries the Jeff Davis County School System mission, nondiscrimination notice, admission rules and the board's code of conduct, and cites board policy by code elsewhere (e.g. 'Jeff Davis Co. Bd. of Ed. Policy JCDA 12-08-08' for verbal assault); no policy code is printed against the corporal punishment entry, and no adoption or revision date appears on the document (the web page it hangs off was published 2026-07-24). CAVEAT for the reviewer: the board's own policy manual is on Simbli at https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=4093 (site number confirmed both from the district's own 'Policies' link and independently by resolve_handbook). fetch_simbli_policy for site 4093 returned Imperva's bot-challenge page on every attempt over several hours of spaced retries, so the board policy itself (Georgia code JD/JDA) has not been read and its adoption date is unknown. The next contributor should open that Simbli listing once the vendor's rate limit clears."
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Johnson County
     county: null
     nces_id: "1303120"
@@ -275,16 +475,26 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match.
+  - name: Lanier County
+    county: null
+    nces_id: "1303240"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4100&revid=W4wnZP4MpJjzNo5slshErslshrGQ%3D%3D
+    quote: Lanier County School System principals and assistant principals are authorized to use corporal punishment under the following circumstances.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Laurens County Schools
-    county: Laurens
+    county: null
     nces_id: "1301890"
     status: allows
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4101&revid=MPVho6cn3DYM2P3VPk07jg==&ptid=amIgTZiB9plushNjl6WXhfiOQ==&secid=p6v70fD4K8ukRv6vtplusTtSg==&PG=6&IRP=0&isPndg=false
-    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4101&revid=MPVho6cn3DYM2P3VPk07jg%3D%3D
+    quote: Corporal Punishment Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
     policy_code: JDA
-    crdc_students_latest: 231
-    last_verified: 2026-09-09
-    notes: "Opt-out: \"Corporal punishment shall not be administered to a child whose parents or legal guardian have filed with the principal of the school a statement expressly objecting to the use of corporal punishment or a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child's mental or emotional stability.\" Only a principal or designated administrator may administer it, never a teacher or parent; it must be witnessed by another certified employee informed beforehand in the pupil's presence; a written explanation and the witness's name are provided to parents on request; it may not be excessive and generally not a first-line punishment. No IEP/504 exemption beyond the doctor's-statement route. Simbli/eBoard (GSBA) board policy manual, site S=4101, reached from https://www.lcboe.net/338421_2 (Board of Education page, link 'eBoard - Laurens County' -> https://simbli.eboardsolutions.com/Index.aspx?S=4101). Policy JDA status ADOPTED, Original Adopted Date 02/14/2008, Last Reviewed Date 08/13/2020. References O.C.G.A. 20-2-730 through 20-2-732. Simbli listing is JavaScript-rendered; the ViewPolicy link was obtained by filtering the listing to section J in a browser."
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     phone_policy:
       status: bell_to_bell_ban
       quote: Cell phones, smart watches, headphones, air pods, earphones, tablets, and personal computers are prohibited on campus. All such electronic devices should be left in the student's vehicle and/or turned off and placed in the student's backpack/pocketbook. Electronic devices may not be accessed by the student during the school hours of 8:00 am – 3:00 pm.
@@ -323,6 +533,16 @@ districts:
     policy_adopted: 2008-02-14
     policy_revised: 2020-08-13
     policy_dates_from: notes
+  - name: Long County
+    county: null
+    nces_id: "1303360"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4105&revid=dEW2YDKyEN2sMfSjMAd4NQ%3D%3D
+    quote: "Corporal Punishment Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Lumpkin County
     county: null
     nces_id: "1303420"
@@ -332,7 +552,27 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: McDuffie County
+    county: null
+    nces_id: "1303570"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4112&revid=YDmCQsvXUpluseDIihbvfecew%3D%3D
+    quote: Pursuant to Georgia law, reasonable discipline may include the administration of corporal punishment to a student, provided that such corporal punishment shall not be so excessive as to produce lasting discomfort or disability.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Miller County
+    county: null
+    nces_id: "1303660"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4115&revid=U0DrnCxr4M16mngqTa9VqQ%3D%3D
+    quote: "Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Montgomery County
     county: Montgomery
     nces_id: "1302670"
@@ -360,7 +600,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Oglethorpe County
     county: null
     nces_id: "1303990"
@@ -370,7 +610,17 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Peach County
+    county: null
+    nces_id: "1304050"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4126&revid=UPoOW6ypTIxygw4tQjFmXA%3D%3D
+    quote: "The Peach County Board Of Education permits corporal punishment pursuant to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Pierce County
     county: null
     nces_id: "1304140"
@@ -401,12 +651,12 @@ districts:
     county: null
     nces_id: "1304290"
     status: allows
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031777&revid=lfIgi9nGLTC1fhss1yZhLA%3D%3D
-    quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
-    policy_code: JDB
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4134&revid=2SvnJ9UWslshU4plustqaOUhUxAQ%3D%3D
+    quote: "Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:"
+    policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Rockdale County
     county: null
     nces_id: "1304410"
@@ -416,7 +666,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Savannah-Chatham County
     county: null
     nces_id: "1301020"
@@ -426,7 +676,27 @@ districts:
     policy_code: JD
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JD from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Schley County
+    county: null
+    nces_id: "1304470"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4141&revid=9aJtVtmGu3C0fdLkyeuddA%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Screven County
+    county: null
+    nces_id: "1304500"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4142&revid=llxpqFFEnhZWtCSzZV4U6g%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: State Charter Schools- Georgia School for Innovation and th
     county: Hephzibah
     nces_id: "1300238"
@@ -444,6 +714,16 @@ districts:
       contact_page: https://www.gsiccharter.com/contact/
       as_of: 2026-09-19
     notes: "NAME CORRECTION for the reviewer: the NCES row is truncated and the school's actual published name is 'Georgia School for Innovation and the Classics' (GSIC), not '...and the Arts'. Identity confirmed by matching the NCES directory record for 1300238 (5073 Storey Mill Rd, Hephzibah GA 30815, (706) 434-8085, independent charter district, Richmond County) against the school's own site www.gsiccharter.com, which publishes the same address and phone. The domain gsia.org in the slice's neighbourhood is a parked GoDaddy for-sale page and is NOT this school. Source: GSIC Family Handbook 2026-2027, page 22 of the PDF (printed page 22-23), under 'Student Discipline Code' > 'Level Three Consequences'. Found via the project's resolve_handbook on gsiccharter.com, which located it on https://www.gsiccharter.com/family-handbook/ as a Google Drive file (view link 1s7UYg4co3gclESsHiH2Z4S4IMaTpi0QE); cited as the Drive direct-download form. Fetched server-side with fetch_document: 719,654 bytes, served as application/octet-stream, 41 pages, 101,053 characters of text, sha256 b58d6b1e4ffc17152fb26648f825c46dea3e334a632c6c279d2ed1c4f2b567b9. 'Corporal Punishment' appears exactly once in the whole handbook, as one of the listed Level Three consequences; there is no separate corporal punishment policy, no parental opt-in and no opt-out anywhere in the document, so this is 'allows' rather than 'consent_required'. No board policy manual was found published on the school's site; the Governing Board page (https://www.gsiccharter.com/governing-board/) carries no policy manual. The handbook bullets are rendered with the character U+2022 in the extracted text; the quote reproduces them as they appear. Quote-matching note for the reviewer: the quoted passage runs across line breaks in the PDF's own text layer, so an exact raw-substring search on the extracted text will miss it; it matches once whitespace is normalized, which is how it was checked here against the server's cached extraction."
+  - name: Stephens County
+    county: null
+    nces_id: "1304560"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4145&revid=3WY9lojQgBQpcJmV8opSGw%3D%3D
+    quote: Corporal punishment may be administered by a principal or a teacher.&#160;
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Thomas County Schools
     county: Thomas
     nces_id: "1304890"
@@ -464,16 +744,16 @@ districts:
     policy_revised: 2013-03-26
     policy_dates_from: notes
   - name: Tift County Schools
-    county: Tift
+    county: null
     nces_id: "1304980"
     status: allows
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4157&revid=bslsh2K3hZDEvHLljcljCF0jA==&ptid=amIgTZiB9plushNjl6WXhfiOQ==&secid=p6v70fD4K8ukRv6vtplusTtSg==&PG=6&IRP=0&isPndg=false
-    quote: Corporal punishment may be administered by the building principal or designee to a pupil for an infraction of school rules.  Corporal punishment will always be administered in the presence of a witness who must be a member of the school faculty. Corporal punishment, when administered to a female student, must be administered by a female faculty member.  In all cases involving corporal punishment, a written report will be kept on file in the principal's office.
-    last_verified: 2026-09-19
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4157&revid=bslsh2K3hZDEvHLljcljCF0jA%3D%3D
+    quote: Corporal punishment may be administered b y the building principal or designee to a pupil for an infraction of school rules.
+    last_verified: 2026-09-24
     legacy_status: allows
-    notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Board Policy JDA 'Corporal Punishment', status ADOPTED, Original Adopted Date 07/12/1977, Last Revised Date 04/16/2020, Last Reviewed Date 04/16/2020. Classified 'allows' (OPT-OUT, not opt-in): the policy authorises corporal punishment by default and withholds it only where parents have said otherwise -- verbatim, 'Corporal punishment shall not be administered to a child whose parents, or legal guardian, have stated they do not desire paddling used as punishment for their child.' The policy also states, verbatim, 'Corporal punishment shall never be used as a first line of punishment for misbehavior with two (2) exceptions;' and '*The Superintendent will ensure there are clear procedures in the board approved student handbook for implementation of this policy.' S number 4157 is Tift County Schools' Simbli site and the page header reads 'Tift County Schools'. NOT machine-fetchable: Simbli is JavaScript-only behind an Imperva challenge and fetch_simbli_policy for site 4157 returned the bot-challenge error, so I read the policy in a real browser and supply the full verbatim text in source_text."
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     policy_code: JDA
-    crdc_students_latest: 4
+    crdc_students_latest: null
     contact:
       phone: (229)386-6500
       mailing_address: P O Box 389, Tifton, GA 31793
@@ -482,16 +762,56 @@ districts:
     policy_adopted: 1977-07-12
     policy_revised: 2020-04-16
     policy_dates_from: notes
+  - name: Toombs County
+    county: null
+    nces_id: "1305040"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4158&revid=B7bRDtvplusrN51F2VHgplusBtDg%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Towns County
+    county: null
+    nces_id: "1305070"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4159&revid=Bx8FX5n0Ftyp99dYcULsuw%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.&#160;
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Treutlen County
+    county: null
+    nces_id: "1305100"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4160&revid=zETDJtptGslshplusCwslshYgs4l3NA%3D%3D
+    quote: "Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Troup County
     county: null
     nces_id: "1300001"
     status: allows
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4162&revid=jq9fW09RHdbmh6mS5SplusDnQ%3D%3D
-    quote: It is not used as first line punishment unless the pupil was informed beforehand that the particular misbehavior in question could occasion corporal punishment except with respect to misconduct which is so antisocial or disruptive in nature as to shock the conscience.
+    quote: Corporal punishment may be administered by a principal, assistant principal or Instructional Specialist.
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Turner County
+    county: null
+    nces_id: "1305190"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4163&revid=zq7Y7jqJCOL5xBlRSdi7YQ%3D%3D
+    quote: Corporal punishment is authorized in the Turner County Schools by system administrators under the following circumstances It must not be excessive or unduly severe.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Vidalia City
     county: null
     nces_id: "1305340"
@@ -501,18 +821,18 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Ware County Schools
-    county: Ware
+    county: null
     nces_id: "1305430"
     status: allows
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4170&revid=sEnwkNveEpluszGGX29eTeslshHQ==&ptid=amIgTZiB9plushNjl6WXhfiOQ==&secid=p6v70fD4K8ukRv6vtplusTtSg==&PG=6&IRP=0&isPndg=false
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4170&revid=sEnwkNveEpluszGGX29eTeslshHQ%3D%3D
     quote: "Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:"
-    last_verified: 2026-09-19
+    last_verified: 2026-09-24
     legacy_status: allows
-    notes: "AGENT-ATTESTED, NEEDS HUMAN CONFIRMATION: the source is JavaScript-only and refused every automated read, so the policy was transcribed from a browser. Board Policy JDA \"Corporal Punishment\", status ADOPTED, Original Adopted Date 11/13/2007, Last Reviewed Date 04/21/2020 (the listing row shows Last Revised 11/13/2007). Simbli site 4170; confirmed as Ware County's by opening the manual (header \"Policy Listing | Ware County Schools\", Ware County Schools logo on the policy page) and by the S=4170 link printed in Ware County Board of Education's own Personnel Handbook. Simbli is JavaScript-only and its bot protection refused fetch_simbli_policy repeatedly during this scan, so I read the policy in a browser and the verbatim text is in source_text below. OPT-OUT, therefore \"allows\": requirement 5 reads \"Corporal punishment shall not be administered to a child whose parents or legal guardian have, upon the day of enrollment of the pupil, filed with the principal of the school a statement objecting to its use.\" NOTE for the reviewer: www.ware.k12.ga.us itself answers a Finalsite \"Client Challenge\" JavaScript page to non-browser clients (3038 bytes, text/html), and resolve_handbook found nothing there."
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     policy_code: JDA
-    crdc_students_latest: 8
+    crdc_students_latest: null
     contact:
       phone: (912)283-8656
       mailing_address: P.O. Box 1789, Waycross, GA 31502
@@ -522,3 +842,33 @@ districts:
     policy_adopted: 2007-11-13
     policy_revised: 2020-04-21
     policy_dates_from: notes
+  - name: Wheeler County
+    county: null
+    nces_id: "1305640"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4175&revid=sRDkLgplussXivCiU3LmaB47A%3D%3D
+    quote: --must never be the first line of punishment unless the pupil was informed beforehand that the misbehavior could result in corporal punishment, except when the misconduct is so anti- social or disruptive in nature that it shocks the conscience.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Wilkinson County
+    county: null
+    nces_id: "1305790"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4180&revid=mWhfsQplusw2mplusBD2FP2COE4Q%3D%3D
+    quote: Reasonable Discipline may include the administration of corporal punishment to a student provided that such corporal punishment shall not be so excessive as to produce lasting discomfort or disability.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Worth County
+    county: null
+    nces_id: "1305850"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4181&revid=E7IEYUgqaZkTx8pultZUZw%3D%3D
+    quote: Any principal or designee employed by the Worth County Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."

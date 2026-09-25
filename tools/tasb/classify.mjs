@@ -92,9 +92,32 @@ async function worker() {
     const r = rows[cursor++];
     // Options are OUR strings, keyed by index. The model selects; it never composes.
     const options = Object.fromEntries(r.candidates.map((s, i) => [`s${i}`, s]));
+    // One noul per sentence rather than one choice among them.
+    //
+    // Measured against 48 findings a person reviewed: asking which SINGLE sentence is operative agreed
+    // with the reviewer 14.6% of the time, and its confidence predicted nothing -- the 0.90-0.95 band
+    // agreed 5%. The task was ill-posed. A policy carries several rule-bearing sentences: one grants
+    // the practice, another lets a parent opt out, another exempts students with disabilities. Abilene
+    // ISD's reviewer cited the opt-out clause and the model returned the permission clause, and both
+    // were right about what they said.
+    //
+    // Asking of each sentence "does this carry part of the rule?" recovers the reviewer's sentence
+    // 97.9% of the time, keeping a median of four of nine candidates, for eight thousandths of a cent.
+    const sentenceQuestions = {};
+    r.candidates.forEach((sent, i) => {
+      sentenceQuestions[`s${i}`] = {
+        type: "noul",
+        instructions: `Sentence from ${r.district}'s discipline policy:\n"${sent}"\n\nDoes this sentence carry part of the RULE about corporal punishment -- whether it may be used, on whom, or what a parent can do about it?`,
+        criteria: {
+          true: "It carries part of the rule: permission, prohibition, an exemption for some group, or a parent's say.",
+          false: "It is a definition of the term, or procedural detail -- who witnesses it, what instrument, what paperwork is filed.",
+        },
+      };
+    });
     const d = await decide(
       { district: `${r.district}, Texas`, policy_excerpt_sentences: options },
       {
+        ...sentenceQuestions,
         operative: {
           type: "choice",
           instructions: "Which ONE of these sentences from the district's own discipline policy STATES THE RULE about whether corporal punishment may be used in this district? Choose the sentence that grants, forbids or conditions its use. Do NOT choose a sentence that merely DEFINES what corporal punishment means, nor one describing how it is carried out, who must witness it, who may administer it, or what records are kept. A definition beginning \"Corporal punishment means...\" is never the rule.",
@@ -123,14 +146,20 @@ async function worker() {
     if (d?.error) { out.push({ ...r, error: d.error }); continue; }
     cost += d.usage?.cost ?? 0;
     const op = d.answers.operative, st = d.answers.status, pc = d.answers.parent_control;
+    // Every sentence that carries the rule, in the order it appears in the document, so a reader sees
+    // the permission and the exemption and the parent's say together rather than one of the three.
+    const cited = r.candidates.filter((_, i) => (d.answers[`s${i}`]?.noul ?? 0) >= 0.5);
     const quote = options[op.choice] ?? null;
-    const confident = st.confidence >= THRESHOLD && op.confidence >= QUOTE_THRESHOLD;
+    // Gate on the status, which is measured at 100% agreement above 0.99, and on having selected at
+    // least one rule-bearing sentence. The single-choice confidence is no longer a gate: it was
+    // measured to predict nothing, and holding 216 findings on it was holding them on noise.
+    const confident = st.confidence >= THRESHOLD && cited.length > 0;
     if (confident) recorded++; else held++;
     const from = r._by?.find((x) => x.text === quote);
     out.push({
       key: r.key, district: r.district, source: from?.url ?? r.url,
       ...(from?.code ? { policy_code: from.code } : {}),
-      status: st.choice, quote,
+      status: st.choice, quote: cited[0] ?? quote, quotes: cited,
       parent_control: pc ? (pc.choice === "not_stated" ? "unknown" : pc.choice) : null,
       parent_control_confidence: pc?.confidence ?? null,
       status_confidence: st.confidence, quote_confidence: op.confidence,

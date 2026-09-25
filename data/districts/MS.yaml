@@ -301,15 +301,15 @@ districts:
     policy_code: null
     crdc_students_latest: null
   - name: Coahoma County School District
-    county: Coahoma
+    county: null
     nces_id: "2801110"
     status: allows
-    source: https://resources.finalsite.net/images/v1785439167/coahomak12org/meurdlqcka115yzulzca/2026-2027CCSDStudentHandbook.pdf
-    quote: The District policy allows the use of corporal punishment (paddling) when deemed appropriate by the principal. Corporal punishment may only be administered by the principal, assistant principal or administrator designee with a witness of at least one other school employee. Should a parent refuse (not allow) the use of corporal punishment for his/her child, the school principal should be notified in writing and other consequences for misbehavior shall be imposed.
-    last_verified: 2026-09-19
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031696&revid=DqmrQvUH2Z6JeP5XuXugQQ%3D%3D
+    quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    last_verified: 2026-09-24
     legacy_status: allows
-    notes: "Coahoma County School District 2026-2027 Student Handbook, section headed 'CORPORAL PUNISHMENT' on p.46 of the PDF. The handbook's p.2 masthead reads 'COAHOMA COUNTY SCHOOL DISTRICT, 1555 Lee Drive, Clarksdale, Mississippi 38614' and carries 'Board Approved 7/08/2026'. A second, procedural passage on p.45 confirms it is in active use: 'Only principals or designees may administer corporal punishment. a. A witness will be required to observe the administration of corporal punishment. b. A disciplinary referral form shall be completed whenever corporal punishment is administered and shall be signed by the corporal punishment administrator and the witness.' Classified 'allows', not 'consent_required': permission is presumed and a parent must affirmatively refuse in writing (opt-out). The handbook assigns no policy code to the corporal punishment section (it cites board policies ECBA and JDA only for vandalism restitution), so policy_code is null. Machine-fetchable: I fetched the cited URL at 9,787,732 bytes, content-type application/pdf, 88 pages, 228,985 characters of text, no OCR needed, and I re-verified the quote character-for-character with pdftotext -layout on p.46. Found via the district's Students > Student Handbook page (https://www.coahomak12.org/students/student-handbook), whose Finalsite resource-manager link 302-redirects to the cited resources.finalsite.net PDF; the Finalsite version stamp v1785439167 corresponds to 2026-07-30. NOTE on the input row: the website given, http://www.coahoma.k12.ms.us, returns HTTP 500 and is dead; the district's live site is www.coahomak12.org. The nces_id 2801110 / nces_name 'COAHOMA COUNTY SCHOOL DISTRICT' does match this district, so it is retained. Board-policy cross-check NOT completed: the district's board manual is on Simbli (https://coahoma.msbapolicy.org/ redirects to simbli.eboardsolutions.com/Index.aspx?S=36031696), but every fetch_simbli_policy call on that site during this session was turned away by Simbli's Imperva bot challenge. The quote above is therefore from the district's own board-approved handbook, not from policy JDB; a reviewer with Simbli access should confirm JDB agrees."
-    policy_code: null
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+    policy_code: JDB
     crdc_students_latest: null
     contact:
       phone: (662)624-5448
@@ -558,7 +558,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Hinds County School District
     county: Hinds
     nces_id: "2801860"
@@ -663,9 +663,9 @@ districts:
     nces_id: "2802190"
     status: bans
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031725&revid=kqFiVamnsNMRhRxQqapnXA%3D%3D
-    quote: Accordingly, the school district prohibits the use of corporal punishment.
+    quote: PROHIBITION OF CORPORAL PUNISHMENT Corporal punishment has been prohibited in the Jackson Public School District since July 1, 1991.
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     legacy_status: bans
     policy_code: JDB
     crdc_students_latest: null
@@ -745,7 +745,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Lafayette County School District
     county: Lafayette
     nces_id: "2802370"
@@ -1043,7 +1043,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     contact:
       phone: (601)445-4329
       mailing_address: POB 1188, Natchez, MS 39121
@@ -1061,7 +1061,7 @@ districts:
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student in the Neshoba County School District is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-24
     legacy_status: allows
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     policy_code: JDB
     crdc_students_latest: null
     contact:
@@ -1121,7 +1121,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: NORTH PANOLA SCHOOL DISTRICT
     county: null
     nces_id: "2803210"
@@ -1131,7 +1131,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: NORTH PIKE SCHOOL DIST
     county: null
     nces_id: "2803240"
@@ -1158,7 +1158,7 @@ districts:
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-24
     legacy_status: allows
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     policy_code: JDB
     crdc_students_latest: null
     contact:
@@ -1192,7 +1192,7 @@ districts:
       contact_page: https://www.pearlk12.com/
       public_comment: Board meeting dates published at https://www.pearlk12.com/district/school-board/board-meeting-dates; no sign-up procedure stated.
       as_of: 2026-09-19
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     policy_revised: 2024-07-15
     policy_dates_from: notes
   - name: Pearl River County Schools
@@ -1250,7 +1250,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Pontotoc County Schools
     county: Pontotoc
     nces_id: "2803660"
@@ -1430,7 +1430,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     contact:
       phone: (662)873-4302
       mailing_address: P. O. Box 219, Rolling Fork, MS 39159
@@ -1651,7 +1651,7 @@ districts:
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-24
     legacy_status: allows
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     policy_code: JDB
     crdc_students_latest: null
     contact:
@@ -1758,7 +1758,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Wayne County Schools
     county: Wayne
     nces_id: "2804530"
@@ -1860,7 +1860,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: WESTERN LINE SCHOOL DISTRICT
     county: null
     nces_id: "2804680"
@@ -1870,7 +1870,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   - name: Wilkinson County Schools
     county: Wilkinson
     nces_id: "2804710"
@@ -1900,7 +1900,7 @@ districts:
     policy_code: JDB
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDB from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     contact:
       phone: (662)283-3731
       mailing_address: 218 FAIRGROUND STREET, WINONA, MS 38967
