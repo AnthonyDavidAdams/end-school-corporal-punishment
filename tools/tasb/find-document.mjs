@@ -25,6 +25,12 @@ const KEEP = Number(arg("keep", 0.6));
 async function search(q) {
   const r = await fetch(`https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(q)}&count=15&country=us`,
     { headers: { Accept: "application/json", "X-Subscription-Token": BRAVE }, signal: AbortSignal.timeout(30_000) });
+  // A quota or billing refusal is not "no results". Recorded as an empty search it silently marks a
+  // district as looked-at-and-empty when nothing ever looked, which is what happened to 99 of them.
+  if (r.status === 402 || r.status === 429) {
+    const body = await r.text().catch(() => "");
+    throw Object.assign(new Error(`Brave refused: ${r.status} ${body.slice(0, 160)}`), { fatal: true });
+  }
   if (!r.ok) throw new Error(`Brave ${r.status}`);
   const j = await r.json();
   return (j.web?.results ?? []).map((x) => ({ title: x.title, url: x.url, snippet: (x.description || "").slice(0, 220) }));
@@ -58,16 +64,39 @@ async function rank(district, state, results) {
 
 // Two queries: the handbook a parent would look for, and the policy a board would file. They surface
 // different documents, and for this question the second is usually the one that answers it.
-const QUERIES = (d, s) => [
-  `"${d}" ${s} student handbook code of conduct`,
-  `"${d}" ${s} board policy corporal punishment discipline`,
-];
+// Query sets, because the first pass taught what the second needs.
+//
+// Searching for a handbook finds handbooks, and 103 districts came back with one that never mentions
+// corporal punishment -- most student handbooks summarise conduct and leave this to a board policy.
+// So a second pass asks for the board policy by the words those documents actually use, and a third
+// asks for the practice itself, which sometimes surfaces the one page of a manual that carries it.
+const QUERY_SETS = {
+  handbook: (d, s) => [
+    `"${d}" ${s} student handbook code of conduct`,
+    `"${d}" ${s} board policy corporal punishment discipline`,
+  ],
+  policy: (d, s) => [
+    `"${d}" ${s} board policy manual corporal punishment`,
+    `"${d}" ${s} "corporal punishment" policy paddling`,
+  ],
+  practice: (d, s) => [
+    `"${d}" ${s} corporal punishment paddling students`,
+    `${d} ${s} school board policy JDB corporal punishment`,
+  ],
+};
+const QUERIES = (d, s) => (QUERY_SETS[arg("queries", "handbook")] ?? QUERY_SETS.handbook)(d, s);
 
 export async function findDocuments(district, state) {
   const seen = new Map();
   let cost = 0;
   for (const q of QUERIES(district, state)) {
-    let results; try { results = await search(q); } catch (e) { return { district, state, error: String(e.message), cost }; }
+    let results;
+    try { results = await search(q); }
+    catch (e) {
+      // Stop the whole run on a quota refusal rather than writing hundreds of false empties.
+      if (e.fatal) { console.error(`\n  ${e.message}\n  Stopping: every district after this would be recorded as searched-and-empty without being searched.`); process.exit(2); }
+      return { district, state, error: String(e.message), cost };
+    }
     if (!results.length) continue;
     const r = await rank(district, state, results);
     cost += r.cost;
