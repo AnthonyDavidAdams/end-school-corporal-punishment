@@ -566,6 +566,13 @@
               null
             ],
             "description": "What produced this record. vendor_model_policy: a state association's model policy the board adopted, read from the vendor (TASB) -- one of a handful of model sentences, so the board's choice is the finding. vendor_manual: the district's own manual on a policy vendor (Simbli, BoardDocs), read by code. searched_document: a handbook or policy located by search or site walk and machine-read. agent_via_crew: a contributor's frontier agent read it and submitted through the crew server, then the deterministic verifier and a review. None of these is a person reading a document by hand; the record has never had one."
+          },
+          "county_source": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Where the county came from when the record did not say: nces_edge_geocode_2023_24 = county of the district office from the federal geocode file."
           }
         },
         "allOf": [

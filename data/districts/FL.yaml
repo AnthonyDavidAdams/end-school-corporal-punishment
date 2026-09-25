@@ -77,7 +77,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: FRANKLIN
-    county: null
+    county: Franklin
     nces_id: "1200570"
     status: bans
     method: searched_document
@@ -87,6 +87,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Gilchrist County School District
     county: Gilchrist
     nces_id: "1200630"
@@ -99,7 +100,7 @@ districts:
     last_verified: 2026-09-21
     notes: null
   - name: HAMILTON
-    county: null
+    county: Hamilton
     nces_id: "1200720"
     status: allows
     method: searched_document
@@ -109,8 +110,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: HARDEE
-    county: null
+    county: Hardee
     nces_id: "1200750"
     status: consent_required
     source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2157/HHS/5982804/2526_Code_of_Student_Conduct.pdf
@@ -119,6 +121,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: "The classifier held this at 0.59; a frontier agent read the clipped sentences and settled it at 0.86. Its reasoning: Hard because the consent sentence is a reproduction of Florida Statute 1002.20(4)(c) prefixed by a cross-reference parenthetical, so it reads like a citation rather than a board decision, while the neighbouring sentence ('may only be administered by a Principal... according to District policy') reads like a plain grant; the candidates are also the same four sentences repeated eight times, which in"
+    county_source: nces_edge_geocode_2023_24
   - name: Hillsborough County Schools
     county: Hillsborough
     nces_id: null
@@ -155,7 +158,7 @@ districts:
     legacy_status: consent_required
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: JACKSON
-    county: null
+    county: Jackson
     nces_id: "1200960"
     status: bans
     method: searched_document
@@ -165,6 +168,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Jackson County School District
     county: Jackson
     nces_id: "1200960"
@@ -189,7 +193,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
   - name: LEVY
-    county: null
+    county: Levy
     nces_id: "1201140"
     status: allows
     method: searched_document
@@ -199,6 +203,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Liberty County School District
     county: Liberty
     nces_id: "1201170"

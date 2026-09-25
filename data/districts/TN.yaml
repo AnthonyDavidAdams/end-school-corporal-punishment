@@ -12,7 +12,7 @@ districts:
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Greene County
-    county: null
+    county: Greene
     nces_id: "4701470"
     status: allows
     method: searched_document
@@ -22,8 +22,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Hamilton County Schools
-    county: null
+    county: Hamilton
     nces_id: "4701590"
     status: allows
     method: searched_document
@@ -34,6 +35,7 @@ districts:
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
     policy_code: null
     crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
   - name: Knox County Schools
     county: Knox
     nces_id: null
@@ -44,7 +46,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Lawrence County
-    county: null
+    county: Lawrence
     nces_id: "4702340"
     status: allows
     method: searched_document
@@ -54,6 +56,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Lewis County
     county: Lewis
     nces_id: "4702430"
@@ -74,7 +77,7 @@ districts:
       as_of: 2026-09-22
     notes: null
   - name: Lincoln County
-    county: null
+    county: Lincoln
     nces_id: "4702490"
     status: consent_required
     method: searched_document
@@ -84,8 +87,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Macon County
-    county: null
+    county: Macon
     nces_id: "4702550"
     status: allows
     source: https://www.maconk12.org/files/user/331/file/MCBOE_Academic_Handbook_and_Code_of_Student_Conduct__3_.pdf
@@ -94,6 +98,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: "The classifier held this at 0.89; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Two things likely tripped the classifier: (1) the first candidate is Tennessee's statute (T.C.A. 49-6-4103 language: \"Teachers are hereby given the authority...as may be prescribed by the local board\") reproduced in the handbook, not the board's own decision; and (2) \"Parents are requested to complete the Corporal Punishment Form\" hints at a parent-choice mechanism, which could pull toward consent"
+    county_source: nces_edge_geocode_2023_24
   - name: Marion County
     county: Marion
     nces_id: "4702640"
@@ -139,7 +144,7 @@ districts:
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: McKenzie
-    county: null
+    county: Carroll
     nces_id: "4702790"
     status: allows
     method: searched_document
@@ -149,8 +154,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: McMinn County
-    county: null
+    county: McMinn
     nces_id: "4702820"
     status: allows
     method: searched_document
@@ -160,8 +166,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: McNairy County
-    county: null
+    county: McNairy
     nces_id: "4702880"
     status: allows
     method: searched_document
@@ -171,6 +178,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Metro Nashville Public Schools
     county: Davidson
     nces_id: null
@@ -181,7 +189,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Moore County
-    county: null
+    county: Moore
     nces_id: "4703060"
     status: bans
     method: searched_document
@@ -191,8 +199,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Obion County
-    county: null
+    county: Obion
     nces_id: "4703270"
     status: allows
     method: searched_document
@@ -202,6 +211,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Overton County
     county: Overton
     nces_id: "4703330"
@@ -256,7 +266,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Smith County
-    county: null
+    county: Smith
     nces_id: "4703870"
     status: allows
     method: vendor_manual
@@ -266,8 +276,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+    county_source: nces_edge_geocode_2023_24
   - name: Sweetwater
-    county: null
+    county: Monroe
     nces_id: "4704050"
     status: allows
     method: searched_document
@@ -277,6 +288,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Tipton County
     county: Tipton
     nces_id: "4703480"

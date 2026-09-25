@@ -3,7 +3,7 @@
 state: CA
 districts:
   - name: Cajon Valley Union
-    county: null
+    county: San Diego
     nces_id: "0606810"
     status: unknown
     source: null
@@ -12,8 +12,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: FEDERAL FILING ANOMALY, not an unread policy. This state prohibits corporal punishment in public schools by statute (see data/states), yet the district's 2023-24 CRDC filing reports students receiving it. The project's analysis of these filings (facts/claims/crdc-ban-state-reports-2023-24.md) finds the pattern consistent with restraint or seclusion miscoded as corporal punishment. No district policy permitting the practice can exist lawfully here; the open question is the filing, which belongs to the district and to OCR. Closed 2026-09-24; reopen if the district or OCR corrects the filing.
+    county_source: nces_edge_geocode_2023_24
   - name: Fontana Unified
-    county: null
+    county: San Bernardino
     nces_id: "0613920"
     status: unknown
     source: null
@@ -22,8 +23,9 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: FEDERAL FILING ANOMALY, not an unread policy. This state prohibits corporal punishment in public schools by statute (see data/states), yet the district's 2023-24 CRDC filing reports students receiving it. The project's analysis of these filings (facts/claims/crdc-ban-state-reports-2023-24.md) finds the pattern consistent with restraint or seclusion miscoded as corporal punishment. No district policy permitting the practice can exist lawfully here; the open question is the filing, which belongs to the district and to OCR. Closed 2026-09-24; reopen if the district or OCR corrects the filing.
+    county_source: nces_edge_geocode_2023_24
   - name: San Juan Unified
-    county: null
+    county: Sacramento
     nces_id: "0634620"
     status: unknown
     source: null
@@ -32,3 +34,4 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: FEDERAL FILING ANOMALY, not an unread policy. This state prohibits corporal punishment in public schools by statute (see data/states), yet the district's 2023-24 CRDC filing reports students receiving it. The project's analysis of these filings (facts/claims/crdc-ban-state-reports-2023-24.md) finds the pattern consistent with restraint or seclusion miscoded as corporal punishment. No district policy permitting the practice can exist lawfully here; the open question is the filing, which belongs to the district and to OCR. Closed 2026-09-24; reopen if the district or OCR corrects the filing.
+    county_source: nces_edge_geocode_2023_24

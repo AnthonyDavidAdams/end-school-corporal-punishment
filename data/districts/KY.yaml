@@ -84,7 +84,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Simpson County
-    county: null
+    county: Simpson
     nces_id: "2105400"
     status: allows
     method: vendor_manual
@@ -94,6 +94,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+    county_source: nces_edge_geocode_2023_24
   - name: Warren County Schools
     county: Warren
     nces_id: null
