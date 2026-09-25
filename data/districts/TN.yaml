@@ -11,6 +11,21 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Fentress County
+    county: Fentress
+    nces_id: "4701230"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4616/Fcs/28ddb75f-bf79-4846-9179-4bc0d3e39a01/Code_of_Conduct_for_CHS.doc?disposition=inline
+    quote: Should corporal punishment be necessary, it will be administered by the principal or assistant principal and witnessed by at least one (1) other professional staff member or will be administered by a teacher and witnessed by at least one (1) other professional staff member.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - Should corporal punishment be necessary, it will be administered by the principal or assistant principal and witnessed by at least one (1) other professional staff member or will be administered by a teacher and witnessed by at least one (1) other professional staff member.
+    notes: Code of conduct (.doc on the district's own site, behind a JavaScript challenge; converted to text 2026-09-25). Standard TSBA 6.314 language. The classifier held this at quote confidence 0.84; a frontier reviewer confirmed the sentence is the rule.
+    county_source: nces_edge_geocode_2023_24
   - name: Greene County
     county: Greene
     nces_id: "4701470"
@@ -99,6 +114,7 @@ districts:
     last_verified: 2026-09-24
     notes: "The classifier held this at 0.89; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Two things likely tripped the classifier: (1) the first candidate is Tennessee's statute (T.C.A. 49-6-4103 language: \"Teachers are hereby given the authority...as may be prescribed by the local board\") reproduced in the handbook, not the board's own decision; and (2) \"Parents are requested to complete the Corporal Punishment Form\" hints at a parent-choice mechanism, which could pull toward consent"
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
   - name: Marion County
     county: Marion
     nces_id: "4702640"

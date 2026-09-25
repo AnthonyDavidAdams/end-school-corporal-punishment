@@ -82,6 +82,7 @@ districts:
     last_verified: 2026-09-24
     notes: "The classifier held this at 0.82; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard for two reasons. (1) The policy contains two rule sentences that pull opposite ways: the board's own grant (\"shall allow reasonable corporal punishment of unruly students\") and a blanket prohibition-unless-written-consent. The second is Louisiana's statute (La. R.S. 17:416.1 as amended 2023) reproduced in the board's policy F-11.3, and it conditions the grant: the board allows the practice, b"
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
   - name: CLAYTON
     county: Pushmataha
     nces_id: "4007800"
@@ -216,6 +217,7 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
   - name: HOMINY
     county: Osage
     nces_id: "4014970"
@@ -291,6 +293,7 @@ districts:
     last_verified: 2026-09-24
     notes: 'The classifier held this at 0.77; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because the handbook sends mixed signals: the disciplinary grid lists "1 Swat"/"2 Swats" as a routine alternative to ISS/OSS for a dozen Level I and II offenses, and the policy heading reproduces the Oklahoma statute language ("may be used by public schools as authorized by Oklahoma Statutes whenever administrator determines..."), both of which read as a plain "allows". The "attempts will alw'
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
   - name: Krebs
     county: Krebs
     nces_id: "4016720"
@@ -318,6 +321,22 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: MARYETTA
+    county: Adair
+    nces_id: "4019200"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/325/District/5b2ba964-f48a-4494-b93a-0d241d49a646/2022-2023_STUDENT_HANDBOOK.pdf?disposition=inline
+    quote: "Administrators may use a variety of corrective measures, such as those listed, as consequences of Level III violations: Corporal punishment, suspension, expulsion, and/or legal intervention"
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: none
+    quotes:
+      - "Administrators may use a variety of corrective measures, such as those listed, as consequences of Level III violations: Corporal punishment, suspension, expulsion, and/or legal intervention"
+      - Understand that if my child misbehaves he or she will be disciplined according to the school handbook, including corporal punishment.
+    notes: Student handbook (scanned PDF behind a JavaScript challenge; OCR'd 2026-09-25). Corporal punishment is listed as a Level II and Level III consequence, and the parent acknowledgment form says the child may be disciplined 'including corporal punishment' and the parent 'may or may not be informed of the disciplinary measure beforehand'. The classifier held this at 0.90 on OCR text; a frontier reviewer read the surrounding text and recorded it.
+    county_source: nces_edge_geocode_2023_24
   - name: Moore Public Schools
     county: Cleveland
     nces_id: null
@@ -356,6 +375,7 @@ districts:
     last_verified: 2026-09-24
     notes: "The classifier held this at 0.94; a frontier agent read the clipped sentences and settled it at 0.95. Its reasoning: Hard because the clips mix a grant (\"may be used by the principal\"), a consent condition, and an opt-out-sounding line (\"If you do not allow your child to be paddled... we need a phone number\"), which a classifier can read as opt_out. But the condition is stated as a precondition on the district's action: paddling happens only after WRITTEN permission from the parent, and the attached form is an a"
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
   - name: POND CREEK-HUNTER
     county: Grant
     nces_id: "4024720"
@@ -439,6 +459,7 @@ districts:
     last_verified: 2026-09-24
     notes: "The classifier held this at 0.67; a frontier agent read the clipped sentences and settled it at 0.85. Its reasoning: Hard because the same handbook carries both an opt-in gate ('Permission must be given by the parent or legal guardian before corporal punishment will be administered') and an opt-out mechanism ('If a parent does not wish... file a written request with the principal at the beginning of each school year'), plus a parent-choice ladder ('Parents may choose corporal punishment in place of all of 1st Of"
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
   - name: Tulsa Public Schools
     county: Tulsa
     nces_id: null

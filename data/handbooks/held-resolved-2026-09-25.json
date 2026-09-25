@@ -1,0 +1,33 @@
+[
+ {
+  "state": "OK",
+  "name": "MARYETTA",
+  "nces_id": "4019200",
+  "status": "allows",
+  "parent_control": "none",
+  "source": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/325/District/5b2ba964-f48a-4494-b93a-0d241d49a646/2022-2023_STUDENT_HANDBOOK.pdf?disposition=inline",
+  "quote": "Administrators may use a variety of corrective measures, such as those listed, as consequences of Level III violations: Corporal punishment, suspension, expulsion, and/or legal intervention",
+  "quotes": [
+   "Administrators may use a variety of corrective measures, such as those listed, as consequences of Level III violations: Corporal punishment, suspension, expulsion, and/or legal intervention",
+   "Understand that if my child misbehaves he or she will be disciplined according to the school handbook, including corporal punishment."
+  ],
+  "method": "searched_document",
+  "last_verified": "2026-09-25",
+  "notes": "Student handbook (scanned PDF behind a JavaScript challenge; OCR'd 2026-09-25). Corporal punishment is listed as a Level II and Level III consequence, and the parent acknowledgment form says the child may be disciplined 'including corporal punishment' and the parent 'may or may not be informed of the disciplinary measure beforehand'. The classifier held this at 0.90 on OCR text; a frontier reviewer read the surrounding text and recorded it."
+ },
+ {
+  "state": "TN",
+  "name": "Fentress County",
+  "nces_id": "4701230",
+  "status": "allows",
+  "parent_control": "unknown",
+  "source": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4616/Fcs/28ddb75f-bf79-4846-9179-4bc0d3e39a01/Code_of_Conduct_for_CHS.doc?disposition=inline",
+  "quote": "Should corporal punishment be necessary, it will be administered by the principal or assistant principal and witnessed by at least one (1) other professional staff member or will be administered by a teacher and witnessed by at least one (1) other professional staff member.",
+  "quotes": [
+   "Should corporal punishment be necessary, it will be administered by the principal or assistant principal and witnessed by at least one (1) other professional staff member or will be administered by a teacher and witnessed by at least one (1) other professional staff member."
+  ],
+  "method": "searched_document",
+  "last_verified": "2026-09-25",
+  "notes": "Code of conduct (.doc on the district's own site, behind a JavaScript challenge; converted to text 2026-09-25). Standard TSBA 6.314 language. The classifier held this at quote confidence 0.84; a frontier reviewer confirmed the sentence is the rule."
+ }
+]
