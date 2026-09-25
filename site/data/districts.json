@@ -3882,6 +3882,25 @@
    }
   },
   {
+   "name": "Bacon County",
+   "county": "Bacon",
+   "nces_id": "1300150",
+   "status": "allows",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4005&revid=PEfg7BS2aTkPvTAvZieVmQ%3D%3D",
+   "quote": "Any principal or other designated school administrator employed by the Board of Education, in order to maintain proper control and discipline over students under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any student or students under his or her care and supervision.",
+   "policy_code": "JDA",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-23",
+   "contact": {
+    "phone": "(912) 632-7363",
+    "mailing_address": "102 W 4th St, Alma, GA 31510",
+    "board_page": "https://www.bcraiders.com/",
+    "contact_page": "https://www.bcraiders.com/apps/contact/",
+    "as_of": "2026-09-23"
+   },
+   "notes": "District site is bcraiders.com (title 'Bacon County School District'); Simbli site S=4005. Policy code JDA 'Corporal Punishment', originally adopted 10/15/1994, last revised 04/28/2026 (i.e. touched this year but the substance still authorizes corporal punishment -- not a change to bans), status ADOPTED, per fetch_simbli_policy tool, which also independently returned district='Bacon County Schools' confirming the match. Simbli is JavaScript-only so a plain fetch of ViewPolicy.aspx returns a shell; source_text supplied with the full cached policy text read server-side by fetch_simbli_policy, verbatim. Opt-out only (parent files written objection or medical statement) -> classified 'allows'. Superintendent's name was not found in searchable text on the homepage or the 'Superintendent' nav item (page is not directly linked in crawlable HTML); left null rather than guessed -- next contributor should open bcraiders.com > About/Superintendent in a browser. No district or board email found; only a contact-form page. Board page: no dedicated /board-of-education page found on this Edlio site within the time spent; homepage is the closest public entry point and links to Eboard (Simbli). Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Quote verified against the server's cached copy of the source.)"
+  },
+  {
    "name": "Ben Hill County",
    "county": "Ben Hill",
    "nces_id": "1300360",
@@ -3896,6 +3915,26 @@
    "county_source": "nces_edge_geocode_2023_24"
   },
   {
+   "name": "Berrien County",
+   "county": "Berrien",
+   "nces_id": "1300390",
+   "status": "allows",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4012&revid=uKYwMxnOj8Jhd2NGTLRz4g%3D%3D",
+   "quote": "Corporal Punishment In matters of discipline, it is assumed that a professional attitude will be maintained and that the welfare of the students will be the objective. Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:",
+   "policy_code": "JDA",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-23",
+   "contact": {
+    "phone": "(229) 686-2081",
+    "mailing_address": "810 South Dogwood Drive, Nashville, GA 31639",
+    "superintendent": "Heath Heron, Ed.D.",
+    "board_page": "https://www.facebook.com/Berrien-County-Board-of-Education-285020455345904/",
+    "contact_page": "https://www.berrienschools.org/",
+    "as_of": "2026-09-23"
+   },
+   "notes": "District site https://www.berrienschools.org/ is an Apptegy (Thrillshare) site that answers a 3,038-byte rate-limiter stub to a plain curl even after retrying with a short wait; read via the r.jina.ai text proxy and the Apptegy documents API (thrillshare-cmsv2.services.thrillshare.com/api/v2/s/408725/...) to find the Simbli link and the superintendent page; the documents CMS itself has no 'board policy manual' folder (only meeting agendas/minutes), so board policy is Simbli site S=4012. Policy code JDA 'Corporal Punishment', originally adopted 02/11/2003, last revised 04/20/2020, status ADOPTED, per fetch_simbli_policy tool, which independently returned district='Berrien County Schools' confirming the match. Simbli is JavaScript-only so a plain fetch of ViewPolicy.aspx returns a shell; source_text supplied with the full cached policy text read server-side by fetch_simbli_policy, verbatim (note the source text contains soft-hyphen HTML entities '&shy;' inside words like 'main&shy;tained', preserved as-is). Opt-out only (written objection or medical statement filed at enrollment) -> classified 'allows'. Superintendent name and signature ('Heath Heron, Ed.D') from https://www.berrienschools.org/page/superintendent. Mailing address/phone from homepage 'Find Us' footer. No published district or board email found; the only board contact found on the public site is the district Facebook page for the Board of Education, used here as board_page since no dedicated board-members web page was located; a dedicated public-comment sign-up procedure was not found. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Quote verified by the reviewer against the Simbli policy (the server missed it because the page carries soft-hyphen entities inside words). Finding NCES id 1300210 is Baldwin County; corrected to Berrien County at merge.)"
+  },
+  {
    "name": "Bleckley County",
    "county": "Bleckley",
    "nces_id": "1300440",
@@ -3908,6 +3947,27 @@
    "last_verified": "2026-09-24",
    "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.",
    "county_source": "nces_edge_geocode_2023_24"
+  },
+  {
+   "name": "Brantley County",
+   "county": "Brantley",
+   "nces_id": "1300480",
+   "status": "allows",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4015&revid=X6txwzO683eSYplusCkePbVUg%3D%3D",
+   "quote": "The Brantley County Board of Education, believing that discipline is an absolute necessity in the classroom of the schools of Brantley County if every child is to receive a quality basic education, does hereby approve the use of corporal punishment in the schools of Brantley County.",
+   "policy_code": "JDA",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "contact": {
+    "district_email": "jeff.johns@brantley.k12.ga.us",
+    "phone": "(912) 462-6176",
+    "mailing_address": "272 School Circle, Nahunta, GA 31553",
+    "superintendent": "Dr. Walker Todd",
+    "board_page": "https://www.brantley.k12.ga.us/board-of-education-info",
+    "contact_page": "https://www.brantley.k12.ga.us/central-office-directory",
+    "as_of": "2026-09-24"
+   },
+   "notes": "Policy JDA 'Corporal Punishment', originally adopted 02/12/2001, last revised 11/10/2014 (dates per Simbli index, S=4015). Read via fetch_simbli_policy MCP tool, matched by title 'Corporal Punishment'. Simbli link found on district's own board-of-education-info page (https://www.brantley.k12.ga.us/board-of-education-info). No policy change since the 2023-24 CRDC report year (last revision 2014, well before) -- still allows. Superintendent name and central office phone/address confirmed on https://www.brantley.k12.ga.us/central-office-directory; district_email is the address published under 'Get in touch with us' on the homepage footer (general contact, not individually titled). Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Quote verified against the server's cached copy of the source.)"
   },
   {
    "name": "Bremen City",
@@ -3964,6 +4024,27 @@
    "last_verified": "2026-09-24",
    "notes": "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has.",
    "county_source": "nces_edge_geocode_2023_24"
+  },
+  {
+   "name": "Candler County",
+   "county": "Candler",
+   "nces_id": "1300810",
+   "status": "allows",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4026&revid=9v2uS1pjOPwWKuO8HUV6PA%3D%3D",
+   "quote": "Any principal employed by the Board, or his or her designee, in order to maintain proper control and discipline over students under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any student or students under his or her care and supervision.",
+   "policy_code": "JDA",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "contact": {
+    "district_email": "jjordan@metter.org",
+    "phone": "(912) 685-5713",
+    "mailing_address": "210 South College St., Metter, GA 30439",
+    "superintendent": "Dr. John Jordan",
+    "board_page": "https://www.metter.org/page/board-of-education",
+    "contact_page": "https://www.metter.org/page/contact-us",
+    "as_of": "2026-09-24"
+   },
+   "notes": "IMPORTANT nces_id correction: the input row gave nces_id 1300540, but that ID resolves to Brooks County GA per NCES district search (https://nces.ed.gov/ccd/districtsearch/district_detail.asp?ID2=1300540, 'District Name: Brooks County'). Candler County's actual NCES District ID, confirmed via NCES district search by name (https://nces.ed.gov/ccd/districtsearch/district_list.asp?Search=1&InstName=Candler&State=13), is 1300810 (State District ID GA-621, address 210 South College Street, Metter GA 30439, phone (912)685-5713 -- matches the district's own published contact info, confirming identity). Used the corrected id here; flag for review. Policy JDA 'Corporal Punishment', originally adopted and last revised 04/24/2003 (per Simbli index, S=4026, district field returned 'Candler County Schools' confirming match). District's real site is https://www.metter.org/ (not any candler.k12.ga.us -- that domain does not resolve); found via a Wikipedia infobox listing http://www.metter.org/ as the district website, then confirmed the live site's <title> reads 'Home | Candler County School District'. Simbli link (S=4026) found on the district's own homepage. No policy change since 2023-24 CRDC report year -- still allows. Superintendent Dr. John Jordan and his published email confirmed via an 'Email Dr. Jordan' mailto button on the site's own contact-us page. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Quote verified against the server's cached copy of the source.)"
   },
   {
    "name": "Cartersville City",
@@ -5697,6 +5778,18 @@
    "notes": "Source is the JH/HS Handbook the district itself publishes under Documents > STUDENTS/PARENTS (https://www.campbell.k12.mo.us/documents/students%2Fparents/20471863), where it is labelled 'JH/HS Handbook 2022-2023' and linked as Google Drive file 1SkG4IGcNR-S3E3xY6fDafsje51yoqGH7. Fetched server-side with fetch_document: HTTP 200, application/octet-stream (PDF), 895,850 bytes, 64 pages, 114,294 chars, no OCR. Quote from page 36. This is the most recent handbook the district publishes; a reviewer should note the 2022-2023 label. No parental consent or opt-out provision appears; searches for 'parental permission' and 'written permission' near the corporal punishment text returned nothing, so 'allows'. The handbook also makes it an explicit consequence in the offence schedule, e.g. '8.2 TRUANCY 1st offense Corporal Punishment, ASD, AEP 1 - 10 days'. BOARD POLICY GAP: the district's board policy index (Google Doc 1C41fVnkmUOzKzldDO_p7E4neNYJfrKTzrs0AvKOh3Jo, linked from https://www.campbell.k12.mo.us/documents/school-board-information/board-policies/20471899) lists 'P 2670 Corporal Punishment PRF' but, unlike policies 2100-2255, 2670 carries no hyperlink and its text is not published online, so the handbook is the only published primary source."
   },
   {
+   "name": "CARUTHERSVILLE 18",
+   "county": "Pemiscot",
+   "nces_id": "2907470",
+   "status": "unknown",
+   "source": null,
+   "quote": null,
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-23",
+   "notes": "Could not find a live, machine-fetchable primary source. Federal-directory domain caruthersville.k12.mo.us returns DNS SERVFAIL (not just down -- broken delegation) and has no Wayback Machine captures since at least 2020, so it appears long dead. resolve_handbook was not run against it for that reason. Tried and ruled out by DNS/HTTP probe: caruthersvilleschools.org, csd18.net, carsd18.org, cvillecardinals.org, caruthersville18.org, caruthersville18.com, caruthersvillecardinals.k12.mo.us, gocardinals.k12.mo.us, caruthersvilleschools.com, csd18.com, caruthersville-schools.org, caruthersvillecardinals.org, caruthersvillesd18.org, csd-18.org, c18schools.org, caruthersvilleschooldistrict.org (all NXDOMAIN), and cardinalpride.org (resolves but connection refused/closed on both direct curl and r.jina.ai). Wikipedia's Caruthersville and Pemiscot County articles both reference the district but give no live external link, only the same dead caruthersville.k12.mo.us via a 2005 Wayback citation. Niche.com district page (niche.com/k12/d/caruthersville-18-school-district-mo/) 404s; GreatSchools.org's Caruthersville listing gives student/school counts but no district website link. WebSearch was unavailable this session (session-wide quota already exhausted by other agents in this batch before this task started). Next contributor: try calling the district (no number found) or check the Missouri DESE district directory / MSBA member list directly (not reachable from this sandbox), or search for a current domain once WebSearch quota resets. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Nothing found; the dead-domain note is useful to the queue. NCES id 2906210 is wrong and is corrected at merge.)"
+  },
+  {
    "name": "Cassville R-IV School District",
    "county": "Barry",
    "nces_id": null,
@@ -5709,15 +5802,23 @@
   },
   {
    "name": "Charleston R-I",
-   "county": "Charleston",
+   "county": "Mississippi",
    "nces_id": "2908670",
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "policy_code": null,
+   "status": "consent_required",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=308&revid=eLny27Xw1nXoSqpluswNDvDqw%3D%3D",
+   "quote": "Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment. Corporal punishment shall be administered only by swatting the buttocks with a paddle.",
+   "policy_code": "JGA-1",
    "crdc_students_latest": null,
-   "last_verified": "2026-09-19",
-   "notes": null
+   "last_verified": "2026-09-23",
+   "notes": "District policy JGA-1 CORPORAL PUNISHMENT (Missouri School Boards' Association template), last_revised per Simbli index 08/25/2022; originally_adopted date not shown on this record. District site is www.charlestonbluejays.org (Edlio); board policy hosted on Simbli, S=308, confirmed via fetch_simbli_policy returning district match. Federal-directory address charleston.k12.mo.us is dead (404/Apache stub, 0 pages found by resolve_handbook); found live site via Wikipedia infobox for Charleston High School (Missouri). Policy requires advance written parental permission before corporal punishment is administered -> classified consent_required (opt-in), not allows, per the opt-in/opt-out distinction in the scan contract. Doc fetched via fetch_document, 1542 bytes, text/html, extracted_by simbli-api. students_2023_24 from CRDC input row. Contact captured from district's own Contact Us page 2026-09-23; no district-level email published there. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Quote verified against the server's cached copy of the source.)",
+   "contact": {
+    "phone": "(573) 683-3776",
+    "mailing_address": "311 E. Tom Brown Street / PO Box 39, Charleston, MO 63834",
+    "superintendent": "Jamarcus Williams",
+    "board_page": "https://www.charlestonbluejays.org/apps/pages/index.jsp?uREC_ID=1228716&type=d&pREC_ID=1461576",
+    "contact_page": "https://www.charlestonbluejays.org/apps/pages/index.jsp?uREC_ID=1228714&type=d&pREC_ID=1461565",
+    "as_of": "2026-09-23"
+   }
   },
   {
    "name": "CLARKTON C-4",
@@ -5837,22 +5938,21 @@
   },
   {
    "name": "Holcomb R-Iii",
-   "county": "Holcomb",
-   "nces_id": "2914460",
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "policy_code": null,
+   "county": "Dunklin",
+   "nces_id": null,
+   "status": "consent_required",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=151&revid=SISLz6AT4ejmiKaAuMIUbA%3D%3D",
+   "quote": "Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment. Corporal punishment shall be administered only by swatting the buttocks with a paddle.",
+   "policy_code": "JGA-1",
    "crdc_students_latest": null,
-   "last_verified": "2026-09-19",
+   "last_verified": "2026-09-23",
    "contact": {
     "phone": "573-792-3113",
-    "mailing_address": "Holcomb R-III School District, 102 S. Cherry, Holcomb, MO 63852",
+    "mailing_address": "PO Box 190, Holcomb, MO 63852",
     "contact_page": "https://holcombschools.com/contact/",
-    "public_comment": "The district publishes a web contact form on https://holcombschools.com/contact/ headed \"E-mail Central Office\" and no email address; no public-comment procedure is published.",
-    "as_of": "2026-09-19"
+    "as_of": "2026-09-23"
    },
-   "notes": "DEAD END, needs one Simbli read. What the next contributor should open: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=151 and find the corporal punishment policy (Missouri MSBA code is normally JGA; match on TITLE, not the code). The site number 151 is confirmed: the district's District Information page (https://holcombschools.com/district-information-189/) links 'School Board Policy' to exactly that URL, and the page title returned is 'Policy Listing | Holcomb R-III'. fetch_simbli_policy for site 151 was called roughly 30 times over about three and a half hours, spaced 45 to 240 seconds apart, with and without terms and once with code JGA; every call that returned anything returned Imperva's bot-challenge message, and the rest timed out. The block was not specific to this district (site 4093 failed identically and interleaved) and it never cleared. Filed as bug issue_bf315135987e on the crew server. The district publishes nothing else: holcomb.k12.mo.us (the NCES address) no longer resolves to a served site, and the live site https://holcombschools.com has no student handbook or code of conduct anywhere. Places searched on it: the home page's complete link list, the WordPress site search for 'handbook' (only the site's own pages) and for 'corporal' (no results), /district-information-189/, /public-notice/, /non-discrimination/, /504-2/, /contact/ and the wp-content/uploads PDFs, which are only the bullying incident report form, ESEA complaint procedures, ESEA schoolwide plan, CSIP plan, the June 30 2025 audit and a quarterly financial report. resolve_handbook returned nothing for the NCES website. The district reported 41 students struck in 2023-24, so a policy almost certainly exists; it is simply behind the vendor's bot wall."
+   "notes": "District policy JGA-1 CORPORAL PUNISHMENT (Missouri School Boards' Association template), last_revised per Simbli index 09/08/2022. District site is holcombschools.com; board policy hosted on Simbli, S=151, confirmed via fetch_simbli_policy returning district match 'Holcomb R-III'. Federal-directory address holcomb.k12.mo.us is dead: DNS resolves but connection times out for curl and r.jina.ai (TimeoutError 15000ms), and fetch_document reported 'fetch failed'; Wayback Machine's most recent capture (Aug 2026) is a ~630-byte parked/redirect stub. Also ruled out holcombschool.org, a same-IP-range decoy site for an unrelated Holcomb Elementary in the Pacific Northwest (references to 'John McLoughlin', not Missouri) before finding the real site via a Niche.com school profile link. Policy requires advance written parental permission -> classified consent_required (opt-in), not allows, per the scan contract's opt-in/opt-out rule. Doc fetched via fetch_document, 1543 bytes, text/html, extracted_by simbli-api. students_2023_24 from CRDC input row. Superintendent name and board page URL not found on the homepage/contact page checked; left null rather than guessed. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Quote verified against the server's cached copy of the source.)"
   },
   {
    "name": "Hollister R-V Schools",
@@ -5883,22 +5983,21 @@
    "name": "Kennett 39",
    "county": "Dunklin",
    "nces_id": "2916500",
-   "status": "bans",
+   "status": "consent_required",
    "method": "searched_document",
-   "source": "https://www.kcsd.org/our-district/handbooks",
-   "quote": "Restorative practices may be used when appropriate, and corporal punishment is strictly prohibited.",
-   "policy_code": null,
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=155&revid=wYYAdDAZKvQSQ6ANJ9JPrA%3D%3D",
+   "quote": "Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment. Corporal punishment shall be administered only by swatting the buttocks with a paddle in a reasonable manner.",
+   "policy_code": "JGA-1",
    "crdc_students_latest": null,
-   "last_verified": "2026-09-25",
+   "last_verified": "2026-09-23",
    "contact": {
+    "district_email": "rleeker@kennett.k12.mo.us",
     "phone": "573-717-1100",
-    "mailing_address": "510 College Ave, Kennett, MO 63857",
-    "superintendent": "Dr. Richie Leeker",
-    "board_page": "https://www.kennett.k12.mo.us/page/board-policy-manual/",
-    "contact_page": "https://www.kennett.k12.mo.us/",
-    "as_of": "2026-09-19"
+    "superintendent": "Richie Leeker",
+    "contact_page": "https://www.kennett.k12.mo.us/page/board-policy-manual",
+    "as_of": "2026-09-23"
    },
-   "notes": "Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "notes": "District policy JGA-1 CORPORAL PUNISHMENT (Missouri School Boards' Association template), last_revised per Simbli index 08/16/2022. District site is www.kennett.k12.mo.us (Apptegy/Thrillshare); board policy hosted on Simbli, S=155, confirmed via fetch_simbli_policy returning district match 'Kennett 39'. Policy text is worded slightly differently from Charleston/Holcomb's JGA-1 ('permitted at all grade levels...for correction, maintaining discipline and order, protection of property...') but has the identical operative sentence requiring advance written parental permission -> classified consent_required (opt-in), not allows, per the scan contract's opt-in/opt-out rule. Doc fetched via fetch_document, 1814 bytes, text/html, extracted_by simbli-api. students_2023_24 from CRDC input row. Superintendent (Richie Leeker) and district email pulled from the site's own staff directory API (thrillshare-cmsv2 /cms/directories, title 'Superintendent', department 'Central Office'). Mailing address not confirmed on the district's own site (only found on Wikipedia, 510 College Avenue, Kennett, MO 63857, which is not cited here); left null rather than sourcing off-site. No separate board_email or board_page (members/meeting times) found; board-policy-manual page URL given as the closest confirmed board-related page. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Board policy JGA-1 on Simbli, verified. Replaces the record on file, whose source (kcsd.org) is Kennett Consolidated School District in Pennsylvania, not Kennett 39 in Missouri.)",
    "county_source": "nces_edge_geocode_2023_24"
   },
   {
@@ -16835,6 +16934,18 @@
    "county_source": "nces_edge_geocode_2023_24"
   },
   {
+   "name": "Edgewood ISD",
+   "county": "Van Zandt",
+   "nces_id": "4818120",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=1183&code=FO",
+   "quote": "Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO(LOCAL)",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-25",
+   "notes": "Read via fetch_tasb_policy (TASB key 1183, 'Edgewood ISD-Van Zandt County'; not to be confused with Edgewood ISD-Bexar County, key 174). FO(LOCAL) footer: UPDATE 126, issued 11/4/2025. Parent opt-out: 'Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child.' Guidelines: 'Corporal punishment shall be limited to spanking or paddling the student'; administered only by the principal or designee, by an employee of the same sex as the student, in the presence of one other District professional employee, out of view of other students. Opt-out (not opt-in), so status is allows. Submitted by Claude (AI agent, claude.ai scheduled task) run by Anthony David Adams. Submitted through Ground Crew by Claude (claude.ai scheduled task) on 2026-09-25; reviewed and approved 2026-09-25 (Quote verified against the server's cached copy of the source.)"
+  },
+  {
    "name": "Edinburg CISD",
    "county": "Hidalgo",
    "nces_id": "4818180",
@@ -22146,6 +22257,18 @@
     }
    ],
    "county_source": "nces_edge_geocode_2023_24"
+  },
+  {
+   "name": "Knox City-O'Brien CISD",
+   "county": "Knox",
+   "nces_id": "4825870",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=780&code=FO",
+   "quote": "Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO(LOCAL)",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-25",
+   "notes": "Read via fetch_tasb_policy (TASB key 780, 'Knox City-O'Brien CISD'). FO(LOCAL) footer: UPDATE 126, issued 10/30/2025. Parent opt-out: 'Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child.' Guidelines: 'Corporal punishment shall be limited to spanking or paddling the student'; administered only by the principal or designee, with a principal-approved instrument, in the presence of one other District professional employee and out of view of other students. Opt-out (not opt-in), so status is allows. County 'Knox' is from the district's location in Knox City, Knox County, TX. Submitted by Claude (AI agent, claude.ai scheduled task) run by Anthony David Adams. Submitted through Ground Crew by Claude (claude.ai scheduled task) on 2026-09-25; reviewed and approved 2026-09-25 (Quote verified against the server's cached copy of the source.)"
   },
   {
    "name": "Kopperl ISD",
