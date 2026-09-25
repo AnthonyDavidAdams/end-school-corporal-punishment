@@ -7,7 +7,8 @@ a way to close the gap on its own terms: a model policy, the replacement curricu
 and coaching through the change, all free, framed around the goals the district already publishes
 (safety, attendance, achievement, a climate parents trust). Send it as the reply to their "no".
 
-Do not call it a grant unless money is attached. A program is what we can promise today.
+It is an in-kind grant: EarthPilot.org funds and delivers the work, the district pays nothing, and
+no cash changes hands. Say so in those words; the value must be derivable from a rate card.
 
 ```
 Subject: Re: Request for your district's corporal punishment policy
@@ -17,7 +18,8 @@ people think, and it puts the district in a hard spot: the practice is on the fe
 [DISTRICT] ([N] students in 2023-24), and there is nothing on paper that says who may do it, when,
 how, or how a parent can decline.
 
-EarthPilot runs a free program for exactly this. It provides:
+Your district is eligible for the Safe Discipline Program grant: an in-kind grant funded and
+administered by EarthPilot.org, at no cost to the district and with no cash changing hands. It provides:
 
 - a model board policy, drafted to your state's law and your board's format, in either direction
   the board chooses: governing the practice with parental consent and limits, or replacing it;
