@@ -84,10 +84,12 @@ districts:
     contact:
       phone: (229) 686-2081
       mailing_address: 810 South Dogwood Drive, Nashville, GA 31639
-      superintendent: Heath Heron, Ed.D.
+      superintendent: Heath Heron
       board_page: https://www.facebook.com/Berrien-County-Board-of-Education-285020455345904/
       contact_page: https://www.berrienschools.org/
-      as_of: 2026-09-23
+      as_of: 2026-09-25
+      district_email: heath.heron@berrien.k12.ga.us
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
     notes: District site https://www.berrienschools.org/ is an Apptegy (Thrillshare) site that answers a 3,038-byte rate-limiter stub to a plain curl even after retrying with a short wait; read via the r.jina.ai text proxy and the Apptegy documents API (thrillshare-cmsv2.services.thrillshare.com/api/v2/s/408725/...) to find the Simbli link and the superintendent page; the documents CMS itself has no 'board policy manual' folder (only meeting agendas/minutes), so board policy is Simbli site S=4012. Policy code JDA 'Corporal Punishment', originally adopted 02/11/2003, last revised 04/20/2020, status ADOPTED, per fetch_simbli_policy tool, which independently returned district='Berrien County Schools' confirming the match. Simbli is JavaScript-only so a plain fetch of ViewPolicy.aspx returns a shell; source_text supplied with the full cached policy text read server-side by fetch_simbli_policy, verbatim (note the source text contains soft-hyphen HTML entities '&shy;' inside words like 'main&shy;tained', preserved as-is). Opt-out only (written objection or medical statement filed at enrollment) -> classified 'allows'. Superintendent name and signature ('Heath Heron, Ed.D') from https://www.berrienschools.org/page/superintendent. Mailing address/phone from homepage 'Find Us' footer. No published district or board email found; the only board contact found on the public site is the district Facebook page for the Board of Education, used here as board_page since no dedicated board-members web page was located; a dedicated public-comment sign-up procedure was not found. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Quote verified by the reviewer against the Simbli policy (the server missed it because the page carries soft-hyphen entities inside words). Finding NCES id 1300210 is Baldwin County; corrected to Berrien County at merge.)
     method: agent_via_crew
   - name: Bleckley County
@@ -133,6 +135,12 @@ districts:
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: shannon.christian@bremencs.com
+      superintendent: Shannon Christian
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Brooks County
     county: Brooks
     nces_id: "1300540"
@@ -169,6 +177,12 @@ districts:
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: taylorm@calhounschools.org
+      superintendent: Michele Taylor
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Calhoun County
     county: Calhoun
     nces_id: "1300750"
@@ -182,6 +196,12 @@ districts:
     parent_control: unknown
     notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 19 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: pamquimbley@calhoun.k12.ga.us
+      superintendent: Pamela Quimbley
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Candler County
     county: Candler
     nces_id: "1300810"
@@ -272,6 +292,12 @@ districts:
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: douglas.hendrix@clayton.k12.ga.us
+      superintendent: Douglas Hendrix
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Clinch County
     county: Clinch
     nces_id: "1301260"
@@ -453,6 +479,12 @@ districts:
     last_verified: 2026-09-24
     notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: mfelton@early.k12.ga.us
+      superintendent: Mary Felton
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Echols County
     county: Echols
     nces_id: "1301950"
@@ -503,6 +535,12 @@ districts:
     county_source: nces_edge_geocode_2023_24
     policy_revised: 2024-12-16
     policy_dates_from: policy
+    contact:
+      district_email: glennwhite@floydboe.net
+      superintendent: Glenn White
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Forsyth County Schools
     county: Forsyth
     nces_id: "1302220"
@@ -514,6 +552,12 @@ districts:
     notes: "NO PRIMARY SOURCE FOUND either way — Forsyth County Schools appears to have no written corporal-punishment policy at all, which under O.C.G.A. 20-2-730 would mean it is not authorized, but there is no sentence anywhere I can quote, so this is filed honestly as unknown rather than as \"bans\". Everywhere I looked: (1) Forsyth's board policy manual on Simbli site 4069 — S number taken from the district's own homepage link and confirmed by resolve_handbook on https://www.forsyth.k12.ga.us; the manual header reads \"Policy Listing | Forsyth County Schools\". Read the complete J. Students section in a browser (34 entries, JAA through JRA): there is no JDA and no policy titled Corporal Punishment. (2) Opened Board Policy JD Student Discipline (adopted 12/31/1995, last reviewed 12/31/1995) — no corporal-punishment language, only O.C.G.A. cross-references. (3) Opened Board Policy JCD Student Conduct (adopted 12/31/1995, revised 07/31/2002) — no corporal-punishment language; the O.C.G.A. 20-2-730/731/732 citations appear only in the non-binding \"Policy Reference Disclaimer\" table, which the page itself says is \"not intended to be part of the policy itself\". (4) Opened Board Policy JCDA Student Code of Conduct (adopted 06/30/2000, revised 07/16/2015) — no corporal-punishment language. (5) Scripted a pass over all thirteen lettered sections (A-M) of the manual looking for any policy title matching corporal/paddl/spank — no hit. (6) Fetched the district's current 2026-27 Student Code of Conduct PDF, https://resources.finalsite.net/images/v1784223054/forsythk12gaus/gxs5km2nsgo4cabqy4ft/26-27CodeofConduct.pdf (resolved from https://www.forsyth.k12.ga.us/fs/resource-manager/view/d7b28113-3b63-4c12-bf88-f60711910e18): 681078 bytes, application/pdf, 24 pages, 75405 characters of text, sha256 ede367a4a5f80634de3103be13b68dd7ebb963b6615358356682c6e9a4b123ee — ZERO occurrences of \"corporal\", \"paddl\" or \"spank\". (7) An older BoardDocs file (go.boarddocs.com/ga/fcss/.../FY21 Coc JD and Operating Guidelines Updated.pdf) now returns HTTP 404. (8) Web search surfaced only Forsyth County, NC / Winston-Salem items. A reviewer wanting to close this should ask the district directly."
     policy_code: null
     crdc_students_latest: null
+    contact:
+      district_email: myoung@forsyth.k12.ga.us
+      superintendent: Mitch Young
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Fulton County Schools
     county: Fulton
     nces_id: "1302280"
@@ -599,6 +643,12 @@ districts:
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: will.schofield@hallco.org
+      superintendent: William Schofield
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Heard County
     county: Heard
     nces_id: "1302790"
@@ -710,8 +760,11 @@ districts:
       phone: (478)272-4767
       mailing_address: 467 Firetower Road, Dublin, GA 31021
       website: http://lcboe.net
-      as_of: 2023-24
+      as_of: 2026-09-25
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+      district_email: ojhall@lcboe.net
+      superintendent: O.J. Hall
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
     policy_adopted: 2008-02-14
     policy_revised: 2020-08-13
     policy_dates_from: notes
@@ -764,6 +817,12 @@ districts:
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: michael.keown@miller.k12.ga.us
+      superintendent: Michael Keown
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Montgomery County
     county: Montgomery
     nces_id: "1302670"
@@ -843,6 +902,12 @@ districts:
     last_verified: 2026-09-24
     notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: dbennett@pierce.k12.ga.us
+      superintendent: Dara Bennett
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Pulaski County
     county: Pulaski
     nces_id: "1304220"
@@ -858,7 +923,10 @@ districts:
       mailing_address: 72 Warren St, Hawkinsville, GA 31036
       board_page: https://www.pulaski.k12.ga.us/apps/pages/index.jsp?uREC_ID=3817946&type=d&pREC_ID=2469923
       contact_page: https://www.pulaski.k12.ga.us/apps/contact/
-      as_of: 2026-09-20
+      as_of: 2026-09-25
+      district_email: dpuckett@pulaski.k12.ga.us
+      superintendent: Debra Puckett
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
     notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
     county_source: nces_edge_geocode_2023_24
   - name: Quitman County
@@ -1100,6 +1168,12 @@ districts:
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: sreid@vidalia-city.k12.ga.us
+      superintendent: Sandy Reid
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Walker County
     county: Walker
     nces_id: "1305370"
@@ -1112,6 +1186,12 @@ districts:
     last_verified: 2026-09-24
     notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: damonraines@walkerschools.org
+      superintendent: Damon Raines
+      phone: null
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
+      as_of: 2026-09-25
   - name: Ware County Schools
     county: Ware
     nces_id: "1305430"
@@ -1128,8 +1208,11 @@ districts:
       phone: (912)283-8656
       mailing_address: P.O. Box 1789, Waycross, GA 31502
       website: http://www.ware.k12.ga.us
-      as_of: 2023-24
+      as_of: 2026-09-25
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+      district_email: lbarber@ware.k12.ga.us
+      superintendent: Lynn Barber
+      contact_source: GSSA superintendents directory gssaweb.org, 2026-09-25
     policy_adopted: 2007-11-13
     policy_revised: 2020-04-21
     policy_dates_from: notes

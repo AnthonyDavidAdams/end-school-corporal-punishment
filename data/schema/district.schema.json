@@ -407,6 +407,13 @@
                 ],
                 "format": "uri",
                 "description": "Where this contact block was read: a district page, or the federal LEA directory file it came out of"
+              },
+              "contact_source": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Where the contact came from when not the district's own site: the state education agency's published directory, dated."
               }
             }
           },
