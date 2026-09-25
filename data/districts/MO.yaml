@@ -3,7 +3,7 @@
 state: MO
 districts:
   - name: ALTON R-IV
-    county: Oregon
+    county: null
     nces_id: "2903060"
     status: allows
     method: searched_document
@@ -11,11 +11,11 @@ districts:
     quote: ADMINISTRATIVE CORRECTIVE ACTIONS CORPORAL PUNISHMENT (POLICY JGA) may be used as a corrective measure to maintain student discipline.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: ARCADIA VALLEY R-II
-    county: Iron
+    county: null
     nces_id: "2903150"
     status: allows
     method: searched_document
@@ -23,8 +23,19 @@ districts:
     quote: The student will have the right to refuse swats and parents can make a written request (renewed yearly) stating that they do not wish for their child to be paddled.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: BAKERSFIELD R-IV
+    county: Ozark
+    nces_id: "2904140"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/722/Bakersfield_Sd/07817c84-7d4d-43e1-b9d4-34f7869e457c/2025-2026-High-School-Student-Handbook.pdf?disposition=inline
+    quote: 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    notes: The document sat behind a JavaScript challenge; read 2026-09-25 with a real browser session. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
     county_source: nces_edge_geocode_2023_24
   - name: Campbell R-Ii
     county: Campbell
@@ -84,7 +95,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: COOTER R-IV
-    county: Pemiscot
+    county: null
     nces_id: "2910140"
     status: allows
     method: searched_document
@@ -92,11 +103,11 @@ districts:
     quote: • The teacher or Principal is to ask the student if there is any medical or physical reason as to why the student may not receive a paddling.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: EAST CARTER CO. R-II
-    county: Carter
+    county: null
     nces_id: "2911100"
     status: allows
     method: searched_document
@@ -104,11 +115,11 @@ districts:
     quote: ● After school detention ● Corporal punishment ● Saturday School ● In-school suspension, or ● Out-of-school suspension APPROPRIATE DRESS Students will not be allowed to wear loose fitting shorts or pants to school that may expose undergarments or body parts that are meant to be covered.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: EMINENCE R-I
-    county: Shannon
+    county: null
     nces_id: "2911450"
     status: allows
     method: searched_document
@@ -116,11 +127,11 @@ districts:
     quote: "2 days ASD & 1 ISS or Corporal punishment (2) Sixth Tardy:"
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: GLENWOOD R-VIII
-    county: Howell
+    county: null
     nces_id: "2915180"
     status: allows
     method: searched_document
@@ -128,8 +139,8 @@ districts:
     quote: CORPORAL PUNISHMENT Corporal punishment is permitted by law in the state of Missouri.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: GREENVILLE R-II
     county: Wayne
@@ -151,7 +162,7 @@ districts:
     policy_revised: 2022-09-15
     policy_dates_from: notes
   - name: HALFWAY R-III
-    county: Polk
+    county: null
     nces_id: "2913530"
     status: allows
     method: searched_document
@@ -159,8 +170,8 @@ districts:
     quote: 1.) Board Policy JGA CORPORAL PUNISHMENT Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Holcomb R-Iii
     county: Holcomb
@@ -200,7 +211,7 @@ districts:
     policy_code: JGA-2
     crdc_students_latest: null
   - name: Kennett 39
-    county: Dunklin
+    county: null
     nces_id: "2916500"
     status: bans
     method: searched_document
@@ -208,7 +219,7 @@ districts:
     quote: Restorative practices may be used when appropriate, and corporal punishment is strictly prohibited.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
+    last_verified: 2026-09-25
     contact:
       phone: 573-717-1100
       mailing_address: 510 College Ave, Kennett, MO 63857
@@ -216,7 +227,7 @@ districts:
       board_page: https://www.kennett.k12.mo.us/page/board-policy-manual/
       contact_page: https://www.kennett.k12.mo.us/
       as_of: 2026-09-19
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Malden R-I
     county: Malden
@@ -237,6 +248,17 @@ districts:
       public_comment: Board meets the third Tuesday of each month. Patrons wishing to address the Board must complete the 'Request to be on BOE Agenda' form and submit it to the central office at 601 West Burkhart Street no later than five days before the meeting.
       as_of: 2026-09-19
     notes: "Source is the district's elementary student handbook, posted in the district Documents > HANDBOOKS folder as 'Elementary Student Handbook 26-27'; the file itself is titled 'Handbook 2025-2026'. fetch_document: application/pdf, 1,667,511 bytes, 63 pages, text layer present; the quoted sentence is on page 18 under 'Definitions of Discipline'. The handbook also states on page 10 that 'A complete manuscript of the District Discipline Code and corporal punishment guidelines are contained in the Malden R-I School District Policy Manual' and cites policies JG-R1, JGA, JGB, JGD, JGE, JGF. Refusal by student or parent is answered with out-of-school suspension, not consent in advance, so this is 'allows', not 'consent_required'. The underlying board policy manual is on Simbli (the district links to simbli.eboardsolutions.com/mo/maldenr1); Simbli's Imperva bot protection refused both the project's fetch_simbli_policy tool and a browser throughout this session, so the board policy text itself was not read. The district's separate 'JH and HS Student Handbook 2026-2027' (69 pages) contains no mention of corporal punishment."
+  - name: NEELYVILLE R-IV
+    county: Butler
+    nces_id: "2921750"
+    status: allows
+    source: https://docs.google.com/document/d/1BMV4g2nDByc0unyweHXmtIYgf7K__wn_mXNzCnp6ZkY/export?format=txt
+    quote: IV Board of Education Rules and Regulations state that corporal punishment shall be used only as a last resort when all other means of attempts at punishment and correction of a student has failed.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    notes: The document sat behind a JavaScript challenge; read 2026-09-25 with a real browser session. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    county_source: nces_edge_geocode_2023_24
   - name: Portageville
     county: Portageville
     nces_id: "2900003"
@@ -255,7 +277,7 @@ districts:
       as_of: 2026-09-19
     notes: "Policy 2670, headed 'Corporal Punishment: Authorized'. Found in the district's own board-policy Google Drive folder linked from https://www.portageville.k12.mo.us/school_board_info/boardpolicies (folder id 1nNJMeVjVQt5zO6oCsRRloXUATUpjKOzu, enumerated via drive.google.com/embeddedfolderview). Document's own date line: 'October, 2010'. Fetched: 5,350 bytes, application/octet-stream, 1 page, hit on page 1; also confirmed locally with pdftotext. No parental opt-out or opt-in in the policy text. CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
   - name: RICHWOODS R-VII
-    county: Washington
+    county: null
     nces_id: "2931230"
     status: allows
     method: searched_document
@@ -263,8 +285,8 @@ districts:
     quote: Once the involvement of the principal/parents is necessary, possible interventions may include parent conferences, suspensions, or corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Senath-Hornersville C-8
     county: Senath
@@ -336,7 +358,7 @@ districts:
     policy_code: "5144.1"
     crdc_students_latest: null
   - name: SUMMERSVILLE R-II
-    county: Texas
+    county: null
     nces_id: "2929810"
     status: allows
     method: searched_document
@@ -344,11 +366,11 @@ districts:
     quote: Refusal of corporal punishment will result in out-of school suspension for the remainder of the day and one additional day.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: WESTVIEW C-6
-    county: Newton
+    county: null
     nces_id: "2931890"
     status: allows
     method: searched_document
@@ -356,6 +378,6 @@ districts:
     quote: Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24

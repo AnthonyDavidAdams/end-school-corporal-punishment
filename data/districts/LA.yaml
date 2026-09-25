@@ -39,7 +39,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Evangeline Parish
-    county: Evangeline Parish
+    county: null
     nces_id: "2200630"
     status: consent_required
     method: searched_document
@@ -47,8 +47,8 @@ districts:
     quote: Corporal punishment – Corporal punishment may be used by the principal or his designee.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Jefferson Parish Schools
     county: Jefferson
@@ -118,7 +118,7 @@ districts:
     notes: 'The classifier held this at 0.87; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because none of the candidates is a clean policy sentence: the rule appears only as a numbered item in a discipline-consequences list ("Corporal punishment (with written parent approval) 4." -- the trailing "4." is the next list number bleeding in) and as a fill-in form with page-footer junk, and the form names Rayville Elementary, a single school, inside a parish-wide handbook. The candidate'
     county_source: nces_edge_geocode_2023_24
   - name: Sabine Parish
-    county: Sabine Parish
+    county: null
     nces_id: "2201380"
     status: consent_required
     method: searched_document
@@ -126,8 +126,8 @@ districts:
     quote: 100 CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Tangipahoa Parish Schools
     county: Tangipahoa
@@ -139,7 +139,7 @@ districts:
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Union Parish
-    county: Union Parish
+    county: null
     nces_id: "2201770"
     status: allows
     method: searched_document
@@ -147,11 +147,11 @@ districts:
     quote: Corporal punishment should be used only after other methods of seeking the student’s cooperation in developing self- discipline have failed or as an alternative to suspension.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Webster Parish
-    county: Webster Parish
+    county: null
     nces_id: "2201890"
     status: allows
     method: searched_document
@@ -159,6 +159,6 @@ districts:
     quote: CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24

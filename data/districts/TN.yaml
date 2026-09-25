@@ -12,7 +12,7 @@ districts:
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Greene County
-    county: Greene
+    county: null
     nces_id: "4701470"
     status: allows
     method: searched_document
@@ -20,19 +20,19 @@ districts:
     quote: 2 CORPORAL PUNISHMENT POLICY Corporal punishment is administered to students only after other negative consequences have been attempted.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Hamilton County Schools
-    county: Hamilton
+    county: null
     nces_id: "4701590"
     status: allows
     method: searched_document
     source: https://digitalbell-bucket.s3.amazonaws.com/7ECA10AA-5056-907D-8DDE-F06E6D7CC69C.pdf
     quote: No student may be suspended from school, from school bus transportation or from class, nor may corporal punishment be administered except as provided by law and the policies of the Board.
-    last_verified: 2026-09-24
+    last_verified: 2026-09-25
     legacy_status: bans
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     policy_code: null
     crdc_students_latest: null
     county_source: nces_edge_geocode_2023_24
@@ -77,7 +77,7 @@ districts:
       as_of: 2026-09-22
     notes: null
   - name: Lincoln County
-    county: Lincoln
+    county: null
     nces_id: "4702490"
     status: consent_required
     method: searched_document
@@ -85,8 +85,8 @@ districts:
     quote: The Board does permit use of corporal punishment as a disciplinary technique with written parental permission.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Macon County
     county: Macon
@@ -144,7 +144,7 @@ districts:
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: McKenzie
-    county: Carroll
+    county: null
     nces_id: "4702790"
     status: allows
     method: searched_document
@@ -152,11 +152,11 @@ districts:
     quote: "Examples (Not an exclusive listing) Fighting (mutual combativeness) Threats to others Vandalism (minor) Truancy Stealing Gambling Sexual Harassment (verbal) Continuation of Level 1 and 2 Insubordination Harassment/Bullying/Cyberbullying DISCIPLINE – LEVEL 3 Examples (Not an exclusive listing) Extended Time-out Detention (After School) Corporal Punishment Out-of-School Suspension Restitution from loss, damaged, or stolen … … 1 Minor Infractions:"
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: McMinn County
-    county: McMinn
+    county: null
     nces_id: "4702820"
     status: allows
     method: searched_document
@@ -164,8 +164,8 @@ districts:
     quote: • Corporal punishment is permitted by the county board policy and state law when deemed necessary.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: McNairy County
     county: McNairy
@@ -189,7 +189,7 @@ districts:
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
   - name: Moore County
-    county: Moore
+    county: null
     nces_id: "4703060"
     status: bans
     method: searched_document
@@ -197,11 +197,11 @@ districts:
     quote: Corporal Punishment Prohibited The Board strictly prohibits all forms of corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Obion County
-    county: Obion
+    county: null
     nces_id: "4703270"
     status: allows
     method: searched_document
@@ -209,8 +209,8 @@ districts:
     quote: Any teacher or school principal may use corporal punishment in a reasonable manner against any pupil for good cause in order to maintain discipline and order within the public schools.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Overton County
     county: Overton

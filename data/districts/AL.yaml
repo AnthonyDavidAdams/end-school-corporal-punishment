@@ -55,7 +55,7 @@ districts:
     policy_adopted: 2025-01-06
     policy_dates_from: notes
   - name: Athens City
-    county: Limestone
+    county: null
     nces_id: "0100120"
     status: allows
     method: searched_document
@@ -63,8 +63,8 @@ districts:
     quote: 33 CORPORAL PUNISHMENT In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in the schools.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Baldwin County Schools
     county: Baldwin
@@ -702,7 +702,7 @@ districts:
       as_of: 2026-09-20
     notes: "Fort Payne City Board of Education Policy Manual, policy 6.16 Corporal Punishment, PDF page 98. Manual cover page: 'November 19, 2020 / Updated August 28, 2026'. Opt-out: 'A parent or guardian of student may opt out of the use of corporal punishment as a disciplinary consequence for that student by submitting a written, signed statement to the school principal.' Fetched via fetch_document: 845,021 bytes, application/pdf, 126 pages, 281,349 chars, sha256 18b403e6...  Linked from https://www.fpcsk12.com/policies-plans. This is the CITY district, and the manual's own header says 'Fort Payne City Board of Education'."
   - name: Franklin County
-    county: Franklin
+    county: null
     nces_id: "0101590"
     status: allows
     method: searched_document
@@ -710,8 +710,8 @@ districts:
     quote: 2) Subsequent Offenses for grades K-4 In-school disciplinary action such as probation, detention, completion of extra academic assignments, work assignments before or after school, corporal punishment, or suspension at the discretion of the principal or his/her designated person(s).
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Geneva City
     county: Geneva
@@ -787,7 +787,7 @@ districts:
       as_of: 2026-09-21
     notes: "Source: Hale County Board of Education Policy Manual (85 pages, 729,878 bytes, application/pdf), fetched via www.halek12.org/fs/resource-manager/view/7fe05a1b-a01f-420b-9424-e3b2021d1c5e which resolves to the finalsite PDF cited as source. Policy 6.17 Corporal Punishment, page 68 of the PDF. Manual's own Table of Contents header is dated 'March 3, 2022' (manual-wide revision date; no per-section ADOPTED/REVISED line printed for 6.17 itself, so policy_adopted/policy_revised left null rather than guessed). Board/superintendent email and mailing address taken from the policy manual's own title page (page 1), which lists Michael C. Ryans as Superintendent with mryans@halek12.org, phone (334) 624-8836, 1115 Powers Street, Greensboro, AL 36744 -- confirmed against the district's own board-members page. This district was in the federal 2023-24 CRDC as reporting corporal punishment (33 students) and had no prior record in this project."
   - name: Haleyville City
-    county: Winston
+    county: null
     nces_id: "0101720"
     status: allows
     method: searched_document
@@ -795,8 +795,8 @@ districts:
     quote: Corporal Punishment Moderate use of physical force or physical contact by a school administrator as may be necessary to maintain discipline or to enforce school rules.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Hartselle City
     county: Morgan
@@ -980,7 +980,7 @@ districts:
     policy_revised: 2019-03-20
     policy_dates_from: notes
   - name: Lawrence County
-    county: Lawrence
+    county: null
     nces_id: "0102040"
     status: allows
     method: searched_document
@@ -988,8 +988,8 @@ districts:
     quote: El castigo corporal puede ser administrado por el director o por un maestro en presencia de otro empleado certificado.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Lee County Schools
     county: Lee
@@ -1009,6 +1009,16 @@ districts:
       website: http://www.lee.k12.al.us
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+  - name: Leeds City
+    county: null
+    nces_id: "0100011"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/7749/26-27_student-parent_handbook_and_code_of_student_conduct.pdf
+    quote: Nombre del director en letra de molde Firma del director Escuela Distrito Fecha CORPORAL PUNISHMENT PARENTAL CONSENT FORM PRINTED STUDENT’S NAME SCHOOL GRADE TEACHER According to Leeds City Schools Policy, parents or legal guardians who do not want corporal punishment to be administered to their child/children must inform the principal of the school on an annual basis.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
   - name: Limestone County Schools
     county: Limestone
     nces_id: "0102100"
@@ -1343,7 +1353,7 @@ districts:
       as_of: 2026-09-20
     notes: "Pell City Board of Education Student Code of Conduct, cover page dated 2026-2027; corporal punishment is listed as a Disciplinary Option/Action for both Class 1 (Minor) and Class 2 (Intermediate) offences, on page 15, with the note '****Refer to Board Policy regarding guidelines to be used in administering corporal punishment'. Parental NOTIFICATION, not consent, so classified allows. Fetched via fetch_document: 2,475,483 bytes, content-type application/octet-stream, 60 pages, 249,618 chars, sha256 d2245499...  The board policy manual itself is Simbli site 36030886 (title confirmed in a browser as 'Policy Listing | Pell City Schools'), but fetch_simbli_policy returned the vendor bot-challenge on eight spaced attempts over roughly ninety minutes, so the board-adopted Code of Conduct is cited instead."
   - name: Phenix City
-    county: Russell
+    county: null
     nces_id: "0102700"
     status: allows
     method: searched_document
@@ -1351,11 +1361,11 @@ districts:
     quote: Corporal Punishment If corporal punishment is required, it shall be administered with extreme care, tact, and caution, and then only by the principal or his/her designee in the presence of another professional school employee.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Pickens County
-    county: Pickens
+    county: null
     nces_id: "0102730"
     status: allows
     method: searched_document
@@ -1363,8 +1373,8 @@ districts:
     quote: In-school disciplinary action such as detention, completing of extra academic assignments, work assignments before and after school, corporal punishment, or suspension at the discretion of the principal or his/her designated person(s).
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Pike County Schools
     county: Pike
@@ -1454,7 +1464,7 @@ districts:
     policy_adopted: 2024-09-24
     policy_dates_from: notes
   - name: Russell County
-    county: Russell
+    county: null
     nces_id: "0102880"
     status: bans
     method: searched_document
@@ -1462,11 +1472,11 @@ districts:
     quote: Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Scottsboro City
-    county: Jackson
+    county: null
     nces_id: "0102940"
     status: allows
     method: searched_document
@@ -1474,11 +1484,11 @@ districts:
     quote: Corporal Punishment Corporal punishment shall be administered in accordance with Board policy.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Sheffield City
-    county: Colbert
+    county: null
     nces_id: "0103000"
     status: allows
     method: searched_document
@@ -1486,8 +1496,8 @@ districts:
     quote: Corporal punishment is defined as bodily punishment by use of a paddle on the buttocks and may be used as a disciplinary option as prescribed herein.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Shelby County Schools
     county: Shelby
@@ -1626,7 +1636,7 @@ districts:
       as_of: 2026-09-21
     notes: null
   - name: Thomasville City
-    county: Clarke
+    county: null
     nces_id: "0103300"
     status: allows
     method: searched_document
@@ -1634,8 +1644,8 @@ districts:
     quote: TMS/THS - 1st 10 Days ISS or Recommended to CAPP Program 10 Days will be suspended pending completion of CAPP Failure to complete CAPP - 10 Days ISS will continue 2nd 30 Days ISS 3rd + 10 Days OSS with Notification to TCS School Board Recommended for Expulsion **ALL vapes/electronic cigarettes confiscated on the campus, grounds or any property of Thomasville City Schools will be tested immediately using a Mobile Test Kit** CORPORAL PUNISHMENT To maintain discipline or to enforce Thomasville City School System rules, the principal or his/her designee may administer corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Tuscaloosa City Schools
     county: Tuscaloosa
@@ -1742,7 +1752,7 @@ districts:
       as_of: 2026-09-19
     notes: "2026-2027 Washington County Student Handbook (current; the site also still links the 2025-2026 edition, which carries the identical sentence on its own page 19). Quote is on page 19 of 70, in the Code of Conduct section 'Violations of the Code of Conduct are grouped into four classes'. 3,588,031 bytes, application/pdf (fetch_document). NOTABLE: the district expressly refuses parental opt-out. Corporal punishment is listed as a disciplinary action for Class I (p.20, elementary subsequent offenses and middle/high) and Class II (p.21) offenses. This is Washington County (AL) COUNTY schools, wcbek12.org, 229 Granade Ave, Chatom; the handbook's running footer reads '2026-2027 Washington County Student Handbook'. Both handbooks linked from https://www.wcbek12.org/about-us/student-handbook. Prior-year copy for comparison: https://resources.finalsite.net/images/v1755636971/wcbek12org/rubgisplfy9vgh2uj69l/ACFrOgDRYi2ma_lrMy0b5TcPdpAg5Fdc8sN_2DTs7QfjYDIc4onjL9OAsgUK3FrGzH6SWDkzkaRH5Ijvjdj1Dlr9mPMoOLsfI4Tz_xrENl63Vtd229xtlOdgIwVJv0g4ZuV2pXsulazE6JbFuCND7MI3z-0RxF3Zmo_iTJHiDA.pdf (662,071 bytes, 66 pages)."
   - name: Wilcox County
-    county: Wilcox
+    county: null
     nces_id: "0103510"
     status: allows
     method: searched_document
@@ -1750,8 +1760,8 @@ districts:
     quote: The Board permits the use of corporal punishment only after other corrective measures have failed.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Winston County
     county: Double Springs
