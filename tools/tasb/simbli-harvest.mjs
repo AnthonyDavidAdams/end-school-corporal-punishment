@@ -20,6 +20,8 @@ const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ?
 const FROM = Number(arg("from", 36031677)), TO = Number(arg("to", 36031853));
 const OUT = join(root, arg("out", "data/simbli/harvest.jsonl"));
 const WORKERS = Number(arg("workers", 4));
+// The policy code differs by state association: JDB (MS, AR), JGA / JGA-1 (Missouri MSBA), JDA (GA).
+const CODE = arg("code", "JDB");
 
 async function mcp(name, args) {
   try {
@@ -64,7 +66,7 @@ async function worker() {
     // board's decision about its own schools, and classifying it read as though the district had
     // chosen something it had not. JDB is the policy, it exists, and it was one request away --
     // Baldwyn's is 3,777 characters, revised 2019, and says plainly what the board permits.
-    let r = await mcp("fetch_simbli_policy", { site, code: "JDB" });
+    let r = await mcp("fetch_simbli_policy", { site, code: CODE });
     let j = null;
     if (r && !r.error) { try { j = JSON.parse(r.text); } catch { j = null; } }
     const gotPolicy = (x) => (x?.policies || []).some((p) => (p.text || "").length > 500);

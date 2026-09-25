@@ -47,6 +47,21 @@ districts:
       contact_page: https://www.bartonsd.org/
       as_of: 2026-09-20
     notes: "District board policy manual, Section 4 – STUDENTS, policy 4.39 CORPORAL PUNISHMENT, on PDF page 99 (printed page 94). The policy's own dates: 'Date Adopted: 7/5/04 Last Revised: 1/6/26' — revised January 2026 and still authorizing corporal punishment. Fetched via the crew's fetch_document: 1,404,444 bytes, application/pdf, 159 pages, 399,666 chars of text, sha256 77b2e1aa...  The NCES website http://blsd.grsc.k12.ar.us is dead; the district's live site is www.bartonsd.org (Apptegy), which is behind a client-challenge for plain curl but serves this asset host directly. The policy begins 'Option 1', the ASBA model-policy option marker."
+  - name: BAY SCHOOL DISTRICT
+    county: Craighead
+    nces_id: "0502820"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1647/Bay/136f8bff-1a29-4881-95f2-b6e05241b4e7/2023-2024_Student_Discipline_Policies.pdf?disposition=inline
+    quote: After school detention or corporal punishment 3.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - After school detention or corporal punishment 3.
+    notes: Found by crawling the district's site with a browser after the first pass hit a bot challenge; read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Bearden School District
     county: Bearden
     nces_id: "0500032"
@@ -469,6 +484,24 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: HORATIO SCHOOL DISTRICT
+    county: Sevier
+    nces_id: "0507860"
+    status: allows
+    source: https://docs.google.com/document/d/11TURngIA8IrHUxFILNjeVk9pR7jeHYVXy3-LTKlubys/export?format=txt
+    quote: See District Policy 4.39 CORPORAL PUNISHMENT The Principal/Dean of Students may use the form of discipline he/she deems correct to handle each situation.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: none
+    quotes:
+      - See District Policy 4.39 CORPORAL PUNISHMENT The Principal/Dean of Students may use the form of discipline he/she deems correct to handle each situation.
+      - detention or corporal punishment CATEGORY II OFFENSES 1.
+      - detention 3 days or corporal punishment & mandatory parent conference 3rd Offense – ISS 3 days CATEGORY III OFFENSES 1.
+      - "07-14-08 4.39—CORPORAL PUNISHMENT (Option #1) The Horatio School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment."
+    notes: Student handbook published as a Google Doc; the server could not read the editor page, so it was exported as text 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Hoxie School District
     county: Hoxie
