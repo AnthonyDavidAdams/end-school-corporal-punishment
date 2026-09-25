@@ -16,6 +16,8 @@
 import { readFileSync, appendFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { hasAnchor, NOT_THIS } from "./vocabulary.mjs";
+import { fetchWithBrowser, browserAvailable, closeBrowser } from "./browser.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
@@ -66,11 +68,15 @@ async function viaArchive(url) {
   const turn = archiveQueue.then(() => new Promise((r) => setTimeout(r, ARCHIVE_GAP_MS)));
   archiveQueue = turn;
   await turn;
+  // Through the pool, so the archive is not being asked for everything by one address. That is what
+  // exhausted its patience: hundreds of requests from here in an evening, after which it served nothing
+  // at all -- including a page it had given us in full an hour before.
+  const viaPool = (u, init) => (dispatcher ? ufetch(u, { ...init, dispatcher }) : fetch(u, init));
   try {
-    const j = await (await fetch(`https://archive.org/wayback/available?url=${encodeURIComponent(url)}`, { signal: AbortSignal.timeout(20_000) })).json();
+    const j = await (await viaPool(`https://archive.org/wayback/available?url=${encodeURIComponent(url)}`, { signal: AbortSignal.timeout(20_000) })).json();
     const s = j?.archived_snapshots?.closest;
     if (!s?.available) return null;
-    const r = await fetch(s.url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(35_000) });
+    const r = await viaPool(s.url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(35_000) });
     if (!r.ok) { archiveEmpty++; return null; }
     const html = await r.text();
     // Empty, or the challenge itself, is a failed read. Say so rather than passing it on as a page.
@@ -80,6 +86,15 @@ async function viaArchive(url) {
   } catch { archiveEmpty++; return null; }
 }
 
+let canBrowse = null;
+async function viaBrowser(url) {
+  canBrowse ??= await browserAvailable();
+  if (!canBrowse) return null;
+  const r = await fetchWithBrowser(url);
+  if (!r || CHALLENGE.test(r.html.slice(0, 4000)) || r.html.length < 6000) return null;
+  return { ...r, via_browser: true };
+}
+
 async function get(url) {
   try {
     const opts = { headers: { "User-Agent": UA, Accept: "text/html,application/xhtml+xml,*/*", "Accept-Language": "en-US,en;q=0.9" }, redirect: "follow", signal: AbortSignal.timeout(30_000) };
@@ -87,9 +102,11 @@ async function get(url) {
     if (!r.ok) return await viaArchive(url);
     if (!/html/i.test(r.headers.get("content-type") || "")) return { doc: true, url: r.url };
     const html = await r.text();
-    if (CHALLENGE.test(html.slice(0, 4000)) || html.length < 6000) return await viaArchive(url);
+    // Walled or a stub: run a browser, which is what the challenge is asking for. The archive is the
+    // last resort rather than the first, because it is a courtesy and we have already spent most of it.
+    if (CHALLENGE.test(html.slice(0, 4000)) || html.length < 6000) return (await viaBrowser(url)) ?? (await viaArchive(url));
     return { html, url: r.url };
-  } catch { return await viaArchive(url); }
+  } catch { return (await viaBrowser(url)) ?? (await viaArchive(url)); }
 }
 
 // The original host, so the same-site rule still works on an archived page where every link has been
@@ -167,7 +184,10 @@ export async function harvestSite(district, website) {
       if (!page) continue;
       if (page.archived) archived = page.archived;
       if (page.doc) { docs.push({ url: page.url, text: item.text ?? null, p: item.p, via: "direct" }); continue; }
-      const { scored, cost: c } = await score(district, links(page.html, page.url).filter((l) => !seen.has(l.url)).slice(0, 220));
+      // Links from the DOM when a browser fetched the page, otherwise parsed from the HTML.
+      const found = page.links ? page.links.filter((l) => { const hb = host(page.url), ha = host(l.url); return !(hb && ha && hb !== ha && !DOC.test(l.url) && !/eboardsolutions|tasb\.org|boarddocs/i.test(l.url)); })
+                               : links(page.html, page.url);
+      const { scored, cost: c } = await score(district, found.filter((l) => !seen.has(l.url)).slice(0, 220));
       cost += c;
       for (const s of scored) {
         const v = vendorOf(s.url);
@@ -203,5 +223,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     }
   }
   await Promise.all(Array.from({ length: WORKERS }, worker));
+  await closeBrowser();
   console.log(`\n${withDocs}/${n} districts yielded a document, $${cost.toFixed(4)}`);
 }
