@@ -15,6 +15,7 @@ districts:
     county: Calhoun
     nces_id: "1200210"
     status: allows
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/8214/2026-2027_code_of_conduct.pdf
     quote: "If a teacher feels that corporal punishment is necessary, at least the following procedures shall be followed: 1. The use of corporal punishment shall be approved in principle by the principal before it is used, but approval is not necessary for each specific instance in which it is used."
     policy_code: "5.30"
@@ -43,6 +44,7 @@ districts:
     county: Lake City
     nces_id: "1200360"
     status: consent_required
+    method: agent_via_crew
     source: https://drive.google.com/uc?export=download&id=1W3qzfapnQWKHIzlcf7PbRvO86Ms7w6Vt
     quote: Corporal punishment may be administered to elementary students at the discretion of the principal or designee if agreed to by the parent and in accordance with Board Policy 5.19
     policy_code: Code of Student Conduct 2026-2027, Class I offenses (cites Board Policy 5.19)
@@ -78,16 +80,18 @@ districts:
     county: null
     nces_id: "1200570"
     status: bans
+    method: searched_document
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5338/Fcs/22bd2317-447e-4773-ae93-ad664cbd284f/2025-2026_Code_of_Conduct.docx.pdf?disposition=inline
     quote: A process for the parent or emancipated youth to request a debriefing session 5.8 CORPORAL PUNISHMENT (09.433) Corporal punishment is defined as the deliberate infliction of physical pain by any means upon the whole or any part of a student's body as a penalty or punishment for student misbehavior.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Gilchrist County School District
     county: Gilchrist
     nces_id: "1200630"
     status: consent_required
+    method: agent_via_crew
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/342/District/f52dc297-345b-4271-9164-069beb130b6d/GCSD-Student-Code-of-Conduct-2025-2026.pdf?disposition=inline
     quote: Corporal Punishment Per FS 1002.20 a parent must provide consent for the school to administer corporal punishment. This permission should be obtained prior to each administration.
     policy_code: null
@@ -98,6 +102,7 @@ districts:
     county: null
     nces_id: "1200720"
     status: allows
+    method: searched_document
     source: https://digitalbell-bucket.s3.amazonaws.com/7ECA10AA-5056-907D-8DDE-F06E6D7CC69C.pdf
     quote: No student may be suspended from school, from school bus transportation or from class, nor may corporal punishment be administered except as provided by law and the policies of the Board.
     policy_code: null
@@ -117,6 +122,7 @@ districts:
     county: Holmes
     nces_id: "1200900"
     status: consent_required
+    method: agent_via_crew
     source: https://www.hdsb.org/_cache/files/8/b/8b7cd080-2650-4d0a-8359-17c3b7903681/333EBD5E310BEE831DF60A12FEB5E655.code-of-student-conduct-2026-27.pdf
     quote: The Holmes County Board of Education has no rule against reasonable and proper paddling of students for disciplinary reasons. Before corporal punishment is administered as a disciplinary method, parent approval is required.
     policy_code: null
@@ -142,12 +148,13 @@ districts:
     county: null
     nces_id: "1200960"
     status: bans
+    method: searched_document
     source: https://resources.finalsite.net/images/v1639574332/jackson/lfh7njcjswimkvsgfcr2/JCPSStudentHandbook.pdf
     quote: 49 No school plan for managing student behavior may authorize the use of corporal punishment.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Jackson County School District
     county: Jackson
     nces_id: "1200960"
@@ -163,6 +170,7 @@ districts:
     county: Lafayette
     nces_id: "1201020"
     status: consent_required
+    method: agent_via_crew
     source: https://les.lafayette.k12.fl.us/_theme/files/26-27/LES%20Parent-Student%20Handbook%2026-27_docx.pdf
     quote: "Corporal Punishment: If corporal punishment is required, it shall be administered with extreme care, tact and caution, and then only by the principal and/or designee in the presence of another professional school employee and only upon written/oral consent of the parent."
     last_verified: 2026-09-21
@@ -174,16 +182,18 @@ districts:
     county: null
     nces_id: "1201140"
     status: allows
+    method: searched_document
     source: http://digitalbell-bucket.s3.amazonaws.com/EC0284BC-5056-907D-8DDC-63B2ACFAAB65.pdf
     quote: One would not, for example, impose corporal punishment and a suspension from school.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Liberty County School District
     county: Liberty
     nces_id: "1201170"
     status: allows
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/8783/2026-27_code_of_student_conduct.pdf
     quote: "Corporal Punishment – The moderate use of paddling in front of a witness by a teacher, principal/administrator may be necessary to maintain discipline or to enforce school rules. Parents may opt out to permit corporal punishment as a disciplinary intervention by signing and returning the consent/authorization form in this Code. [SBP: 5630; §§1003.32(1)(k), 1002.20(4), and 1003.01(7), Florida Statutes]"
     last_verified: 2026-09-21
@@ -231,6 +241,7 @@ districts:
     county: Live Oak
     nces_id: "1201830"
     status: allows
+    method: agent_via_crew
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4355/Scsd/ef99b247-63f9-498c-8eb7-20580703221b/POLICY_MANUAL_12.9.25.pdf
     quote: "In accordance with s.1003.32, it is the policy of Suwannee County School Board that if the use of corporal punishment is deemed necessary, the following procedures will be followed:"
     policy_code: "5.10"
@@ -257,6 +268,7 @@ districts:
     county: Crawfordville
     nces_id: "1201950"
     status: consent_required
+    method: agent_via_crew
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5427/Wac/51f70357-9fec-4c1a-bdcc-4e659789fd59/Code-of-Conduct-.pdf
     quote: The Principal, or his/her designee, must receive consent from the parent or guardian before administering corporal punishment.
     policy_code: null
@@ -274,6 +286,7 @@ districts:
     county: Chipley
     nces_id: "1202010"
     status: allows
+    method: agent_via_crew
     source: https://digitalbell-bucket.s3.amazonaws.com/00F300A5-9B42-1D94-880C-CE469159511E.pdf
     quote: "Use corporal punishment according to school board policy 5.302 and F.S. 1002.20 and the following procedures, if a teacher feels that corporal punishment is necessary:"
     policy_code: "Code of Student Conduct, Authority of the Teacher #11 (cites board policy 5.302)"

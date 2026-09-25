@@ -6,6 +6,7 @@ districts:
     county: null
     nces_id: "0100005"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2037&revid=plusKmZp8BWfZeaUGWs0yeKslshA%3D%3D
     quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior.
     policy_code: "6.15"
@@ -16,6 +17,7 @@ districts:
     county: Alexander City
     nces_id: "0100030"
     status: consent_required
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1753692591/alexcityschools/msjenydzkrojxe635hri/VIStudentsAdoptedJuly222025.pdf
     quote: The Board allows reasonable corporal punishment of students if the student’s parent or guardian has opted-in to the use of such punishment
     policy_code: "6.16"
@@ -34,6 +36,7 @@ districts:
     county: Calhoun
     nces_id: "0100090"
     status: allows
+    method: agent_via_crew
     source: https://drive.google.com/uc?export=download&id=16fxYcM_H5l4pUoTP_Qm8DSa9LWeixJeE
     quote: the Board permits reasonable corporal punishment of students in Anniston City schools. If such punishment is required, it shall be administered with care, tact, and caution by the principal, assistant principal, or, when appropriate, by their designee. In all cases, however, corporal punishment shall be administered in the presence of the principal or assistant principal. Corporal punishment shall not include more than three (3) licks administered to the buttocks. Other forms of corporal punishment are not permitted. In all cases, corporal punishment shall be administered only by certified personnel.
     policy_code: G-20.2
@@ -54,16 +57,18 @@ districts:
     county: null
     nces_id: "0100120"
     status: allows
+    method: searched_document
     source: https://resources.finalsite.net/images/v1752239674/acsk12org/uxjrfgfcwtuf1vlvgnwd/2025-2026ACS6-12StudentParentHandbookR071025Final.pdf
     quote: 33 CORPORAL PUNISHMENT In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in the schools.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Baldwin County Schools
     county: Baldwin
     nces_id: "0100270"
     status: bans
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1759865717/bcbeorg/kcxlucq3qg7ekuxpe3di/Policy2025.pdf
     quote: "6.18 Corporal Punishment Corporal punishment (spanking) should not be administered by school personnel. [Reference: ALA. CODE §16-28A-2 (1975)]"
     last_verified: 2026-09-19
@@ -81,6 +86,7 @@ districts:
     county: Jefferson
     nces_id: "0100390"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2005&revid=rCoU3YDeQiauvp8P9pTGvA%3D%3D
     quote: The Birmingham Board of Education does not allow the use of corporal punishment as an appropriate means of discipline. Teachers, however, are given the authority and responsibility to use other appropriate means of discipline.
     last_verified: 2026-09-19
@@ -101,6 +107,7 @@ districts:
     county: Blount
     nces_id: "0100420"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2086&revid=UnvHIFb98Ri5e51IrURyEg%3D%3D
     quote: |-
       B. Corporal punishment must be administered by the principal, assistant principal or teacher. 
@@ -128,6 +135,7 @@ districts:
     county: null
     nces_id: "0100450"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2013&revid=SCJ9WC9Eph4BeAfNWY4slshhA%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.17"
@@ -138,6 +146,7 @@ districts:
     county: Butler
     nces_id: "0100510"
     status: allows
+    method: agent_via_crew
     source: https://www.butlerco.k12.al.us/fs/resource-manager/view/c5bd3ab2-960e-40cf-9450-4f3d853ff9a6
     quote: The Board shall allow reasonable corporal punishment only after other means of discipline have failed to produce desirable results. If corporal punishment is required, it shall be administered only by a certified employee in the presence of a school administrator who has been informed beforehand of the reasons for the punishment. At no time shall corporal punishment be administered in the presence of another student. Parents who object to corporal punishment as a method of discipline shall advise the school administrator in writing of the objection; however, the school administrator has the authority to determine appropriate discipline
     policy_code: 2026-2027 Code of Conduct, section "Corporal Punishment" (p. 14, under Formal Disciplinary Actions and Procedures)
@@ -183,6 +192,7 @@ districts:
     county: Calhoun
     nces_id: "0100540"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031575&revid=ov1mAh6MTHdOGkeRYUu1aw==&ptid=opluslgy5YBB1lFkXrdgY4anQ==&secid=PIt0EdqGusPq6JYPplus1xJww==&PG=6&IRP=0&isPndg=false
     quote: "In accordance with Alabama law, the Board of Education permits the use of corporal punishment. Should corporal punishment be needed, it must be administered in accordance with the following: The student has been notified of the offense for which he/she is to receive corporal punishment and the student has been given an opportunity to explain his/her actions. The punishment shall be administered by the school principal or his/her designee(s) (certificated personnel only) and witnessed by a certified school employee. The punishment shall be administered out of the view or presence of any other students. The punishment shall consist of no more than three swats on the buttocks with a smooth surface paddle free of holes and/or cracks."
     last_verified: 2026-09-09
@@ -232,6 +242,7 @@ districts:
     county: Clanton
     nces_id: "0100660"
     status: allows
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/7470/board_policy.pdf
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.17"
@@ -248,6 +259,7 @@ districts:
     county: Grove Hill
     nces_id: "0100720"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1789476368/clarkecountyschoolsorg/e6bbwdmndbsioivhcqfd/CCBOEPOLICY3.pdf
     quote: In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in the schools of the School System.
     policy_code: "6.16"
@@ -264,6 +276,7 @@ districts:
     county: Cleburne
     nces_id: "0100780"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031078&revid=Gab5gV0Yobv2VdQYslshDDZFA%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force.
     policy_code: "6.15"
@@ -285,6 +298,7 @@ districts:
     county: Coffee
     nces_id: "0100810"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2070&revid=eIilrJZeyhbzPmuNcNFFMg==&ptid=nWlQpJkYTAuW9bslshR3E96RA==&secid=qHu2lGamQmtT4oCqzZ6LAA==&PG=6&IRP=0&isPndg=false
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. If a parent or guardian does not want corporal punishment used in disciplining their child, it the parent or guardian’s responsibility to notify the school principal in writing.
     policy_code: "6.17"
@@ -333,6 +347,7 @@ districts:
     county: Colbert
     nces_id: "0100840"
     status: allows
+    method: agent_via_crew
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031508&revid=4v02jQO8plusbj6gS9nF00STg==&ptid=Ne6jgOmAB0pRYIZjy2vMNw==&secid=B6ZRCyc3LkJfGwslshNPoDUJw==&PG=6&IRP=0&isPndg=false
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force.
     policy_code: "6.19"
@@ -349,6 +364,7 @@ districts:
     county: Evergreen
     nces_id: "0100870"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/a317e267f6544ee9bebdcc3ade170090.pdf
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.17"
@@ -366,6 +382,7 @@ districts:
     county: Coosa
     nces_id: "0100900"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1724162237/coosaschoolsorg/g3hiw918yk9ldquekens/Newpolicymanual082024revised022422.pdf
     quote: 6.19 Corporal Punishment The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Parents will be given the opportunity to opt out in writing from the use of corporal punishment for their child as a disciplinary measure.
     policy_code: "6.19"
@@ -384,6 +401,7 @@ districts:
     county: Covington
     nces_id: "0100930"
     status: allows
+    method: agent_via_crew
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5469/Ccs/c6069503-6ba9-458f-9291-f2c4358d5837/Code-of-Conduct-26-27-adopted-5-5-26.doc?disposition=inline
     quote: Corporal punishment may be administered by the principal/designee or teacher in the presence of a professional employee of the Board of Education. A written report will be prepared for each incident and copies of each report must be on file in the administrative office of the school. Corporal punishment for a student documented as having a disability, in which the behavior was not a manifestation of the student's disability, will follow the same procedures as a non-disabled student.
     policy_code: Code of Student Conduct 2026-2027, section 'CORPORAL PUNISHMENT' (unnumbered)
@@ -429,6 +447,7 @@ districts:
     county: Luverne
     nces_id: "0100960"
     status: consent_required
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/10000/ccboe_board_policy_7-22-26_1.pdf
     quote: Parents must give consent prior to any corporal punishment being performed and the maximum of two (2) licks should be given as a disciplinary consequence.
     policy_code: 5.30.1
@@ -446,6 +465,7 @@ districts:
     county: Cullman
     nces_id: "0100990"
     status: allows
+    method: agent_via_crew
     source: https://drive.google.com/uc?export=download&id=1PVFjIfaA_22JXAzmKv3Naou0JVi5L40B
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student.
     policy_code: "6.17"
@@ -462,6 +482,7 @@ districts:
     county: Cullman
     nces_id: "0101020"
     status: allows
+    method: agent_via_crew
     source: https://5il.co/qsro
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student.
     last_verified: 2026-09-19
@@ -481,6 +502,7 @@ districts:
     county: Dale
     nces_id: "0101050"
     status: allows
+    method: agent_via_crew
     source: https://content.myconnectsuite.com/api/documents/920e45d83bd747a2bc643eb8c1ea510a
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his or her designee in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administering and documenting corporal punishment, consistent with the terms of this policy.
     policy_code: "6.16"
@@ -527,6 +549,7 @@ districts:
     county: DeKalb
     nces_id: "0101140"
     status: allows
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/12948/26-27_policy_and_procedure_final.pdf
     quote: "6.14.1 Corporal Punishment - Corporal punishment shall always be administered with a consideration for the age and physical maturity of the student. Corporal punishment must always be a deliberate, well thought out action on the part of school administrators and should be administered appropriately to effectively alter student behaviors that are unacceptable in a school environment. Should corporal punishment be needed, it must be administered according to the following: a. A student must be notified of the offense for which he/she is to receive corporal punishment and the student must be given an opportunity to explain his/her actions. b. The punishment must be administered by a school administrator and witnessed by a certified school employee. c. The punishment must be administered out of view of any other students. d. The punishment shall consist of a moderate use of physical force or physical contact by an administrator as may be necessary to maintain discipline or to enforce school rules. e. A written record of the punishment shall be made, in which the violated offense resulting in the punishment is listed along with the administered punishment, the name of the witness(es), and the name of the administrator giving the discipline. The administrator shall maintain a copy of the record and a copy shall be given to the student's parent/guardian."
     policy_code: 6.14.1
@@ -573,6 +596,7 @@ districts:
     county: null
     nces_id: "0101230"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2058&revid=tFPch6c6WomjF7TCm802dw%3D%3D
     quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior.
     policy_code: "6.18"
@@ -583,6 +607,7 @@ districts:
     county: null
     nces_id: "0101290"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2108&revid=9uslvEdE3RCtusplusTYKEFug%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     last_verified: 2026-09-24
@@ -600,6 +625,7 @@ districts:
     county: Coffee County
     nces_id: "0101320"
     status: consent_required
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1787848372/enterpriseschoolsnet/tdtoyr2wfay5npynebce/BoardPolicyUpdatedAugust252026.pdf
     quote: "The Board allows reasonable corporal punishment of students under the following terms and conditions: as a disciplinary measure, with due regard for the age and physical condition of the student, without excessive force that would produce extended mental anguish upon a student. Corporal punishment will be administered by system administrators in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administering and documenting corporal punishment, consistent with the terms of this policy. Parent/guardian must be contacted for approval prior to administering corporal punishment. Parents may also opt out of corporal punishment as a form of discipline."
     policy_code: "6.17"
@@ -617,6 +643,7 @@ districts:
     county: Etowah
     nces_id: "0101380"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031381&revid=q7LhdnptbVuu80ZslshRusUVQ%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee.
     last_verified: 2026-09-19
@@ -637,6 +664,7 @@ districts:
     county: Fayette
     nces_id: "0101470"
     status: allows
+    method: agent_via_crew
     source: https://docs.google.com/document/d/1Jn0dmWfpchGjrX_TV-4_Qs0D7hxzjqqEDKBTIKMqGoI/export?format=txt
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.16"
@@ -653,6 +681,7 @@ districts:
     county: Fort Payne
     nces_id: "0101560"
     status: allows
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/10591/ft_payne_boe_policy_manual_11_19_2020_updated_08_28_2026.pdf
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.16"
@@ -671,16 +700,18 @@ districts:
     county: null
     nces_id: "0101590"
     status: allows
+    method: searched_document
     source: https://resources.finalsite.net/images/v1733256450/franklink12alus/t18aplc6aa07obwybpuu/2024-2025FranklinCountyStudentHandbook.pdf
     quote: 2) Subsequent Offenses for grades K-4 In-school disciplinary action such as probation, detention, completion of extra academic assignments, work assignments before or after school, corporal punishment, or suspension at the discretion of the principal or his/her designated person(s).
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Geneva City
     county: Geneva
     nces_id: "0101640"
     status: allows
+    method: agent_via_crew
     source: https://content.myconnectsuite.com/api/documents/8d570cb66e404b7fa4dca45a91de1046.pdf
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.16"
@@ -700,6 +731,7 @@ districts:
     county: Geneva
     nces_id: "0101620"
     status: allows
+    method: agent_via_crew
     source: https://drive.google.com/uc?export=download&id=1tuSuGcTvUY40beL-iyYbZVNqpTd6AnS7
     quote: |-
       5.30.1 CORPORAL PUNISHMENT
@@ -722,6 +754,7 @@ districts:
     county: null
     nces_id: "0101690"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2045&revid=AYDDOQ8OlftPzJbrirTV8Q%3D%3D
     quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
     policy_code: "6.17"
@@ -732,6 +765,7 @@ districts:
     county: Hale
     nces_id: "0101710"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1697459911/halek12org/duesg8822whlfgvum2nk/HaleCountyBOEPolicyManualMarch.pdf
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student.
     policy_code: "6.17"
@@ -749,16 +783,18 @@ districts:
     county: null
     nces_id: "0101720"
     status: allows
+    method: searched_document
     source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/1246184/code_of_conduct_2018-final.pdf
     quote: Corporal Punishment Moderate use of physical force or physical contact by a school administrator as may be necessary to maintain discipline or to enforce school rules.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Hartselle City
     county: null
     nces_id: "0101730"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2009&revid=YRZDYmkvUdkn5RLDGWseplusg%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.16"
@@ -769,6 +805,7 @@ districts:
     county: Houston
     nces_id: "0101770"
     status: allows
+    method: agent_via_crew
     source: https://docs.google.com/document/d/1A57qdS50b_f3wLQ55Q2PlPeyj3t7M5Z7soiDVK5k7NA/edit?usp=sharing
     quote: CORPORAL PUNISHMENT The Houston County Board of Education has no rule against reasonable and proper spanking/paddling of students for disciplinary reasons. Before corporal punishment is administered as a disciplinary method, the student will be given the reason for the punishment and an opportunity to explain his/her action. Corporal punishment must be administered by the administrator or by the teacher in the presence of a certified professional employee. The administrator and/or teacher will prepare a written report for each incident to be sent home on the day the corporal punishment is administered. A parent/guardian must notify the school in writing annually if he/she prohibits the school from paddling his/her student(s). The handwritten note must be delivered, in person, by the parent-by first day of each school year.
     last_verified: 2026-09-19
@@ -788,6 +825,7 @@ districts:
     county: Madison
     nces_id: "0101800"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36030149&revid=1GZfDVftaSNyKvERAHCe7g==&ptid=b8kjkqUaN06aiBcCXpDnCw==&secid=oS9HIoXzxG4C67aybi5K9Q==&PG=6&IRP=0&isPndg=false
     quote: Corporal punishment is not permitted in Huntsville City Schools.
     last_verified: 2026-09-19
@@ -808,6 +846,7 @@ districts:
     county: Jackson
     nces_id: "0101830"
     status: allows
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/10574/jackson_county_policy_manual_updated_nov_12_2025.pdf
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student.
     policy_code: "6.16"
@@ -853,6 +892,7 @@ districts:
     county: Walker
     nces_id: "0101890"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1771347192/jasperk12alus/p8dp20ptc0jvk9nz1rxe/JCSBoardPolicy63025.pdf
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student.
     policy_code: "6.17"
@@ -869,6 +909,7 @@ districts:
     county: Jefferson
     nces_id: "0101920"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2003&revid=2F2w7665IRTSH64EUojIzw%3D%3D
     quote: |-
       The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior. 
@@ -892,6 +933,7 @@ districts:
     county: Lamar County
     nces_id: "0102160"
     status: allows
+    method: vendor_manual
     source: https://drive.google.com/uc?export=download&id=18cwEjnNHwl4tpLA-C5VUWTul4dtt2_Kd
     quote: |-
       7.13 Corporal Punishment
@@ -911,6 +953,7 @@ districts:
     county: Florence
     nces_id: "0102010"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2017&revid=meXtujrplusaVvTQjWrFmlw8Q%3D%3D
     quote: The Lauderdale County Board of Education authorizes professional employees to administer corporal punishment.
     policy_code: "6.17"
@@ -931,16 +974,18 @@ districts:
     county: null
     nces_id: "0102040"
     status: allows
+    method: searched_document
     source: https://resources.finalsite.net/images/v1709301160/lawrencealorg/xdvsmczp3y4yfkrv0tvj/Code_of_Conduct_22-23_es.pdf
-    quote: Los 30 directores pueden usar el programa después de la escuela en lugar del castigo corporal o la suspensión.
+    quote: El castigo corporal puede ser administrado por el director o por un maestro en presencia de otro empleado certificado.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Lee County Schools
     county: Lee
     nces_id: "0102070"
     status: bans
+    method: vendor_manual
     source: https://files.smartsites.parentsquare.com/10137/lee_county_board_of_education_-__policy_manual_rev_71426.pdf
     quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior; provided, however, that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies, for the protection of others, in self-defense, or in other circumstances reasonably requiring such action.
     last_verified: 2026-09-19
@@ -958,6 +1003,7 @@ districts:
     county: Limestone
     nces_id: "0102100"
     status: allows
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4026/Lcs/b3862f02-4a47-4afa-8543-1d9e1f0826f5/VI._Students_-_LCBoE_Policy_Manual_06_30_2025.pdf?disposition=inline
     quote: "6.17 Corporal Punishment The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will only be administered as a means to maintain discipline, with due regard to age and the physical condition of the student. In the administration of corporal punishment, reasonable and appropriate force may be used, but excessive force may not be used. Corporal punishment will be administered by the school principal, or the principal’s designee, in the presence of another adult. The Superintendent is authorized to develop and implement procedures for administering and documenting corporal punishment consistent with the terms of this policy. [Reference: ALA. CODE §16-28A-2 (1975)]"
     last_verified: 2026-09-19
@@ -977,6 +1023,7 @@ districts:
     county: Madison
     nces_id: "0100008"
     status: bans
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/7291/mcs_policy_manualrevised_july_9_2026_1.pdf
     quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
     policy_code: "6.17"
@@ -996,6 +1043,7 @@ districts:
     county: Madison
     nces_id: "0102220"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031352&revid=G51PtArh2pluswiX7D4xI9X9Q%3D%3D
     quote: The Board does not permit the use of corporal punishment, which is defined by the Board as bodily punishment restricted to the use of a paddle on the buttocks, as a consequence for inappropriate behavior.
     last_verified: 2026-09-19
@@ -1016,6 +1064,7 @@ districts:
     county: Marion
     nces_id: "0102310"
     status: allows
+    method: agent_via_crew
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2664/Mcbe/0b295940-bea3-4387-ab1f-1af38c7ba6a8/Z-Full_Policy_Manual_Merged.pdf?disposition=inline
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his or her designee in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administering and documenting corporal punishment, consistent with the terms of this policy.
     policy_code: "6.16"
@@ -1062,6 +1111,7 @@ districts:
     county: Marshall
     nces_id: "0100006"
     status: allows
+    method: vendor_manual
     source: https://drive.google.com/file/d/1CTcyVJ-5XBRx0rR-le1G_jet_UvvBO10/view
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee. Corporal punishment should not be administered in the presence of another student. The Superintendent is authorized to develop and implement procedures for administrating and documenting corporal punishment, consistent with the terms of this policy.
     last_verified: 2026-09-09
@@ -1108,6 +1158,7 @@ districts:
     county: null
     nces_id: "0102350"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2098&revid=KCI2KROnlMIZ6XBZPAQQ4w%3D%3D
     quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
     policy_code: "6.18"
@@ -1118,6 +1169,7 @@ districts:
     county: Mobile
     nces_id: "0102370"
     status: bans
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5395/Mcps/157c4670-e36b-4454-81a5-e107a2de0254/Chapter-5---Students-rev-3.24.26.pdf
     quote: "5.25 CORPORAL PUNISHMENT The Board of School Commissioners prohibits the use of corporal punishment as a means of student discipline. Legal Reference: Alabama Code - §16-28A-1. Date Adopted: December 11, 2007"
     last_verified: 2026-09-19
@@ -1135,6 +1187,7 @@ districts:
     county: Monroe
     nces_id: "0102400"
     status: allows
+    method: agent_via_crew
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2115&revid=7EHqQXtOslshEWRoxf9bz1DwQ==&ptid=y7LbAtKHNFTYnZeq8oBhXg==&secid=L8j6Wil28NRTJy6slshIP0rUA==&PG=6&IRP=0&isPndg=false
     quote: Corporal punishment of students is permitted at the discretion of a Board employee supervising students.
     policy_code: "6.17"
@@ -1153,6 +1206,7 @@ districts:
     county: Montgomery
     nces_id: "0102430"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36030924&revid=zlHykgjKhK3WyVX7rzUDcQ%3D%3D
     quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
     last_verified: 2026-09-19
@@ -1173,6 +1227,7 @@ districts:
     county: Morgan
     nces_id: "0102480"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36030917&revid=gOko5w3EpF8hJ3HfHCrajw==&ptid=tgXX6LPA166ygZS74CSPMA==&secid=rXWF48YTyHX6J1LHrKnhVA==&PG=6&IRP=0&isPndg=false
     quote: The Board allows reasonable corporal punishment of students in accordance with the Code of Student Conduct and under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Corporal punishment will be administered by a certified professional school system employee in the presence of another certified professional school system employee. Corporal punishment should not be administered in the presence of another student.
     last_verified: 2026-09-09
@@ -1221,6 +1276,7 @@ districts:
     county: Muscle Shoals
     nces_id: "0102520"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031421&revid=xh9oUDS0OaplusKITLxE5h5eg%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.16"
@@ -1241,6 +1297,7 @@ districts:
     county: Calhoun
     nces_id: "0102635"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1778767014/oxfordk12alus/fg2j7cxxrxuh2zqxvppg/OCSBoardPolicyManual041924.pdf
     quote: In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in the schools of the School System. If such punishment is required, it shall be administered with care, tact and caution by the principal or his/her designee.
     policy_code: "5.23"
@@ -1260,6 +1317,7 @@ districts:
     county: Pell City
     nces_id: "0102650"
     status: allows
+    method: vendor_manual
     source: https://drive.google.com/uc?export=download&id=16qoCY3ZiyuihcKOH5iGqhvOc_AS_tVQ0
     quote: Corporal Punishment and Parental Notification-as a last resort after other disciplinary tactics have failed and/or determined on a case- by-case basis.
     policy_code: null
@@ -1277,26 +1335,29 @@ districts:
     county: null
     nces_id: "0102700"
     status: allows
+    method: searched_document
     source: https://resources.finalsite.net/images/v1727108126/pcboenet/mqjmlkrrallxpnwdu3bh/Final_Version_of_Code_of_Conduct_and_Resource_Guide_SY_2024_2025.pdf
     quote: Corporal Punishment If corporal punishment is required, it shall be administered with extreme care, tact, and caution, and then only by the principal or his/her designee in the presence of another professional school employee.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Pickens County
     county: null
     nces_id: "0102730"
     status: allows
+    method: searched_document
     source: https://resources.finalsite.net/images/v1744650399/pickenscountyschoolsnet/xwnsjah4ovebketze8jb/PickensCountySchoolsStudentParentCodeofConductandResourceGuide2024-2025.pdf
     quote: In-school disciplinary action such as detention, completing of extra academic assignments, work assignments before and after school, corporal punishment, or suspension at the discretion of the principal or his/her designated person(s).
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Pike County Schools
     county: Pike
     nces_id: "0102790"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031835&revid=TxECO0Mvq5zslshklslshOr2dbdg==&ptid=u1H0U6RLevfc4xOirU9CLg==&secid=L4EOyGP3XAvv0XtOufsryQ==&PG=6&IRP=0&isPndg=false
     quote: The Pike County Board of Education prohibits the use of corporal punishment. No person employed by or engaged in the Pike County Schools shall administer corporal punishment upon a pupil.
     policy_code: 5.30.1
@@ -1344,6 +1405,7 @@ districts:
     county: Wedowee
     nces_id: "0102820"
     status: consent_required
+    method: agent_via_crew
     source: https://www.randolphboe.org/DocumentUploads/2026-2027/Student%20Code%20of%20Conduct%202026-2027.pdf
     quote: Corporal punishment may be administered as a form of discipline only if the parent/guardian files a written consent with the principal.
     policy_code: null
@@ -1360,6 +1422,7 @@ districts:
     county: Roanoke
     nces_id: "0102850"
     status: allows
+    method: vendor_manual
     source: https://drive.google.com/uc?export=download&id=1FdLrcV6ADrk8CqXSosy8vazL_ogRLJsw
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.16"
@@ -1381,36 +1444,40 @@ districts:
     county: null
     nces_id: "0102880"
     status: bans
+    method: searched_document
     source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3798/RCPS/5898163/Conduct_Code_2025-2026_II.pdf
     quote: Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Scottsboro City
     county: null
     nces_id: "0102940"
     status: allows
+    method: searched_document
     source: https://cdnsm5-ss11.sharpschool.com/UserFiles/Servers/Server_151020/File/Scottsboro%20City%20School%20District/School%20Board/Code%20of%20Conduct/2019-2020%20Code%20of%20Student%20Conduct%20Board%20Approved%206.26.2018%20(1).pdf
     quote: Corporal Punishment Corporal punishment shall be administered in accordance with Board policy.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Sheffield City
     county: null
     nces_id: "0103000"
     status: allows
+    method: searched_document
     source: https://resources.finalsite.net/images/v1727799758/scsk12alus/f81cexupyixhgj5bbxrp/BoardApprovedSCSCodeofConductRevisedJuly2024-July2711_32AMSheffieldCitySchools24-25ParentStuden2.pdf
     quote: Corporal punishment is defined as bodily punishment by use of a paddle on the buttocks and may be used as a disciplinary option as prescribed herein.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Shelby County Schools
     county: Shelby
     nces_id: "0103030"
     status: consent_required
+    method: vendor_manual
     source: https://www.shelbyed.k12.al.us/page/policy
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.  Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. School administrators shall obtain written consent of the parent, guardian, or other parental representative prior to the administration of corporal punishment. Corporal punishment will be administered by the school principal or his representative in the presence of another adult professional school system employee.
     last_verified: 2026-09-19
@@ -1430,6 +1497,7 @@ districts:
     county: null
     nces_id: "0103062"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2032&revid=NChA2OqxOuuhVB6hGyIvuw%3D%3D
     quote: The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior.
     last_verified: 2026-09-24
@@ -1450,6 +1518,7 @@ districts:
     county: null
     nces_id: "0103120"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2134&revid=IdMBqrh4UIidPETCGmBWSA%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.16"
@@ -1469,6 +1538,7 @@ districts:
     county: Talladega
     nces_id: "0103150"
     status: bans
+    method: agent_via_crew
     source: https://4.files.edl.io/829f/01/17/20/205936-6849dfc7-762a-4ce9-959c-2001fa7929ea.pdf
     quote: 5.30.1 It is the policy of the Talladega City Schools not to use corporal punishment (paddling). Effective with the adoption of this policy, corporal punishment shall be prohibited in all schools, school sponsored activities and on any property owned or operated by the Talladega City Schools.
     policy_code: 5.30.1
@@ -1487,6 +1557,7 @@ districts:
     county: Talladega
     nces_id: "0103180"
     status: allows
+    method: vendor_manual
     source: https://www.tcboe.org/fs/resource-manager/view/8e608179-edf6-4083-bb53-621e618b2565
     quote: "X. CORPORAL PUNISHMENT (Paddling): Corporal punishment shall be administered on a limited basis and only after other forms of punishment have been tried and proven to be ineffective. The following policies shall be complied with fully when corporal punishment is administered: A. Corporal punishment shall not be administered until the nature of the offense has been explained and an opportunity to respond has been afforded the student. B. Corporal punishment shall only be administered by certified personnel and MUST be administered by or in the presence of the principal or assistant principal. C. Corporal punishment shall be administered in a prudent and reasonable manner. D. Corporal punishment shall NOT be administered in the presence of other students. E. It shall be the responsibility of the parents to notify the principal in writing of any physical or other health limitations of the student which would render corporal punishment inadvisable, or to request alternative methods of discipline."
     last_verified: 2026-09-19
@@ -1503,6 +1574,7 @@ districts:
     county: Tallapoosa County
     nces_id: "0103210"
     status: allows
+    method: vendor_manual
     source: https://resources.finalsite.net/images/v1786456208/tallapoosak12org/yu4lrwkorg1gsw0vqaa0/SY27FinalBoardApprovedSTUDENTHANDBOOK.pdf
     quote: "Corporal Punishment As a method to maintain discipline or to enforce school rules, a principal or principal's designee, may administer corporal punishment. Such punishment shall be administered under conditions which do not hold the student to ridicule or shame. Whenever corporal punishment is administered, a written report shall be made and a copy forwarded to the child's parents. A parent or guardian may request in writing that their son/daughter be exempted from corporal punishment and that an alternative punishment be given. ... The Tallapoosa County Board of Education permits the use of corporal punishment (paddling) under the following conditions: The student has been notified of the offense for which he/she is to receive corporal punishment, and the student has been given an opportunity to explain his/her actions; The punishment is administered by the school principal, teacher or his/her designee and witnessed by a certified school employee, preferably of the same gender as the student; The person administering corporal punishment will check to see if a parent or guardian has requested in writing that their son/daughter be exempted from corporal punishment; The punishment is administered out of view of other students; All cases of corporal punishment shall be documented by both the person administering the punishment and the witness."
     policy_code: null
@@ -1520,6 +1592,7 @@ districts:
     county: Jefferson
     nces_id: "0103270"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1762356873/tarrantk12alus/lkr60j6xlitaofgg7mfw/2526StudentHandbook.pdf
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions. Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force. Parents or guardians shall be notified prior to their child receiving corporal punishment.
     policy_code: "6.16"
@@ -1538,16 +1611,18 @@ districts:
     county: null
     nces_id: "0103300"
     status: allows
+    method: searched_document
     source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2316/tcs/5891061/2025_2026_TCS_Handbook.pdf
     quote: TMS/THS - 1st 10 Days ISS or Recommended to CAPP Program 10 Days will be suspended pending completion of CAPP Failure to complete CAPP - 10 Days ISS will continue 2nd 30 Days ISS 3rd + 10 Days OSS with Notification to TCS School Board Recommended for Expulsion **ALL vapes/electronic cigarettes confiscated on the campus, grounds or any property of Thomasville City Schools will be tested immediately using a Mobile Test Kit** CORPORAL PUNISHMENT To maintain discipline or to enforce Thomasville City School System rules, the principal or his/her designee may administer corporal punishment.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Tuscaloosa City Schools
     county: Tuscaloosa
     nces_id: "0103360"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2088&revid=t1p4MCfUkfmquI9Q9WgfaA%3D%3D
     quote: Corporal punishment will not be used or administered for any reason by any school personnel. Corporal punishment is defined as paddling or spanking with the hand or other object. This provision does not prevent school personnel from using physical restraint, nor does it prevent school personnel from using physical force as reasonably needed to protect themselves or others from harm.
     policy_code: "6.16"
@@ -1567,6 +1642,7 @@ districts:
     county: Tuscaloosa
     nces_id: "0103390"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1707237231/tcssnet/igtdhitc9s6ggasbh3j2/TuscaloosaCoPolicyManualApr2013Edited11202023Re-Tagged.pdf
     quote: "The Tuscaloosa County Board of Education permits the use of corporal punishment (paddling) as a last resort and under the following conditions:"
     last_verified: 2026-09-19
@@ -1587,6 +1663,7 @@ districts:
     county: null
     nces_id: "0103420"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2006&revid=9rN75pVcprLm6FxmDEucmQ%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
     policy_code: "6.15"
@@ -1597,6 +1674,7 @@ districts:
     county: Walker
     nces_id: "0103450"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=2057&revid=o2v4qH09oMJAYuplusVNmMiNQ%3D%3D
     quote: "6.16 Corporal Punishment\ 
 
@@ -1629,6 +1707,7 @@ districts:
     county: Chatom
     nces_id: "0103480"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1786192500/wcbek12org/vlup1wxu7bxdwk89elvu/__StudentHandbook2026-2027__22.pdf
     quote: Written or verbal requests from parents or guardians to exempt their children from corporal punishment will not be accepted.
     policy_code: null
@@ -1646,16 +1725,18 @@ districts:
     county: null
     nces_id: "0103510"
     status: allows
+    method: searched_document
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1617/District/3e561db5-445e-4d60-8917-8edaa545995b/1Student_hndbook_24-25.pdf?disposition=inline
     quote: The Board permits the use of corporal punishment only after other corrective measures have failed.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Winston County
     county: Double Springs
     nces_id: "0103580"
     status: allows
+    method: agent_via_crew
     source: https://resources.finalsite.net/images/v1786990910/winstonk12org/miepy2mzg2ovtd3hcapp/WCSBoardPolicy2026UpdateFinalDraft.pdf
     quote: In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in the schools of the School System.
     policy_code: "6.16"

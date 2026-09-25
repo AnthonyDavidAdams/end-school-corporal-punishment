@@ -6,16 +6,18 @@ districts:
     county: null
     nces_id: "2606090"
     status: bans
+    method: searched_document
     source: https://www.bloomfield.org/uploaded/Board_of_Education/BHS-Administrative_Regulations_042519.pdf
     quote: "Further, the Board of Educa\x0eon does not approve of the administra\x0eon of corporal punishment to students."
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: McBain Rural Agricultural Schools
     county: null
     nces_id: "2623310"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031858&revid=afyg6rqleOCvslsh8plusJuI5QcA%3D%3D
     quote: Prohibition Employees will not inflict, or cause to be inflicted, corporal punishment upon any student under any circumstances.
     policy_code: "4203"

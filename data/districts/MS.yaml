@@ -6,12 +6,13 @@ districts:
     county: null
     nces_id: "2800360"
     status: allows
+    method: searched_document
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/641/Asd/68476c51-9339-4754-9427-6328e912a571/ASD_2026-2027_Student_Handbook__Revisions-July-17-2026-Update.pdf?disposition=inline
     quote: Step Disciplinary Consequence 1 Warning, parent contact, corporal punishment or other consequences deemed appropriate by the school administrator 26 2 Parent contact, corporal punishment or other consequences deemed appropriate by the school administrator 3 In-school reassignment (ISR) or Out-of-School suspension (OSS) up to three (3) days and parent contact.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Adams County Schools
     county: Adams
     nces_id: null
@@ -25,6 +26,7 @@ districts:
     county: Alcorn
     nces_id: null
     status: allows
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/576/Alcorn_School_District/23e48dac-42ed-43ce-8b1d-15c5cbc5e55f/25-26_Student_Handbook_-_FINAL_-_Google_Docs.pdf?disposition=inline
     quote: CORPORAL PUNISHMENT POLICY (JDB) A maximum of 3 licks may be administered for disciplinary purposes only. Licks will not be given for failing to do assignments or for a failing grade. Reasonable and proper application will consider age, size, sex, and the gravity of the offense. When an Administrator uses corporal punishment, a certified employee of the District will be used as a witness. No coach will paddle at a practice.
     last_verified: 2026-09-19
@@ -39,6 +41,7 @@ districts:
     county: Corinth
     nces_id: "2800390"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031677&revid=Ho9icOTHNGvR1Y1LoFn1nQ%3D%3D
     quote: A maximum of three (3) licks may be administered for disciplinary purposes only.
     policy_code: JDB
@@ -58,6 +61,7 @@ districts:
     county: Amite
     nces_id: "2800420"
     status: consent_required
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/2207179182c9460fb51443f7306e82ba.pdf
     quote: 4. Parent permission must be given prior to administration of corporal punishment.
     last_verified: 2026-09-19
@@ -78,6 +82,7 @@ districts:
     county: Attala
     nces_id: "2800510"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031680&revid=T4NLBTi63Rsslsh7tJZeqVdfQ==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -98,16 +103,18 @@ districts:
     county: null
     nces_id: "2800540"
     status: allows
+    method: searched_document
     source: https://baldwynschools.com/wp-content/uploads/2025/07/BHS-5-12-Handbook-2025-2026-FINAL.pdf
     quote: Use of profanity—corporal punishment, two (2) detentions or in-school or out-of-school suspension as deemed appropriate by the principal.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Benton County Schools
     county: Benton
     nces_id: "2800600"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031683&revid=n5uSGwLBQRiyzkNCV985gQ%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -128,6 +135,7 @@ districts:
     county: Harrison
     nces_id: "2800630"
     status: bans
+    method: vendor_manual
     source: https://files.smartsites.parentsquare.com/4819/sect-j_5.pdf
     quote: Corporal punishment is not a disciplinary practice used within the Biloxi Public School District. Parent may not request that corporal punishment be used in lieu of other disciplinary actions.
     last_verified: 2026-09-19
@@ -159,6 +167,7 @@ districts:
     county: Booneville
     nces_id: "2800820"
     status: allows
+    method: vendor_manual
     source: https://docs.google.com/document/d/1ppo2Qfk4kPP6xNEs8F0bt4rDEvIl9gKE/export?format=txt
     quote: Corporal punishment is an alternative for students who disobey rules. The MS Code 37-11-57 states that students with an Individualized Education Plan (IEP) or a Section 504 plan cannot be subject to corporal punishment.
     policy_code: BHS Student Handbook 2026-2027, 'Corporal Punishment'
@@ -175,6 +184,7 @@ districts:
     county: Calhoun
     nces_id: "2800870"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/e1c7caa4a23d4d7da13a27c69df09b9e.pdf
     quote: "Corporal Punishment Reasonable corporal punishment may be administered as a disciplinary measure to preserve an effective learning environment. The superintendent shall enforce rules governing corporal punishment, including the following: 1. Corporal punishment must be reasonable, moderate, and not administered maliciously or for revenge. The student's size, age, and condition must be considered. 2. The principal or a teacher may administer corporal punishment. 3. It must be administered in the presence of another certified staff member and outside the view of other students. 4. Suspensions of up to three days will be used as an alternative to corporal punishment. 5. Parents must notify the school in writing each school year if they refuse corporal punishment. Policy Reference: CCSD Board Policy JDB; Miss. Code Ann. § 37-11-57."
     last_verified: 2026-09-22
@@ -195,6 +205,7 @@ districts:
     county: Carroll
     nces_id: "2800930"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/96795db6e73b4aa7b7e8a6831ef6c54b.pdf
     quote: Corporal punishment is permitted as a disciplinary measure in accordance with state law.
     last_verified: 2026-09-19
@@ -215,6 +226,7 @@ districts:
     county: Chickasaw
     nces_id: "2800200"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031690&revid=qLBplusRtgjp8l46O9Gr1zCqw==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-09
@@ -263,6 +275,7 @@ districts:
     county: Choctaw
     nces_id: "2800990"
     status: allows
+    method: agent_via_crew
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031691&revid=QEuEVe6xxKbc3O551BjtfQ%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-20
@@ -283,6 +296,7 @@ districts:
     county: Claiborne
     nces_id: "2801020"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031692&revid=N4ybslshxygAK2QyYsi6Ac9dQ==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -313,12 +327,13 @@ districts:
     county: null
     nces_id: "2801050"
     status: allows
+    method: searched_document
     source: https://resources.finalsite.net/images/v1720199120/cmsdschoolsorg/indn2rvqo1cgus9ge3hl/StudentHandbookSept2021_22.pdf
     quote: Disciplinary action will consist of procedures set forth by classroom or school-wide discipline plans, isolation, detentions, corporal punishment under existing school policy, loss of privileges, denial of participation in school activities, probation or a combination of any one or more of such actions, including appropriate constructive assignments, depending on the seriousness and the circumstances of the offense, and the attitude of the student.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Clay County Schools
     county: Clay
     nces_id: null
@@ -334,6 +349,7 @@ districts:
     county: null
     nces_id: "2801110"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031696&revid=DqmrQvUH2Z6JeP5XuXugQQ%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-24
@@ -351,6 +367,7 @@ districts:
     county: null
     nces_id: "2801140"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031813&revid=K3KeXiS3XyH0R7vzeTJ7qw%3D%3D
     quote: Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JD
@@ -371,6 +388,7 @@ districts:
     county: Copiah
     nces_id: "2801220"
     status: allows
+    method: vendor_manual
     source: https://resources.finalsite.net/images/v1753815693/copiahms/jvu8jghiejmltuxj2bl9/ElementaryHandbook2025-2026Final.pdf
     quote: "When other measures have been tried and have not resulted in corrected behavior, corporal punishment may be administered under the following safeguards: a. The only type of corporal punishment permitted is paddling of the buttocks that does not result in physical harm to the student."
     last_verified: 2026-09-19
@@ -391,6 +409,7 @@ districts:
     county: Covington
     nces_id: "2801290"
     status: allows
+    method: vendor_manual
     source: https://drive.google.com/uc?export=download&id=1OBJ4anXw-oSyckIzOSgHj3ckIhfmPxYo
     quote: Covington County School District may utilize corporal punishment as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the school district. Corporal punishment will be administered in a reasonable manner and applied only to the students’ buttocks in such manner that there will be no permanent effects.
     last_verified: 2026-09-19
@@ -411,6 +430,7 @@ districts:
     county: DeSoto
     nces_id: "2801320"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031701&revid=KVU70ZJ2eUplushZSaq6WEGQg%3D%3D
     quote: The DeSoto County Board of Education recognizes corporal punishment as a method that may be used in controlling student behavior.
     last_verified: 2026-09-20
@@ -430,16 +450,18 @@ districts:
     county: null
     nces_id: "2801440"
     status: allows
+    method: searched_document
     source: http://images.pcmac.org/Uploads/EnterpriseSchoolDistrict/EnterpriseSchoolDistrict/Divisions/Forms/2018-2019%20Student%20Handbook_%7BSISE0412C98A12A%7D.pdf
     quote: Corporal Punishment Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the district.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Forrest County Schools
     county: Forrest
     nces_id: "2801490"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031707&revid=dMSpaiUJDJu0rJTHyArbDw==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -460,6 +482,7 @@ districts:
     county: Franklin
     nces_id: "2801530"
     status: allows
+    method: agent_via_crew
     source: https://content.myconnectsuite.com/api/documents/36772154ac1740979fa3ea741d953271
     quote: Lower/Upper Elementary -Corporal Punishment. Please mark no on the enrollment form if you do not want corporal punishment used.
     last_verified: 2026-09-19
@@ -476,6 +499,7 @@ districts:
     county: George
     nces_id: "2801560"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031709&revid=ioichZ5HKH05ClrslTf50g==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -496,6 +520,7 @@ districts:
     county: Greene
     nces_id: "2801590"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36031710
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -516,6 +541,7 @@ districts:
     county: Leflore
     nces_id: "2800198"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/5a086a97d7e64b60b140df79cb69895c.pdf
     quote: Corporal punishment for use in this district is defined as punishing or correcting a student by striking the student on the buttocks with a paddle. Either the principal or assistant principal may administer corporal punishment, but in either case, another certified staff member must be a witness. Corporal punishment shall not exceed five (5) swats with a paddle. Corporal punishment may be administered only to punish and/or correct disruptive student conduct.
     policy_code: JDB
@@ -534,6 +560,7 @@ districts:
     county: Grenada
     nces_id: null
     status: allows
+    method: vendor_manual
     source: https://resources.finalsite.net/images/v1782757050/grenadak12com/r6psub1qaducjsbwt2eb/GSD_K-5StudentHandbook.pdf
     quote: The Board of Education of the Grenada School District views corporal punishment as a form of discipline. However, if a parent chooses not to participate in corporal punishment, the enclosed form must be signed, and an alternative means of discipline will be enforced by the principal.
     last_verified: 2026-09-19
@@ -545,6 +572,7 @@ districts:
     county: Harrison
     nces_id: "2801710"
     status: bans
+    method: agent_via_crew
     source: https://files-backend.assets.thrillshare.com/iyxrrzsmv3go1xyz61vz3b1ij6z1?disposition=inline
     quote: Because the use of corporal punishment to control the behavior of students in school has been demonstrated to be generally ineffective and has fallen into disrepute in recent years in the national culture, the Board of Trustees herewith directs that effective July 1, 1991, corporal punishment (paddling, other physical contact style of punishment, or any other form of punishment that generates intentional physical pain) will be and has been excluded from utilization by school personnel in the Gulfport School District for purposes of correcting impermissible student behaviors.
     last_verified: 2026-09-19
@@ -573,6 +601,7 @@ districts:
     county: Harrison
     nces_id: "2801770"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031715&revid=qyOTmQm7fToiCnwUpUdYxQ%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -593,6 +622,7 @@ districts:
     county: null
     nces_id: "2801830"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031717&revid=ix4YKvUkTKbS4k4wle8vKA%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -603,6 +633,7 @@ districts:
     county: Hinds
     nces_id: "2801860"
     status: bans
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4080/Hcsd/f296c841-36cc-485e-94d7-fd93d0e5f8f5/HCSD_Employee_Handbook_24-25.pdf?disposition=inline
     quote: CORPORAL PUNISHMENT – (Board Policy JDB) Corporal Punishment is prohibited in the Hinds County School District.
     last_verified: 2026-09-19
@@ -634,6 +665,7 @@ districts:
     county: Humphreys
     nces_id: "2802040"
     status: allows
+    method: searched_document
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5504/Hcsd/797c1bf8-2a87-4ef8-b227-da1d9e832df7/Student_Handbook_2025-2026.pdf?disposition=inline
     quote: Students shall not be physically punished by school employees whose parents object to this manner of punishment. Corporal punishment includes whipping, spanking, and paddling.
     last_verified: 2026-09-19
@@ -662,6 +694,7 @@ districts:
     county: Itawamba
     nces_id: "2802100"
     status: allows
+    method: vendor_manual
     source: https://resources.finalsite.net/images/v1785444847/itawambacsdcom/wfmylapzhiufkstpf3wv/StudentHandbook.pdf
     quote: All students enrolled in the Itawamba County School District are subject to corporal punishment.
     last_verified: 2026-09-19
@@ -682,6 +715,7 @@ districts:
     county: Jackson
     nces_id: "2802160"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031724&revid=2eVJXcHNwGpLN9LNFN33AQ%3D%3D
     quote: A parent may veto corporal punishment for his/her own child by written statement given the school. Parents are to be informed of this requirement upon registration of the student in the particular school.
     last_verified: 2026-09-19
@@ -702,6 +736,7 @@ districts:
     county: null
     nces_id: "2802190"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031725&revid=kqFiVamnsNMRhRxQqapnXA%3D%3D
     quote: PROHIBITION OF CORPORAL PUNISHMENT Corporal punishment has been prohibited in the Jackson Public School District since July 1, 1991.
     last_verified: 2026-09-24
@@ -718,6 +753,7 @@ districts:
     county: Jefferson Davis
     nces_id: null
     status: allows
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5906/Jdcsd/50dd82ba-23f8-463e-97ab-4b8f938a0f47/Secondary-Handbook-2026-2027-66-%281%29.pdf?disposition=inline
     quote: School administrators in the Jefferson Davis County School District may administrator corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
     last_verified: 2026-09-19
@@ -740,6 +776,7 @@ districts:
     county: Jones
     nces_id: "2802280"
     status: allows
+    method: vendor_manual
     source: https://drive.google.com/uc?export=download&id=1AyQFrjKkrBxmEMSMyHuUUgu0MWl9Sj42
     quote: CORPORAL PUNISHMENT (JDB) (MS CODE 37-11-57) As a matter of board policy, reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment, which is free from disruption and is conducive to furthering the educational mission of the school board.
     last_verified: 2026-09-19
@@ -760,6 +797,7 @@ districts:
     county: Kemper
     nces_id: "2802310"
     status: consent_required
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031729&revid=Bxdv9Wn9XIXslshtSBEl0mnnw==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Corporal punishment in the form of paddling shall be witnessed at all times by at least one (1) school employee, and all other acts of corporal punishment, as defined herein, shall be witnessed at all times, if possible, by a school employee. ' 37-11-57 (1997) only if written permission from the parent or guardian is on file.
     last_verified: 2026-09-19
@@ -780,6 +818,7 @@ districts:
     county: null
     nces_id: "2802340"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031730&revid=vVKA7o7IqA6rBAsTeVQMgw%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -790,6 +829,7 @@ districts:
     county: Lafayette
     nces_id: "2802370"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031731&revid=wWvUmuzuw2ttT8pA5taenQ==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Corporal punishment of a student is not permitted in the Lafayette County School District.
     last_verified: 2026-09-19
@@ -810,6 +850,7 @@ districts:
     county: Lamar
     nces_id: "2802400"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031732&revid=EHOywY0hWPmZsVd5qP392g==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Corporal punishment is allowed in the Lamar County School District except for the exceptions identified for paddling in Policy Code JDBB.
     last_verified: 2026-09-19
@@ -827,6 +868,7 @@ districts:
     county: Lauderdale
     nces_id: "2802430"
     status: allows
+    method: vendor_manual
     source: https://4.files.edl.io/c528/07/17/26/180638-98dda37e-4f0e-42d9-8daa-4381c02ea876.pdf
     quote: Parents will have the right to deny corporal punishment to their child by making a written request which will be placed in the student’s cumulative record.
     last_verified: 2026-09-19
@@ -846,6 +888,7 @@ districts:
     county: Lawrence
     nces_id: "2802490"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031735&revid=dvTDSOO7AZJC2NajTQbZxA==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: 1. A form will be provided on which parents may indicate if they do not wish their child to receive corporal punishment.
     last_verified: 2026-09-19
@@ -866,6 +909,7 @@ districts:
     county: Leake
     nces_id: "2802520"
     status: allows
+    method: vendor_manual
     source: https://irp.cdn-website.com/61f020bd/files/uploaded/25-26+LCSD+Student+Parent+Handbook+Updated+07222025-B.pdf
     quote: Corporal Punishment–Policy JDB Corporal Punishment may be used only after other corrective measures have been attempted without success. Corporal punishment shall be defined as spanking (Striking the buttocks with a paddle one to three times). MS. Code prohibits the use of corporal punishment to discipline a student with a disability who has an individualized education plan (IEP) under the Individuals with Disabilities Education Act (IDEA) or a Section 504 Plan under the Rehabilitation Act of 1973.
     last_verified: 2026-09-19
@@ -883,6 +927,7 @@ districts:
     county: Lee
     nces_id: "2802550"
     status: allows
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4911/District/97b7f7af-7a45-4334-aab7-1bcb6a88d6e5/Student_Handbook_2025-2026.docx.pdf?disposition=inline
     quote: The Lee County School Board recognizes corporal punishment as a means of enforcing rules of conduct when other positive methods have been unsuccessful. Corporal punishment may be administered by certified personnel and witnessed by another adult. This action shall be documented on the school’s discipline form. (See School Board Policy JDB)
     last_verified: 2026-09-19
@@ -912,6 +957,7 @@ districts:
     county: Lincoln
     nces_id: "2802640"
     status: bans
+    method: agent_via_crew
     source: https://4.files.edl.io/18c8/03/24/25/203923-9dd02c63-57fa-48b4-8e08-9a56e22535d0.pdf
     quote: The Lincoln County School District prohibits the use of corporal punishment. School personnel is prohibited from using corporal punishment on any student with a disability. A student with a disability is any student who has an IEP or Section 504 plan.
     last_verified: 2026-09-19
@@ -932,6 +978,7 @@ districts:
     county: Winston
     nces_id: "2802700"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/beef73f108144a788e56130397376f8f.pdf
     quote: |-
       Reasonable corporal punishment of a student is permitted as a disciplinary measure.
@@ -955,6 +1002,7 @@ districts:
     county: Lowndes
     nces_id: "2802730"
     status: allows
+    method: vendor_manual
     source: https://campussuite-storage.s3.amazonaws.com/prod/1559198/9fd8f208-858f-11ee-a0d1-0a58a9feac02/3136456/b17c4f44-a0be-11f1-a94b-0a58a9feac02/file/STUDENT%20HANDBOOK%2026-27%20%20Revised%208-25-26.pdf
     quote: Corporal punishment – (Corporal punishment may be administered to students without disabilities in accordance with district policy and applicable state law. Its use is not mandatory, and school principals are not required to implement or offer corporal punishment as a disciplinary option).
     last_verified: 2026-09-19
@@ -975,6 +1023,7 @@ districts:
     county: Madison
     nces_id: "2802790"
     status: consent_required
+    method: vendor_manual
     source: https://resources.finalsite.net/images/v1762369097/madisonschoolscom/cpxg29tkgmkj451x7uze/2025-2026StudentHandbook-110525.pdf
     quote: Corporal punishment may be administered by either the principal or his/her designee, but in all cases, another certified staff member must be a witness. Parents shall be contacted for approval prior to corporal punishment being administered.
     last_verified: 2026-09-19
@@ -992,6 +1041,7 @@ districts:
     county: Marion
     nces_id: "2802820"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/43e9861e829449fa8dca4924d34a8909.pdf
     quote: Corporal Punishment Board Policy JDB and JD Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1011,6 +1061,7 @@ districts:
     county: Marshall
     nces_id: "2802850"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031745&revid=f5njMeOc24krLMMK2UHLSQ%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1049,6 +1100,7 @@ districts:
     county: Monroe
     nces_id: "2802940"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031748&revid=X3YSBFF8r997skwRQu1prQ==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1078,6 +1130,7 @@ districts:
     county: null
     nces_id: "2803030"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031750&revid=djkw4khjnqE9YMcwEcGgMQ%3D%3D
     quote: CORPORAL PUNISHMENT The Natchez-Adams School District does not allow corporal punishment.
     policy_code: JDB
@@ -1097,6 +1150,7 @@ districts:
     county: null
     nces_id: "2803060"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031751&revid=gh2UvQbbKuhQX6QWkrWgpw%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student in the Neshoba County School District is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-24
@@ -1117,6 +1171,7 @@ districts:
     county: null
     nces_id: "2803090"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031752&revid=KYJWEnr4K69slsh89d1RojE2g%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1127,6 +1182,7 @@ districts:
     county: New Albany
     nces_id: "2803120"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031753&revid=dIv1hcE0JoSWK4KGkPBGYA%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1146,6 +1202,7 @@ districts:
     county: Newton
     nces_id: "2803150"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031755&revid=ROxjJcHHuhibzpO4pdeplusyg%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1166,6 +1223,7 @@ districts:
     county: null
     nces_id: "2803180"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031754&revid=4F4DJZkUjsxhisSf5Dg8Lg%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1176,6 +1234,7 @@ districts:
     county: null
     nces_id: "2800186"
     status: allows
+    method: searched_document
     source: https://content.myconnectsuite.com/api/documents/44f3d272693542658a6dfd67e8b1c34b
     quote: "CORPORAL PUNISHMENT – POLICY JDB Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure with the following requirements:"
     policy_code: null
@@ -1186,6 +1245,7 @@ districts:
     county: null
     nces_id: "2803210"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031757&revid=Sh6FPtjpIVrFNVT182vsXg%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1196,6 +1256,7 @@ districts:
     county: null
     nces_id: "2803240"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031758&revid=TXJmXlHxs8toQJOqC0mpUg%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1214,16 +1275,18 @@ districts:
     county: null
     nces_id: "2803270"
     status: allows
+    method: searched_document
     source: https://content.myconnectsuite.com/api/documents/32a6b22e54f340ea8b3b08cf91a09da3.pdf
     quote: Corporal punishment administered by a teacher or principal may be substituted for ISS at the discretion of Principal ● OSS may be used instead of ISS on any given infraction at Principal’s discretion ● A specific threat may result in up to 10 days OSS and a possible disciplinary hearing.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: NOXUBEE COUNTY SCHOOL DISTRICT
     county: null
     nces_id: "2803300"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031760&revid=TSofv35FBOtrhT4HshOj0A%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-24
@@ -1252,6 +1315,7 @@ districts:
     county: null
     nces_id: "2803520"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031766&revid=tIU0qbuto8YUHYFkjTpXsA%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1269,6 +1333,7 @@ districts:
     county: Pearl River
     nces_id: "2803540"
     status: bans
+    method: searched_document
     source: https://drive.google.com/uc?export=download&id=1O5JMUqh-_5FqvKYzBX-3t_bTchjqrGJs
     quote: The Pearl River County School District staff will no longer use corporal punishment as a means of discipline for a student.
     last_verified: 2026-09-19
@@ -1285,6 +1350,7 @@ districts:
     county: Perry
     nces_id: "2803570"
     status: consent_required
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/ccb1994f93d14b85a3d1eb229b541fc8.pdf
     quote: CORPORAL PUNISHMENT is an option in the disciplinary program of the Perry County Schools and will be administered in accordance with the policy of the Perry County School District. The district has established procedures under which a parent/legal guardian will indicate whether he/she gives permission for his/her child to receive corporal punishment as appropriate under the assertive discipline plan outlined in the student handbook and in accordance with district policy. Alternative disciplinary actions will be required for students whose parents/legal guardians have not checked and signed the required Corporal Punishment Permission statement.
     last_verified: 2026-09-19
@@ -1315,6 +1381,7 @@ districts:
     county: null
     nces_id: "2803690"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031773&revid=JMYGW5IEJUTOV2Whd7x0lQ%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1325,6 +1392,7 @@ districts:
     county: Pontotoc
     nces_id: "2803660"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031774&revid=Um1X60q1N6TGFb1la04UHg==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1345,6 +1413,7 @@ districts:
     county: Prentiss
     nces_id: "2803750"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031776&revid=tU6Qbg30lDyjrlJ4vHfLeg%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-20
@@ -1364,6 +1433,7 @@ districts:
     county: Quitman
     nces_id: "2803810"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Index.aspx?S=36031777
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1380,16 +1450,18 @@ districts:
     county: null
     nces_id: "2803780"
     status: allows
+    method: searched_document
     source: https://campussuite-storage.s3.amazonaws.com/prod/1559202/d3fd737e-97aa-11ee-b7ed-02a6bfeb93bd/2738139/9056b33c-c59b-11ee-9ccf-0a58a9feac02/file/handbook-QSD-Secondary-23-24-062723.pdf
     quote: CORPORAL PUNISHMENT policy JDB, board adopted 06/27/2019 The Quitman School Board has adopted a policy allowing reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Rankin County School District
     county: Rankin
     nces_id: "2803830"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031779&revid=rRwkfkslshau7MbKHBTmwK0dA%3D%3D
     quote: The Rankin County Board of Education recognizes the use of corporal punishment by teachers and administrators as a means to correct misconduct of students, to preserve an effective educational environment which is free from disruption, and to further the educational mission of the Board.
     last_verified: 2026-09-19
@@ -1410,6 +1482,7 @@ districts:
     county: Scott
     nces_id: "2803900"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031781&revid=R988PCslsho1mFQtXpkelFwog==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board. School personnel is prohibited from using corporal punishment on any student with a disability. A student with a disability is any student who has an IEP or Section 504 plan.
     last_verified: 2026-09-09
@@ -1467,6 +1540,7 @@ districts:
     county: Simpson
     nces_id: "2803990"
     status: allows
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5724/Scsd/5fb8abfc-0ac9-4186-ba3d-f3eef44ba23b/ADOPTED_SCSD_K-8_Handbook_2025-2026_7_22_25.pdf
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1487,6 +1561,7 @@ districts:
     county: Smith
     nces_id: "2804020"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/adbcbfcee1984e1ca3286ae954dec683.pdf
     quote: In cases of minor rule violations, where suspension is not mandated, corporal punishment (paddling, up to three (3) licks) may be offered to the student in lieu of other punishment; however, corporal punishment is not an option for students with a disability.
     last_verified: 2026-09-19
@@ -1505,6 +1580,7 @@ districts:
     county: null
     nces_id: "2803960"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031785&revid=TrqnxKKYXlkBplusNMH1JpluskEw%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1523,6 +1599,7 @@ districts:
     county: Panola
     nces_id: "2804050"
     status: allows
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5225/Bams/b8765fcc-d296-4094-a195-97e25eaf1bf5/2026---South-Panola-Schools---BMS-Parent-Student-Handbook-v5-7_20.pdf
     quote: The South Panola School District policy allows corporal punishment under certain conditions. Contact your school for an opt-out form for you to sign if you choose not to have your child paddled.
     last_verified: 2026-09-09
@@ -1568,6 +1645,7 @@ districts:
     county: Magnolia
     nces_id: "2804080"
     status: allows
+    method: vendor_manual
     source: https://4.files.edl.io/e442/08/06/26/132426-8200f04c-2452-43f7-a8f9-248fd5f47f3e.pdf
     quote: "CORPORAL PUNISHMENT: Public school administrators and teachers are empowered to administer corporal punishment to students when deemed necessary. The Supreme Court upheld this disciplinary procedure in Baker vs. Owen. Only principals and assistant principals will administer this method of punishment in the presence of another certified employee. Parents have the right to request that school officials not administer corporal punishment to their children, but the parents must assume the responsibility for the behavior of the student."
     policy_code: 2026-2027 SPSD Handbook (Corporal Punishment)
@@ -1585,6 +1663,7 @@ districts:
     county: Ripley
     nces_id: "2804110"
     status: allows
+    method: agent_via_crew
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031788&revid=T1OZOJHslshBOLxhurnQI7A8w%3D%3D
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1607,6 +1686,7 @@ districts:
     county: Oktibbeha
     nces_id: "2800189"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031789&revid=R4vDJplusPQEoqSs7N6ojXO1Q==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Corporal punishment of a student is not permitted in the Starkville Oktibbeha Consolidated School District.
     policy_code: JDB
@@ -1626,6 +1706,7 @@ districts:
     county: Stone
     nces_id: "2804170"
     status: allows
+    method: vendor_manual
     source: https://www.stoneschools.org/sites/stoneschools/files/2025-06/Parents%20and%20Students/Student%20Links/25_26%20Student%20Handbook%202nd%20Reading%20Approved.docx%20(2)%20(1).pdf
     quote: "Corporal Punishment (K-5 only): Corporal punishment is a means of discipline that may be used by the principal and/or designee. It is the responsibility of the parent/guardian to inform the school principal in writing at the beginning of each school year, or when necessary during the school year, that he/she does not wish corporal punishment used on his/her child/ward."
     last_verified: 2026-09-19
@@ -1646,6 +1727,7 @@ districts:
     county: Sunflower
     nces_id: "2800187"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/c5781a9e874246518be0a46e9dfd6d26.pdf
     quote: Corporal punishment will not be administered to students whose parent(s)/guardian(s) submit written objection.
     last_verified: 2026-09-19
@@ -1677,6 +1759,7 @@ districts:
     county: Tate
     nces_id: "2804230"
     status: allows
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5509/Tcs/c3bfb479-30dc-4ece-b6d4-2d82ec3fc830/26-27-TCSD-Student-Handbook.Approved-3.5.26.pdf?disposition=inline
     quote: Corporal Punishment Corporal punishment is a disciplinary option for use by the school administrator or the administrator’s designee. (TCSD Policy JDB)
     last_verified: 2026-09-19
@@ -1694,6 +1777,7 @@ districts:
     county: Tippah
     nces_id: null
     status: allows
+    method: agent_via_crew
     source: https://southtippahschools.com/wp-content/uploads/2025/07/25-26-blue-mountain-handbook.pdf
     quote: Corporal Punishment - Student receives a paddling.
     last_verified: 2026-09-19
@@ -1708,6 +1792,7 @@ districts:
     county: Tishomingo
     nces_id: "2804260"
     status: allows
+    method: vendor_manual
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/6062/Tcsd/15b4e5a4-e404-46d8-8a31-5915c58a2ec7/TCSD-Student-Handbook-26-27.pdf
     quote: Corporal punishment may be used in cases where it is deemed as the most appropriate means of dealing with a particular student’s behavior.
     last_verified: 2026-09-19
@@ -1727,6 +1812,7 @@ districts:
     county: null
     nces_id: "2804290"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031794&revid=HpIwM6K6ZBq7yRSXVcZvXA%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-24
@@ -1747,6 +1833,7 @@ districts:
     county: Union
     nces_id: "2804350"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/cd718bf5944b44ef9741fc7deb6b4eb7.pdf
     quote: Corporal punishment is permitted as a disciplinary measure in accordance with state law.
     last_verified: 2026-09-19
@@ -1767,6 +1854,7 @@ districts:
     county: null
     nces_id: "2804380"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031797&revid=UslshJpd7NzKnROYUqVsZwTsg%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1777,6 +1865,7 @@ districts:
     county: Warren
     nces_id: "2804470"
     status: allows
+    method: vendor_manual
     source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/3604/bovina/2657987/Student_Handbook.pdf
     quote: Corporal punishment may be administered only in the presence of a witness. All corporal punishment measures are reported in writing on disciplinary referral forms. These reports are on file for future reference, and a copy of the report is sent home. If a parent prefers that his/her child not receive corporal punishment, the principal must have this request in writing at the beginning of the school year. If corporal punishment is not allowed, the child may be suspended for a number of days appropriate to the offense.
     policy_code: JDB
@@ -1796,6 +1885,7 @@ districts:
     county: Walthall
     nces_id: "2804440"
     status: allows
+    method: searched_document
     source: https://www.wcsd.k12.ms.us/_files/ugd/5f27d8_86116ad1e2b745a78f240e266def0486.pdf
     quote: As a matter of Board policy, reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the Board.
     last_verified: 2026-09-19
@@ -1833,6 +1923,7 @@ districts:
     county: null
     nces_id: "2804500"
     status: bans
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031800&revid=vYCTjK19nli626plus3c1wROA%3D%3D
     quote: CORPORAL PUNISHMENT The Water Valley School District does NOT permit the use of corporal punishment as a disciplinary measure.
     policy_code: JDB
@@ -1843,6 +1934,7 @@ districts:
     county: Wayne
     nces_id: "2804530"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031801&revid=aY5Js3fslsh7pdS6nZ87slshZnCg==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1863,6 +1955,7 @@ districts:
     county: Webster
     nces_id: "2804560"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/abdd10d2482844a1ba378a1ef6db1bd5.pdf
     quote: Parents who wish their child to NOT receive corporal punishment (paddling) must come to the school to fill out the appropriate paperwork each school year. Students should inform school personnel that they are on the non-corporal punishment list before receiving punishment.
     last_verified: 2026-09-19
@@ -1880,6 +1973,7 @@ districts:
     county: Jasper
     nces_id: "2804590"
     status: allows
+    method: vendor_manual
     source: https://www.westjasper.org/files/documents/Handbooks/2026-2027%20WJSD%20Student%20Handbook.pdf
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board. Parents or guardians are not allowed to administer corporal punishment on West Jasper School District grounds. Students who cannot be given corporal punishment may be suspended out of school for offenses which would merit corporal punishment.
     last_verified: 2026-09-09
@@ -1925,6 +2019,7 @@ districts:
     county: null
     nces_id: "2800191"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031805&revid=8hTbQ2SKRauM68UdFSc7vA%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1935,6 +2030,7 @@ districts:
     county: null
     nces_id: "2804650"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031806&revid=4FFN26eRRE9XqFQPztaGxA%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1945,6 +2041,7 @@ districts:
     county: null
     nces_id: "2804680"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031807&revid=ysB6ovXaoSslshvPbcjK58WZA%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -1955,6 +2052,7 @@ districts:
     county: Wilkinson
     nces_id: "2804710"
     status: allows
+    method: vendor_manual
     source: https://content.myconnectsuite.com/api/documents/852bc7da29f14ba0a3ac1d01ce8612da.pdf
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19
@@ -1975,6 +2073,7 @@ districts:
     county: null
     nces_id: "2800196"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031809&revid=MhxEIzoCYRXRmNOfJfARiA%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -2014,6 +2113,7 @@ districts:
     county: Yazoo
     nces_id: "2804800"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031811&revid=UJpZ3Yx9i1WPgc1WiAwihw==&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==&secid=hSGrPqF4gplus5plusbZ62PcQufA==&PG=6&IRP=0&isPndg=false
     quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     last_verified: 2026-09-19

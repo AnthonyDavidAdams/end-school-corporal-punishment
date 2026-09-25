@@ -26,6 +26,9 @@ const FROM = Number(arg("from", 1)), TO = Number(arg("to", 1400));
 const OUT = join(root, arg("out", "data/tasb/harvest.jsonl"));
 const CODE = arg("code", "FO");
 const PACE_MS = Number(arg("pace", 1200));
+// What a candidate sentence must mention. Defaults to the corporal punishment anchors; any other
+// question is a different code and a different anchor, and nothing else in this file changes.
+const ANCHOR = new RegExp(arg("anchors", "corporal punishment"), "i");
 
 // A real page is several hundred thousand characters; the stub TASB serves a rate-limited address is
 // about 70,000. Size alone separates them, and size alone is the right test: requiring a DATE ISSUED
@@ -77,7 +80,7 @@ function parse(html, code) {
   const candidates = local
     .split(/(?<=[.:;])\s+/)
     .map((s) => s.replace(/\s+/g, " ").trim())
-    .filter((s) => /corporal punishment/i.test(s) && s.length > 30 && s.length < 600
+    .filter((s) => ANCHOR.test(s) && s.length > 30 && s.length < 600
                 && !/Table of Contents|PDF \| Word/i.test(s));
 
   const issued = (local.match(/DATE ISSUED:\s*([0-9/]+)/i) || [, null])[1];

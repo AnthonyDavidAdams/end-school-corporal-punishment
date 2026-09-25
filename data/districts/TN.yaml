@@ -15,21 +15,23 @@ districts:
     county: null
     nces_id: "4701470"
     status: allows
+    method: searched_document
     source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/2955/GCTSD/3337077/Primary.pdf
     quote: 2 CORPORAL PUNISHMENT POLICY Corporal punishment is administered to students only after other negative consequences have been attempted.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Hamilton County Schools
     county: null
     nces_id: "4701590"
     status: allows
+    method: searched_document
     source: https://digitalbell-bucket.s3.amazonaws.com/7ECA10AA-5056-907D-8DDE-F06E6D7CC69C.pdf
     quote: No student may be suspended from school, from school bus transportation or from class, nor may corporal punishment be administered except as provided by law and the policies of the Board.
     last_verified: 2026-09-24
     legacy_status: bans
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
     policy_code: null
     crdc_students_latest: null
   - name: Knox County Schools
@@ -45,6 +47,7 @@ districts:
     county: null
     nces_id: "4702340"
     status: allows
+    method: searched_document
     source: http://images.pcmac.org/Uploads/LawrenceCounty/LawrenceCounty/Divisions/DocumentsCategories/Documents/LCCodeofConduct.pdf
     quote: Corporal punishment may be administered by the principal or by a teacher in the presence of another certified employee.
     policy_code: null
@@ -55,6 +58,7 @@ districts:
     county: Lewis
     nces_id: "4702430"
     status: allows
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/4465/lcis_student_handbook_2026-2027.pdf
     quote: "The Lewis County Board of Education has approved the following forms of discipline for use in Lewis County Schools: 1. Counseling through teacher/pupil/parent conferences. 2. Assigning written work. 3. Corporal punishment (paddling). 4. Suspension from class and/or school sponsored activities. 5. In-school suspension. 6. Suspension from school. 7. Assignment to the Alternative School. 8. Detention."
     policy_code: null
@@ -73,16 +77,18 @@ districts:
     county: null
     nces_id: "4702490"
     status: consent_required
+    method: searched_document
     source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/732147/student_handbook_19-20.pdf
     quote: The Board does permit use of corporal punishment as a disciplinary technique with written parental permission.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Marion County
     county: Marion
     nces_id: "4702640"
     status: allows
+    method: agent_via_crew
     source: https://content.schoolinsites.com/api/documents/b7e05f065b6549dc820bbed6538268cf.pdf
     quote: Any principal, assistant principal or teacher may use corporal punishment in a reasonable manner against any student for good cause in order to maintain discipline and order within the public schools
     policy_code: "6.314"
@@ -100,6 +106,7 @@ districts:
     county: Marshall
     nces_id: "4702670"
     status: consent_required
+    method: agent_via_crew
     source: https://drive.google.com/uc?export=download&id=1kDG-Jm66Hc0MK9ZSn_cAsh5OX9PAbQR1
     quote: "*Student and Parents’ choice of paddling - Before any student is paddled, the guardian must be contacted and a Corporal Punishment Permission Form must be on file in the office. NOTE - No student will be paddled more than twice during the school year."
     policy_code: "6.314"
@@ -125,26 +132,29 @@ districts:
     county: null
     nces_id: "4702790"
     status: allows
+    method: searched_document
     source: https://content.myconnectsuite.com/api/documents/3513edb619954db0b8c8ea0b1ee3ff11.pdf
-    quote: Examples (Not an exclusive listing) Fighting (mutual combativeness) Threats to others Vandalism (minor) Truancy Stealing Gambling Sexual Harassment (verbal) Continuation of Level 1 and 2 Insubordination Harassment/Bullying/Cyberbullying DISCIPLINE – LEVEL 3 Examples (Not an exclusive listing) Extended Time-out Detention (After School) Corporal Punishment Out-of-School Suspension Restitution from loss, damaged, or stolen property INFRACTIONS – LEVEL 4 Acts which result in violence to another’s person or property or which pose a threat to the safety of others in the school.
+    quote: "Examples (Not an exclusive listing) Fighting (mutual combativeness) Threats to others Vandalism (minor) Truancy Stealing Gambling Sexual Harassment (verbal) Continuation of Level 1 and 2 Insubordination Harassment/Bullying/Cyberbullying DISCIPLINE – LEVEL 3 Examples (Not an exclusive listing) Extended Time-out Detention (After School) Corporal Punishment Out-of-School Suspension Restitution from loss, damaged, or stolen … … 1 Minor Infractions:"
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: McMinn County
     county: null
     nces_id: "4702820"
     status: allows
+    method: searched_document
     source: https://s3.amazonaws.com/scschoolfiles/2020/2019-20_mcminn_county_student_handbook_final_copy.pdf
     quote: • Corporal punishment is permitted by the county board policy and state law when deemed necessary.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: McNairy County
     county: null
     nces_id: "4702880"
     status: allows
+    method: searched_document
     source: https://4.files.edl.io/f9c9/09/01/22/181934-66e0dfd2-2dd9-463c-af06-1e203457a345.pdf
     quote: Within forty-eight (48) hours of the imposition of corporal punishment of a pupil within the special school district, the pupil shall have the right to be examined by a physician to determine if the punishment was excessive.
     policy_code: null
@@ -164,26 +174,29 @@ districts:
     county: null
     nces_id: "4703060"
     status: bans
+    method: searched_document
     source: https://cdnsm5-ss10.sharpschool.com/UserFiles/Servers/Server_19566293/File/Students/Student_Parent%20Handbook%20and%20Code%20of%20Student%20Conduct/Parent-Student%20Handbook%2020-21%20FINAL.pdf
     quote: Corporal Punishment Prohibited The Board strictly prohibits all forms of corporal punishment.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Obion County
     county: null
     nces_id: "4703270"
     status: allows
+    method: searched_document
     source: https://resources.finalsite.net/images/v1724336251/obioncountyschoolscom/ia2hnogqneyh8wmqunrb/2023-2024studentandparenthandbook.pdf
     quote: Any teacher or school principal may use corporal punishment in a reasonable manner against any pupil for good cause in order to maintain discipline and order within the public schools.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
   - name: Overton County
     county: Overton
     nces_id: "4703330"
     status: allows
+    method: agent_via_crew
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4903/Ocs/be52ee53-07f3-487a-90f4-c3f92f99cb76/OCS_High_School_Parent_-_Student_Handbook.pdf?disposition=inline
     quote: CORPORAL PUNISHMENT - Corporal punishment may be used as one of the consequences for student misconduct at Livingston Academy. Parents/guardians may choose to opt for alternate types of punishment. If parents/guardians do not want corporal punishment to be used as a punishment for your child, the parent or legal guardian must appear at the school in person and sign a No Corporal Punishment Form. These forms will not be sent home by the students for parent signatures.
     policy_code: null
@@ -200,6 +213,7 @@ districts:
     county: Henry
     nces_id: "4703360"
     status: consent_required
+    method: agent_via_crew
     source: https://files.smartsites.parentsquare.com/7231/planner_revision_for_26-27_002.pdf
     quote: In School Suspension (ISS) and Corporal Punishment Inman Middle has an ISS program for students that need a short-term punishment for behavior violations. ISS is assigned for a period of 1 to 5 days and, depending on a parent's wishes, may be reduced or replaced with corporal punishment per PSSD board Policy 6.314.
     policy_code: "6.314"
@@ -235,6 +249,7 @@ districts:
     county: null
     nces_id: "4703870"
     status: allows
+    method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031784&revid=FaGrObaLYsV5nLpBdrLqNQ%3D%3D
     quote: CORPORAL PUNISHMENT Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
     policy_code: JDB
@@ -245,6 +260,7 @@ districts:
     county: null
     nces_id: "4704050"
     status: allows
+    method: searched_document
     source: https://www.sweetwaterjuniorhighschool.com/_files/ugd/8fc867_b3d6f2d4048d475dbabbcd887a960835.pdf
     quote: counseling, a letter or telephone call to parents, parent conferences, referral to the guidance counselor, after-school detention, isolation, suspension, paddling or other appropriate consequences.
     policy_code: null
@@ -255,6 +271,7 @@ districts:
     county: Tipton
     nces_id: "4703480"
     status: allows
+    method: agent_via_crew
     source: https://4.files.edl.io/563c/07/17/26/152226-7020bb46-2e1f-4785-86ea-456c274bb388.pdf
     quote: "The Board authorizes the Superintendent to determine whether corporal punishment shall be administered. If it is administered, the following guidelines shall apply: 1. Corporal punishment shall be administered only after other less stringent measures have failed, or if the conduct of a student is of such nature that corporal punishment is the only reasonable form of punishment under the circumstances."
     policy_code: TCBOE 6.314
