@@ -24,7 +24,8 @@ for (const l of links) {
       // TSBA pages carry margin line numbers and a header block (code, dates, "Monitoring:") that
       // pdftotext runs into the first sentence; strip them so the clip is the policy text alone.
       text = text.replace(/^\s*\d{1,3}\s*$/gm, "").replace(/^\s*\d{1,3}\s+(?=[A-Z(])/gm, "")
-        .replace(/^(Monitoring:|Review:|Descriptor (Term|Code):|Issued Date:|Rescinds:|Issued:|Corporal Punishment|\d\.\d{3}|\d{2}\/\d{2}\/\d{2,4}|in March|Annually,?)\s*$/gm, ""); }
+        .replace(/^(Monitoring:|Review:|Descriptor (Term|Code):|Issued Date:|Rescinds:|Issued:|Corporal Punishment|\d\.\d{3}|\d{2}\/\d{2}\/\d{2,4}|in March|Annually,?)\s*$/gm, "")
+        .replace(/\bReview:\s*Annually,?\s*(in March)?\s*(\d{4})?\s*/g, " ").replace(/\bAnnually,\s*(\d{4}\s*)?/g, " "); }
     else how = `not pdf (${r.status()}, ${body.length}b)`;
   } catch (e) { how = "error: " + String(e.message).slice(0, 60); }
   const c = clip(text);
