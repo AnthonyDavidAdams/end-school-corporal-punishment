@@ -9,7 +9,7 @@ import { chromium } from "playwright";
 const [,, IN, OUT] = process.argv;
 const ANCH = /corporal punishment|corporal|paddl|spank|swat|licks/i;
 const NOT = ["physical restraint", "restraint and seclusion", "seclusion", "mechanical restraint", "chemical restraint", "self-defense", "imminent bodily harm"];
-const clip = (t) => t.split(/(?<=[.:;])\s+/).map((s) => s.replace(/\s+/g, " ").trim()).filter((s) => s.length > 30 && s.length < 600 && ANCH.test(s) && !NOT.some((n) => s.toLowerCase().includes(n)));
+const clip = (t) => t.split(/(?<=[.:;])\s+/).map((s) => s.replace(/\s+/g, " ").trim().replace(/^.*?Board of Education\s+(?=[A-Z])/, "").replace(/^(Corporal Punishment|Descriptor Term:)\s+/, "")).filter((s) => s.length > 30 && s.length < 600 && ANCH.test(s) && !NOT.some((n) => s.toLowerCase().includes(n)));
 const links = JSON.parse(readFileSync(IN, "utf8"));
 const browser = await chromium.launch({ headless: true });
 const ctx = await browser.newContext({ userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" });
