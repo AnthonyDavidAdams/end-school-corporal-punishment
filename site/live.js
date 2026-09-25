@@ -122,13 +122,16 @@
     const evs = (d.events ?? []).slice(0, 14);
     el("ticker").innerHTML = evs.map(e => {
       const fresh = lastEventAt && e.at > lastEventAt;
-      // A machine pass is labelled as one. Most of the work on this crew is a pipeline rather than a
-      // person, and a feed that cannot tell them apart flatters the project and misleads the room.
+      // The Mothership is this crew's own machinery: the harvesters, the classifier, the crawler. It is
+      // labelled, never blended into contributor activity -- most of the work here is a machine rather
+      // than a person, and a feed that cannot tell them apart flatters the project and misleads a room
+      // watching it. The server calls this kind "machine", which is what any crew's own pipeline is;
+      // the name on the wall is ours.
       const extra = e.kind === "machine"
         ? [e.units != null ? `${n(e.units)} read` : null, e.produced != null ? `${n(e.produced)} recorded` : null,
            e.cost_usd ? `$${Number(e.cost_usd).toFixed(2)}` : null].filter(Boolean).join(" &middot; ")
         : "";
-      return `<li class="${fresh ? "fresh" : ""}"><span class="k k-${esc(e.kind)}">${e.kind === "machine" ? "pipeline" : esc(e.kind)}</span>${esc(e.headline)}${e.repeated > 1 ? ` <span class="rep">&times;${e.repeated}</span>` : ""}<span class="meta">${extra || esc(e.place?.label || "")}${!extra && e.place ? " &middot; " : ""}${extra ? " &middot; " : ""}${esc(e.ago)}</span></li>`;
+      return `<li class="${fresh ? "fresh" : ""}"><span class="k k-${esc(e.kind)}">${e.kind === "machine" ? "mothership" : esc(e.kind)}</span>${esc(e.headline)}${e.repeated > 1 ? ` <span class="rep">&times;${e.repeated}</span>` : ""}<span class="meta">${extra || esc(e.place?.label || "")}${!extra && e.place ? " &middot; " : ""}${extra ? " &middot; " : ""}${esc(e.ago)}</span></li>`;
     }).join("");
     if (evs.length) lastEventAt = evs[0].at;
   }

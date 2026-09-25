@@ -256,7 +256,7 @@ writeFileSync(join(site, "site.css"), `
 .k { display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:99px; margin-right:8px; background:#1B2340; color:#9AA6C4; }
 .k-added, .k-approved { background:#12331F; color:#7CE0A8; }
 .k-claimed { background:#33290F; color:#C9A227; }
-.k-machine { background:#1B2340; color:#9AA6C4; }
+.k-machine { background:#1A2E46; color:#7FB3D5; letter-spacing:.08em; }
 .rep { color:#C9A227; font-weight:600; font-size:12px; }
 /* Headlines, in the same card as everything else. They are not verified facts and the list says so. */
 #news { list-style:none; padding:0; margin:0; }
@@ -738,7 +738,7 @@ writeFileSync(join(site, "live", "index.html"), shell({
     <div><span id="nkids">${n(toll.record.children_in_unchecked)}</span><label>children behind those districts</label></div>
     <div><span id="ndocs">&mdash;</span><label>documents read</label></div>
     <div><span id="npeople">&mdash;</span><label>contributors</label></div>
-    <div><span id="npasses">&mdash;</span><label>pipeline passes</label></div>
+    <div><span id="npasses">&mdash;</span><label>Mothership passes</label></div>
   </div>
 
   <div class="liveboard">
