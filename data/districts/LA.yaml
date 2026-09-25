@@ -38,6 +38,16 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Evangeline Parish
+    county: null
+    nces_id: "2200630"
+    status: consent_required
+    source: https://files.smartsites.parentsquare.com/6099/2025-2026_student_handbook_final071625_1.pdf
+    quote: Corporal punishment – Corporal punishment may be used by the principal or his designee.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Jefferson Parish Schools
     county: Jefferson
     nces_id: null
@@ -92,7 +102,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Tangipahoa Parish Schools
     county: Tangipahoa
     nces_id: null
@@ -111,7 +121,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Webster Parish
     county: null
     nces_id: "2201890"
@@ -121,4 +131,4 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.

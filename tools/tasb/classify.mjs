@@ -34,7 +34,11 @@ const OUT = join(root, arg("out", "data/tasb/classified.json"));
 // measured on a different task held every correct Mississippi finding. So it gets its own threshold and
 // its own caveat: this one is a judgement, not a measurement, until quote selection is validated the
 // same way. Findings recorded on it carry the quote's confidence so a reviewer can see what it rested on.
-const THRESHOLD = Number(arg("threshold", 0.99));
+// 0.95, not 0.99. The validation measured 311 human-reviewed findings and agreement was 100% in every
+// band at or above 0.90 -- 295 records above 0.99 and 10 between 0.90 and 0.99, all correct. 0.99 was
+// picked by instinct before that was known, and it was holding findings the evidence supports:
+// Blytheville's sits at 0.98. Both disagreements in the whole set were at 0.72 and 0.76.
+const THRESHOLD = Number(arg("threshold", 0.95));
 const QUOTE_THRESHOLD = Number(arg("quote-threshold", 0.90));
 const MODEL = "typesafe/jev-1.13";
 const KEY = process.env.OPENROUTER_API_KEY;

@@ -11,7 +11,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Augusta School District
     county: Augusta
     nces_id: "0502670"
@@ -68,7 +68,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Bentonville Schools
     county: Benton
     nces_id: null
@@ -87,7 +87,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Berryville School District
     county: Berryville
     nces_id: "0503150"
@@ -111,7 +111,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: BRINKLEY SCHOOL DISTRICT
     county: null
     nces_id: "0503630"
@@ -121,7 +121,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Camden Fairview School Dist.
     county: Camden
     nces_id: "0506060"
@@ -164,7 +164,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Clarksville School District
     county: Clarksville
     nces_id: "0504380"
@@ -179,6 +179,16 @@ districts:
       contact_page: https://www.csdar.org/
       as_of: 2026-09-19
     notes: "Clarksville School District board policy manual, Section 4 - STUDENTS, policy 4.39 CORPORAL PUNISHMENT, page 137 of the PDF (printed page 104). The policy's own dates: 'Date Adopted: 3-15-2010  Last Revised: 10-15-2012  7-15-2019'. Fetched server-side with the project's fetch_document: 1,292,054 bytes, application/pdf, 210 pages, 420,459 characters, sha256 4817519b8cfb666d26c4b9ed39a2643170c587b23d558f1b69bb88bf04f3fe42. The district's own site www.csdar.org sits behind a Fastly bot challenge (a 3,038-byte 'Client Challenge' page to plain curl AND to the project's server), so the document URL was read out of the district's Documents > Board > Policies listing (https://www.csdar.org/documents/board/policies/16391751) in a browser; the asset host itself is fetchable without any challenge. Quote note: the source spells the possessive with a typographic apostrophe in 'superintendent's'. Policy carves out only students who are 'intellectually disabled, non-ambulatory, non-verbal, or autistic'; there is no parental opt-in or opt-out, so 'allows'. Quote-matching note for the reviewer: the quoted passage runs across line breaks in the PDF's own text layer, so an exact raw-substring search on the extracted text will miss it; it matches once whitespace is normalized, which is how it was checked here against the server's cached extraction."
+  - name: CLINTON SCHOOL DISTRICT
+    county: null
+    nces_id: "0504410"
+    status: allows
+    source: https://s3.amazonaws.com/scschoolfiles/1172/2021-22_chs_student_handbook.pdf
+    quote: CORPORAL PUNISHMENT The Clinton School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state- issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Conway School District
     county: Faulkner
     nces_id: null
@@ -197,7 +207,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Crossett School District
     county: null
     nces_id: "0504800"
@@ -207,7 +217,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Dewitt School District
     county: Dewitt
     nces_id: "0500001"
@@ -234,7 +244,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Fayetteville Public Schools
     county: Washington
     nces_id: null
@@ -253,7 +263,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: FORDYCE SCHOOL DISTRICT
     county: null
     nces_id: "0506210"
@@ -263,7 +273,17 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: FOREMAN SCHOOL DISTRICT
+    county: null
+    nces_id: "0506240"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4118/Foreman_Ps/d7940288-2183-4fda-92b9-536d632ae6c8/25_26_Handbook.docx.pdf?disposition=inline
+    quote: CORPORAL PUNISHMENT The Foreman School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment or who are an administrator or teacher employed under a waiver from licensure.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Fort Smith Public Schools
     county: Sebastian
     nces_id: null
@@ -273,6 +293,16 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: GENOA CENTRAL SCHOOL DISTRICT
+    county: null
+    nces_id: "0504110"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/4718/2024-2025_student_handbook.pdf
+    quote: We do extend to parents, as an act of courtesy, a form that will allow you the option of opting out of corporal punishment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: GOSNELL SCHOOL DISTRICT
     county: null
     nces_id: "0500029"
@@ -282,7 +312,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Green Forest School District
     county: Carroll
     nces_id: "0507290"
@@ -325,7 +355,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: HEBER SPRINGS SCHOOL DISTRICT
     county: null
     nces_id: "0507560"
@@ -335,7 +365,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: HECTOR SCHOOL DISTRICT
     county: null
     nces_id: "0507620"
@@ -345,7 +375,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: HILLCREST SCHOOL DISTRICT
     county: null
     nces_id: "0500071"
@@ -355,7 +385,17 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: HOPE SCHOOL DISTRICT
+    county: null
+    nces_id: "0507840"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/33/Hope_Public_Schools/62d403e5-24b6-4408-ad0b-980fd9f985ab/2022-23_Student_Handbook_main-All_District.pdf?disposition=inline
+    quote: 4.39—CORPORAL PUNISHMENT The Hope School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Hoxie School District
     county: Hoxie
     nces_id: "0507990"
@@ -381,7 +421,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Jonesboro School District
     county: Craighead
     nces_id: null
@@ -426,7 +466,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: MARMADUKE SCHOOL DISTRICT
     county: null
     nces_id: "0500016"
@@ -436,7 +476,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: MAYFLOWER SCHOOL DISTRICT
     county: null
     nces_id: "0509540"
@@ -446,7 +486,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: MELBOURNE SCHOOL DISTRICT
     county: null
     nces_id: "0509720"
@@ -456,7 +496,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: MIDLAND SCHOOL DISTRICT
     county: null
     nces_id: "0500020"
@@ -466,7 +506,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: MOUNTAIN PINE SCHOOL DISTRICT
     county: null
     nces_id: "0510170"
@@ -476,7 +516,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Mountain View School District
     county: Mountain View
     nces_id: "0510200"
@@ -503,7 +543,17 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: NASHVILLE SCHOOL DISTRICT
+    county: null
+    nces_id: "0510380"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3330/Nsd/64368670-2425-4544-bcc3-32591e997251/NES-Handbook-2026-2027.pdf?disposition=inline
+    quote: "● 4th Offense and above - 1 Day of ISS 32 Corporal Punishment:"
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: NETTLETON SCHOOL DISTRICT
     county: null
     nces_id: "0510440"
@@ -538,7 +588,17 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: PALESTINE-WHEATLEY SCH. DIST.
+    county: null
+    nces_id: "0500051"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3937/Pwsd/737709e2-4c8d-4e7d-bfa1-2ecdb6e05173/PWHS_2025-2026__Student_Handbook.pdf?disposition=inline
+    quote: 4.39—CORPORAL PUNISHMENT The Palestine-Wheatley School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.1 Prior to the administration of corporal punishment, the student receiving the corporal punishment shall be given an explanation of the reasons for the punishment and be given an opportunity to refute the charges.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: PARAGOULD SCHOOL DISTRICT
     county: null
     nces_id: "0500017"
@@ -548,7 +608,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: PIGGOTT SCHOOL DISTRICT
     county: null
     nces_id: "0511370"
@@ -558,7 +618,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Pine Bluff School District
     county: null
     nces_id: "0500026"
@@ -567,7 +627,7 @@ districts:
     quote: © 2018 Arkansas School Boards Association Page 94 4.39—CORPORAL PUNISHMENT The Pine Bluff School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.
     last_verified: 2026-09-24
     legacy_status: allows
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
     policy_code: null
     crdc_students_latest: null
   - name: POTTSVILLE SCHOOL DISTRICT
@@ -579,7 +639,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: PRESCOTT SCHOOL DISTRICT
     county: Nevada
     nces_id: "0511820"
@@ -644,7 +704,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: SHERIDAN SCHOOL DISTRICT
     county: null
     nces_id: "0500015"
@@ -654,7 +714,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: SMACKOVER-NORPHLET SCHOOL DISTRICT
     county: null
     nces_id: "0512510"
@@ -664,7 +724,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: SOUTH CONWAY COUNTY SCHOOL DISTRICT
     county: null
     nces_id: "0512520"
@@ -674,7 +734,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: SOUTHSIDE SCHOOL DISTRICT (INDEPENDENCE)
     county: Independence
     nces_id: "0512540"
@@ -725,7 +785,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Texarkana School District
     county: Miller
     nces_id: null
@@ -744,7 +804,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Valley View School District
     county: Jonesboro
     nces_id: "0513380"
@@ -773,7 +833,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: West Memphis School District
     county: null
     nces_id: "0508040"
@@ -788,7 +848,7 @@ districts:
       mailing_address: 301 South Avalon, West Memphis, Arkansas 72301
       contact_page: https://www.wmsd.net/page/board-policies
       as_of: 2026-09-20
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: White Hall School District
     county: White Hall
     nces_id: "0514140"

@@ -20,16 +20,18 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Hamilton County Schools
-    county: Hamilton
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    county: null
+    nces_id: "4701590"
+    status: allows
+    source: https://digitalbell-bucket.s3.amazonaws.com/7ECA10AA-5056-907D-8DDE-F06E6D7CC69C.pdf
+    quote: No student may be suspended from school, from school bus transportation or from class, nor may corporal punishment be administered except as provided by law and the policies of the Board.
+    last_verified: 2026-09-24
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    policy_code: null
+    crdc_students_latest: null
   - name: Knox County Schools
     county: Knox
     nces_id: null
@@ -66,7 +68,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Marion County
     county: Marion
     nces_id: "4702640"
@@ -114,11 +116,31 @@ districts:
     nces_id: "4702790"
     status: allows
     source: https://content.myconnectsuite.com/api/documents/3513edb619954db0b8c8ea0b1ee3ff11.pdf
-    quote: "Examples (Not an exclusive listing) Fighting (mutual combativeness) Threats to others Vandalism (minor) Truancy Stealing Gambling Sexual Harassment (verbal) Continuation of Level 1 and 2 Insubordination Harassment/Bullying/Cyberbullying DISCIPLINE – LEVEL 3 Examples (Not an exclusive listing) Extended Time-out Detention (After School) Corporal Punishment Out-of-School Suspension Restitution from loss, damaged, or stolen … … 1 Minor Infractions:"
+    quote: Examples (Not an exclusive listing) Fighting (mutual combativeness) Threats to others Vandalism (minor) Truancy Stealing Gambling Sexual Harassment (verbal) Continuation of Level 1 and 2 Insubordination Harassment/Bullying/Cyberbullying DISCIPLINE – LEVEL 3 Examples (Not an exclusive listing) Extended Time-out Detention (After School) Corporal Punishment Out-of-School Suspension Restitution from loss, damaged, or stolen property INFRACTIONS – LEVEL 4 Acts which result in violence to another’s person or property or which pose a threat to the safety of others in the school.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: McMinn County
+    county: null
+    nces_id: "4702820"
+    status: allows
+    source: https://s3.amazonaws.com/scschoolfiles/2020/2019-20_mcminn_county_student_handbook_final_copy.pdf
+    quote: • Corporal punishment is permitted by the county board policy and state law when deemed necessary.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: McNairy County
+    county: null
+    nces_id: "4702880"
+    status: allows
+    source: https://4.files.edl.io/f9c9/09/01/22/181934-66e0dfd2-2dd9-463c-af06-1e203457a345.pdf
+    quote: Within forty-eight (48) hours of the imposition of corporal punishment of a pupil within the special school district, the pupil shall have the right to be examined by a physician to determine if the punishment was excessive.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Metro Nashville Public Schools
     county: Davidson
     nces_id: null
@@ -137,7 +159,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Obion County
     county: null
     nces_id: "4703270"
@@ -147,7 +169,7 @@ districts:
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Overton County
     county: Overton
     nces_id: "4703330"
@@ -209,6 +231,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Sweetwater
+    county: null
+    nces_id: "4704050"
+    status: allows
+    source: https://www.sweetwaterjuniorhighschool.com/_files/ugd/8fc867_b3d6f2d4048d475dbabbcd887a960835.pdf
+    quote: counseling, a letter or telephone call to parents, parent conferences, referral to the guidance counselor, after-school detention, isolation, suspension, paddling or other appropriate consequences.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
   - name: Tipton County
     county: Tipton
     nces_id: "4703480"
