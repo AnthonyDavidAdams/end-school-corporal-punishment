@@ -541,6 +541,12 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    contact:
+      district_email: mmahan@fortsmithschools.org
+      superintendent: MAHAN, MARTIN A.
+      phone: (479) 785-2501
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: GENOA CENTRAL SCHOOL DISTRICT
     county: Miller
     nces_id: "0504110"
@@ -588,11 +594,14 @@ districts:
     crdc_students_latest: 136
     last_verified: 2026-09-21
     contact:
-      phone: 870-438-5201
+      phone: (870) 438-5201
       mailing_address: "PO Box 1950, Green Forest, AR 72638 (physical: 400 East 10th Street, Green Forest, AR 72638)"
       board_page: https://www.gf.k12.ar.us/board-members
       contact_page: https://www.gf.k12.ar.us/district-phoneaddress-directory
-      as_of: 2026-09-21
+      as_of: 2026-09-25
+      district_email: dgilmore@gf.k12.ar.us
+      superintendent: GILMORE, DAVID
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "CORRECTED RESUBMISSION (supersedes finding_2424199252a6, which had a garbled notes field left over from drafting -- same source/quote/status, notes fixed here). Source is the '2023-2024 Student Handbook' (title confirmed on PDF p.1), fetched via files.smartsites.parentsquare.com (SmartSites/ParentSquare CMS), application/pdf, 1,685,668 bytes, 140 pages; corporal punishment section on p.28 (printed page 15). Opt-out is available: same section states 'Act 333 of 1995 authorizes any principal to use corporal punishment... If a parent/guardian does not want their child administered corporal punishment, an alternative punishment form must be completed, signed and filed in the principal's office' -- this is opt-out, so status is 'allows' per project rule. No printed adoption/revision date on this handbook page. The district's separate Board Policy Manual (same 4.39 CORPORAL PUNISHMENT, files.smartsites.parentsquare.com/6620/board_policies_2023-2024.pdf and .../board_of_education_policies_2024-2025.pdf) prints BOTH 'Option 1' (authorizes) and 'Option 2' (prohibits) boilerplate with no marking of which was adopted -- confirmed visually via rendered PDF page image, not just text extraction -- Date Adopted 02.21.05, Last Revised 06.29.20 on that ambiguous copy. The clean, single-option Student Handbook was used as the citable source instead because it resolves the ambiguity and matches the CRDC 2023-24 reporting year exactly (136 students struck). Green Forest's own site (gf.k12.ar.us) resolved directly; no rate-limiting encountered."
   - name: Greene County Tech School Dist.
     county: Paragould
@@ -606,11 +615,14 @@ districts:
     last_verified: 2026-09-19
     contact:
       board_email: brad.rogers@gctsd.k12.ar.us
-      phone: (870) 215-4400
+      phone: (870) 236-2762
       mailing_address: Greene County Tech School District, 5413 West Kingshighway, Paragould, AR 72450
       board_page: https://www.gctsd.k12.ar.us/page/school-board
       contact_page: https://www.gctsd.k12.ar.us/documents
-      as_of: 2026-09-19
+      as_of: 2026-09-25
+      district_email: scott.gerrish@gctsd.k12.ar.us
+      superintendent: Gerrish, Scott
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "Board policy 4.39 - CORPORAL PUNISHMENT, inside 'Section 4 - STUDENTS 2026-2027' of the adopted policy manual (district Documents > District Information > Policies > 2026-2027). fetch_document: application/pdf, 2,432,879 bytes, 211 pages, text layer present; policy 4.39 is on page 128 of the PDF. The policy's own footer reads 'Date Adopted: June 2007' and 'Last Revised: June 2012, June 2019, Jan 2026', legal reference A.C.A. 6-18-503(b)(1). Opt-out, so 'allows': item 8 adds that parents who choose corporal punishment not be administered 'Must deliver personally their written request of the principal of the school.' The opening sentence is garbled in the district's own text ('The Greene County Tech Board directs corporal punishment may be used as a student disciplinary measure by license as a condition of their employment. When it deems necessary and administered as follows:'), so the opt-out clause was quoted instead. The policy also bars corporal punishment for students who are intellectually disabled, non-ambulatory, non-verbal, or autistic. The district site is behind a 'Client Challenge' bot wall for curl and returns nothing to resolve_handbook; the document tree was read through a rendering proxy to obtain this direct file URL, and the file host serves the PDF to a plain fetch."
   - name: Hamburg School District
     county: Ashley
@@ -628,6 +640,12 @@ districts:
       - 2 The immunity from civil liability that exists for performing corporal punishment does not apply if the student who receives corporal punishment is intellectually disabled, non-ambulatory, non-verbal, or autistic.
     notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: nathan.sullivan@hsdlions.org
+      superintendent: SULLIVAN, NATHAN
+      phone: (870) 853-9851
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: HARMONY GROVE SCHOOL DISTRICT
     county: Saline
     nces_id: "0507320"
@@ -653,6 +671,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: abarrett@hazen.k12.ar.us
+      superintendent: BARRETT, ANDREW D.
+      phone: (870) 255-4549
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: HEBER SPRINGS SCHOOL DISTRICT
     county: Cleburne
     nces_id: "0507560"
@@ -665,6 +689,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: joel.linn@heberschools.org
+      superintendent: LINN, JOEL G.
+      phone: (501) 362-6712
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: HECTOR SCHOOL DISTRICT
     county: Pope
     nces_id: "0507620"
@@ -677,6 +707,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: shawn.hettinga@hectorschools.net
+      superintendent: HETTINGA, SHAWN
+      phone: (479) 284-2021
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: HILLCREST SCHOOL DISTRICT
     county: Lawrence
     nces_id: "0500071"
@@ -689,6 +725,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: mickel.smith@eagles1.k12.ar.us
+      superintendent: SMITH, MICKEL
+      phone: (870) 376-5416
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: HOPE SCHOOL DISTRICT
     county: Hempstead
     nces_id: "0507840"
@@ -701,6 +743,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: jonathan.crossley@hpsdistrict.org
+      superintendent: CROSSLEY, JONATHAN
+      phone: (870) 722-2700
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: HORATIO SCHOOL DISTRICT
     county: Sevier
     nces_id: "0507860"
@@ -719,6 +767,12 @@ districts:
       - "07-14-08 4.39—CORPORAL PUNISHMENT (Option #1) The Horatio School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment."
     notes: Student handbook published as a Google Doc; the server could not read the editor page, so it was exported as text 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: modom@horatioschools.org
+      superintendent: ODOM, MICHAEL D.
+      phone: (870) 832-1940
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Hoxie School District
     county: Hoxie
     nces_id: "0507990"
@@ -730,11 +784,13 @@ districts:
     crdc_students_latest: 43
     last_verified: 2026-09-19
     contact:
-      phone: 870-886-2401
+      phone: (870) 886-2401
       mailing_address: 602 SW Hartigan, Hoxie, AR 72433
-      superintendent: Kelly Gillham
+      superintendent: Gillham, Kelly
       contact_page: https://www.hoxieschools.com/
-      as_of: 2026-09-19
+      as_of: 2026-09-25
+      district_email: kelly.gillham@hoxieschools.com
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "Hoxie High School Student Handbook 2026-2027, page 22 of the PDF, under the heading 'STUDENT CONDUCT BEHAVIOR CODE'. Fetched server-side with the project's fetch_document: 1,104,823 bytes, application/pdf, 47 pages, 109,340 characters, sha256 6e10c948dd9251b3b0f23f54b20caf5d08c40ee74e945081f550f9c8cabec8eb. 'Corporal Punishment' appears six times in the handbook: once in this master list of consequences and five times as a named step in the penalty ladders for specific rules (Rule #1 Insubordination, Rule #3 Truancy, Rule #11 Disorderly Conduct, Rule #12 Profanity, all as 'ISS / Corporal Punishment'). There is no consent form, no parental opt-in and no opt-out anywhere in the handbook, so this is 'allows'. Caveat for the reviewer: this is the HIGH SCHOOL handbook, the newest discipline document the district publishes. Hoxie does NOT publish a board policy manual on its site; the only board-adopted policies posted under Documents > State-Required Information are Fiscal, Personnel and Parent Involvement. The district's own site is behind a Fastly bot challenge (a 3,038-byte 'Client Challenge' page to plain curl AND to the project's server and to a public CORS proxy), so the Documents tree had to be walked in a real browser; the asset host files-backend.assets.thrillshare.com is fetchable without any challenge. The NCES record's website, http://green.nesc.k12.ar.us, no longer resolves; the live site www.hoxieschools.com came from the NCES district-detail page for 0507990. Older documents on the same page (23-24 Hoxie Elementary Discipline Policy, 23-24 Hoxie Elementary Handbook) were not used. Quote-matching note for the reviewer: the quoted passage runs across line breaks in the PDF's own text layer, so an exact raw-substring search on the extracted text will miss it; it matches once whitespace is normalized, which is how it was checked here against the server's cached extraction."
   - name: JASPER SCHOOL DISTRICT
     county: Newton
@@ -752,6 +808,12 @@ districts:
     quotes:
       - The Jasper School District Board of Education authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued license as a condition of their employment, or who are an administrator or teacher employed under a waiver from licensure&rdquo;.
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
+    contact:
+      district_email: kliggett@jasper.k12.ar.us
+      superintendent: LIGGETT, KIMBERLY
+      phone: (870) 446-2223
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: JESSIEVILLE SCHOOL DISTRICT
     county: Garland
     nces_id: "0507920"
@@ -764,6 +826,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: david.stage@jsdlions.net
+      superintendent: STAGE, DAVID A.
+      phone: (501) 984-5381
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Jonesboro School District
     county: Craighead
     nces_id: null
@@ -773,6 +841,12 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    contact:
+      district_email: misty.doyle@jonesboroschools.net
+      superintendent: Doyle, Misty
+      phone: (870) 933-5800
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Lafayette County School District
     county: Lewisville
     nces_id: "0500065"
@@ -784,12 +858,14 @@ districts:
     crdc_students_latest: 57
     last_verified: 2026-09-20
     contact:
-      phone: 870-921-5500
+      phone: (870) 921-5500
       mailing_address: 712 Chestnut St, Lewisville, AR 71845
-      superintendent: Mr. Richard (Jon) Estes
+      superintendent: ESTES JR, RICHARD
       board_page: https://www.lcscougars.org/page/board-of-ed
       contact_page: https://www.lcscougars.org/documents
-      as_of: 2026-09-20
+      as_of: 2026-09-25
+      district_email: restes@lcs.k12.ar.us
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "*** POLICY CHANGE - THIS DISTRICT NOW PROHIBITS CORPORAL PUNISHMENT, after reporting 57 students struck in 2023-24. *** Source is the district's own 2026-2027 Student Handbook. Fetched server-side with fetch_document: 5,571,519 bytes, application/pdf, 232 pages, 614,056 chars extracted, sha256 dff476e285feea2c917f4e62e47ad357070d61d4594f701c97ae58e0ecf1e4eb. The prohibition is on PDF page 100, under the heading \"Corporal Punishment\", inside the Student Policies section; the handbook's own index (PDF p.18) lists \"Contact with Students While at School/Corporal Punishment Page 101\". DATES: the handbook states no adoption or revision date for this policy - there are no per-policy \"Date Adopted / Last Revised\" lines anywhere in this handbook, unlike Valley View's. What the handbook does say, verbatim (PDF p.20): \"It shall be the policy of the Lafayette County School District that the most recently adopted version of the Student Handbook be incorporated by referencing the policies of the district.\" Google's index dates this PDF 2026-08-28. EVIDENCE THE DISTRICT PREVIOUSLY PERMITTED IT, for whoever dates the change: an older district document on core-docs.s3.amazonaws.com (\"Lafayette County School District STUDENTS\") still carries the Arkansas model permitting language \"Prior to the administration of corporal punishment, the student...\", and an older LCSD handbook acknowledgement form asked parents \"2. I give permission for corporal punishment. YES NO\". NEXT CONTRIBUTOR: to date the change, open the prior handbooks listed at https://www.lcscougars.org/documents/handbooks (the page names a \"2023-2024 Lafayette County School District Handbook\" and a \"2025-2026 Lafayette County School District Student Handbook\") and the board minutes under https://www.lcscougars.org/page/board-of-ed. Both are Apptegy pages behind an Imperva bot challenge; the text proxy https://r.jina.ai/<url> reads the static parts of lcscougars.org but does not expand the JavaScript document accordions. WEBSITE CORRECTION: the NCES website for this district, http://lafayette.k12.ar.us/, no longer resolves to a working server (CNAME to lcs.k12.ar.us, 66.204.161.66, no response on 80 or 443). The live site is https://www.lcscougars.org. Do not confuse this district with Lafayette County School District in Oxford, Mississippi (gocommodores.org) or Lafayette Parish, Louisiana."
   - name: Little Rock School District
     county: Pulaski
@@ -818,6 +894,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: jblair@malvernleopards.org
+      superintendent: BLAIR, JANET
+      phone: (501) 332-7500
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: MARMADUKE SCHOOL DISTRICT
     county: Greene
     nces_id: "0500016"
@@ -830,6 +912,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: bmuse@marmadukeschool.com
+      superintendent: MUSE, BILL
+      phone: (870) 597-2723
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: MAYFLOWER SCHOOL DISTRICT
     county: Faulkner
     nces_id: "0509540"
@@ -842,6 +930,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: achisum@mayflowerschools.org
+      superintendent: Chisum, Andy
+      phone: (501) 470-0506
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: MCGEHEE SCHOOL DISTRICT
     county: Desha
     nces_id: "0509630"
@@ -854,6 +948,12 @@ districts:
     last_verified: 2026-09-24
     notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: justin.holt@mcgeheeschools.org
+      superintendent: HOLT, JUSTIN E.
+      phone: (870) 222-3670
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: MELBOURNE SCHOOL DISTRICT
     county: Izard
     nces_id: "0509720"
@@ -866,6 +966,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: tim.massey@melbourneschools.org
+      superintendent: MASSEY, TIMOTHY P.
+      phone: (870) 368-7070
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: MIDLAND SCHOOL DISTRICT
     county: Independence
     nces_id: "0500020"
@@ -878,6 +984,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: tcrosby@midlandschools.org
+      superintendent: Crosby, Toby A.
+      phone: (501) 345-8844
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: MOUNT IDA SCHOOL DISTRICT
     county: Montgomery
     nces_id: "0509990"
@@ -891,6 +1003,12 @@ districts:
     parent_control: unknown
     notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 17 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: michael.white@mtidalions.org
+      superintendent: WHITE, MICHAEL A.
+      phone: (870) 867-2323
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: MOUNTAIN PINE SCHOOL DISTRICT
     county: Garland
     nces_id: "0510170"
@@ -903,6 +1021,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: jane.knowles-reed@mpsdrd.com
+      superintendent: REED, JANE
+      phone: (501) 767-1540
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Mountain View School District
     county: Mountain View
     nces_id: "0510200"
@@ -933,6 +1057,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: vol.woods@mountainburg.org
+      superintendent: Woods, Vol
+      phone: (479) 369-2121
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: NASHVILLE SCHOOL DISTRICT
     county: Howard
     nces_id: "0510380"
@@ -945,6 +1075,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: doug.graham@nashvillesd.com
+      superintendent: GRAHAM, DOUGLAS H.
+      phone: (870) 845-3425
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: NETTLETON SCHOOL DISTRICT
     county: Craighead
     nces_id: "0510440"
@@ -962,6 +1098,12 @@ districts:
       - The Nettleton School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued license as a condition of their employment.
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
       - "'2 - The immunity from civil liability that exists for performing corporal punishment does not apply if the student who receives corporal punishment is intellectually disabled, non-ambulatory, non-verbal, or autistic."
+    contact:
+      district_email: karen.curtner@nettletonschools.net
+      superintendent: CURTNER, KAREN
+      phone: (870) 910-7800
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Nevada School District
     county: Rosston
     nces_id: "0500030"
@@ -976,7 +1118,10 @@ districts:
       phone: (870) 871-2418
       mailing_address: Nevada School District, P.O. Box 50, 6580 U.S. Hwy 278 West, Rosston, AR 71858
       contact_page: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/4204/Nevada_SD/3344271/NSD_student_handbook_2022-2023.pdf
-      as_of: 2026-09-20
+      as_of: 2026-09-25
+      district_email: roy.mccoy@nevadasd.net
+      superintendent: McCoy, Roy
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "NSD Student Handbook 2022-2023, section 'Corporal Punishment (Paddling)', PDF pages 29-30, on the district's own document host. Opt-out: 'The Nevada School District recognizes a parent or legal guardian's request that corporal punishment not be used with his/her child... The request shall be valid for only the current school year.' Fetched via fetch_document: 905,055 bytes, application/pdf, 75 pages, 184,468 chars, sha256 43eee183...  CAVEAT ON CURRENCY: this is the newest handbook I could reach. www.nevadaschooldistrict.net is behind a client-challenge that returns a 3038-byte JS shell to curl, to WebFetch and to the crew's own resolve_handbook, and the Wayback CDX index for the district's Apptegy asset folder (uploaded_file/4204/Nevada_Sd) holds no newer handbook or policy manual. A reviewer should re-check for a 2025-26 or 2026-27 handbook. Contact block taken from page 1 of the same handbook, which names Roy McCoy as the person to whom nondiscrimination-policy inquiries are referred; I have not recorded him as superintendent because the document does not say so."
   - name: OSCEOLA SCHOOL DISTRICT
     county: Mississippi
@@ -1008,6 +1153,12 @@ districts:
       - Corporal Punishment (CP) - No more than three (3) swats, administered by certified personnel, witnessed by an administrator or certified designee, observing the student's due process rights, unless notified by parents that Corporal Punishment is not to be imposed.
       - … … committed by students at school, while students are under school jurisdiction and considered to be anti-social and a persistent disregard for school rules, disruptive or of gross misconduct in nature shall be grounds for immediate corporal punishment and/or parent notification with possible suspension without going through each step.
       - Corporal Punishment (CP) - No more than three (3) swats, administered by certified personnel, witnessed by an administrator or certified designee, observing the student's due process rights, unless notified by parents that Corporal Punishment is not to be imposed.
+    contact:
+      district_email: tpugh@osd1.org
+      superintendent: PUGH, TOSHIBA D.
+      phone: (870) 563-2561
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: OUACHITA RIVER SCHOOL DISTRICT
     county: Polk
     nces_id: "0500073"
@@ -1020,6 +1171,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: jstrasner@orsd.k12.ar.us
+      superintendent: Strasner, Jerrall
+      phone: (479) 394-2348
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: PALESTINE-WHEATLEY SCH. DIST.
     county: St. Francis
     nces_id: "0500051"
@@ -1032,6 +1189,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: rhalbert@pwsd.k12.ar.us
+      superintendent: HALBERT, RYAN S.
+      phone: (870) 581-2646
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: PARAGOULD SCHOOL DISTRICT
     county: Greene
     nces_id: "0500017"
@@ -1044,6 +1207,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: njankoviak@paragouldschools.net
+      superintendent: Jankoviak, Nicholas
+      phone: (870) 240-2291
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: PERRYVILLE SCHOOL DISTRICT
     county: Perry
     nces_id: "0511340"
@@ -1057,6 +1226,12 @@ districts:
     parent_control: unknown
     notes: Document found by a fresh search, read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 2 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: kevin.campbell@perryvilleschool.org
+      superintendent: CAMPBELL, KEVIN
+      phone: (501) 889-2327
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: PIGGOTT SCHOOL DISTRICT
     county: Clay
     nces_id: "0511370"
@@ -1069,6 +1244,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: freddie.bowen@piggottschools.net
+      superintendent: Bowen, Freddie L.
+      phone: (870) 598-2572
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Pine Bluff School District
     county: Jefferson
     nces_id: "0500026"
@@ -1082,6 +1263,12 @@ districts:
     policy_code: null
     crdc_students_latest: null
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: phillip.carlock@pinebluffschools.org
+      superintendent: CARLOCK, PHILLIP D.
+      phone: (870) 543-4203
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: POTTSVILLE SCHOOL DISTRICT
     county: Pope
     nces_id: "0511700"
@@ -1094,6 +1281,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: mykel.thurman@pottsvilleschools.org
+      superintendent: THURMAN, MYKEL S.
+      phone: (479) 968-8101
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: PRESCOTT SCHOOL DISTRICT
     county: Nevada
     nces_id: "0511820"
@@ -1105,12 +1298,14 @@ districts:
     crdc_students_latest: 78
     last_verified: 2026-09-21
     contact:
-      phone: 870-887-3016
+      phone: (870) 887-3016
       mailing_address: 762 Martin St, Prescott, AR 71857
-      superintendent: Larry Smith
+      superintendent: SMITH, LARRY E.
       board_page: https://www.curleywolves.org/documents/state-required/monthly-school-board-meeting-dates/238456
       contact_page: https://www.curleywolves.org/page/contact-information/
-      as_of: 2026-09-21
+      as_of: 2026-09-25
+      district_email: lsmith@prescottschool.net
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "Source is the district's current (2026-2027) Section 4 -- Students board policy manual, filename 'PSD-student-policy-section-4-2627.pdf', fetched from the district's own Apptegy/Thrillshare CMS file host files-backend.assets.thrillshare.com, application/pdf, 935,651 bytes, 205 pages. Policy 4.39 quoted verbatim on p.125 of the extracted text; 'Date Adopted: February 24, 2004 Last Revised: August 17, 2020' printed at the end of the same policy block. No opt-out/consent clause stated. This shows the policy is UNCHANGED and still in force as of the current 2026-2027 manual -- no policy change since the 2023-24 CRDC reporting year. Live site found because the federal directory's URL (prescott.k12.ar.us) times out on both http and https; the district's actual current site is www.curleywolves.org (confirmed via DNS CNAME chain from www.prescott.k12.ar.us -> www.curleywolves.org -> Apptegy/Fastly, and via Wikipedia's infobox for Prescott School District (Arkansas), NCES ID 0511820). The landing page at .../documents/state-required/student-discipline-policy/85006 answered the known 3,038-byte Imperva-style stub on the first fetch_document call; a direct curl retry a few seconds later returned the full 1.1MB rendered page with the real PDF link, consistent with BRIEF's guidance that the stub is a rate limiter, not a wall."
     policy_revised: 2025-07-17
     policy_dates_from: notes
@@ -1131,6 +1326,12 @@ districts:
     county_source: nces_edge_geocode_2023_24
     policy_revised: 2019-06-26
     policy_dates_from: policy
+    contact:
+      district_email: jsenn@pcssd.org
+      superintendent: SENN, JEFF D.
+      phone: (501) 234-2000
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: QUITMAN SCHOOL DISTRICT
     county: Cleburne
     nces_id: "0511880"
@@ -1143,6 +1344,12 @@ districts:
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: stacksm@quitman.k12.ar.us
+      superintendent: STACKS, THOMAS M.
+      phone: (501) 589-3156
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Rivercrest School District
     county: Wilson
     nces_id: "0500045"
@@ -1170,6 +1377,12 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    contact:
+      district_email: jeff.perry@rpsar.net
+      superintendent: PERRY, CHARLIE J.
+      phone: (479) 636-3910
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: ROSE BUD SCHOOL DISTRICT
     county: White
     nces_id: "0512000"
@@ -1183,6 +1396,12 @@ districts:
     parent_control: unknown
     notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 1 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: ablackwell@rbsd.k12.ar.us
+      superintendent: BLACKWELL, ALLEN
+      phone: (501) 556-5815
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: SALEM SCHOOL DISTRICT
     county: Fulton
     nces_id: "0512090"
@@ -1196,6 +1415,12 @@ districts:
     parent_control: unknown
     notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 22 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: wayne.guiltner@salemschools.net
+      superintendent: Guiltner, Gregory W.
+      phone: (870) 895-2516
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: SCRANTON SCHOOL DISTRICT
     county: Logan
     nces_id: "0512180"
@@ -1208,6 +1433,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: tcook@scrantonrockets.net
+      superintendent: COOK, TOBY
+      phone: (833) 938-7121
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: SHERIDAN SCHOOL DISTRICT
     county: Grant
     nces_id: "0500015"
@@ -1220,6 +1451,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: chadpitts@sheridanschools.org
+      superintendent: PITTS, JONATHAN C.
+      phone: (870) 942-3135
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: SMACKOVER-NORPHLET SCHOOL DISTRICT
     county: Union
     nces_id: "0512510"
@@ -1232,6 +1469,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: doug.smith@smackover.net
+      superintendent: SMITH, DOUGLAS R.
+      phone: (870) 725-1200
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: SOUTH CONWAY COUNTY SCHOOL DISTRICT
     county: Conway
     nces_id: "0512520"
@@ -1265,6 +1508,12 @@ districts:
       - The South Pike County School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued certificate as a condition of their employment or who are an administrator or teacher employed under a waiver from licensure.
     notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: tanya.wilcher@rattlers.org
+      superintendent: WILCHER, TANYA
+      phone: (870) 285-2942
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: SOUTH SIDE SCHOOL DISTRICT
     county: Van Buren
     nces_id: null
@@ -1291,6 +1540,12 @@ districts:
       - Two (2) days in-school suspension or corporal punishment and parent meeting C.
       - Corporal punishment or two (2) days in-school suspension (ISS) D.
       - Three (3) days of in-school suspension (ISS) or corporal punishment.
+    contact:
+      district_email: suzanne.lankford@southsidebb.org
+      superintendent: LANKFORD, MARY S.
+      phone: (501) 654-2633
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: SOUTHSIDE SCHOOL DISTRICT (INDEPENDENCE)
     county: Independence
     nces_id: "0512540"
@@ -1302,12 +1557,14 @@ districts:
     crdc_students_latest: 92
     last_verified: 2026-09-21
     contact:
-      phone: 870-251-2341
+      phone: (870) 251-2341
       mailing_address: 70 Scott Drive, Southside, AR 72501
-      superintendent: Dion Stevens
+      superintendent: STEVENS, JAMES D.
       board_page: https://www.southsideschools.org/staff
       contact_page: https://www.southsideschools.org/page/contact-us
-      as_of: 2026-09-21
+      as_of: 2026-09-25
+      district_email: dion.stevens@southsideschools.org
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "Source is the 2023-2024 Student Handbook (title page reads 'Southside School District 2023-2024 Student Handbook'), fetched from the district's own Apptegy/Thrillshare CMS file host files-backend.assets.thrillshare.com, application/pdf, 899,910 bytes, 134 pages. Corporal punishment policy 4.39 quoted verbatim on p.58 of the extracted text; 'Date Adopted: 11.08.04 Last Revised: 06.13.22' printed immediately after the quoted paragraph in the same policy block (policy_adopted/policy_revised left null because these dates describe the underlying board policy generally, not a dated statement inside the quoted sentence itself -- see notes). No opt-out/consent clause is stated in this section. Live website found via Arkansas DESE MySchoolInfo (myschoolinfo.arkansas.gov/district/3209000/about), because the federal directory's URL (southside.k12.ar.us) times out -- the district's current site is southsideschools.org / www.southsideschools.org. Confirmed via Apptegy CMS document API (thrillshare-cmsv2.services.thrillshare.com/api/v2/s/100072/documents, folder 'Student Handbook' id 23178826)."
   - name: Spring Hill School District
     county: Hope
@@ -1320,10 +1577,13 @@ districts:
     crdc_students_latest: 50
     last_verified: 2026-09-19
     contact:
-      phone: +1 870-777-8236
+      phone: (870) 777-8236
       mailing_address: 633 Spring Lake Road, Hope, AR 71801-9033
       contact_page: http://shbears.org/
-      as_of: 2026-09-19
+      as_of: 2026-09-25
+      district_email: jeffrey.steed@shbears.org
+      superintendent: STEED, JEFFREY
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "The district's published board policy manual is at http://shbears.org/page/district-policies (shbears.org is the live site; the NCES-listed springhill.k12.ar.us refuses TLS connections). Each policy is a separate Google Doc; 4.39—CORPORAL PUNISHMENT is doc id 1j5DdCTN1MMhrv20ZT9m4tJvWEkyeOsIL. Fetched server-side with fetch_document as the txt export: HTTP 200, text/plain; charset=utf-8, 1,664 bytes, 1,653 chars, single page, no OCR. No parental consent or opt-out provision appears anywhere in the policy, so 'allows'. ADOPTION/REVISION DATES: the document's own footer reads 'Date Adopted: Last Revised: ________________' — both are blank in the published copy. Legal references cited: A.C.A. § 6-18-503(b), DESE Rules Governing Student Discipline and School Safety."
   - name: Springdale School District
     county: Washington
@@ -1334,6 +1594,12 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    contact:
+      district_email: jcleveland@sdale.org
+      superintendent: Cleveland, Jared
+      phone: (479) 750-8800
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: STUTTGART SCHOOL DISTRICT
     county: Arkansas
     nces_id: "0512960"
@@ -1346,6 +1612,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: jeff.mckinney@stuttgartschools.org
+      superintendent: McKinney, Jeffry
+      phone: (870) 673-8701
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Texarkana School District
     county: Miller
     nces_id: null
@@ -1355,6 +1627,12 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    contact:
+      district_email: lloyd.jackson@tasd7.net
+      superintendent: Jackson, Lloyd D.
+      phone: (870) 772-3371
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: TWO RIVERS SCHOOL DISTRICT
     county: Yell
     nces_id: "0500079"
@@ -1367,6 +1645,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: alvish@trgators.org
+      superintendent: Alvis, Harry
+      phone: (833) 272-8773
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: Valley View School District
     county: Jonesboro
     nces_id: "0513380"
@@ -1403,6 +1687,12 @@ districts:
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
     notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: kyle.mccarn@violalonghorns.org
+      superintendent: MCCARN, KYLE
+      phone: (870) 458-4001
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: WALDRON SCHOOL DISTRICT
     county: Scott
     nces_id: "0513680"
@@ -1415,6 +1705,12 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: fielding.daniel@waldronsd.org
+      superintendent: Fielding, Daniel W.
+      phone: (479) 637-3179
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: West Memphis School District
     county: Crittenden
     nces_id: "0508040"
@@ -1429,7 +1725,10 @@ districts:
       phone: (870) 735-1915
       mailing_address: 301 South Avalon, West Memphis, Arkansas 72301
       contact_page: https://www.wmsd.net/page/board-policies
-      as_of: 2026-09-20
+      as_of: 2026-09-25
+      district_email: efoister@wmsd.net
+      superintendent: FOISTER, ERIC A.
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: White Hall School District
@@ -1446,7 +1745,10 @@ districts:
       phone: (870) 247-2002
       mailing_address: White Hall School District, 1020 W Holland Ave, White Hall, AR 71602
       contact_page: https://www.whitehallsd.org/page/contact-us
-      as_of: 2026-09-19
+      as_of: 2026-09-25
+      district_email: gwilliams@whitehallsd.org
+      superintendent: Williams, Gary
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "Board policy 4.39-CORPORAL PUNISHMENT, a standalone PDF in the district's 'Handbook Policy References' document folder. Downloaded with curl: HTTP 200, application/pdf, 545,818 bytes, 1 page, text layer present (pdftotext). The policy's own footer reads 'Date Adopted: July 2009' and 'Last Revised: July 2018'; legal reference A.C.A. 6-18-503(b), 6-18-505(c)(1). No parental opt-in or opt-out clause. The district site (Apptegy) sits behind a 'Client Challenge' bot wall that returns a 3,038-byte shell to curl and to the project's resolve_handbook; the document listing was read through a rendering proxy to obtain this direct file URL, and the file host itself serves the PDF to a plain fetch."
   - name: Wonderview School District
     county: Conway
@@ -1464,6 +1766,12 @@ districts:
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
     notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: jamie.stacks@wonderviewschools.org
+      superintendent: Stacks, Jamie
+      phone: (501) 354-0211
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: WOODLAWN SCHOOL DISTRICT
     county: Cleveland
     nces_id: "0514400"
@@ -1476,6 +1784,12 @@ districts:
     notes: "The classifier held this at 0.65; a frontier agent read the clipped sentences and settled it at 0.92. Its reasoning: The board's own grant is explicit: \"The Woodlawn School Board authorizes the use of corporal punishment\" (Arkansas ASBA model policy 4.39 adopted by the board, not a reproduced statute). What made it hard for the classifier: the PDF clipper glued the section header and a footnote marker (\"employment.1\", \"autistic.2\") onto the authorizing sentence, so no candidate is a clean single sentence; the sa"
     county_source: nces_edge_geocode_2023_24
     method: searched_document
+    contact:
+      district_email: kevin.hancock@whsbears.org
+      superintendent: HANCOCK, JAMES K.
+      phone: (870) 357-8108
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25
   - name: YELLVILLE-SUMMIT SCHOOL DISTRICT.
     county: Marion
     nces_id: "0514490"
@@ -1488,3 +1802,9 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    contact:
+      district_email: wes.henderson@ysk12.com
+      superintendent: HENDERSON, WESLEY B.
+      phone: (870) 449-4061
+      contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
+      as_of: 2026-09-25

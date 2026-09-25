@@ -18,13 +18,19 @@ const byNces = new Map(), byState = {};
 for (const c of contacts) { if (!c.district_email) continue; if (c.nces_id) byNces.set(String(c.nces_id), c); (byState[c.state] ||= []).push(c); }
 // Georgia: superintendent email domain -> the district whose federal-directory website shares it
 const domainToNces = new Map(); for (const r of dir) { const h = hostOf(r[4]); if (h) domainToNces.set(h, r[0]); }
+// ...and the live site index, where the federal address has gone stale.
+try { const idx = JSON.parse(readFileSync(join(root, "data/sites/index.json"), "utf8")); for (const [k, v] of Object.entries(idx.districts ?? idx)) { const h = hostOf(v.website ?? v.url ?? v.site ?? ""); const n = v.nces_id ?? (k.match(/\d{7}/) || [])[0]; if (h && n) domainToNces.set(h, String(n)); } } catch {}
 let set = 0, kept = 0, none = 0;
 for (const f of readdirSync(join(root, "data/districts")).filter((f) => f.endsWith(".yaml"))) {
   const p = join(root, "data/districts", f); const text = readFileSync(p, "utf8"); const doc = parse(text); let ch = false;
   for (const d of doc.districts ?? []) {
     if (d.contact?.district_email) { kept++; continue; }
     let c = d.nces_id ? byNces.get(String(d.nces_id)) : null;
-    if (!c) { const pool = byState[doc.state] || []; const hits = pool.filter((x) => x.name && same(x.name, d.name)); if (hits.length === 1) c = hits[0]; }
+    if (!c) { const pool = byState[doc.state] || [];
+      // Exact token match first ("CANEY" must not be swallowed by "CANEY VALLEY"), then one-sided containment.
+      const eq = pool.filter((x) => x.name && [...tok(x.name)].sort().join(" ") === [...tok(d.name)].sort().join(" "));
+      const hits = eq.length ? eq : pool.filter((x) => x.name && same(x.name, d.name));
+      if (hits.length === 1) c = hits[0]; }
     if (!c && doc.state === "GA" && d.nces_id) { const pool = byState.GA || []; c = pool.find((x) => x.domain && domainToNces.get(x.domain) === String(d.nces_id)) ?? null; }
     if (!c) { none++; continue; }
     d.contact = { ...(d.contact || {}), district_email: c.district_email, superintendent: c.superintendent ?? d.contact?.superintendent ?? null, phone: c.phone ?? d.contact?.phone ?? null, contact_source: c.source, as_of: "2026-09-25" };

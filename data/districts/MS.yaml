@@ -581,8 +581,11 @@ districts:
       phone: (601)545-6055
       mailing_address: 400 Forrest St., Hattiesburg, MS 39401
       website: http://www.fcsd.us
-      as_of: 2023-24
+      as_of: 2026-09-25
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+      district_email: ggallant@fcsd.us
+      superintendent: Gina Q. Gallant
+      contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
     policy_adopted: 2019-06-24
     policy_revised: 2019-06-24
     policy_dates_from: notes
@@ -948,6 +951,12 @@ districts:
     notes: "Input row had nces_id/nces_name/website all null. I found the district site at https://www.jcpsd.net (Jefferson County School District, 942 Main Street, Fayette MS; the handbook header reads \"Jefferson County School District Student Handbook\" and the body also uses \"Jefferson County Public School District\"). This is the Jefferson COUNTY district, not Jefferson Davis County. CCD 2022 id would be 2802220 (JEFFERSON CO SCHOOL DIST), left null here per the coordinator's instruction. Where I looked: (1) resolve_handbook on jcpsd.net returned the 2026-27 Student Handbook, https://content.myconnectsuite.com/api/documents/d4ba97cd3d81492398363b338073bc83.pdf -- fetch_document got 3993581 bytes, application/pdf, 63 pages, 169436 characters of text, needs_ocr false. Searching it for \"corporal punishment\", \"corporal\", \"paddl\", \"paddle\", \"swat\", \"lick\", \"spank\" and \"physical punishment\" returned ZERO hits; the table of contents has a CODE OF CONDUCT section (p.34) and Student Discipline (p.35) with no corporal punishment entry. Silence is not a prohibition, so I am not recording \"bans\". (2) The district's board policy manual is on Simbli/MSBA at http://jefferson.msbapolicy.org/ (linked as \"HERE\" from https://www.jcpsd.net/schoolboard). It redirects to simbli.eboardsolutions.com/Index.aspx?S=36031726, but the public policy listing for site 36031726 redirects to Login.aspx?S=36031726 -- this district's manual is NOT published publicly, unlike the other Mississippi districts in this slice. I confirmed this in a browser, not just via the API. (3) fetch_simbli_policy was not usable either (Imperva bot challenge throughout this run). Recommended next step for a human: public-records request to the district, or check whether the board manual is opened later."
     policy_code: null
     crdc_students_latest: null
+    contact:
+      district_email: ahammitte@jcpsd.net
+      superintendent: Dr. Adrian Hammitte
+      phone: null
+      contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
+      as_of: 2026-09-25
   - name: Jones County Schools
     county: Jones
     nces_id: "2802280"
@@ -1623,7 +1632,11 @@ districts:
       board_page: https://www.pearlk12.com/district/school-board
       contact_page: https://www.pearlk12.com/
       public_comment: Board meeting dates published at https://www.pearlk12.com/district/school-board/board-meeting-dates; no sign-up procedure stated.
-      as_of: 2026-09-19
+      as_of: 2026-09-25
+      district_email: cchism@pearlk12.com
+      superintendent: Chris Chism
+      phone: null
+      contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
     policy_revised: 2024-07-15
     policy_dates_from: notes
@@ -1643,8 +1656,11 @@ districts:
     contact:
       phone: (601)798-7744
       mailing_address: 7441 HWY 11, CARRIERE, MS 39426
-      as_of: 2023-24
+      as_of: 2026-09-25
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+      district_email: jweir@prc.k12.ms.us
+      superintendent: Jeremy Weir
+      contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
   - name: Perry County Schools
     county: Perry
     nces_id: "2803570"
