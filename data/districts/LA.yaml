@@ -2,165 +2,165 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: LA
 districts:
-- name: Bossier Parish Schools
-  county: Bossier
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: allows
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Caddo Parish Schools
-  county: Caddo
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: allows
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Calcasieu Parish Schools
-  county: Calcasieu
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: allows
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: East Baton Rouge Parish
-  county: East Baton Rouge
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: bans
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Evangeline Parish
-  county: Evangeline Parish
-  nces_id: '2200630'
-  status: consent_required
-  method: searched_document
-  source: https://files.smartsites.parentsquare.com/6099/2025-2026_student_handbook_final071625_1.pdf
-  quote: Corporal punishment – Corporal punishment may be used by the principal or his designee.
-  policy_code: null
-  crdc_students_latest: null
-  last_verified: 2026-09-25
-  notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
-  county_source: nces_edge_geocode_2023_24
-- name: Jefferson Parish Schools
-  county: Jefferson
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: bans
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Lafayette Parish Schools
-  county: Lafayette
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: allows
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Livingston Parish
-  county: Livingston Parish
-  nces_id: '2201020'
-  status: allows
-  source: https://cdnsm5-ss4.sharpschool.com/UserFiles/Servers/Server_546/File/Policy/Policy%202017/JDA-17.pdf
-  quote: The Livingston Parish School Board shall allow reasonable corporal punishment of unruly pupils.
-  policy_code: null
-  crdc_students_latest: null
-  last_verified: 2026-09-24
-  notes: 'The classifier held this at 0.90; a frontier agent read the clipped sentences and settled it at 0.85. Its reasoning: The classifier tagged this consent_required at 0.9, almost certainly from knowledge that Louisiana amended R.S. 17:416.1 in 2023 to require written parental consent before corporal punishment. But the candidates come from a 2017 board policy (file path ''Policy 2017/JDA-17.pdf'') and not one clipped sentence mentions a parent, consent, or opting out; the only sentences that carry a rule are the boar'
-  county_source: nces_edge_geocode_2023_24
-  method: searched_document
-- name: Orleans Parish Schools
-  county: Orleans
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: bans
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Ouachita Parish Schools
-  county: Ouachita
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: allows
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Rapides Parish Schools
-  county: Rapides
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: allows
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Richland Parish
-  county: Richland Parish
-  nces_id: '2201350'
-  status: consent_required
-  source: https://richland.k12.la.us/wp-content/uploads/2025/08/RES-2025-2026-Handbook.pdf
-  quote: Corporal punishment (with written parent approval) 4.
-  policy_code: null
-  crdc_students_latest: null
-  last_verified: 2026-09-24
-  notes: 'The classifier held this at 0.87; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because none of the candidates is a clean policy sentence: the rule appears only as a numbered item in a discipline-consequences list ("Corporal punishment (with written parent approval) 4." -- the trailing "4." is the next list number bleeding in) and as a fill-in form with page-footer junk, and the form names Rayville Elementary, a single school, inside a parish-wide handbook. The candidate'
-  county_source: nces_edge_geocode_2023_24
-  method: searched_document
-- name: Sabine Parish
-  county: Sabine Parish
-  nces_id: '2201380'
-  status: consent_required
-  method: searched_document
-  source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3043/SPSD/4684163/SPSB_District_Student_Handbook_24-25.pdf
-  quote: 100 CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
-  policy_code: null
-  crdc_students_latest: null
-  last_verified: 2026-09-25
-  notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
-  county_source: nces_edge_geocode_2023_24
-- name: Tangipahoa Parish Schools
-  county: Tangipahoa
-  nces_id: null
-  status: unknown
-  source: null
-  quote: null
-  last_verified: null
-  legacy_status: allows
-  notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-- name: Union Parish
-  county: Union Parish
-  nces_id: '2201770'
-  status: allows
-  method: searched_document
-  source: https://unionparishschools.org/docs/UPSDhandbook1516.pdf
-  quote: Corporal punishment should be used only after other methods of seeking the student’s cooperation in developing self- discipline have failed or as an alternative to suspension.
-  policy_code: null
-  crdc_students_latest: null
-  last_verified: 2026-09-25
-  notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
-  county_source: nces_edge_geocode_2023_24
-- name: Webster Parish
-  county: Webster Parish
-  nces_id: '2201890'
-  status: allows
-  method: searched_document
-  source: https://s3.amazonaws.com/scschoolfiles/1236/handbook20212022-high_school_handbook.pdf
-  quote: CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
-  policy_code: null
-  crdc_students_latest: null
-  last_verified: 2026-09-25
-  notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
-  county_source: nces_edge_geocode_2023_24
+  - name: Bossier Parish Schools
+    county: Bossier
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Caddo Parish Schools
+    county: Caddo
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Calcasieu Parish Schools
+    county: Calcasieu
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: East Baton Rouge Parish
+    county: East Baton Rouge
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Evangeline Parish
+    county: Evangeline Parish
+    nces_id: "2200630"
+    status: consent_required
+    method: searched_document
+    source: https://files.smartsites.parentsquare.com/6099/2025-2026_student_handbook_final071625_1.pdf
+    quote: Corporal punishment – Corporal punishment may be used by the principal or his designee.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Jefferson Parish Schools
+    county: Jefferson
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Lafayette Parish Schools
+    county: Lafayette
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Livingston Parish
+    county: Livingston Parish
+    nces_id: "2201020"
+    status: allows
+    source: https://cdnsm5-ss4.sharpschool.com/UserFiles/Servers/Server_546/File/Policy/Policy%202017/JDA-17.pdf
+    quote: The Livingston Parish School Board shall allow reasonable corporal punishment of unruly pupils.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.90; a frontier agent read the clipped sentences and settled it at 0.85. Its reasoning: The classifier tagged this consent_required at 0.9, almost certainly from knowledge that Louisiana amended R.S. 17:416.1 in 2023 to require written parental consent before corporal punishment. But the candidates come from a 2017 board policy (file path 'Policy 2017/JDA-17.pdf') and not one clipped sentence mentions a parent, consent, or opting out; the only sentences that carry a rule are the boar"
+    county_source: nces_edge_geocode_2023_24
+    method: searched_document
+  - name: Orleans Parish Schools
+    county: Orleans
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: bans
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Ouachita Parish Schools
+    county: Ouachita
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Rapides Parish Schools
+    county: Rapides
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Richland Parish
+    county: Richland Parish
+    nces_id: "2201350"
+    status: consent_required
+    source: https://richland.k12.la.us/wp-content/uploads/2025/08/RES-2025-2026-Handbook.pdf
+    quote: Corporal punishment (with written parent approval) 4.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: 'The classifier held this at 0.87; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because none of the candidates is a clean policy sentence: the rule appears only as a numbered item in a discipline-consequences list ("Corporal punishment (with written parent approval) 4." -- the trailing "4." is the next list number bleeding in) and as a fill-in form with page-footer junk, and the form names Rayville Elementary, a single school, inside a parish-wide handbook. The candidate'
+    county_source: nces_edge_geocode_2023_24
+    method: searched_document
+  - name: Sabine Parish
+    county: Sabine Parish
+    nces_id: "2201380"
+    status: consent_required
+    method: searched_document
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3043/SPSD/4684163/SPSB_District_Student_Handbook_24-25.pdf
+    quote: 100 CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Tangipahoa Parish Schools
+    county: Tangipahoa
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Union Parish
+    county: Union Parish
+    nces_id: "2201770"
+    status: allows
+    method: searched_document
+    source: https://unionparishschools.org/docs/UPSDhandbook1516.pdf
+    quote: Corporal punishment should be used only after other methods of seeking the student’s cooperation in developing self- discipline have failed or as an alternative to suspension.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Webster Parish
+    county: Webster Parish
+    nces_id: "2201890"
+    status: allows
+    method: searched_document
+    source: https://s3.amazonaws.com/scschoolfiles/1236/handbook20212022-high_school_handbook.pdf
+    quote: CORPORAL PUNISHMENT Every teacher is authorized to hold every pupil to a strict accountability for any disorderly conduct in school or on the playground of the school, or on any school bus going to or returning from school, or during intermission or recess.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
