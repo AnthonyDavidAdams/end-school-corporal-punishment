@@ -2825,6 +2825,18 @@
    "notes": "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   },
   {
+   "name": "Bleckley County",
+   "county": null,
+   "nces_id": "1300440",
+   "status": "allows",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4014&revid=iVky4OGJcZzy3slshmRqggW1w%3D%3D",
+   "quote": "Corporal Punishment Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:",
+   "policy_code": "JDA",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
+  },
+  {
    "name": "Bremen City",
    "county": null,
    "nces_id": "1300510",
@@ -3121,7 +3133,7 @@
    "policy_code": "JDA",
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
-   "notes": "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Echols County",
@@ -3169,7 +3181,7 @@
    "policy_code": "JDA",
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
-   "notes": "Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match."
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Forsyth County Schools",
@@ -3329,7 +3341,7 @@
    "policy_code": "JDA",
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
-   "notes": "Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match."
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Lanier County",
@@ -3514,18 +3526,18 @@
    "policy_code": "JDA",
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
-   "notes": "Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match."
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Pulaski County",
-   "county": "Hawkinsville",
+   "county": null,
    "nces_id": "1304220",
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "policy_code": null,
-   "crdc_students_latest": 40,
-   "last_verified": "2026-09-20",
+   "status": "allows",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4132&revid=GpIp5cmr4plus2jSpbfPUY1eQ%3D%3D",
+   "quote": "Corporal punishment-namely, physically punishing a student for an offense may be administered by teachers and school officials to discipline students in the Pulaski County School System subject to the following requirements:",
+   "policy_code": "JDA",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
    "contact": {
     "phone": "(478) 783-7200",
     "mailing_address": "72 Warren St, Hawkinsville, GA 31036",
@@ -3533,7 +3545,7 @@
     "contact_page": "https://www.pulaski.k12.ga.us/apps/contact/",
     "as_of": "2026-09-20"
    },
-   "notes": "BLOCKED ON THE SHARED SIMBLI READER, not on finding the source. The district publishes board policy through Simbli and the site key is 4132, confirmed two independent ways: (1) resolve_handbook {\"website\":\"https://www.pulaski.k12.ga.us\",\"state\":\"GA\"} returns board_policy_systems = [{vendor: \"Simbli (eBOARDsolutions)\", site: \"4132\", found_on: \"https://www.pulaskicountyschools.org/\", link_text: \"Eboard\"}]; (2) a plain fetch of https://simbli.eboardsolutions.com/index.aspx?s=4132 returns a page whose <title> is \"Simbli Board Management Software | Pulaski County Schools\" and whose inline JS sets siteIdStr = '4132'. But fetch_simbli_policy {\"site\":\"4132\"} returned the vendor bot-challenge message on SEVEN attempts spaced over roughly two hours (2026-09-20 ~06:20 to ~08:25 UTC), with and without code/terms arguments. In the same window and from the same agent, fetch_simbli_policy succeeded on three 8-digit sites (36031078 Cleburne County AL, 36031758 North Pike MS, 36031699 Copiah County MS), so this does not look like a rate limit on my side - it looks specific to the short 4-digit GSBA/Georgia keys. Filed as bug issue_1ae6b40f6e8e on the project server. NEXT CONTRIBUTOR: retry fetch_simbli_policy {\"site\":\"4132\"} once the bug is fixed; the Georgia codes to match on are titles like \"Corporal Punishment\" / \"Student Discipline\" (GSBA codes JD/JDA or 6.x). No handbook or code-of-conduct PDF was found on the district's Edlio site as an alternative (resolve_handbook found no candidates; the site's only policy link is the Eboard link)."
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Quitman County",
@@ -3744,6 +3756,18 @@
    "notes": "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
   },
   {
+   "name": "Walker County",
+   "county": null,
+   "nces_id": "1305370",
+   "status": "allows",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4168&revid=FGLUovAtAWQVkT2sVHai5Q%3D%3D",
+   "quote": "Any principal or other designated school administrator employed by the Board, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.",
+   "policy_code": "JDA",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
+  },
+  {
    "name": "Ware County Schools",
    "county": null,
    "nces_id": "1305430",
@@ -3776,7 +3800,7 @@
    "policy_code": "JDA",
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
-   "notes": "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Wilkinson County",
@@ -5678,6 +5702,18 @@
    "policy_dates_from": "notes"
   },
   {
+   "name": "NETTLETON SCHOOL DIST",
+   "county": null,
+   "nces_id": "2803090",
+   "status": "allows",
+   "source": "https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031752&revid=KYJWEnr4K69slsh89d1RojE2g%3D%3D",
+   "quote": "CORPORAL PUNISHMENT Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.",
+   "policy_code": "JDB",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
+  },
+  {
    "name": "New Albany Public Schools",
    "county": "New Albany",
    "nces_id": "2803120",
@@ -6398,7 +6434,7 @@
    "policy_code": "JDB",
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
-   "notes": "Board policy JDB from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match."
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Vicksburg Warren School District",
@@ -6584,7 +6620,7 @@
    "policy_code": "JDB",
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
-   "notes": "Board policy JDB from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match."
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "WEST TALLAHATCHIE SCHOOL DISTRICT",
@@ -8815,13 +8851,13 @@
    "name": "Big Sandy ISD",
    "county": null,
    "nces_id": "4810170",
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "policy_code": null,
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline?key=997",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
    "crdc_students_latest": null,
-   "last_verified": "2026-09-23",
-   "notes": null
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Big Spring Independent School District",
@@ -11426,6 +11462,18 @@
    ]
   },
   {
+   "name": "COLDSPRING-OAKHURST CISD",
+   "county": null,
+   "nces_id": "4814520",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline?key=1049",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
+  },
+  {
    "name": "Coleman ISD",
    "county": null,
    "nces_id": "4814550",
@@ -11578,6 +11626,18 @@
      "retrieved": "2026-09-24"
     }
    ]
+  },
+  {
+   "name": "COLUMBIA-BRAZORIA ISD",
+   "county": null,
+   "nces_id": "4814670",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline?key=221",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Columbus ISD",
@@ -11887,6 +11947,18 @@
      "retrieved": "2026-09-24"
     }
    ]
+  },
+  {
+   "name": "CORRIGAN-CAMDEN ISD",
+   "county": null,
+   "nces_id": "4815300",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline?key=999",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Corsicana ISD",
@@ -19446,6 +19518,18 @@
    ]
   },
   {
+   "name": "LIBERTY-EYLAU ISD",
+   "county": null,
+   "nces_id": "4827390",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=207&amp;code=A18",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
+  },
+  {
    "name": "Lindale ISD",
    "county": null,
    "nces_id": "4827510",
@@ -24074,6 +24158,18 @@
    ]
   },
   {
+   "name": "PORT NECHES-GROVES ISD",
+   "county": null,
+   "nces_id": "4835430",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline?key=724",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
+  },
+  {
    "name": "Portland ISD",
    "county": null,
    "nces_id": null,
@@ -26091,6 +26187,18 @@
    ]
   },
   {
+   "name": "SANFORD-FRITCH ISD",
+   "county": null,
+   "nces_id": "4839150",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=705&amp;code=A18",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
+  },
+  {
    "name": "Sanger ISD",
    "county": null,
    "nces_id": "4839180",
@@ -27288,6 +27396,18 @@
      "retrieved": "2026-09-24"
     }
    ]
+  },
+  {
+   "name": "SPRINGLAKE-EARTH ISD",
+   "county": null,
+   "nces_id": "4841250",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=794&amp;code=A18",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Springtown ISD",
@@ -28578,6 +28698,18 @@
      "retrieved": "2026-09-24"
     }
    ]
+  },
+  {
+   "name": "TURKEY-QUITAQUE ISD",
+   "county": null,
+   "nces_id": "4843400",
+   "status": "allows",
+   "source": "https://pol.tasb.org/PolicyOnline?key=561",
+   "quote": "Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Tyler ISD",
@@ -30396,6 +30528,18 @@
      "retrieved": "2026-09-24"
     }
    ]
+  },
+  {
+   "name": "WYLIE ISD",
+   "county": null,
+   "nces_id": "4846530",
+   "status": "bans",
+   "source": "https://pol.tasb.org/PolicyOnline?key=316",
+   "quote": "Corporal Punishment The Board prohibits the use of corporal punishment in the District.",
+   "policy_code": "FO",
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order."
   },
   {
    "name": "Yantis ISD",

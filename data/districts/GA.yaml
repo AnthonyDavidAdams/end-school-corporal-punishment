@@ -48,6 +48,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Bleckley County
+    county: null
+    nces_id: "1300440"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4014&revid=iVky4OGJcZzy3slshmRqggW1w%3D%3D
+    quote: "Corporal Punishment Reasonable discipline may include the administration of corporal punishment to a student, subject to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
   - name: Bremen City
     county: null
     nces_id: "1300510"
@@ -299,7 +309,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+    notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
   - name: Echols County
     county: null
     nces_id: "1301950"
@@ -339,7 +349,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match.
+    notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
   - name: Forsyth County Schools
     county: Forsyth
     nces_id: "1302220"
@@ -474,7 +484,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match.
+    notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
   - name: Lanier County
     county: null
     nces_id: "1303240"
@@ -630,23 +640,23 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match.
+    notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
   - name: Pulaski County
-    county: Hawkinsville
+    county: null
     nces_id: "1304220"
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
-    crdc_students_latest: 40
-    last_verified: 2026-09-20
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4132&revid=GpIp5cmr4plus2jSpbfPUY1eQ%3D%3D
+    quote: "Corporal punishment-namely, physically punishing a student for an offense may be administered by teachers and school officials to discipline students in the Pulaski County School System subject to the following requirements:"
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
     contact:
       phone: (478) 783-7200
       mailing_address: 72 Warren St, Hawkinsville, GA 31036
       board_page: https://www.pulaski.k12.ga.us/apps/pages/index.jsp?uREC_ID=3817946&type=d&pREC_ID=2469923
       contact_page: https://www.pulaski.k12.ga.us/apps/contact/
       as_of: 2026-09-20
-    notes: "BLOCKED ON THE SHARED SIMBLI READER, not on finding the source. The district publishes board policy through Simbli and the site key is 4132, confirmed two independent ways: (1) resolve_handbook {\"website\":\"https://www.pulaski.k12.ga.us\",\"state\":\"GA\"} returns board_policy_systems = [{vendor: \"Simbli (eBOARDsolutions)\", site: \"4132\", found_on: \"https://www.pulaskicountyschools.org/\", link_text: \"Eboard\"}]; (2) a plain fetch of https://simbli.eboardsolutions.com/index.aspx?s=4132 returns a page whose <title> is \"Simbli Board Management Software | Pulaski County Schools\" and whose inline JS sets siteIdStr = '4132'. But fetch_simbli_policy {\"site\":\"4132\"} returned the vendor bot-challenge message on SEVEN attempts spaced over roughly two hours (2026-09-20 ~06:20 to ~08:25 UTC), with and without code/terms arguments. In the same window and from the same agent, fetch_simbli_policy succeeded on three 8-digit sites (36031078 Cleburne County AL, 36031758 North Pike MS, 36031699 Copiah County MS), so this does not look like a rate limit on my side - it looks specific to the short 4-digit GSBA/Georgia keys. Filed as bug issue_1ae6b40f6e8e on the project server. NEXT CONTRIBUTOR: retry fetch_simbli_policy {\"site\":\"4132\"} once the bug is fixed; the Georgia codes to match on are titles like \"Corporal Punishment\" / \"Student Discipline\" (GSBA codes JD/JDA or 6.x). No handbook or code-of-conduct PDF was found on the district's Edlio site as an alternative (resolve_handbook found no candidates; the site's only policy link is the Eboard link)."
+    notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
   - name: Quitman County
     county: null
     nces_id: "1304290"
@@ -822,6 +832,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+  - name: Walker County
+    county: null
+    nces_id: "1305370"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4168&revid=FGLUovAtAWQVkT2sVHai5Q%3D%3D
+    quote: Any principal or other designated school administrator employed by the Board, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
   - name: Ware County Schools
     county: null
     nces_id: "1305430"
@@ -851,7 +871,7 @@ districts:
     policy_code: JDA
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+    notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
   - name: Wilkinson County
     county: null
     nces_id: "1305790"
