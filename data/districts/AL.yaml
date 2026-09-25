@@ -258,6 +258,22 @@ districts:
       contact_page: https://www.chiltonboe.com/board-policies
       as_of: 2026-09-20
     notes: "WEBSITE CORRECTION: the NCES website http://www.chilton.k12.al.us redirects to the malformed host http://www.www.chilton.k12.al.us and is dead. The live district site is https://www.chiltonboe.com (SmartSites/ParentSquare, org id 7470), whose page title is \"Chilton County School District\". Its /board-policies page links \"Chilton County Schools Policy Manual\" -> https://files.smartsites.parentsquare.com/7470/board_policy.pdf. Fetched server-side with fetch_document: 1,001,880 bytes, application/pdf, 109 pages, 242,490 chars, sha256 06cae727eb3924960f95a6e511ff5794d83928c245de95b93ff93e5cf60ff90d. Policy 6.17 Corporal Punishment is on PDF page 92 (printed page 83); the manual's table of contents on PDF page 9 lists \"6.17 Corporal Punishment\". The manual itself carries no date on its Preface page. Opt-OUT, so 'allows'; verbatim: \"If a parent does not want their student to receive corporal punishment, the parent must provide a written statement to the school administrator at the beginning of each school year.\" Verbatim reference line: \"[Reference: Ala. Code §16-28A-2 (1975)]\". I also checked the district's two most recent published policy-update documents in case 6.17 had been amended: https://files.smartsites.parentsquare.com/7470/board_policy_update_102025.pdf (approved 10/20/25, 461,928 bytes, 3 pages, 1,850 chars) has NO mention of corporal punishment or of 6.17, and the other posted item is Policy 6.25 (approved 8/20/2024). chiltonboe.com is very slow and intermittently drops connections; the text proxy https://r.jina.ai/<url> reads it reliably."
+  - name: Choctaw County Schools
+    county: Choctaw
+    nces_id: "0100690"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36032006&revid=pnxHpfLKtK7Pcxd96jEiRg%3D%3D
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
+    policy_code: "4.39"
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - The Board allows reasonable corporal punishment of students under the following terms and conditions.
+      - Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force.
+    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Clarke County
     county: Grove Hill
     nces_id: "0100720"
@@ -1588,18 +1604,23 @@ districts:
     nces_id: "0103180"
     status: allows
     method: vendor_manual
-    source: https://www.tcboe.org/fs/resource-manager/view/8e608179-edf6-4083-bb53-621e618b2565
-    quote: "X. CORPORAL PUNISHMENT (Paddling): Corporal punishment shall be administered on a limited basis and only after other forms of punishment have been tried and proven to be ineffective. The following policies shall be complied with fully when corporal punishment is administered: A. Corporal punishment shall not be administered until the nature of the offense has been explained and an opportunity to respond has been afforded the student. B. Corporal punishment shall only be administered by certified personnel and MUST be administered by or in the presence of the principal or assistant principal. C. Corporal punishment shall be administered in a prudent and reasonable manner. D. Corporal punishment shall NOT be administered in the presence of other students. E. It shall be the responsibility of the parents to notify the principal in writing of any physical or other health limitations of the student which would render corporal punishment inadvisable, or to request alternative methods of discipline."
-    last_verified: 2026-09-19
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031879&revid=npjJIX7Rda7YfaIb2k3miw%3D%3D
+    quote: In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in Talladega County schools.
+    last_verified: 2026-09-25
     legacy_status: allows
-    notes: "CORRECTED DISTRICT: the input row pointed at talladega-cs.net (Talladega CITY). This record is the COUNTY district, tcboe.org, NCES 0103180. Source is 'Code of Conduct/Attendance, 26-27' linked from https://www.tcboe.org/for-parents/code-of-conductattendance; the link resolves to https://resources.finalsite.net/images/v1784127767/tcboeorg/lsb9ocbayi0loxydbeii/26-27StudentCodeofConduct.pdf (50 pp, sha256 96c0412df2db1e7420991996340c6a8e53b090114712b36e3488f6573ee2da20). Quote from p.28 (PDF p.31). Corporal punishment is also listed as an administrative option for Class I offenses for BOTH elementary (K-6) and secondary (7-12) students. Classified allows: parents may ask in writing for alternative methods (opt-out), no affirmative opt-in is required. Talladega County's board policy manual is on Simbli S=36031879 (linked from https://www.tcboe.org/board-of-education23/board-policies) but the fetch tool hit Simbli's bot challenge on six attempts, so no board-policy code was obtained; the code of conduct is board-adopted and sufficient on its own."
-    policy_code: Student Code of Conduct, section X (Corporal Punishment)
+    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    policy_code: "4.39"
     crdc_students_latest: null
     contact:
       phone: (256)315-5126
       mailing_address: 106 W South St, Talladega, AL 35160
       as_of: 2023-24
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
+    parent_control: unknown
+    quotes:
+      - In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in Talladega County schools.
+      - Other forms of corporal punishment are not permitted.
+      - The local principal and certified staff shall utilize all practical ways and means of helping students with problems and of inducing them to accept and act upon conduct standards approved by the school before resorting to corporal punishment.
   - name: Tallapoosa County
     county: Tallapoosa County
     nces_id: "0103210"

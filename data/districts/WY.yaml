@@ -2,6 +2,45 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: WY
 districts:
+  - name: "Carbon County School District #1"
+    county: Carbon
+    nces_id: "5601030"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031915&revid=2yJOw3slshoE6IDHcI17WBvzQ%3D%3D
+    quote: General Policy Corporal punishment shall not be administered to any student who is enrolled in any school in Carbon County School District One.
+    policy_code: "4.39"
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - General Policy Corporal punishment shall not be administered to any student who is enrolled in any school in Carbon County School District One.
+    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Fremont County School District 25
+    county: Fremont
+    nces_id: null
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
+    legacy_status: allows
+    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: "Goshen County School District #1"
+    county: Goshen
+    nces_id: "5602990"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031920&revid=6ecuDkt8xb3SjlXErVHDIw%3D%3D
+    quote: Corporal punishment will not be allowed in Goshen County School District No.
+    policy_code: "4.39"
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - Corporal punishment will not be allowed in Goshen County School District No.
+    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Laramie County School District 1
     county: Laramie
     nces_id: null
@@ -20,17 +59,28 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: "Sublette County School District #1"
+    county: Sublette
+    nces_id: "5604860"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031970&revid=TLslshrLYckOSqqBEINslKHLA%3D%3D
+    quote: Corporal punishment does not include the necessary and reasonable use of physical force to defend against physical force or to otherwise prevent a student from injuring himself or others.
+    policy_code: "4.39"
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - Corporal punishment does not include the necessary and reasonable use of physical force to defend against physical force or to otherwise prevent a student from injuring himself or others.
+      - Corporal punishment also does not apply to the use of reasonable physical force necessary to maintain control and order or to remove a disruptive student from the class or school setting.
+      - The use of corporal punishment in any form is strictly prohibited in the public schools.
+      - No student will be subject to the infliction of corporal punishment by any teacher, other student, administrator, or other school personnel.
+      - No teacher, administrator, student, or other person will subject the student to corporal punishment or condone the use of corporal punishment by any person under his/her supervision or control.
+      - Permission to administer corporal punishment will not be sought or accepted from any parent, guardian or school official.
+    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Sweetwater County School District 1
     county: Sweetwater
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
-    legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Fremont County School District 25
-    county: Fremont
     nces_id: null
     status: unknown
     source: null

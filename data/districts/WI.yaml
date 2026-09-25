@@ -1,0 +1,20 @@
+# District corporal punishment policies for WI. One entry per district.
+# status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
+state: WI
+districts:
+  - name: Whitehall School District
+    county: Trempealeau
+    nces_id: "5516650"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031936&revid=slshRIi7lZ2hgVwfmnjbWiTiA%3D%3D
+    quote: Expulsion Suspension Detention, including Saturday school Clean-up duty Loss of student privileges Loss of bus privileges Notification to juvenile authorities and/or police Restitution for damages to school property No District employee or person engaged by the District may inflict or cause to be inflicted corporal punishment on a student.
+    policy_code: "4.39"
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - Expulsion Suspension Detention, including Saturday school Clean-up duty Loss of student privileges Loss of bus privileges Notification to juvenile authorities and/or police Restitution for damages to school property No District employee or person engaged by the District may inflict or cause to be inflicted corporal punishment on a student.
+      - Delegation of Authority The Board grants authority to any teacher and to any other school personnel to impose on students under their charge any disciplinary measure, other than suspension or expulsion, corporal punishment, or in-school suspension, that is appropriate and in accordance with policies and rules on student discipline.
+    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
