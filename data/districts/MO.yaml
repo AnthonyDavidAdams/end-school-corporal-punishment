@@ -29,17 +29,52 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Appleton City R-II
+    county: St. Clair
+    nces_id: "2903120"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=417&revid=QRmhx0jScOF9AbwgNWnCCg%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: ARCADIA VALLEY R-II
     county: Iron
     nces_id: "2903150"
-    status: allows
-    method: searched_document
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/631955/AVHS_handbook_2019-20.pdf
-    quote: The student will have the right to refuse swats and parents can make a written request (renewed yearly) stating that they do not wish for their child to be paddled.
-    policy_code: null
+    status: consent_required
+    method: vendor_manual
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=215&revid=4g5RmrTl8b4GVDtslshl31RJA%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
     crdc_students_latest: null
     last_verified: 2026-09-25
-    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+  - name: Ash Grove R-IV
+    county: Greene
+    nces_id: "2903270"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=173&revid=gHqKfeUcW5b381WSpdXHlQ%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: BAKERSFIELD R-IV
     county: Ozark
@@ -77,6 +112,52 @@ districts:
       - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
       - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
       - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+  - name: "Belton School District #124"
+    county: Cass
+    nces_id: "2904620"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=87&revid=aewrIYFzslshanYkzHFljjMplusQ%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
+  - name: Bloomfield R-XIV
+    county: Stoddard
+    nces_id: "2905250"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=478&revid=o3YriEslsh7NOUQ6gbqV9HrSQ%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Brookfield R-III
+    county: Linn
+    nces_id: "2905940"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=282&revid=zD9X103ilEL2r5TO6behTA%3D%3D
+    quote: No person employed by or volunteering on behalf of the Brookfield R-III School District shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the Brookfield R-III School District shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Bunker R-III
     county: Reynolds
     nces_id: "2906170"
@@ -111,26 +192,68 @@ districts:
       contact_page: https://www.campbell.k12.mo.us/documents
       as_of: 2026-09-19
     notes: "Source is the JH/HS Handbook the district itself publishes under Documents > STUDENTS/PARENTS (https://www.campbell.k12.mo.us/documents/students%2Fparents/20471863), where it is labelled 'JH/HS Handbook 2022-2023' and linked as Google Drive file 1SkG4IGcNR-S3E3xY6fDafsje51yoqGH7. Fetched server-side with fetch_document: HTTP 200, application/octet-stream (PDF), 895,850 bytes, 64 pages, 114,294 chars, no OCR. Quote from page 36. This is the most recent handbook the district publishes; a reviewer should note the 2022-2023 label. No parental consent or opt-out provision appears; searches for 'parental permission' and 'written permission' near the corporal punishment text returned nothing, so 'allows'. The handbook also makes it an explicit consequence in the offence schedule, e.g. '8.2 TRUANCY 1st offense Corporal Punishment, ASD, AEP 1 - 10 days'. BOARD POLICY GAP: the district's board policy index (Google Doc 1C41fVnkmUOzKzldDO_p7E4neNYJfrKTzrs0AvKOh3Jo, linked from https://www.campbell.k12.mo.us/documents/school-board-information/board-policies/20471899) lists 'P 2670 Corporal Punishment PRF' but, unlike policies 2100-2255, 2670 carries no hyperlink and its text is not published online, so the handbook is the only published primary source."
+  - name: Carl Junction R-I
+    county: Jasper
+    nces_id: "2907350"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=230&revid=UrQVIslshEqcUEtUowkssmJDQ%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: CARUTHERSVILLE 18
     county: Pemiscot
     nces_id: "2907470"
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=358&revid=F2gHfoF2nujeDQr2fkmg5g%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
     crdc_students_latest: null
-    last_verified: 2026-09-23
-    notes: "Could not find a live, machine-fetchable primary source. Federal-directory domain caruthersville.k12.mo.us returns DNS SERVFAIL (not just down -- broken delegation) and has no Wayback Machine captures since at least 2020, so it appears long dead. resolve_handbook was not run against it for that reason. Tried and ruled out by DNS/HTTP probe: caruthersvilleschools.org, csd18.net, carsd18.org, cvillecardinals.org, caruthersville18.org, caruthersville18.com, caruthersvillecardinals.k12.mo.us, gocardinals.k12.mo.us, caruthersvilleschools.com, csd18.com, caruthersville-schools.org, caruthersvillecardinals.org, caruthersvillesd18.org, csd-18.org, c18schools.org, caruthersvilleschooldistrict.org (all NXDOMAIN), and cardinalpride.org (resolves but connection refused/closed on both direct curl and r.jina.ai). Wikipedia's Caruthersville and Pemiscot County articles both reference the district but give no live external link, only the same dead caruthersville.k12.mo.us via a 2005 Wayback citation. Niche.com district page (niche.com/k12/d/caruthersville-18-school-district-mo/) 404s; GreatSchools.org's Caruthersville listing gives student/school counts but no district website link. WebSearch was unavailable this session (session-wide quota already exhausted by other agents in this batch before this task started). Next contributor: try calling the district (no number found) or check the Missouri DESE district directory / MSBA member list directly (not reachable from this sandbox), or search for a current domain once WebSearch quota resets. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Nothing found; the dead-domain note is useful to the queue. NCES id 2906210 is wrong and is corrected at merge.)"
-    method: agent_via_crew
+    last_verified: 2026-09-25
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
   - name: Cassville R-IV School District
     county: Barry
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "2908170"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=16&revid=QB5x3A1LrxV0H0gAVslshll9A%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    last_verified: 2026-09-25
     legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Notice and Opportunity to Opt In No pupil shall be subject to corporal punishment without a parent or guardian being notified and providing written permission for the corporal punishment.
+      - Thus, parents and guardians must obtain an opt-in form from the central office if they wish to authorize corporal punishment for their students.
+  - name: Center 58
+    county: Jackson
+    nces_id: "2908250"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=229&revid=0aJEdlkKtZ9AB0eDgg9mfw%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Charleston R-I
     county: Mississippi
     nces_id: "2908670"
@@ -149,27 +272,87 @@ districts:
       contact_page: https://www.charlestonbluejays.org/apps/pages/index.jsp?uREC_ID=1228714&type=d&pREC_ID=1461565
       as_of: 2026-09-23
     method: agent_via_crew
+  - name: Chillicothe R-II
+    county: Livingston
+    nces_id: "2908760"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=285&revid=7wL2Ai5wLt3VELByfxplusC2Q%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Clark Co. R-I
+    county: Clark
+    nces_id: "2916380"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=104&revid=im3MS6lou4wyplusqdA2foLVg%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: CLARKTON C-4
     county: Dunklin
     nces_id: "2909120"
-    status: allows
-    source: https://s3.amazonaws.com/scschoolfiles/2353/elementary_student_handbook_1wdiscipline.pdf
-    quote: Elementary Full Price $0.00 Elementary Reduced $0.00 Adult Price Breakfast $1.00 Lunch $1.50 The Clarkton C-4 School District retains the legal right to administer reasonable corporal punishment to a student.
-    policy_code: null
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=152&revid=rGvleilPrILpMFyChj1PxQ%3D%3D
+    quote: CORPORAL PUNISHMENT MSBA does not recommend the use of corporal punishment in schools.
+    policy_code: JGA-1
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: "The classifier held this at 0.70; a frontier agent read the clipped sentences and settled it at 0.92. Its reasoning: Hard for the classifier because the PDF's sentence segmentation glued the meal-price table onto the rule sentence (\"Elementary Full Price $0.00 ... Lunch $1.50 The Clarkton C-4 School District retains the legal right...\"), so the one sentence that grants the practice looks like junk, and the same five sentences repeat six times with ellipsis variants. Also, a \"corporal punishment form\" the parent "
+    last_verified: 2026-09-25
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    method: searched_document
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - CORPORAL PUNISHMENT MSBA does not recommend the use of corporal punishment in schools.
+      - No pupil shall be subject to corporal punishment procedures outlined in the discipline and corporal punishment policy without a parent or guardian being notified and providing written permission for the corporal punishment.
+      - MSBA recommends contacting the parent/guardian prior to administering corporal punishment as well.
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+  - name: Clever R-V
+    county: Christian
+    nces_id: "2909780"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=98&revid=g4Nukz0cph9Ztdlv7M7Ffg%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Columbia Public Schools
     county: Boone
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "2901000"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=42&revid=mCngv82MJAbreO2GadW8OA%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    last_verified: 2026-09-25
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+      - The expectation is that no Columbia Public Schools student will be subject to corporal punishment.
   - name: COOTER R-IV
     county: Pemiscot
     nces_id: "2910140"
@@ -181,6 +364,22 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Crocker R-II
+    county: Pulaski
+    nces_id: "2910350"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=391&revid=DxROB47HtClYuWWOQU5fkg%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: EAST CARTER CO. R-II
     county: Carter
@@ -194,6 +393,22 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Eminence R-1
+    county: Shannon
+    nces_id: "2911450"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=471&revid=plusplusKwEsaxGjZ4T7CCcjGBvA%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
   - name: EMINENCE R-I
     county: Shannon
     nces_id: "2911450"
@@ -205,6 +420,101 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Exeter R-VI
+    county: Barry
+    nces_id: "2911670"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=15&revid=S1QkqGRj39HK2plus4j2Fslsh9YA%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Fair Grove R-X
+    county: Greene
+    nces_id: "2911700"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=178&revid=BOYt1WYT91I93YBLl7xwVg%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Fairview R-XI
+    county: Howell
+    nces_id: "2911850"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=213&revid=5AlyJDN9mDQ7ZXD2QpluseIkQ%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Fredericktown R-I
+    county: Madison
+    nces_id: "2912540"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=294&revid=ARQYVRHVplusBvvmpW4cUiplus2A%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Gainesville R-V
+    county: Ozark
+    nces_id: "2912600"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=349&revid=MbCfsWSyIvyzplusLcb9S2yCg%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Gideon 37
+    county: New Madrid
+    nces_id: "2912780"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=326&revid=t2ks1WQplusEtXkQitcrFhfhg%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: GLENWOOD R-VIII
     county: Howell
@@ -265,6 +575,21 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Hazelwood
+    county: St. Louis
+    nces_id: "2913830"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=427&revid=cPplusMqSRyn9cJA6Akc5fbLw%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Holcomb R-Iii
     county: Dunklin
     nces_id: null
@@ -283,13 +608,96 @@ districts:
     method: agent_via_crew
   - name: Hollister R-V Schools
     county: Taney
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "2914550"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=493&revid=BQtWk2eRjftRhufUtKMkWQ%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    last_verified: 2026-09-25
     legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+  - name: Iberia R-V
+    county: Miller
+    nces_id: "2915420"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=306&revid=r28IBV2dJxsP0DmZ6siSWg%3D%3D
+    quote: Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Jefferson Co. R-VII
+    county: Jefferson
+    nces_id: "2916230"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=242&revid=v0m6slshslshcEbu7kuLha662Q6Q%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Jennings School District
+    county: St. Louis
+    nces_id: "2916290"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=440&revid=WCtveFbdcCSLqR9xvH3ILw%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
+  - name: Joplin Schools
+    county: Jasper
+    nces_id: "2916350"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=236&revid=E6L1TCGtlGBplusVTKKuqFg6w%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Junction Hill C-12
+    county: Howell
+    nces_id: "2915060"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=212&revid=nplusDYvIC27Hj02WV0B06fWw%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Kansas City Public Schools
     county: Jackson
     nces_id: "2916400"
@@ -320,6 +728,67 @@ districts:
       as_of: 2026-09-23
     notes: District policy JGA-1 CORPORAL PUNISHMENT (Missouri School Boards' Association template), last_revised per Simbli index 08/16/2022. District site is www.kennett.k12.mo.us (Apptegy/Thrillshare); board policy hosted on Simbli, S=155, confirmed via fetch_simbli_policy returning district match 'Kennett 39'. Policy text is worded slightly differently from Charleston/Holcomb's JGA-1 ('permitted at all grade levels...for correction, maintaining discipline and order, protection of property...') but has the identical operative sentence requiring advance written parental permission -> classified consent_required (opt-in), not allows, per the scan contract's opt-in/opt-out rule. Doc fetched via fetch_document, 1814 bytes, text/html, extracted_by simbli-api. students_2023_24 from CRDC input row. Superintendent (Richie Leeker) and district email pulled from the site's own staff directory API (thrillshare-cmsv2 /cms/directories, title 'Superintendent', department 'Central Office'). Mailing address not confirmed on the district's own site (only found on Wikipedia, 510 College Avenue, Kennett, MO 63857, which is not cited here); left null rather than sourcing off-site. No separate board_email or board_page (members/meeting times) found; board-policy-manual page URL given as the closest confirmed board-related page. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Board policy JGA-1 on Simbli, verified. Replaces the record on file, whose source (kcsd.org) is Kennett Consolidated School District in Pennsylvania, not Kennett 39 in Missouri.)
     county_source: nces_edge_geocode_2023_24
+  - name: Ladue
+    county: St. Louis
+    nces_id: "2917820"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=441&revid=wFZjz72GTV3qZyGQt3iC5Q%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Lesterville R-IV
+    county: Reynolds
+    nces_id: "2918450"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=407&revid=eg1Ll2DqcgymBDXVqgd3Mw%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Liberal R-II
+    county: Barton
+    nces_id: "2918510"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=20&revid=Ak7aOhomBplusVgy0FHL6nplustA%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Lockwood R-I
+    county: Dade
+    nces_id: "2919140"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=127&revid=MAtWpVIBx3Aj7s4EsFfWlg%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Malden R-I
     county: Malden
     nces_id: "2919890"
@@ -339,6 +808,119 @@ districts:
       public_comment: Board meets the third Tuesday of each month. Patrons wishing to address the Board must complete the 'Request to be on BOE Agenda' form and submit it to the central office at 601 West Burkhart Street no later than five days before the meeting.
       as_of: 2026-09-19
     notes: "Source is the district's elementary student handbook, posted in the district Documents > HANDBOOKS folder as 'Elementary Student Handbook 26-27'; the file itself is titled 'Handbook 2025-2026'. fetch_document: application/pdf, 1,667,511 bytes, 63 pages, text layer present; the quoted sentence is on page 18 under 'Definitions of Discipline'. The handbook also states on page 10 that 'A complete manuscript of the District Discipline Code and corporal punishment guidelines are contained in the Malden R-I School District Policy Manual' and cites policies JG-R1, JGA, JGB, JGD, JGE, JGF. Refusal by student or parent is answered with out-of-school suspension, not consent in advance, so this is 'allows', not 'consent_required'. The underlying board policy manual is on Simbli (the district links to simbli.eboardsolutions.com/mo/maldenr1); Simbli's Imperva bot protection refused both the project's fetch_simbli_policy tool and a browser throughout this session, so the board policy text itself was not read. The district's separate 'JH and HS Student Handbook 2026-2027' (69 pages) contains no mention of corporal punishment."
+  - name: Maplewood Richmond Heights
+    county: St. Louis
+    nces_id: "2920010"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=442&revid=ogWqCslshN9MeGXgGjSRxzkjA%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
+  - name: Marion C. Early R-V
+    county: Polk
+    nces_id: "2920160"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=384&revid=AUp7n679L69I0sItozBjLA%3D%3D
+    quote: CORPORAL PUNISHMENT MSBA does not recommend the use of corporal punishment in schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - CORPORAL PUNISHMENT MSBA does not recommend the use of corporal punishment in schools.
+      - No pupil shall be subject to corporal punishment procedures outlined in the discipline and corporal punishment policy without a parent or guardian being notified and providing written permission for the corporal punishment.
+      - MSBA recommends contacting the parent/guardian prior to administering corporal punishment as well.
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: McDonald Co. R-I
+    county: McDonald
+    nces_id: "2920610"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=286&revid=E1qB1SZ5hTcGLB4v0lv73Q%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Meadow Heights R-II
+    county: Bollinger
+    nces_id: "2923640"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=33&revid=4QuXvYGjqsT7f8PUKXPb0g%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - However, other forms of discipline may be used rather than corporal punishment at the principal's discretion.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Mid-Buchanan Co. R-V
+    county: Buchanan
+    nces_id: "2911940"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=44&revid=EvS7K2027B2j0UuplusXNBWaQ%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Moberly School District
+    county: Randolph
+    nces_id: "2921100"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=398&revid=hplusbEdpfBLgDBslshvIsJRDe1Q%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
+  - name: Mt. Vernon R-V
+    county: Lawrence
+    nces_id: "2921600"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=269&revid=8pluswOyzcBgiUZUiU3slsh90X8g%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Mtn View-Birch Tree R-III
     county: Howell
     nces_id: "2921540"
@@ -359,28 +941,112 @@ districts:
   - name: NEELYVILLE R-IV
     county: Butler
     nces_id: "2921750"
-    status: allows
-    source: https://docs.google.com/document/d/1BMV4g2nDByc0unyweHXmtIYgf7K__wn_mXNzCnp6ZkY/export?format=txt
-    quote: IV Board of Education Rules and Regulations state that corporal punishment shall be used only as a last resort when all other means of attempts at punishment and correction of a student has failed.
-    policy_code: null
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=47&revid=YcIAPCstIslshR5G2NyolVLMA%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
     crdc_students_latest: null
     last_verified: 2026-09-25
-    notes: The document sat behind a JavaScript challenge; read 2026-09-25 with a real browser session. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    method: searched_document
-    parent_control: none
+    method: vendor_manual
+    parent_control: opt_in
     quotes:
-      - IV Board of Education Rules and Regulations state that corporal punishment shall be used only as a last resort when all other means of attempts at punishment and correction of a student has failed.
-      - When deemed acceptable, pupils may choose to be paddled in lieu of suspension and/or other disciplinary procedures.
-      - "* Corporal Punishment Corporal punishment by certified staff may be administered to any pupil, as a measure of correction or of maintaining discipline and order in schools, is permitted."
-      - JGA) The district reserves the right to use corporal punishment for all students in 1st or 2nd offense situations when the principal feels it would be more effective and appropriate means of correction and/or when parents request it as a first alternative rather than using other forms of discipline.
-      - "ISS, corporal punishment (Elementary only), Saturday School, 1-180 days out-of-school suspension, or expulsion, and possible notification to law enforcement officials Subsequent Offense:"
-      - "Corporal Punishment, Saturday School, or ISS Disparaging or Demeaning Language:"
-      - "ISS, corporal punishment, 1 – 180 day out-of-school suspension, or expulsion Fighting:"
-      - "Principal/Student conference, ISS, corporal punishment (Elementary only), Saturday School, or 1 – 180 day out-of-school suspension and/or possible notification to law enforcement Subsequent Offense:"
-      - "ISS, Saturday School, corporal punishment, or 1-3 days out-of-school suspension Insubordination:"
-      - "ISS, corporal punishment, 1 – 180 day out-of-school suspension, or expulsion Sexual Harassment:"
-      - "Principal/Student Conference, ISS, Saturday School, corporal punishment, or 1 – 180 day out-of-school suspension, and possible notification to law enforcement officials Subsequent Offense:"
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+  - name: New Madrid Co. R-I
+    county: New Madrid
+    nces_id: "2900004"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=327&revid=oj1WFO0JiplusVSsoWRru1xZw%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Normandy Schools Collaborative
+    county: St. Louis
+    nces_id: "2922650"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=443&revid=CZOU5BgWXGfxQS6HwllDNA%3D%3D
+    quote: No person employed by or volunteering on behalf of the Normandy Schools Collaborative shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools or activities.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the Normandy Schools Collaborative shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools or activities.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Oak Ridge R-VI
+    county: Cape Girardeau
+    nces_id: "2923070"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=68&revid=OUDK2vTX6EyZC2x1YNukMA%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Oregon-Howell R-III
+    county: Oregon
+    nces_id: "2916860"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=342&revid=zkeYKThspimIJmWwmplusRLHw%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Ozark R-VI
+    county: Christian
+    nces_id: "2923430"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=99&revid=iiyGJ7TN99GgOj1tBVnF2w%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Pike Co. R-III (Clopton)
+    county: Pike
+    nces_id: "2925140"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=373&revid=KWgEWcGCviOJs8fUFlx96Q%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
   - name: Portageville
     county: Portageville
     nces_id: "2900003"
@@ -410,6 +1076,67 @@ districts:
     last_verified: 2026-09-25
     notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Ripley Co. R-III
+    county: Ripley
+    nces_id: "2926550"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=411&revid=CHeuA2K67UXMAuTxruslshm9g%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Risco R-II
+    county: New Madrid
+    nces_id: "2926610"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=324&revid=Bzy0E1whbHZeDjslshxNwg67A%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Riverview Gardens
+    county: St. Louis
+    nces_id: "2926670"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=445&revid=0nzh6ZwslshZMkXw8JxMcsOCw%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: School of the Osage
+    county: Miller
+    nces_id: "2927630"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=305&revid=sauYmqSzdkvownjYFslshRgaA%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Senath-Hornersville C-8
     county: Senath
     nces_id: "2927870"
@@ -429,6 +1156,22 @@ districts:
       contact_page: https://www.shslions.org/district-contact-information.html
       as_of: 2026-09-20
     notes: "The district's own board policy manual, hosted by Missouri Consultants for Education and linked as 'School Board Policies' from shslions.org/school-board.html. Page title: 'Senath Hornersville C-8 | P 2670 Corporal Punishment: Authorized'; 'Last Updated: August 2010'. fetch_document on the policy page: 3,850 bytes, text/html, 1,111 chars of text, hit at offset 322. IMPORTANT for the reviewer: moconed.com serves any pol id for any district, so the adopted variant was confirmed from the district's own policy index (district.php, 58,347 bytes, text/html) which lists '2670 Corporal Punishment: Authorized' and NOT the alternative '2670 Corporal Punishment: Prohibited' (pol=97). No parental consent requirement, so 'allows'."
+  - name: Seneca R-7 School District
+    county: Newton
+    nces_id: "2927900"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=331&revid=f8hJOlFjTlK0CveqGCihUw%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
   - name: South Iron Co. R-I
     county: Iron
     nces_id: "2928470"
@@ -508,6 +1251,21 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Springfield R12
+    county: Greene
+    nces_id: "2928860"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=177&revid=CWe3YaKzXrNphSHVieBNslshg%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
   - name: St. Louis Public Schools
     county: St. Louis City
     nces_id: "2929280"
@@ -523,14 +1281,80 @@ districts:
   - name: SUMMERSVILLE R-II
     county: Texas
     nces_id: "2929810"
-    status: allows
-    method: searched_document
-    source: https://svilleschools.com/wp-content/uploads/2021/04/H.S.-Handbook-20-21-Final.pdf
-    quote: Refusal of corporal punishment will result in out-of school suspension for the remainder of the day and one additional day.
-    policy_code: null
+    status: consent_required
+    method: vendor_manual
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=498&revid=SwPhaI6ps9EslshupmCYXALbg%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
     crdc_students_latest: null
     last_verified: 2026-09-25
-    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+  - name: Thayer R-II
+    county: Oregon
+    nces_id: "2930270"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=341&revid=bS8j6bkslsh6CTGQCjDplusGUwUw%3D%3D
+    quote: Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Van Buren R-I
+    county: Carter
+    nces_id: "2930750"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=77&revid=Wb71qNS7iNkMzmvslshc6lMzQ%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Van-Far R-I
+    county: Audrain
+    nces_id: "2930780"
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=11&revid=vhGRRvmCOwvg1Ayslsh76UvRQ%3D%3D
+    quote: (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted;
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_in
+    quotes:
+      - (Permitted) Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted;
+      - Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Webster Groves
+    county: St. Louis
+    nces_id: "2931530"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=448&revid=zM7PWJdTFCHk93L616y1nA%3D%3D
+    quote: No person employed by or volunteering on behalf of the Webster Groves School District shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-1
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - No person employed by or volunteering on behalf of the Webster Groves School District shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    notes: Board policy JGA-1 (MSBA) on Simbli, read 2026-09-25 by policy code in a sweep of every Missouri Simbli site. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: West Plains R-VII
     county: Howell
