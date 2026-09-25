@@ -76,6 +76,7 @@
     el("nlive").textContent = String(live.length);
     el("ndocs").textContent = n(d.totals?.documents_read);
     el("npeople").textContent = n(d.totals?.contributors);
+    if (el("npasses")) el("npasses").textContent = n(d.totals?.machine_passes);
 
     // Scopes under active lease glow; everything else returns to its policy colour.
     const leased = new Set(live.map(l => String(l.scope ?? "").slice(0, 2).toUpperCase()).filter(Boolean));
@@ -121,7 +122,13 @@
     const evs = (d.events ?? []).slice(0, 14);
     el("ticker").innerHTML = evs.map(e => {
       const fresh = lastEventAt && e.at > lastEventAt;
-      return `<li class="${fresh ? "fresh" : ""}"><span class="k k-${esc(e.kind)}">${esc(e.kind)}</span>${esc(e.headline)}${e.repeated > 1 ? ` <span class="rep">&times;${e.repeated}</span>` : ""}<span class="meta">${esc(e.place?.label || "")}${e.place ? " &middot; " : ""}${esc(e.ago)}</span></li>`;
+      // A machine pass is labelled as one. Most of the work on this crew is a pipeline rather than a
+      // person, and a feed that cannot tell them apart flatters the project and misleads the room.
+      const extra = e.kind === "machine"
+        ? [e.units != null ? `${n(e.units)} read` : null, e.produced != null ? `${n(e.produced)} recorded` : null,
+           e.cost_usd ? `$${Number(e.cost_usd).toFixed(2)}` : null].filter(Boolean).join(" &middot; ")
+        : "";
+      return `<li class="${fresh ? "fresh" : ""}"><span class="k k-${esc(e.kind)}">${e.kind === "machine" ? "pipeline" : esc(e.kind)}</span>${esc(e.headline)}${e.repeated > 1 ? ` <span class="rep">&times;${e.repeated}</span>` : ""}<span class="meta">${extra || esc(e.place?.label || "")}${!extra && e.place ? " &middot; " : ""}${extra ? " &middot; " : ""}${esc(e.ago)}</span></li>`;
     }).join("");
     if (evs.length) lastEventAt = evs[0].at;
   }

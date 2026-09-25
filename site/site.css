@@ -28,7 +28,7 @@
 .toll p { margin:0; font-size:13px; color:#9AA6C4; line-height:1.5; }
 .toll .pre { font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace; letter-spacing:.16em; color:#C9A227; }
 
-.livehead { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:14px; }
+.livehead { display:grid; grid-template-columns:repeat(7,1fr); gap:10px; margin-bottom:14px; }
 .livehead div { background:#0D132D; border-radius:12px; padding:14px 16px; }
 .livehead span { display:block; font-size:30px; font-weight:700; color:#7CE0A8; font-variant-numeric:tabular-nums; line-height:1.05; }
 .livehead label { display:block; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:#9AA6C4; margin-top:6px; line-height:1.35; }
@@ -70,6 +70,7 @@
 .k { display:inline-block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:99px; margin-right:8px; background:#1B2340; color:#9AA6C4; }
 .k-added, .k-approved { background:#12331F; color:#7CE0A8; }
 .k-claimed { background:#33290F; color:#C9A227; }
+.k-machine { background:#1B2340; color:#9AA6C4; }
 .rep { color:#C9A227; font-weight:600; font-size:12px; }
 /* Headlines, in the same card as everything else. They are not verified facts and the list says so. */
 #news { list-style:none; padding:0; margin:0; }
