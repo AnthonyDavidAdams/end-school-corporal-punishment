@@ -2,8 +2,8 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: IN
 districts:
-  - name: Indianapolis Public Schools
-    county: Marion
+  - name: Evansville Vanderburgh Schools
+    county: Vanderburgh
     nces_id: null
     status: unknown
     source: null
@@ -20,8 +20,8 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
-  - name: Evansville Vanderburgh Schools
-    county: Vanderburgh
+  - name: Indianapolis Public Schools
+    county: Marion
     nces_id: null
     status: unknown
     source: null
@@ -29,6 +29,16 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: North Newton School Corp
+    county: null
+    nces_id: "1807920"
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: FEDERAL FILING ANOMALY, not an unread policy. This state prohibits corporal punishment in public schools by statute (see data/states), yet the district's 2023-24 CRDC filing reports students receiving it. The project's analysis of these filings (facts/claims/crdc-ban-state-reports-2023-24.md) finds the pattern consistent with restraint or seclusion miscoded as corporal punishment. No district policy permitting the practice can exist lawfully here; the open question is the filing, which belongs to the district and to OCR. Closed 2026-09-24; reopen if the district or OCR corrects the filing.
   - name: South Gibson School Corp
     county: Gibson
     nces_id: null

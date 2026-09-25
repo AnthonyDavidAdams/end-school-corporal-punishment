@@ -2,38 +2,24 @@
  "generated": "2026-09-25",
  "source": "US Department of Education, Civil Rights Data Collection 2023-24, computed by this project; see data/crdc/2023-24/SOURCE.md",
  "total_districts_in_federal_count": 832,
- "unchecked": 221,
- "students_in_unchecked": 2765,
+ "unchecked": 203,
+ "ban_state_filing_anomalies": 18,
+ "students_in_unchecked": 2348,
  "by_state": {
   "OK": 65,
   "AR": 58,
   "MO": 35,
   "TN": 15,
   "GA": 13,
-  "NY": 10,
   "MS": 6,
   "AL": 4,
-  "CA": 3,
   "TX": 2,
-  "MN": 2,
   "FL": 2,
-  "NJ": 1,
   "AZ": 1,
-  "WA": 1,
   "LA": 1,
-  "MI": 1,
   "IN": 1
  },
  "districts": [
-  {
-   "state": "NJ",
-   "nces_id": "3414550",
-   "name": "Salem City School District",
-   "students": 380,
-   "website": "http://www.SALEMNJ.ORG",
-   "city": "SALEM",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
   {
    "state": "AZ",
    "nces_id": "0400863",
@@ -603,15 +589,6 @@
    "city": "WEST PLAINS"
   },
   {
-   "state": "WA",
-   "nces_id": "5300008",
-   "name": "Northwest Educational Service District 189",
-   "students": 12,
-   "website": "http://www.nwesd.org/",
-   "city": "ANACORTES",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
    "state": "AR",
    "nces_id": "0508700",
    "name": "LAMAR SCHOOL DISTRICT",
@@ -1148,15 +1125,6 @@
    "city": "Leesville"
   },
   {
-   "state": "MI",
-   "nces_id": "2635220",
-   "name": "Warren Woods Public Schools",
-   "students": 4,
-   "website": "",
-   "city": "WARREN",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
    "state": "MO",
    "nces_id": "2913260",
    "name": "GREEN FOREST R-II",
@@ -1179,15 +1147,6 @@
    "students": 4,
    "website": "http://www.norwood.k12.mo.us/",
    "city": "Norwood"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3617520",
-   "name": "LIVERPOOL CENTRAL SCHOOL DISTRICT",
-   "students": 4,
-   "website": "http://www.liverpool.k12.ny.us",
-   "city": "LIVERPOOL",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
   },
   {
    "state": "OK",
@@ -1422,24 +1381,6 @@
    "city": "PERRYVILLE"
   },
   {
-   "state": "MN",
-   "nces_id": "2711820",
-   "name": "FARMINGTON PUBLIC SCHOOL DISTRICT",
-   "students": 2,
-   "website": "http://www.farmington.k12.mn.us/",
-   "city": "FARMINGTON",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "MN",
-   "nces_id": "2733870",
-   "name": "ST. PETER PUBLIC SCHOOL DISTRICT",
-   "students": 2,
-   "website": "http://www.stpeterschools.org/",
-   "city": "SAINT PETER",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
    "state": "MO",
    "nces_id": "2912600",
    "name": "GAINESVILLE R-V",
@@ -1470,15 +1411,6 @@
    "students": 2,
    "website": "http://www.zalma.k12.mo.us",
    "city": "Zalma"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3600068",
-   "name": "HARLEM PREP CHARTER SCHOOL",
-   "students": 2,
-   "website": "http://www.democracyprep.org",
-   "city": "NEW YORK",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
   },
   {
    "state": "OK",
@@ -1569,33 +1501,6 @@
    "city": "ROSE BUD"
   },
   {
-   "state": "CA",
-   "nces_id": "0606810",
-   "name": "Cajon Valley Union",
-   "students": 1,
-   "website": "http://www.cajonvalley.net",
-   "city": "El Cajon",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "CA",
-   "nces_id": "0613920",
-   "name": "Fontana Unified",
-   "students": 1,
-   "website": "http://www.fusd.net",
-   "city": "Fontana",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "CA",
-   "nces_id": "0634620",
-   "name": "San Juan Unified",
-   "students": 1,
-   "website": "http://www.sanjuan.edu",
-   "city": "Carmichael",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
    "state": "FL",
    "nces_id": "1201740",
    "name": "ST. JOHNS",
@@ -1650,78 +1555,6 @@
    "students": 1,
    "website": "http://gideon.k12.mo.us",
    "city": "GIDEON"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3600160",
-   "name": "ELMWOOD VILLAGE CHARTER SCHOOL DAYS PARK",
-   "students": 1,
-   "website": "http://www.elmwoodvillageschool.org",
-   "city": "BUFFALO",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3601010",
-   "name": "DEMOCRACY PREP HARLEM CHARTER SCHOOL",
-   "students": 1,
-   "website": "http://www.democracyprep.org",
-   "city": "NEW YORK",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3602820",
-   "name": "ALTMAR-PARISH-WILLIAMSTOWN CENTRAL SCHOOL DISTRICT",
-   "students": 1,
-   "website": "http://www.apwschools.org",
-   "city": "PARISH",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3610980",
-   "name": "FARMINGDALE UNION FREE SCHOOL DISTRICT",
-   "students": 1,
-   "website": "http://www.farmingdaleschools.org",
-   "city": "FARMINGDALE",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3611700",
-   "name": "FULTON CITY SCHOOL DISTRICT",
-   "students": 1,
-   "website": "http://www.fultoncsd.org",
-   "city": "FULTON",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3631290",
-   "name": "WHITEHALL CENTRAL SCHOOL DISTRICT",
-   "students": 1,
-   "website": "http://www.railroaders.net",
-   "city": "WHITEHALL",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3680700",
-   "name": "RENSSELAER-COLUMBIA-GREENE BOCES",
-   "students": 1,
-   "website": "http://www.questar.org",
-   "city": "CASTLETON",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
-  },
-  {
-   "state": "NY",
-   "nces_id": "3680960",
-   "name": "WESTCHESTER BOCES",
-   "students": 1,
-   "website": "http://www.swboces.org",
-   "city": "RYE BROOK",
-   "flag": "state prohibits corporal punishment: this filing needs explaining, not a routine scan"
   },
   {
    "state": "OK",

@@ -39,7 +39,11 @@ for (const f of readdirSync(join(root, "data/states")).filter(f => f.endsWith(".
 }
 const banned = new Set([...states].map(s => JSON.parse(s)).filter(([, st]) => st === "banned").map(([c]) => c));
 
+// A district in a state that prohibits the practice is not "unchecked": its filing is the anomaly, and the
+// project has written that up as a claim. Nineteen of them sat on the worklist for two weeks reading as
+// unread policies that a scan would settle. Counted separately, never as work.
 const open = rows
+  .filter(r => !banned.has(r.state))
   .filter(r => !doneId.has(r.nces_id) && !doneName.has(`${r.state}|${norm(r.name)}|${kind(r.name)}`))
   .sort((a, b) => b.students - a.students)
   .map(r => ({
@@ -58,6 +62,7 @@ writeFileSync(join(root, "site/data/worklist.json"), JSON.stringify({
   source: "US Department of Education, Civil Rights Data Collection 2023-24, computed by this project; see data/crdc/2023-24/SOURCE.md",
   total_districts_in_federal_count: rows.length,
   unchecked: open.length,
+  ban_state_filing_anomalies: rows.filter(r => banned.has(r.state) && !doneId.has(r.nces_id)).length,
   students_in_unchecked: open.reduce((a, r) => a + r.students, 0),
   by_state: Object.fromEntries(Object.entries(byState).sort((a, b) => b[1] - a[1])),
   districts: open,

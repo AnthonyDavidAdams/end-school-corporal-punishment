@@ -83,6 +83,13 @@ const QUERY_SETS = {
     `"${d}" ${s} corporal punishment paddling students`,
     `${d} ${s} school board policy JDB corporal punishment`,
   ],
+  // For a district whose handbook is silent: the rule is in the board policy manual, and most of
+  // those live on a handful of vendors. Ask the search engine for the manual on each vendor by name.
+  vendor: (d, s) => [
+    `"${d}" ${s} site:simbli.eboardsolutions.com`,
+    `"${d}" ${s} site:go.boarddocs.com OR site:boarddocs.com`,
+    `"${d}" ${s} "board policy manual" OR "policy manual" corporal punishment`,
+  ],
 };
 const QUERIES = (d, s) => (QUERY_SETS[arg("queries", "handbook")] ?? QUERY_SETS.handbook)(d, s);
 
