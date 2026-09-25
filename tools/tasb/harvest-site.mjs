@@ -49,16 +49,35 @@ const PROXY = process.env.EGRESS_PROXIES?.split(",")[0]?.trim() || null;
 let dispatcher = null, ufetch = fetch;
 if (PROXY) { const u = await import("undici"); dispatcher = new u.ProxyAgent(PROXY); ufetch = u.fetch; }
 
+// The archive is a courtesy, not a service we pay for, and it withdraws it. Several hundred unpaced
+// requests during one evening's crawling and it stopped answering altogether -- including for a page it
+// had served in full an hour earlier. So: one request at a time, a second between them, and a stop
+// after repeated empty answers rather than continuing to ask.
+//
+// A snapshot that comes back EMPTY is not a snapshot without a challenge page. Treating zero bytes as
+// success is how a measurement here reported 28 of 30 districts covered when the real number was none.
+let archiveQueue = Promise.resolve();
+let archiveEmpty = 0;
+const ARCHIVE_GAP_MS = 1000;
+const ARCHIVE_GIVE_UP = 8;
+
 async function viaArchive(url) {
+  if (archiveEmpty >= ARCHIVE_GIVE_UP) return null;
+  const turn = archiveQueue.then(() => new Promise((r) => setTimeout(r, ARCHIVE_GAP_MS)));
+  archiveQueue = turn;
+  await turn;
   try {
     const j = await (await fetch(`https://archive.org/wayback/available?url=${encodeURIComponent(url)}`, { signal: AbortSignal.timeout(20_000) })).json();
     const s = j?.archived_snapshots?.closest;
     if (!s?.available) return null;
     const r = await fetch(s.url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(35_000) });
-    if (!r.ok) return null;
+    if (!r.ok) { archiveEmpty++; return null; }
     const html = await r.text();
-    return CHALLENGE.test(html.slice(0, 4000)) ? null : { html, url: r.url, archived: s.timestamp };
-  } catch { return null; }
+    // Empty, or the challenge itself, is a failed read. Say so rather than passing it on as a page.
+    if (!html.length || CHALLENGE.test(html.slice(0, 4000))) { archiveEmpty++; return null; }
+    archiveEmpty = 0;
+    return { html, url: r.url, archived: s.timestamp };
+  } catch { archiveEmpty++; return null; }
 }
 
 async function get(url) {
