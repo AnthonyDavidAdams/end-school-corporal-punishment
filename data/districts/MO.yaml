@@ -37,6 +37,31 @@ districts:
     last_verified: 2026-09-25
     notes: The document sat behind a JavaScript challenge; read 2026-09-25 with a real browser session. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
+      - 49 Alternative Punishments Alternative punishments may be administered by the discretion of the administration, including Corporal Punishment.
+      - Corporal Punishment Corporal punishment, as a measure of correction or of maintaining discipline and order in schools, is permitted.
   - name: Campbell R-Ii
     county: Campbell
     nces_id: "2907050"
@@ -65,6 +90,7 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-23
     notes: "Could not find a live, machine-fetchable primary source. Federal-directory domain caruthersville.k12.mo.us returns DNS SERVFAIL (not just down -- broken delegation) and has no Wayback Machine captures since at least 2020, so it appears long dead. resolve_handbook was not run against it for that reason. Tried and ruled out by DNS/HTTP probe: caruthersvilleschools.org, csd18.net, carsd18.org, cvillecardinals.org, caruthersville18.org, caruthersville18.com, caruthersvillecardinals.k12.mo.us, gocardinals.k12.mo.us, caruthersvilleschools.com, csd18.com, caruthersville-schools.org, caruthersvillecardinals.org, caruthersvillesd18.org, csd-18.org, c18schools.org, caruthersvilleschooldistrict.org (all NXDOMAIN), and cardinalpride.org (resolves but connection refused/closed on both direct curl and r.jina.ai). Wikipedia's Caruthersville and Pemiscot County articles both reference the district but give no live external link, only the same dead caruthersville.k12.mo.us via a 2005 Wayback citation. Niche.com district page (niche.com/k12/d/caruthersville-18-school-district-mo/) 404s; GreatSchools.org's Caruthersville listing gives student/school counts but no district website link. WebSearch was unavailable this session (session-wide quota already exhausted by other agents in this batch before this task started). Next contributor: try calling the district (no number found) or check the Missouri DESE district directory / MSBA member list directly (not reachable from this sandbox), or search for a current domain once WebSearch quota resets. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Nothing found; the dead-domain note is useful to the queue. NCES id 2906210 is wrong and is corrected at merge.)"
+    method: agent_via_crew
   - name: Cassville R-IV School District
     county: Barry
     nces_id: null
@@ -91,6 +117,7 @@ districts:
       board_page: https://www.charlestonbluejays.org/apps/pages/index.jsp?uREC_ID=1228716&type=d&pREC_ID=1461576
       contact_page: https://www.charlestonbluejays.org/apps/pages/index.jsp?uREC_ID=1228714&type=d&pREC_ID=1461565
       as_of: 2026-09-23
+    method: agent_via_crew
   - name: CLARKTON C-4
     county: Dunklin
     nces_id: "2909120"
@@ -205,6 +232,7 @@ districts:
       contact_page: https://holcombschools.com/contact/
       as_of: 2026-09-23
     notes: "District policy JGA-1 CORPORAL PUNISHMENT (Missouri School Boards' Association template), last_revised per Simbli index 09/08/2022. District site is holcombschools.com; board policy hosted on Simbli, S=151, confirmed via fetch_simbli_policy returning district match 'Holcomb R-III'. Federal-directory address holcomb.k12.mo.us is dead: DNS resolves but connection times out for curl and r.jina.ai (TimeoutError 15000ms), and fetch_document reported 'fetch failed'; Wayback Machine's most recent capture (Aug 2026) is a ~630-byte parked/redirect stub. Also ruled out holcombschool.org, a same-IP-range decoy site for an unrelated Holcomb Elementary in the Pacific Northwest (references to 'John McLoughlin', not Missouri) before finding the real site via a Niche.com school profile link. Policy requires advance written parental permission -> classified consent_required (opt-in), not allows, per the scan contract's opt-in/opt-out rule. Doc fetched via fetch_document, 1543 bytes, text/html, extracted_by simbli-api. students_2023_24 from CRDC input row. Superintendent name and board page URL not found on the homepage/contact page checked; left null rather than guessed. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-24; reviewed and approved 2026-09-25 (Quote verified against the server's cached copy of the source.)"
+    method: agent_via_crew
   - name: Hollister R-V Schools
     county: Taney
     nces_id: null
@@ -230,7 +258,7 @@ districts:
     county: Dunklin
     nces_id: "2916500"
     status: consent_required
-    method: searched_document
+    method: agent_via_crew
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=155&revid=wYYAdDAZKvQSQ6ANJ9JPrA%3D%3D
     quote: Students shall not be subject to corporal punishment as outlined in this policy without a parent/guardian being notified and providing written permission for the corporal punishment. Corporal punishment shall be administered only by swatting the buttocks with a paddle in a reasonable manner.
     policy_code: JGA-1
@@ -274,6 +302,20 @@ districts:
     last_verified: 2026-09-25
     notes: The document sat behind a JavaScript challenge; read 2026-09-25 with a real browser session. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
+    parent_control: none
+    quotes:
+      - IV Board of Education Rules and Regulations state that corporal punishment shall be used only as a last resort when all other means of attempts at punishment and correction of a student has failed.
+      - When deemed acceptable, pupils may choose to be paddled in lieu of suspension and/or other disciplinary procedures.
+      - "* Corporal Punishment Corporal punishment by certified staff may be administered to any pupil, as a measure of correction or of maintaining discipline and order in schools, is permitted."
+      - JGA) The district reserves the right to use corporal punishment for all students in 1st or 2nd offense situations when the principal feels it would be more effective and appropriate means of correction and/or when parents request it as a first alternative rather than using other forms of discipline.
+      - "ISS, corporal punishment (Elementary only), Saturday School, 1-180 days out-of-school suspension, or expulsion, and possible notification to law enforcement officials Subsequent Offense:"
+      - "Corporal Punishment, Saturday School, or ISS Disparaging or Demeaning Language:"
+      - "ISS, corporal punishment, 1 – 180 day out-of-school suspension, or expulsion Fighting:"
+      - "Principal/Student conference, ISS, corporal punishment (Elementary only), Saturday School, or 1 – 180 day out-of-school suspension and/or possible notification to law enforcement Subsequent Offense:"
+      - "ISS, Saturday School, corporal punishment, or 1-3 days out-of-school suspension Insubordination:"
+      - "ISS, corporal punishment, 1 – 180 day out-of-school suspension, or expulsion Sexual Harassment:"
+      - "Principal/Student Conference, ISS, Saturday School, corporal punishment, or 1 – 180 day out-of-school suspension, and possible notification to law enforcement officials Subsequent Offense:"
   - name: Portageville
     county: Portageville
     nces_id: "2900003"
