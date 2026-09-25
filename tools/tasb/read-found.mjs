@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } fr
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ANCHORS, NOT_THIS, hasAnchor } from "./vocabulary.mjs";
+import { fetchWithBrowser, browserAvailable, closeBrowser } from "./browser.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const SERVER = "https://escp-mcp-production.up.railway.app/mcp";
@@ -55,13 +56,21 @@ async function worker() {
       const got = await mcp("fetch_document", { url: d.url, terms: ANCHORS.slice(0, 6), context_words: 500 });
       if (!got || got.error) { outcomes.push({ url: d.url, outcome: "unreadable", chars: 0 }); continue; }
       let j; try { j = JSON.parse(got.text); } catch { outcomes.push({ url: d.url, outcome: "unreadable", chars: 0 }); continue; }
-      const chars = j.text_chars ?? 0;
+      let chars = j.text_chars ?? 0;
       if (j.needs_ocr) { outcomes.push({ url: d.url, outcome: "scan", chars }); continue; }
-      if (chars < 2000) { outcomes.push({ url: d.url, outcome: "stub", chars }); continue; }
-      const text = (j.hits || []).map((h) => h.context).join("\n");
+      let text = (j.hits || []).map((h) => h.context).join("\n");
+      if (chars < 2000) {
+        // The crew server fetches without a browser, so a search-found URL behind an F5 challenge comes
+        // back as a 3,000-byte stub. Sixty of the ninety-two "unreadable" districts were exactly this.
+        // The walker already runs a browser for the same wall; use it here for the same reason.
+        const b = (await browserAvailable()) ? await fetchWithBrowser(d.url) : null;
+        const plain = b ? b.html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/\s+/g, " ") : "";
+        if (plain.length >= 2000 && !/Client Challenge|Just a moment/i.test(plain.slice(0, 4000))) { text = plain; chars = plain.length; outcomes.push({ url: d.url, outcome: "browser", chars }); }
+        else { outcomes.push({ url: d.url, outcome: "stub", chars }); continue; }
+      }
       const cands = clip(text);
-      if (cands.length) { policies.push({ code: null, title: d.title, url: d.url, candidates: cands, last_revised: null }); outcomes.push({ url: d.url, outcome: "rule", chars }); break; }
-      outcomes.push({ url: d.url, outcome: "silent", chars });
+      if (cands.length) { policies.push({ code: null, title: d.title, url: d.url, candidates: cands, last_revised: null }); outcomes[outcomes.length - 1] = { url: d.url, outcome: "rule", chars }; break; }
+      if (outcomes[outcomes.length - 1]?.url !== d.url) outcomes.push({ url: d.url, outcome: "silent", chars }); else outcomes[outcomes.length - 1].outcome = "silent";
     }
     n++;
     // A district is only "silent" if at least one REAL document was read and none carried the rule.
@@ -74,4 +83,5 @@ async function worker() {
   }
 }
 await Promise.all(Array.from({ length: WORKERS }, worker));
+await closeBrowser();
 console.log(`\n${hit}/${n} carry the rule | ${silent} real documents silent | ${unreadable} nothing readable (stubs, scans, dead links)`);

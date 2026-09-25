@@ -650,6 +650,16 @@ districts:
     policy_adopted: 2004-07-01
     policy_revised: 2026-09-10
     policy_dates_from: notes
+  - name: HOLLY SPRINGS SCHOOL DIST
+    county: null
+    nces_id: "2801950"
+    status: consent_required
+    source: https://content.myconnectsuite.com/api/documents/a26d30fdd64344d4a01a26116361d07f.pdf
+    quote: Alternative disciplinary actions will be required for students whose parents/legal guardians have not checked and signed the required Corporal Punishment Permission statement.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: 'The classifier held this at 0.92; a frontier agent read the clipped sentences and settled it at 0.93. Its reasoning: Hard because the document says two things that pull apart: unconditional grants ("is allowed in the Holly Springs School District", "As a matter of board policy, reasonable corporal punishment ... is permitted", "This is an option in the disciplinary program") sit next to parent-permission language, and the permission sentence itself ("will indicate whether he/she gives permission") is directional'
   - name: Holmes County Schools
     county: Holmes
     nces_id: null

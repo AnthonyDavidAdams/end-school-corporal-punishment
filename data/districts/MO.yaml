@@ -61,6 +61,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-19
     notes: null
+  - name: CLARKTON C-4
+    county: null
+    nces_id: "2909120"
+    status: allows
+    source: https://s3.amazonaws.com/scschoolfiles/2353/elementary_student_handbook_1wdiscipline.pdf
+    quote: Elementary Full Price $0.00 Elementary Reduced $0.00 Adult Price Breakfast $1.00 Lunch $1.50 The Clarkton C-4 School District retains the legal right to administer reasonable corporal punishment to a student.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.70; a frontier agent read the clipped sentences and settled it at 0.92. Its reasoning: Hard for the classifier because the PDF's sentence segmentation glued the meal-price table onto the rule sentence (\"Elementary Full Price $0.00 ... Lunch $1.50 The Clarkton C-4 School District retains the legal right...\"), so the one sentence that grants the practice looks like junk, and the same five sentences repeat six times with ellipsis variants. Also, a \"corporal punishment form\" the parent "
   - name: Columbia Public Schools
     county: Boone
     nces_id: null

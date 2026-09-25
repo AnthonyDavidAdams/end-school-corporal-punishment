@@ -212,6 +212,16 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: COSSATOT RIVER SCHOOL DISTRICT
+    county: null
+    nces_id: "0500405"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/205/Cossatot_River/4464e7a9-0eab-4d07-a3a7-cb6cd05ee05d/High_School_Handbook_2018-2019.pdf?disposition=inline
+    quote: The Cossatot River School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: 'The classifier held this at 0.92; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because the candidates are noisy: a table-of-contents line, a garbled heading ("Parents may choose Act 333 of 1995"), every sentence duplicated, repeated references to the Arkansas statute (Act 333/335 of 1995) that could be mistaken for the rule, and a conditional "If corporal punishment is used" that reads as hedging. The parent language is also ambiguous about direction -- "may choose an o'
   - name: CROSS COUNTY SCHOOL DISTRICT
     county: null
     nces_id: "0507740"
@@ -252,6 +262,16 @@ districts:
       contact_page: https://www.dewittdragons.net/
       as_of: 2026-09-19
     notes: "NOTE ON DOMAIN: the website in the input (dewittschooldistrict.net) is now a parked 'Coming Soon' page; the district's live site is www.dewittdragons.net. Source is the All Students Handbook 2026-2027, linked from https://www.dewittdragons.net/documents/student-handbooks/2026-2027-handbooks/28455800 as Google Doc id 1m-qoIQ-OmMabFiAjJl-s_JXoVPnAHh1qimiK8cJL_2o. Fetched server-side with fetch_document as the txt export: HTTP 200, text/plain; charset=utf-8, 492,440 bytes, 490,541 chars, no OCR needed; quote at offset ~207,253 (handbook page 77 per its own table of contents). No opt-in or opt-out provision, so 'allows'. The same section also states: 'Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.' The handbook's discipline schedule elsewhere makes corporal punishment a listed consequence, e.g. 'Failure to serve additional assigned days will result in the student being given Corporal Punishment or Out of School Suspension.' No adoption/revision date is printed in the handbook. WARNING FOR REVIEWERS: a plain curl of this export URL from some networks returns a truncated 114,786-char copy that stops before the policy; the server-side fetch returns the full 490,541 chars."
+  - name: DIERKS SCHOOL DISTRICT
+    county: null
+    nces_id: "0505340"
+    status: allows
+    source: https://s3.amazonaws.com/scschoolfiles/506/high_school_student_handbook_2018-2019.pdf
+    quote: 4.39—CORPORAL PUNISHMENT The Dierks School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.52; a frontier agent read the clipped sentences and settled it at 0.93. Its reasoning: Hard for the classifier because the handbook mixes three voices: a signature form with two parent options (which reads like consent language and could be mistaken for opt-in), a reproduction of Arkansas Act 904 of 1977 and a Supreme Court summary (state law, not the board's decision), and the board's own Policy 4.39. Settled by 4.39, where the Dierks School Board itself authorizes corporal punishm"
   - name: DREW CENTRAL SCHOOL DISTRICT
     county: null
     nces_id: "0505470"
@@ -940,6 +960,16 @@ districts:
       contact_page: https://www.whitehallsd.org/page/contact-us
       as_of: 2026-09-19
     notes: "Board policy 4.39-CORPORAL PUNISHMENT, a standalone PDF in the district's 'Handbook Policy References' document folder. Downloaded with curl: HTTP 200, application/pdf, 545,818 bytes, 1 page, text layer present (pdftotext). The policy's own footer reads 'Date Adopted: July 2009' and 'Last Revised: July 2018'; legal reference A.C.A. 6-18-503(b), 6-18-505(c)(1). No parental opt-in or opt-out clause. The district site (Apptegy) sits behind a 'Client Challenge' bot wall that returns a 3,038-byte shell to curl and to the project's resolve_handbook; the document listing was read through a rendering proxy to obtain this direct file URL, and the file host itself serves the PDF to a plain fetch."
+  - name: WOODLAWN SCHOOL DISTRICT
+    county: null
+    nces_id: "0514400"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2934/Whs/a4e34362-8474-448d-9760-7a7f5d66fcb2/handbook_final_20-21.pdf?disposition=inline
+    quote: 4.39 - CORPORAL PUNISHMENT The Woodlawn School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state- issued license as a condition of their employment.1 Prior to the administration of corporal punishment, the student receiving the corporal punishment shall be given an explanation of the reasons for the punishment and be given an opportunity to refute the charges.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.65; a frontier agent read the clipped sentences and settled it at 0.92. Its reasoning: The board's own grant is explicit: \"The Woodlawn School Board authorizes the use of corporal punishment\" (Arkansas ASBA model policy 4.39 adopted by the board, not a reproduced statute). What made it hard for the classifier: the PDF clipper glued the section header and a footnote marker (\"employment.1\", \"autistic.2\") onto the authorizing sentence, so no candidate is a clean single sentence; the sa"
   - name: YELLVILLE-SUMMIT SCHOOL DISTRICT.
     county: null
     nces_id: "0514490"

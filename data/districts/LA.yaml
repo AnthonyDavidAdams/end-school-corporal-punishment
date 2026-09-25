@@ -67,6 +67,16 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Livingston Parish
+    county: null
+    nces_id: "2201020"
+    status: allows
+    source: https://cdnsm5-ss4.sharpschool.com/UserFiles/Servers/Server_546/File/Policy/Policy%202017/JDA-17.pdf
+    quote: The Livingston Parish School Board shall allow reasonable corporal punishment of unruly pupils.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.90; a frontier agent read the clipped sentences and settled it at 0.85. Its reasoning: The classifier tagged this consent_required at 0.9, almost certainly from knowledge that Louisiana amended R.S. 17:416.1 in 2023 to require written parental consent before corporal punishment. But the candidates come from a 2017 board policy (file path 'Policy 2017/JDA-17.pdf') and not one clipped sentence mentions a parent, consent, or opting out; the only sentences that carry a rule are the boar"
   - name: Orleans Parish Schools
     county: Orleans
     nces_id: null
@@ -94,6 +104,16 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Richland Parish
+    county: null
+    nces_id: "2201350"
+    status: consent_required
+    source: https://richland.k12.la.us/wp-content/uploads/2025/08/RES-2025-2026-Handbook.pdf
+    quote: Corporal punishment (with written parent approval) 4.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: 'The classifier held this at 0.87; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because none of the candidates is a clean policy sentence: the rule appears only as a numbered item in a discipline-consequences list ("Corporal punishment (with written parent approval) 4." -- the trailing "4." is the next list number bleeding in) and as a fill-in form with page-footer junk, and the form names Rayville Elementary, a single school, inside a parish-wide handbook. The candidate'
   - name: Sabine Parish
     county: null
     nces_id: "2201380"

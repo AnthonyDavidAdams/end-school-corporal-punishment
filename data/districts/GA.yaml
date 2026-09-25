@@ -1001,11 +1001,11 @@ districts:
     status: allows
     method: searched_document
     source: https://resources.finalsite.net/images/v1660326591/wilcoxk12gaus/g2n1xpwjpxzevbbbrkg0/WCS-Student-Handbook-2022-2023.pdf
-    quote: (A) Conference – with individual student and/or parent (B) Corporal punishment – paddling (up to 3 licks) by principal or principal’s designee.
+    quote: Principal and/or designee reserve the right to administer corporal punishment in lieu of 2 or 3 days of ISS if deemed appropriate.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+    notes: "The classifier held this at 0.94; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Wilcox County (GA) 2022-23 student handbook. What made it hard: the same document that lists corporal punishment as a routine consequence throughout its discipline matrix (\"1 day ISS or corporal punishment\", \"paddling (up to 3 licks) by principal or principal's designee\") also contains one clipped fragment reading \"NO Corporal Punishment Allowed\" glued to an unrelated sentence about respect for au"
   - name: Wilkinson County
     county: null
     nces_id: "1305790"

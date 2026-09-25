@@ -2253,6 +2253,18 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
+   "name": "COSSATOT RIVER SCHOOL DISTRICT",
+   "county": null,
+   "nces_id": "0500405",
+   "status": "allows",
+   "source": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/205/Cossatot_River/4464e7a9-0eab-4d07-a3a7-cb6cd05ee05d/High_School_Handbook_2018-2019.pdf?disposition=inline",
+   "quote": "The Cossatot River School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.92; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because the candidates are noisy: a table-of-contents line, a garbled heading (\"Parents may choose Act 333 of 1995\"), every sentence duplicated, repeated references to the Arkansas statute (Act 333/335 of 1995) that could be mistaken for the rule, and a conditional \"If corporal punishment is used\" that reads as hedging. The parent language is also ambiguous about direction -- \"may choose an o"
+  },
+  {
    "name": "CROSS COUNTY SCHOOL DISTRICT",
    "county": null,
    "nces_id": "0507740",
@@ -2298,6 +2310,18 @@
     "as_of": "2026-09-19"
    },
    "notes": "NOTE ON DOMAIN: the website in the input (dewittschooldistrict.net) is now a parked 'Coming Soon' page; the district's live site is www.dewittdragons.net. Source is the All Students Handbook 2026-2027, linked from https://www.dewittdragons.net/documents/student-handbooks/2026-2027-handbooks/28455800 as Google Doc id 1m-qoIQ-OmMabFiAjJl-s_JXoVPnAHh1qimiK8cJL_2o. Fetched server-side with fetch_document as the txt export: HTTP 200, text/plain; charset=utf-8, 492,440 bytes, 490,541 chars, no OCR needed; quote at offset ~207,253 (handbook page 77 per its own table of contents). No opt-in or opt-out provision, so 'allows'. The same section also states: 'Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.' The handbook's discipline schedule elsewhere makes corporal punishment a listed consequence, e.g. 'Failure to serve additional assigned days will result in the student being given Corporal Punishment or Out of School Suspension.' No adoption/revision date is printed in the handbook. WARNING FOR REVIEWERS: a plain curl of this export URL from some networks returns a truncated 114,786-char copy that stops before the policy; the server-side fetch returns the full 490,541 chars."
+  },
+  {
+   "name": "DIERKS SCHOOL DISTRICT",
+   "county": null,
+   "nces_id": "0505340",
+   "status": "allows",
+   "source": "https://s3.amazonaws.com/scschoolfiles/506/high_school_student_handbook_2018-2019.pdf",
+   "quote": "4.39—CORPORAL PUNISHMENT The Dierks School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.52; a frontier agent read the clipped sentences and settled it at 0.93. Its reasoning: Hard for the classifier because the handbook mixes three voices: a signature form with two parent options (which reads like consent language and could be mistaken for opt-in), a reproduction of Arkansas Act 904 of 1977 and a Supreme Court summary (state law, not the board's decision), and the board's own Policy 4.39. Settled by 4.39, where the Dierks School Board itself authorizes corporal punishm"
   },
   {
    "name": "DREW CENTRAL SCHOOL DISTRICT",
@@ -3113,6 +3137,18 @@
    "notes": "Board policy 4.39-CORPORAL PUNISHMENT, a standalone PDF in the district's 'Handbook Policy References' document folder. Downloaded with curl: HTTP 200, application/pdf, 545,818 bytes, 1 page, text layer present (pdftotext). The policy's own footer reads 'Date Adopted: July 2009' and 'Last Revised: July 2018'; legal reference A.C.A. 6-18-503(b), 6-18-505(c)(1). No parental opt-in or opt-out clause. The district site (Apptegy) sits behind a 'Client Challenge' bot wall that returns a 3,038-byte shell to curl and to the project's resolve_handbook; the document listing was read through a rendering proxy to obtain this direct file URL, and the file host itself serves the PDF to a plain fetch."
   },
   {
+   "name": "WOODLAWN SCHOOL DISTRICT",
+   "county": null,
+   "nces_id": "0514400",
+   "status": "allows",
+   "source": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2934/Whs/a4e34362-8474-448d-9760-7a7f5d66fcb2/handbook_final_20-21.pdf?disposition=inline",
+   "quote": "4.39 - CORPORAL PUNISHMENT The Woodlawn School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state- issued license as a condition of their employment.1 Prior to the administration of corporal punishment, the student receiving the corporal punishment shall be given an explanation of the reasons for the punishment and be given an opportunity to refute the charges.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.65; a frontier agent read the clipped sentences and settled it at 0.92. Its reasoning: The board's own grant is explicit: \"The Woodlawn School Board authorizes the use of corporal punishment\" (Arkansas ASBA model policy 4.39 adopted by the board, not a reproduced statute). What made it hard for the classifier: the PDF clipper glued the section header and a footnote marker (\"employment.1\", \"autistic.2\") onto the authorizing sentence, so no candidate is a clean single sentence; the sa"
+  },
+  {
    "name": "YELLVILLE-SUMMIT SCHOOL DISTRICT.",
    "county": null,
    "nces_id": "0514490",
@@ -3374,6 +3410,18 @@
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
    "notes": "Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded."
+  },
+  {
+   "name": "HARDEE",
+   "county": null,
+   "nces_id": "1200750",
+   "status": "consent_required",
+   "source": "https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2157/HHS/5982804/2526_Code_of_Student_Conduct.pdf",
+   "quote": "(see also Policy 5630 - Corporal Punishment and Use of Reasonable Force and Restraint) 1002.20(4)(c) The parent must provide consent before corporal punishment may be administered.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.59; a frontier agent read the clipped sentences and settled it at 0.86. Its reasoning: Hard because the consent sentence is a reproduction of Florida Statute 1002.20(4)(c) prefixed by a cross-reference parenthetical, so it reads like a citation rather than a board decision, while the neighbouring sentence ('may only be administered by a Principal... according to District policy') reads like a plain grant; the candidates are also the same four sentences repeated eight times, which in"
   },
   {
    "name": "Hillsborough County Schools",
@@ -4790,11 +4838,11 @@
    "status": "allows",
    "method": "searched_document",
    "source": "https://resources.finalsite.net/images/v1660326591/wilcoxk12gaus/g2n1xpwjpxzevbbbrkg0/WCS-Student-Handbook-2022-2023.pdf",
-   "quote": "(A) Conference – with individual student and/or parent (B) Corporal punishment – paddling (up to 3 licks) by principal or principal’s designee.",
+   "quote": "Principal and/or designee reserve the right to administer corporal punishment in lieu of 2 or 3 days of ISS if deemed appropriate.",
    "policy_code": null,
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
-   "notes": "Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded."
+   "notes": "The classifier held this at 0.94; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Wilcox County (GA) 2022-23 student handbook. What made it hard: the same document that lists corporal punishment as a routine consequence throughout its discipline matrix (\"1 day ISS or corporal punishment\", \"paddling (up to 3 licks) by principal or principal's designee\") also contains one clipped fragment reading \"NO Corporal Punishment Allowed\" glued to an unrelated sentence about respect for au"
   },
   {
    "name": "Wilkinson County",
@@ -5154,6 +5202,18 @@
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
   },
   {
+   "name": "Livingston Parish",
+   "county": null,
+   "nces_id": "2201020",
+   "status": "allows",
+   "source": "https://cdnsm5-ss4.sharpschool.com/UserFiles/Servers/Server_546/File/Policy/Policy%202017/JDA-17.pdf",
+   "quote": "The Livingston Parish School Board shall allow reasonable corporal punishment of unruly pupils.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.90; a frontier agent read the clipped sentences and settled it at 0.85. Its reasoning: The classifier tagged this consent_required at 0.9, almost certainly from knowledge that Louisiana amended R.S. 17:416.1 in 2023 to require written parental consent before corporal punishment. But the candidates come from a 2017 board policy (file path 'Policy 2017/JDA-17.pdf') and not one clipped sentence mentions a parent, consent, or opting out; the only sentences that carry a rule are the boar"
+  },
+  {
    "name": "Orleans Parish Schools",
    "county": "Orleans",
    "nces_id": null,
@@ -5185,6 +5245,18 @@
    "last_verified": null,
    "legacy_status": "allows",
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "Richland Parish",
+   "county": null,
+   "nces_id": "2201350",
+   "status": "consent_required",
+   "source": "https://richland.k12.la.us/wp-content/uploads/2025/08/RES-2025-2026-Handbook.pdf",
+   "quote": "Corporal punishment (with written parent approval) 4.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.87; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because none of the candidates is a clean policy sentence: the rule appears only as a numbered item in a discipline-consequences list (\"Corporal punishment (with written parent approval) 4.\" -- the trailing \"4.\" is the next list number bleeding in) and as a fill-in form with page-footer junk, and the form names Rayville Elementary, a single school, inside a parish-wide handbook. The candidate"
   },
   {
    "name": "Sabine Parish",
@@ -5335,6 +5407,18 @@
    "crdc_students_latest": null,
    "last_verified": "2026-09-19",
    "notes": null
+  },
+  {
+   "name": "CLARKTON C-4",
+   "county": null,
+   "nces_id": "2909120",
+   "status": "allows",
+   "source": "https://s3.amazonaws.com/scschoolfiles/2353/elementary_student_handbook_1wdiscipline.pdf",
+   "quote": "Elementary Full Price $0.00 Elementary Reduced $0.00 Adult Price Breakfast $1.00 Lunch $1.50 The Clarkton C-4 School District retains the legal right to administer reasonable corporal punishment to a student.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.70; a frontier agent read the clipped sentences and settled it at 0.92. Its reasoning: Hard for the classifier because the PDF's sentence segmentation glued the meal-price table onto the rule sentence (\"Elementary Full Price $0.00 ... Lunch $1.50 The Clarkton C-4 School District retains the legal right...\"), so the one sentence that grants the practice looks like junk, and the same five sentences repeat six times with ellipsis variants. Also, a \"corporal punishment form\" the parent "
   },
   {
    "name": "Columbia Public Schools",
@@ -6411,6 +6495,18 @@
    "policy_adopted": "2004-07-01",
    "policy_revised": "2026-09-10",
    "policy_dates_from": "notes"
+  },
+  {
+   "name": "HOLLY SPRINGS SCHOOL DIST",
+   "county": null,
+   "nces_id": "2801950",
+   "status": "consent_required",
+   "source": "https://content.myconnectsuite.com/api/documents/a26d30fdd64344d4a01a26116361d07f.pdf",
+   "quote": "Alternative disciplinary actions will be required for students whose parents/legal guardians have not checked and signed the required Corporal Punishment Permission statement.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.92; a frontier agent read the clipped sentences and settled it at 0.93. Its reasoning: Hard because the document says two things that pull apart: unconditional grants (\"is allowed in the Holly Springs School District\", \"As a matter of board policy, reasonable corporal punishment ... is permitted\", \"This is an option in the disciplinary program\") sit next to parent-permission language, and the permission sentence itself (\"will indicate whether he/she gives permission\") is directional"
   },
   {
    "name": "Holmes County Schools",
@@ -8304,6 +8400,18 @@
    "notes": "Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded."
   },
   {
+   "name": "CENTRAL",
+   "county": null,
+   "nces_id": "4007140",
+   "status": "consent_required",
+   "source": "https://caps.centralcss.org/Policies/H-03-05a.23_(JDA).htm",
+   "quote": "The use of any form of corporal punishment is prohibited in any public school unless the student's parent or legal guardian provides written consent for the use of corporal punishment in a document created by the state Department of Education solely for such purpose.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.82; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard for two reasons. (1) The policy contains two rule sentences that pull opposite ways: the board's own grant (\"shall allow reasonable corporal punishment of unruly students\") and a blanket prohibition-unless-written-consent. The second is Louisiana's statute (La. R.S. 17:416.1 as amended 2023) reproduced in the board's policy F-11.3, and it conditions the grant: the board allows the practice, b"
+  },
+  {
    "name": "CLAYTON",
    "county": null,
    "nces_id": "4007800",
@@ -8511,6 +8619,18 @@
    "notes": "Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded."
   },
   {
+   "name": "KEOTA",
+   "county": null,
+   "nces_id": "4016350",
+   "status": "consent_required",
+   "source": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3003/Jhhs/051fa27e-861b-45f1-8f07-0031747b6497/KEOTA_HIGH_SCHOOL_HANDBOOK_2022-2023.docx.pdf?disposition=inline",
+   "quote": "We will not administer corporal punishment without your permission.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.77; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because the handbook sends mixed signals: the disciplinary grid lists \"1 Swat\"/\"2 Swats\" as a routine alternative to ISS/OSS for a dozen Level I and II offenses, and the policy heading reproduces the Oklahoma statute language (\"may be used by public schools as authorized by Oklahoma Statutes whenever administrator determines...\"), both of which read as a plain \"allows\". The \"attempts will alw"
+  },
+  {
    "name": "Krebs",
    "county": "Krebs",
    "nces_id": "4016720",
@@ -8574,6 +8694,18 @@
    "last_verified": null,
    "legacy_status": "bans",
    "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status."
+  },
+  {
+   "name": "POCOLA",
+   "county": null,
+   "nces_id": "4024630",
+   "status": "consent_required",
+   "source": "https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/474/pocola/4718106/Elementary_Handbook_24-25.pdf",
+   "quote": "Before corporal punishment is administered, we must have written permission from the parents.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.94; a frontier agent read the clipped sentences and settled it at 0.95. Its reasoning: Hard because the clips mix a grant (\"may be used by the principal\"), a consent condition, and an opt-out-sounding line (\"If you do not allow your child to be paddled... we need a phone number\"), which a classifier can read as opt_out. But the condition is stated as a precondition on the district's action: paddling happens only after WRITTEN permission from the parent, and the attached form is an a"
   },
   {
    "name": "POND CREEK-HUNTER",
@@ -8652,6 +8784,18 @@
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
    "notes": "Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded."
+  },
+  {
+   "name": "STUART",
+   "county": null,
+   "nces_id": "4029100",
+   "status": "consent_required",
+   "source": "https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/434202/2019-20_District_Handbook__1___2_.pdf",
+   "quote": "CORPORAL PUNISHMENT Permission must be given by the parent or legal guardian before corporal punishment will be administered.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.67; a frontier agent read the clipped sentences and settled it at 0.85. Its reasoning: Hard because the same handbook carries both an opt-in gate ('Permission must be given by the parent or legal guardian before corporal punishment will be administered') and an opt-out mechanism ('If a parent does not wish... file a written request with the principal at the beginning of each school year'), plus a parent-choice ladder ('Parents may choose corporal punishment in place of all of 1st Of"
   },
   {
    "name": "Tulsa Public Schools",
@@ -8893,6 +9037,18 @@
    "crdc_students_latest": null,
    "last_verified": "2026-09-24",
    "notes": "Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded."
+  },
+  {
+   "name": "Macon County",
+   "county": null,
+   "nces_id": "4702550",
+   "status": "allows",
+   "source": "https://www.maconk12.org/files/user/331/file/MCBOE_Academic_Handbook_and_Code_of_Student_Conduct__3_.pdf",
+   "quote": "In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students within the Macon County School District.",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-24",
+   "notes": "The classifier held this at 0.89; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Two things likely tripped the classifier: (1) the first candidate is Tennessee's statute (T.C.A. 49-6-4103 language: \"Teachers are hereby given the authority...as may be prescribed by the local board\") reproduced in the handbook, not the board's own decision; and (2) \"Parents are requested to complete the Corporal Punishment Form\" hints at a parent-choice mechanism, which could pull toward consent"
   },
   {
    "name": "Marion County",

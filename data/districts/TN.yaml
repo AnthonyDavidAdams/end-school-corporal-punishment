@@ -84,6 +84,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+  - name: Macon County
+    county: null
+    nces_id: "4702550"
+    status: allows
+    source: https://www.maconk12.org/files/user/331/file/MCBOE_Academic_Handbook_and_Code_of_Student_Conduct__3_.pdf
+    quote: In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students within the Macon County School District.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.89; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Two things likely tripped the classifier: (1) the first candidate is Tennessee's statute (T.C.A. 49-6-4103 language: \"Teachers are hereby given the authority...as may be prescribed by the local board\") reproduced in the handbook, not the board's own decision; and (2) \"Parents are requested to complete the Corporal Punishment Form\" hints at a parent-choice mechanism, which could pull toward consent"
   - name: Marion County
     county: Marion
     nces_id: "4702640"

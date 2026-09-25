@@ -66,6 +66,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+  - name: CENTRAL
+    county: null
+    nces_id: "4007140"
+    status: consent_required
+    source: https://caps.centralcss.org/Policies/H-03-05a.23_(JDA).htm
+    quote: The use of any form of corporal punishment is prohibited in any public school unless the student's parent or legal guardian provides written consent for the use of corporal punishment in a document created by the state Department of Education solely for such purpose.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.82; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard for two reasons. (1) The policy contains two rule sentences that pull opposite ways: the board's own grant (\"shall allow reasonable corporal punishment of unruly students\") and a blanket prohibition-unless-written-consent. The second is Louisiana's statute (La. R.S. 17:416.1 as amended 2023) reproduced in the board's policy F-11.3, and it conditions the grant: the board allows the practice, b"
   - name: CLAYTON
     county: null
     nces_id: "4007800"
@@ -241,6 +251,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
+  - name: KEOTA
+    county: null
+    nces_id: "4016350"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3003/Jhhs/051fa27e-861b-45f1-8f07-0031747b6497/KEOTA_HIGH_SCHOOL_HANDBOOK_2022-2023.docx.pdf?disposition=inline
+    quote: We will not administer corporal punishment without your permission.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: 'The classifier held this at 0.77; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard because the handbook sends mixed signals: the disciplinary grid lists "1 Swat"/"2 Swats" as a routine alternative to ISS/OSS for a dozen Level I and II offenses, and the policy heading reproduces the Oklahoma statute language ("may be used by public schools as authorized by Oklahoma Statutes whenever administrator determines..."), both of which read as a plain "allows". The "attempts will alw'
   - name: Krebs
     county: Krebs
     nces_id: "4016720"
@@ -295,6 +315,16 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: POCOLA
+    county: null
+    nces_id: "4024630"
+    status: consent_required
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/474/pocola/4718106/Elementary_Handbook_24-25.pdf
+    quote: Before corporal punishment is administered, we must have written permission from the parents.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.94; a frontier agent read the clipped sentences and settled it at 0.95. Its reasoning: Hard because the clips mix a grant (\"may be used by the principal\"), a consent condition, and an opt-out-sounding line (\"If you do not allow your child to be paddled... we need a phone number\"), which a classifier can read as opt_out. But the condition is stated as a precondition on the district's action: paddling happens only after WRITTEN permission from the parent, and the attached form is an a"
   - name: POND CREEK-HUNTER
     county: null
     nces_id: "4024720"
@@ -361,6 +391,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+  - name: STUART
+    county: null
+    nces_id: "4029100"
+    status: consent_required
+    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/434202/2019-20_District_Handbook__1___2_.pdf
+    quote: CORPORAL PUNISHMENT Permission must be given by the parent or legal guardian before corporal punishment will be administered.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: "The classifier held this at 0.67; a frontier agent read the clipped sentences and settled it at 0.85. Its reasoning: Hard because the same handbook carries both an opt-in gate ('Permission must be given by the parent or legal guardian before corporal punishment will be administered') and an opt-out mechanism ('If a parent does not wish... file a written request with the principal at the beginning of each school year'), plus a parent-choice ladder ('Parents may choose corporal punishment in place of all of 1st Of"
   - name: Tulsa Public Schools
     county: Tulsa
     nces_id: null
