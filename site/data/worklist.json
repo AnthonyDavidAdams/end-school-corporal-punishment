@@ -2,19 +2,18 @@
  "generated": "2026-09-25",
  "source": "US Department of Education, Civil Rights Data Collection 2023-24, computed by this project; see data/crdc/2023-24/SOURCE.md",
  "total_districts_in_federal_count": 832,
- "unchecked": 152,
+ "unchecked": 100,
  "ban_state_filing_anomalies": 18,
- "students_in_unchecked": 1780,
+ "students_in_unchecked": 1232,
  "by_state": {
-  "OK": 62,
-  "AR": 50,
-  "MO": 16,
-  "GA": 10,
-  "MS": 6,
-  "AL": 3,
+  "AR": 43,
+  "OK": 26,
+  "MO": 13,
+  "GA": 8,
+  "MS": 4,
+  "AL": 2,
   "FL": 2,
   "AZ": 1,
-  "LA": 1,
   "IN": 1
  },
  "districts": [
@@ -27,28 +26,12 @@
    "city": "PHOENIX"
   },
   {
-   "state": "MS",
-   "nces_id": "2802880",
-   "name": "MCCOMB SCHOOL DISTRICT",
-   "students": 74,
-   "website": "http://www.mccomb.k12.ms.us",
-   "city": "McComb"
-  },
-  {
    "state": "GA",
    "nces_id": "1300218",
    "name": "State Charter Schools II- Pataula Charter Academy",
    "students": 37,
    "website": "http://www.pataula.net",
    "city": "Edison"
-  },
-  {
-   "state": "AL",
-   "nces_id": "0100360",
-   "name": "Bibb County",
-   "students": 35,
-   "website": "http://www.bibbed.org",
-   "city": "Centreville"
   },
   {
    "state": "AR",
@@ -65,22 +48,6 @@
    "students": 34,
    "website": "http://www.soperschools.com/",
    "city": "Soper"
-  },
-  {
-   "state": "GA",
-   "nces_id": "1301870",
-   "name": "Dublin City",
-   "students": 33,
-   "website": "",
-   "city": "Dublin"
-  },
-  {
-   "state": "MO",
-   "nces_id": "2904950",
-   "name": "BERNIE R-XIII",
-   "students": 32,
-   "website": "http://WWW.BERNIE.K12.MO.US",
-   "city": "BERNIE"
   },
   {
    "state": "MO",
@@ -121,14 +88,6 @@
    "students": 30,
    "website": "http://www.colcordschools.com/",
    "city": "COLCORD"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4005520",
-   "name": "BROKEN BOW",
-   "students": 29,
-   "website": "http://www.bbisdapp.org",
-   "city": "Broken Bow"
   },
   {
    "state": "MO",
@@ -187,14 +146,6 @@
    "city": "Wright City"
   },
   {
-   "state": "OK",
-   "nces_id": "4000021",
-   "name": "OKLAHOMA UNION",
-   "students": 24,
-   "website": "http://okunion.k12.ok.us",
-   "city": "South Coffeyville"
-  },
-  {
    "state": "AR",
    "nces_id": "0500046",
    "name": "MANILA SCHOOL DISTRICT",
@@ -209,14 +160,6 @@
    "students": 22,
    "website": "http://tigers.k12.ar.us",
    "city": "PANGBURN"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0512090",
-   "name": "SALEM SCHOOL DISTRICT",
-   "students": 22,
-   "website": "http://www.salemschools.net",
-   "city": "SALEM"
   },
   {
    "state": "MS",
@@ -259,14 +202,6 @@
    "city": "Antlers"
   },
   {
-   "state": "GA",
-   "nces_id": "1300750",
-   "name": "Calhoun County",
-   "students": 19,
-   "website": "http://www.calhoun.k12.ga.us",
-   "city": "Morgan"
-  },
-  {
    "state": "MO",
    "nces_id": "2919350",
    "name": "WOODLAND R-IV",
@@ -275,36 +210,12 @@
    "city": "Marble Hill"
   },
   {
-   "state": "OK",
-   "nces_id": "4031020",
-   "name": "VELMA-ALMA",
-   "students": 19,
-   "website": "http://www.velma-alma.com",
-   "city": "Velma"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0509990",
-   "name": "MOUNT IDA SCHOOL DISTRICT",
-   "students": 17,
-   "website": "http://www.dmsc.k12.ar.us/~mountida/cms/",
-   "city": "MOUNT IDA"
-  },
-  {
    "state": "AR",
    "nces_id": "0503770",
    "name": "CADDO HILLS SCHOOL DISTRICT",
    "students": 16,
    "website": "http://caddohills.dsc.k12.ar.us",
    "city": "NORMAN"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0503840",
-   "name": "CALICO ROCK SCHOOL DISTRICT",
-   "students": 16,
-   "website": "http://pirates.k12.ar.us",
-   "city": "CALICO ROCK"
   },
   {
    "state": "AR",
@@ -331,22 +242,6 @@
    "city": "Vinita"
   },
   {
-   "state": "MO",
-   "nces_id": "2909750",
-   "name": "CLEARWATER R-I",
-   "students": 15,
-   "website": "http://cwtigers.net",
-   "city": "PIEDMONT"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4032970",
-   "name": "WISTER",
-   "students": 15,
-   "website": "http://www.wisterschools.org",
-   "city": "Wister"
-  },
-  {
    "state": "AR",
    "nces_id": "0506630",
    "name": "GLEN ROSE SCHOOL DISTRICT",
@@ -369,14 +264,6 @@
    "students": 14,
    "website": "",
    "city": "McRae"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4013620",
-   "name": "HAILEYVILLE",
-   "students": 14,
-   "website": "http://www.haileyville.k12.ok.us",
-   "city": "Haileyville"
   },
   {
    "state": "AR",
@@ -459,22 +346,6 @@
    "city": "Atlanta"
   },
   {
-   "state": "MS",
-   "nces_id": "2800840",
-   "name": "BROOKHAVEN SCHOOL DIST",
-   "students": 11,
-   "website": "http://www.brookhavenschools.org",
-   "city": "Brookhaven"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4012690",
-   "name": "GLENCOE",
-   "students": 11,
-   "website": "http://www.glencoe.k12.ok.us",
-   "city": "Glencoe"
-  },
-  {
    "state": "OK",
    "nces_id": "4014730",
    "name": "HODGEN",
@@ -497,22 +368,6 @@
    "students": 10,
    "website": "http://www.buffaloislandcentral.com",
    "city": "MONETTE"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4011700",
-   "name": "FLETCHER",
-   "students": 10,
-   "website": "http://fletcherschools.org",
-   "city": "Fletcher"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4015120",
-   "name": "HOWE",
-   "students": 10,
-   "website": "http://www.howeschools.org",
-   "city": "Howe"
   },
   {
    "state": "OK",
@@ -556,14 +411,6 @@
   },
   {
    "state": "AR",
-   "nces_id": "0503480",
-   "name": "BRADFORD SCHOOL DISTRICT",
-   "students": 8,
-   "website": "http://bradford.k12.ar.us",
-   "city": "BRADFORD"
-  },
-  {
-   "state": "AR",
    "nces_id": "0506690",
    "name": "CENTERPOINT SCHOOL DISTRICT",
    "students": 8,
@@ -572,35 +419,11 @@
   },
   {
    "state": "OK",
-   "nces_id": "4000797",
-   "name": "OLUSTEE-ELDORADO",
-   "students": 8,
-   "website": "http://www.olustee.k12.ok.us",
-   "city": "Olustee"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4014370",
-   "name": "HENRYETTA",
-   "students": 8,
-   "website": "http://www.henryetta.k12.ok.us/",
-   "city": "Henryetta"
-  },
-  {
-   "state": "OK",
    "nces_id": "4021360",
    "name": "NEW LIMA",
    "students": 8,
    "website": "http://www.newlima.k12.ok.us/",
    "city": "Wewoka"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4030300",
-   "name": "TURNER",
-   "students": 8,
-   "website": "http://www.turnerisd.org",
-   "city": "Burneyville"
   },
   {
    "state": "AR",
@@ -652,43 +475,11 @@
   },
   {
    "state": "OK",
-   "nces_id": "4003570",
-   "name": "BARNSDALL",
-   "students": 7,
-   "website": "http://sites.google.com/barnsdallschools.org/barnsdallpanthers",
-   "city": "Barnsdall"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4006270",
-   "name": "CALVIN",
-   "students": 7,
-   "website": "http://www.calvin.k12.ok.us",
-   "city": "Calvin"
-  },
-  {
-   "state": "OK",
    "nces_id": "4018570",
    "name": "LUKFATA",
    "students": 7,
    "website": "http://www.lukfata.org",
    "city": "Broken Bow"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4023340",
-   "name": "PADEN",
-   "students": 7,
-   "website": "http://www.paden.k12.ok.us",
-   "city": "Paden"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4029310",
-   "name": "SWEETWATER",
-   "students": 7,
-   "website": "http://www.sweetwater.k12.ok.us",
-   "city": "Sweetwater"
   },
   {
    "state": "AR",
@@ -724,35 +515,11 @@
   },
   {
    "state": "OK",
-   "nces_id": "4006420",
-   "name": "CANEY",
-   "students": 6,
-   "website": "http://www.caneyisd.org",
-   "city": "Caney"
-  },
-  {
-   "state": "OK",
    "nces_id": "4008130",
    "name": "COALGATE",
    "students": 6,
    "website": "http://www.coalgateschools.org/",
    "city": "Coalgate"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4012750",
-   "name": "GLOVER",
-   "students": 6,
-   "website": "http://www.glover.k12.ok.us",
-   "city": "Broken Bow"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4018240",
-   "name": "LONE STAR",
-   "students": 6,
-   "website": "http://www.lonestar.k12.ok.us",
-   "city": "Sapulpa"
   },
   {
    "state": "OK",
@@ -764,27 +531,11 @@
   },
   {
    "state": "AR",
-   "nces_id": "0507320",
-   "name": "HARMONY GROVE SCHOOL DISTRICT",
-   "students": 5,
-   "website": "http://cardinals.dsc.k12.ar.us",
-   "city": "BENTON"
-  },
-  {
-   "state": "AR",
    "nces_id": "0509150",
    "name": "MAGAZINE SCHOOL DISTRICT",
    "students": 5,
    "website": "http://magazinerattlers.k12.ar.us",
    "city": "MAGAZINE"
-  },
-  {
-   "state": "MO",
-   "nces_id": "2913800",
-   "name": "HAYTI R-II",
-   "students": 5,
-   "website": "http://www.haytir2.org",
-   "city": "HAYTI"
   },
   {
    "state": "OK",
@@ -793,22 +544,6 @@
    "students": 5,
    "website": "http://www.benningtonisd.org/",
    "city": "Bennington"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4024870",
-   "name": "POTEAU",
-   "students": 5,
-   "website": "http://www.poteau.k12.ok.us",
-   "city": "Poteau"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4031140",
-   "name": "VIAN",
-   "students": 5,
-   "website": "http://www.vian.k12.ok.us",
-   "city": "Vian"
   },
   {
    "state": "AL",
@@ -833,14 +568,6 @@
    "students": 4,
    "website": "",
    "city": "Jesup"
-  },
-  {
-   "state": "LA",
-   "nces_id": "2201830",
-   "name": "Vernon Parish",
-   "students": 4,
-   "website": "",
-   "city": "Leesville"
   },
   {
    "state": "MO",
@@ -868,35 +595,11 @@
   },
   {
    "state": "OK",
-   "nces_id": "4007500",
-   "name": "CHEYENNE",
-   "students": 4,
-   "website": "http://www.cheyenne.k12.ok.us",
-   "city": "Cheyenne"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4009750",
-   "name": "DEPEW",
-   "students": 4,
-   "website": "http://www.depew.k12.ok.us",
-   "city": "Depew"
-  },
-  {
-   "state": "OK",
    "nces_id": "4018270",
    "name": "LONE WOLF",
    "students": 4,
    "website": "http://lonewolfschool.com",
    "city": "Lone Wolf"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4030990",
-   "name": "VARNUM",
-   "students": 4,
-   "website": "http://www.varnum.k12.ok.us",
-   "city": "Seminole"
   },
   {
    "state": "AR",
@@ -948,35 +651,11 @@
   },
   {
    "state": "OK",
-   "nces_id": "4003660",
-   "name": "BATTIEST",
-   "students": 3,
-   "website": "http://battiest.k12.ok.us",
-   "city": "Battiest"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4010890",
-   "name": "EMPIRE",
-   "students": 3,
-   "website": "http://www.empireschools.org",
-   "city": "Duncan"
-  },
-  {
-   "state": "OK",
    "nces_id": "4017850",
    "name": "LINDSAY",
    "students": 3,
    "website": "http://www.lindsay.k12.ok.us",
    "city": "Lindsay"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4020640",
-   "name": "MOYERS",
-   "students": 3,
-   "website": "http://moyersisd.org",
-   "city": "MOYERS"
   },
   {
    "state": "OK",
@@ -988,27 +667,11 @@
   },
   {
    "state": "OK",
-   "nces_id": "4029820",
-   "name": "TEXHOMA",
-   "students": 3,
-   "website": "http://www.texhoma61.net",
-   "city": "Texhoma"
-  },
-  {
-   "state": "OK",
    "nces_id": "4030450",
    "name": "TWIN HILLS",
    "students": 3,
    "website": "http://www.twinhills.k12.ok.us",
    "city": "Okmulgee"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4033603",
-   "name": "BINGER-ONEY",
-   "students": 3,
-   "website": "http://sites.google.com/a/binger-oney.k12.ok.us/binger-oney-public-school/home",
-   "city": "Binger"
   },
   {
    "state": "AR",
@@ -1035,14 +698,6 @@
    "city": "EL DORADO"
   },
   {
-   "state": "AR",
-   "nces_id": "0511340",
-   "name": "PERRYVILLE SCHOOL DISTRICT",
-   "students": 2,
-   "website": "http://mustangs.k12.ar.us",
-   "city": "PERRYVILLE"
-  },
-  {
    "state": "MO",
    "nces_id": "2932490",
    "name": "ZALMA R-V",
@@ -1060,27 +715,11 @@
   },
   {
    "state": "OK",
-   "nces_id": "4013230",
-   "name": "GRAND VIEW",
-   "students": 2,
-   "website": "http://www.grandviewchargers.org",
-   "city": "Tahlequah"
-  },
-  {
-   "state": "OK",
    "nces_id": "4026640",
    "name": "SOUTH COFFEYVILLE",
    "students": 2,
    "website": "http://scps.k12.ok.us",
    "city": "South Coffeyville"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4032940",
-   "name": "WILSON",
-   "students": 2,
-   "website": "http://www.wilson.k12.ok.us",
-   "city": "Wilson"
   },
   {
    "state": "AR",
@@ -1105,14 +744,6 @@
    "students": 1,
    "website": "http://gurdon.ar.schoolwebpages.com",
    "city": "GURDON"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0512000",
-   "name": "ROSE BUD SCHOOL DISTRICT",
-   "students": 1,
-   "website": "http://rbsd.k12.ar.us",
-   "city": "ROSE BUD"
   },
   {
    "state": "FL",
@@ -1156,22 +787,6 @@
   },
   {
    "state": "OK",
-   "nces_id": "4000015",
-   "name": "THOMAS-FAY-CUSTER UNIFIED DIST",
-   "students": 1,
-   "website": "http://www.thomas.k12.ok.us",
-   "city": "Thomas"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4002670",
-   "name": "ALEX",
-   "students": 1,
-   "website": "http://www.alex.k12.ok.us/",
-   "city": "Alex"
-  },
-  {
-   "state": "OK",
    "nces_id": "4003450",
    "name": "AVANT",
    "students": 1,
@@ -1180,27 +795,11 @@
   },
   {
    "state": "OK",
-   "nces_id": "4012000",
-   "name": "FORT SUPPLY",
-   "students": 1,
-   "website": "http://www.fortsupply.k12.ok.us",
-   "city": "Fort Supply"
-  },
-  {
-   "state": "OK",
    "nces_id": "4017310",
    "name": "LEACH",
    "students": 1,
    "website": "http://www.leachschool.net",
    "city": "Rose"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4018090",
-   "name": "LONE GROVE",
-   "students": 1,
-   "website": "http://www.lonegrove.k12.ok.us",
-   "city": "Lone Grove"
   },
   {
    "state": "OK",
@@ -1217,22 +816,6 @@
    "students": 1,
    "website": "http://www.springerschools.com",
    "city": "Springer"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4029430",
-   "name": "TALOGA",
-   "students": 1,
-   "website": "http://www.taloga.k12.ok.us",
-   "city": "Taloga"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4031350",
-   "name": "WAGONER",
-   "students": 1,
-   "website": "http://www.wagonerps.org",
-   "city": "Wagoner"
   }
  ]
 }

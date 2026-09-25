@@ -22,12 +22,12 @@ function countiesOf(state) {
   }
   return COUNTIES[state] ?? new Set();
 }
-const VALID = new Set(["allows", "bans", "consent_required", "unknown"]);
+const VALID = new Set(["allows", "bans", "consent_required", "unknown", "silent"]);
 let added = 0, updated = 0, skipped = 0;
 for (const f of process.argv.slice(2)) {
   for (const r of JSON.parse(readFileSync(f, "utf8"))) {
     if (r.status === undefined && (r.phone_policy || r.ai_policy)) { r.status = null; } else if (!VALID.has(r.status)) { console.error(`skip ${r.name}: bad status ${r.status}`); skipped++; continue; }
-    if (r.status !== null && r.status !== "unknown" && !(r.source && /^https?:\/\//.test(r.source) && r.quote)) { console.error(`skip ${r.name}: ${r.status} without source+quote`); skipped++; continue; }
+    if (r.status !== null && r.status !== "unknown" && !(r.source && /^https?:\/\//.test(r.source) && (r.quote || r.status === "silent"))) { console.error(`skip ${r.name}: ${r.status} without source+quote`); skipped++; continue; }
     // Contributors are asked for the district's published contact and it was being dropped on the
     // floor here, which wasted the one moment when someone is already on the district's own site.
     // Empty strings and all-null blocks are discarded so a record is not given a contact it does not

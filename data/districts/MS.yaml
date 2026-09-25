@@ -182,6 +182,19 @@ districts:
       contact_page: https://www.boonevilleschools.org/
       as_of: 2026-09-19
     notes: "Booneville High School Student Handbook 2026-2027, published by Booneville School District and linked as 'BHS Student Handbook' from https://www.boonevilleschools.org/ (no website in the NCES row; found the district site by probing). Fetched: HTTP 200, text/plain; charset=utf-8, 81,069 bytes via the Google Docs txt export (re-verified server-side: 80,841 chars, hit at offset 39168). The district's elementary handbook (docs.google.com/document/d/1akzyAxMK2iFcWk7Jb3tfb_smcOTjGPrNSLf4qqwg8lk/export?format=txt) says the same: 'These other forms of discipline will include, but are not limited to, corporal punishment...'. No parental opt-out or opt-in stated. Board policy JDB is on Simbli site 36031685 (booneville.msbapolicy.org), unreadable all session (issue_0314d441932d). CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
+  - name: BROOKHAVEN SCHOOL DIST
+    county: Lincoln
+    nces_id: "2800840"
+    status: silent
+    source: https://4.files.edl.io/dfec/06/01/26/184116-059c7643-95e1-4020-87a3-71b0cbd73411.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    notes: Handbook found by crawling the district site, read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 11 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    county_source: nces_edge_geocode_2023_24
   - name: Calhoun County Schools
     county: Calhoun
     nces_id: "2800870"
@@ -1103,13 +1116,13 @@ districts:
   - name: Mccomb School District
     county: Pike
     nces_id: "2802880"
-    status: unknown
-    source: null
+    status: silent
+    source: https://4.files.edl.io/7593/07/02/26/205335-002260c0-256c-42d7-a143-00ac76ea3670.pdf
     quote: null
     policy_code: null
-    crdc_students_latest: 74
-    last_verified: 2026-09-21
-    notes: "Federal CRDC 2023-24 reported this district struck students; could not confirm a current policy either way. What was tried: (1) resolve_handbook on http://www.mccomb.k12.ms.us -> no candidates (site is not JS-blocked but has no discoverable handbook link in 2 pages). (2) Confirmed mccomb.msbapolicy.org (linked from the district's own 'Board Policies' page) redirects to simbli.eboardsolutions.com Index.aspx?S=36031746, so S=36031746 is the correct Simbli key. (3) fetch_simbli_policy {site:36031746} with default terms ('corporal punishment','discipline') matched only 3 codes -- JCA 'Student Conduct' (rev 10/13/2025), JCC 'Bomb Threats / Student Discipline' (rev 08/08/2006), JDA 'Discipline Plan' (rev 06/14/2016) -- and I read all three in full: none contains the words 'corporal punishment' or 'paddl' anywhere. Unlike every other MS district checked in this batch (which all have a JD 'Student Discipline' and/or JDB 'Corporal Punishment' code), no such code appeared in McComb's title-matched results. JCA's own text explicitly says 'For information related to student conduct and disciplinary action, please refer to Mississippi Code Section 37-11-55 and policy JCB, Code of Conduct' -- JCB was not returned by the title search (its title almost certainly doesn't contain 'discipline' or 'corporal punishment') and I have no revid to fetch it directly. (4) Attempted fetch_simbli_policy {site:36031746, code:'JDB'} (refused: no match) and {full_index:true} (would list all 534 policies including JCB) -- both calls, plus a follow-up full_index retry, were blocked by Simbli's Imperva bot challenge. This is the same sustained, fleet-wide block other contributors have already logged for MS/AL sites (issue_c3607ea94dbb: 'every Alabama/Mississippi site ... hours not minutes'), confirmed still active after 5 spaced retries over ~25 minutes (immediate, +90s, +180s, +240s, +480s) in this session. NEXT CONTRIBUTOR: once fetch_simbli_policy is reachable again, call it with {site:'36031746', full_index:true} to see the complete J-section index and find policy JCB 'Code of Conduct' (and confirm whether a JD/JDB code truly does not exist), then fetch that code directly. Do not guess status from the absence alone -- it is equally possible McComb's corporal punishment rule is filed under JCB or another non-obviously-titled code. Contact captured from the district's own homepage nav and /apps/contact/ page: the contact page offers only a webform ('Email us' triggers a form, no address shown) plus a phone and street address -- no public email address exists on the site, so district_email/board_email are left null rather than guessed. Superintendent name (Mr. Johnnie Vick) and Board President (Mrs. Evelle Thomas-Dillon, from a linked board-president statement PDF) are both publicly named; board_page above is the '2025-2026 Board of Trustees' listing with member bios."
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    notes: Handbook found by crawling the district site, read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 74 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
     contact:
       phone: (601) 684-4661
       mailing_address: 695 Minnesota Ave, McComb, MS 39648
@@ -1118,6 +1131,8 @@ districts:
       contact_page: https://www.mccomb.k12.ms.us/apps/contact/
       as_of: 2026-09-21
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
+    parent_control: unknown
   - name: Monroe County School District
     county: Monroe
     nces_id: "2802940"
