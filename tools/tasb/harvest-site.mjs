@@ -114,8 +114,16 @@ async function scoreBatch(district, batch) {
   batch.forEach((c, i) => {
     questions[`l${i}`] = {
       type: "noul",
-      instructions: `Link text: "${c.text}" -> ${c.url.slice(0, 160)}\n\nIs this likely to BE, or to LEAD TO, a document stating ${district}'s student discipline rules -- a student handbook, a student code of conduct, or the board policy manual?`,
-      criteria: { true: "Yes: a handbook, code of conduct, board policy manual, or a page that would link to one.", false: "No: news, athletics, staff, calendars, lunch menus, logins, social media, or anything unrelated to student discipline rules." },
+      // Prefer the board policy manual. Two thirds of the handbooks this finds do not mention corporal
+      // punishment at all -- McComb's runs to 104 pages without the words, and its district reported 52
+      // students struck -- because the rule is a board policy and the handbook summarises other things.
+      // Both are still worth having, since which document is authoritative differs by state, but when
+      // a page offers each the manual is the one to walk first.
+      instructions: `Link text: "${c.text}" -> ${c.url.slice(0, 160)}\n\nIs this likely to BE, or to LEAD TO, a document stating ${district}'s rules on student discipline -- above all the BOARD POLICY MANUAL, which is where a district records what it permits, and secondarily a student code of conduct or student handbook?`,
+      criteria: {
+        true: "Yes. Strongest: the board policy manual, a policy system such as Simbli, TASB Policy Online or BoardDocs, or a 'Board Policies' page. Also yes: a student code of conduct, a student handbook, or a page that would link to any of these.",
+        false: "No: news, athletics, staff or employee documents, calendars, lunch menus, logins, social media, enrolment forms, or anything unrelated to student discipline rules.",
+      },
     };
   });
   if (!batch.length) return { scored: [], cost: 0 };

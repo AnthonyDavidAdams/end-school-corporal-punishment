@@ -170,6 +170,16 @@ districts:
     policy_adopted: 2000-09-11
     policy_revised: 2012-05-16
     policy_dates_from: notes
+  - name: Floyd County
+    county: null
+    nces_id: "1302190"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4068&revid=qwMN0jplusOR7Liplus9XVoUSroQ%3D%3D
+    quote: In recognition of research findings that corporal punishment seldom, if ever, results in positive, long‑term changes in behavior, but more likely leads to increased incidents of aggressive, negative behavior, the Floyd County School System prohibits the use of such punishment as a method of administering a disciplinary consequence.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match.
   - name: Forsyth County Schools
     county: Forsyth
     nces_id: "1302220"
@@ -255,6 +265,16 @@ districts:
       public_comment: The district publishes a Public Participation page at https://www.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031048&type=d&pREC_ID=2371790 and board meeting dates at https://www.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031048&type=d&pREC_ID=2108284 (not read in detail).
       as_of: 2026-09-19
     notes: "Opt-out district, so 'allows'. Source is the JDHS Student Handbook (26-27), the PDF behind http://hs.jeff-davis.k12.ga.us/apps/pages/index.jsp?uREC_ID=2031192&type=d&pREC_ID=2108368 (Edlio file host, listed by the brief as machine-fetchable). fetch_document: application/pdf, 1,379,549 bytes, 53 pages, text layer present. The quoted sentence is on page 41, in the Student Code of Conduct definitions, immediately after 'Corporal Punishment - Moderate use of physical force or physical contact by a principal or designee in the presence of another school official as may be necessary to maintain discipline or to enforce school rules.' Corporal punishment is listed as an available disciplinary action for any violation of the Code of Conduct (page 35), as the disciplinary action for Level I offenses (page 36) and as the first and subsequent offense penalty for Level II offenses (page 38). The handbook is district-wide in substance: it carries the Jeff Davis County School System mission, nondiscrimination notice, admission rules and the board's code of conduct, and cites board policy by code elsewhere (e.g. 'Jeff Davis Co. Bd. of Ed. Policy JCDA 12-08-08' for verbal assault); no policy code is printed against the corporal punishment entry, and no adoption or revision date appears on the document (the web page it hangs off was published 2026-07-24). CAVEAT for the reviewer: the board's own policy manual is on Simbli at https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=4093 (site number confirmed both from the district's own 'Policies' link and independently by resolve_handbook). fetch_simbli_policy for site 4093 returned Imperva's bot-challenge page on every attempt over several hours of spaced retries, so the board policy itself (Georgia code JD/JDA) has not been read and its adoption date is unknown. The next contributor should open that Simbli listing once the vendor's rate limit clears."
+  - name: Johnson County
+    county: null
+    nces_id: "1303120"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4097&revid=rAYplusQ6JzhFK8nl5UeqQL7w%3D%3D
+    quote: Corporal punishment is permitted in all Johnson County Schools.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match.
   - name: Laurens County Schools
     county: Laurens
     nces_id: "1301890"
@@ -351,6 +371,16 @@ districts:
     crdc_students_latest: null
     last_verified: 2026-09-24
     notes: Board policy JDA from the district's own manual on Simbli (eBOARDsolutions), read 2026-09-24. Identified by matching the district's name in its manual against the federal LEA directory; the manual does not state a state, so any name matching more than one district was left out rather than guessed.
+  - name: Pierce County
+    county: null
+    nces_id: "1304140"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4129&revid=KcmdAogHX32oWo8sYcslshbSw%3D%3D
+    quote: The Pierce County Board of Education, believing that discipline is an absolute necessity in the classroom of the schools of Pierce County if every child is to receive a quality basic education, does hereby approve the use of corporal punishment in the schools of Pierce County.
+    policy_code: JDA
+    crdc_students_latest: null
+    last_verified: 2026-09-24
+    notes: Board policy JDA from the manual this district links from its own website, read 2026-09-24. Identity is the district's own link rather than a name match.
   - name: Pulaski County
     county: Hawkinsville
     nces_id: "1304220"
