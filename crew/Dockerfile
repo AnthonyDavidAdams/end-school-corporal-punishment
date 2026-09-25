@@ -23,6 +23,8 @@ COPY data/districts /crew/data/districts
 COPY data/crdc /crew/data/crdc
 # The ordered worklist, so get_worklist can turn an assigned scope into the actual districts to read.
 COPY site/data/worklist.json /crew/data/worklist.json
+# Per-district residue: what the Mothership read, what is walled, what is asked of a contributor.
+COPY data/handbooks/residue.json /crew/data/residue.json
 ENV NODE_ENV=production PORT=3000 GROUNDCREW_CREW=/crew GROUNDCREW_STATE=/state/state.json GROUNDCREW_ISSUES_DIR=/state/issues GROUNDCREW_DOCS_DIR=/state/documents
 RUN mkdir -p /state
 EXPOSE 3000

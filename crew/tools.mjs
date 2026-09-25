@@ -366,6 +366,17 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
       },
     },
     async ({ scope }) => {
+      // A scope that names one district returns exactly what the Mothership already knows about it:
+      // which documents were read and found silent, which URL is walled and how, and what is being
+      // asked for. The queue used to hand out slices of a worklist; now it hands out the residue that
+      // machines could not finish, and a contributor should not have to rediscover what was tried.
+      try {
+        const residue = JSON.parse(readFileSync(join(ctx.crewDir ?? "/crew", "data/residue.json"), "utf8"));
+        const one = residue.find((r) => r.scope.toLowerCase() === String(scope).trim().toLowerCase());
+        if (one) return text({ scope: one.scope, district: one.name, state: one.state, nces_id: one.nces_id ?? null,
+          students_struck_2023_24: one.students, website: one.website ?? null, ask: one.ask, already_tried: one.tried,
+          next: "Do what `ask` says. Submit with submit_finding; if the server cannot read your source, attach source_text. If the district genuinely has no written policy, say so in notes -- that is a finding too." });
+      } catch { /* no residue file on this server; fall through to the state worklist */ }
       let wl;
       try {
         wl = JSON.parse(readFileSync(join(ctx.crewDir ?? "/crew", "data/worklist.json"), "utf8"));
