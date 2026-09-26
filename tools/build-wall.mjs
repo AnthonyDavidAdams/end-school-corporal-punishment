@@ -38,6 +38,15 @@ for (const [code, s] of Object.entries(states)) {
 }
 out.states.sort((a, b) => (b.total - b.placed) - (a.total - a.placed));
 out.totals = totals;
+
+// Per-state record slices for the cockpit's dossier: only the fields it shows, one small file per state.
+import { mkdirSync } from "node:fs";
+mkdirSync(join(root, "site/data/records"), { recursive: true });
+for (const [code, rows] of Object.entries(rec)) {
+  if (!Array.isArray(rows)) continue;
+  const slim = rows.map((r) => ({ nces_id: r.nces_id ?? null, name: r.name, county: r.county ?? null, status: r.status ?? null, quote: r.quote ?? null, source: r.source ?? null, last_verified: r.last_verified ?? null, method: r.method ?? null, parent_control: r.parent_control ?? null, documents: (r.documents ?? []).map((d) => ({ kind: d.kind ?? null, url: d.url, says: d.says ?? null })), notes: r.notes ?? null }));
+  writeFileSync(join(root, `site/data/records/${code}.json`), JSON.stringify(slim));
+}
 writeFileSync(join(root, "site/data/wall.json"), JSON.stringify(out));
 // Records requests, public fields only: which district, when, what happened. No addresses, no bodies.
 try {

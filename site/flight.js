@@ -107,7 +107,7 @@
   }
 
   // ---- the cockpit ----
-  let stateRows = {}; async function districtRow(b) { if (!stateRows[b.state]) { try { const d = await (await fetch(`/kids/data/districts/districts-${b.state}.json`)).json(); stateRows[b.state] = Array.isArray(d.d) ? d.d : Array.isArray(d.districts) ? d.districts : []; } catch { stateRows[b.state] = []; } } return stateRows[b.state].find((r) => String(r.nces_id) === String(b.i)) || null; }
+  let stateRows = {}; async function districtRow(b) { if (!stateRows[b.state]) { try { const d = await (await fetch(`/kids/data/records/${b.state}.json`)).json(); stateRows[b.state] = Array.isArray(d) ? d : []; } catch { stateRows[b.state] = []; } } return stateRows[b.state].find((r) => String(r.nces_id) === String(b.i)) || null; }
   const INSTR = ["LOCK", "SENSORS", "TRACTOR", "SCANNER", "JEV", "VERIFIER", "UPLINK", "REVIEW", "COMMS", "MOTHERSHIP"];
   async function openCockpit(b, s) {
     const box = $("flCockpit"); if (!box) return; box.hidden = false;
