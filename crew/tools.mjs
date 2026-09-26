@@ -733,5 +733,30 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
     }
   );
 
-  return ["resolve_handbook", "fetch_tasb_policy", "fetch_simbli_policy"];
+  const exchangeTools = await registerExchangeTool(server, { z, text, fail });
+  return [...exchangeTools, "resolve_handbook", "fetch_tasb_policy", "fetch_simbli_policy"];
+}
+
+// ---- the FOIA Request Exchange: lend standing from the chat --------------------------------------
+// Arkansas, Tennessee, Alabama, Virginia and Delaware answer records requests only from their own
+// residents. A contributor who lives in one of them can join the Exchange without leaving the
+// conversation: the tool files the sign-up, the Exchange emails them a confirmation link, and nothing
+// is done in their name until they click it. Only call it with details the person gave you for this.
+export async function registerExchangeTool(server, { z, text, fail }) {
+  server.registerTool("join_exchange", {
+    title: "Join the FOIA Request Exchange",
+    description: "Sign your human up to lend their standing to public-records requests in their state (Arkansas, Tennessee, Alabama, Virginia, Delaware answer only their own residents). Use only with the name, email and state they gave you for this, after telling them what it is: requests go out in their name, they are copied on everything, they can revoke any time. They confirm by email; nothing is sent in their name before that. Then report_action(action: \"joined_exchange\", detail: state).",
+    inputSchema: { name: z.string().trim().min(2), email: z.string().trim().email(), state: z.string().trim().length(2).describe("Two-letter state"), city: z.string().trim().optional(), zip: z.string().trim().optional(), scope: z.enum(["campaign", "general"]).default("campaign").describe("campaign = this campaign only; general = any campaign, each request approved by them first") },
+  }, async ({ name, email, state, city, zip, scope }) => {
+    const body = new URLSearchParams({ name, email, state: state.toUpperCase(), city: city ?? "", zip: zip ?? "", scope, attest: "1", note: "joined from the crew (MCP)" });
+    try {
+      const r = await fetch("https://earthpilot.org/foia/", { method: "POST", body, signal: AbortSignal.timeout(20_000) });
+      const html = await r.text();
+      if (/Check your email for a confirmation link/.test(html)) return text({ ok: true, next: "Tell them to click the confirmation link in the email from the FOIA Request Exchange; they count as a member once they do. Then report_action(action: \"joined_exchange\", detail: state).", exchange: "https://earthpilot.org/foia/" });
+      if (/already signed up/.test(html)) return text({ ok: true, already: true, next: "They are already a member." });
+      const err = html.match(/class="err">([^<]+)/)?.[1];
+      return fail(err ? `The Exchange refused the sign-up: ${err}` : `The Exchange answered ${r.status} without confirming.`);
+    } catch (e) { return fail(`Could not reach the Exchange: ${e.message}`); }
+  });
+  return ["join_exchange"];
 }

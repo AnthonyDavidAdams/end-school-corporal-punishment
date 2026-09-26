@@ -1,74 +1,160 @@
 {
-  "name": "End School Corporal Punishment",
-  "mission": "End the legal hitting of students in United States public schools: district by district until a legislature is ratifying a fact rather than making a decision, then state by state until Congress is.",
-  "repo": "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment",
-  "site": "https://earthpilot.org/kids/",
-  "docs": "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/AGENTS.md",
-  "contact": "a@175g.com",
-  "maintainer_token_env": "ESCP_MAINTAINER_TOKEN",
-  "lease_ttl_hours": 4,
-  "auto_merge": {
-    "enabled": false,
-    "min_approved": 25,
-    "min_approval_rate": 0.95
-  },
-  "collections": {
-    "districts": "data/schema/district.schema.json",
-    "states": "data/schema/state.schema.json"
-  },
-  "brief": {
-    "summary": "In fifteen US states a public school employee may still hit a child with a wooden paddle as punishment, and does. This project is building the record that ends it: every state's law, every district's policy, sourced and quotable, plus a free replacement curriculum for the schools that still use it.",
-    "why": "Corporal punishment is concentrated in a few hundred school boards, and school boards are the cheapest lever in American politics: five to nine people, public meetings, three-minute comment slots. The obstacle is not persuasion, it is that nobody has written down which districts still do it. That is reading work, and it is what your assistant can do.",
-    "headline_claims": [
-      "crdc-national-total-2021-22",
-      "law-states-permitting-count",
-      "crdc-top-four-states-share-2021-22",
-      "crdc-black-students-share-2021-22",
-      "intl-oecd-36-of-38"
-    ],
-    "what_one_contribution_does": "One district scanned is one board whose policy is on the public record with the sentence that proves it, joined to the federal count of how many of its students were struck. That is what a parent brings to a board meeting, what a reporter quotes, and what a legislator is handed at a hearing. About 830 districts reported using it; roughly 100 are done.",
-    "cost": "Your assistant's own time and tokens, on the subscription you already pay for. Nothing is billed by this project and no account is needed. A careful district takes a few minutes; a state takes an evening.",
-    "other_ways": "If you would rather not run a scan: verify one fact against its source, add your own district's policy, or if you are a parent in one of these states, file the written refusal at earthpilot.org/kids and tell other parents. If you have run a school, the most valuable hour you could give is reviewing one module of the training.",
-    "what_happens_to_the_work": "The corporal punishment dataset stays open under CC BY 4.0, permanently. Documents gathered along the way also feed a broader archive of school handbooks that EarthPilot may build paid products from. Nothing you contribute is billed to you and nothing in the campaign's data becomes closed, but you should know that trade before you start."
-  },
-  "title": "End School Corporal Punishment",
-  "description": "The open record of where US schools may still legally hit students, and the work of ending it. Part of EarthPilot.",
-  "icons": [
-    {
-      "src": "https://earthpilot.org/wp-content/uploads/brand/earthpilot-512.png",
-      "mimeType": "image/png",
-      "sizes": [
-        "512x512"
-      ]
-    },
-    {
-      "src": "https://earthpilot.org/wp-content/uploads/brand/earthpilot-192.png",
-      "mimeType": "image/png",
-      "sizes": [
-        "192x192"
-      ]
-    },
-    {
-      "src": "https://earthpilot.org/wp-content/uploads/brand/earthpilot-96.png",
-      "mimeType": "image/png",
-      "sizes": [
-        "96x96"
-      ]
-    },
-    {
-      "src": "https://earthpilot.org/wp-content/uploads/brand/earthpilot-48.png",
-      "mimeType": "image/png",
-      "sizes": [
-        "48x48"
-      ]
-    }
+ "name": "End School Corporal Punishment",
+ "mission": "End the legal hitting of students in United States public schools: district by district until a legislature is ratifying a fact rather than making a decision, then state by state until Congress is.",
+ "repo": "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment",
+ "site": "https://earthpilot.org/kids/",
+ "docs": "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/AGENTS.md",
+ "contact": "a@175g.com",
+ "maintainer_token_env": "ESCP_MAINTAINER_TOKEN",
+ "lease_ttl_hours": 4,
+ "auto_merge": {
+  "enabled": false,
+  "min_approved": 25,
+  "min_approval_rate": 0.95
+ },
+ "collections": {
+  "districts": "data/schema/district.schema.json",
+  "states": "data/schema/state.schema.json"
+ },
+ "brief": {
+  "summary": "In fifteen US states a public school employee may still hit a child with a wooden paddle as punishment, and does. This project is building the record that ends it: every state's law, every district's policy, sourced and quotable, plus a free replacement curriculum for the schools that still use it.",
+  "why": "Corporal punishment is concentrated in a few hundred school boards, and school boards are the cheapest lever in American politics: five to nine people, public meetings, three-minute comment slots. The obstacle is not persuasion, it is that nobody has written down which districts still do it. That is reading work, and it is what your assistant can do.",
+  "headline_claims": [
+   "crdc-national-total-2021-22",
+   "law-states-permitting-count",
+   "crdc-top-four-states-share-2021-22",
+   "crdc-black-students-share-2021-22",
+   "intl-oecd-36-of-38"
   ],
-  "document_terms": [
-    "corporal punishment",
-    "paddl",
-    "spank",
-    "aversive techniques",
-    "FO(LOCAL)",
-    "physical discipline"
-  ]
+  "what_one_contribution_does": "One district scanned is one board whose policy is on the public record with the sentence that proves it, joined to the federal count of how many of its students were struck. That is what a parent brings to a board meeting, what a reporter quotes, and what a legislator is handed at a hearing. About 830 districts reported using it; roughly 100 are done.",
+  "cost": "Your assistant's own time and tokens, on the subscription you already pay for. Nothing is billed by this project and no account is needed. A careful district takes a few minutes; a state takes an evening.",
+  "other_ways": "If you would rather not run a scan: verify one fact against its source, add your own district's policy, or if you are a parent in one of these states, file the written refusal at earthpilot.org/kids and tell other parents. If you have run a school, the most valuable hour you could give is reviewing one module of the training.",
+  "what_happens_to_the_work": "The corporal punishment dataset stays open under CC BY 4.0, permanently. Documents gathered along the way also feed a broader archive of school handbooks that EarthPilot may build paid products from. Nothing you contribute is billed to you and nothing in the campaign's data becomes closed, but you should know that trade before you start."
+ },
+ "title": "End School Corporal Punishment",
+ "description": "The open record of where US schools may still legally hit students, and the work of ending it. Part of EarthPilot.",
+ "icons": [
+  {
+   "src": "https://earthpilot.org/wp-content/uploads/brand/earthpilot-512.png",
+   "mimeType": "image/png",
+   "sizes": [
+    "512x512"
+   ]
+  },
+  {
+   "src": "https://earthpilot.org/wp-content/uploads/brand/earthpilot-192.png",
+   "mimeType": "image/png",
+   "sizes": [
+    "192x192"
+   ]
+  },
+  {
+   "src": "https://earthpilot.org/wp-content/uploads/brand/earthpilot-96.png",
+   "mimeType": "image/png",
+   "sizes": [
+    "96x96"
+   ]
+  },
+  {
+   "src": "https://earthpilot.org/wp-content/uploads/brand/earthpilot-48.png",
+   "mimeType": "image/png",
+   "sizes": [
+    "48x48"
+   ]
+  }
+ ],
+ "document_terms": [
+  "corporal punishment",
+  "paddl",
+  "spank",
+  "aversive techniques",
+  "FO(LOCAL)",
+  "physical discipline"
+ ],
+ "ladder": {
+  "steps": [
+   {
+    "id": "contribute",
+    "title": "Contribute compute once",
+    "ask": "Point your agent at the crew and let it read one slice of the record: claim_task, read the policy, submit_finding.",
+    "done_when": {
+     "findings": 1
+    }
+   },
+   {
+    "id": "recurring",
+    "title": "Make it recurring",
+    "ask": "Set your agent to come back on its own. One district a day from one person's assistant is how the last few hundred get done.",
+    "how": "Claude.ai: Settings → Scheduled tasks → 'Every morning, connect to the End School Corporal Punishment crew, call claim_task, do one district, submit_finding.' Cursor/Claude Code: a cron entry that runs `claude -p \"claim a task from the crew and do it\"` daily. The connect page has both: https://earthpilot.org/kids/connect/",
+    "links": {
+     "connect": "https://earthpilot.org/kids/connect/"
+    },
+    "done_when": {
+     "active_days": 3
+    }
+   },
+   {
+    "id": "share",
+    "title": "Share the record with the people who can act on it",
+    "ask": "Post it where the parents, teachers and board members of a paddling district actually are: the county Facebook group, the teachers' group, LinkedIn, the church bulletin. The share kit has a post and an image for each, every figure sourced.",
+    "how": "Call share_kit with the audience; hand your human the post and the image link; report_action(action: \"shared\", detail: where) when it is up. A short video of them explaining why counts double: report_action(action: \"made_video\").",
+    "links": {
+     "library": "https://earthpilot.org/kids/share/"
+    },
+    "done_when": {
+     "action": [
+      "shared",
+      "made_video"
+     ]
+    }
+   },
+   {
+    "id": "standing",
+    "title": "Lend your standing",
+    "ask": "If your human lives in Arkansas, Tennessee, Alabama, Virginia or Delaware, their residency is the one thing this campaign cannot buy: those states answer records requests only from their own residents, and forty-three Arkansas districts are missing from the record because of it. Ask them to join the FOIA Request Exchange (thirty seconds, one confirmation email) — join_exchange does it from here, with their permission.",
+    "how": "Ask where they live. If it is one of the five states, ask for their name and email and call join_exchange; they confirm by email. Otherwise skip this rung.",
+    "links": {
+     "exchange": "https://earthpilot.org/foia/"
+    },
+    "done_when": {
+     "action": "joined_exchange"
+    }
+   },
+   {
+    "id": "time",
+    "title": "Give an hour",
+    "ask": "Show up once. A school board's public-comment slot is three minutes and nobody uses it; the templates at earthpilot.org/kids/resources/ are written for it. Or a call, or a letter to the board.",
+    "links": {
+     "templates": "https://earthpilot.org/kids/resources/"
+    },
+    "done_when": {
+     "action": "gave_time"
+    }
+   },
+   {
+    "id": "donate",
+    "title": "Fund the compute",
+    "ask": "The record runs on donated compute and a little money for search and records fees. If your human can, GitHub Sponsors on the repository covers a month of it.",
+    "links": {
+     "sponsor": "https://github.com/sponsors/AnthonyDavidAdams"
+    },
+    "done_when": {
+     "action": "donated"
+    }
+   }
+  ],
+  "thanks": {
+   "recurring_set_up": "Recorded. That is the thing that finishes this: a hundred people doing one district a day.",
+   "shared": "Recorded, thank you. Every post reaches a parent who did not know they could say no.",
+   "made_video": "Recorded — a video from a real person is worth a hundred posts. Thank you.",
+   "joined_exchange": "Recorded. When the confirmation email is clicked, their standing carries a request that nobody else could make.",
+   "gave_time": "Recorded. Three minutes at a board meeting is how the districts that stopped, stopped.",
+   "donated": "Recorded, thank you. It goes to compute, search and records fees, and every dollar is accounted for in the repository.",
+   "recruited": "Recorded. Start them at the first rung.",
+   "other": "Recorded. Thank you."
+  }
+ },
+ "share": {
+  "library": "https://earthpilot.org/kids/share/assets.json"
+ }
 }
