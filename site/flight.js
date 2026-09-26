@@ -59,7 +59,7 @@
     if (follow) { const w = 160; target = [follow.x - w / 2, follow.y - (w * 610 / 975) / 2, w, w * 610 / 975]; }
     for (let i = 0; i < 4; i++) view[i] += (target[i] - view[i]) * 0.08;
     svg.setAttribute("viewBox", view.map((v) => v.toFixed(2)).join(" "));
-    const z = 975 / view[2]; gDist.setAttribute("transform", ""); const sc = (1 / Math.sqrt(z)).toFixed(3); for (const s of ships.values()) s.g.setAttribute("transform", `translate(${s.x},${s.y}) scale(${sc})`); if (moth && !moth.dataset.flying) moth.setAttribute("transform", `translate(${MOTH_HOME[0]},${MOTH_HOME[1]}) scale(${sc})`);
+    const z = 975 / view[2]; gDist.setAttribute("transform", ""); const sc = (1 / Math.sqrt(z)).toFixed(3); for (const s of ships.values()) s.g.setAttribute("transform", `translate(${s.x},${s.y}) scale(${sc})`); 
   }
 
   // ---- ships ----
@@ -96,9 +96,10 @@
   }
   function flare(b, color) { const c = el("circle", { cx: b.x, cy: b.y, r: 1, fill: "none", stroke: color, "stroke-width": 0.8, opacity: 1 }, gFx); const t0 = performance.now(); const step = () => { const t = (performance.now() - t0) / 900; if (t >= 1) return c.remove(); c.setAttribute("r", 1 + t * 14); c.setAttribute("opacity", 1 - t); requestAnimationFrame(step); }; requestAnimationFrame(step); }
 
+  let mothActiveUntil = 0;
   // ---- HUD, radio, leaderboard ----
   const totals = { placed: wall.totals.placed, bricks: wall.totals.bricks };
-  const hud = () => { $("flRecord").textContent = n(totals.placed); $("flDark").textContent = n(totals.bricks - totals.placed); $("flFlying").textContent = [...ships.values()].filter((s) => s.lock).length; };
+  const hud = () => { $("flRecord").textContent = n(totals.placed); $("flDark").textContent = n(totals.bricks - totals.placed); const flying = [...ships.values()].filter((s) => s.lock).length + (Date.now() < mothActiveUntil ? 1 : 0); $("flFlying").textContent = flying; if (!replaying) $("flStatus").textContent = Date.now() < mothActiveUntil ? "LIVE · MOTHERSHIP WORKING" : "LIVE"; };
   function radio(line, cls) { const ul = $("flRadio"); if (!ul) return; const li = document.createElement("li"); if (cls) li.className = cls; li.innerHTML = line; ul.prepend(li); while (ul.children.length > 14) ul.lastChild.remove(); }
   async function leaderboard() {
     let lb; try { lb = await (await fetch(`${SERVER}/leaderboard.json`, { cache: "no-store" })).json(); } catch { return; }
@@ -156,13 +157,29 @@
     else if (e.kind === "submitted" || e.kind === "attempted") { if (s && b) beam(s, 1400); if (b && e.kind === "submitted") { paint(b, "pending"); } if (!fast) radio(`<b>${esc(who)}</b> ${e.kind === "submitted" ? `uplinked ${esc(b?.n || e.subject)}: ${esc(e.status || "")}` : `tried ${esc(b?.n || e.subject)}: no readable source`}`); if (!fast && e.kind === "submitted") say(`Judgment in. ${e.status === "bans" ? "Prohibits" : e.status === "allows" ? "Permits" : e.status || ""}. Uplink.`); }
     else if (e.kind === "verified") { if (b) { const s2 = { bans: "b", allows: "a", consent_required: "c", silent: "s" }[e.status] || "u"; if (!COL[b.s] || b.s === "pending") { totals.placed++; } paint(b, s2); flare(b, COL[s2] || "#fff"); } if (s) { beam(s, 1000); setTimeout(() => { if (s.lock === b) land(s); }, fast ? 200 : 2500); } if (!fast) { radio(`<b>${esc(who)}</b>: ${esc(b?.n || e.subject)} is on the record · <b style="color:${COL[{ bans: "b", allows: "a" }[e.status]] || "#fff"}">${esc(e.status || "")}</b>`, "on"); say(`${who}, ${b?.n || e.subject} is on the record. Good work.`); } }
     else if (e.kind === "returned") { if (b) paint(b, "-"); if (!fast) radio(`<b>${esc(who)}</b>: ${esc(b?.n || e.subject)} returned for another look`); }
-    else if (e.kind === "machine") { if (!fast) { radio(`<b>Mothership</b>: ${esc(e.headline || "pass")}`, "on"); say("Mothership on station."); } mothership(); }
+    else if (e.kind === "machine") { if (!fast) { radio(`<b>Mothership</b>: ${esc(e.headline || "pass")}`, "on"); say(/complete/i.test(e.headline || "") ? "Mothership pass complete." : "Mothership on station."); } mothership(e.scope, e.at); }
     hud();
   }
   let moth = null; const MOTH_HOME = [560, 470];
   function mothershipInit() { moth = el("g", { class: "fl-moth" }, gShips); el("circle", { r: 13, fill: "#fff", opacity: 0.08 }, moth); el("path", { d: "M-14,0 L-5,-5 L5,-5 L14,0 L5,5 L-5,5 Z", fill: "#fff", opacity: 0.9, stroke: "#020604", "stroke-width": 0.6 }, moth); const t = el("text", { y: 12, "text-anchor": "middle", "font-size": 5.6, fill: "#fff", "font-family": "Share Tech Mono, monospace", "letter-spacing": 0.4 }, moth); t.textContent = "MOTHERSHIP"; moth.setAttribute("transform", `translate(${MOTH_HOME[0]},${MOTH_HOME[1]})`); moth.style.cursor = "pointer"; moth.addEventListener("click", () => { const box = $("flCockpit"); box.hidden = false; box.innerHTML = `<div class="ckhead"><b>Mothership</b><span>EarthPilot's own automated pass</span></div><p>Every night at 02:00 Central the Mothership takes the ${"60"} districts that struck the most children and nobody has read, searches for each one's own policy document, reads it, and has the decision model quote the sentence that settles it. Anything it cannot settle it hands to a person. ${nextPass()}</p><div class="ckact"><button type="button" class="ckbtn alt" id="ckClose">Close</button></div>`; $("ckClose").addEventListener("click", () => { box.hidden = true; }); }); }
   function nextPass() { const now = new Date(); const ct = new Date(now.toLocaleString("en-US", { timeZone: "America/Chicago" })); const h = ct.getHours() + ct.getMinutes() / 60; const hrs = h < 2 ? 2 - h : 26 - h; return `Next pass in ${Math.floor(hrs)}h ${Math.round((hrs % 1) * 60)}m.`; }
-  function mothership() { if (!moth) mothershipInit(); const t0 = performance.now(); const step = () => { const t = (performance.now() - t0) / 7000; if (t >= 1) { moth.setAttribute("transform", `translate(${MOTH_HOME[0]},${MOTH_HOME[1]})`); return; } const x = MOTH_HOME[0] + Math.sin(t * Math.PI) * 220 * (t < 0.5 ? -1 : 1) * Math.sin(t * Math.PI); const y = MOTH_HOME[1] - Math.sin(t * Math.PI) * 300; moth.setAttribute("transform", `translate(${x.toFixed(1)},${y.toFixed(1)})`); requestAnimationFrame(step); }; requestAnimationFrame(step); }
+  // The Mothership flies to wherever its pass is: a state's centre when the scope is a state, a district
+  // when it is one, and holds there while the pass is recent. Otherwise it parks over the Gulf.
+  let mothPos = [...MOTH_HOME], mothTarget = [...MOTH_HOME];
+  const stateCenter = (code) => { const b = stateBox(code); return b ? [b[0] + b[2] / 2, b[1] + b[3] / 2] : null; };
+  function mothership(scope, at) {
+    if (!moth) mothershipInit();
+    const b = resolve(scope); const sc = b ? [b.x, b.y - 9] : (scope && states[scope] ? stateCenter(scope) : null);
+    mothTarget = sc || [...MOTH_HOME];
+    const age = at ? Date.now() - Date.parse(at) : 0; if (age < 40 * 60e3) mothActiveUntil = Math.max(mothActiveUntil, Date.parse(at) + 40 * 60e3);
+    moth.dataset.flying = "1";
+  }
+  function tickMoth() {
+    if (!moth) return; if (Date.now() > mothActiveUntil && moth.dataset.flying) { mothTarget = [...MOTH_HOME]; if (Math.hypot(mothTarget[0] - mothPos[0], mothTarget[1] - mothPos[1]) < 1) delete moth.dataset.flying; }
+    const dx = mothTarget[0] - mothPos[0], dy = mothTarget[1] - mothPos[1], d = Math.hypot(dx, dy); if (d > 0.3) { const step = Math.min(d, 1.6 + d * 0.04); mothPos[0] += dx / d * step; mothPos[1] += dy / d * step; }
+    const z = 975 / view[2], sc = (1 / Math.sqrt(z)).toFixed(3); moth.setAttribute("transform", `translate(${mothPos[0].toFixed(1)},${mothPos[1].toFixed(1)}) scale(${sc})`);
+    const on = Date.now() < mothActiveUntil; moth.firstChild.setAttribute("opacity", on ? 0.22 : 0.08);
+  }
 
   async function boot() {
     let d; try { d = await (await fetch(`${SERVER}/fleet.json?limit=3000`, { cache: "no-store" })).json(); } catch { d = null; }
@@ -200,6 +217,7 @@
   // The briefing: shown until dismissed once, and always one click away.
   const briefing = $("flBriefing"); let seen = false; try { seen = localStorage.getItem("escp-briefed") === "1"; } catch {}
   if (briefing) { briefing.hidden = seen; $("briefWatch")?.addEventListener("click", () => { briefing.hidden = true; try { localStorage.setItem("escp-briefed", "1"); } catch {} }); $("flBrief")?.addEventListener("click", () => { briefing.hidden = false; }); }
-  (function loop(now) { tickShips(now); tickCamera(); requestAnimationFrame(loop); })(performance.now());
+  (function loop(now) { tickShips(now); tickCamera(); tickMoth(); requestAnimationFrame(loop); })(performance.now());
+  setInterval(hud, 5000);
   boot();
 })();
