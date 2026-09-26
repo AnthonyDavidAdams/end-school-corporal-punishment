@@ -704,6 +704,21 @@ districts:
     last_verified: 2026-09-24
     notes: Board policy read 2026-09-24 from the manual this district links from its own website, so its identity is the district's own link rather than a name match. `quotes` carries every rule-bearing sentence in document order.
     county_source: nces_edge_geocode_2023_24
+  - name: Jones County Schools
+    county: Jones
+    nces_id: "1303150"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4098&revid=M8fBYOUnLxXaqauplusc4gnhA%3D%3D
+    quote: Corporal punishment shall not be used as a means of discipline in the Jones County Schools.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - Corporal punishment shall not be used as a means of discipline in the Jones County Schools.
+    notes: Board policy on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Lanier County
     county: Lanier
     nces_id: "1303240"
