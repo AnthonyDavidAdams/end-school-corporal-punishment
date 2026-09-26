@@ -7,7 +7,7 @@
 set -uo pipefail
 cd "$(dirname "$0")/.." || exit 1
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
-ST=$1; QUERIES=${3:-handbook}; DAY=$(date +%F); L="out/sweep/$ST"; mkdir -p "$L"
+ST=$1; QUERIES=${3:-handbook}; DAY=$(date +%F); L="$PWD/out/sweep/$ST"; mkdir -p "$L"
 export OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-$(grep -m1 OPENROUTER "$HOME/personality-bench/.env.local" | cut -d= -f2- | tr -d '"')}
 export BRAVE_API_KEY=${BRAVE_API_KEY:-$(grep -m1 BRAVE "$HOME/.brave.env" | cut -d= -f2-)}
 export EGRESS_PROXIES=${EGRESS_PROXIES:-'http://customer-groundcrew_oMudw-cc-US:fEP9J1+c+9I8@pr.oxylabs.io:7777'}
