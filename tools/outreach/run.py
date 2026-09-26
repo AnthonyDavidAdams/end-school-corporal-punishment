@@ -67,11 +67,25 @@ def text_anthony(line):
     except Exception as e: log("text failed", e)
 
 # ---------------------------------------------------------------- the messages
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+def ensure_compliment(r):
+    """One true, specific line about the district from its own recent news (compliment.py), looked up once
+    per request and kept on the record so a follow-up can reuse it. None is a valid answer."""
+    if "compliment" in r: return r["compliment"]
+    try:
+        import compliment
+        r["compliment"] = compliment.compliment(r["name"], r["state"])
+    except Exception as e:
+        log("compliment failed", r["name"], e); r["compliment"] = None
+    return r["compliment"]
+def opener(r):
+    c = r.get("compliment")
+    return (c["line"] + "\n\n") if c and c.get("line") else ""
 def request_body(r):
     silent = "We read the student handbook, which does not mention it. " if r.get("kind") == "handbook silent" else ""
     return f"""Hello,
 
-I'm with EarthPilot's End School Corporal Punishment project, which maintains a public, sourced record of every US district's written policy on corporal punishment (earthpilot.org/kids).
+{opener(r)}I'm with EarthPilot. We maintain a public, sourced record of every US district's written policy on corporal punishment (earthpilot.org/kids).
 
 Your district's 2023-24 federal Civil Rights Data Collection filing reports {r['kids']} students receiving corporal punishment, but we have not been able to locate the district's written policy on it — board policy manual, student code of conduct, or handbook. {silent}Could you send the board policy, or a link to where it is published?
 
@@ -119,6 +133,7 @@ def send(limit=25):
     for r in reqs:
         if r["status"] != "pending" or n >= limit: continue
         subject = f"Request for {nice(r['name'])}'s corporal punishment policy"
+        ensure_compliment(r)
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; m.set_content(request_body(r))
@@ -310,5 +325,13 @@ if __name__ == "__main__":
     elif cmd == "inbox": inbox()
     elif cmd == "followup": followup()
     elif cmd == "cycle": send(25); inbox(); followup()
+    elif cmd == "compliments":
+        # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
+        reqs = load(); n = 0
+        for r in reqs:
+            if r["status"] != "pending": continue
+            c = ensure_compliment(r); n += 1
+            print(f"{r['state']} {nice(r['name'])}: {c['line'] if c else '(no usable news; no opener)'}")
+        save(reqs); print(f"{n} pending requests checked")
     elif cmd == "status":
         reqs = load(); from collections import Counter; print(Counter(r["status"] for r in reqs)); [print(" ", r["state"], r["name"], r["status"], [x["kind"] for x in r["replies"]]) for r in reqs if r["replies"]]

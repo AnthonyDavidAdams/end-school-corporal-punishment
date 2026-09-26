@@ -167,7 +167,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="/kids/share/">Share</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="/kids/wall/">The Wall</a><a href="/kids/share/">Share</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -581,7 +581,8 @@ const WALKTHROUGH = (() => {
                date: d.last_verified, cert: `/kids/stopped/${code.toLowerCase()}-${slug(d.name)}/` };
     }
   }
-  throw new Error(`contribute page walkthrough: no district with NCES id ${WALK_ID} in the record`);
+  throw new Error(`contribute page walkthrough: no district with NCES id ${WALK_ID} in the record
+`);
 })();
 
 mkdirSync(join(site, "contribute"), { recursive: true });
@@ -911,6 +912,86 @@ mkdirSync(join(site, "worklist"), { recursive: true });
 <div class="mapctl"><input type="search" id="wsearch" placeholder="Filter by district or state"></div>
 <div class="tablewrap"><table><tr><th>#</th><th>Struck</th><th>State</th><th>District</th><th></th><th>Federal id</th></tr>${rowsHtml}</table></div>
 <script>(function(){var q=document.getElementById("wsearch");if(!q)return;q.addEventListener("input",function(){var v=q.value.trim().toLowerCase();document.querySelectorAll("tr[data-s]").forEach(function(r){r.style.display=!v||r.textContent.toLowerCase().indexOf(v)>-1?"":"none";});});})();</script>`
+  }));
+}
+
+
+writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8") + `
+/* the wall */
+.wallpage{max-width:1400px;margin:0 auto;padding:1rem 16px 3rem;background:#0D132D;color:#E8ECF1;border-radius:6px}
+.wallhead{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:end}
+.wallhead h1{color:#fff;margin:.2rem 0}.wallhead .lede{color:#C9D1E0;max-width:48rem}
+.wallscore{display:grid;grid-template-columns:repeat(5,auto);gap:1.2rem;text-align:center}
+.wallscore b{display:block;font-size:2rem;font-family:var(--serif);color:#fff;line-height:1}.wallscore label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#8B95A5}
+.walllegend{display:flex;flex-wrap:wrap;gap:.9rem;font-size:.82rem;color:#C9D1E0;margin:.8rem 0}.walllegend i{display:inline-block;width:11px;height:11px;margin-right:.35rem;vertical-align:-1px;border-radius:1px}
+.wallboard{display:grid;grid-template-columns:1fr 340px;gap:1.2rem;align-items:start}
+.wallcanvas{position:relative}#wall{width:100%;display:block;cursor:crosshair}
+.wtip{position:absolute;pointer-events:none;background:#fff;color:#0D132D;padding:.4rem .6rem;border-radius:3px;font-size:.82rem;box-shadow:var(--shadow);max-width:260px;z-index:2}
+.wpanel{background:#151A30;border:1px solid #2A3352;border-radius:4px;padding:.9rem 1rem;margin-bottom:1rem}.wpanel h2{margin:0 0 .4rem;font-size:1rem;color:#fff}.wpanel .meta{color:#8B95A5}
+.wpanel code{background:#0D132D;color:#E8ECF1;padding:.1rem .3rem;border-radius:2px}
+.wbtn{display:block;width:100%;padding:.6rem;border-radius:4px;border:1px solid #B7791F;background:#B7791F;color:#0D132D;font:inherit;font-weight:700;cursor:pointer;margin-top:.5rem}.wbtn.alt{background:transparent;color:#E8ECF1;border-color:#3A4466}
+.wclaimbox{background:#0D132D;border:1px solid #2A3352;border-radius:3px;padding:.6rem;font-size:.85rem;white-space:pre-wrap;word-break:break-word;margin:.5rem 0;color:#E8ECF1;max-height:180px;overflow:auto}
+.wtabs{display:flex;gap:.3rem;margin:.3rem 0 .5rem}.wtabs button{font:inherit;font-size:.8rem;padding:.25rem .6rem;border-radius:3px;border:1px solid #3A4466;background:transparent;color:#C9D1E0;cursor:pointer}.wtabs button.on{background:#2A3352;color:#fff}
+.wleaders{margin:0;padding-left:1.4rem}.wleaders li{padding:.25rem 0;border-bottom:1px solid #2A3352;font-size:.9rem;display:flex;justify-content:space-between;gap:.5rem}.wleaders li span.r{color:#8B95A5;font-size:.78rem;white-space:nowrap}.wleaders .dots i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3A4466;margin-left:2px}.wleaders .dots i.on{background:#B7791F}
+.wfeed{list-style:none;margin:0;padding:0;font-size:.85rem}.wfeed li{padding:.3rem 0;border-bottom:1px solid #2A3352}.wfeed time{color:#8B95A5;font-size:.75rem;margin-left:.3rem}
+.wladder{margin:0;padding-left:1.3rem;font-size:.88rem}.wladder li{padding:.15rem 0}
+@media(max-width:900px){.wallhead,.wallboard{grid-template-columns:1fr}.wallscore{grid-template-columns:repeat(3,auto);text-align:left}.wallscore b{font-size:1.5rem}}
+`);
+
+// ---------- the wall ----------
+// The record as a game board: one brick per district in every state where it is still legal. Filled
+// bricks are districts whose own policy has been read and quoted; dark bricks are the work. A visitor
+// clicks a dark brick and gets the exact instruction to hand their agent. The leaderboard and the
+// live drops come from the crew server, so the page is never ahead of or behind the record.
+mkdirSync(join(site, "wall"), { recursive: true });
+{
+  const wall = JSON.parse(readFileSync(join(root, "site/data/wall.json"), "utf8"));
+  const dark = wall.totals.bricks - wall.totals.placed;
+  writeFileSync(join(site, "wall", "index.html"), shell({
+    title: "The Wall: every district still to be read, one brick each",
+    path: "/wall/",
+    description: `${n(wall.totals.bricks)} school districts in the ${wall.states.length} states where corporal punishment is still legal, one brick each. ${n(wall.totals.placed)} read and quoted; ${n(dark)} dark. Pick a brick, hand it to your agent, watch it land.`,
+    image: `${BASE}/assets/og-wall.png`,
+    extraHead: `<script defer src="/kids/wall.js?v=${ver("wall.js")}"></script>`,
+    body: `<div class="wallpage">
+  <div class="wallhead">
+    <div class="walltitle"><h1>The Wall</h1><p class="lede">One brick for every school district in the ${wall.states.length} states where a teacher may still hit a child. A brick lights up when someone reads that district's own policy and quotes it. The dark ones are the work. Pick one, hand it to your agent, and watch it land.</p></div>
+    <div class="wallscore">
+      <div><b id="wPlaced">${n(wall.totals.placed)}</b><label>bricks placed</label></div>
+      <div><b id="wDark">${n(dark)}</b><label>still dark</label></div>
+      <div><b id="wPct">${Math.round(100 * wall.totals.placed / wall.totals.bricks)}%</b><label>of the wall</label></div>
+      <div><b id="wWeek">&mdash;</b><label>placed this week</label></div>
+      <div><b id="wCrew">&mdash;</b><label>contributors</label></div>
+    </div>
+  </div>
+  <div class="walllegend"><span><i style="background:#2D6A4F"></i>board prohibits it</span><span><i style="background:#9B2C2C"></i>board permits it</span><span><i style="background:#C05621"></i>with parental consent</span><span><i style="background:#5A6577"></i>read, no rule found</span><span><i style="background:#B7791F"></i>landed just now</span><span><i style="background:transparent;border:1px solid #3A4466"></i>nobody has read it</span></div>
+  <div class="wallboard">
+    <div class="wallcanvas"><canvas id="wall" aria-label="The wall of districts"></canvas><div id="wtip" class="wtip" hidden></div></div>
+    <aside class="wallside">
+      <div class="wpanel" id="wclaim">
+        <h2>Pick a brick</h2>
+        <p class="meta">Click any dark brick, or take the biggest one.</p>
+        <button type="button" id="wNext" class="wbtn">Give me the biggest dark brick</button>
+      </div>
+      <div class="wpanel">
+        <h2>Leaderboard</h2>
+        <div class="wtabs"><button type="button" data-tab="all" class="on">All time</button><button type="button" data-tab="week">This week</button></div>
+        <ol id="wLeaders" class="wleaders"><li class="meta">Loading&hellip;</li></ol>
+        <p class="meta">Handles are anonymous. Ask your agent to call <code>claim_badge</code> to put a name on yours.</p>
+      </div>
+      <div class="wpanel">
+        <h2>Just landed</h2>
+        <ul id="wFeed" class="wfeed"><li class="meta">Watching the crew&hellip;</li></ul>
+      </div>
+      <div class="wpanel">
+        <h2>The ladder</h2>
+        <ol id="wLadder" class="wladder"></ol>
+        <p class="meta">After the first brick, your agent will ask you for the next rung. <a href="/kids/share/">The share kit</a> is rung three.</p>
+      </div>
+    </aside>
+  </div>
+  <p class="meta">Bricks are the regular public school districts in the federal directory for each state where the practice is legal; charter districts and state-run agencies are not on the wall. Struck counts are each district's own 2023-24 filing to the US Department of Education. Machine-readable: <a href="/kids/data/wall.json">wall.json</a>. Live drops and the leaderboard come from the crew server.</p>
+</div>`,
   }));
 }
 

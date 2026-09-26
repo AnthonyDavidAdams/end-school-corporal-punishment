@@ -49,5 +49,5 @@ npm --prefix tools run build-site 2>&1 | tail -1
 git add data/districts data/handbooks/nightly-searched.json site && git commit -q -m "Nightly $DAY: $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/records.json") districts recorded by the Mothership
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" && git push -q origin main && echo pushed
-if [ -n "${DEPLOY_PASS:-}" ]; then sshpass -p "$DEPLOY_PASS" rsync -az --delete --exclude og.html --exclude news.php --exclude icon.php -e "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no" site/ "$DEPLOY_HOST:$DEPLOY_PATH" && echo deployed; fi
+if [ -n "${DEPLOY_PASS:-}" ]; then sshpass -p "$DEPLOY_PASS" rsync -az --delete --exclude documents --exclude og.html --exclude news.php --exclude icon.php -e "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no" site/ "$DEPLOY_HOST:$DEPLOY_PATH" && echo deployed; fi
 echo "=== $(date -u +%FT%TZ) nightly done: $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/records.json") recorded, held in $LOG/held.json"

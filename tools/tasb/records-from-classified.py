@@ -11,7 +11,7 @@ out=[]; nomatch=[]; held=0
 for c in json.load(open(cls)):
     if c.get('decision')!='record': held+=1; continue
     cands=dirr.get(norm(c['district']),[])
-    if c.get('_state'): cands=[x for x in cands if x[0]==c['_state']] or cands
+    if c.get('_state'): cands=[x for x in cands if x[0]==c['_state']]  # never fall back to another state's district of the same name
     if len(cands)!=1:
         # fall back: token equality within the state
         t=tok(c['district']); cands=[x for k,v in dirr.items() for x in v if tok(x[2])==t and (not c.get('_state') or x[0]==c['_state'])]

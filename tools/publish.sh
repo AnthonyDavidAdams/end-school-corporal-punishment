@@ -9,4 +9,4 @@ git add data/districts data/policies data/outreach/requests.json site >/dev/null
 git commit -q -m "${1:-Update the record}
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" && git push -q origin main && echo "pushed"
-if [ -f "$HOME/.escp-deploy.env" ]; then source "$HOME/.escp-deploy.env"; sshpass -p "$DEPLOY_PASS" rsync -az --delete --exclude og.html --exclude news.php --exclude icon.php -e "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no" site/ "$DEPLOY_HOST:$DEPLOY_PATH" && echo "deployed"; fi
+if [ -f "$HOME/.escp-deploy.env" ]; then source "$HOME/.escp-deploy.env"; sshpass -p "$DEPLOY_PASS" rsync -az --delete --exclude documents --exclude og.html --exclude news.php --exclude icon.php -e "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no" site/ "$DEPLOY_HOST:$DEPLOY_PATH" && echo "deployed"; fi
