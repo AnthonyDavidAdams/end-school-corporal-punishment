@@ -4515,6 +4515,31 @@
    "county_source": "nces_edge_geocode_2023_24"
   },
   {
+   "name": "Bradford County",
+   "county": "Bradford",
+   "nces_id": "1200120",
+   "status": "allows",
+   "source": "https://resources.finalsite.net/images/v1728925664/bradfordschoolsorg/rbl2omkaf3bjkxgqzrjn/StudentCodeofConductSY1920.pdf",
+   "quote": "Request to abstain from corporal punishment:",
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "last_verified": "2026-09-25",
+   "method": "searched_document",
+   "parent_control": "opt_out",
+   "quotes": [
+    "Request to abstain from corporal punishment:",
+    "If you do NOT want corporal punishment used with your child, write your specific request in the remarks section below.",
+    "Request to abstain from corporal punishment:",
+    "If you do NOT want corporal punishment used with your child, write your specific request in the remarks section below.",
+    "Request to abstain from corporal punishment:",
+    "If you do NOT want corporal punishment used with your child, write your specific request in the remarks section below.",
+    "Request to abstain from corporal punishment:",
+    "If you do NOT want corporal punishment used with your child, write your specific request in the remarks section below."
+   ],
+   "notes": "Found by searching for the district's board policy on corporal punishment (NEOLA 5630 and equivalents) and read 2026-09-26 (Florida sweep, pass 3). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24"
+  },
+  {
    "name": "Brevard County",
    "county": "Brevard",
    "nces_id": "1200150",
@@ -5252,14 +5277,14 @@
    "name": "Lee County School District",
    "county": "Lee",
    "nces_id": "1201080",
-   "status": "silent",
-   "source": "https://www.leeschools.net/our_schools/code_of_conduct/discipline",
-   "quote": null,
+   "status": "bans",
+   "source": "https://go.boarddocs.com/fl/lee/Board.nsf/goto?open=&id=CT8SB266EC50",
+   "quote": "The Superintendent shall designate sanctions for the infractions of rules, excluding corporal punishment, which shall:",
    "policy_code": null,
    "crdc_students_latest": null,
    "last_verified": "2026-09-26",
    "method": "searched_document",
-   "parent_control": "unknown",
+   "parent_control": "none",
    "documents": [
     {
      "kind": "other",
@@ -5286,8 +5311,12 @@
      "by": "Mothership (search + read, Florida sweep)"
     }
    ],
-   "notes": "3 documents found by searching for the district's code of student conduct and board policy (student handbook, code of conduct, or policy pages) read in full on 2026-09-26; none mentions corporal punishment. Florida law (s. 1003.32) leaves the practice to school board policy, and since July 2025 a board that permits it must require parental consent; the board policy on the practice was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Board policy (NEOLA form) found by searching for the district's policy on corporal punishment and read 2026-09-26; the sentence excludes corporal punishment from the sanctions the Superintendent may designate. Held by the decision model at 0.89 and recorded on review. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "The Superintendent shall designate sanctions for the infractions of rules, excluding corporal punishment, which shall:",
+    "The Superintendent shall designate sanctions for the infractions of rules, excluding corporal punishment, which shall:"
+   ]
   },
   {
    "name": "Leon County School District",
