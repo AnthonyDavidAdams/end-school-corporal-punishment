@@ -150,6 +150,7 @@ def find_request(msg, reqs):
     subj = str(make_header(decode_header(msg.get("Subject", "")))).lower(); frm = email.utils.parseaddr(msg.get("From", ""))[1].lower()
     dom = frm.split("@")[-1]
     if "corporal punishment" not in subj: return None
+    if re.match(r"(no-?reply|newsletter|digest|noreply)@", frm): return None
     cands = [r for r in reqs if r["status"] != "pending" and (r["to"].split("@")[-1].lower() == dom or nice(r["name"]).lower() in subj)]
     return cands[0] if len(cands) == 1 else None
 def jev_kind(subject, frm, body, atts, links):
@@ -209,7 +210,7 @@ def anthony_threads(M, reqs):
     done = set()
     try:
         M.select('"[Gmail]/Sent Mail"')
-        typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d subject:\"Re: Request for\" subject:\"corporal punishment\""')
+        typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d subject:corporal from:me"')
         for num in (data[0].split() if data and data[0] else []):
             typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (TO SUBJECT IN-REPLY-TO REFERENCES)])"); h = email.message_from_bytes(raw[0][1])
             r = find_request(h, reqs)
@@ -224,7 +225,7 @@ def inbox():
         if r["id"] in mine and r["status"] in ("sent", "promised", "needs_review"): r["status"] = "anthony_replied"; r["followup_sent_at"] = r.get("followup_sent_at") or "n/a"
     save(reqs); M.select("INBOX")
     # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
-    typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d (subject:\"corporal punishment\" OR \"escp-\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d subject:corporal"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
     handled = 0
     for num in (data[0].split() if data and data[0] else []):
         typ, raw = M.fetch(num, "(BODY.PEEK[])"); msg = email.message_from_bytes(raw[0][1])
