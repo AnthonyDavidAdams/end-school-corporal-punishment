@@ -727,7 +727,7 @@ mkdirSync(join(site, "live"), { recursive: true });
 .hud::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.55) 100%);z-index:8}
 .top{display:flex;align-items:center;gap:1.2rem;padding:0 14px;border-bottom:1px solid var(--ph-dim);font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;font-size:12px;z-index:10;background:linear-gradient(180deg,rgba(51,255,153,.05),transparent)}
 .top .id{color:var(--ph);display:flex;align-items:center;gap:.6rem}.top .id img{width:22px;height:22px;filter:grayscale(1) brightness(1.6) sepia(1) hue-rotate(90deg)}
-.top .stat{display:flex;gap:.45rem;align-items:baseline;color:var(--muted)}.top .stat b{color:var(--ph);font-size:15px;font-family:var(--mono)}.top .stat b.amber{color:var(--amber)}.top .stat b.red{color:var(--red)}
+.top .stat{display:flex;gap:.45rem;align-items:baseline;color:var(--ink);cursor:help}.top .stat span{display:flex;flex-direction:column;line-height:1.05}.top .stat small{font-size:9px;color:var(--muted);letter-spacing:.06em}.top .stat b{color:var(--ph);font-size:15px;font-family:var(--mono)}.top .stat b.amber{color:var(--amber)}.top .stat b.red{color:var(--red)}
 .top .right{margin-left:auto;display:flex;gap:1rem;align-items:center}.top .status{color:var(--amber)}.top .status i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:.4rem;animation:blink 1.4s infinite}
 @keyframes blink{50%{opacity:.2}}
 .top a.exit{color:var(--muted);text-decoration:none;border:1px solid var(--ph-dim);padding:.2rem .5rem}.top a.exit:hover{color:var(--ph);border-color:var(--ph)}
@@ -754,22 +754,49 @@ mkdirSync(join(site, "live"), { recursive: true });
 .ckact{display:flex;gap:.5rem;margin-top:.7rem}.ckbtn{flex:1;font:inherit;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:.5rem .6rem;border:1px solid var(--amber);background:var(--amber);color:#020604;cursor:pointer}.ckbtn.alt{background:transparent;color:var(--ink);border-color:var(--ph-dim);flex:0 0 auto}
 .meta{color:var(--muted)}code{font-family:var(--mono);color:var(--ph)}
 @media(max-width:900px){.pilots{display:none}.radio{width:min(46%,260px);top:8px;right:8px}.cams{left:8px;right:8px;bottom:8px;max-width:none}.cams input{min-width:0;flex:1 1 8rem}.flmode{display:none}.ckgrid{grid-template-columns:1fr}.top{gap:.6rem;font-size:10px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.top .stat{flex:0 0 auto}.top .stat b{font-size:13px}.top .stat.wide{display:none}.top .id span{display:none}.top .right{gap:.5rem}.top .status span:last-child{display:none}.legend{display:none}.bottom span:last-child{display:none}}
+
+.flcomms.brief{border-color:var(--ph);color:var(--ph)}
+.briefing{position:absolute;inset:0;z-index:20;background:rgba(2,6,4,.86);display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)}
+.brief-box{max-width:640px;border:1px solid var(--ph);padding:1.2rem 1.4rem;background:rgba(2,6,4,.96);position:relative}
+.brief-box::before,.brief-box::after{content:"";position:absolute;width:14px;height:14px;border-color:var(--ph);border-style:solid}.brief-box::before{top:-1px;left:-1px;border-width:2px 0 0 2px}.brief-box::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+.brief-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem}
+.brief-box h1{font-family:var(--mono2);font-weight:600;font-size:17px;line-height:1.35;color:#fff;margin:0 0 .9rem;text-wrap:balance}
+.brief-box ul{list-style:none;margin:0 0 .8rem;padding:0}.brief-box li{padding:.3rem 0;font-size:12.5px;line-height:1.45;color:var(--ink)}.brief-box li b{color:#fff}
+.brief-box p{font-size:12.5px;color:var(--muted);margin:0 0 1rem;line-height:1.45}
+.sq{display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:.45rem}.sq.fog{border:1px solid #8A2E3E;background:#1A0609}
+.brief-box .ship{display:inline-block;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:11px solid var(--cyan);vertical-align:-1px;margin-right:.45rem}
+.brief-act{display:flex;gap:.5rem;flex-wrap:wrap}.brief-act .ckbtn{flex:1 1 auto;text-align:center;text-decoration:none}
+@media(max-width:900px){.brief-box h1{font-size:15px}.top .stat small{display:none}}
 </style></head><body>
 <div class="hud">
   <div class="top">
     <div class="id"><img src="/kids/assets/earthpilot.png" alt=""><span>EarthPilot &middot; Mission Support</span></div>
-    <div class="stat"><b id="flRecord">${n(wall.totals.placed)}</b><span>on the record</span></div>
-    <div class="stat"><b id="flDark" class="red">${n(dark)}</b><span>under fog</span></div>
-    <div class="stat"><b id="flFlying" class="amber">0</b><span>ships on station</span></div>
-    <div class="stat wide"><b id="flWeek">&mdash;</b><span>lifted this week</span></div>
-    <div class="stat wide"><b class="red">${n(toll.reported.students)}</b><span>struck ${esc(toll.year)}</span></div>
-    <div class="right"><span class="status"><i></i><span id="flStatus">LINKING</span> <span id="flClock"></span></span><button type="button" id="flComms" class="flcomms">Open comms</button><a class="exit" href="/kids/">Exit</a></div>
+    <div class="stat" title="Districts whose own written rule on hitting students has been found and quoted, word for word, with its source."><b id="flRecord">${n(wall.totals.placed)}</b><span>rules found<small>and quoted</small></span></div>
+    <div class="stat" title="Districts where hitting students is legal and nobody has read the district's own rule yet. Each is a dark square on the map."><b id="flDark" class="red">${n(dark)}</b><span>rules unread<small>the dark squares</small></span></div>
+    <div class="stat" title="AI agents reading a district's policy right now. Each one is a ship on the map."><b id="flFlying" class="amber">0</b><span>agents reading<small>right now</small></span></div>
+    <div class="stat wide" title="Rules found and checked in the last seven days."><b id="flWeek">&mdash;</b><span>found<small>this week</small></span></div>
+    <div class="stat wide" title="Students who received corporal punishment in US public schools in ${esc(toll.year)}, by the districts' own federal filings."><b class="red">${n(toll.reported.students)}</b><span>children hit<small>${esc(toll.year)}, federal count</small></span></div>
+    <div class="right"><span class="status"><i></i><span id="flStatus">LINKING</span> <span id="flClock"></span></span><button type="button" id="flBrief" class="flcomms brief">What is this?</button><button type="button" id="flComms" class="flcomms">Open comms</button><a class="exit" href="/kids/">Exit</a></div>
   </div>
   <div class="stage">
     <div id="flightmap" aria-label="The fleet over the fog"></div>
     <div class="panel pilots"><h2>Pilots</h2><ol id="flLeaders" class="flleaders"><li class="meta">Loading&hellip;</li></ol><p class="meta" style="margin:.4rem 0 0;font-size:10px">Send a ship: <a href="/kids/connect/" style="color:var(--cyan)">connect an agent</a>, tell it <code>get_started</code>. Its first finding tells you your callsign.</p></div>
     <div class="panel radio"><h2>On the radio</h2><ul id="flRadio" class="ticker"><li class="meta">Listening to the crew&hellip;</li></ul></div>
     <div id="flCockpit" class="cockpit" hidden></div>
+    <div id="flBriefing" class="briefing" hidden>
+      <div class="brief-box">
+        <div class="brief-kicker">Mission briefing</div>
+        <h1>In 17 states a teacher may still hit a child. This map shows every school district where that is legal, and whether anyone has read the district's own rule.</h1>
+        <ul>
+          <li><i class="sq fog"></i><b>Dark squares</b> are districts nobody has read. ${n(dark)} of them. The rule may say anything.</li>
+          <li><i class="sq" style="background:#FF4D4D"></i><b>Red</b> means the district's own policy says teachers may hit students. <i class="sq" style="background:#43E08A;margin-left:.4rem"></i><b>Green</b> means it says they may not.</li>
+          <li><i class="ship"></i><b>Ships</b> are AI agents that people have pointed at this problem. Each flies to a district, reads its policy, quotes the sentence, and the square turns red or green for good.</li>
+          <li><i class="sq" style="background:#fff"></i><b>The Mothership</b> is our own automated pass. It flies every night at 2 a.m. Central.</li>
+        </ul>
+        <p>Every ship and every flight on this screen is real: a person somewhere told their agent to help, and this is that agent working. You can send one too, in about five minutes.</p>
+        <div class="brief-act"><button type="button" class="ckbtn" id="briefWatch">Watch the fleet</button><a class="ckbtn alt" href="/kids/connect/">Send my own agent</a><a class="ckbtn alt" href="/kids/">Read the record</a></div>
+      </div>
+    </div>
     <div class="cams"><button type="button" data-cam="country" class="on">Country</button><select id="flState" aria-label="Zoom to a state"><option value="">Zoom to a state…</option></select><input id="flFind" placeholder="Find my ship: callsign or handle" aria-label="Find my ship"><span id="flMode" class="flmode">COUNTRY</span></div>
     <div class="legend"><span><i style="background:#43E08A"></i>prohibits</span><span><i style="background:#FF4D4D"></i>permits</span><span><i style="background:#FFB000"></i>with consent</span><span><i style="background:#5E9B7C"></i>read, no rule</span><span><i style="background:#FFD966"></i>in review</span><span><i style="border:1px solid #6B2E3A"></i>under fog</span></div>
   </div>

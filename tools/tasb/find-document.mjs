@@ -13,13 +13,13 @@
 // available -- which matters, because a confidently wrong handbook attributes one district's policy to
 // another.
 import { readFileSync, appendFileSync, existsSync, mkdirSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { join, dirname, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
 const BRAVE = process.env.BRAVE_API_KEY, JEV = process.env.OPENROUTER_API_KEY;
-const OUT = join(root, arg("out", "data/handbooks/found-by-search.jsonl"));
+const OUT = (isAbsolute(arg("out", "data/handbooks/found-by-search.jsonl")) ? arg("out", "data/handbooks/found-by-search.jsonl") : join(root, arg("out", "data/handbooks/found-by-search.jsonl")));
 const KEEP = Number(arg("keep", 0.6));
 
 async function search(q) {
@@ -85,6 +85,14 @@ const QUERY_SETS = {
   ],
   // For a district whose handbook is silent: the rule is in the board policy manual, and most of
   // those live on a handful of vendors. Ask the search engine for the manual on each vendor by name.
+  // Florida boards on NEOLA manuals (most of them) carry the rule as policy 5630, "Corporal Punishment and
+  // Use of Reasonable Force and Restraint"; BoardDocs serves a single policy as a static page at a
+  // goto?open link that search engines index, so asking by number finds what the name alone did not.
+  neola: (d, s) => [
+    `"${d}" ${s} 5630 corporal punishment`,
+    `"${d}" ${s} "corporal punishment" policy site:go.boarddocs.com`,
+    `"${d}" ${s} "corporal punishment" "reasonable force" board policy`,
+  ],
   vendor: (d, s) => [
     `"${d}" ${s} site:simbli.eboardsolutions.com`,
     `"${d}" ${s} site:go.boarddocs.com OR site:boarddocs.com`,
@@ -115,7 +123,7 @@ export async function findDocuments(district, state) {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   if (!BRAVE || !JEV) { console.error("Needs BRAVE_API_KEY and OPENROUTER_API_KEY."); process.exit(1); }
-  const targets = JSON.parse(readFileSync(join(root, arg("in", "data/handbooks/unread.json")), "utf8"));
+  const targets = JSON.parse(readFileSync((isAbsolute(arg("in", "data/handbooks/unread.json")) ? arg("in", "data/handbooks/unread.json") : join(root, arg("in", "data/handbooks/unread.json"))), "utf8"));
   mkdirSync(dirname(OUT), { recursive: true });
   const done = new Set(existsSync(OUT) ? readFileSync(OUT, "utf8").trim().split("\n").filter(Boolean).map((l) => { try { return JSON.parse(l).district; } catch { return null; } }) : []);
   const queue = targets.filter((t) => !done.has(t.name));

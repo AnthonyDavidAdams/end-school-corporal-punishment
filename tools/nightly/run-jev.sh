@@ -15,6 +15,9 @@ export OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-$(grep -m1 OPENROUTER "$HOME/per
 export BRAVE_API_KEY=${BRAVE_API_KEY:-$(grep -m1 BRAVE "$HOME/.brave.env" | cut -d= -f2-)}
 [ -f "$HOME/.escp-deploy.env" ] && source "$HOME/.escp-deploy.env"
 SLICE=${ESCP_NIGHTLY_SLICE:-60}
+# The Mothership announces itself to the crew server, so the live board shows the pass as it happens.
+[ -f "$HOME/.escp-maintainer.env" ] && source "$HOME/.escp-maintainer.env"
+ops() { [ -n "${ESCP_MAINTAINER_TOKEN:-}" ] && node tools/report-ops.mjs "$@" >/dev/null 2>&1 || true; }
 
 # 1. The slice: unchecked districts, most children first, that were not searched in the last 14 days.
 npm --prefix tools run build-worklist >/dev/null 2>&1
@@ -30,10 +33,11 @@ fs.writeFileSync(`${log}/slice.json`, JSON.stringify(slice, null, 1));
 fs.writeFileSync("data/handbooks/nightly-searched.json", JSON.stringify(seen));
 console.log(`slice: ${slice.length} districts`);
 JS
+ops "nightly-$DAY" "Mothership on station: reading $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/slice.json") districts nobody has checked" "$(node -e 'console.log(require(process.argv[1]).length)' "$LOG/slice.json")" 0 0
 [ "$(node -e 'console.log(require(process.argv[1]).length)' "$LOG/slice.json")" -gt 0 ] || { echo "nothing to do"; exit 0; }
 
 # 2. Find, read, classify. Each is deterministic apart from Jev's typed decisions.
-node tools/tasb/find-document.mjs --in "$LOG/slice.json" --out "$LOG/found.jsonl" || { echo "find failed"; exit 1; }
+node tools/tasb/find-document.mjs --in "$LOG/slice.json" --out "$LOG/found.jsonl" || { echo "find failed"; ops "nightly-$DAY" "Mothership pass aborted: the document search failed" 0 0 0; exit 1; }
 node tools/tasb/read-found.mjs --in "$LOG/found.jsonl" --out "$LOG/read.jsonl" --workers 4 || { echo "read failed"; exit 1; }
 grep '"rule"' "$LOG/read.jsonl" > "$LOG/rule.jsonl" || true
 [ -s "$LOG/rule.jsonl" ] || { echo "no document carried the rule tonight"; exit 0; }
@@ -50,4 +54,5 @@ git add data/districts data/handbooks/nightly-searched.json site && git commit -
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" && git push -q origin main && echo pushed
 if [ -n "${DEPLOY_PASS:-}" ]; then sshpass -p "$DEPLOY_PASS" rsync -az --delete --exclude documents --exclude og.html --exclude news.php --exclude icon.php -e "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no" site/ "$DEPLOY_HOST:$DEPLOY_PATH" && echo deployed; fi
-echo "=== $(date -u +%FT%TZ) nightly done: $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/records.json") recorded, held in $LOG/held.json"
+N=$(node -e 'console.log(require(process.argv[1]).length)' "$LOG/records.json"); ops "nightly-$DAY" "Mothership pass complete: $N districts lifted from the fog, $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/held.json") held for a person" "$SLICE" "$N" 0
+echo "=== $(date -u +%FT%TZ) nightly done: $N recorded, held in $LOG/held.json"

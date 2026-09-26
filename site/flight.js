@@ -59,7 +59,7 @@
     if (follow) { const w = 160; target = [follow.x - w / 2, follow.y - (w * 610 / 975) / 2, w, w * 610 / 975]; }
     for (let i = 0; i < 4; i++) view[i] += (target[i] - view[i]) * 0.08;
     svg.setAttribute("viewBox", view.map((v) => v.toFixed(2)).join(" "));
-    const z = 975 / view[2]; gDist.setAttribute("transform", ""); for (const s of ships.values()) s.g.setAttribute("transform", `translate(${s.x},${s.y}) scale(${(1 / Math.sqrt(z)).toFixed(3)})`);
+    const z = 975 / view[2]; gDist.setAttribute("transform", ""); const sc = (1 / Math.sqrt(z)).toFixed(3); for (const s of ships.values()) s.g.setAttribute("transform", `translate(${s.x},${s.y}) scale(${sc})`); if (moth && !moth.dataset.flying) moth.setAttribute("transform", `translate(${MOTH_HOME[0]},${MOTH_HOME[1]}) scale(${sc})`);
   }
 
   // ---- ships ----
@@ -72,11 +72,12 @@
       s = { ...row, x: home[0], y: home[1], hx: home[0], hy: home[1], tx: home[0], ty: home[1], lock: null, beam: 0 };
       s.g = el("g", { class: "fl-ship" }, gShips);
       const c = HULL[row.hull] || HULL.custom;
-      s.body = el("path", { d: "M0,-4.5 L3.2,3.5 L0,1.8 L-3.2,3.5 Z", fill: c, stroke: "#020604", "stroke-width": 0.4 }, s.g);
-      s.ring = el("circle", { r: 6.5, fill: "none", stroke: c, "stroke-width": 0.5, opacity: 0 }, s.g);
-      s.label = el("text", { y: 9.5, "text-anchor": "middle", "font-size": 4.2, fill: c, "font-family": "Share Tech Mono, IBM Plex Mono, monospace", "letter-spacing": 0.3 }, s.g); s.label.textContent = row.callsign;
+      s.glow = el("circle", { r: 7, fill: c, opacity: 0.12 }, s.g);
+      s.body = el("path", { d: "M0,-7.5 L5.2,6 L0,3 L-5.2,6 Z", fill: c, stroke: "#020604", "stroke-width": 0.5 }, s.g);
+      s.ring = el("circle", { r: 10, fill: "none", stroke: c, "stroke-width": 0.6, opacity: 0, "stroke-dasharray": "2 1.5" }, s.g);
+      s.label = el("text", { y: 13.5, "text-anchor": "middle", "font-size": 5.6, fill: c, "font-family": "Share Tech Mono, IBM Plex Mono, monospace", "letter-spacing": 0.3 }, s.g); s.label.textContent = row.callsign;
       s.g.addEventListener("click", () => { camera("follow", s); openCockpit(s.lock, s); });
-      s.beamEl = el("line", { stroke: c, "stroke-width": 0.6, opacity: 0, "stroke-dasharray": "1.5 1" }, gBeams);
+      s.beamEl = el("line", { stroke: c, "stroke-width": 1.1, opacity: 0, "stroke-dasharray": "2 1.2" }, gBeams);
       ships.set(row.id, s);
     } else Object.assign(s, { districts: row.districts, children: row.children, tier: row.tier, display_name: row.display_name, flying: row.flying });
     return s;
@@ -158,7 +159,10 @@
     else if (e.kind === "machine") { if (!fast) { radio(`<b>Mothership</b>: ${esc(e.headline || "pass")}`, "on"); say("Mothership on station."); } mothership(); }
     hud();
   }
-  let moth = null; function mothership() { if (!moth) { moth = el("g", { class: "fl-moth" }, gShips); el("path", { d: "M-9,0 L-3,-3 L3,-3 L9,0 L3,3 L-3,3 Z", fill: "#fff", opacity: 0.85 }, moth); const t = el("text", { y: -5, "text-anchor": "middle", "font-size": 4, fill: "#fff", "font-family": "Share Tech Mono, monospace" }, moth); t.textContent = "MOTHERSHIP"; } const t0 = performance.now(); const step = () => { const t = (performance.now() - t0) / 6000; if (t >= 1) { moth.setAttribute("transform", "translate(-50,-50)"); return; } moth.setAttribute("transform", `translate(${(120 + t * 760).toFixed(1)},${(60 + Math.sin(t * 6) * 4).toFixed(1)})`); requestAnimationFrame(step); }; requestAnimationFrame(step); }
+  let moth = null; const MOTH_HOME = [560, 470];
+  function mothershipInit() { moth = el("g", { class: "fl-moth" }, gShips); el("circle", { r: 13, fill: "#fff", opacity: 0.08 }, moth); el("path", { d: "M-14,0 L-5,-5 L5,-5 L14,0 L5,5 L-5,5 Z", fill: "#fff", opacity: 0.9, stroke: "#020604", "stroke-width": 0.6 }, moth); const t = el("text", { y: 12, "text-anchor": "middle", "font-size": 5.6, fill: "#fff", "font-family": "Share Tech Mono, monospace", "letter-spacing": 0.4 }, moth); t.textContent = "MOTHERSHIP"; moth.setAttribute("transform", `translate(${MOTH_HOME[0]},${MOTH_HOME[1]})`); moth.style.cursor = "pointer"; moth.addEventListener("click", () => { const box = $("flCockpit"); box.hidden = false; box.innerHTML = `<div class="ckhead"><b>Mothership</b><span>EarthPilot's own automated pass</span></div><p>Every night at 02:00 Central the Mothership takes the ${"60"} districts that struck the most children and nobody has read, searches for each one's own policy document, reads it, and has the decision model quote the sentence that settles it. Anything it cannot settle it hands to a person. ${nextPass()}</p><div class="ckact"><button type="button" class="ckbtn alt" id="ckClose">Close</button></div>`; $("ckClose").addEventListener("click", () => { box.hidden = true; }); }); }
+  function nextPass() { const now = new Date(); const ct = new Date(now.toLocaleString("en-US", { timeZone: "America/Chicago" })); const h = ct.getHours() + ct.getMinutes() / 60; const hrs = h < 2 ? 2 - h : 26 - h; return `Next pass in ${Math.floor(hrs)}h ${Math.round((hrs % 1) * 60)}m.`; }
+  function mothership() { if (!moth) mothershipInit(); const t0 = performance.now(); const step = () => { const t = (performance.now() - t0) / 7000; if (t >= 1) { moth.setAttribute("transform", `translate(${MOTH_HOME[0]},${MOTH_HOME[1]})`); return; } const x = MOTH_HOME[0] + Math.sin(t * Math.PI) * 220 * (t < 0.5 ? -1 : 1) * Math.sin(t * Math.PI); const y = MOTH_HOME[1] - Math.sin(t * Math.PI) * 300; moth.setAttribute("transform", `translate(${x.toFixed(1)},${y.toFixed(1)})`); requestAnimationFrame(step); }; requestAnimationFrame(step); }
 
   async function boot() {
     let d; try { d = await (await fetch(`${SERVER}/fleet.json?limit=3000`, { cache: "no-store" })).json(); } catch { d = null; }
@@ -171,6 +175,7 @@
     const total = Math.max(1, ev.length), per = Math.max(40, Math.min(220, 20000 / total));
     for (let i = 0; i < ev.length; i++) { const e = ev[i]; if (clock) clock.textContent = new Date(e.at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric" }).toUpperCase(); apply(e, i < ev.length - 25); lastAt = e.at; await new Promise((r) => setTimeout(r, per)); }
     replaying = false; $("flStatus").textContent = "LIVE"; if (clock) clock.textContent = "";
+    if (!ev.some((e) => Date.now() - Date.parse(e.at) < 3600e3)) radio(`<b>Mission Support</b>: quiet hour. No ship on station. The Mothership's ${nextPass().toLowerCase()} <a href="/kids/connect/" style="color:var(--cyan)">Send a ship</a> and it lands within the hour.`);
     // Ships that hold a lease right now stay on station.
     for (const row of d.ships) { const s = ships.get(row.id); if (row.flying) fly(s, resolve(row.flying.scope)); else if (s.lock) land(s); }
     hud(); poll();
@@ -191,6 +196,10 @@
   $("flFind")?.addEventListener("keydown", (e) => { if (e.key !== "Enter") return; const v = e.target.value.trim().toLowerCase(); const s = [...ships.values()].find((x) => x.id === v || x.callsign.toLowerCase() === v || (x.display_name || "").toLowerCase() === v); if (s) { camera("follow", s); openCockpit(s.lock, s); e.target.value = ""; } else e.target.value = "no such ship"; });
   svg.querySelectorAll("path.county").forEach((c) => c.addEventListener("dblclick", () => camera("state", c.dataset.state)));
   const sel = $("flState"); if (sel) for (const st of wall.states) { const o = document.createElement("option"); o.value = st.code; o.textContent = `${st.name} · ${n(st.total - st.placed)} under fog`; sel.appendChild(o); }
+  mothershipInit();
+  // The briefing: shown until dismissed once, and always one click away.
+  const briefing = $("flBriefing"); let seen = false; try { seen = localStorage.getItem("escp-briefed") === "1"; } catch {}
+  if (briefing) { briefing.hidden = seen; $("briefWatch")?.addEventListener("click", () => { briefing.hidden = true; try { localStorage.setItem("escp-briefed", "1"); } catch {} }); $("flBrief")?.addEventListener("click", () => { briefing.hidden = false; }); }
   (function loop(now) { tickShips(now); tickCamera(); requestAnimationFrame(loop); })(performance.now());
   boot();
 })();

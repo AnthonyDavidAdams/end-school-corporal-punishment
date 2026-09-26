@@ -16,13 +16,13 @@
 //
 //   node tools/tasb/classify.mjs [--in data/tasb/harvest.jsonl] [--out data/tasb/classified.json] [--threshold 0.99]
 import { readFileSync, writeFileSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { join, dirname, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
-const IN = join(root, arg("in", "data/tasb/harvest.jsonl"));
-const OUT = join(root, arg("out", "data/tasb/classified.json"));
+const IN = (isAbsolute(arg("in", "data/tasb/harvest.jsonl")) ? arg("in", "data/tasb/harvest.jsonl") : join(root, arg("in", "data/tasb/harvest.jsonl")));
+const OUT = (isAbsolute(arg("out", "data/tasb/classified.json")) ? arg("out", "data/tasb/classified.json") : join(root, arg("out", "data/tasb/classified.json")));
 // Two thresholds, because they are two different jobs and only one of them has been measured.
 //
 // Status classification was validated against 311 human-reviewed findings: 99.4% agreement overall and

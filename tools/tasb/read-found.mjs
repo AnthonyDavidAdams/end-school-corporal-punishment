@@ -5,7 +5,7 @@
 // not, because the rule is a board policy -- so a district with three documents and no mention is
 // recorded as nothing rather than guessed at.
 import { readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { join, dirname, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ANCHORS, NOT_THIS, hasAnchor } from "./vocabulary.mjs";
 import { fetchWithBrowser, browserAvailable, closeBrowser } from "./browser.mjs";
@@ -13,8 +13,8 @@ import { fetchWithBrowser, browserAvailable, closeBrowser } from "./browser.mjs"
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const SERVER = "https://escp-mcp-production.up.railway.app/mcp";
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
-const IN = join(root, arg("in", "data/handbooks/found-by-search.jsonl"));
-const OUT = join(root, arg("out", "data/handbooks/read.jsonl"));
+const IN = (isAbsolute(arg("in", "data/handbooks/found-by-search.jsonl")) ? arg("in", "data/handbooks/found-by-search.jsonl") : join(root, arg("in", "data/handbooks/found-by-search.jsonl")));
+const OUT = (isAbsolute(arg("out", "data/handbooks/read.jsonl")) ? arg("out", "data/handbooks/read.jsonl") : join(root, arg("out", "data/handbooks/read.jsonl")));
 const WORKERS = Number(arg("workers", 5));
 
 async function mcp(name, args) {
