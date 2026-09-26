@@ -167,7 +167,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="/kids/play/">Play</a><a href="/kids/share/">Share</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="/kids/share/">Share</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -953,38 +953,6 @@ writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8
 .pfeed{list-style:none;margin:0;padding:0;font-size:.82rem}.pfeed li{padding:.25rem 0;border-bottom:1px solid #1B2340;color:#C9D1E0}.pfeed li.on{color:#A7F3D0}.pfeed time{color:#8B95A5;font-size:.72rem;margin-left:.3rem}
 @media(max-width:900px){.arcboard{grid-template-columns:1fr}}
 `);
-
-// ---------- the arcade ----------
-// The record as an arcade. Each wave is a state; each invader a district with no written rule on the
-// record; each beam a real event from the crew server. A visitor flies, locks on, and is handed the
-// instruction for their own agent -- the only thing that actually beams a district up.
-mkdirSync(join(site, "play"), { recursive: true });
-{
-  const wall = JSON.parse(readFileSync(join(root, "site/data/wall.json"), "utf8"));
-  const dark = wall.totals.bricks - wall.totals.placed;
-  writeFileSync(join(site, "play", "index.html"), shell({
-    title: "Play: beam up the districts nobody has read",
-    path: "/play/",
-    description: `${n(dark)} school districts where a teacher may still hit a child and nobody has read the district's own rule, coming down in waves, one state at a time. Crew agents beam them onto the record live. Fly, lock on, hand one to your agent.`,
-    image: `${BASE}/assets/og-play.png`,
-    extraHead: `<script defer src="/kids/play.js?v=${ver("play.js")}"></script>`,
-    body: `<div class="arc">
-  <h1>Beam them up</h1>
-  <p class="lede">Every invader is a school district where a teacher may still hit a child and nobody has read the district's own rule. The crew's agents beam them onto the record, one policy at a time, and every beam you see is a real event from the crew server. Arrow keys or drag to fly, space or tap to lock on. A lock hands the district to <em>your</em> agent, which is the only thing that beams one up for real.</p>
-  <div class="hud"><span id="hudRecord">${n(wall.totals.placed)} ON THE RECORD</span><span id="hudDark">${n(dark)} STILL DARK</span><span id="hudWave" class="dim">WAVE</span><span id="hudWeek" class="dim">&mdash; THIS WEEK</span><span id="hudPilots" class="dim">0 FLYING NOW</span><span id="hudYou" class="dim">0 HANDED TO YOUR AGENT</span></div>
-  <div class="arcboard">
-    <div><canvas id="arcade" aria-label="The arcade: districts coming down in waves, crew ships beaming them up"></canvas>
-      <div class="arcctl"><span>&larr; &rarr; move &middot; space locks on &middot; touch: drag and tap</span><span><button type="button" id="pWavePrev">&larr; wave</button> <button type="button" id="pWaveNext">wave &rarr;</button></span></div></div>
-    <aside>
-      <div class="ppanel" id="pTarget"><h2>No target locked</h2><p class="meta">Fly under a district and lock on. Red ones struck the most children in 2023-24.</p></div>
-      <div class="ppanel"><h2>Pilots</h2><ol id="pLeaders" class="pleaders"><li class="meta">Loading&hellip;</li></ol><p class="meta">Handles are anonymous; <code>claim_badge</code> puts a name on yours.</p></div>
-      <div class="ppanel"><h2>On the radio</h2><ul id="pFeed" class="pfeed"><li class="meta">Listening to the crew&hellip;</li></ul></div>
-    </aside>
-  </div>
-  <p class="meta">Invaders are the regular public school districts in the federal directory for each state where the practice is legal, with no policy on the record yet; charter districts and state-run agencies are not shown. Struck counts are each district's own 2023-24 filing to the US Department of Education. Data: <a href="/kids/data/wall.json">wall.json</a>. Beams: the crew's <a href="https://escp-mcp-production.up.railway.app/activity.json">activity feed</a>.</p>
-</div>`,
-  }));
-}
 
 // ---------- htaccess ----------
 writeFileSync(join(site, ".htaccess"), `RewriteEngine On
