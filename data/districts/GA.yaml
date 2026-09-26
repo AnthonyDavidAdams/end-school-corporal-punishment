@@ -490,16 +490,16 @@ districts:
     parent_control: unknown
     quotes:
       - The use of corporal punishment in the Clayton County Schools is prohibited.
-  - name: Clinch County
+  - name: Clinch County School System
     county: Clinch
     nces_id: "1301260"
     status: allows
-    method: agent_via_crew
-    source: https://resources.finalsite.net/images/v1785430718/clinchcountycom/ls8ptmkrmvk60zl7tcd6/CCHSStudentHandbookfor2026-2027.pdf
-    quote: If a parent does not wish for corporal punishment to be administered to their child, a form from the front office will have to be filled out. This must be done annually and in writing.
+    method: vendor_manual
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4039&revid=4HivlReg8slshL3rJzoFSK66Q%3D%3D
+    quote: Any administrator or certified employee designated by the principal of the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
     policy_code: null
-    crdc_students_latest: 52
-    last_verified: 2026-09-21
+    crdc_students_latest: null
+    last_verified: 2026-09-25
     contact:
       district_email: clinchpr@clinchcounty.com
       phone: 912-487-5321
@@ -509,7 +509,14 @@ districts:
       contact_page: https://www.clinchcounty.com/email-us
       public_comment: "Per Policy BCBI (last updated 7/22/21): 24 hours' advance notice required, procedures available from the Superintendent's office; full 'Rules of Conduct for Public Participation' document at https://www.clinchcounty.com/fs/resource-manager/view/2325c805-7e41-4c58-a5b2-42bdf53e9465"
       as_of: 2026-09-21
-    notes: null
+    notes: Board policy JDA on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites; identity matched to the federal LEA directory by name prefix.
+    parent_control: opt_out
+    quotes:
+      - Any administrator or certified employee designated by the principal of the Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+      - The corporal punishment shall not be excessive or unduly severe.
+      - Corporal punishment shall never be used as a first line of punishment for misbehavior unless the pupil was informed beforehand that specific misbehavior could occasion its use;
+      - provided, however, that corporal punishment may be employed as a first line of punishment for those acts of misconduct which are so antisocial or disruptive in nature as to shock the conscience.
+      - Corporal punishment shall not be administered to a child whose parents or legal guardian have filed with the principal of the school a statement expressly objecting to the use of corporal punishment or a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child's mental or emotional stability.
   - name: Cobb County School District
     county: Cobb
     nces_id: "1301290"
@@ -980,18 +987,22 @@ districts:
       - Corporal punishment shall never be used as a first line of punishment for misbehavior unless the student was informed beforehand that specific misbehavior could occasion its use;
       - provided, however, that corporal punishment may be employed as a first line of punishment for those acts of misconduct which are so antisocial or disruptive in nature as to shock the conscience.
       - Corporal punishment shall not be administered to a child whose parents or legal guardian has requested in writing that their child not receive corporal punishment.
-  - name: Griffin-Spalding County
+  - name: Griffin-Spalding County School System
     county: Spalding
     nces_id: "1302520"
     status: bans
     method: vendor_manual
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4079&revid=5DmrplusdplusNNVyOyP0htR5Grw%3D%3D
     quote: CORPORAL PUNISHMENT Corporal punishment is not permitted with the Griffin-Spalding County School System (GSCS).
-    policy_code: JDA
+    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+    last_verified: 2026-09-25
+    notes: Board policy JDA on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites; identity matched to the federal LEA directory by name prefix.
     county_source: nces_edge_geocode_2023_24
+    parent_control: unknown
+    quotes:
+      - CORPORAL PUNISHMENT Corporal punishment is not permitted with the Griffin-Spalding County School System (GSCS).
+      - While the principal of each school has the authority to provide consequences to any student who violates the GSCS Student Code of Conduct, corporal punishment is not permitted as an appropriate nor permissible consequence within GSCS.
   - name: Gwinnett County Public Schools
     county: Gwinnett
     nces_id: "1302550"
@@ -1692,6 +1703,21 @@ districts:
       - Corporal punishment must never be the first line of punishment unless the pupil was informed beforehand that the misbehavior could result in corporal punishment, except when the misconduct is so anti-social or disruptive in nature that it shocks the conscience.
       - The school official or teacher who administered corporal punishment must provide the child’s parent, upon request, a written explanation of the reasons for the punishment and the name of the principal or assistant principal, who was present;
       - Corporal punishment shall not be administered to a child whose parents or legal guardian have upon the day of enrollment of the pupil filed with the principal of the school a statement objecting to its use or a statement from a medical doctor licensed in Georgia stating that it is detrimental to the child’s mental or emotional stability.
+  - name: Putnam County Charter School System
+    county: Putnam
+    nces_id: "1304260"
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4133&revid=gtYevUjKByHCKqNLd8aP8w%3D%3D
+    quote: The Putnam County Board of Education prohibits the use of corporal punishment by any of its employees.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: unknown
+    quotes:
+      - The Putnam County Board of Education prohibits the use of corporal punishment by any of its employees.
+    notes: Board policy JDA on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites; identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
   - name: Quitman County Schools
     county: Quitman
     nces_id: "1304290"
@@ -2276,6 +2302,26 @@ districts:
     quotes:
       - --must never be the first line of punishment unless the pupil was informed beforehand that the misbehavior could result in corporal punishment, except when the misconduct is so anti- social or disruptive in nature that it shocks the conscience.
       - --corporal punishment cannot be given to any child who has a statement from a licensed medical doctor on file with the principal saying that such punishment is detrimental to the child's mental or emotional stability, or a statement on file from a parent objecting to its use.
+  - name: White County School System
+    county: White
+    nces_id: "1305670"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4176&revid=uWN721U5lmSvhERplusFC1wqA%3D%3D
+    quote: Any principal or other designated school administrator employed by the White County Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: vendor_manual
+    parent_control: opt_out
+    quotes:
+      - Any principal or other designated school administrator employed by the White County Board of Education, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
+      - No other employee of the board or any other person, including the parents or guardian of such child or children, may administer corporal punishment in any school or on any school property in this school district.
+      - Corporal punishment shall never be used as a first line of punishment for misbehavior unless the pupil was informed beforehand that specific misbehavior could occasion its use;
+      - provided, however, that corporal punishment may be employed as a first line of punishment for those acts of misconduct which are so antisocial or disruptive in nature as to shock the conscience.
+      - Corporal punishment shall not be administered to a child whose parents or legal guardian have filed with the principal of the school a statement expressly objecting to the use of corporal punishment or a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child's mental or emotional stability.
+      - Corporal punishment shall not be administered to a student who refuses to accept corporal punishment in lieu of other punishment nor shall corporal punishment be administered to a student whose parent has requested in writing that corporal punishment not be used, regardless of whether the parent has provided a statement from a medical doctor as described above.
+    notes: Board policy JDA on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites; identity matched to the federal LEA directory by name prefix.
+    county_source: nces_edge_geocode_2023_24
   - name: Wilcox County Schools
     county: Wilcox
     nces_id: "1305730"
