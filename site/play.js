@@ -124,7 +124,9 @@
 
   // ---- input ----
   const keys = {}; let touchX = null;
-  addEventListener("keydown", (e) => { if (["ArrowLeft", "ArrowRight", " ", "a", "d"].includes(e.key)) { keys[e.key] = true; if (e.target === document.body) e.preventDefault(); } });
+  // Space fires on the keydown itself: a quick tap can begin and end between two frames, and a lock
+  // that only registers when the key is held reads as a broken game.
+  addEventListener("keydown", (e) => { if (["ArrowLeft", "ArrowRight", " ", "a", "d"].includes(e.key)) { keys[e.key] = true; if (e.key === " ") fire(); if (e.target === document.body) e.preventDefault(); } });
   addEventListener("keyup", (e) => { keys[e.key] = false; });
   canvas.addEventListener("pointerdown", (e) => { const r = canvas.getBoundingClientRect(); touchX = e.clientX - r.left; fire(); });
   canvas.addEventListener("pointermove", (e) => { if (touchX != null) { const r = canvas.getBoundingClientRect(); touchX = e.clientX - r.left; } });
@@ -151,7 +153,7 @@
     if (wave && !inv.some((s) => s.state !== "gone") && wave.next >= wave.pool.length) load(waveIx + 1);
     // you
     if (keys.ArrowLeft || keys.a) you.x -= 0.45 * dt; if (keys.ArrowRight || keys.d) you.x += 0.45 * dt; if (touchX != null) you.x += (touchX - you.x) * 0.2;
-    if (keys[" "]) fire(); if (fireCd > 0) fireCd--; you.x = Math.max(20, Math.min(W - 20, you.x)); if (you.beam > 0) you.beam--;
+    if (fireCd > 0) fireCd--; you.x = Math.max(20, Math.min(W - 20, you.x)); if (you.beam > 0) you.beam--;
     for (const s of ships.values()) { if (s.tx != null) { s.x += (s.tx - s.x) * 0.08; if (Math.abs(s.tx - s.x) < 1) s.tx = null; } else s.x += Math.sin(now / 1700 + s.id.length) * 0.15; if (s.beam > 0) s.beam--; }
 
     // draw
