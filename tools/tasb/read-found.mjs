@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, dirname, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
+import { reportOps } from "../lib/ops.mjs";
 import { ANCHORS, NOT_THIS, hasAnchor } from "./vocabulary.mjs";
 import { fetchWithBrowser, browserAvailable, closeBrowser } from "./browser.mjs";
 
@@ -85,5 +86,6 @@ async function worker() {
 await Promise.all(Array.from({ length: WORKERS }, worker));
 await closeBrowser();
 console.log(`\n${hit}/${n} carry the rule | ${silent} real documents silent | ${unreadable} nothing readable (stubs, scans, dead links)`);
+await reportOps({ summary: `Mothership read the documents of ${n} districts: ${hit} carry the rule, ${silent} silent, ${unreadable} unreadable`, units: n, produced: hit });
 // The MCP child and the browser are finished; do not let an open handle keep the process alive.
 process.exit(0);

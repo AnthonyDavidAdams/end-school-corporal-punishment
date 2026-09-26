@@ -15,6 +15,7 @@
 import { readFileSync, appendFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, dirname, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
+import { reportOps } from "../lib/ops.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
@@ -137,4 +138,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     if (n % 25 === 0) console.log(`[${n}/${queue.length}] ${hit} found, $${cost.toFixed(4)}`);
   }
   console.log(`\n${hit}/${n} districts with a document, $${cost.toFixed(4)}`);
+  await reportOps({ summary: `Mothership searched ${n} districts for their own discipline documents; found documents for ${hit}`, units: n, produced: hit, cost });
 }

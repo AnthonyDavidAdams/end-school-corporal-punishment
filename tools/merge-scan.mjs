@@ -4,6 +4,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { reportOps } from "./lib/ops.mjs";
 import { parse, stringify } from "yaml";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 import { norm, kind, sameName } from "./lib/district-name.mjs";
@@ -86,3 +87,4 @@ for (const f of process.argv.slice(2)) {
   }
 }
 console.log(`added ${added}, updated ${updated}, skipped ${skipped}`);
+if (added + updated) await reportOps({ summary: `Mothership merged ${added + updated} districts into the public record`, units: added + updated + skipped, produced: added + updated });

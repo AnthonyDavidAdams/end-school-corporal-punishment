@@ -18,6 +18,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
+import { reportOps } from "../lib/ops.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
@@ -195,4 +196,5 @@ const by = {};
 for (const r of out) if (r.status) by[r.status] = (by[r.status] || 0) + 1;
 console.log(`${recorded} recorded (status >= ${THRESHOLD}, quote >= ${QUOTE_THRESHOLD}), ${held} held for review, ${out.filter(r=>r.error).length} errors`);
 console.log(`statuses: ${JSON.stringify(by)}`);
+await reportOps({ summary: `Mothership judged ${out.length} districts with the decision model: ${recorded} settled, ${held} held for a person`, units: out.length, produced: recorded, cost });
 console.log(`cost: $${cost.toFixed(4)}  (${(cost / Math.max(1, out.length)).toFixed(6)} per district)`);
