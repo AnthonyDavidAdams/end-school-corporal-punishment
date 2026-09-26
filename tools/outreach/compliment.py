@@ -84,7 +84,7 @@ def pick(name, state, items):
 def write(name, h):
     prompt = (f"Write ONE sentence, at most 28 words, that a person could say sincerely at the start of a letter to the office of {name}, "
               f"referring to this news: \"{h['title']}\" ({h['source']}, {h['date']}). Plain and specific. Begin with 'Congratulations on' or 'I saw that'. "
-              "Never name a student: say 'a Gurdon student' or 'one of your students' rather than a child's name (staff may be named). No exclamation marks, no 'amazing', 'incredible' or 'awesome', no claims beyond the headline, no questions. Output only the sentence.".replace("Gurdon", name.split()[0]))
+              "Do not mention the news outlet. If the headline does not say whether a named person is a student or staff, refer to them as 'a member of the Gurdon community'. Never name a student: say 'a Gurdon student' or 'one of your students' rather than a child's name (staff may be named). No exclamation marks, no 'amazing', 'incredible' or 'awesome', no claims beyond the headline, no questions. Output only the sentence.".replace("Gurdon", name.split()[0]))
     req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",
                                  data=json.dumps({"model": WRITER, "max_tokens": 80, "temperature": 0.3, "messages": [{"role": "user", "content": prompt}]}).encode(),
                                  headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
