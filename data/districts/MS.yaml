@@ -145,6 +145,26 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+  - name: Bay St Louis Waveland School District
+    county: Hancock
+    nces_id: "2800570"
+    status: silent
+    source: https://www.bwsd.org/en-US/parents-resources-9b0382b4
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://www.bwsd.org/en-US/parents-resources-9b0382b4
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Benton County Schools
     county: Benton
     nces_id: "2800600"
@@ -267,6 +287,26 @@ districts:
     policy_adopted: 2010-02-22
     policy_revised: 2019-06-24
     policy_dates_from: notes
+  - name: Canton Public School District
+    county: Madison
+    nces_id: "2800900"
+    status: silent
+    source: https://www.cantonschools.net/students/student-handbooks
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.cantonschools.net/students/student-handbooks
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Carroll County Schools
     county: Carroll
     nces_id: "2800930"
@@ -430,6 +470,64 @@ districts:
     notes: "NO SUCH DISTRICT EXISTS TODAY. The Clay County School District was abolished effective 2015-07-01, when it and the West Point School District were consolidated into the West Point Consolidated School District (WPCSD), whose boundaries are now coterminous with Clay County. There is no Clay County SD website, board policy manual or handbook to open. Per the coordinator's Mississippi tip and the brief, nces_id is filed as null: the federal row paired this district with nces_name 'LAMAR COUNTY SCHOOL DISTRICT' (website ww.lamarcountyschools.org), a different district, so the id and website in the input cannot be trusted. Places searched: web search for 'Clay County School District Mississippi' and for a Clay County policy manual; https://www.westpoint.k12.ms.us/ (resolve_handbook); https://www.westpoint.k12.ms.us/student-handbooks; westpoint.msbapolicy.org. FOR THE SUCCESSOR DISTRICT ONLY, not filed as this record's status: WPCSD's 2026-2027 K-7 Student Handbook (https://content.myconnectsuite.com/api/documents/183fd8174b4843259c3087994070d6a4.pdf, 2,080,430 bytes, application/pdf, 101 pages) permits corporal punishment - PDF page 49: 'Step 4: Corporal punishment (when applicable) - Parent Contacted' and '***Student who cannot receive corporal punishment will receive either ISS or OSS.'; PDF page 50 assigns 'Corporal punishment or 1 day of ISS' for a grades 1-4 second offense. I searched that handbook for a consent or opt-out form and found none. WPCSD's board policy manual is Simbli site S=36031805 (via westpoint.msbapolicy.org) and was not read. Recommend the crew re-file this row under the name 'West Point Consolidated School District'."
     policy_code: null
     crdc_students_latest: null
+  - name: Cleveland School District
+    county: Bolivar
+    nces_id: "2800750"
+    status: silent
+    source: https://cchs.cleveland.k12.ms.us/for-students/student-handbook
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://cchs.cleveland.k12.ms.us/for-students/student-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Clinton Public School District
+    county: Hinds
+    nces_id: "2801090"
+    status: silent
+    source: https://resources.finalsite.net/images/v1706677500/clintonpublicschoolscom/nveixcwhstsmr2ztalhe/comprehensiveclintonhighschoolstudenthandbook-2.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://resources.finalsite.net/images/v1706677500/clintonpublicschoolscom/nveixcwhstsmr2ztalhe/comprehensiveclintonhighschoolstudenthandbook-2.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.clintonpublicschools.com/link-one/child-page-two/cpsd-student-handbooks/elementary-school-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://resources.finalsite.net/images/v1715784297/clintonpublicschoolscom/b1yhdbqeciasbd490npu/CPSDSecondaryHandbook.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.clintonpublicschools.com/schools/northside-elementary/quick-links/2022-2023-student-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Coahoma County School District
     county: Coahoma
     nces_id: "2801110"
@@ -476,6 +574,41 @@ districts:
     policy_revised: 2013-04-09
     policy_dates_from: notes
     county_source: nces_edge_geocode_2023_24
+  - name: Columbia School District
+    county: Marion
+    nces_id: "2801170"
+    status: silent
+    source: https://www.columbiaschools.org/athletics/policieshandbook
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.columbiaschools.org/athletics/policieshandbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Columbus Municipal School District
+    county: Lowndes
+    nces_id: "2801200"
+    status: bans
+    source: https://columbuscityschools.ss20.sharpschool.com/district_info/StudentHandbook
+    quote: Discipline in the form of any corporal punishment shall not be practiced.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - Discipline in the form of any corporal punishment shall not be practiced.
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Copiah County Schools
     county: Copiah
     nces_id: "2801220"
@@ -500,6 +633,44 @@ districts:
     policy_adopted: 2017-08-07
     policy_revised: 2019-07-01
     policy_dates_from: notes
+  - name: Corinth School District
+    county: Alcorn
+    nces_id: "2801260"
+    status: silent
+    source: https://resources.finalsite.net/images/v1665087748/corinthk12msus/xntckk0lijhgpah26uci/STUDENTHANDBOOK2022-FINALv2.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://resources.finalsite.net/images/v1665087748/corinthk12msus/xntckk0lijhgpah26uci/STUDENTHANDBOOK2022-FINALv2.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.corinth.k12.ms.us/student-life/student-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://resources.finalsite.net/images/v1689706121/corinthk12msus/grfbxxxcxx7aiwuxoues/2023STUDENTHANDBOOKFINAL-7-13-23.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://resources.finalsite.net/images/v1752242248/corinthk12msus/ruuqktswaup32pkkuv4r/2025-2026STUDENTHANDBOOKFINALCOPY7-8-25v3.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Covington County Schools
     county: Covington
     nces_id: "2801290"
@@ -547,6 +718,90 @@ districts:
     policy_adopted: 2008-07-01
     policy_revised: 2026-01-23
     policy_dates_from: notes
+  - name: East Jasper Consolidated School District
+    county: Jasper
+    nces_id: "2801380"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2535/East_Jasper/3a3bbd20-230a-46d0-8c5c-5a5a0edc1a1d/EJSD-Student-Handbook-2025-2026-Final.pdf?disposition=inline
+    quote: Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: opt_out
+    quotes:
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+      - Corporal Punishment (Paddling) Corporal punishment (paddling) will be permitted within the East Jasper School District.
+      - Parents who do not wish to authorize corporal punishment must sign a WAIVER every school year that states that their child should not be paddled.
+      - If a child is placed on the Do Not Paddle list, the parent/guardian may be required to pick up their child for serious discipline incidents.
+      - Paddling may be administered by a certified administrator OR in the presence of a certified administrator for minor infractions.
+      - At no time shall a student with an IEP or 504 be subjected to corporal punishment pursuant to House Bill 1182.
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: ENTERPRISE SCHOOL DIST
     county: Clarke
     nces_id: "2801440"
@@ -565,6 +820,32 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+  - name: Forest Municipal School District
+    county: Scott
+    nces_id: "2801470"
+    status: silent
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2891/FMSD/3545928/FMSD_Student_Handbook_2023-2024.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2891/FMSD/3545928/FMSD_Student_Handbook_2023-2024.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2891/FMSD/4656229/2025-2026_Student_Handbook.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Forrest County Schools
     county: Forrest
     nces_id: "2801490"
@@ -697,6 +978,46 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+  - name: Grenada School District
+    county: Grenada
+    nces_id: "2801680"
+    status: allows
+    source: https://resources.finalsite.net/images/v1723139134/grenadak12com/zfwx7byjomqv3ptunlal/GSD_6-8StudentHandbook.pdf
+    quote: CORPORAL PUNISHMENT The Board of Education of the Grenada School District views corporal punishment as a form of discipline.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: opt_out
+    quotes:
+      - CORPORAL PUNISHMENT The Board of Education of the Grenada School District views corporal punishment as a form of discipline.
+      - However, if a parent chooses not to participate in corporal punishment, the enclosed form must be signed, and an alternative means of discipline will be enforced by the principal.
+      - School personnel and administrators are prohibited from using corporal punishment on any student with a disability.
+      - Corporal punishment shall be administered only after less stringent measures such as counseling, parental conferences, and other forms of discipline have failed to produce the desired results.
+      - Corporal punishment shall be reasonable and moderate and may not be administered maliciously, in anger, or for the purpose of revenge.
+      - Corporal punishment may be administered only by the school principal, assistant principal, or principal designee with the approval and in the presence of the principal or assistant principal.
+      - CORPORAL PUNISHMENT The Board of Education of the Grenada School District views corporal punishment as a form of discipline.
+      - However, if a parent chooses not to participate in corporal punishment, the enclosed form must be signed, and an alternative means of discipline will be enforced by the principal.
+      - School personnel and administrators are prohibited from using corporal punishment on any student with a disability.
+      - Corporal punishment shall be administered only after less stringent measures such as counseling, parental conferences, and other forms of discipline have failed to produce the desired results.
+      - Corporal punishment shall be reasonable and moderate and may not be administered maliciously, in anger, or for the purpose of revenge.
+      - All … … PUNISHMENT The Board of Education of the Grenada School District views corporal punishment as a form of discipline.
+      - However, if a parent chooses not to participate in corporal punishment, the enclosed form must be signed, and an alternative means of discipline will be enforced by the principal.
+      - School personnel and administrators are prohibited from using corporal punishment on any student with a disability.
+      - Corporal punishment shall be administered only after less stringent measures such as counseling, parental conferences, and other forms of discipline have failed to produce the desired results.
+      - Corporal punishment shall be reasonable and moderate and may not be administered maliciously, in anger, or for the purpose of revenge.
+      - Corporal punishment may be administered only by the school principal, assistant principal, or principal designee with the approval and in the presence of the principal or assistant principal.
+      - Check SAMS for a SPED indicator, a 504 indicator or a DO NOT PADDLE indicator.
+      - If steps a, b, and c have been followed, then corporal punishment may be considered as a disciplinary option.
+      - No parent should be given the option of coming to the school to administer corporal punishment to any child.
+      - Corporal punishment shall be administered only after less stringent measures such as counseling, parental conferences, and other forms of discipline have failed to produce the desired results.
+      - Corporal punishment shall be reasonable and moderate and may not be administered maliciously, in anger, or for the purpose of revenge.
+      - Check SAMS for a SPED indicator, a 504 indicator or a DO NOT PADDLE indicator.
+      - If steps a, b, and c have been followed, then corporal punishment may be considered as a disciplinary option.
+      - No parent should be given the option of coming to the school to administer corporal punishment to any child.
+      - "*** I choose NOT to participate in corporal punishment for my child."
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Gulfport School District
     county: Harrison
     nces_id: "2801710"
@@ -720,13 +1041,13 @@ districts:
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
   - name: Hancock County School District
     county: Hancock
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: 2026-09-19
+    nces_id: "2801740"
+    status: bans
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1878/Hcs/3c499012-5459-4016-aeba-ba9fb7186a56/FY20_Hancock_County_Schools_Student_Handbook-_.pdf?disposition=inline
+    quote: The Hancock County School District does not employ the use of corporal punishment.
+    last_verified: 2026-09-25
     legacy_status: allows
-    notes: "NO POLICY EITHER WAY - the district's own documents are silent, so this is filed unknown rather than guessed. Do NOT read the legacy \"allows\" as confirmed. What was checked, all of it primary: (1) THE ENTIRE BOARD POLICY MANUAL. Hancock County School District's manual is on Simbli, linked from the district's own School Board page (www.hancockschools.net/school-board -> simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36031714&ptid=9slshUHzTHxaaYMVf6zKpJz3Q==; page title \"Policy Listing | Hancock County School District\"; also reachable as hancock.msbapolicy.org). All 472 adopted policies were listed and the full text of every one of them was retrieved and searched for \"corporal\" and \"paddl\" (0 fetch failures). There is NO policy JDA and NO policy JDB - the manual has no corporal punishment policy at all; the discipline series is only JD Student Discipline (adopted 11/04/2014), JDC Detention (11/04/2014), JDD Suspension (11/04/2014), JDDA Bullying, JDE Expulsion, plus JCBA Student Restraint & Seclusion. The word appears in exactly ONE policy, AAA School District Liability Exemptions (July 2014), and only as the state-law immunity boilerplate: \"...corporal punishment or the taking of any action to maintain control and discipline of students, as defined in Section 37-11-57, by a teacher, assistant teacher, principal, or assistant principal of a public school district in the state unless the teacher, assistant teacher, principal, or assistant principal acted in bad faith...\" - that is a liability shield restating MS Code 37-11-57, not a grant of authority by this board, so it is not being counted either way. JD, JCA, JCB, JCD(2), JCBA and JDC were each read in full and none mentions corporal punishment. (2) 2026-2027 Secondary Student Handbook, https://files.smartsites.parentsquare.com/11898/2026-2027_secondary_handbook.pdf - 1,827,288 bytes, application/pdf, 128 pages: zero occurrences of \"corporal\", \"paddl\", \"physical punishment\". (3) 2026-2027 Elementary Handbook, https://files.smartsites.parentsquare.com/11898/2026-2027_elementary_handbook.pdf - 1,011,177 bytes, application/pdf, 91 pages: zero occurrences. (4) 2025-2026 Secondary Handbook, https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5272/Hcsd/fafb6275-7ef1-400a-bc77-abdb2aab71e4/25-26_Secondary_Handbook_FINAL.pdf - 1,817,730 bytes, 126 pages: zero occurrences. (5) Employee Handbook (Google Drive id 1Ksn3e23-cJ6NdSA82sAPv3HtEfv-3pkS, fetched as https://drive.google.com/uc?export=download&id=1Ksn3e23-cJ6NdSA82sAPv3HtEfv-3pkS) - 3,295,281 bytes, 125 pages: zero occurrences. Simbli is JavaScript-only and Imperva-challenged, so fetch_simbli_policy and resolve_handbook both returned nothing; the manual was read through Simbli's own JSON endpoints /Services/api/PolicyListing/ and /Services/api/ViewPolicy/ (session-token URLs, not durable, which is why nothing is cited as source). RECOMMENDATION: this one needs a records request or a call to the district to settle - the evidence is consistent with a district that does not paddle, but no document says so. Input row had no website or nces_id; site found by search and used: hancockschools.net (Kiln, MS). Bay St. Louis-Waveland School District is a separate district in Hancock County and was not assessed."
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     policy_code: null
     crdc_students_latest: null
     contact:
@@ -735,6 +1056,17 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - The Hancock County School District does not employ the use of corporal punishment.
+      - The use of corporal punishment by any employee of the district is prohibited and will not be allowed or tolerated.
+      - The Hancock County School District does not employ the use of corporal punishment.
+      - The use of corporal punishment by any employee of the district is prohibited and will not be allowed or tolerated.
+      - The Hancock County School District does not employ the use of corporal punishment.
+      - The use of corporal punishment by any employee of the district is prohibited and will not be allowed or tolerated.
+      - The Hancock County School District does not employ the use of corporal punishment.
+      - The use of corporal punishment by any employee of the district is prohibited and will not be allowed or tolerated.
   - name: Harrison County School District
     county: Harrison
     nces_id: "2801770"
@@ -759,6 +1091,44 @@ districts:
     policy_adopted: 2016-03-07
     policy_revised: 2025-06-23
     policy_dates_from: notes
+  - name: Hattiesburg Public School District
+    county: Forrest
+    nces_id: "2801800"
+    status: silent
+    source: https://resources.finalsite.net/images/v1622816349/hattiesburgpsdcom/ffne6yzqzi0ergoadc0t/2021-2022HPSStudentHandbook.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: code_of_conduct
+        url: https://resources.finalsite.net/images/v1622816349/hattiesburgpsdcom/ffne6yzqzi0ergoadc0t/2021-2022HPSStudentHandbook.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: code_of_conduct
+        url: https://resources.finalsite.net/images/v1658787102/hattiesburgpsdcom/epcblrajv3auqmhjn21b/HPSDStudentHandbook2022-2023.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: code_of_conduct
+        url: https://resources.finalsite.net/images/v1752854333/hattiesburgpsdcom/pxctcycjpzrhiz79pue3/HPSDStudentHandbook2025-2026.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: code_of_conduct
+        url: https://resources.finalsite.net/images/v1721060581/hattiesburgpsdcom/tmymcbeh83dvl6hqyoep/HPSDStudentHandbook2024-2025.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: HAZLEHURST CITY SCHOOL DISTRICT
     county: Copiah
     nces_id: "2801830"
@@ -801,6 +1171,26 @@ districts:
     policy_adopted: 2004-07-01
     policy_revised: 2026-09-10
     policy_dates_from: notes
+  - name: Hollandale School District
+    county: Washington
+    nces_id: "2801890"
+    status: silent
+    source: https://www.hollandalesd.org/parents/parent-information/bullying-policy-and-form
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://www.hollandalesd.org/parents/parent-information/bullying-policy-and-form
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: HOLLY SPRINGS SCHOOL DIST
     county: Marshall
     nces_id: "2801950"
@@ -940,15 +1330,15 @@ districts:
     notes: "Quote is VERBATIM including the district's typo \"may administrator\". Source is the Jefferson Davis County School District Secondary Handbook 2026-2027 (district site jdcsd.com, Documents > Students); fetch_document: 2,356,210 bytes, application/pdf, 76 pages; quote on page 50 under the heading \"Use of Corporal Punishment\". Classified \"allows\", NOT consent_required: the handbook grants an opt-OUT - \"A parent/guardian of a child enrolled in the Jefferson Davis County School District shall have the right to request that their child not receive corporal punishment at school. It shall be the responsibility of the parent/guardian to present such request, in writing, to the school principal/assistant principal by SEPTEMBER 1 OF EACH SCHOOL YEAR.\" Corporal punishment also appears at every step of the handbook's Discipline Ladder (page 46). Input row had no website or nces_id; site found by search: jdcsd.com (Prentiss, MS). The district's board policy manual is on Simbli at simbli.eboardsolutions.com/Index.aspx?S=36031727 (linked from jdcsd.com), but repeated attempts hit the Imperva \"Pardon Our Interruption\" challenge and it could not be read; the handbook above is the district's own published document."
     policy_code: null
     crdc_students_latest: null
-  - name: Jefferson County Schools
+  - name: Jefferson County School District
     county: Jefferson
-    nces_id: null
-    status: unknown
-    source: null
+    nces_id: "2802220"
+    status: silent
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/5107/JCS/4788990/Handbook_Bd_Approved_Simbli_5_22_25.pdf
     quote: null
-    last_verified: 2026-09-19
+    last_verified: 2026-09-26
     legacy_status: allows
-    notes: "Input row had nces_id/nces_name/website all null. I found the district site at https://www.jcpsd.net (Jefferson County School District, 942 Main Street, Fayette MS; the handbook header reads \"Jefferson County School District Student Handbook\" and the body also uses \"Jefferson County Public School District\"). This is the Jefferson COUNTY district, not Jefferson Davis County. CCD 2022 id would be 2802220 (JEFFERSON CO SCHOOL DIST), left null here per the coordinator's instruction. Where I looked: (1) resolve_handbook on jcpsd.net returned the 2026-27 Student Handbook, https://content.myconnectsuite.com/api/documents/d4ba97cd3d81492398363b338073bc83.pdf -- fetch_document got 3993581 bytes, application/pdf, 63 pages, 169436 characters of text, needs_ocr false. Searching it for \"corporal punishment\", \"corporal\", \"paddl\", \"paddle\", \"swat\", \"lick\", \"spank\" and \"physical punishment\" returned ZERO hits; the table of contents has a CODE OF CONDUCT section (p.34) and Student Discipline (p.35) with no corporal punishment entry. Silence is not a prohibition, so I am not recording \"bans\". (2) The district's board policy manual is on Simbli/MSBA at http://jefferson.msbapolicy.org/ (linked as \"HERE\" from https://www.jcpsd.net/schoolboard). It redirects to simbli.eboardsolutions.com/Index.aspx?S=36031726, but the public policy listing for site 36031726 redirects to Login.aspx?S=36031726 -- this district's manual is NOT published publicly, unlike the other Mississippi districts in this slice. I confirmed this in a browser, not just via the API. (3) fetch_simbli_policy was not usable either (Imperva bot challenge throughout this run). Recommended next step for a human: public-records request to the district, or check whether the board manual is opened later."
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     policy_code: null
     crdc_students_latest: null
     contact:
@@ -957,6 +1347,45 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/5107/JCS/4788990/Handbook_Bd_Approved_Simbli_5_22_25.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://content.myconnectsuite.com/api/documents/b04bbc4e28774d09ad30ab21ec24b5f5.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+  - name: Jefferson Davis County School District
+    county: Jefferson Davis
+    nces_id: "2802250"
+    status: allows
+    source: https://resources.finalsite.net/images/v1722522709/jdcsdcom/xh5nhydoiiyvvnqegpb6/MiddleSchoolHandbook2024-20252.pdf
+    quote: Improper Use of Internet or any type of pornography, cyber bullying and cyber threats Step 4-8 Use of Corporal Punishment School administrators in the JEFFERSON DAVIS County School District may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: opt_out
+    quotes:
+      - Improper Use of Internet or any type of pornography, cyber bullying and cyber threats Step 4-8 Use of Corporal Punishment School administrators in the JEFFERSON DAVIS County School District may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student’s buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - A parent/guardian of a child enrolled in the JEFFERSON DAVIS County School District shall have the right to request that their child not receive corporal punishment at school.
+      - The request submitted will only be valid for the school year in which it is submitted and must be re-submitted each year in which the parent/guardian does not wish corporal punishment to be administered.
+      - Improper Use of Internet or any type of pornography, cyber bullying and cyber threats Step 4-8 Use of Corporal Punishment School administrators in the JEFFERSON DAVIS County School District may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student’s buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - A parent/guardian of a child enrolled in the JEFFERSON DAVIS County School District shall have the right to request that their child not receive corporal punishment at school.
+      - The request submitted will only be valid for the school year in which it is submitted and must be re-submitted each year in which the parent/guardian does not wish corporal punishment …
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Jones County Schools
     county: Jones
     nces_id: "2802280"
@@ -1091,6 +1520,24 @@ districts:
     policy_adopted: 2016-07-28
     policy_revised: 2019-06-27
     policy_dates_from: notes
+  - name: Laurel School District
+    county: Jones
+    nces_id: "2802460"
+    status: bans
+    source: https://campussuite-storage.s3.amazonaws.com/prod/1558847/766cc242-d345-11e9-8241-0acb374d1020/1987006/217cd4c6-dbbe-11e9-b108-120153dd8cf8/file/middle_and_high_student_handbook_2019-2020.pdf
+    quote: ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
+      - ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
+      - ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
+      - ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Lawrence County Schools
     county: Lawrence
     nces_id: "2802490"
@@ -1175,6 +1622,50 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+  - name: Leland School District
+    county: Washington
+    nces_id: "2802610"
+    status: consent_required
+    source: https://content.myconnectsuite.com/api/documents/93e270815de94fcf9e27e8ab105be159.pdf
+    quote: Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: opt_in
+    quotes:
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+      - Intimidation, bully or extortion on social media CORPORAL PUNISHMENT Corporal Punishment is permitted in the Leland School District.
+      - Corporal Punishment will be permitted District-Wide, with Consent of a Parent/ Legal Guardian;
+      - Corporal punishment will not be administered in the Leland School District by any other teacher/staff/employee and must be done in the Principal’s Office.
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Lincoln County Schools
     county: Lincoln
     nces_id: "2802640"
@@ -1199,6 +1690,26 @@ districts:
     policy_adopted: 2013-11-18
     policy_revised: 2025-03-20
     policy_dates_from: notes
+  - name: Long Beach School District
+    county: Harrison
+    nces_id: "2802670"
+    status: silent
+    source: https://www.lbsdk12.com/en-US/student-handbook-b9727978
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.lbsdk12.com/en-US/student-handbook-b9727978
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Louisville Municipal School District
     county: Winston
     nces_id: "2802700"
@@ -1603,6 +2114,38 @@ districts:
     policy_adopted: 1999-01-01
     policy_dates_from: notes
     county_source: nces_edge_geocode_2023_24
+  - name: Ocean Springs School District
+    county: Jackson
+    nces_id: "2803360"
+    status: silent
+    source: https://www.ossdms.org/student-hub/handbooks/handbook-landing/~board/student-handbooks/post/bullying
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.ossdms.org/student-hub/handbooks/handbook-landing/~board/student-handbooks/post/bullying
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: board_policy
+        url: https://www.ossdms.org/student-hub/handbooks/oshs/district-policies
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.ossdms.org/student-hub/handbooks/handbook-landing/~board/student-handbooks/post/student-rights-responsibilites
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Oktibbeha County Schools
     county: Oktibbeha
     nces_id: null
@@ -1618,6 +2161,90 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+  - name: Oxford School District
+    county: Lafayette
+    nces_id: "2803450"
+    status: silent
+    source: https://www.oxfordsd.org/resources/family-resources/student-handbooks
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.oxfordsd.org/resources/family-resources/student-handbooks
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.oxfordsd.org/resources/family-resources/student-handbooks/elementary-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: other
+        url: https://www.oxfordsd.org/departments/student-services/discipline-the-disciplinary-matrix
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: other
+        url: https://www.oxfordsd.org/resources/code-of-conduct/introduction
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Pascagoula-Gautier School District
+    county: Jackson
+    nces_id: "2803480"
+    status: silent
+    source: https://www.pgsd.ms/board-policy-and-agendas
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.pgsd.ms/board-policy-and-agendas
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Pass Christian Public School District
+    county: Harrison
+    nces_id: "2803510"
+    status: silent
+    source: https://www.pc.k12.ms.us/apps/pages/index.jsp?uREC_ID=1440898&type=d&pREC_ID=1699266
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.pc.k12.ms.us/apps/pages/index.jsp?uREC_ID=1440898&type=d&pREC_ID=1699266
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: board_policy
+        url: https://www.pc.k12.ms.us/apps/pages/index.jsp?uREC_ID=1196820&type=d&pREC_ID=1438593
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Pearl Public School District
     county: Rankin
     nces_id: "2803520"
@@ -1684,6 +2311,80 @@ districts:
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
     policy_adopted: 2002-09-02
     policy_dates_from: notes
+  - name: Petal School District
+    county: Forrest
+    nces_id: "2803530"
+    status: silent
+    source: https://www.petalschools.com/students-fams/student-dress-code
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://www.petalschools.com/students-fams/student-dress-code
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.petalschools.com/athletics-activities/activities-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.petalschools.com/students-fams/handbooks
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Picayune School District
+    county: Pearl River
+    nces_id: "2803630"
+    status: allows
+    source: https://irp.cdn-website.com/49e9f275/files/uploaded/PJHS_Handbook_2425.pdf
+    quote: (2) Corporal punishment administered in a reasonable manner, or any reasonable action to maintain control and discipline of students taken by a public school teacher, assistant teacher, principal, or assistant principal acting within the scope of his employment or function and in accordance with any state or federal laws or rules or regulations of the State Board of Education or the local school board or governing board of a charter school does not constitute negligence or child abuse.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - (2) Corporal punishment administered in a reasonable manner, or any reasonable action to maintain control and discipline of students taken by a public school teacher, assistant teacher, principal, or assistant principal acting within the scope of his employment or function and in accordance with any state or federal laws or rules or regulations of the State Board of Education or the local school board or governing board of a charter school does not constitute negligence or child abuse.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (2) Corporal punishment administered in a reasonable manner, or any reasonable action to maintain control and discipline of students taken by a public school teacher, assistant teacher, principal, or assistant principal acting within the scope of his employment or function and in accordance with any state or federal laws or rules or regulations of the State Board of Education or the local school board or governing board of a charter school does not constitute negligence or child abuse.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (3) Notwithstanding subsection (2) of this section a public school teacher, assistant teacher, principal, assistant principal or other school personnel is prohibited from using corporal punishment, as defined in subsection (2) of this section, on any student with a disability.
+      - No school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (3) Notwithstanding subsection (2) of this section a public school teacher, assistant teacher, principal, assistant principal or other school personnel is prohibited from using corporal punishment, as defined in subsection (2) of this section, on any student with a disability.
+      - No school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (3) Notwithstanding subsection (2) of this section a public school teacher, assistant teacher, principal, assistant principal or other school personnel is prohibited from using corporal punishment, as defined in subsection (2) of this section, on any student with a disability.
+      - No school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.
+      - (2) Corporal punishment administered in a reasonable manner, or any reasonable action to maintain control and discipline of students taken by a public school teacher, assistant teacher, principal, or assistant principal acting within the scope of his employment or function and in accordance with any state or federal laws or rules or regulations of the State Board of Education or the local school board or governing board of a charter school does not constitute negligence or child abuse.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (2) Corporal punishment administered in a reasonable manner, or any reasonable action to maintain control and discipline of students taken by a public school teacher, assistant teacher, principal, or assistant principal acting within the scope of his employment or function and in accordance with any state or federal laws or rules or regulations of the State Board of Education or the local school board or governing board of a charter school does not constitute negligence or child abuse.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (3) Notwithstanding subsection (2) of this section a public school teacher, assistant teacher, principal, assistant principal or other school personnel is prohibited from using corporal punishment, as defined in subsection (2) of this section, on any student with a disability.
+      - No school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.
+      - (2) Corporal punishment administered in a reasonable manner, or any reasonable action to maintain control and discipline of students taken by a public school teacher, assistant teacher, principal, or assistant principal acting within the scope of his employment or function and in accordance with any state or federal laws or rules or regulations of the State Board of Education or the local school board or governing board of a charter school does not constitute negligence or child abuse.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (3) Notwithstanding subsection (2) of this section a public school teacher, assistant teacher, principal, assistant principal or other school personnel is prohibited from using corporal punishment, as defined in subsection (2) of this section, on any student with a disability.
+      - No school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (3) Notwithstanding subsection (2) of this section a public school teacher, assistant teacher, principal, assistant principal or other school personnel is prohibited from using corporal punishment, as defined in subsection (2) of this section, on any student with a disability.
+      - No school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.
+      - No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety.
+      - (3) Notwithstanding subsection (2) of this section a public school teacher, assistant teacher, principal, assistant principal or other school personnel is prohibited from using corporal punishment, as defined in subsection (2) of this section, on any student with a disability.
+      - No school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Pike County Schools
     county: Pike
     nces_id: null
@@ -1804,6 +2505,55 @@ districts:
     policy_adopted: 1994-09-14
     policy_revised: 2022-08-10
     policy_dates_from: notes
+  - name: Richton School District
+    county: Perry
+    nces_id: "2803870"
+    status: allows
+    source: https://richtonschools.com/wp-content/uploads/25-26-RHS-Student-Handbook.pdf
+    quote: For offenses, they will receive either corporal punishment or OSS as deemed fitting by the Alternative School teacher and the administration.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: opt_out
+    quotes:
+      - For offenses, they will receive either corporal punishment or OSS as deemed fitting by the Alternative School teacher and the administration.
+      - The principal, assistant principal or designated persons may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student's buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - In the event that a student, parent or guardian refuses corporal punishment as a form of punishment, then the alternate form of punishment will be a five day out of school suspension.
+      - The principal, assistant principal or designated persons may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student's buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - In the event that a student, parent or guardian refuses corporal punishment as a form of punishment, then the alternate form of punishment will be a five day out of school suspension.
+      - The principal, assistant principal or designated persons may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student's buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - In the event that a student, parent or guardian refuses corporal punishment as a form of punishment, then the alternate form of punishment will be a five day out of school suspension.
+      - The principal, assistant principal or designated persons may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student's buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - In the event that a student, parent or guardian refuses corporal punishment as a form of punishment, then the alternate form of punishment will be a five day out of school suspension.
+      - For offenses, they will receive either corporal punishment or OSS as deemed fitting by the Alternative School teacher and the administration.
+      - The principal, assistant principal or designated persons may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student's buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - In the event that a student, parent or guardian refuses corporal punishment as a form of punishment, then the alternate form of punishment will be a five day out of school suspension.
+      - The principal, assistant principal or designated persons may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student's buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - In the event that a student, parent or guardian refuses corporal punishment as a form of punishment, then the alternate form of punishment will be a five day out of school suspension.
+      - The principal, assistant principal or designated persons may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student's buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - In the event that a student, parent or guardian refuses corporal punishment as a form of punishment, then the alternate form of punishment will be a five day out of school suspension.
+      - The principal, assistant principal or designated persons may administer corporal punishment on students who are insubordinate or disobedient, or who violate a rule of the school.
+      - Any administration of corporal punishment shall be in a reasonable manner and applied only to the student's buttocks in such a manner that there will be no permanent effects.
+      - Further, corporal punishment shall not be administered in any manner that would unduly embarrass the student (e.g.
+      - In the event that a student, parent or guardian refuses corporal punishment as a form of punishment, then the alternate form of punishment will be a five day out of school suspension.
+      - • First offense will result in a parent conference, verbal reprimand and/or paddling.
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Scott County School District
     county: Scott
     nces_id: "2803900"
@@ -2192,6 +2942,44 @@ districts:
     policy_revised: 2023-05-11
     policy_dates_from: notes
     county_source: nces_edge_geocode_2023_24
+  - name: Tupelo Public School District
+    county: Lee
+    nces_id: "2804320"
+    status: silent
+    source: https://resources.finalsite.net/images/v1753446160/tupeloschoolscom/ah05gbwxlbly3gl5u7am/2025-2026StudentHandbookDraft-Final.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://resources.finalsite.net/images/v1753446160/tupeloschoolscom/ah05gbwxlbly3gl5u7am/2025-2026StudentHandbookDraft-Final.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.tupeloschools.com/tupelo-high-school/parents/2023-23-student-handbook-clone-clone-clone-clone-clone/student-conduct-clone-clone-clone-clone
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.tupeloschools.com/milam/parents/2023-23-student-handbook-clone-clone-clone/student-conduct-clone-clone-clone
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.tupeloschools.com/uploaded/District/handbooks/Pierce_Street_2017-18.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Union County Schools
     county: Union
     nces_id: "2804350"
@@ -2529,6 +3317,26 @@ districts:
     notes: "NO SUCH DISTRICT. There is no 'Yalobusha County School District' in Mississippi. Yalobusha County is split between TWO independent districts with separate boards and separate policies: the COFFEEVILLE SCHOOL DISTRICT (Coffeeville, Oakland, Tillatoba and most of rural southern Yalobusha) and the WATER VALLEY SCHOOL DISTRICT (northern Yalobusha). Because the row's name cannot be resolved to one district, and the two districts' policies are NOT the same, I am filing 'unknown' rather than guessing. What I verified, for whoever splits this row: (1) COFFEEVILLE SCHOOL DISTRICT = consent_required. Its Employee Handbook 2024-2025 (https://content.myconnectsuite.com/api/documents/001cf320f7154338a85e5a07e2b90dd2, linked from https://mscoffeevillesd.schoolinsites.com; fetch_document: 1241008 bytes, application/pdf, 65 pages; passage on PDF page 15) states verbatim: 'Reasonable corporal punishment of a student is permitted only with parent/guardian consent.' followed by paddle-size and witness rules. Its board policy manual is at coffeeville.msbapolicy.org -> Simbli S=36031813 (not retrievable - Imperva). (2) WATER VALLEY SCHOOL DISTRICT = not determined. Its 2024-2025 district Parent/Student Handbook (https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2769/WVSD/4620788/2024-_2025_WVSD_Handbook.pdf; fetch_document: 2788134 bytes, application/pdf, 112 pages) contains NO occurrence of 'corporal', 'paddl' or 'spank' anywhere. Its board manual at watervalley.msbapolicy.org -> Simbli S=36031800 does list a Policy JDB 'Corporal Punishment', ADOPTED, last revised 07/24/2024 (search-result row read in a browser), but the policy body would not open in the browser and Simbli is unfetchable by curl, so its text is unverified. Places searched: federal file (row had no nces_id/nces_name/website), web search for the district name, yalobushaonline.org, mscoffeevillesd.schoolinsites.com, mscoffeevillees.schoolinsites.com, wvsdonline.com (Cloudflare challenge), core-docs tenant 2769 (WVSD), and both districts' msbapolicy.org/Simbli manuals."
     policy_code: null
     crdc_students_latest: null
+  - name: Yazoo City Municipal School District
+    county: Yazoo
+    nces_id: "2804770"
+    status: silent
+    source: https://www.yazoocity.k12.ms.us/o/ycmsd/page/policies
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.yazoocity.k12.ms.us/o/ycmsd/page/policies
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Yazoo County Schools
     county: Yazoo
     nces_id: "2804800"
