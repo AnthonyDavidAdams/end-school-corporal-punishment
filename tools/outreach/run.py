@@ -210,9 +210,11 @@ def anthony_threads(M, reqs):
     done = set()
     try:
         M.select('"[Gmail]/Sent Mail"')
-        typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d subject:corporal from:me"')
+        typ, data = M.search(None, "SUBJECT", '"Re: Request for"')
         for num in (data[0].split() if data and data[0] else []):
-            typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (TO SUBJECT IN-REPLY-TO REFERENCES)])"); h = email.message_from_bytes(raw[0][1])
+            typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (FROM TO SUBJECT IN-REPLY-TO REFERENCES)])"); h = email.message_from_bytes(raw[0][1])
+            if not h.get("In-Reply-To"): continue          # our own outbound requests are not replies
+            if "escp-" in (h.get("In-Reply-To") or ""): continue   # the job's own automated replies
             r = find_request(h, reqs)
             if not r:
                 to = email.utils.parseaddr(h.get("To", ""))[1].lower(); r = next((x for x in reqs if x["to"].lower() == to), None)
