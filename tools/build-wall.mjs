@@ -5,11 +5,15 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { geoAlbersUsa } from "d3-geo";
+// The same projection the county map and the district shapes use, so a district lands on its county.
+const project = geoAlbersUsa().scale(1300).translate([487.5, 305]);
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const csv = (t) => { const [h, ...rows] = t.trim().split("\n"); const head = h.split(",").map((x) => x.trim()); const parse = (l) => { const o = []; let c = "", q = false; for (const ch of l) { if (ch === '"') q = !q; else if (ch === "," && !q) { o.push(c); c = ""; } else c += ch; } o.push(c); return o; }; return rows.map((l) => Object.fromEntries(head.map((k, i) => [k, (parse(l)[i] ?? "").trim()]))); };
 const states = JSON.parse(readFileSync(join(root, "site/data/states.json"), "utf8"));
 const rec = JSON.parse(readFileSync(join(root, "site/data/districts.json"), "utf8"));
 const dir = csv(readFileSync(join(root, "data/nces/lea-directory-2023-24.csv"), "utf8"));
+const geo = Object.fromEntries(csv(readFileSync(join(root, "data/nces/lea-geocode-2023-24.csv"), "utf8")).map((r) => [r.nces_id, [Number(r.lon), Number(r.lat)]]));
 const crdc = Object.fromEntries(csv(readFileSync(join(root, "data/crdc/2023-24/districts.csv"), "utf8")).map((r) => [r.nces_id, Number(r.students)]));
 const S = { bans: "b", allows: "a", consent_required: "c", silent: "s", unknown: "u" };
 const title = (s) => s.toLowerCase().replace(/\b([a-z])/g, (m) => m.toUpperCase()).replace(/\bIsd\b/g, "ISD").replace(/\bCisd\b/g, "CISD").replace(/\bR-([ivx]+)\b/gi, (m, r) => `R-${r.toUpperCase()}`);
@@ -21,7 +25,8 @@ for (const [code, s] of Object.entries(states)) {
   const bricks = dir.filter((d) => d.state === code && d.lea_type.startsWith("Regular public")).map((d) => {
     const r = byId.get(d.nces_id);
     const k = crdc[d.nces_id] ?? r?.crdc_students_latest ?? 0;
-    return { i: d.nces_id, n: title(d.name), s: r ? (S[r.status] ?? "u") : "-", k };
+    const ll = geo[d.nces_id]; const xy = ll && Number.isFinite(ll[0]) ? project(ll) : null;
+    return { i: d.nces_id, n: title(d.name), s: r ? (S[r.status] ?? "u") : "-", k, x: xy ? +xy[0].toFixed(1) : null, y: xy ? +xy[1].toFixed(1) : null, c: d.county || (r?.county ?? null) };
   });
   // Filled bricks first, so a column reads as a stack that fills from the floor; among the dark ones,
   // the districts that struck the most children come first, because they are the ones to pick up.
@@ -34,4 +39,11 @@ for (const [code, s] of Object.entries(states)) {
 out.states.sort((a, b) => (b.total - b.placed) - (a.total - a.placed));
 out.totals = totals;
 writeFileSync(join(root, "site/data/wall.json"), JSON.stringify(out));
+// Records requests, public fields only: which district, when, what happened. No addresses, no bodies.
+try {
+  const reqs = JSON.parse(readFileSync(join(root, "data/outreach/requests.json"), "utf8"));
+  const rows = (Array.isArray(reqs) ? reqs : Object.values(reqs)).map((r) => ({ nces_id: r.nces_id ?? null, state: r.state, name: r.name, statute: r.statute ?? null, sent_at: r.sent_at ?? null, status: r.status, replies: (r.replies ?? []).length, followup: r.followup_sent_at ?? null }));
+  writeFileSync(join(root, "site/data/requests.json"), JSON.stringify({ generated: out.generated, requests: rows }));
+  console.log(`requests: ${rows.length} public rows`);
+} catch (e) { console.log("requests: none (" + e.message + ")"); }
 console.log(`wall: ${out.states.length} states, ${totals.bricks} bricks, ${totals.placed} placed, ${totals.children_behind_dark} children behind dark bricks`);

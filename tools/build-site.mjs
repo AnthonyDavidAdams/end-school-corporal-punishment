@@ -704,79 +704,73 @@ ${quotes}
 const toll = buildToll();
 writeFileSync(join(root, "site/data/toll.json"), JSON.stringify(toll, null, 1) + "\n");
 
-// ---------- the live board ----------
-// Built to be projected. Everything is large, nothing needs a mouse, and it answers one question a
-// room actually has: who is working on this right now, and where.
+writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8") + `
+/* the flight */
+.flctl{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin:.6rem 0}
+.flcams{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}.flcams button,.flcams select,.flcams input,.flcomms{font:inherit;font-size:.8rem;padding:.35rem .7rem;border-radius:3px;border:1px solid #2A3352;background:#0D132D;color:#C9D1E0;cursor:pointer}.flcams button.on{background:#B7791F;color:#0D132D;border-color:#B7791F;font-weight:700}.flcams input{min-width:16rem;cursor:text}.flmode{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;color:#FDE68A;font-weight:700;margin-left:.4rem}
+.flcomms{border-color:#B7791F;color:#FDE68A;letter-spacing:.08em;font-weight:700}
+.flboard{display:grid;grid-template-columns:1fr 340px;gap:12px;align-items:start}
+.flmapwrap{position:relative;background:#06091A;border:1px solid #1B2340;border-radius:4px;padding:6px}
+.flmap svg{width:100%;height:auto;display:block}.fl-ship{cursor:pointer}#fl-districts rect{cursor:pointer}
+.fllegend{display:flex;flex-wrap:wrap;gap:.7rem;font-size:.75rem;color:#8B95A5;padding:.4rem .2rem 0}.fllegend i{display:inline-block;width:9px;height:9px;margin-right:.3rem;vertical-align:-1px;border-radius:1px}
+.cockpit{position:absolute;left:12px;bottom:40px;width:min(560px,calc(100% - 24px));background:rgba(13,19,45,.96);border:1px solid #B7791F;border-radius:4px;padding:.8rem 1rem;color:#E8ECF1;box-shadow:0 8px 30px rgba(0,0,0,.5);font-size:.86rem;z-index:3}
+.ckhead{display:flex;justify-content:space-between;gap:.6rem;align-items:baseline;border-bottom:1px solid #2A3352;padding-bottom:.4rem;margin-bottom:.5rem}.ckhead b{font-family:var(--serif);font-size:1.05rem}.ckhead span{color:#8B95A5;font-size:.75rem}
+.ckgrid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}.ckpane h3{margin:0 0 .3rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#FDE68A}
+.ckrow{display:flex;justify-content:space-between;gap:.5rem;padding:.15rem 0;border-bottom:1px dotted #2A3352}.ckrow label{color:#8B95A5;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}.ckrow a{color:#7DD3FC}
+.cockpit blockquote{margin:.4rem 0;padding:.3rem .6rem;border-left:2px solid #B7791F;font-family:var(--serif);font-size:.85rem;color:#fff;max-height:7rem;overflow:auto}
+.ckdocs{margin:.2rem 0;padding-left:1rem;font-size:.78rem}.ckdocs a{color:#7DD3FC}
+.ckinstr{list-style:none;margin:0;padding:0}.ckinstr li{display:grid;grid-template-columns:10px 84px 1fr;gap:.4rem;align-items:center;padding:.15rem 0;font-size:.76rem;color:#5A6577}.ckinstr li i{width:8px;height:8px;border-radius:50%;background:#1B2340;border:1px solid #2A3352}.ckinstr li b{letter-spacing:.06em}.ckinstr li.on{color:#E8ECF1}.ckinstr li.on i{background:#B7791F;border-color:#FDE68A;box-shadow:0 0 6px #B7791F}.ckinstr li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ckact{display:flex;gap:.5rem;margin-top:.6rem}.ckbtn{flex:1;font:inherit;font-size:.8rem;font-weight:700;padding:.45rem .6rem;border-radius:3px;border:1px solid #B7791F;background:#B7791F;color:#0D132D;cursor:pointer}.ckbtn.alt{background:transparent;color:#C9D1E0;border-color:#2A3352;flex:0 0 auto}
+.flleaders{margin:0;padding-left:1.3rem}.flleaders li{display:flex;justify-content:space-between;gap:.5rem;padding:.25rem 0;border-bottom:1px solid #2A3352;font-size:.85rem;cursor:pointer}.flleaders em{color:#8B95A5;font-style:normal;font-size:.72rem}
+.ticker li.on{color:#A7F3D0}
+@media(max-width:900px){.flboard{grid-template-columns:1fr}.ckgrid{grid-template-columns:1fr}.cockpit{position:static;width:auto;margin-top:.5rem}}
+`);
+
+// ---------- the live board: the flight ----------
+// Fog of war over the states where the practice is legal; one ship per agent; every flight a real event
+// from the crew server. The toll and the mission-control bar stay: the game sits under the stakes.
 mkdirSync(join(site, "live"), { recursive: true });
-writeFileSync(join(site, "live", "index.html"), shell({
-  title: "Live: agents working on this right now",
-  path: "/live/",
-  description: "A live board of the agents currently reading school district corporal punishment policy, where they are, and which state each one is working.",
-  extraHead: `<script defer src="/kids/globe.js?v=${ver("globe.js")}"></script>\n<script defer src="/kids/live.js?v=${ver("live.js")}"></script>\n<script defer src="/kids/terminal.js?v=${ver("terminal.js")}"></script>`,
-  body: `<div class="cc">
+{
+  const wall = JSON.parse(readFileSync(join(root, "site/data/wall.json"), "utf8"));
+  const dark = wall.totals.bricks - wall.totals.placed;
+  writeFileSync(join(site, "live", "index.html"), shell({
+    title: "Live: the fleet over the fog",
+    path: "/live/",
+    description: `${n(dark)} school districts under fog: a teacher may still hit a child and nobody has read the district's own rule. Ships are agents; every flight is real. Watch the fog lift, or send your own ship.`,
+    image: `${BASE}/assets/og-image.png`,
+    extraHead: `<script defer src="/kids/flight.js?v=${ver("flight.js")}"></script>`,
+    body: `<div class="cc">
   <div class="ccbar">
     <img src="/kids/assets/earthpilot.png" alt="EarthPilot" width="44" height="44">
-    <div class="ccid"><b>EARTHPILOT &middot; MISSION CONTROL</b><span>End School Corporal Punishment &mdash; live operations</span></div>
-    <div class="ccstatus" id="ccstatus"><i></i><span id="ccstate">LINKING</span><time id="ccclock"></time></div>
+    <div class="ccid"><b>EARTHPILOT &middot; MISSION SUPPORT</b><span>End School Corporal Punishment &mdash; the fleet, live</span></div>
+    <div class="ccstatus" id="ccstatus"><i></i><span id="flStatus">LINKING</span><time id="flClock"></time></div>
   </div>
-
-  <div class="toll">
-    <div>
-      <label>Children struck &mdash; reported</label>
-      <b id="tReported">${n(toll.reported.students)}</b>
-      <p>Federal count for the ${esc(toll.year)} school year, filed by the districts themselves.
-      <a href="/kids/resources/#crdc-national-total-2023-24-computed">The claim and its source.</a></p>
-    </div>
-    <div class="floor">
-      <label>Times a child was struck &mdash; floor</label>
-      <b id="tFloor"><span class="pre">AT LEAST</span> ${n(toll.reported.instances)}</b>
-      <p>Recorded instances. The Department of Education calls its own count &ldquo;likely underreported&rdquo;;
-      it counts a child once a year, skips virtual schools, and nobody checks the filings.
-      No estimate of the true number has ever been published, so this board shows the floor and says why.
-      <a href="/kids/resources/#crdc-undercount-caveat">The caveat, in the Department's words.</a></p>
-    </div>
-  </div>
-
   <div class="livehead">
-    <div><span id="nlive">0</span><label>agents working now</label></div>
-    <div><span id="nrecords">${n(toll.record.districts_sourced)}</span><label>districts on the record</label></div>
-    <div><span id="nunchecked">${n(toll.record.unchecked_districts)}</span><label>districts nobody has checked</label></div>
-    <div><span id="nkids">${n(toll.record.children_in_unchecked)}</span><label>children behind those districts</label></div>
-    <div><span id="ndocs">&mdash;</span><label>documents read</label></div>
-    <div><span id="npeople">&mdash;</span><label>contributors</label></div>
-    <div><span id="npasses">&mdash;</span><label>Mothership passes</label></div>
+    <div><span id="flRecord">${n(wall.totals.placed)}</span><label>rules on the record</label></div>
+    <div><span id="flDark">${n(dark)}</span><label>districts under fog</label></div>
+    <div><span id="flFlying">0</span><label>ships on station</label></div>
+    <div><span id="flWeek">&mdash;</span><label>lifted this week</label></div>
+    <div><span id="tKids">${n(toll.reported.students)}</span><label>children struck, ${esc(toll.year)}</label></div>
   </div>
-
-  <div class="liveboard">
-    <div class="livepanes">
-      <div class="globewrap">
-        <div id="globe" class="globe"></div>
-        <div id="gterm" class="gterm" aria-live="polite" aria-label="What the crew is doing right now"></div>
-      </div>
-      <div id="livemap" class="livemap"></div>
-      <div class="ccpanel">
-        <h2>Just happened</h2>
-        <ul id="ticker" class="ticker"><li class="meta">Loading&hellip;</li></ul>
-      </div>
-      <div class="ccpanel">
-        <h2>In the news</h2>
-        <ul id="news" data-q="school corporal punishment paddling"><li class="meta">Loading&hellip;</li></ul>
-      </div>
+  <div class="flctl">
+    <div class="flcams"><button type="button" data-cam="country" class="on">Country</button><select id="flState" aria-label="Zoom to a state"><option value="">Zoom to a state…</option></select><input id="flFind" placeholder="Find my ship: callsign or handle" aria-label="Find my ship"><span id="flMode" class="flmode">COUNTRY</span></div>
+    <div><button type="button" id="flComms" class="flcomms">OPEN COMMS</button></div>
+  </div>
+  <div class="flboard">
+    <div class="flmapwrap"><div id="flightmap" class="flmap" aria-label="The fleet over the fog"></div>
+      <div id="flCockpit" class="cockpit" hidden></div>
+      <div class="fllegend"><span><i style="background:#2D6A4F"></i>prohibits</span><span><i style="background:#9B2C2C"></i>permits</span><span><i style="background:#C05621"></i>with consent</span><span><i style="background:#5A6577"></i>read, no rule</span><span><i style="background:#B7791F"></i>uplinked, in review</span><span><i style="border:1px solid #7A3B4F;background:#2A1A22"></i>under fog</span><span>&middot; click a district for its cockpit, a ship to follow it, double-click a state to zoom</span></div>
     </div>
-    <aside class="liveside">
-      <h2>Connecting from</h2>
-      <ul id="gPlaces" class="crewlist"><li class="meta">Connecting&hellip;</li></ul>
-      <h2>Working now</h2>
-      <ul id="crew" class="crewlist"><li class="meta">Connecting&hellip;</li></ul>
+    <aside class="flside">
+      <div class="ccpanel"><h2>On the radio</h2><ul id="flRadio" class="ticker"><li class="meta">Listening to the crew&hellip;</li></ul></div>
+      <div class="ccpanel"><h2>Pilots</h2><ol id="flLeaders" class="flleaders"><li class="meta">Loading&hellip;</li></ol><p class="meta">Callsigns are generated from anonymous handles. Ask your agent to <code>claim_badge</code> to put a name beside yours. Your agent's first finding tells you your callsign.</p></div>
+      <div class="ccpanel"><h2>Send a ship</h2><p class="meta">Connect an agent and let it rip: <a href="/kids/connect/">connect</a>, then tell it to call <code>get_started</code>. Its first claim puts your ship on this map.</p></div>
     </aside>
   </div>
-  <p class="livefoot"><span id="livestatus"></span>
-    Gold is a state an agent holds right now; green a state that prohibits corporal punishment, red one that permits it.
-    A line runs from the person to the work. Contributors appear as a one-way hash of the address they gave and a city-level
-    location; neither the address nor the IP is stored. Join at <b>${esc(BASE.replace(/^https?:\/\//, ""))}/contribute</b>.
-    Figures ${esc(toll.generated)}; ${esc(toll.source)}</p>
+  <p class="livefoot">Every district in the ${wall.states.length} states where the practice is legal is a square: under fog until an agent reads the district's own rule, then red or green for good. Ships are contributors under anonymous handles at city-level, rounded locations; neither an address nor an IP is stored. Mission Support speaks only if you open comms. Figures ${esc(toll.generated)}; ${esc(toll.source)}</p>
 </div>`
-}));
+  }));
+}
 
 // ---------- shareable install links ----------
 // One short address per client, so a link pasted into a message previews as this project rather than

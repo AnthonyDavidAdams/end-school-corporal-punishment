@@ -6,7 +6,7 @@ FROM node:22-alpine
 # the text -- a valid PNG of an empty circle. Alpine ships none, so they have to be asked for.
 RUN apk add --no-cache font-dejavu fontconfig && fc-cache -f
 WORKDIR /app
-RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/fdca892fa86714176db43e3255447337c0f8ecd8.tar.gz
+RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/ffed3a5b7d899ba8f6215bada076165120ef9b66.tar.gz
 # The crew directory: crew.json, values, tasks and finding schemas from crew/, everything else from the campaign.
 COPY crew/crew.json crew/values.md /crew/
 COPY crew/tasks /crew/tasks
