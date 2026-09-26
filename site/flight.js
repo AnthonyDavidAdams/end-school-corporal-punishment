@@ -26,10 +26,11 @@
     fetch("/kids/data/requests.json").then((r) => r.json()).catch(() => ({ requests: [] })),
   ]);
   host.innerHTML = svgText; const svg = host.querySelector("svg"); svg.removeAttribute("width"); svg.removeAttribute("height");
-  const COL = { b: "#2D6A4F", a: "#9B2C2C", c: "#C05621", s: "#5A6577", u: "#3A4466", "-": null, pending: "#B7791F" };
+  const COL = { b: "#43E08A", a: "#FF4D4D", c: "#FFB000", s: "#5E9B7C", u: "#2F6B4E", "-": null, pending: "#FFD966" };
   const LABEL = { b: "board prohibits it", a: "board permits it", c: "permitted with parental consent", s: "documents read, no rule found", u: "on the record, no source", "-": "under fog: nobody has read the rule" };
-  const GREEN = "#1F4D3A", LEGAL = "#3B1E24", DIM = "#141A33";
-  for (const c of svg.querySelectorAll("path.county")) { const s = states[c.dataset.state]; c.setAttribute("fill", !s ? DIM : s.status === "banned" ? GREEN : LEGAL); c.setAttribute("stroke", "rgba(255,255,255,.12)"); c.setAttribute("stroke-width", "0.3"); }
+  const GREEN = "#04170E", LEGAL = "#120507", DIM = "#020604";
+  for (const c of svg.querySelectorAll("path.county")) { const s = states[c.dataset.state]; c.setAttribute("fill", !s ? DIM : s.status === "banned" ? GREEN : LEGAL); c.setAttribute("stroke", "rgba(51,255,153,.16)"); c.setAttribute("stroke-width", "0.25"); }
+  for (const p of svg.querySelectorAll("path.state, path[data-kind=\"state\"], g.states path")) { p.setAttribute("fill", "none"); p.setAttribute("stroke", "#33FF99"); p.setAttribute("stroke-width", "0.6"); p.setAttribute("opacity", "0.7"); }
   const bricks = new Map(), byKey = new Map();
   const key = (s) => String(s || "").toLowerCase().replace(/\s*\(.*?\)\s*/g, "").replace(/\b(school district|public schools|schools|isd|cisd|county)\b/g, "").replace(/[^a-z0-9]/g, "");
   const gDist = el("g", { id: "fl-districts" }, svg), gBeams = el("g", { id: "fl-beams" }, svg), gShips = el("g", { id: "fl-ships" }, svg), gFx = el("g", { id: "fl-fx" }, svg);
@@ -39,7 +40,7 @@
     b.el = el("rect", { x: b.x - 1.2, y: b.y - 1.2, width: 2.4, height: 2.4, rx: 0.4, "data-id": b.i }, gDist);
     paint(b, b.s); bricks.set(b.i, b); byKey.set(`${st.code}|${key(b.n)}`, b);
   }
-  function paint(b, s) { b.s = s; const c = COL[s]; if (c) { b.el.setAttribute("fill", c); b.el.setAttribute("stroke", "none"); b.el.setAttribute("opacity", "0.95"); } else { b.el.setAttribute("fill", b.k ? "#2A1A22" : "#151B33"); b.el.setAttribute("stroke", b.k > 50 ? "#7A3B4F" : "#2A3352"); b.el.setAttribute("stroke-width", "0.4"); b.el.setAttribute("opacity", "0.9"); } }
+  function paint(b, s) { b.s = s; const c = COL[s]; if (c) { b.el.setAttribute("fill", c); b.el.setAttribute("stroke", "none"); b.el.setAttribute("opacity", "0.95"); } else { b.el.setAttribute("fill", b.k ? "#1A0609" : "#07130D"); b.el.setAttribute("stroke", b.k > 50 ? "#8A2E3E" : "#1E4A35"); b.el.setAttribute("stroke-width", "0.4"); b.el.setAttribute("opacity", "0.9"); } }
   const resolve = (scope, ncesId) => (ncesId && bricks.get(String(ncesId))) || (() => { const m = String(scope || "").match(/^(.*),\s*([A-Z]{2})$/); return m ? byKey.get(`${m[2]}|${key(m[1])}`) : null; })();
 
   // ---- camera ----
@@ -62,7 +63,7 @@
   }
 
   // ---- ships ----
-  const HULL = { scheduled: "#7DD3FC", claude: "#7DD3FC", cursor: "#F9A8D4", codex: "#A7F3D0", gemini: "#FDE68A", mothership: "#FFFFFF", custom: "#C4B5FD" };
+  const HULL = { scheduled: "#4FD1FF", claude: "#4FD1FF", cursor: "#FF9BD6", codex: "#A7F3D0", gemini: "#FFD966", mothership: "#FFFFFF", custom: "#C4B5FD" };
   const ships = new Map(); const hangar = [[70, 560], [110, 575], [150, 560], [190, 575], [230, 560], [270, 575], [310, 560], [350, 575]];
   function ship(row) {
     let s = ships.get(row.id);
@@ -71,9 +72,9 @@
       s = { ...row, x: home[0], y: home[1], hx: home[0], hy: home[1], tx: home[0], ty: home[1], lock: null, beam: 0 };
       s.g = el("g", { class: "fl-ship" }, gShips);
       const c = HULL[row.hull] || HULL.custom;
-      s.body = el("path", { d: "M0,-4.5 L3.2,3.5 L0,1.8 L-3.2,3.5 Z", fill: c, stroke: "#06091A", "stroke-width": 0.4 }, s.g);
+      s.body = el("path", { d: "M0,-4.5 L3.2,3.5 L0,1.8 L-3.2,3.5 Z", fill: c, stroke: "#020604", "stroke-width": 0.4 }, s.g);
       s.ring = el("circle", { r: 6.5, fill: "none", stroke: c, "stroke-width": 0.5, opacity: 0 }, s.g);
-      s.label = el("text", { y: 9.5, "text-anchor": "middle", "font-size": 4.2, fill: c, "font-family": "Source Sans 3, system-ui, sans-serif", "font-weight": 700 }, s.g); s.label.textContent = row.callsign;
+      s.label = el("text", { y: 9.5, "text-anchor": "middle", "font-size": 4.2, fill: c, "font-family": "Share Tech Mono, IBM Plex Mono, monospace", "letter-spacing": 0.3 }, s.g); s.label.textContent = row.callsign;
       s.g.addEventListener("click", () => { camera("follow", s); openCockpit(s.lock, s); });
       s.beamEl = el("line", { stroke: c, "stroke-width": 0.6, opacity: 0, "stroke-dasharray": "1.5 1" }, gBeams);
       ships.set(row.id, s);
@@ -157,7 +158,7 @@
     else if (e.kind === "machine") { if (!fast) { radio(`<b>Mothership</b>: ${esc(e.headline || "pass")}`, "on"); say("Mothership on station."); } mothership(); }
     hud();
   }
-  let moth = null; function mothership() { if (!moth) { moth = el("g", { class: "fl-moth" }, gShips); el("path", { d: "M-9,0 L-3,-3 L3,-3 L9,0 L3,3 L-3,3 Z", fill: "#fff", opacity: 0.85 }, moth); const t = el("text", { y: -5, "text-anchor": "middle", "font-size": 4, fill: "#fff", "font-family": "Source Sans 3, system-ui" }, moth); t.textContent = "MOTHERSHIP"; } const t0 = performance.now(); const step = () => { const t = (performance.now() - t0) / 6000; if (t >= 1) { moth.setAttribute("transform", "translate(-50,-50)"); return; } moth.setAttribute("transform", `translate(${(120 + t * 760).toFixed(1)},${(60 + Math.sin(t * 6) * 4).toFixed(1)})`); requestAnimationFrame(step); }; requestAnimationFrame(step); }
+  let moth = null; function mothership() { if (!moth) { moth = el("g", { class: "fl-moth" }, gShips); el("path", { d: "M-9,0 L-3,-3 L3,-3 L9,0 L3,3 L-3,3 Z", fill: "#fff", opacity: 0.85 }, moth); const t = el("text", { y: -5, "text-anchor": "middle", "font-size": 4, fill: "#fff", "font-family": "Share Tech Mono, monospace" }, moth); t.textContent = "MOTHERSHIP"; } const t0 = performance.now(); const step = () => { const t = (performance.now() - t0) / 6000; if (t >= 1) { moth.setAttribute("transform", "translate(-50,-50)"); return; } moth.setAttribute("transform", `translate(${(120 + t * 760).toFixed(1)},${(60 + Math.sin(t * 6) * 4).toFixed(1)})`); requestAnimationFrame(step); }; requestAnimationFrame(step); }
 
   async function boot() {
     let d; try { d = await (await fetch(`${SERVER}/fleet.json?limit=3000`, { cache: "no-store" })).json(); } catch { d = null; }

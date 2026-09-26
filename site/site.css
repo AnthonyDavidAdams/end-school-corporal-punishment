@@ -264,26 +264,6 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 @media(prefers-reduced-motion:reduce){#live-toast{transition:none}}
 @media print{#live-toast{display:none}}
 @media(max-width:560px){ul.feed li{flex-direction:column;gap:.1rem}ul.feed .ev-when{flex:none}}
-/* the flight */
-.flctl{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin:.6rem 0}
-.flcams{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}.flcams button,.flcams select,.flcams input,.flcomms{font:inherit;font-size:.8rem;padding:.35rem .7rem;border-radius:3px;border:1px solid #2A3352;background:#0D132D;color:#C9D1E0;cursor:pointer}.flcams button.on{background:#B7791F;color:#0D132D;border-color:#B7791F;font-weight:700}.flcams input{min-width:16rem;cursor:text}.flmode{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;color:#FDE68A;font-weight:700;margin-left:.4rem}
-.flcomms{border-color:#B7791F;color:#FDE68A;letter-spacing:.08em;font-weight:700}
-.flboard{display:grid;grid-template-columns:1fr 340px;gap:12px;align-items:start}
-.flmapwrap{position:relative;background:#06091A;border:1px solid #1B2340;border-radius:4px;padding:6px}
-.flmap svg{width:100%;height:auto;display:block}.fl-ship{cursor:pointer}#fl-districts rect{cursor:pointer}
-.fllegend{display:flex;flex-wrap:wrap;gap:.7rem;font-size:.75rem;color:#8B95A5;padding:.4rem .2rem 0}.fllegend i{display:inline-block;width:9px;height:9px;margin-right:.3rem;vertical-align:-1px;border-radius:1px}
-.cockpit{position:absolute;left:12px;bottom:40px;width:min(560px,calc(100% - 24px));background:rgba(13,19,45,.96);border:1px solid #B7791F;border-radius:4px;padding:.8rem 1rem;color:#E8ECF1;box-shadow:0 8px 30px rgba(0,0,0,.5);font-size:.86rem;z-index:3}
-.ckhead{display:flex;justify-content:space-between;gap:.6rem;align-items:baseline;border-bottom:1px solid #2A3352;padding-bottom:.4rem;margin-bottom:.5rem}.ckhead b{font-family:var(--serif);font-size:1.05rem}.ckhead span{color:#8B95A5;font-size:.75rem}
-.ckgrid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}.ckpane h3{margin:0 0 .3rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#FDE68A}
-.ckrow{display:flex;justify-content:space-between;gap:.5rem;padding:.15rem 0;border-bottom:1px dotted #2A3352}.ckrow label{color:#8B95A5;font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}.ckrow a{color:#7DD3FC}
-.cockpit blockquote{margin:.4rem 0;padding:.3rem .6rem;border-left:2px solid #B7791F;font-family:var(--serif);font-size:.85rem;color:#fff;max-height:7rem;overflow:auto}
-.ckdocs{margin:.2rem 0;padding-left:1rem;font-size:.78rem}.ckdocs a{color:#7DD3FC}
-.ckinstr{list-style:none;margin:0;padding:0}.ckinstr li{display:grid;grid-template-columns:10px 84px 1fr;gap:.4rem;align-items:center;padding:.15rem 0;font-size:.76rem;color:#5A6577}.ckinstr li i{width:8px;height:8px;border-radius:50%;background:#1B2340;border:1px solid #2A3352}.ckinstr li b{letter-spacing:.06em}.ckinstr li.on{color:#E8ECF1}.ckinstr li.on i{background:#B7791F;border-color:#FDE68A;box-shadow:0 0 6px #B7791F}.ckinstr li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ckact{display:flex;gap:.5rem;margin-top:.6rem}.ckbtn{flex:1;font:inherit;font-size:.8rem;font-weight:700;padding:.45rem .6rem;border-radius:3px;border:1px solid #B7791F;background:#B7791F;color:#0D132D;cursor:pointer}.ckbtn.alt{background:transparent;color:#C9D1E0;border-color:#2A3352;flex:0 0 auto}
-.flleaders{margin:0;padding-left:1.3rem}.flleaders li{display:flex;justify-content:space-between;gap:.5rem;padding:.25rem 0;border-bottom:1px solid #2A3352;font-size:.85rem;cursor:pointer}.flleaders em{color:#8B95A5;font-style:normal;font-size:.72rem}
-.ticker li.on{color:#A7F3D0}
-@media(max-width:900px){.flboard{grid-template-columns:1fr}.ckgrid{grid-template-columns:1fr}.cockpit{position:static;width:auto;margin-top:.5rem}}
-
 /* the wall */
 .wallpage{max-width:1400px;margin:0 auto;padding:1rem 16px 3rem;background:#0D132D;color:#E8ECF1;border-radius:6px}
 .wallhead{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:end}
