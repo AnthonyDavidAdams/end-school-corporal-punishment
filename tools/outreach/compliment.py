@@ -84,7 +84,7 @@ def pick(name, state, items):
 def write(name, h):
     prompt = (f"Write ONE sentence, at most 28 words, that a person could say sincerely at the start of a letter to the office of {name}, "
               f"referring to this news: \"{h['title']}\" ({h['source']}, {h['date']}). Plain and specific. Begin with 'Congratulations on' or 'I saw that'. "
-              "No exclamation marks, no 'amazing', 'incredible' or 'awesome', no claims beyond the headline, no questions. Output only the sentence.")
+              "Never name a student: say 'a Gurdon student' or 'one of your students' rather than a child's name (staff may be named). No exclamation marks, no 'amazing', 'incredible' or 'awesome', no claims beyond the headline, no questions. Output only the sentence.".replace("Gurdon", name.split()[0]))
     req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",
                                  data=json.dumps({"model": WRITER, "max_tokens": 80, "temperature": 0.3, "messages": [{"role": "user", "content": prompt}]}).encode(),
                                  headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
@@ -97,7 +97,12 @@ def check(line, h):
          "criteria": {"true": "The sentence says only what the headline supports, in a sincere, plain register.",
                       "false": "The sentence adds a detail, number, name, or claim the headline does not contain, exaggerates it, or reads as sarcastic or gushing."}}}
     a = jev({"headline": h["title"], "source": h["source"], "date": h["date"], "sentence": line}, q)["ok"]
-    return float(a.get("noul") or 0) >= 0.7   # noul answers are a probability, not a choice with a confidence
+    if float(a.get("noul") or 0) < 0.7: return False
+    # No child's name leaves this project in any channel. If the headline names a student, the sentence must not.
+    q2 = {"minor": {"type": "noul", "instructions": "Does the sentence name an individual who is, from the headline, a student or child (as opposed to a teacher, coach, principal or other adult)?",
+          "criteria": {"true": "The sentence contains the personal name of a student or child.", "false": "No student's name appears; any named person is an adult, or nobody is named."}}}
+    b = jev({"headline": h["title"], "sentence": line}, q2)["minor"]
+    return float(b.get("noul") or 1) < 0.3   # noul answers are a probability, not a choice with a confidence
 
 def compliment(name, state):
     """Returns {line, headline, source, date, url} or None. Never invents; drops anything unverified."""
