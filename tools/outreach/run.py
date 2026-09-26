@@ -149,6 +149,7 @@ def find_request(msg, reqs):
     if m: return next((r for r in reqs if r["id"] == m.group(1)), None)
     subj = str(make_header(decode_header(msg.get("Subject", "")))).lower(); frm = email.utils.parseaddr(msg.get("From", ""))[1].lower()
     dom = frm.split("@")[-1]
+    if "corporal punishment" not in subj: return None
     cands = [r for r in reqs if r["status"] != "pending" and (r["to"].split("@")[-1].lower() == dom or nice(r["name"]).lower() in subj)]
     return cands[0] if len(cands) == 1 else None
 def jev_kind(subject, frm, body, atts, links):
@@ -203,10 +204,27 @@ def file_document(r, path, how):
     return recs[0]["status"]
 def publish(message):
     r = subprocess.run(["bash", "tools/publish.sh", message], cwd=ROOT, capture_output=True, text=True); log(r.stdout.strip()[-300:])
+def anthony_threads(M, reqs):
+    """Request ids Anthony has already replied to himself (from Sent Mail), so the job stays out of those threads."""
+    done = set()
+    try:
+        M.select('"[Gmail]/Sent Mail"')
+        typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d subject:\"Re: Request for\" subject:\"corporal punishment\""')
+        for num in (data[0].split() if data and data[0] else []):
+            typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (TO SUBJECT IN-REPLY-TO REFERENCES)])"); h = email.message_from_bytes(raw[0][1])
+            r = find_request(h, reqs)
+            if not r:
+                to = email.utils.parseaddr(h.get("To", ""))[1].lower(); r = next((x for x in reqs if x["to"].lower() == to), None)
+            if r: done.add(r["id"])
+    except Exception as e: log("sent-mail scan failed", e)
+    return done
 def inbox():
-    reqs = load(); M = imap(); M.select("INBOX")
-    since = (datetime.date.today() - datetime.timedelta(days=45)).strftime("%d-%b-%Y")
-    typ, data = M.search(None, "SINCE", since); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
+    reqs = load(); M = imap(); mine = anthony_threads(M, reqs)
+    for r in reqs:
+        if r["id"] in mine and r["status"] in ("sent", "promised", "needs_review"): r["status"] = "anthony_replied"; r["followup_sent_at"] = r.get("followup_sent_at") or "n/a"
+    save(reqs); M.select("INBOX")
+    # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d (subject:\"corporal punishment\" OR \"escp-\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
     handled = 0
     for num in (data[0].split() if data and data[0] else []):
         typ, raw = M.fetch(num, "(BODY.PEEK[])"); msg = email.message_from_bytes(raw[0][1])
@@ -216,8 +234,14 @@ def inbox():
         if not r: continue
         subject = str(make_header(decode_header(msg.get("Subject", "")))); frm = email.utils.parseaddr(msg.get("From", ""))[1]
         body, atts = part_text(msg); links = [u for u in re.findall(r"https?://[^\s<>\")\]]+", body) if "earthpilot" not in u]
+        try:
+            handle_one(M, reqs, r, msg, raw[0][1], mid, subject, frm, body, atts, links, quiet=(r["id"] in mine)); handled += 1
+        except Exception as e:
+            log("FAILED on", frm, subject[:50], repr(e)[:200])
+    M.logout(); log(f"inbox: {handled} new replies handled")
+def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, quiet=False):
         d = os.path.join(REPLIES, r["id"]); os.makedirs(d, exist_ok=True); h = hashlib.sha1(mid.encode()).hexdigest()[:8]
-        open(os.path.join(d, h + ".eml"), "wb").write(raw[0][1])
+        open(os.path.join(d, h + ".eml"), "wb").write(rawbytes)
         kind, conf = jev_kind(subject, frm, body, atts, links)
         entry = {"message_id": mid, "from": frm, "date": msg.get("Date"), "kind": kind, "confidence": conf, "attachments": [a[0] for a in atts], "links": links[:10], "file": h + ".eml", "action": None}
         log(f"reply from {frm} for {r['state']} {r['name']}: {kind} ({conf})")
@@ -243,23 +267,27 @@ def inbox():
             recorded = [g for g in got if g and g != "held"]
             if recorded:
                 r["status"] = "answered"; entry["action"] = f"recorded {recorded[0]}"
-                m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + subject; m["In-Reply-To"] = mid; m["References"] = mid; m.set_content(thanks_body(r, "The policy has been read and recorded.")); smtp_send(m); entry["action"] += "; thanked"
+                if not quiet:
+                    m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + subject; m["In-Reply-To"] = mid; m["References"] = mid; m.set_content(thanks_body(r, "The policy has been read and recorded.")); smtp_send(m); entry["action"] += "; thanked"
             else:
-                r["status"] = "needs_review"; entry["action"] = "document kept; held for a person"; text_anthony(f"ESCP: {nice(r['name'])} {r['state']} sent a document the pipeline could not record — see data/outreach/replies/{r['id']}/")
+                r["status"] = "needs_review"; entry["action"] = "document kept; held for a person"; quiet or text_anthony(f"ESCP: {nice(r['name'])} {r['state']} sent a document the pipeline could not record — see data/outreach/replies/{r['id']}/")
         elif kind == "no_written_policy":
             r["status"] = "no_policy"; entry["action"] = "recorded no-policy; offer sent"
             rec = [{"state": r["state"], "name": r["name"], "nces_id": r.get("nces_id"), "status": "unknown", "notes": f"District states in a reply of {datetime.date.today().isoformat()} to a public records request that it has no written policy on corporal punishment. Reply kept at data/outreach/replies/{r['id']}/{h}.eml."}]
             p = os.path.join(LOGDIR, f"nopolicy-{r['id']}.json"); json.dump(rec, open(p, "w")); subprocess.run(["node", "tools/merge-scan.mjs", p], cwd=ROOT, capture_output=True); publish(f"{nice(r['name'])}, {r['state']}: no written policy, by the district's own account")
-            m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + subject; m["In-Reply-To"] = mid; m["References"] = mid; m.set_content(offer_body(r)); smtp_send(m)
+            if not quiet:
+                m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + subject; m["In-Reply-To"] = mid; m["References"] = mid; m.set_content(offer_body(r)); smtp_send(m)
         elif kind == "will_send_later":
             r["status"] = "promised"; r["followup_sent_at"] = None; entry["action"] = "waiting"
+        elif quiet:
+            entry["action"] = "logged; Anthony is handling this thread"
         else:
             r["status"] = "needs_review"; entry["action"] = "drafted for Anthony"
             m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + subject; m["In-Reply-To"] = mid; m["References"] = mid
             m.set_content(f"[DRAFT for Anthony — {kind}, confidence {conf}]\n\nThey wrote:\n\n{body[:1500]}\n\n---\n\nThank you for replying. \n\nAnthony Adams\nEarthPilot · earthpilot.org/kids\n"); put_draft(M, m)
             text_anthony(f"ESCP: {nice(r['name'])} {r['state']} replied ({kind}). A draft is in Gmail Drafts.")
-        r["replies"].append(entry); handled += 1; save(reqs)
-    M.logout(); log(f"inbox: {handled} new replies handled")
+        if quiet and r["status"] != "answered": r["status"] = "anthony_replied"
+        r["replies"].append(entry); save(reqs)
 
 # ---------------------------------------------------------------- follow-up
 def followup():
