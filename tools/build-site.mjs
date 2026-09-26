@@ -756,7 +756,7 @@ mkdirSync(join(site, "live"), { recursive: true });
 @media(max-width:900px){.pilots{display:none}.radio{width:min(46%,260px);top:8px;right:8px}.cams{left:8px;right:8px;bottom:8px;max-width:none}.cams input{min-width:0;flex:1 1 8rem}.flmode{display:none}.ckgrid{grid-template-columns:1fr}.top{gap:.6rem;font-size:10px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.top .stat{flex:0 0 auto}.top .stat b{font-size:13px}.top .stat.wide{display:none}.top .id span{display:none}.top .right{gap:.5rem}.top .status span:last-child{display:none}.legend{display:none}.bottom span:last-child{display:none}}
 
 .flcomms.brief{border-color:var(--ph);color:var(--ph)}
-.briefing{position:absolute;inset:0;z-index:20;background:rgba(2,6,4,.86);display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)}
+.briefing[hidden]{display:none}.briefing{position:absolute;inset:0;z-index:20;background:rgba(2,6,4,.86);display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)}
 .brief-box{max-width:640px;border:1px solid var(--ph);padding:1.2rem 1.4rem;background:rgba(2,6,4,.96);position:relative}
 .brief-box::before,.brief-box::after{content:"";position:absolute;width:14px;height:14px;border-color:var(--ph);border-style:solid}.brief-box::before{top:-1px;left:-1px;border-width:2px 0 0 2px}.brief-box::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
 .brief-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem}
