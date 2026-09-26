@@ -147,12 +147,13 @@ def find_request(msg, reqs):
     refs = (msg.get("In-Reply-To", "") + " " + msg.get("References", ""))
     m = re.search(r"escp-([0-9a-f]{10})@", refs)
     if m: return next((r for r in reqs if r["id"] == m.group(1)), None)
-    subj = str(make_header(decode_header(msg.get("Subject", "")))).lower(); frm = email.utils.parseaddr(msg.get("From", ""))[1].lower()
-    dom = frm.split("@")[-1]
-    if "corporal punishment" not in subj: return None
-    if re.match(r"(no-?reply|newsletter|digest|noreply)@", frm): return None
-    cands = [r for r in reqs if r["status"] != "pending" and (r["to"].split("@")[-1].lower() == dom or nice(r["name"]).lower() in subj)]
-    return cands[0] if len(cands) == 1 else None
+    # No thread header: the subject must be a reply to one of the exact subjects we sent. Nothing else counts.
+    subj = re.sub(r"^\s*((re|fw|fwd|aw)\s*:\s*|unmonitored account\s*)+", "", str(make_header(decode_header(msg.get("Subject", "")))), flags=re.I).strip().lower()
+    frm = email.utils.parseaddr(msg.get("From", ""))[1].lower(); dom = frm.split("@")[-1]
+    hits = [r for r in reqs if r["status"] != "pending" and f"request for {nice(r['name']).lower()}'s corporal punishment policy" == subj]
+    if len(hits) == 1: return hits[0]
+    if len(hits) > 1: return next((r for r in hits if r["to"].split("@")[-1].lower() == dom), None)
+    return None
 def jev_kind(subject, frm, body, atts, links):
     q = {"kind": {"type": "choice", "instructions": "What is this reply to a public-records request for a school district's corporal punishment policy?",
          "criteria": {"document": "The policy or handbook is attached, pasted in the body, or linked (a URL to the policy document or the policy page).",
