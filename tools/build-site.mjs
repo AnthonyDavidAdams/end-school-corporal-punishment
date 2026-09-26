@@ -167,7 +167,7 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="/kids/wall/">The Wall</a><a href="/kids/share/">Share</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="/kids/play/">Play</a><a href="/kids/share/">Share</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
@@ -938,59 +938,50 @@ writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8
 @media(max-width:900px){.wallhead,.wallboard{grid-template-columns:1fr}.wallscore{grid-template-columns:repeat(3,auto);text-align:left}.wallscore b{font-size:1.5rem}}
 `);
 
-// ---------- the wall ----------
-// The record as a game board: one brick per district in every state where it is still legal. Filled
-// bricks are districts whose own policy has been read and quoted; dark bricks are the work. A visitor
-// clicks a dark brick and gets the exact instruction to hand their agent. The leaderboard and the
-// live drops come from the crew server, so the page is never ahead of or behind the record.
-mkdirSync(join(site, "wall"), { recursive: true });
+writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8") + `
+/* the arcade */
+.arc{max-width:1400px;margin:0 auto;padding:.6rem 16px 3rem;background:#06091A;color:#E8ECF1}
+.arc h1{color:#fff;margin:.2rem 0 .3rem}.arc .lede{color:#C9D1E0;max-width:56rem;margin:0 0 .6rem}
+.hud{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#FDE68A;margin:.3rem 0 .5rem;font-weight:700}.hud span{white-space:nowrap}.hud .dim{color:#8B95A5}
+.arcboard{display:grid;grid-template-columns:1fr 320px;gap:1rem;align-items:start}
+#arcade{width:100%;display:block;border:1px solid #1B2340;border-radius:4px;touch-action:none;cursor:crosshair;image-rendering:pixelated}
+.arcctl{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:#8B95A5;margin-top:.4rem}.arcctl button{font:inherit;font-size:.78rem;padding:.25rem .6rem;border-radius:3px;border:1px solid #3A4466;background:transparent;color:#C9D1E0;cursor:pointer}
+.ppanel{background:#0D132D;border:1px solid #1B2340;border-radius:4px;padding:.8rem .9rem;margin-bottom:.8rem}.ppanel h2{margin:0 0 .3rem;font-size:1rem;color:#fff}.ppanel .meta{color:#8B95A5;margin:.2rem 0}.ppanel .small{font-size:.85rem;margin:.4rem 0 0;color:#C9D1E0}
+.pbox{background:#06091A;border:1px solid #1B2340;border-radius:3px;padding:.5rem;font-size:.8rem;white-space:pre-wrap;word-break:break-word;margin:.5rem 0;color:#E8ECF1;max-height:150px;overflow:auto}
+.pbtn{display:block;width:100%;padding:.5rem;border-radius:4px;border:1px solid #FDE68A;background:#FDE68A;color:#06091A;font:inherit;font-weight:700;cursor:pointer;margin-top:.4rem;text-align:center;text-decoration:none}.pbtn.alt{background:transparent;color:#E8ECF1;border-color:#3A4466}
+.pleaders{margin:0;padding-left:1.3rem}.pleaders li{display:flex;justify-content:space-between;gap:.5rem;padding:.2rem 0;border-bottom:1px solid #1B2340;font-size:.88rem}.pleaders em{color:#8B95A5;font-style:normal;font-size:.76rem}.pleaders b{color:#FDE68A}
+.pfeed{list-style:none;margin:0;padding:0;font-size:.82rem}.pfeed li{padding:.25rem 0;border-bottom:1px solid #1B2340;color:#C9D1E0}.pfeed li.on{color:#A7F3D0}.pfeed time{color:#8B95A5;font-size:.72rem;margin-left:.3rem}
+@media(max-width:900px){.arcboard{grid-template-columns:1fr}}
+`);
+
+// ---------- the arcade ----------
+// The record as an arcade. Each wave is a state; each invader a district with no written rule on the
+// record; each beam a real event from the crew server. A visitor flies, locks on, and is handed the
+// instruction for their own agent -- the only thing that actually beams a district up.
+mkdirSync(join(site, "play"), { recursive: true });
 {
   const wall = JSON.parse(readFileSync(join(root, "site/data/wall.json"), "utf8"));
   const dark = wall.totals.bricks - wall.totals.placed;
-  writeFileSync(join(site, "wall", "index.html"), shell({
-    title: "The Wall: every district still to be read, one brick each",
-    path: "/wall/",
-    description: `${n(wall.totals.bricks)} school districts in the ${wall.states.length} states where corporal punishment is still legal, one brick each. ${n(wall.totals.placed)} read and quoted; ${n(dark)} dark. Pick a brick, hand it to your agent, watch it land.`,
-    image: `${BASE}/assets/og-wall.png`,
-    extraHead: `<script defer src="/kids/wall.js?v=${ver("wall.js")}"></script>`,
-    body: `<div class="wallpage">
-  <div class="wallhead">
-    <div class="walltitle"><h1>The Wall</h1><p class="lede">One brick for every school district in the ${wall.states.length} states where a teacher may still hit a child. A brick lights up when someone reads that district's own policy and quotes it. The dark ones are the work. Pick one, hand it to your agent, and watch it land.</p></div>
-    <div class="wallscore">
-      <div><b id="wPlaced">${n(wall.totals.placed)}</b><label>bricks placed</label></div>
-      <div><b id="wDark">${n(dark)}</b><label>still dark</label></div>
-      <div><b id="wPct">${Math.round(100 * wall.totals.placed / wall.totals.bricks)}%</b><label>of the wall</label></div>
-      <div><b id="wWeek">&mdash;</b><label>placed this week</label></div>
-      <div><b id="wCrew">&mdash;</b><label>contributors</label></div>
-    </div>
-  </div>
-  <div class="walllegend"><span><i style="background:#2D6A4F"></i>board prohibits it</span><span><i style="background:#9B2C2C"></i>board permits it</span><span><i style="background:#C05621"></i>with parental consent</span><span><i style="background:#5A6577"></i>read, no rule found</span><span><i style="background:#B7791F"></i>landed just now</span><span><i style="background:transparent;border:1px solid #3A4466"></i>nobody has read it</span></div>
-  <div class="wallboard">
-    <div class="wallcanvas"><canvas id="wall" aria-label="The wall of districts"></canvas><div id="wtip" class="wtip" hidden></div></div>
-    <aside class="wallside">
-      <div class="wpanel" id="wclaim">
-        <h2>Pick a brick</h2>
-        <p class="meta">Click any dark brick, or take the biggest one.</p>
-        <button type="button" id="wNext" class="wbtn">Give me the biggest dark brick</button>
-      </div>
-      <div class="wpanel">
-        <h2>Leaderboard</h2>
-        <div class="wtabs"><button type="button" data-tab="all" class="on">All time</button><button type="button" data-tab="week">This week</button></div>
-        <ol id="wLeaders" class="wleaders"><li class="meta">Loading&hellip;</li></ol>
-        <p class="meta">Handles are anonymous. Ask your agent to call <code>claim_badge</code> to put a name on yours.</p>
-      </div>
-      <div class="wpanel">
-        <h2>Just landed</h2>
-        <ul id="wFeed" class="wfeed"><li class="meta">Watching the crew&hellip;</li></ul>
-      </div>
-      <div class="wpanel">
-        <h2>The ladder</h2>
-        <ol id="wLadder" class="wladder"></ol>
-        <p class="meta">After the first brick, your agent will ask you for the next rung. <a href="/kids/share/">The share kit</a> is rung three.</p>
-      </div>
+  writeFileSync(join(site, "play", "index.html"), shell({
+    title: "Play: beam up the districts nobody has read",
+    path: "/play/",
+    description: `${n(dark)} school districts where a teacher may still hit a child and nobody has read the district's own rule, coming down in waves, one state at a time. Crew agents beam them onto the record live. Fly, lock on, hand one to your agent.`,
+    image: `${BASE}/assets/og-play.png`,
+    extraHead: `<script defer src="/kids/play.js?v=${ver("play.js")}"></script>`,
+    body: `<div class="arc">
+  <h1>Beam them up</h1>
+  <p class="lede">Every invader is a school district where a teacher may still hit a child and nobody has read the district's own rule. The crew's agents beam them onto the record, one policy at a time, and every beam you see is a real event from the crew server. Arrow keys or drag to fly, space or tap to lock on. A lock hands the district to <em>your</em> agent, which is the only thing that beams one up for real.</p>
+  <div class="hud"><span id="hudRecord">${n(wall.totals.placed)} ON THE RECORD</span><span id="hudDark">${n(dark)} STILL DARK</span><span id="hudWave" class="dim">WAVE</span><span id="hudWeek" class="dim">&mdash; THIS WEEK</span><span id="hudPilots" class="dim">0 FLYING NOW</span><span id="hudYou" class="dim">0 HANDED TO YOUR AGENT</span></div>
+  <div class="arcboard">
+    <div><canvas id="arcade" aria-label="The arcade: districts coming down in waves, crew ships beaming them up"></canvas>
+      <div class="arcctl"><span>&larr; &rarr; move &middot; space locks on &middot; touch: drag and tap</span><span><button type="button" id="pWavePrev">&larr; wave</button> <button type="button" id="pWaveNext">wave &rarr;</button></span></div></div>
+    <aside>
+      <div class="ppanel" id="pTarget"><h2>No target locked</h2><p class="meta">Fly under a district and lock on. Red ones struck the most children in 2023-24.</p></div>
+      <div class="ppanel"><h2>Pilots</h2><ol id="pLeaders" class="pleaders"><li class="meta">Loading&hellip;</li></ol><p class="meta">Handles are anonymous; <code>claim_badge</code> puts a name on yours.</p></div>
+      <div class="ppanel"><h2>On the radio</h2><ul id="pFeed" class="pfeed"><li class="meta">Listening to the crew&hellip;</li></ul></div>
     </aside>
   </div>
-  <p class="meta">Bricks are the regular public school districts in the federal directory for each state where the practice is legal; charter districts and state-run agencies are not on the wall. Struck counts are each district's own 2023-24 filing to the US Department of Education. Machine-readable: <a href="/kids/data/wall.json">wall.json</a>. Live drops and the leaderboard come from the crew server.</p>
+  <p class="meta">Invaders are the regular public school districts in the federal directory for each state where the practice is legal, with no policy on the record yet; charter districts and state-run agencies are not shown. Struck counts are each district's own 2023-24 filing to the US Department of Education. Data: <a href="/kids/data/wall.json">wall.json</a>. Beams: the crew's <a href="https://escp-mcp-production.up.railway.app/activity.json">activity feed</a>.</p>
 </div>`,
   }));
 }
