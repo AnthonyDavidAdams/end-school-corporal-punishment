@@ -7,7 +7,7 @@ ORDER="README 01-model-policy 02-board-motion 03-announcement-staff 04-announcem
 : > "$TMP/body.html"
 for f in $ORDER; do
   # every document starts on a new page; relative links in the repo become plain text on paper
-  sed -E 's#\]\(([0-9]{2}-[a-z-]+)\.md\)#] (\1)#g; s#\]\(\.\./[^)]+\)#]#g' "kit/$f.md" | pandoc --from gfm --to html5 --wrap=none >> "$TMP/body.html"
+  sed -E 's#\[([^]]+)\]\([0-9]{2}-[a-z-]+\.md\)#\1#g; s#\[([^]]+)\]\(\.\./[^)]+\)#\1#g; s#`\.\./training/modules/`#the training modules#g; s#`\.\./training/evidence\.md`#the evidence base#g; s#`\.\./facts/claims/`#the facts registry#g; s#`\.\./facts/README\.md`#the facts registry index#g; s#`\.\./training/modules/([0-9]+)-[a-z-]+\.md`#Module \1#g; s#`\.\./templates/[a-z-]+\.md`#the templates#g' "kit/$f.md" | pandoc --from gfm --to html5 --wrap=none >> "$TMP/body.html"
   echo '<div class="pagebreak"></div>' >> "$TMP/body.html"
 done
 cat > "$TMP/final.html" <<HTML
