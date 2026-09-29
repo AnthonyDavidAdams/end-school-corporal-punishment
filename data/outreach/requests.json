@@ -65,17 +65,24 @@
     "message_id": "<000301dd4f86$72df9450$589ebcf0$@dbcschool.org>",
     "from": "dbrown@dbcschool.org",
     "date": "Mon, 28 Sep 2026 15:17:55 -0500",
-    "kind": "document",
+    "kind": "document_linked",
     "confidence": 1,
+    "facts": {
+     "document_links": [
+      "https://sankofaschooltulsa.com/2025/09/21/board-policy-manual-25-26/"
+     ]
+    },
     "attachments": [],
     "links": [
      "https://sankofaschooltulsa.com/2025/09/21/board-policy-manual-25-26/"
     ],
     "file": "80aff1e4.eml",
-    "action": "document kept; held for a person"
+    "action": "document arrived but would not record \u2014 held for a person"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "dbrown@dbcschool.org",
+  "last_reply_at": "2026-09-29T09:41:19"
  },
  {
   "id": "ba779a8b0f",
@@ -95,18 +102,25 @@
     "message_id": "<CAOOp0L_=qCn==7kr-J3Q2r-axSGwvAA5p9VJ-VxTkzWjbJjUVA@mail.gmail.com>",
     "from": "bsimmons@colcordschools.com",
     "date": "Mon, 28 Sep 2026 09:32:00 -0500",
-    "kind": "document",
-    "confidence": 1,
+    "kind": "document_linked",
+    "confidence": 0.99,
+    "facts": {
+     "document_links": [
+      "https://drive.google.com/file/d/1cnDSBh-RtgP--sy6Nv38ErJQd3jdjm8k/view"
+     ]
+    },
     "attachments": [],
     "links": [
      "https://drive.google.com/file/d/1cnDSBh-RtgP--sy6Nv38ErJQd3jdjm8k/view",
      "http://www.colcordschools.com"
     ],
     "file": "fc904df1.eml",
-    "action": "document kept; held for a person"
+    "action": "document arrived but would not record \u2014 held for a person"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "bsimmons@colcordschools.com",
+  "last_reply_at": "2026-09-29T09:41:26"
  },
  {
   "id": "a05450a6e5",
@@ -214,7 +228,7 @@
   "to": "drolland@pangburnschools.org",
   "superintendent": "Rolland, David",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "needs_review",
+  "status": "sent",
   "sent_at": "2026-09-25T22:58:57",
   "message_id": "<escp-9546e82250@earthpilot.org>",
   "replies": [
@@ -222,15 +236,32 @@
     "message_id": "<CANXCuHv2aV9S=dxNkzMSsnoZdyaC0yD6RUw=_xgWu315SL7oVg@mail.gmail.com>",
     "from": "drolland@pangburnschools.org",
     "date": "Tue, 29 Sep 2026 08:47:16 -0500",
-    "kind": "question_or_pushback",
-    "confidence": 0.92,
+    "kind": "website_no_link",
+    "confidence": 0.51,
+    "facts": {
+     "proof_mentioned": [
+      "driver's license"
+     ]
+    },
     "attachments": [],
     "links": [],
     "file": "bdc37631.eml",
-    "action": "drafted for Anthony"
+    "action": "re-checked their site, nothing found; asked for the direct link"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "drolland@pangburnschools.org",
+  "last_reply_at": "2026-09-29T09:41:33",
+  "rechecked_at": "2026-09-29T09:41:40",
+  "recheck_tried": [
+   "https://www.pangburnschools.org/documents/181989",
+   "https://www.pangburnschools.org/documents/181965",
+   "http://pangburnschools.org/cafeteria/",
+   "https://www.pangburnschools.org/documents/state-required-information/district-calendar/181985",
+   "https://www.pangburnschools.org/",
+   "https://www.pangburnschools.org/live-feed?page_no=30"
+  ],
+  "awaiting_link_since": "2026-09-29"
  },
  {
   "id": "7cf09fdc9f",
@@ -274,7 +305,7 @@
   "to": "jbradley@newportschools.org",
   "superintendent": "Bradley, Jon E.",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "needs_review",
+  "status": "sent",
   "sent_at": "2026-09-25T22:59:26",
   "message_id": "<escp-b87bf22e19@earthpilot.org>",
   "replies": [
@@ -282,15 +313,28 @@
     "message_id": "<CANFq_xRcYfO9wqQMzBn8S_ogRbZ=F5tojwHFRgqgBEq3d1mqwQ@mail.gmail.com>",
     "from": "jbradley@newportschools.org",
     "date": "Sat, 26 Sep 2026 16:30:02 -0500",
-    "kind": "other",
-    "confidence": 0.77,
+    "kind": "website_no_link",
+    "confidence": 1,
+    "facts": {},
     "attachments": [],
     "links": [],
     "file": "04e4a8bd.eml",
-    "action": "drafted for Anthony"
+    "action": "re-checked their site, nothing found; asked for the direct link"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "jbradley@newportschools.org",
+  "last_reply_at": "2026-09-29T09:41:48",
+  "rechecked_at": "2026-09-29T09:41:52",
+  "recheck_tried": [
+   "https://www.newportschools.org/news?page_no=2",
+   "https://www.newportschools.org/o/nsd/page/state-required-information",
+   "https://www.newportschools.org/staff",
+   "https://www.newportschools.org/",
+   "https://www.newportschools.org/documents",
+   "https://www.newportschools.org/article/639190"
+  ],
+  "awaiting_link_since": "2026-09-29"
  },
  {
   "id": "b290f37004",
@@ -312,6 +356,11 @@
     "date": "Fri, 25 Sep 2026 22:59:37 -0700 (PDT)",
     "kind": "auto_reply_or_bounce",
     "confidence": 1,
+    "facts": {
+     "addresses_named": [
+      "vhopkins@blythevilleschools.net"
+     ]
+    },
     "attachments": [
      "icon.png"
     ],
@@ -323,7 +372,9 @@
     "action": "logged"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "mailer-daemon@googlemail.com",
+  "last_reply_at": "2026-09-29T09:42:00"
  },
  {
   "id": "58002a6479",
@@ -351,7 +402,7 @@
   "to": "dowens@caddohills.org",
   "superintendent": "OWENS, DERIC S.",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "needs_review",
+  "status": "sent",
   "sent_at": "2026-09-25T22:59:55",
   "message_id": "<escp-b2969ed38d@earthpilot.org>",
   "replies": [
@@ -359,15 +410,23 @@
     "message_id": "<CAJN--Pqqup5fozkkA77C9kZvH8MPpjaq-qeU7ZfQPGwQKEONwA@mail.gmail.com>",
     "from": "dowens@caddohills.org",
     "date": "Mon, 28 Sep 2026 14:48:27 -0500",
-    "kind": "question_or_pushback",
-    "confidence": 1,
+    "kind": "residency_required",
+    "confidence": 0.97,
+    "facts": {
+     "proof_mentioned": [
+      "proof of\r\narkansas business operations"
+     ]
+    },
     "attachments": [],
     "links": [],
     "file": "0c0d7963.eml",
-    "action": "drafted for Anthony"
+    "action": "asked what proof of residency they accept"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "dowens@caddohills.org",
+  "last_reply_at": "2026-09-29T09:42:06",
+  "residency_asked_at": "2026-09-29"
  },
  {
   "id": "163c680232",
@@ -392,26 +451,37 @@
   "nces_id": "4031290",
   "kids": 16,
   "kind": "nothing on file",
-  "to": "gabe.schmidt@vinitahornets.com",
+  "to": "rankinrj@vinitahornets.com",
   "superintendent": "Gabriel Schmidt",
   "statute": "the Oklahoma Open Records Act, 51 O.S. \u00a7 24A.1 et seq.",
   "status": "sent",
-  "sent_at": "2026-09-25T23:00:16",
+  "sent_at": "2026-09-29T09:42:16",
   "message_id": "<escp-9b8aaed964@earthpilot.org>",
   "replies": [
    {
     "message_id": "<CAOCFAL=20UxQADVXVa8kOxc1==aq9i=Js2WxiKmLPMLusnBGFw@mail.gmail.com>",
     "from": "gabe.schmidt@vinitahornets.com",
     "date": "Fri, 25 Sep 2026 23:00:20 -0700",
-    "kind": "will_send_later",
-    "confidence": 0.34,
+    "kind": "wrong_contact",
+    "confidence": 1,
+    "facts": {
+     "addresses_named": [
+      "rankinrj@vinitahornets.com",
+      "enroll@vinitahornets.com",
+      "enroll@vinitahornets.com"
+     ],
+     "redirect_to": "rankinrj@vinitahornets.com"
+    },
     "attachments": [],
     "links": [],
     "file": "83af2a78.eml",
-    "action": "waiting"
+    "action": "redirected to rankinrj@vinitahornets.com"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "gabe.schmidt@vinitahornets.com",
+  "last_reply_at": "2026-09-29T09:42:14",
+  "redirect_to": "rankinrj@vinitahornets.com"
  },
  {
   "id": "576fc90a10",
@@ -423,7 +493,7 @@
   "to": "cjordan@grbeavers.org",
   "superintendent": "JORDAN, CHAD E.",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "anthony_replied",
+  "status": "needs_review",
   "sent_at": "2026-09-25T23:00:26",
   "message_id": "<escp-576fc90a10@earthpilot.org>",
   "replies": [
@@ -443,14 +513,17 @@
     "from": "cjordan@grbeavers.org",
     "date": "Mon, 28 Sep 2026 11:27:23 -0500",
     "kind": "other",
-    "confidence": 0.96,
+    "confidence": 0.99,
+    "facts": {},
     "attachments": [],
     "links": [],
     "file": "47b2b226.eml",
-    "action": "logged; Anthony is handling this thread"
+    "action": "drafted for Anthony (other)"
    }
   ],
-  "followup_sent_at": "n/a"
+  "followup_sent_at": "n/a",
+  "answered_from": "cjordan@grbeavers.org",
+  "last_reply_at": "2026-09-29T09:42:22"
  },
  {
   "id": "13770ba816",
@@ -494,7 +567,7 @@
   "to": "zane.vanderpool@ozarkhillbillies.org",
   "superintendent": "VANDERPOOL, ZANE A.",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "needs_review",
+  "status": "sent",
   "sent_at": "2026-09-25T23:00:58",
   "message_id": "<escp-beb8a8180c@earthpilot.org>",
   "replies": [
@@ -502,17 +575,25 @@
     "message_id": "<CAGQQfeM1OppMsE+aRDCpe_vHEM7KKFwJQTBFTFssawZXw08qCw@mail.gmail.com>",
     "from": "zane.vanderpool@ozarkhillbillies.org",
     "date": "Mon, 28 Sep 2026 08:13:25 -0500",
-    "kind": "question_or_pushback",
-    "confidence": 0.82,
+    "kind": "residency_required",
+    "confidence": 0.54,
+    "facts": {
+     "proof_mentioned": [
+      "driver's license"
+     ]
+    },
     "attachments": [],
     "links": [
      "https://www.ozarkhillbillies.org"
     ],
     "file": "0c39c8b8.eml",
-    "action": "drafted for Anthony"
+    "action": "asked what proof of residency they accept"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "zane.vanderpool@ozarkhillbillies.org",
+  "last_reply_at": "2026-09-29T09:42:30",
+  "residency_asked_at": "2026-09-29"
  },
  {
   "id": "36c5ecad22",
@@ -652,7 +733,7 @@
   "to": "swatkins@decatursd.com",
   "superintendent": "Watkins, Steven",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "needs_review",
+  "status": "sent",
   "sent_at": "2026-09-25T23:58:17",
   "message_id": "<escp-2360778ee2@earthpilot.org>",
   "replies": [
@@ -660,15 +741,28 @@
     "message_id": "<CANUXyKeWH=0brBX5ozFjrPog15VzKx=G1h+x=juqN-vHJ3rA2w@mail.gmail.com>",
     "from": "swatkins@decatursd.com",
     "date": "Tue, 29 Sep 2026 09:58:14 -0500",
-    "kind": "other",
-    "confidence": 0.49,
+    "kind": "website_no_link",
+    "confidence": 1,
+    "facts": {},
     "attachments": [],
     "links": [],
     "file": "b1f654b5.eml",
-    "action": "drafted for Anthony"
+    "action": "re-checked their site, nothing found; asked for the direct link"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "swatkins@decatursd.com",
+  "last_reply_at": "2026-09-29T09:42:38",
+  "rechecked_at": "2026-09-29T09:42:46",
+  "recheck_tried": [
+   "http://decatursd.com/35091",
+   "https://www.decatursd.com/middleschoolhome",
+   "https://www.decatursd.com/highschoolhome",
+   "https://www.decatursd.com/state-required-information",
+   "https://www.decatursd.com/collegeandcareerplanning",
+   "https://www.decatursd.com/gifted-talented-ap"
+  ],
+  "awaiting_link_since": "2026-09-29"
  },
  {
   "id": "5e736256b3",
@@ -712,7 +806,7 @@
   "to": "jody.cowart@goknights.us",
   "superintendent": "COWART, JODY",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "needs_review",
+  "status": "sent",
   "sent_at": "2026-09-25T23:58:47",
   "message_id": "<escp-033c162166@earthpilot.org>",
   "replies": [
@@ -720,15 +814,28 @@
     "message_id": "<CAJAzUtG6scZ2Z1AJLp3ck4tyRum_JEbteqQhatKr8DQoSHjBgA@mail.gmail.com>",
     "from": "jody.cowart@goknights.us",
     "date": "Mon, 28 Sep 2026 08:44:32 -0500",
-    "kind": "question_or_pushback",
-    "confidence": 0.99,
+    "kind": "residency_required",
+    "confidence": 1,
+    "facts": {
+     "proof_mentioned": [
+      "documentation of arkansas residency",
+      "driver's license"
+     ],
+     "residency_required": true,
+     "residency_proof_accepted": "documentation of arkansas residency, driver's license"
+    },
     "attachments": [],
     "links": [],
     "file": "dc2caba7.eml",
-    "action": "drafted for Anthony"
+    "action": "asked what proof of residency they accept"
    }
   ],
-  "followup_sent_at": null
+  "followup_sent_at": null,
+  "answered_from": "jody.cowart@goknights.us",
+  "last_reply_at": "2026-09-29T09:42:54",
+  "residency_required": true,
+  "residency_proof_accepted": "documentation of arkansas residency, driver's license",
+  "residency_asked_at": "2026-09-29"
  },
  {
   "id": "5ef382fdd7",
