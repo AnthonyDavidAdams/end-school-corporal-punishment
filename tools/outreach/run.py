@@ -68,7 +68,7 @@ def text_anthony(line):
 
 # ---------------------------------------------------------------- the messages
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import messages, triage as triage_mod, recheck as recheck_mod
+import messages, triage as triage_mod, recheck as recheck_mod, writer as writer_mod
 
 def ensure_compliment(r):
     """One true, specific line about the district from its own recent news (compliment.py), looked up once
@@ -207,9 +207,10 @@ def anthony_threads(M, reqs):
         M.select('"[Gmail]/Sent Mail"')
         typ, data = M.search(None, "SUBJECT", '"Re: Request for"')
         for num in (data[0].split() if data and data[0] else []):
-            typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (FROM TO SUBJECT IN-REPLY-TO REFERENCES)])"); h = email.message_from_bytes(raw[0][1])
+            typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (FROM TO SUBJECT IN-REPLY-TO REFERENCES MESSAGE-ID)])"); h = email.message_from_bytes(raw[0][1])
             if not h.get("In-Reply-To"): continue          # our own outbound requests are not replies
             if "escp-" in (h.get("In-Reply-To") or ""): continue   # the job's own automated replies
+            if "escp-reply-" in (h.get("Message-ID") or ""): continue   # ditto, replies on a district's thread
             r = find_request(h, reqs)
             if not r:
                 to = email.utils.parseaddr(h.get("To", ""))[1].lower(); r = next((x for x in reqs if x["to"].lower() == to), None)
@@ -222,7 +223,9 @@ def inbox():
         if r["id"] in mine and r["status"] in ("sent", "promised", "needs_review"): r["status"] = "anthony_replied"; r["followup_sent_at"] = r.get("followup_sent_at") or "n/a"
     save(reqs); M.select("INBOX")
     # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
-    typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d subject:corporal"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
+    # Every subject we have ever sent, not just the ones with "corporal" in them: the research and
+    # agency requests would otherwise never have their replies read.
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
     handled = 0
     for num in (data[0].split() if data and data[0] else []):
         typ, raw = M.fetch(num, "(BODY.PEEK[])"); msg = email.message_from_bytes(raw[0][1])
@@ -248,8 +251,10 @@ def inbox():
 def reply_to(r, frm, mid, subject, text, to=None):
     """One reply on an existing thread. Returns True if it went."""
     m = EmailMessage(); m["From"] = FROM; m["To"] = to or frm
+    subject = " ".join(str(subject).split())   # a folded subject line carries a newline, which a header may not
     m["Subject"] = subject if subject.lower().startswith("re:") else "Re: " + subject
     if not to: m["In-Reply-To"] = mid; m["References"] = mid
+    m["Message-ID"] = f"<escp-reply-{hashlib.sha1((r['id'] + mid + text[:40]).encode()).hexdigest()[:12]}@earthpilot.org>"
     m.set_content(text)
     try:
         smtp_send(m); return True
@@ -401,11 +406,18 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         entry["action"] = "logged; Anthony is handling this thread"
 
     else:
-        r["status"] = "needs_review"; entry["action"] = f"drafted for Anthony ({kind})"
-        m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + subject
-        m["In-Reply-To"] = mid; m["References"] = mid
-        m.set_content(f"[DRAFT — {kind}, confidence {conf}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1200]}\n\n---\n\n{messages.sig(USER)}\n")
-        put_draft(M, m)
+        # A real question, a refusal, a surprise: written from the thread, refereed, and sent. Drafted
+        # only if the referee says no, which is the safe failure.
+        thread = [("us", body_for(r) if r.get("kind") else "")] + [("them", triage_mod.strip_quoted(body))]
+        text = writer_mod.reply(r, thread, kind)
+        if text and reply_to(r, frm, mid, subject, text):
+            r["status"] = "sent"; entry["action"] = f"replied ({kind}, written and checked)"; entry["our_reply"] = text
+        else:
+            r["status"] = "needs_review"; entry["action"] = f"drafted for Anthony ({kind}; the referee held it)"
+            m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + subject
+            m["In-Reply-To"] = mid; m["References"] = mid
+            m.set_content(f"[DRAFT — {kind}, confidence {conf}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1200]}\n\n---\n\n{messages.sig(USER)}\n")
+            put_draft(M, m)
 
     if quiet and r["status"] not in ("answered", "no_policy"): r["status"] = "anthony_replied"
     r.setdefault("answered_message_ids", []).append(mid)

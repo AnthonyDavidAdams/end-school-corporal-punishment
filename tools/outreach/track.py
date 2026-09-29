@@ -61,6 +61,8 @@ def stage(r):
     kinds = [x.get("kind") for x in (r.get("replies") or [])]
     if st == "bounced":
         return "bounced", "the address bounced"
+    if st == "closed":
+        return "done", r.get("closed_reason", "closed")[:70]
     if r.get("kind") == "research" and st != "answered":
         return "research", f"{r.get('state')} · {business_days_since(r.get('sent_at'))} business days" + (f" · {len(r.get('replies') or [])} repl" if r.get("replies") else "")
     if r.get("kind") == "state_doe" and st != "answered":
