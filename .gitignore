@@ -12,3 +12,7 @@ out/
 
 # originals archive: published to /kids/documents/, too big for git
 data/documents/
+
+# analysis inputs: large public files, re-fetched by tools/outcomes; and a project venv
+data/outcomes/*.csv
+tools/.venv/
