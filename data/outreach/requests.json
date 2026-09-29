@@ -57,7 +57,7 @@
   "to": "dbrown@dbcschool.org",
   "superintendent": "Deborah Brown",
   "statute": "the Oklahoma Open Records Act, 51 O.S. \u00a7 24A.1 et seq.",
-  "status": "needs_review",
+  "status": "answered",
   "sent_at": "2026-09-25T22:57:39",
   "message_id": "<escp-132fa5dc78@earthpilot.org>",
   "replies": [
@@ -85,7 +85,9 @@
   "last_reply_at": "2026-09-29T09:46:29",
   "answered_message_ids": [
    "<000301dd4f86$72df9450$589ebcf0$@dbcschool.org>"
-  ]
+  ],
+  "recorded_status": "allows",
+  "last_outbound_tag": "thanks"
  },
  {
   "id": "ba779a8b0f",
@@ -97,7 +99,7 @@
   "to": "bsimmons@colcordschools.com",
   "superintendent": "Bud Simmons",
   "statute": "the Oklahoma Open Records Act, 51 O.S. \u00a7 24A.1 et seq.",
-  "status": "needs_review",
+  "status": "answered",
   "sent_at": "2026-09-25T22:57:50",
   "message_id": "<escp-ba779a8b0f@earthpilot.org>",
   "replies": [
@@ -126,7 +128,9 @@
   "last_reply_at": "2026-09-29T09:46:39",
   "answered_message_ids": [
    "<CAOOp0L_=qCn==7kr-J3Q2r-axSGwvAA5p9VJ-VxTkzWjbJjUVA@mail.gmail.com>"
-  ]
+  ],
+  "recorded_status": "consent_required",
+  "last_outbound_tag": "thanks"
  },
  {
   "id": "a05450a6e5",
@@ -584,7 +588,7 @@
   "to": "cjordan@grbeavers.org",
   "superintendent": "JORDAN, CHAD E.",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "anthony_replied",
+  "status": "sent",
   "sent_at": "2026-09-25T23:00:26",
   "message_id": "<escp-576fc90a10@earthpilot.org>",
   "replies": [
@@ -618,7 +622,8 @@
   "answered_message_ids": [
    "<CA+fxMadH++2G0-Frc9FD2tJJ=FR4S5VT=92u9EjysjCj7rNCSQ@mail.gmail.com>",
    "<CA+fxMafdnqKB-r9-bM=6P-g5dsUdnTL8VCWphWERW8qWhpPCKQ@mail.gmail.com>"
-  ]
+  ],
+  "residency_required": true
  },
  {
   "id": "13770ba816",
@@ -934,11 +939,24 @@
   "status": "sent",
   "sent_at": "2026-09-25T23:58:27",
   "message_id": "<escp-5e736256b3@earthpilot.org>",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<CAAvJjVYND3n_Y4g19b5j7+EJkJ8VQNn7cCpzM0ajsrpxeSvt2g@mail.gmail.com>",
+    "from": "josh.daniels@doverschools.net",
+    "date": "Tue, 29 Sep 2026 14:56:16 -0500",
+    "kind": "website_no_link",
+    "confidence": 1,
+    "facts": {},
+    "attachments": [],
+    "links": [],
+    "file": "c3566d23.eml",
+    "action": "re-checked their site, nothing found; asked for the direct link"
+   }
+  ],
   "followup_sent_at": null,
   "answered_from": "josh.daniels@doverschools.net",
-  "last_reply_at": "2026-09-29T13:07:42",
-  "rechecked_at": "2026-09-29T13:07:48",
+  "last_reply_at": "2026-09-29T13:20:24",
+  "rechecked_at": "2026-09-29T13:20:28",
   "recheck_tried": [
    "https://www.doverschools.net/100131_2",
    "https://www.doverschools.net/Policies",
@@ -947,7 +965,10 @@
    "https://www.doverschools.net/site_map",
    "https://www.doverschools.net/59940_2"
   ],
-  "awaiting_link_since": "2026-09-29"
+  "awaiting_link_since": "2026-09-29",
+  "answered_message_ids": [
+   "<CAAvJjVYND3n_Y4g19b5j7+EJkJ8VQNn7cCpzM0ajsrpxeSvt2g@mail.gmail.com>"
+  ]
  },
  {
   "id": "f56f24824e",
@@ -1214,7 +1235,7 @@
   "to": "mferguson@alpenaleopards.org",
   "superintendent": "FERGUSON, MATTHEW B.",
   "statute": "the Arkansas Freedom of Information Act, Ark. Code Ann. \u00a7 25-19-101 et seq.",
-  "status": "anthony_replied",
+  "status": "answered",
   "sent_at": "2026-09-25T23:59:45",
   "message_id": "<escp-1e3bbd3339@earthpilot.org>",
   "replies": [
@@ -2131,7 +2152,7 @@
   "to": "esimon@alex.k12.ok.us",
   "superintendent": "Ead Simon",
   "statute": "the Oklahoma Open Records Act, 51 O.S. \u00a7 24A.1 et seq.",
-  "status": "anthony_replied",
+  "status": "closed",
   "sent_at": "2026-09-26T01:17:58",
   "message_id": "<escp-be66548dbc@earthpilot.org>",
   "replies": [
@@ -2194,7 +2215,9 @@
    "<0_Gb0m6IT62JSjzilhrxcQ@geopod-ismtpd-135>",
    "<20260817125506.3.d8f1e520294a9169.e1c8wiyk@mg2.substack.com>",
    "<02a301dd5032$86c7c990$94575cb0$@alex.k12.ok.us>"
-  ]
+  ],
+  "closed_reason": "Superintendent Ead Simon (2026-09-29): the board did discuss it; the discipline policy does not include corporal punishment per legal counsel; requests are taken in person only and he does not wish to communicate further. Two identical minutes requests went out 09:44 and 09:49 (retriage double-send). No further contact.",
+  "recorded_status": "no written rule; board policy excludes it per counsel"
  },
  {
   "id": "8cebb32ca1",
@@ -2555,7 +2578,8 @@
   "last_reply_at": "2026-09-29T09:49:38",
   "answered_message_ids": [
    "<CAD5ELfKmpx4MZiwi5GLpE3h=NtiN8q2b2UU5P=p3=SY=rCAeMA@mail.gmail.com>"
-  ]
+  ],
+  "last_outbound_tag": "ask-section"
  },
  {
   "id": "8ca88f3715",
@@ -2643,7 +2667,8 @@
   "last_reply_at": "2026-09-29T09:49:59",
   "answered_message_ids": [
    "<CACHM_+Hjb6c1V38J140FTzKCPZHCMver2AEYpoSiPZUCio4-EQ@mail.gmail.com>"
-  ]
+  ],
+  "last_outbound_tag": "ask-file"
  },
  {
   "id": "85703803cc",
@@ -2944,7 +2969,7 @@
   "to": "kholley@pataula.net",
   "superintendent": null,
   "statute": "the Georgia Open Records Act, O.C.G.A. \u00a7 50-18-70 et seq.",
-  "status": "needs_review",
+  "status": "answered",
   "sent_at": "2026-09-26T03:29:19",
   "message_id": "<escp-bf55376af6@earthpilot.org>",
   "replies": [
@@ -2973,7 +2998,9 @@
   "last_reply_at": "2026-09-29T09:50:06",
   "answered_message_ids": [
    "<CAFGiinDMneiMz_CNYR-tZWRc8V_U_7pdy4agGefLiWiNtadOdw@mail.gmail.com>"
-  ]
+  ],
+  "recorded_status": "allows",
+  "last_outbound_tag": "thanks"
  },
  {
   "id": "1d58b3d5e9",
