@@ -164,7 +164,7 @@ Under {statute}, please provide any of the following that exist, for the last te
   2. Records of internal discussion of the policy: administrator or staff meeting notes, memos, and emails among board members, the superintendent's office and principals about the policy or proposals to change it.
   3. The research, studies, guidance or training materials the board or administration cited or relied on in adopting or last reviewing the policy.
   4. The outcomes the district uses to judge whether the practice is working (for example repeat offenses, suspensions, attendance, climate surveys), and the method by which those are measured.
-  5. Any data, report or review produced under item 4, and any record of how often corporal punishment has been used.
+  5. Any data, report or review produced under item 4; and the record of each use of corporal punishment, with the offense it was imposed for — the incident log, and the discipline matrix or code that lists which offenses carry it as a consequence.
 
 Where a part does not exist, saying so is a complete answer to it. I'm not looking for a gotcha: if the board has thought this through, that thinking belongs next to the policy on the public record, and if it hasn't, that is worth knowing too.
 
