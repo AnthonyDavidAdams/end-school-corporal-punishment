@@ -22,8 +22,20 @@ const parse=l=>{const o=[];let c="",q=false;for(const ch of l){if(ch==='"')q=!q;
 const leas=csv.slice(1).map(parse).filter(c=>c.length>5).map(c=>Object.fromEntries(head.map((h,i)=>[h,(c[i]||"").trim()]))).filter(r=>r.state===st&&r.lea_type.startsWith("Regular public"));
 const f=`data/districts/${st}.yaml`;const d=fs.existsSync(f)?yaml.parse(fs.readFileSync(f,"utf8")):[];const rows=Array.isArray(d)?d:(d.districts||[]);
 const done=new Set(rows.filter(r=>r.status&&r.status!=="unknown"&&(r.source||r.status==="silent")).map(r=>String(r.nces_id)));
-const title=s=>s.toLowerCase().replace(/\b([a-z])/g,m=>m.toUpperCase()).replace(/\bIsd\b/g,"ISD").replace(/\bCisd\b/g,"CISD").replace(/\bR-([ivx]+)\b/gi,(m,r)=>`R-${r.toUpperCase()}`).replace(/\bCo\.?\b/g,"County").replace(/\bSch\b/g,"School").replace(/\bDist\b/g,"District");
-const slice=leas.filter(r=>!done.has(r.nces_id)).map(r=>({name:title(r.name),state:NAMES[st]||st,code:st,website:r.website||"",students:0,nces_id:r.nces_id}));
+// The federal directory writes a district's name for a database, not for a search engine: Arizona
+// carries a numeric suffix in parentheses, South Carolina writes "Dorchester 04", Indiana abbreviates
+// "Schls". A quoted search for any of those finds nothing at all, which is how Arizona came back 0 of
+// 223 and South Carolina 2 of 76 -- not because the documents are missing but because nobody on earth
+// writes the district's name that way. So: expand what is abbreviated, drop what is internal, and hand
+// the searcher the name a human would type.
+const title=s=>s.toLowerCase().replace(/\b([a-z])/g,m=>m.toUpperCase()).replace(/\bIsd\b/g,"ISD").replace(/\bCisd\b/g,"CISD").replace(/\bMsd\b/g,"MSD").replace(/\bR-([ivx]+)\b/gi,(m,r)=>`R-${r.toUpperCase()}`).replace(/\bCo\.?\b/g,"County").replace(/\bSchs?\b/g,"School").replace(/\bSchls\b/g,"Schools").replace(/\bDist\.?\b/g,"District").replace(/\bElem\.?\b/g,"Elementary").replace(/\bUnif\.?\b/g,"Unified").replace(/\bCons\.?\b/g,"Consolidated").replace(/\bPubl?\.?\b/g,"Public");
+const searchable=s=>{let n=title(s)
+  .replace(/\s*\(\d+\)\s*$/,"")                                  // Arizona's internal id
+  .replace(/\s+0*(\d{1,3})$/,(m,d)=>` School District ${Number(d)}`) // "Dorchester 04" -> "... District 4"
+  .replace(/\s{2,}/g," ").trim();
+  if(!/school|district|isd|academy|schools|county/i.test(n)) n+=" School District";
+  return n;};
+const slice=leas.filter(r=>!done.has(r.nces_id)).map(r=>({name:searchable(r.name),official:title(r.name),state:NAMES[st]||st,code:st,website:r.website||"",students:0,nces_id:r.nces_id}));
 fs.writeFileSync(`${L}/slice.json`,JSON.stringify(slice,null,1));console.log(`${st}: ${leas.length} regular districts, ${done.size} done, ${slice.length} to sweep`);
 JS
 N=$(node -e 'console.log(require(process.argv[1]).length)' "$L/slice.json"); [ "$N" -gt 0 ] || { echo "nothing to do"; exit 0; }
