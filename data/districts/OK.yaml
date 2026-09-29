@@ -443,6 +443,38 @@ districts:
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
+  - name: Bearden School District
+    county: Okfuskee
+    nces_id: "4003690"
+    status: silent
+    source: https://www.beardenschools.org/bearden-school-district-board-of-ed
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.beardenschools.org/bearden-school-district-board-of-ed
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: other
+        url: https://www.beardenschools.org/district-information
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: other
+        url: https://www.beardenschools.org/board-minutes
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Beggs
     county: Okmulgee
     nces_id: "4003810"
@@ -1909,6 +1941,26 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Cottonwood School District
+    county: Coal
+    nces_id: "4008730"
+    status: silent
+    source: https://cms3.revize.com/revize/hillcounty/Documents/Community/Superintendent%20Of%20Schools/Cottonwood-Student-Handbook-2022-2362.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://cms3.revize.com/revize/hillcounty/Documents/Community/Superintendent%20Of%20Schools/Cottonwood-Student-Handbook-2022-2362.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Covington-Douglas
     county: Garfield
     nces_id: "4008790"
@@ -2715,6 +2767,26 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Forest Grove School District
+    county: McCurtain
+    nces_id: "4011850"
+    status: silent
+    source: https://policy.osba.org/forestg/index.asp
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://policy.osba.org/forestg/index.asp
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Forgan
     county: Beaver
     nces_id: "4011880"
@@ -2881,6 +2953,21 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Gans School District
+    county: Sequoyah
+    nces_id: "4012390"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/483/District/fed31bd6-6b92-4c00-b99b-8fd22f1ffdf0/Student_Handbook_25-26_Final_9_15_25.pdf?disposition=inline
+    quote: Spanking (with parent permission) 2.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: opt_in
+    quotes:
+      - Spanking (with parent permission) 2.
+    notes: Found by searching for the district's policy document and read 2026-09-29 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Garber
     county: Garfield
@@ -3368,6 +3455,26 @@ districts:
       - Any of these or a combination of these may be used (principal can also combine with categories 2-5) Advise parents or arrange parent conference Assign seats on bus Behavior reflection activities Corporal punishment Detention (during lunch, before school, or after school) Disciplinary contract In-school suspension Isolation within room Remove from activity, classroom, lunch room, or bus Warning student of consequences 2.
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Haskell School District
+    county: Muskogee
+    nces_id: "4013950"
+    status: silent
+    source: http://s3.amazonaws.com/scschoolfiles/672/mshs_handbook_18-19_updated.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: http://s3.amazonaws.com/scschoolfiles/672/mshs_handbook_18-19_updated.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Haworth
     county: McCurtain
     nces_id: "4014080"
@@ -3643,6 +3750,26 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Hodgen School District
+    county: Le Flore
+    nces_id: "4014730"
+    status: silent
+    source: https://www.hodgen.k12.ok.us/
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://www.hodgen.k12.ok.us/
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Hollis
     county: Harmon
     nces_id: "4014850"
@@ -3701,6 +3828,45 @@ districts:
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
+  - name: Hooker School District
+    county: Texas
+    nces_id: "4015090"
+    status: allows
+    source: https://content.myconnectsuite.com/api/documents/1d6c6bb57d4647a4a9ac73ed2f73a5f3
+    quote: CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: opt_out
+    quotes:
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - All attempts will be made by the administration to contact parent(s)/legal guardian(s) prior to administering corporal punishment.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - All attempts will be made by the administration to contact parent(s)/legal guardian(s) prior to administering corporal punishment.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - All attempts will be made by the administration to contact parent(s)/legal guardian(s) prior to administering corporal punishment.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+      - CORPORAL PUNISHMENT It is the policy of the Hooker Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - The parent must provide written 8 notification if corporal punishment is not to be administered.
+    notes: Found by searching for the district's policy document and read 2026-09-29 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: HOWE
     county: Le Flore
     nces_id: "4015120"
@@ -4613,6 +4779,22 @@ districts:
         by: Mothership (search + read)
     notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Merritt School District
+    county: Beckham
+    nces_id: "4019800"
+    status: consent_required
+    source: https://s3.amazonaws.com/scschoolfiles/1498/student_handbook_2018-19_autosaved.pdf
+    quote: Corporal punishment with parental consent.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: opt_in
+    quotes:
+      - Corporal punishment with parental consent.
+      - Corporal punishment with parental consent.
+    notes: Found by searching for the district's policy document and read 2026-09-29 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Miami
     county: Ottawa
     nces_id: "4019860"
@@ -5167,21 +5349,32 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: Oklahoma City Public Schools
+  - name: Oklahoma City School District
     county: Oklahoma
-    nces_id: null
-    status: unknown
-    source: null
+    nces_id: "4022770"
+    status: silent
+    source: https://www.okcps.org/
     quote: null
-    last_verified: null
+    last_verified: 2026-09-29
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     contact:
       district_email: jcpolk@okcps.org
       superintendent: Jamie Polk
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
+    policy_code: null
+    crdc_students_latest: null
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://www.okcps.org/
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
   - name: OKLAHOMA UNION
     county: Nowata
     nces_id: "4000021"
@@ -5418,6 +5611,22 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Paoli School District
+    county: Garvin
+    nces_id: "4023430"
+    status: allows
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/4270/PPS/3801216/2024-25_Student_Handbook__3_.pdf
+    quote: Office Conference In School Detention Counselor Referral Out of School Suspension Lunch Detention (3 days, 5days, 10 day, semester) Corporal Punishment After School Detention Saturday School 23 PAOLI PUBLIC SCHOOLS HANDBOOK 2024-2025 (PAOLI SCHOOL HAS A CLOSED CAMPUS) Any or all disciplinary actions are at the discretion of the building principal.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - Office Conference In School Detention Counselor Referral Out of School Suspension Lunch Detention (3 days, 5days, 10 day, semester) Corporal Punishment After School Detention Saturday School 23 PAOLI PUBLIC SCHOOLS HANDBOOK 2024-2025 (PAOLI SCHOOL HAS A CLOSED CAMPUS) Any or all disciplinary actions are at the discretion of the building principal.
+      - Office Conference In School Detention Counselor Referral Out of School Suspension Lunch Detention (3 days, 5days, 10 day, semester) Corporal Punishment After School Detention Saturday School 23 PAOLI PUBLIC SCHOOLS HANDBOOK 2024-2025 (PAOLI SCHOOL HAS A CLOSED CAMPUS) Any or all disciplinary actions are at the discretion of the building principal.
+    notes: Found by searching for the district's policy document and read 2026-09-29 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Pauls Valley
     county: Garvin
@@ -8238,43 +8447,25 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: WILSON
+  - name: Wilson School District
     county: Carter
-    nces_id: "4032880"
+    nces_id: "4032940"
     status: silent
-    source: https://www.wilson.k12.ok.us/handbooks
+    source: https://www.wsd7.org/about-us/policies-handbooks
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
+    last_verified: 2026-09-29
     method: searched_document
     parent_control: unknown
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     documents:
-      - kind: handbook
-        url: https://www.wilson.k12.ok.us/handbooks
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.wilson.k12.ok.us/wilson-elementary-student-handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
       - kind: board_policy
         url: https://www.wsd7.org/about-us/policies-handbooks
         says: silent
         quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1890/Wmhs/805ba29a-8ffb-499b-905c-bac8995a601b/WMHS_Handbook_24-25.pdf?disposition=inline
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
+        retrieved: 2026-09-29
         by: Mothership (search + read)
   - name: WISTER
     county: Le Flore
