@@ -2,6 +2,23 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: WY
 districts:
+  - name: "Albany County School District #1"
+    county: Albany
+    nces_id: "5600730"
+    status: bans
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4980/Hes/baa53e02-e7f1-4341-95a2-7a399e98b7a7/District_Handbook_2024-2025.pdf?disposition=inline
+    quote: Corporal punishment (spanking) shall not be administered to a student.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - Corporal punishment (spanking) shall not be administered to a student.
+      - Corporal punishment (spanking) shall not be administered to a student.
+      - Corporal punishment (spanking) shall not be administered to a student.
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of WY). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: "Carbon County School District #1"
     county: Carbon
     nces_id: "5601030"
@@ -19,6 +36,86 @@ districts:
     county_source: nces_edge_geocode_2023_24
     policy_revised: 1986-12-04
     policy_dates_from: policy
+  - name: "Carbon County School District #2"
+    county: Carbon
+    nces_id: "5601700"
+    status: silent
+    source: https://crb2.org/86110_3
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://crb2.org/86110_3
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: "Crook County School District #1"
+    county: Crook
+    nces_id: "5602370"
+    status: silent
+    source: https://go.boarddocs.com/wy/crook1/Board.nsf/goto?open=&id=CKCNJY5DCDE5
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://go.boarddocs.com/wy/crook1/Board.nsf/goto?open=&id=CKCNJY5DCDE5
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: "Fremont County School District # 2"
+    county: Fremont
+    nces_id: "5602670"
+    status: silent
+    source: https://sites.google.com/a/fremont2.org/www/district-office/policy-manual
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://sites.google.com/a/fremont2.org/www/district-office/policy-manual
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: "Fremont County School District #14"
+    county: Fremont
+    nces_id: "5604450"
+    status: silent
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3122/Wis/923dfe66-77c4-4cb0-b8c6-37978db01a71/COMBINED_WIS_Student_Parent_Handbook_2024_2025.pdf?disposition=inline
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3122/Wis/923dfe66-77c4-4cb0-b8c6-37978db01a71/COMBINED_WIS_Student_Parent_Handbook_2024_2025.pdf?disposition=inline
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Fremont County School District 25
     county: Fremont
     nces_id: null
@@ -45,6 +142,26 @@ districts:
     county_source: nces_edge_geocode_2023_24
     policy_revised: 2019-03-12
     policy_dates_from: policy
+  - name: "Hot Springs County School District #1"
+    county: Hot Springs
+    nces_id: "5603310"
+    status: silent
+    source: https://www.hotsprings1.org/apps/pages/index.jsp?uREC_ID=2576471&type=d&pREC_ID=2259721
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.hotsprings1.org/apps/pages/index.jsp?uREC_ID=2576471&type=d&pREC_ID=2259721
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Laramie County School District 1
     county: Laramie
     nces_id: null
@@ -54,6 +171,26 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: "Lincoln County School District #2"
+    county: Lincoln
+    nces_id: "5604060"
+    status: silent
+    source: https://lcsd2.org/blog/category/docs/school-handbooks/
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://lcsd2.org/blog/category/docs/school-handbooks/
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Natrona County School District
     county: Natrona
     nces_id: null
@@ -63,6 +200,124 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: "Natrona County School District #1"
+    county: Natrona
+    nces_id: "5604510"
+    status: silent
+    source: https://www.natronacountyhs.org/uploads/4/9/2/4/49240199/nchs_student_handbook__2021-22.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.natronacountyhs.org/uploads/4/9/2/4/49240199/nchs_student_handbook__2021-22.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://kellywalsh.org/resources/student_handbook.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: "Niobrara County School District #1"
+    county: Niobrara
+    nces_id: "5604230"
+    status: silent
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1173/Ncsd/f85546c0-c287-4c8d-af24-1e634b3dd5f6/2026-2027-NCMHS-Student-Handbook-(7-12th).docx-(1).pdf?disposition=inline
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1173/Ncsd/f85546c0-c287-4c8d-af24-1e634b3dd5f6/2026-2027-NCMHS-Student-Handbook-(7-12th).docx-(1).pdf?disposition=inline
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: "Park County School District # 1"
+    county: Park
+    nces_id: "5605160"
+    status: silent
+    source: https://tb2cdn.schoolwebmasters.com/accnt_311585/site_316748/Student-Handbook-Park-1-Parkside.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://tb2cdn.schoolwebmasters.com/accnt_311585/site_316748/Student-Handbook-Park-1-Parkside.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: board_policy
+        url: https://www.pcsd1.org/page/district-policies
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: "Sheridan County School District #1"
+    county: Sheridan
+    nces_id: "5605690"
+    status: silent
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2646/Scs/13abfb23-a218-42e7-9d98-638949aab2df/2025-2026_Student_Activity_Handbook.pdf?disposition=inline
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2646/Scs/13abfb23-a218-42e7-9d98-638949aab2df/2025-2026_Student_Activity_Handbook.pdf?disposition=inline
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: "Sheridan County School District #2"
+    county: Sheridan
+    nces_id: "5605695"
+    status: silent
+    source: https://scsd2.com/board-of-trustees/policies/section-j-students
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://scsd2.com/board-of-trustees/policies/section-j-students
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://scsd2.com/schools/sheridan-high/handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: "Sublette County School District #1"
     county: Sublette
     nces_id: "5604860"
@@ -85,12 +340,43 @@ districts:
     county_source: nces_edge_geocode_2023_24
     policy_revised: 2026-01-06
     policy_dates_from: policy
-  - name: Sweetwater County School District 1
+  - name: "Sweetwater County School District #1"
     county: Sweetwater
-    nces_id: null
-    status: unknown
-    source: null
+    nces_id: "5605302"
+    status: silent
+    source: https://resources.finalsite.net/images/v1755098077/sweetwater1org/t1upjjzkrvai4ijfbw4q/BoardGovernance-FinalWatermark.pdf
     quote: null
-    last_verified: null
+    last_verified: 2026-09-26
     legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    policy_code: null
+    crdc_students_latest: null
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://resources.finalsite.net/images/v1755098077/sweetwater1org/t1upjjzkrvai4ijfbw4q/BoardGovernance-FinalWatermark.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+  - name: "Uinta County School District #4"
+    county: Uinta
+    nces_id: "5604500"
+    status: silent
+    source: https://www.uinta4.com/departments/central_office_administration/policies_and_procedures
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.uinta4.com/departments/central_office_administration/policies_and_procedures
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24

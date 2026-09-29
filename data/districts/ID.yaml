@@ -2,6 +2,185 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: ID
 districts:
+  - name: Blaine County District
+    county: Blaine
+    nces_id: "1600300"
+    status: silent
+    source: https://www.blaineschools.org/students-and-parents/student-handbook
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.blaineschools.org/students-and-parents/student-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Boundary County District
+    county: Boundary
+    nces_id: "1600420"
+    status: silent
+    source: https://campussuite-storage.s3.amazonaws.com/prod/1559056/ee4245f8-4e96-11eb-bcef-02b2b7784309/2249127/62cccfd8-9771-11eb-988f-02f64016d581/file/3427147814434615219.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://campussuite-storage.s3.amazonaws.com/prod/1559056/ee4245f8-4e96-11eb-bcef-02b2b7784309/2249127/62cccfd8-9771-11eb-988f-02f64016d581/file/3427147814434615219.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Bruneau-Grand View Joint School District
+    county: Owyhee
+    nces_id: "1600450"
+    status: silent
+    source: https://www.sd365.us/board-policies
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.sd365.us/board-policies
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Fruitland District
+    county: Payette
+    nces_id: "1601140"
+    status: silent
+    source: https://sites.google.com/fruitlandschools.org/fsdpolicy/home/instructional-program
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://sites.google.com/fruitlandschools.org/fsdpolicy/home/instructional-program
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Horseshoe Bend School District
+    county: Boise
+    nces_id: "1601500"
+    status: silent
+    source: https://cdnsm5-ss2.sharpschool.com/UserFiles/Servers/Server_2948849/Image/Horseshoe%20Bend%20School%20Disctrict/Staff%20Handbook/2025-26%20Middle-High%20School%20Student%20Handbook.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://cdnsm5-ss2.sharpschool.com/UserFiles/Servers/Server_2948849/Image/Horseshoe%20Bend%20School%20Disctrict/Staff%20Handbook/2025-26%20Middle-High%20School%20Student%20Handbook.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Lake Pend Oreille School District
+    county: Bonner
+    nces_id: "1600002"
+    status: silent
+    source: https://www.lposd.org/board-of-trustees/board-policy
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.lposd.org/board-of-trustees/board-policy
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Madison District
+    county: Madison
+    nces_id: "1601920"
+    status: silent
+    source: https://www.madisondistrict.org/downloads/wms/student_code_of_conduct.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: code_of_conduct
+        url: https://www.madisondistrict.org/downloads/wms/student_code_of_conduct.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Mccall-Donnelly Joint School District
+    county: Valley
+    nces_id: "1602030"
+    status: silent
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3060/Mdhs/307f0d88-476f-40b9-a96a-b777068a6e85/District_Family_Handbook.pdf?disposition=inline
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3060/Mdhs/307f0d88-476f-40b9-a96a-b777068a6e85/District_Family_Handbook.pdf?disposition=inline
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Mountain View School District
+    county: Idaho
+    nces_id: "1600139"
+    status: allows
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1221/MVSD/4661577/Discipline_Policy-_2024-2025.pdf
+    quote: Kindergarten- 2nd Grade Referral Disciplinary Action 1 ½ day in-school suspension or corporal … … punishment 4 3 days in-school suspension 5 5 days in-school suspension 6 Building Principal Discretion The list of above infractions is a limited list of offenses.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 ½ day in-school suspension or corporal … … punishment 4 3 days in-school suspension 5 5 days in-school suspension 6 Building Principal Discretion The list of above infractions is a limited list of offenses.
+      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal punishment 2 Building Principal Discretion 3rd Grade … … Principal Discretion The list of above infractions is a limited list of offenses.
+      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal punishment 2 Building Principal Discretion 3rd Grade – 6th Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal … … substantial disruption or interference with the operation of the school.
+      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal punishment 2 Building Principal Discretion 3rd … … Principal Discretion The list of above infractions is a limited list of offenses.
+      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal punishment 2 Building Principal Discretion 3rd Grade – 6th Grade Referral Disciplinary Action 1 3 days in-school suspension …
+    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of ID). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Nampa School District
     county: Canyon
     nces_id: "1602340"
@@ -20,3 +199,87 @@ districts:
     county_source: nces_edge_geocode_2023_24
     policy_revised: 2022-10-24
     policy_dates_from: policy
+  - name: Salmon River Joint School District
+    county: Idaho
+    nces_id: "1600138"
+    status: silent
+    source: https://www.jsd243.org/legal-policies
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://www.jsd243.org/legal-policies
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Snake River District
+    county: Bingham
+    nces_id: "1602970"
+    status: silent
+    source: https://srms.snakeriver.org/handbook
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://srms.snakeriver.org/handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: board_policy
+        url: https://www.snakeriver.org/policies-and-procedures
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Vallivue School District
+    county: Canyon
+    nces_id: "1600600"
+    status: silent
+    source: https://sites.google.com/vallivue.org/vallivuehs-studenthandbook/home
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-26
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://sites.google.com/vallivue.org/vallivuehs-studenthandbook/home
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://sites.google.com/vallivue.org/vmsstudenthandbook/home
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://sites.google.com/vallivue.org/ridgevuehs-studenthandbook/home
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://sites.google.com/vallivue.org/sagevalleystudenthandbook/home
+        says: silent
+        quote: null
+        retrieved: 2026-09-26
+        by: Mothership (search + read)
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24

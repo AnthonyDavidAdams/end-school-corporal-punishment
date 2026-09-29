@@ -1790,6 +1790,33 @@ districts:
       source: https://nces.ed.gov/ccd/Data/zip/ccd_lea_029_2324_w_1a_073124.zip
     policy_revised: 2025-06-30
     policy_dates_from: notes
+  - name: Lowndes County
+    county: Lowndes
+    nces_id: "0102160"
+    status: allows
+    source: https://campussuite-storage.s3.amazonaws.com/prod/1559198/9fd8f208-858f-11ee-a0d1-0a58a9feac02/2979968/22262d4e-5cf7-11f0-8f3d-0a58a9feac02/file/STUDENT%20HANDBOOK%2025-26.pdf
+    quote: Corporal punishment – (Corporal punishment may be administered to students without disabilities in accordance with district policy and applicable state law.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-25
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - Corporal punishment – (Corporal punishment may be administered to students without disabilities in accordance with district policy and applicable state law.
+      - Its use is not mandatory, and school principals are not required to implement or offer corporal punishment as a disciplinary option).
+      - Corporal punishment – (Corporal punishment may be administered to students without disabilities in accordance with district policy and applicable state law.
+      - Its use is not mandatory, and school principals are not required to implement or offer corporal punishment as a disciplinary option).
+      - Corporal punishment – (Corporal punishment may be administered to students without disabilities in accordance with district policy and applicable state law.
+      - Its use is not mandatory, and school principals are not required to implement or offer corporal punishment as a disciplinary option).
+      - Corporal punishment – (Corporal punishment may be administered to students without disabilities in accordance with district policy and applicable state law.
+      - Its use is not mandatory, and school principals are not required to implement or offer corporal punishment as a disciplinary option).
+      - Corporal punishment – (Corporal punishment may be administered to students without disabilities in accordance with district policy and applicable state law.
+      - Its use is not mandatory, and school principals are not required to implement or offer corporal punishment as a disciplinary option).
+      - Corporal punishment – (Corporal punishment may be administered to students without disabilities in accordance with district policy and applicable state law.
+      - Its use is not mandatory, and school principals are not required to implement or offer corporal punishment as a disciplinary option).
+      - "Students in grades K-2 may be given corporal punishment or ISD) b) Repeated offense:"
+    notes: Found by searching for the district's policy document and read 2026-09-27 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Madison City Schools
     county: Madison
     nces_id: "0100008"
