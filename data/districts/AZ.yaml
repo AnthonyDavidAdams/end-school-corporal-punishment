@@ -2,6 +2,32 @@
 # status: allows | bans | consent_required | unknown. Every non-unknown status needs a source URL.
 state: AZ
 districts:
+  - name: Avondale Elementary District
+    county: Maricopa
+    nces_id: "0400960"
+    status: silent
+    source: https://www.chooseaesd.org/parentstudenthandbook
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.chooseaesd.org/parentstudenthandbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: code_of_conduct
+        url: https://www.chooseaesd.org/conduct
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Bisbee Unified School District
     county: Cochise
     nces_id: null
@@ -20,6 +46,32 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Colorado River Union High School District
+    county: Mohave
+    nces_id: "0400082"
+    status: silent
+    source: https://resources.finalsite.net/images/v1717709565/cruhsdorg/vxup9jugwiaan33rgxq2/2024-2025CRUHSDStudentCodeofConductv3_1.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://resources.finalsite.net/images/v1717709565/cruhsdorg/vxup9jugwiaan33rgxq2/2024-2025CRUHSDStudentCodeofConductv3_1.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://resources.finalsite.net/images/v1753299546/cruhsdorg/mr9etki6gqydtsynpbmo/2025-26CRUHSDStudentCodeofConduct.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Douglas Unified School District
     county: Cochise
     nces_id: null
@@ -29,6 +81,32 @@ districts:
     last_verified: null
     legacy_status: allows
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Florence Unified School District
+    county: Pinal
+    nces_id: "0402920"
+    status: silent
+    source: https://fusdaz.org/70552_2
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://fusdaz.org/70552_2
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://fusdaz.org/48145_3
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Gilbert Public Schools
     county: Maricopa
     nces_id: null
@@ -56,6 +134,66 @@ districts:
       public_comment: "Contact page states: 'Pursuant to A.R.S. §38-431.02, Harvest Power Community Development Group, Inc, dba Harvest Preparatory Academy hereby states that all notices of the meeting...' Meeting notices are posted at harvestprep.com/district-meeting-notices. No public-comment sign-up procedure is published."
       as_of: 2026-09-20
     notes: "Harvest Power Community Development Group Inc. operates Harvest Preparatory Academy (Yuma, AZ). Source is the charter holder's own 2025-26 MS/HS Parent-Student Handbook, linked from harvestprep.com. fetch_document: 2,443,880 bytes, application/pdf, 66 pages; quote on page 44. The same handbook lists corporal punishment among the sanctions a hearing may impose (p.43) and on p.39 says severe infractions may bring 'Corporal punishment, suspension or expulsion ... upon the first incident with parental notice. ... (A.R.S 15-843 (B)(2)(2022)'. The parallel Elementary handbook (Elem-Handbook-2526_merged.pdf, 2,533,007 bytes, 64 pp) carries the same language on pp.36 and 40. No parental opt-in or opt-out is required, only notice, so 'allows'. The handbook carries no adoption or revision date; the URL path dates it to 10-2025."
+  - name: Kingman Unified School District
+    county: Mohave
+    nces_id: "0400295"
+    status: silent
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4384/Khs/db8207f6-4a16-44bf-a5ca-b45ae4977aa0/Kingman-Handbook-26-27.docx.pdf?disposition=inline
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4384/Khs/db8207f6-4a16-44bf-a5ca-b45ae4977aa0/Kingman-Handbook-26-27.docx.pdf?disposition=inline
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Maine Consolidated School District
+    county: Coconino
+    nces_id: "0404530"
+    status: silent
+    source: https://mcsd10.org/wp-content/uploads/2022/07/Maine-Consolidated-School-District-Student-Family-Handbook-2022-23.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://mcsd10.org/wp-content/uploads/2022/07/Maine-Consolidated-School-District-Student-Family-Handbook-2022-23.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Maricopa Unified School District
+    county: Pinal
+    nces_id: "0404720"
+    status: silent
+    source: https://www.musd20.org/students/school-handbooks
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.musd20.org/students/school-handbooks
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Mesa Public Schools
     county: Maricopa
     nces_id: null
@@ -65,15 +203,92 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Parker Unified School District
+    county: La Paz
+    nces_id: "0405980"
+    status: silent
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1811/Parker_USD/3725479/11082023_Minutes_Regular.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1811/Parker_USD/3725479/11082023_Minutes_Regular.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Phoenix Union High School District
     county: Maricopa
-    nces_id: null
-    status: unknown
-    source: null
+    nces_id: "0406330"
+    status: silent
+    source: https://www.pxu.org/page/student-handbook-and-code-of-conduct
     quote: null
-    last_verified: null
+    last_verified: 2026-09-29
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    policy_code: null
+    crdc_students_latest: null
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: code_of_conduct
+        url: https://www.pxu.org/page/student-handbook-and-code-of-conduct
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: other
+        url: https://www.pxu.org/documents/info-for/students/student-code-of-conduct/24271086
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+  - name: Santa Cruz Valley Union High School District
+    county: Pinal
+    nces_id: "0407530"
+    status: silent
+    source: https://www.scvuhs.org/accnt_602568/site_602569/Documents/Student-Handbook.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.scvuhs.org/accnt_602568/site_602569/Documents/Student-Handbook.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Tempe Union High School District
+    county: Maricopa
+    nces_id: "0408340"
+    status: silent
+    source: https://www.tempeunion.org/tuhsd-students/students/student-handbooks
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.tempeunion.org/tuhsd-students/students/student-handbooks
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: The Paideia Academies Inc (91250)
     county: Phoenix
     nces_id: "0400863"
@@ -92,6 +307,82 @@ districts:
       public_comment: "Site publishes a web contact form plus phone/email; board meeting notices are posted at paideiaacademy.com/public-notices-policies/. No sign-up procedure for public comment is stated. Records requests: registrar@paideiamail.com"
       as_of: 2026-09-20
     notes: "No primary source found that either authorizes or prohibits corporal punishment. The website in the input (paideiaacademies.com) no longer has DNS; the charter holder Paideia Academies Inc now publishes at paideiaacademy.com (7777 S 15th Terrace, Phoenix AZ 85042). Searched: (1) the 2026-2027 Paideia ELEMENTARY ACADEMY Family Guidebook (fetch_document: 1,340,504 bytes, application/pdf, 67 pages, 170,100 chars) - zero hits for 'corporal punishment', 'corporal', 'paddl', 'spank' or 'physical punishment'; I also read its full discipline chapter, pages 34-36 ('School Consequences and Due Process', 'Alternatives to Suspension ARS 15-841 p1', OCS, short- and long-term suspension), which lists no physical consequence; (2) the 2026-2027 Paideia LIBERAL ARTS ACADEMY Family Guidebook (1,718,735 bytes, 73 pages, 188,525 chars) - same, zero hits; (3) paideiaacademy.com/offical-board-policies, the board's complete published policy list (Cybersecurity, Closed Campus, Concurrent/Dual Enrollment, Homeless Education, Kindergarten Enrollment, Parent and Family Engagement, Student Cell Phone, Moment of Silence, Excused Absences, Parent Classroom Visits, Dress Code PEA and PLA, School Safety/Hazing, Suspension or Expulsion of K-4 Students, Violence on Campus) - no corporal punishment policy exists in it; (4) paideiaacademy.com/public-notices-policies board meeting notices index. The absence of any provision is NOT a prohibition, so this is filed unknown rather than 'bans'. Worth a records request to registrar@paideiamail.com given the district reported 131 students struck in 2023-24."
+  - name: Tolleson Union High School District
+    county: Maricopa
+    nces_id: "0408520"
+    status: silent
+    source: https://tb2cdn.schoolwebmasters.com/accnt_180232/site_180233/Documents/Tolleson_StuHandbk_0617151.pdf
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: other
+        url: https://tb2cdn.schoolwebmasters.com/accnt_180232/site_180233/Documents/Tolleson_StuHandbk_0617151.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://tuhs.tuhsd.org/accnt_180232/site_180233/Student%20Handbook%20-%20Tolleson%20UHSD.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://wsos-cdn.s3.us-west-2.amazonaws.com/uploads/sites/110/Student-Handbook-English.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://tb2cdn.schoolwebmasters.com/accnt_180232/site_190243/Student-Handbook-Tolleson.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Toltec School District
+    county: Pinal
+    nces_id: "0408550"
+    status: silent
+    source: https://www.toltecsd.org/Downloads/2024%202025%20Student%20Handbook.pdf?v=0
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.toltecsd.org/Downloads/2024%202025%20Student%20Handbook.pdf?v=0
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.toltecsd.org/StudentHandbook.aspx
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.toltecsd.org/Downloads/17-18%20Student%20Handbook.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://registration.powerschool.com/resources/3940/files/2025-2026%20Student%20Handbook%20-%20Copy.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
   - name: Tucson Unified School District
     county: Pima
     nces_id: null
@@ -101,3 +392,35 @@ districts:
     last_verified: null
     legacy_status: bans
     notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+  - name: Yuma Union High School District
+    county: Yuma
+    nces_id: "0409630"
+    status: silent
+    source: https://www.yumaunion.org/for-students/student-handbook
+    quote: null
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-09-29
+    method: searched_document
+    parent_control: unknown
+    documents:
+      - kind: handbook
+        url: https://www.yumaunion.org/for-students/student-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: handbook
+        url: https://www.yumaunion.org/for-parents/student-parent-handbook
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+      - kind: other
+        url: https://www.yumaunion.org/for-students/attendance-policy
+        says: silent
+        quote: null
+        retrieved: 2026-09-29
+        by: Mothership (search + read)
+    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
