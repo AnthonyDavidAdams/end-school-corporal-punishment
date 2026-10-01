@@ -97,10 +97,13 @@ def triage(subject, frm, body, attachments, links):
 
     # Residency and a link are not exclusive: Gurdon sent both. Record the residency demand either way,
     # so the exchange knows this district will need a proxy the next time we ask it anything.
-    if kind != "auto_reply_or_bounce" and re.search(r"\bresiden|\bcitizen of the state|only.{0,30}residents\b", clean, re.I):
+    if kind != "auto_reply_or_bounce" and re.search(r"\bresiden|\bcitizen of the state|only.{0,30}residents\b|\b(arkansas|tennessee|alabama|virginia|delaware)\s+(driver'?s?\s*)?(licen[cs]e|id\b)", clean, re.I):
         facts["residency_required"] = True
         if proof:
             facts["residency_proof_accepted"] = ", ".join(proof)
+
+    if facts.get("residency_required") and kind in ("question", "other", "refusal_or_fee"):
+        kind, conf = "residency_required", max(conf, 0.9)
 
     if re.search(r"(no longer|do not|don'?t|does not)\s+(practice|use|administer|allow|permit)", clean, re.I) \
             and not re.search(r"corporal punishment (is|shall be) (permitted|allowed)", clean, re.I):
