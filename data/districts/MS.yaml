@@ -103,6 +103,18 @@ districts:
     policy_adopted: 2018-01-11
     policy_revised: 2025-03-13
     policy_dates_from: notes
+  - name: AMORY SCHOOL DIST
+    county: Monroe
+    nces_id: "2800450"
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031679&revid=6pNECXilNu1mY5MS7fUAWA%3D%3D
+    quote: Corporal punishment in the form of paddling shall be witnessed at all times by at least one (1) school employee, and all other acts of corporal punishment, as defined herein, shall be witnessed at all times, if possible, by a school employee.
+    policy_code: JCD(2)
+    crdc_students_latest: null
+    last_verified: 2026-09-30
+    method: agent_via_crew
+    notes: " Submitted through the crew server by a scheduled agent; quote verified against the cached source by the server and approved by a maintainer on 2026-09-30."
+    county_source: nces_edge_geocode_2023_24
   - name: Attala County Schools
     county: Attala
     nces_id: "2800510"
@@ -1174,13 +1186,13 @@ districts:
   - name: Hollandale School District
     county: Washington
     nces_id: "2801890"
-    status: silent
-    source: https://www.hollandalesd.org/parents/parent-information/bullying-policy-and-form
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031719&revid=hcQoKzANW6FotTGNuiKNLQ%3D%3D
+    quote: Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-09-30
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: other
@@ -1189,7 +1201,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server by a scheduled agent; quote verified against the cached source by the server and approved by a maintainer on 2026-09-30."
     county_source: nces_edge_geocode_2023_24
   - name: HOLLY SPRINGS SCHOOL DIST
     county: Marshall
