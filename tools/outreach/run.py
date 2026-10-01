@@ -120,6 +120,27 @@ def send(limit=25):
     M.logout(); log(f"send: {n} sent, {sum(1 for r in reqs if r['status']=='pending')} still pending")
 
 # ---------------------------------------------------------------- inbox
+
+LABEL = "Safe Schools"
+def ensure_label(M):
+    try: M.create(f'"{LABEL}"')
+    except Exception: pass
+def file_away(M, num):
+    """Label a message and take it out of the inbox. Gmail's IMAP exposes labels as X-GM-LABELS."""
+    try:
+        M.store(num, "+X-GM-LABELS", f'"{LABEL}"'); M.store(num, "-X-GM-LABELS", "\\Inbox"); return True
+    except Exception as e:
+        log("label failed", repr(e)[:80]); return False
+def tidy():
+    """One pass over the inbox: every message that belongs to a request thread gets the label and leaves the inbox."""
+    reqs = load(); M = imap(); ensure_label(M); M.select("INBOX"); moved = 0
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:90d (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:handbook OR subject:\\"discipline data\\" OR subject:\\"safe schools\\")"')
+    for num in (data[0].split() if data and data[0] else []):
+        typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (FROM SUBJECT IN-REPLY-TO REFERENCES MESSAGE-ID)])"); h = email.message_from_bytes(raw[0][1])
+        frm = email.utils.parseaddr(h.get("From", ""))[1].lower()
+        if "no-reply" in frm or "noreply" in frm or "substack" in frm or "medium.com" in frm: continue
+        if find_request(h, reqs) and file_away(M, num): moved += 1
+    M.logout(); log(f"tidy: {moved} messages labelled '{LABEL}' and archived"); return moved
 def part_text(msg):
     texts = []; atts = []
     for part in msg.walk():
@@ -218,7 +239,7 @@ def anthony_threads(M, reqs):
     except Exception as e: log("sent-mail scan failed", e)
     return done
 def inbox():
-    reqs = load(); M = imap(); mine = anthony_threads(M, reqs)
+    reqs = load(); M = imap(); ensure_label(M); mine = anthony_threads(M, reqs)
     for r in reqs:
         if r["id"] in mine and r["status"] in ("sent", "promised", "needs_review"): r["status"] = "anthony_replied"; r["followup_sent_at"] = r.get("followup_sent_at") or "n/a"
     save(reqs); M.select("INBOX")
@@ -237,6 +258,7 @@ def inbox():
         body, atts = part_text(msg); links = [u for u in re.findall(r"https?://[^\s<>\")\]]+", body) if "earthpilot" not in u]
         try:
             handle_one(M, reqs, r, msg, raw[0][1], mid, subject, frm, body, atts, links, quiet=(r["id"] in mine)); handled += 1
+            M.select("INBOX"); file_away(M, num)
         except Exception as e:
             log("FAILED on", frm, subject[:50], repr(e)[:200])
     M.logout(); log(f"inbox: {handled} new replies handled")
@@ -483,12 +505,13 @@ def retriage(send=False):
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "cycle"
     if cmd == "retriage": retriage(send="--send" in sys.argv); sys.exit()
+    if cmd == "tidy": tidy(); sys.exit()
     if cmd == "board":
         import track; track.cli(load()); sys.exit()
     if cmd == "send": send(int(sys.argv[2]) if len(sys.argv) > 2 else 25)
     elif cmd == "inbox": inbox()
     elif cmd == "followup": followup()
-    elif cmd == "cycle": send(25); inbox(); followup()
+    elif cmd == "cycle": send(25); inbox(); followup(); tidy()
     elif cmd == "compliments":
         # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
         reqs = load(); n = 0
