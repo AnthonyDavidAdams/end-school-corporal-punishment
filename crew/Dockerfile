@@ -5,8 +5,11 @@ FROM node:22-alpine
 # Fonts. resvg renders the badge, and with no fonts installed it silently draws every shape and none of
 # the text -- a valid PNG of an empty circle. Alpine ships none, so they have to be asked for.
 RUN apk add --no-cache font-dejavu fontconfig && fc-cache -f
+# OCR. Small districts photocopy their handbooks; without tesseract a scanned PDF reads as "nothing
+# could be read" and an agent takes that for "no rule". pdftoppm renders the pages, tesseract reads them.
+RUN apk add --no-cache tesseract-ocr tesseract-ocr-data-eng poppler-utils
 WORKDIR /app
-RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/310277a7ca15c263386eb0ab4b8ec6965066804d.tar.gz
+RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/36a139bf73d3fde184e0d50240e0464333f630fd.tar.gz
 # The crew directory: crew.json, values, tasks and finding schemas from crew/, everything else from the campaign.
 COPY crew/crew.json crew/values.md /crew/
 COPY crew/tasks /crew/tasks
