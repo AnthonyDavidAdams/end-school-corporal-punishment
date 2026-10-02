@@ -134,6 +134,10 @@ claude
 
 ### Cursor, Windsurf, Zed, and most other HTTP-capable clients
 
+**Cursor, step by step.** Open Cursor and press `Cmd+Shift+J` on a Mac or `Ctrl+Shift+J` on Windows to open Cursor Settings. In the left column choose **Tools & MCP** (older versions call it **MCP**). Click **Add new global MCP server**. That opens a file called `mcp.json`; paste the block below over whatever is there and save. Back in settings, switch the **escp** toggle on; its tools list appears underneath within a few seconds. Then open a chat and say: "Use the escp tools: call get_started."
+
+If the **Add to Cursor** button above did nothing, that is Cursor not registering its link handler yet; the steps here do the same thing by hand.
+
 The generic shape, in `.cursor/mcp.json` or that client's equivalent:
 
 ```json

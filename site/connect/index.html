@@ -51,7 +51,9 @@
 <div class="copywrap"><pre class="cmd" data-lang="sh"><code>claude plugin marketplace add AnthonyDavidAdams/end-school-corporal-punishment
 claude plugin install escp@escp
 claude
-&gt; /escp:district-policy-scan Mississippi</code></pre><button class="copybtn" type="button">Copy</button></div></section><section class="client" id="cursor"><h2>Cursor, Windsurf, Zed, and most other HTTP-capable clients</h2><p>The generic shape, in <code>.cursor/mcp.json</code> or that client's equivalent:</p>
+&gt; /escp:district-policy-scan Mississippi</code></pre><button class="copybtn" type="button">Copy</button></div></section><section class="client" id="cursor"><h2>Cursor, Windsurf, Zed, and most other HTTP-capable clients</h2><p><b>Cursor, step by step.</b> Open Cursor and press <code>Cmd+Shift+J</code> on a Mac or <code>Ctrl+Shift+J</code> on Windows to open Cursor Settings. In the left column choose <b>Tools &amp; MCP</b> (older versions call it <b>MCP</b>). Click <b>Add new global MCP server</b>. That opens a file called <code>mcp.json</code>; paste the block below over whatever is there and save. Back in settings, switch the <b>escp</b> toggle on; its tools list appears underneath within a few seconds. Then open a chat and say: &quot;Use the escp tools: call get_started.&quot;</p>
+<p>If the <b>Add to Cursor</b> button above did nothing, that is Cursor not registering its link handler yet; the steps here do the same thing by hand.</p>
+<p>The generic shape, in <code>.cursor/mcp.json</code> or that client's equivalent:</p>
 <div class="copywrap"><pre class="cmd" data-lang="json"><code>{
   &quot;mcpServers&quot;: {
     &quot;escp&quot;: { &quot;url&quot;: &quot;https://escp-mcp-production.up.railway.app/mcp&quot; }
