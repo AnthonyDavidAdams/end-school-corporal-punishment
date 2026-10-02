@@ -22,7 +22,10 @@ const MCP_URL = "https://escp-mcp-production.up.railway.app/mcp";
 // Verified against live endpoints on 2026-09-24; each only prefills, the person still confirms.
 const INSTALL = {
   claude: `https://claude.ai/customize/connectors?modal=add-custom-connector&connectorName=${encodeURIComponent("End School Corporal Punishment")}&connectorUrl=${encodeURIComponent(MCP_URL)}`,
-  cursor: `https://cursor.com/install-mcp?name=escp&config=${encodeURIComponent(Buffer.from(JSON.stringify({ url: MCP_URL })).toString("base64"))}`,
+  // Cursor's own deep link, which opens the app directly; the cursor.com page behind the old link needs
+  // a signed-in browser and often just sits there, which is what "we clicked connect and nothing
+  // happened" was.
+  cursor: `cursor://anysphere.cursor-deeplink/mcp/install?name=escp&config=${encodeURIComponent(Buffer.from(JSON.stringify({ url: MCP_URL })).toString("base64"))}`,
   vscode: `https://vscode.dev/redirect/mcp/install?name=escp&config=${encodeURIComponent(JSON.stringify({ name: "escp", type: "http", url: MCP_URL }))}`,
 };
 const states = JSON.parse(readFileSync(join(site, "data/states.json"), "utf8"));
