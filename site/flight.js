@@ -85,8 +85,11 @@
   function fly(s, b) { if (!b) return; s.lock = b; s.tx = b.x; s.ty = b.y - 7; s.ring.setAttribute("opacity", 0.9); }
   function land(s) { s.lock = null; s.tx = s.hx; s.ty = s.hy; s.ring.setAttribute("opacity", 0); s.beam = 0; }
   function beam(s, ms = 1400) { if (!s.lock) return; s.beam = performance.now() + ms; }
+  const STALL_MS = 20 * 60e3;
+  function stalled(s) { return s.lock && s.flying && !s.lastActivity && Date.now() - Date.parse(s.flying.since || 0) > STALL_MS; }
   function tickShips(now) {
     for (const s of ships.values()) {
+      if (s.label) { const st = stalled(s); if (st !== s._stalled) { s._stalled = st; s.label.textContent = st ? `${s.callsign} · stalled` : s.callsign; s.body.setAttribute("opacity", st ? 0.45 : 1); } }
       const dx = s.tx - s.x, dy = s.ty - s.y, d = Math.hypot(dx, dy);
       if (d > 0.2) { const step = Math.min(d, 2.2 + d * 0.06); s.x += dx / d * step; s.y += dy / d * step; s.body.setAttribute("transform", `rotate(${(Math.atan2(dy, dx) * 180 / Math.PI + 90).toFixed(1)})`); }
       else if (s.lock) { s.x += Math.sin(now / 700 + s.x) * 0.05; s.body.setAttribute("transform", "rotate(180)"); }
@@ -114,7 +117,7 @@
   const INSTR = ["LOCK", "SENSORS", "TRACTOR", "SCANNER", "JEV", "VERIFIER", "UPLINK", "REVIEW", "COMMS", "MOTHERSHIP"];
   async function openCockpit(b, s) {
     const box = $("flCockpit"); if (!box) return; box.hidden = false;
-    if (!b) { box.innerHTML = `<div class="ckhead"><b>${esc(s?.callsign || "")}</b><span>${esc(s?.agent || "")}</span></div><p class="meta">${s?.flying ? "Locked on " + esc(s.flying.scope) : "Parked at " + esc(s?.home?.label || "the hangar") + ". No lease open."}</p>`; return; }
+    if (!b) { const mins = s?.flying ? Math.round((Date.now() - Date.parse(s.flying.since || 0)) / 60000) : 0; box.innerHTML = `<div class="ckhead"><b>${esc(s?.callsign || "")}</b><span>${esc(s?.agent || "")}</span></div><p class="meta">${s?.flying ? `Locked on ${esc(s.flying.scope)} for ${mins} min. ${s.lastActivity ? "Instruments have fired." : (mins > 20 ? "No instrument has fired: this ship looks stalled. Its human can tell the agent to submit what it tried as status unknown, or release the lease and take the next unit." : "Reading; nothing uplinked yet.")}` : "Parked at " + esc(s?.home?.label || "the hangar") + ". No lease open."}</p><div class="ckact"><button type="button" class="ckbtn alt" id="ckClose">Close</button></div>`; $("ckClose").addEventListener("click", () => { box.hidden = true; }); return; }
     const row = await districtRow(b); const reqs = (requests.requests || []).filter((r) => String(r.nces_id) === String(b.i));
     const docs = (row?.documents || []).map((d) => `<li><a target="_blank" rel="noopener" href="${esc(d.url)}" rel="noopener">${esc(d.kind || "document")}</a> ${d.says ? `· ${esc(d.says)}` : ""}</li>`).join("");
     box.innerHTML = `<div class="ckhead"><b>${esc(b.n)}, ${esc(b.state)}</b><span>${esc(b.c || "")}${b.c ? " County · " : ""}federal id ${esc(b.i)}</span></div>
@@ -159,6 +162,7 @@
   let lastAt = null, replaying = true;
   function apply(e, fast) {
     const b = resolve(e.scope, e.nces_id); const s = e.contributor ? ships.get(e.contributor) || ship({ id: e.contributor, callsign: e.callsign, hull: "custom", agent: e.agent, home: e.place, districts: 0, children: 0 }) : null;
+    if (s && e.kind !== "claimed") s.lastActivity = e.at;
     const who = e.callsign || "A ship";
     if (e.kind === "claimed") { if (s && b) { fly(s, b); if (!fast) { radio(`<b>${esc(who)}</b> locked on ${esc(b.n)}, ${b.state}`); if (follow && follow === s) say(`${who}, Mission Support. You're clear to engage ${b.n}, ${b.stateName}.${b.k ? ` ${digits(b.k)} on the board.` : ""}`, { priority: true }); } } }
     else if (e.kind === "fetched") { if (s) beam(s, 900); if (!fast) radio(`<b>${esc(who)}</b> document aboard${e.pages ? `, ${e.pages} pages` : ""}: <span class="meta">${esc(e.url || "")}</span>`);  }
