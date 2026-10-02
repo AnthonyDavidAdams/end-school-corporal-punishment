@@ -164,7 +164,7 @@ function shell({ title, description, path, body, image = `${BASE}/assets/og-imag
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${image}">
-<link rel="stylesheet" href="/kids/site.css?v=${ver("site.css")}">\n<script defer src="/kids/news.js?v=${ver("news.js")}"></script>\n<script defer src="/kids/activity.js?v=${ver("activity.js")}"></script>
+<link rel="stylesheet" href="/kids/site.css?v=${ver("site.css")}">\n<script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href")||"";if(/^(https?:)?\/\//.test(h)&&a.hostname!==location.hostname){a.target="_blank";a.rel="noopener";}});</script>\n<script defer src="/kids/news.js?v=${ver("news.js")}"></script>\n<script defer src="/kids/activity.js?v=${ver("activity.js")}"></script>
 ${extraHead}
 </head>
 <body>

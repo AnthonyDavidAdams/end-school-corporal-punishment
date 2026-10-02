@@ -116,12 +116,12 @@
     const box = $("flCockpit"); if (!box) return; box.hidden = false;
     if (!b) { box.innerHTML = `<div class="ckhead"><b>${esc(s?.callsign || "")}</b><span>${esc(s?.agent || "")}</span></div><p class="meta">${s?.flying ? "Locked on " + esc(s.flying.scope) : "Parked at " + esc(s?.home?.label || "the hangar") + ". No lease open."}</p>`; return; }
     const row = await districtRow(b); const reqs = (requests.requests || []).filter((r) => String(r.nces_id) === String(b.i));
-    const docs = (row?.documents || []).map((d) => `<li><a href="${esc(d.url)}" rel="noopener">${esc(d.kind || "document")}</a> ${d.says ? `· ${esc(d.says)}` : ""}</li>`).join("");
+    const docs = (row?.documents || []).map((d) => `<li><a target="_blank" rel="noopener" href="${esc(d.url)}" rel="noopener">${esc(d.kind || "document")}</a> ${d.says ? `· ${esc(d.says)}` : ""}</li>`).join("");
     box.innerHTML = `<div class="ckhead"><b>${esc(b.n)}, ${esc(b.state)}</b><span>${esc(b.c || "")}${b.c ? " County · " : ""}federal id ${esc(b.i)}</span></div>
       <div class="ckgrid"><div class="ckpane"><h3>Dossier</h3>
         <div class="ckrow"><label>Struck 2023-24</label><b>${b.k ? n(b.k) : "none reported"}</b></div>
         <div class="ckrow"><label>Record</label><b style="color:${COL[b.s] || "#8B95A5"}">${esc(LABEL[b.s])}</b></div>
-        ${row?.quote ? `<blockquote>“${esc(row.quote)}”</blockquote><div class="ckrow"><label>Source</label><a href="${esc(row.source)}" rel="noopener">${esc(String(row.source).replace(/^https?:\/\//, "").slice(0, 48))}</a></div><div class="ckrow"><label>Read</label><b>${esc(row.last_verified || "")}</b></div>` : ""}
+        ${row?.quote ? `<blockquote>“${esc(row.quote)}”</blockquote><div class="ckrow"><label>Source</label><a target="_blank" rel="noopener" href="${esc(row.source)}" rel="noopener">${esc(String(row.source).replace(/^https?:\/\//, "").slice(0, 48))}</a></div><div class="ckrow"><label>Read</label><b>${esc(row.last_verified || "")}</b></div>` : ""}
         ${docs ? `<div class="ckrow"><label>Documents read</label></div><ul class="ckdocs">${docs}</ul>` : ""}
         ${reqs.length ? `<div class="ckrow"><label>Records request</label><b>${esc(reqs[0].status)} · sent ${esc(String(reqs[0].sent_at || "").slice(0, 10))}${reqs[0].replies ? ` · ${reqs[0].replies} repl${reqs[0].replies === 1 ? "y" : "ies"}` : ""}</b></div>` : ""}
       </div><div class="ckpane"><h3>Instruments${s ? ` · ${esc(s.callsign)}` : ""}</h3><ul class="ckinstr" id="ckInstr">${INSTR.map((i) => `<li data-i="${i}"><i></i><b>${i}</b><span>dark</span></li>`).join("")}</ul><p class="meta">An instrument stays dark when the agent did that step with its own tools.</p></div></div>
@@ -200,7 +200,7 @@
     const total = Math.max(1, ev.length), per = Math.max(40, Math.min(220, 20000 / total));
     for (let i = 0; i < ev.length; i++) { const e = ev[i]; if (clock) clock.textContent = new Date(e.at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric" }).toUpperCase(); apply(e, i < ev.length - 25); lastAt = e.at; await new Promise((r) => setTimeout(r, per)); }
     replaying = false; $("flStatus").textContent = "LIVE"; if (clock) clock.textContent = "";
-    if (!ev.some((e) => Date.now() - Date.parse(e.at) < 3600e3)) radio(`<b>Mission Support</b>: quiet hour. No ship on station. The Mothership's ${nextPass().toLowerCase()} <a href="/kids/connect/" style="color:var(--cyan)">Send a ship</a> and it lands within the hour.`);
+    if (!ev.some((e) => Date.now() - Date.parse(e.at) < 3600e3)) radio(`<b>Mission Support</b>: quiet hour. No ship on station. The Mothership's ${nextPass().toLowerCase()} <a target="_blank" rel="noopener" href="/kids/connect/" style="color:var(--cyan)">Send a ship</a> and it lands within the hour.`);
     // Ships that hold a lease right now stay on station.
     for (const row of d.ships) { const s = ships.get(row.id); if (row.flying) fly(s, resolve(row.flying.scope)); else if (s.lock) land(s); }
     hud(); poll();
