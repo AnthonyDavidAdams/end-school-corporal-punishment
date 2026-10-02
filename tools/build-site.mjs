@@ -805,6 +805,7 @@ mkdirSync(join(site, "live"), { recursive: true });
   </div>
   <div class="bottom"><span>Click a district for its cockpit &middot; click a ship to follow &middot; double-click a state to zoom</span><span style="margin-left:auto">Ships are contributors under anonymous handles at city-level locations &middot; every flight is a recorded event &middot; figures ${esc(toll.generated)}</span></div>
 </div>
+<script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a||a.classList.contains("exit"))return;a.target="_blank";a.rel="noopener";});</script>
 <script defer src="/kids/flight.js?v=${ver("flight.js")}"></script>
 </body></html>`);
 }
