@@ -10,7 +10,7 @@ districts:
     quote: The Avondale Elementary School District No. 44 disallows corporal punishment.
     policy_code: JKA
     crdc_students_latest: null
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     method: agent_via_crew
     parent_control: unknown
     documents:
@@ -26,7 +26,7 @@ districts:
         quote: null
         retrieved: 2026-09-29
         by: Mothership (search + read)
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: " Quote verified against the cached source; status bans."
     county_source: nces_edge_geocode_2023_24
   - name: Bisbee Unified School District
     county: Cochise
@@ -175,7 +175,7 @@ districts:
     quote: The Maine Consolidated School District No. 10 disallows corporal punishment.
     policy_code: JKA
     crdc_students_latest: null
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     method: agent_via_crew
     parent_control: unknown
     documents:
@@ -185,7 +185,7 @@ districts:
         quote: null
         retrieved: 2026-09-29
         by: Mothership (search + read)
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: " Quote verified against the cached source; status bans."
     county_source: nces_edge_geocode_2023_24
   - name: Maricopa Unified School District
     county: Pinal
@@ -195,7 +195,7 @@ districts:
     quote: The District does not permit the use of corporal punishment.
     policy_code: 5-306
     crdc_students_latest: null
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     method: agent_via_crew
     parent_control: unknown
     documents:
@@ -205,7 +205,7 @@ districts:
         quote: null
         retrieved: 2026-09-29
         by: Mothership (search + read)
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: " Quote verified against the agent_text source; status bans."
     county_source: nces_edge_geocode_2023_24
   - name: Mesa Public Schools
     county: Maricopa
@@ -213,23 +213,23 @@ districts:
     status: bans
     source: https://v3.boardpolicyonline.com/b/bl/mesa/s/1747927
     quote: The District does not permit the use of corporal punishment.
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     legacy_status: bans
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: " Quote verified against the agent_text source; status bans."
     policy_code: 5-306
     crdc_students_latest: null
     method: agent_via_crew
   - name: Parker Unified School District
     county: La Paz
     nces_id: "0405980"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1811/Parker_USD/3725479/11082023_Minutes_Regular.pdf
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://policy.azsba.org/asba/DocViewer.jsp?docid=525&z2collection=parker
+    quote: The Board authorizes the use of corporal punishment.
+    policy_code: JKA
     crdc_students_latest: null
-    last_verified: 2026-09-29
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-04
+    method: agent_via_crew
+    parent_control: opt_out
     documents:
       - kind: other
         url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1811/Parker_USD/3725479/11082023_Minutes_Regular.pdf
@@ -237,7 +237,7 @@ districts:
         quote: null
         retrieved: 2026-09-29
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "JKA opened 2026-10-03. The policy prints Adopted: date of Manual adoption, not a calendar date, so policy_dates_from is left unset. The manual introduction at docid 2 prints Governing Board Date of Manual Adoption: February 12, 2014. That date is not printed on JKA. The January 10, 2024 regular minutes readopt the whole policy manual and are not a date printed on JKA. JKA-R at https://policy.azsba.org/asba/DocViewer.jsp?docid=526&z2collection=parker says corporal punishment shall be administered only after documented written notification to a parent or guardian, and that the administrator will ensure there are no parental warning statements in the student record that forbid corporal punishment. Written notice and an opt-out warning are allows, not consent_required. The staff directory https://www.parkerusd.org/staff prints BRAD SALE, Superintendent, 928-669-9244,1400. No office email address is printed on the homepage, the board page, or that staff entry. The board page prints the sign-up sentence recorded in public_comment. Quote verified against the cached source; status allows."
     county_source: nces_edge_geocode_2023_24
   - name: Phoenix Union High School District
     county: Maricopa
@@ -245,9 +245,9 @@ districts:
     status: bans
     source: https://policy.azsba.org/asba/DocViewer.jsp?docid=505&z2collection=phoenixunion
     quote: The Phoenix Union High School District No. 210 disallows corporal punishment.
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     legacy_status: bans
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: " Quote verified against the cached source; status bans."
     policy_code: JKA
     crdc_students_latest: null
     method: agent_via_crew
@@ -342,7 +342,7 @@ districts:
     quote: The Tolleson Union High School District disallows corporal punishment.
     policy_code: JKA
     crdc_students_latest: null
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     method: agent_via_crew
     parent_control: unknown
     documents:
@@ -370,7 +370,7 @@ districts:
         quote: null
         retrieved: 2026-09-29
         by: Mothership (search + read)
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: " Quote verified against the cached source; status bans."
     county_source: nces_edge_geocode_2023_24
   - name: Toltec School District
     county: Pinal

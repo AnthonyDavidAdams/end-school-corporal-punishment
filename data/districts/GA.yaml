@@ -3557,14 +3557,14 @@ districts:
   - name: Warren County Schools
     county: Warren
     nces_id: "1305460"
-    status: allows
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4171&revid=suEKhJJUXwJFwmaTVHHnTA%3D%3D
-    quote: Any principal employed by the board, or his or her designee, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
-    policy_code: null
+    status: consent_required
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4171&revid=otBmeHCsD2NNEIJ1hrWAqQ%3D%3D
+    quote: Corporal punishment may be administered only when written parental authorization is on file in the school office.
+    policy_code: JDA-R(0)
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: vendor_manual
-    parent_control: opt_out
+    last_verified: 2026-10-04
+    method: agent_via_crew
+    parent_control: opt_in
     quotes:
       - Any principal employed by the board, or his or her designee, in order to maintain proper control and discipline over pupils under his or her care and supervision, may, in the exercise of sound discretion, administer corporal punishment to any pupil or pupils under his or her care and supervision.
       - No other employee of the board or any other person, including the parents or guardian of such child or children, may administer corporal punishment in any school or on any school property in this school district.
@@ -3573,7 +3573,7 @@ districts:
       - The principal, assistant principal or his or her designee who administered corporal punishment must provide the child&rsquo;s parents, upon request, a written explanation for the reasons for the punishment and the name of the principal or assistant principal, or designee of the principal or assistant principal who was present;
       - Corporal punishment shall not be administered to a child whose parents or legal guardian have filed with the principal of the school a statement expressing objecting to the use of corporal punishment or a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child&rsquo;s mental or emotional stability.
       - Corporal punishment shall not be administered to a student who refuses to accept corporal punishment in lieu of other punishment.
-    notes: Board policy on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites; the district name is from the site's index page. Identity is name and state matched against the federal LEA directory.
+    notes: " More precise than the record: the quoted sentence requires written parental permission. Approved on review."
     county_source: nces_edge_geocode_2023_24
   - name: Washington County Schools
     county: Washington

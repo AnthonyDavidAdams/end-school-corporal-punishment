@@ -302,13 +302,13 @@ districts:
   - name: Canton Public School District
     county: Madison
     nces_id: "2800900"
-    status: silent
-    source: https://www.cantonschools.net/students/student-handbooks
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031688&revid=pT7ZwTD8UxJpglg5BIHx2A%3D%3D
+    quote: School personnel shall not use corporal punishment of any form at any time.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: handbook
@@ -317,7 +317,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "JDB prints both a prohibition and a grant of authority. Quoted sentence is the prohibition. Opposing sentence, verbatim: The superintendent has the authority to administer or authorize the use of corporal punishment by building level administrators. Printed revision lines: August 6, 1990; March 11, 1997; April 15, 2003. Header last revised 11/12/2019. State line on the policy: Canton, Mississippi. Quote verified against the cached source; status bans."
     county_source: nces_edge_geocode_2023_24
   - name: Carroll County Schools
     county: Carroll
@@ -1106,13 +1106,13 @@ districts:
   - name: Hattiesburg Public School District
     county: Forrest
     nces_id: "2801800"
-    status: silent
-    source: https://resources.finalsite.net/images/v1622816349/hattiesburgpsdcom/ffne6yzqzi0ergoadc0t/2021-2022HPSStudentHandbook.pdf
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031716&revid=Sq15bEpslshqVC8XxfslshJEK8fw%3D%3D
+    quote: Corporal Punishment as a form of student discipline is prohibited in the Hattiesburg Public School District.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: code_of_conduct
@@ -1139,7 +1139,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy JDB prohibits corporal punishment. Header dates on the policy are 01/01/1999 for adoption and last revision. Reached from hattiesburg.msbapolicy.org. The policy cites MS Code Section 37-11-57. Quote verified against the cached source; status bans.
     county_source: nces_edge_geocode_2023_24
   - name: HAZLEHURST CITY SCHOOL DISTRICT
     county: Copiah
@@ -1316,11 +1316,11 @@ districts:
     county: Hinds
     nces_id: "2802190"
     status: bans
-    method: vendor_manual
+    method: agent_via_crew
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031725&revid=kqFiVamnsNMRhRxQqapnXA%3D%3D
-    quote: PROHIBITION OF CORPORAL PUNISHMENT Corporal punishment has been prohibited in the Jackson Public School District since July 1, 1991.
-    last_verified: 2026-09-24
-    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+    quote: Corporal punishment has been prohibited in the Jackson Public School District since July 1, 1991.
+    last_verified: 2026-10-04
+    notes: JDB DATE line printed on the policy is February 20, 2006. The same policy says the prohibition dates from July 1, 1991. Quote verified against the cached source; status bans.
     legacy_status: bans
     policy_code: JDB
     crdc_students_latest: null
@@ -2188,13 +2188,13 @@ districts:
   - name: Oxford School District
     county: Lafayette
     nces_id: "2803450"
-    status: silent
-    source: https://www.oxfordsd.org/resources/family-resources/student-handbooks
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031763&revid=CHPJgGoUp7EcGc9WyxTwNw%3D%3D
+    quote: The use of corporal punishment in the Oxford School District is forbidden.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: handbook
@@ -2221,7 +2221,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy JDB forbids corporal punishment. Adopted 6/12/1980 and last review 10/28/2024 are printed on the policy. Reached from oxford.msbapolicy.org. Quote verified against the cached source; status bans.
     county_source: nces_edge_geocode_2023_24
   - name: Pascagoula-Gautier School District
     county: Jackson
@@ -3111,13 +3111,13 @@ districts:
     county: Yalobusha
     nces_id: "2804500"
     status: bans
-    method: vendor_manual
+    method: agent_via_crew
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031800&revid=vYCTjK19nli626plus3c1wROA%3D%3D
-    quote: CORPORAL PUNISHMENT The Water Valley School District does NOT permit the use of corporal punishment as a disciplinary measure.
+    quote: The Water Valley School District does NOT permit the use of corporal punishment as a disciplinary measure.
     policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: "Board policy read 2026-09-24. The quote is the sentence that grants or forbids the practice; `quotes` carries every rule-bearing sentence in the policy, in document order, because a policy usually has more than one: the permission, any exemption, and what say a parent has."
+    last_verified: 2026-10-04
+    notes: "JDB header on the policy: Original Adopted Date 09/09/2013, Last Revised Date 07/24/2024. Quote verified against the cached source; status bans."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: dpitcock@wvsdschools.com

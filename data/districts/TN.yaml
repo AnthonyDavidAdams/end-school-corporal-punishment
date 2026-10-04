@@ -1542,14 +1542,15 @@ districts:
     county: Lawrence
     nces_id: "4702340"
     status: allows
-    method: searched_document
-    source: http://images.pcmac.org/Uploads/LawrenceCounty/LawrenceCounty/Divisions/DocumentsCategories/Documents/LCCodeofConduct.pdf
-    quote: Corporal punishment may be administered by the principal or by a teacher in the presence of another certified employee.
-    policy_code: null
+    method: agent_via_crew
+    source: https://tsbanet.sharepoint.com/:w:/g/IQDtIjWCINUxS5n6hozF_s1HAe51m5VW7AVGd2yXRrshxjA
+    quote: The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-10-04
+    notes: Replaces the Alabama Lawrence County code of conduct previously stored as the source. Tennessee policy 6.314, Lawrence County Board of Education, Issued Date 06/22/23, rescinds issued 10/25/18. Server cannot read the SharePoint link; text converted locally from the docx that link opens. Quote verified against the agent_text source; status allows.
     county_source: nces_edge_geocode_2023_24
+    parent_control: none
   - name: Lebanon
     county: Wilson
     nces_id: "4702370"
@@ -1711,8 +1712,8 @@ districts:
     source: https://content.schoolinsites.com/api/documents/b7e05f065b6549dc820bbed6538268cf.pdf
     quote: Any principal, assistant principal or teacher may use corporal punishment in a reasonable manner against any student for good cause in order to maintain discipline and order within the public schools
     policy_code: "6.314"
-    crdc_students_latest: 20
-    last_verified: 2026-09-21
+    crdc_students_latest: null
+    last_verified: 2026-10-04
     contact:
       phone: 423-942-3434
       mailing_address: 204 Betsy Pack Drive, Jasper, TN 37347
@@ -1720,7 +1721,8 @@ districts:
       board_page: http://www.marionschools.org/boardmembersandpolicies
       contact_page: http://www.marionschools.org/contact
       as_of: 2026-09-21
-    notes: null
+    notes: Tennessee confirmed by TCA 49-6-4103 and TCA 49-6-4104 on the policy. Issued Date 04/24/01 and rescinds 6.314 issued 12/15/97 are printed with the header fields; the text layer places them after the body. No parental-permission sentence. parent_control none. Quote verified against the cached source; status allows.
+    parent_control: none
   - name: Marshall County
     county: Marshall
     nces_id: "4702670"
@@ -2151,13 +2153,17 @@ districts:
     parent_control: none
   - name: Putnam County Schools
     county: Putnam
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "4703480"
+    status: allows
+    source: https://manuals.boardbook.org/Documents/DownloadPDF/1523821?org=546
+    quote: "Any principal, assistant principal, or any teacher with the approval of the principal may use corporal punishment in a reasonable manner against a student for good cause in order to maintain discipline and order within the public schools in accordance with the following guidelines:"
+    last_verified: 2026-10-04
     legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: "Same district as the unsourced placeholder named Putnam County Schools. Policy 6.314 scan, Putnam County Board of Education, Cookeville. Handwritten Issued Date 09/28/23 over struck 09/07/23. Printed Version Date September 28, 2023. Rescinds issued 01/03/19. 2023-24 CRDC students struck: 3. Quote verified against the agent_text source; status allows."
+    policy_code: "6.314"
+    crdc_students_latest: null
+    method: agent_via_crew
+    parent_control: none
   - name: Rhea County
     county: Rhea
     nces_id: "4703510"
