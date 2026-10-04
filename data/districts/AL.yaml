@@ -1175,12 +1175,13 @@ districts:
     status: allows
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5627/Ecs/aaba41ac-e45a-479c-941d-a31af4d03487/VI._Students.pdf.pdf?disposition=inline
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
-    policy_code: null
+    policy_code: "6.17"
     crdc_students_latest: null
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     method: agent_via_crew
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: " Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04."
     county_source: nces_edge_geocode_2023_24
+    parent_control: opt_out
   - name: Etowah County Schools
     county: Etowah
     nces_id: "0101380"
@@ -1787,13 +1788,14 @@ districts:
     nces_id: "0100011"
     status: allows
     source: https://files.smartsites.parentsquare.com/7749/26-27_student-parent_handbook_and_code_of_student_conduct.pdf
-    quote: Nombre del director en letra de molde Firma del director Escuela Distrito Fecha CORPORAL PUNISHMENT PARENTAL CONSENT FORM PRINTED STUDENT’S NAME SCHOOL GRADE TEACHER According to Leeds City Schools Policy, parents or legal guardians who do not want corporal punishment to be administered to their child/children must inform the principal of the school on an annual basis.
+    quote: Failure to return the form shall be considered authorization for school personnel to administer corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: 2026-10-04
+    notes: " Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04."
     county_source: nces_edge_geocode_2023_24
-    method: searched_document
+    method: agent_via_crew
+    parent_control: opt_out
   - name: Limestone County Schools
     county: Limestone
     nces_id: "0102100"

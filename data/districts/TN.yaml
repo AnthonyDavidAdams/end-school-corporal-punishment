@@ -774,19 +774,19 @@ districts:
     county: Dyer
     nces_id: "4701080"
     status: bans
-    source: https://content.myconnectsuite.com/api/documents/29932ec374064df290165074b55de081.pdf
-    quote: For more information, refer to Policy 6.311 G4 - Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any school.
-    policy_code: null
+    source: https://tsbanet.sharepoint.com/:w:/g/IQAU3mR25rd3Q6_i7GvMCA4YAfjlTTe5oXgK7mk-pH1o2lI
+    quote: Corporal punishment shall not be used as a disciplinary measure in any school.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - For more information, refer to Policy 6.311 G4 - Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any school.
       - For more information, refer to Policy 6.311 G4 - Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any school.
       - For more information, refer to Policy 6.311 G4 - Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any school.
       - For more information, refer to Policy 6.311 G4 - Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any school.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Issued Date 08/06/18 is printed on policy 6.314, Prohibition of Corporal Punishment. The handbook pointer to 6.311 is not the policy code on this page. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Etowah
     county: McMinn
@@ -836,12 +836,12 @@ districts:
     quote: Should corporal punishment be necessary, it will be administered by the principal or assistant principal and witnessed by at least one (1) other professional staff member or will be administered by a teacher and witnessed by at least one (1) other professional staff member.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-04
+    method: agent_via_crew
+    parent_control: none
     quotes:
       - Should corporal punishment be necessary, it will be administered by the principal or assistant principal and witnessed by at least one (1) other professional staff member or will be administered by a teacher and witnessed by at least one (1) other professional staff member.
-    notes: Code of conduct (.doc on the district's own site, behind a JavaScript challenge; converted to text 2026-09-25). Standard TSBA 6.314 language. The classifier held this at quote confidence 0.84; a frontier reviewer confirmed the sentence is the rule.
+    notes: "Clarkrange High School Code of Conduct .doc on the district site. Title: Fentress County Board of Education. Last saved 2016-05-10. Server could not extract the Word file; text converted locally. Handbook authorizes corporal punishment and is silent on parent permission. Board policy manual not in this file. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04."
     county_source: nces_edge_geocode_2023_24
   - name: Franklin County
     county: Franklin
@@ -990,14 +990,15 @@ districts:
     county: Greene
     nces_id: "4701470"
     status: allows
-    method: searched_document
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/2955/GCTSD/3337077/Primary.pdf
-    quote: 2 CORPORAL PUNISHMENT POLICY Corporal punishment is administered to students only after other negative consequences have been attempted.
-    policy_code: null
+    method: agent_via_crew
+    source: https://tsbanet.sharepoint.com/:w:/g/IQBrhaC8CB6CT64w_AMuBd83AepjL44MWvsO4VVGfogPi5o
+    quote: The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: 2026-10-04
+    notes: Policy 6.314 issued 06/27/24 authorizes the director to decide whether corporal punishment is used. Written parental permission applies only if the student has a disability. The homepage does not name the director or print a sign-up sentence. The Arkansas Primary.pdf was not used. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
+    parent_control: none
   - name: Grundy County
     county: Grundy
     nces_id: "4701530"
@@ -1119,19 +1120,20 @@ districts:
     quote: "Any principal, assistant principal, or any teacher with the approval of the principal may use corporal punishment in a reasonable manner against a student for good cause in order to maintain discipline and order within the public schools in accordance with the following guidelines:"
     policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-21
+    last_verified: 2026-10-04
     method: agent_via_crew
-    notes: " TSBA policy 6.314, issued 08/14/23. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-22; verified by a reviewer in a browser (the SharePoint link opens without sign-in) and approved 2026-09-25."
+    notes: TSBA policy 6.314, Hardin County Board of Education. Issued Date 08/14/23 on the policy. Server could not read the SharePoint .docx link; text converted locally from the file that link opens. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
+    parent_control: none
   - name: Hawkins County
     county: Hawkins
     nces_id: "4701740"
     status: bans
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3275/Rms/16446cc0-86bf-4c57-b4a8-6bc494b268e8/Middle_Secondary_Handbook_2021_2022_V.1.pdf?disposition=inline
-    quote: Violations to the conduct code can lead to detention or community service, in school suspension (ISS), out of school suspension (OSS), alternative school placement, corporal punishment, or expulsion depending on the severity of the violation as defined in the Discipline System.
-    policy_code: null
+    source: https://tsbanet.sharepoint.com/:w:/g/IQB6vCkhoWJbSLC8QpC9wortAYPuW0F4CAsYQGCRp_un6nI
+    quote: Corporal punishment shall not be used as a disciplinary measure in any school.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - Violations to the conduct code can lead to detention or community service, in school suspension (ISS), out of school suspension (OSS), alternative school placement, corporal punishment, or expulsion depending on the severity of the violation as defined in the Discipline System.
@@ -1140,7 +1142,7 @@ districts:
       - Violations to the conduct code can lead to detention or community service, in school suspension (ISS), out of school suspension (OSS), alternative school placement, corporal punishment, or expulsion depending on the severity of the violation as defined in the Discipline System.
       - Corporal punishment shall not be used as a disciplinary measure in any school.
       - Corporal punishment shall not be used as a disciplinary measure in any school.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Issued Date 06/04/26 is printed on policy 6.314. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Haywood County
     county: Haywood
@@ -1251,8 +1253,8 @@ districts:
     quote: The Board authorizes a principal to determine whether corporal punishment shall be administered.
     policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: vendor_manual
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: none
     quotes:
       - The Board authorizes a principal to determine whether corporal punishment shall be administered.
@@ -1263,25 +1265,25 @@ districts:
       - The principal shall notify the parent(s)/guardian(s) any time corporal punishment is used.
       - A disciplinary record shall be maintained and shall contain the name of the student, the type of misconduct, the type of corporal punishment administered, the name of the person administering the punishment, the name of the witness present, and the date and time of punishment.
       - March 17, 2025 Corporal Punishment Legal References Cross References 1.
-    notes: "Board policy 6.314 Corporal Punishment from the TSBA policy manual (SharePoint), fetched 2026-09-25; the link was taken from the district's manual page on tsba.net in a browser. Standard TSBA template: the Board authorizes the Director of Schools to determine whether corporal punishment is administered, with the statutory bar on students with disabilities. The classifier held it below 0.95 because of that clause; a frontier reviewer read every clipped sentence and recorded it. Identity is name and state matched against the federal LEA directory."
+    notes: TSBA policy 6.314, Hollow Rock-Bruceton Board of Education. Issued Date 03/10/25 on the policy; Version Date March 17, 2025. Server could not read the SharePoint link; text taken from the PDF that link opens. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Houston County
     county: Houston
     nces_id: "4701920"
     status: bans
-    source: https://resources.finalsite.net/images/v1655319738/houstonk12tnus/n6h0hxkbooo5khbndxml/STUDENT_HANDBOOK_2022-23.pdf
-    quote: CORPORAL PUNISHMENT Corporal punishment shall not be used as a disciplinary measure in any Houston County public school.
-    policy_code: null
+    source: https://resources.finalsite.net/images/v1787064757/sslsycmnlyt9ev8mtjdd/Combined_Policies_2026-08.pdf
+    quote: Corporal punishment shall not be used as a disciplinary measure in any school.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - CORPORAL PUNISHMENT Corporal punishment shall not be used as a disciplinary measure in any Houston County public school.
       - CORPORAL PUNISHMENT Corporal punishment shall not be used as a disciplinary measure in any Houston County public school.
       - CORPORAL PUNISHMENT Corporal punishment shall not be used as a disciplinary measure in any Houston County public school.
       - CORPORAL PUNISHMENT Corporal punishment shall not be used as a disciplinary measure in any Houston County public school.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Issued Date 08/13/18 is printed on policy 6.314 in the combined policy manual. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Humboldt City Schools
     county: Gibson
@@ -1314,11 +1316,11 @@ districts:
     nces_id: "4701980"
     status: allows
     source: https://tsbanet.sharepoint.com/:b:/g/IQCvXdD2ccFvRJK01clYGQ5XAW5Ekj-MDa4tI6a0fCGVNY8
-    quote: A school administrator may use corporal punishment in a reasonable manner against a student for good cause in order to maintain discipline and order within the public schools in accordance with the following guidelines:1 1.
+    quote: "A school administrator may use corporal punishment in a reasonable manner against a student for good cause in order to maintain discipline and order within the public schools in accordance with the following guidelines:"
     policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: vendor_manual
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: none
     quotes:
       - A school administrator may use corporal punishment in a reasonable manner against a student for good cause in order to maintain discipline and order within the public schools in accordance with the following guidelines:1 1.
@@ -1329,7 +1331,7 @@ districts:
       - The principal shall notify the parent(s)/guardian(s) any time corporal punishment is used.
       - A disciplinary record shall be maintained and shall contain the name of the student, the type of misconduct, the type of corporal punishment administered, the name of the person administering the punishment, the name of the witness present, and the date and time of punishment.
       - August 16, 2023 Corporal Punishment The Director of Schools shall develop administrative procedures to implement this policy, including applicable recordkeeping and reporting requirements.
-    notes: "Board policy 6.314 Corporal Punishment from the TSBA policy manual (SharePoint), fetched 2026-09-25; the link was taken from the district's manual page on tsba.net in a browser. Standard TSBA template: the Board authorizes the Director of Schools to determine whether corporal punishment is administered, with the statutory bar on students with disabilities. The classifier held it below 0.95 because of that clause; a frontier reviewer read every clipped sentence and recorded it. Identity is name and state matched against the federal LEA directory."
+    notes: TSBA policy 6.314, Humphreys County Board of Education. Issued Date 08/10/23 on the policy; Version Date August 16, 2023. Server could not read the SharePoint link; text taken from the PDF that link opens. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Jackson County
     county: Jackson
@@ -1653,14 +1655,15 @@ districts:
     county: Macon
     nces_id: "4702550"
     status: allows
-    source: https://www.maconk12.org/files/user/331/file/MCBOE_Academic_Handbook_and_Code_of_Student_Conduct__3_.pdf
-    quote: In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students within the Macon County School District.
-    policy_code: null
+    source: https://tsbanet.sharepoint.com/:w:/g/IQDi1612wv8GRaddRVvGnujEAe30TTMGVxNU61SBgYbItlk
+    quote: The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: "The classifier held this at 0.89; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Two things likely tripped the classifier: (1) the first candidate is Tennessee's statute (T.C.A. 49-6-4103 language: \"Teachers are hereby given the authority...as may be prescribed by the local board\") reproduced in the handbook, not the board's own decision; and (2) \"Parents are requested to complete the Corporal Punishment Form\" hints at a parent-choice mechanism, which could pull toward consent"
+    last_verified: 2026-10-04
+    notes: Replaces the Alabama Macon County handbook previously stored as the source. Tennessee policy 6.314, Macon County Board of Education, Issued Date 08/10/23, rescinds issued 08/09/18. Server could not read the SharePoint link; text converted locally from the docx that link opens. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
-    method: searched_document
+    method: agent_via_crew
+    parent_control: none
   - name: Madison County
     county: Madison
     nces_id: "4702580"
@@ -1805,8 +1808,8 @@ districts:
     quote: The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered.
     policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: vendor_manual
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: none
     quotes:
       - The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered.
@@ -1818,7 +1821,7 @@ districts:
       - The principal shall notify the parent(s)/guardian(s) any time corporal punishment is used.
       - A disciplinary record shall be maintained and shall contain the name of the student, the type of misconduct, the type of corporal punishment administered, the name of the person administering the punishment, the name of the witness present, and the date and time of punishment.
       - August 29, 2023 Corporal Punishment Disciplinary records shall be ﬁled in the school ofﬁce and made available to parent(s)/guardian(s) or students, whichever is appropriate.
-    notes: "Board policy 6.314 Corporal Punishment from the TSBA policy manual (SharePoint), fetched 2026-09-25; the link was taken from the district's manual page on tsba.net in a browser. Standard TSBA template: the Board authorizes the Director of Schools to determine whether corporal punishment is administered, with the statutory bar on students with disabilities. The classifier held it below 0.95 because of that clause; a frontier reviewer read every clipped sentence and recorded it. Identity is name and state matched against the federal LEA directory."
+    notes: TSBA policy 6.314, Meigs County Board of Education. Issued Date 08/16/23 on the policy; Version Date August 29, 2023. Server could not read the SharePoint link; text taken from the PDF that link opens. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Memphis-Shelby County Schools
     county: Shelby
@@ -2079,19 +2082,19 @@ districts:
     county: Scott
     nces_id: "4703300"
     status: bans
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3660/OSSD/2917617/OHS_STUDENT_HANDBOOK_2024-2025__2_.pdf
-    quote: For more information, refer to OSSD board policy 6.311 [Oneida High School] 66 Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any of the three (3) schools in the district.
-    policy_code: null
+    source: https://tsbanet.sharepoint.com/:w:/g/IQA1X2AWbbyURpTnfJ2yPUMUAZDcnX6mXYccBsdEV8FFsdU
+    quote: Corporal punishment shall not be used as a disciplinary measure in any of the three (3) schools in the district.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - For more information, refer to OSSD board policy 6.311 [Oneida High School] 66 Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any of the three (3) schools in the district.
       - For more information, refer to OSSD board policy 6.311 [Oneida High School] 66 Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any of the three (3) schools in the district.
       - For more information, refer to OSSD board policy 6.311 [Oneida High School] 66 Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any of the three (3) schools in the district.
       - For more information, refer to OSSD board policy 6.311 [Oneida High School] 66 Corporal Punishment Corporal punishment shall not be used as a disciplinary measure in any of the three (3) schools in the district.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Issued Date 01/09/14 is printed on policy 6.314. The prior issued line is blank. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Overton County
     county: Overton
@@ -2132,11 +2135,11 @@ districts:
     county: Polk
     nces_id: "4703450"
     status: allows
-    source: https://www.polk-schools.com/_files/ugd/172523_1ac715900311463f89e5ae1250efec51.pdf
-    quote: "Minor misbehavior on the part of the student which interferes with the orderly operation of the school may be punished by the following: (1) verbal reprimand, (2) special assignment, (3) restricting activities, (4) behavior modification, (5) assigning work detail, (6) counseling, (7) withdrawal of privileges, (8) strict supervised study, (9) detention, (10) corporal punishment, (11) lunch detention, or (12) character education development."
-    policy_code: null
+    source: https://tsbanet.sharepoint.com/:b:/g/IQCM1pLGGlktT73gwanp084QAVWKD4-peD3gm5irUc1Sc4M
+    quote: The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     method: agent_via_crew
     contact:
       phone: 423-299-0471
@@ -2144,7 +2147,8 @@ districts:
       superintendent: Dr. James R. Jones, Director of Schools
       board_page: https://www.polk-schools.com/board-information
       as_of: 2026-09-21
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: TSBA policy 6.314, Polk County Board of Education. Issued Date 02/09/26 on the policy. Version Date March 6, 2026. Rescinds issued 02/08/10. Server could not read the SharePoint link; text taken from the PDF that link opens. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
+    parent_control: none
   - name: Putnam County Schools
     county: Putnam
     nces_id: null
@@ -2221,37 +2225,37 @@ districts:
     county: Robertson
     nces_id: "4703600"
     status: bans
-    source: https://resources.finalsite.net/images/v1687766206/rcstnnet/jxfsexihx8duhr2ysxmf/2022-2023rcsstudenthandbook.pdf
-    quote: Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-    policy_code: null
+    source: https://tsbanet.sharepoint.com/:w:/g/IQAp2lqWzUtCQ7cKzV-U7n86AVxBerXw6Pu-X8_P0f9idVc
+    quote: Corporal punishment shall not be used as a disciplinary measure in any school.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
       - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
       - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
       - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Issued Date 08/13/18 is printed on this policy. Revised 07/11/16 is the rescinded policy. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Rogersville
     county: Hawkins
     nces_id: "4703660"
     status: bans
-    source: https://resources.finalsite.net/images/v1722358396/rcschoolnet/ge2zmo4f4ufpe6znezrk/RCSHANDBOOK24-25.pdf
+    source: https://tsbanet.sharepoint.com/:w:/g/IQBjcxWdDyZhRrTAH5PfHLIwAa2LgKvkcCg0APaa_Dvra6g
     quote: Corporal punishment shall not be used as a disciplinary measure in any school.
-    policy_code: null
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - Corporal punishment shall not be used as a disciplinary measure in any school.
       - Corporal punishment shall not be used as a disciplinary measure in any school.
       - Corporal punishment shall not be used as a disciplinary measure in any school.
       - Corporal punishment shall not be used as a disciplinary measure in any school.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Issued Date 08/14/18 is printed on policy 6.314. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Rutherford County
     county: Rutherford
@@ -2306,29 +2310,32 @@ districts:
     county: Sevier
     nces_id: "4703780"
     status: bans
-    source: https://www.sevier.org/15740_3
-    quote: Corporal Punishment Board policy 6.314 prohibits the use of corporal punishments as a means of discipline within the Sevier County School System.
-    policy_code: null
+    source: https://tsbanet.sharepoint.com/:w:/g/IQAAHG6K7TPoS6oBH78DgWOJAcGkr7oLKRMbmbRsVjiQEZg
+    quote: By enactment of this revised Policy, the Sevier County Board of Education and its Director of Schools hereby prohibit the use of corporal punishment by and on behalf of Sevier County Schools.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - Corporal Punishment Board policy 6.314 prohibits the use of corporal punishments as a means of discipline within the Sevier County School System.
       - Corporal Punishment Board policy 6.314 prohibits the use of corporal punishments as a means of discipline within the Sevier County School System.
       - Corporal Punishment Board policy 6.314 prohibits the use of corporal punishments as a means of discipline within the Sevier County School System.
       - Corporal Punishment Board policy 6.314 prohibits the use of corporal punishments as a means of discipline within the Sevier County School System.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Issued Date 08/05/2024 is printed on policy 6.314. The handbook does not print that date. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Shelby County Schools
     county: Shelby
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "4700148"
+    status: bans
+    source: https://www.scsk12.org/eda/files/25/2025-26%20Student%20Parent%20Handbook%2008042025.pdf
+    quote: Corporal punishment is not an approved disciplinary measure for Memphis-Shelby County Schools and is prohibited.
+    last_verified: 2026-10-04
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: Same district as the record named Memphis-Shelby County Schools, NCES 4700148. 2025-26 handbook prohibits corporal punishment. Policy 6025, Issued Date 08/26/10, still says it is permissible. Status follows the 2025-26 handbook. Conflict left for a maintainer. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
+    policy_code: null
+    crdc_students_latest: null
+    method: agent_via_crew
   - name: Smith County
     county: Smith
     nces_id: "4703870"
@@ -2669,22 +2676,23 @@ districts:
     nces_id: "4704500"
     status: allows
     source: https://tsbanet.sharepoint.com/:b:/g/IQAxsvzSCu3fT5SadKESqmQmAaDb2SknIpWDGCtUctt_FUo
-    quote: "The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered. If it is administered, the following guidelines shall apply:"
+    quote: The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered.
     policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-21
+    last_verified: 2026-10-04
     method: agent_via_crew
-    notes: " TSBA policy 6.314, issued 07/13/23. Submitted through Ground Crew by claude-sonnet-5 via Claude Code workflow on 2026-09-22; verified by a reviewer in a browser (the SharePoint link opens without sign-in) and approved 2026-09-25."
+    notes: TSBA policy 6.314, White County Board of Education. Issued Date 07/13/23 on the policy. Server could not read the SharePoint link; text taken from the PDF that link opens. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
+    parent_control: none
   - name: Williamson County
     county: Williamson
     nces_id: "4704530"
     status: bans
-    source: https://fhs.wcs.edu/resources/student-handbook
-    quote: Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
-    policy_code: null
+    source: https://tsbanet.sharepoint.com/:w:/g/IQApkeiRAzn7RLGHNCeEMoFzAfiPuKXf6Lxe5v_1NgSlZBI
+    quote: Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
@@ -2693,23 +2701,23 @@ districts:
       - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
       - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
       - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Issued Date 11/18/19 is printed on policy 6.314. The high-school handbook does not print that date. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Wilson County
     county: Wilson
     nces_id: "4704550"
     status: bans
-    source: https://go.boarddocs.com/tn/wcschools/Board.nsf/goto?open=&id=BDFSDH722E73
-    quote: Wilson County Schools 415 Harding Drive, Lebanon, TN 37087 | 615-444-3282 Log In Board of Education Change Vote Home Featured Meetings Active Agenda Policies Active Library General Events Strategic Goals Board Members Search Board of Education Policies Although TCA 49-6-4103 permits the use of corporal punishment, the Wilson County School System does not allow the use of corporal punishment as a disciplinary measure.
-    policy_code: null
+    source: https://go.boarddocs.com/tn/wcschools/Board.nsf/goto?open&id=BDFSDH722E73
+    quote: Although TCA 49-6-4103 permits the use of corporal punishment, the Wilson County School System does not allow the use of corporal punishment as a disciplinary measure.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - Wilson County Schools 415 Harding Drive, Lebanon, TN 37087 | 615-444-3282 Log In Board of Education Change Vote Home Featured Meetings Active Agenda Policies Active Library General Events Strategic Goals Board Members Search Board of Education Policies Although TCA 49-6-4103 permits the use of corporal punishment, the Wilson County School System does not allow the use of corporal punishment as a disciplinary measure.
       - Wilson County Schools 415 Harding Drive, Lebanon, TN 37087 | 615-444-3282 Log In Board of Education Change Vote Home Featured Meetings Active Agenda Policies Active Library General Events Strategic Goals Board Members Search Board of Education Policies Although TCA 49-6-4103 permits the use of corporal punishment, the Wilson County School System does not allow the use of corporal punishment as a disciplinary measure.
       - Wilson County Schools 415 Harding Drive, Lebanon, TN 37087 | 615-444-3282 Log In Board of Education Change Vote Home Featured Meetings Active Agenda Policies Active Library General Events Strategic Goals Board Members Search Board of Education Policies Although TCA 49-6-4103 permits the use of corporal punishment, the Wilson County School System does not allow the use of corporal punishment as a disciplinary measure.
       - Wilson County Schools 415 Harding Drive, Lebanon, TN 37087 | 615-444-3282 Log In Board of Education Change Vote Home Featured Meetings Active Agenda Policies Active Library General Events Strategic Goals Board Members Search Board of Education Policies Although TCA 49-6-4103 permits the use of corporal punishment, the Wilson County School System does not allow the use of corporal punishment as a disciplinary measure.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Policy 6.314 bans corporal punishment. The page text does not print an issued date. NCES id 4704550 matches the published district record. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24

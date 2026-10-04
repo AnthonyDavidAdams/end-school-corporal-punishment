@@ -485,13 +485,13 @@ districts:
   - name: Cleveland School District
     county: Bolivar
     nces_id: "2800750"
-    status: silent
-    source: https://cchs.cleveland.k12.ms.us/for-students/student-handbook
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031694&revid=HKggslshzlvYScyGtLP2mKT8A%3D%3D
+    quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: handbook
@@ -500,7 +500,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy JDB read from cleveland.msbapolicy.org, Simbli S=36031694. Header dates 06/16/2014. No sentence requiring parental permission. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Clinton Public School District
     county: Hinds
@@ -610,16 +610,16 @@ districts:
     county: Lowndes
     nces_id: "2801200"
     status: bans
-    source: https://columbuscityschools.ss20.sharpschool.com/district_info/StudentHandbook
+    source: https://cdnsm5-ss20.sharpschool.com/UserFiles/Servers/Server_135954/File/For%20Students/2023-2024%20CMSD%20Handbook.pdf
     quote: Discipline in the form of any corporal punishment shall not be practiced.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - Discipline in the form of any corporal punishment shall not be practiced.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Handbook ban sentence has no printed adoption or revision date. Board manual has no JDB. JD does not mention corporal punishment. Searched the 2023-2024 handbook and Simbli S=36031698. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Copiah County Schools
     county: Copiah
@@ -835,13 +835,13 @@ districts:
   - name: Forest Municipal School District
     county: Scott
     nces_id: "2801470"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2891/FMSD/3545928/FMSD_Student_Handbook_2023-2024.pdf
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031705&revid=BtYSyRmJZmu6KaPJcNREfg%3D%3D
+    quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: handbook
@@ -856,7 +856,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy JDB read from forest.msbapolicy.org, Simbli S=36031705. Adopted 06/20/2011, last revised 06/10/2019. No sentence requiring parental permission. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Forrest County Schools
     county: Forrest
@@ -1037,9 +1037,9 @@ districts:
     method: agent_via_crew
     source: https://files-backend.assets.thrillshare.com/iyxrrzsmv3go1xyz61vz3b1ij6z1?disposition=inline
     quote: Because the use of corporal punishment to control the behavior of students in school has been demonstrated to be generally ineffective and has fallen into disrepute in recent years in the national culture, the Board of Trustees herewith directs that effective July 1, 1991, corporal punishment (paddling, other physical contact style of punishment, or any other form of punishment that generates intentional physical pain) will be and has been excluded from utilization by school personnel in the Gulfport School District for purposes of correcting impermissible student behaviors.
-    last_verified: 2026-09-19
+    last_verified: 2026-10-04
     legacy_status: bans
-    notes: "Gulfport School District board policy JDA 'CORRECTIVE PROCEDURES FOR MISCONDUCT'. The policy PDF's own header reads: 'Descriptor Term: CORRECTIVE PROCEDURES FOR MISCONDUCT  Descriptor Code: JDA  Rescinds: JDA  Board Approved: 12/07/92  Previously Approved: 4/04/88' - so board approved 12/07/1992, with the prohibition effective 01 July 1991. Quote is on p.1 of a 2-page PDF; I fetched it myself at 15,429 bytes, content-type application/pdf, 4,139 characters of text, no OCR needed. The PDF is linked as 'JDA: Corrective Procedures for Misconduct' from the district's own School Board Policy Manual page, https://www.gulfportschools.org/page/school-board-policy-manual, via the shortlink https://aptg.co/2S5kzy which 301-redirects to https://files-backend.assets.thrillshare.com/./iyxrrzsmv3go1xyz61vz3b1ij6z1?disposition=inline (the cited URL is that redirect target with the redundant '/./' removed; both spellings return HTTP 200, application/pdf, content-length 15429). Corroboration: Gulfport's Section J policy index contains NO corporal punishment policy at all (its JDB is 'Detention/Extended Session', not the Mississippi-standard JDB Corporal Punishment), and neither the 2026-2027 Secondary Student Handbook (976,397 bytes, 78 pp) nor the 2025-2026 Elementary Student Handbook (794,956 bytes, 51 pp), both of which I fetched, contains the string 'corporal', 'paddl' or 'spank' anywhere. This is one of the Mississippi districts that has prohibited corporal punishment despite state law permitting it. Site used: www.gulfportschools.org (input row had no website and no nces_id; none assigned)."
+    notes: JDA prints Board Approved 12/07/92 and Previously Approved 4/04/88. The ban sentence sets the effective date at July 1, 1991. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     policy_code: JDA
     crdc_students_latest: null
     contact:
@@ -1345,12 +1345,12 @@ districts:
   - name: Jefferson County School District
     county: Jefferson
     nces_id: "2802220"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/5107/JCS/4788990/Handbook_Bd_Approved_Simbli_5_22_25.pdf
-    quote: null
-    last_verified: 2026-09-26
+    status: allows
+    source: https://content.myconnectsuite.com/api/documents/b214bf0e12e4414cb4d919b4cd9d981e.pdf
+    quote: Use discretion and follow the District policy in the administration of corporal punishment.
+    last_verified: 2026-10-04
     legacy_status: allows
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Employee handbook, Fayette, MS, authorizes administration of corporal punishment under district policy. Simbli S=36031726 returned HTTP 500. Alabama handbook was not used. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     policy_code: null
     crdc_students_latest: null
     contact:
@@ -1359,7 +1359,7 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
-    method: searched_document
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: handbook
@@ -1536,19 +1536,19 @@ districts:
     county: Jones
     nces_id: "2802460"
     status: bans
-    source: https://campussuite-storage.s3.amazonaws.com/prod/1558847/766cc242-d345-11e9-8241-0acb374d1020/1987006/217cd4c6-dbbe-11e9-b108-120153dd8cf8/file/middle_and_high_student_handbook_2019-2020.pdf
-    quote: ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
-    policy_code: null
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031734&revid=BoeU2rQgTJ398xphrzdL8g%3D%3D
+    quote: Corporal punishment of a student is not permitted as a discipline measure.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
       - ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
       - ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
       - ● Other as designated by administrator CORPORAL PUNISHMENT Corporal punishment of a student is not permitted as a discipline measure.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: JDB prints Date Approved 07/10/79 and Rev through 06/18/18. Header last revised 08/23/2018. Reached from laurel.msbapolicy.org. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Lawrence County Schools
     county: Lawrence
@@ -2158,17 +2158,17 @@ districts:
         by: Mothership (search + read)
     notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: OKOLONA SEPARATE SCHOOL DIST
+  - name: Okolona Municipal Separate School District
     county: Chickasaw
     nces_id: "2803390"
     status: allows
-    source: https://4.files.edl.io/9d4a/08/11/25/174445-cc72444d-0078-4639-b495-49ab1adbd25f.pdf
-    quote: Okolona School District uses corporal punishment as a means to correct behavior as stated in the 2025- 2026 Student Handbook.
-    policy_code: null
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031762&revid=LgM1T6cc9asxl1l625nIsw%3D%3D
+    quote: Reasonable corporal punishment of a student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the Okolona School board.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-10-03
+    last_verified: 2026-10-04
     method: agent_via_crew
-    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    notes: " Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04."
     county_source: nces_edge_geocode_2023_24
   - name: Oktibbeha County Schools
     county: Oktibbeha
@@ -2226,13 +2226,13 @@ districts:
   - name: Pascagoula-Gautier School District
     county: Jackson
     nces_id: "2803480"
-    status: silent
-    source: https://www.pgsd.ms/board-policy-and-agendas
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://files.smartsites.parentsquare.com/9982/pgsd_board_policy_manual_2003_revised10.pdf
+    quote: PGSD employees and volunteers are prohibited from administering corporal punishment to students attending the PGSD schools and from causing such punishment to be administered.
+    policy_code: M-241
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -2241,18 +2241,18 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: 2024-2025 policies and procedures manual, policy M-241 inside IDDFB, prohibits corporal punishment. Simbli S=36031764 returned HTTP 500. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Pass Christian Public School District
     county: Harrison
     nces_id: "2803510"
-    status: silent
-    source: https://www.pc.k12.ms.us/apps/pages/index.jsp?uREC_ID=1440898&type=d&pREC_ID=1699266
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031765&revid=nWV7Jd2YH0J1ecFMXplusvW8Q%3D%3D
+    quote: School Personnel in the Pass Christian School District shall not administer corporal punishment to students.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: handbook
@@ -2267,7 +2267,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy JDB prohibits corporal punishment. Header dates 02/13/2014. Reached from passchristian.msbapolicy.org. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Pearl Public School District
     county: Rankin
@@ -2296,13 +2296,13 @@ districts:
     county: Pearl River
     nces_id: "2803540"
     status: bans
-    method: searched_document
-    source: https://drive.google.com/uc?export=download&id=1O5JMUqh-_5FqvKYzBX-3t_bTchjqrGJs
-    quote: The Pearl River County School District staff will no longer use corporal punishment as a means of discipline for a student.
-    last_verified: 2026-09-19
+    method: agent_via_crew
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031767&revid=P2HORsZhDK5JsUWPXkfplus4Q%3D%3D
+    quote: The use of corporal punishment in the Pearl River County School District is prohibited.
+    last_verified: 2026-10-04
     legacy_status: allows
-    notes: "NO WEBSITE IN THE FEDERAL FILE. Found by searching the name: Pearl River County School District, Carriere, MS, site www.prc.k12.ms.us; the handbooks are listed at www.prc.k12.ms.us/handbooks as Google Drive files, and I cite the direct-download form per the brief. SOURCE: '2026 - 2027 PRC District Handbook', page 27 of the PDF (printed page 25), opening sentence of the 'STUDENT DISCIPLINE PLAN' section. Fetched: 1,479,270 bytes, content-type application/octet-stream, 88 pages; final_url https://drive.usercontent.google.com/download?id=1O5JMUqh-_5FqvKYzBX-3t_bTchjqrGJs&export=download. Verified independently by plain curl + pdftotext. The sentence immediately following is 'Please refer to each individual school's section for more information.' The district's MSBA board-policy site (pearlriver.msbapolicy.org) sits behind an Imperva/Incapsula challenge and could not be read, so this handbook is the best available primary source. Legacy_status 'allows' is WRONG."
-    policy_code: null
+    notes: Board policy JDB prohibits corporal punishment. Header dates 02/05/2015 and 03/14/2024. Handbook ban sentence has no date. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
+    policy_code: JDB
     crdc_students_latest: null
     contact:
       phone: (601)798-7744
@@ -2338,13 +2338,13 @@ districts:
   - name: Petal School District
     county: Forrest
     nces_id: "2803530"
-    status: silent
-    source: https://www.petalschools.com/students-fams/student-dress-code
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031769&revid=lhwslshg2OZJfovQSXBbF8l7Q%3D%3D
+    quote: T he use of corporal punishment in the Petal School District is prohibited.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: other
@@ -2365,7 +2365,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy JDB prohibits corporal punishment. Header dates 08/14/2012 and 07/18/2019. Reached from petal.msbapolicy.org. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Picayune School District
     county: Pearl River
@@ -3344,13 +3344,13 @@ districts:
   - name: Yazoo City Municipal School District
     county: Yazoo
     nces_id: "2804770"
-    status: silent
-    source: https://www.yazoocity.k12.ms.us/o/ycmsd/page/policies
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031810&revid=f9lGV8EO9WwmZwyoVGYuuw%3D%3D
+    quote: Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure in order to preserve an effective educational environment which is free from disruption and is conducive to furthering the educational mission of the board.
+    policy_code: JDB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-04
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -3359,7 +3359,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Blocked policies page was a JavaScript challenge. Board policy JDB was read from yazoo.msbapolicy.org, Simbli S=36031810, page title Yazoo City Municipal School District. Homepage confirms Yazoo City, MS. This is not Yazoo County (S=36031811). JDB has no sentence requiring parental permission. Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.
     county_source: nces_edge_geocode_2023_24
   - name: Yazoo County Schools
     county: Yazoo
