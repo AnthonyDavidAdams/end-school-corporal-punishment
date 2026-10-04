@@ -1,7 +1,7 @@
 // Merges district-scan results (JSON arrays) into data/districts/<XX>.yaml.
 // Usage: node tools/merge-scan.mjs scan1.json scan2.json ...
 // Matches existing entries by NCES id, else by normalized name; adds new entries otherwise. Keeps files sorted by name.
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, appendFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { reportOps } from "./lib/ops.mjs";
@@ -79,6 +79,13 @@ for (const f of process.argv.slice(2)) {
       // put 1,192 of them there on 2026-09-25 and one re-merge of 125 records took them straight back off).
       if (!entry.county && prev.county) entry.county = prev.county;
       else if (entry.county && prev.county_source && norm(entry.county) !== norm(prev.county)) entry.county_source = null;
+      // A district whose rule goes from permitting to prohibiting is the campaign's only victory
+      // condition, and the one event everyone who worked on it should hear about. It is logged here,
+      // at the only place a status actually changes, and announced by tools/victory.mjs after publish.
+      if (["allows", "consent_required"].includes(prev.status) && entry.status === "bans" && entry.quote && entry.source) {
+        appendFileSync(join(root, "data/victories.jsonl"), JSON.stringify({ at: new Date().toISOString(), state: r.state, name: entry.name || prev.name, nces_id: prev.nces_id ?? entry.nces_id ?? null, from: prev.status, to: "bans", source: entry.source, quote: entry.quote, policy_revised: entry.policy_revised ?? null, students_struck: prev.crdc_students_latest ?? null, announced: false }) + "\n");
+        console.error(`VICTORY ${r.state} ${entry.name || prev.name}: ${prev.status} -> bans`);
+      }
       doc.districts[i] = { ...prev, ...entry, name: !entry.name || prev.name.length >= entry.name.length ? prev.name : entry.name };
       updated++;
     } else { doc.districts.push(entry); added++; }

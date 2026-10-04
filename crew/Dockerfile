@@ -9,7 +9,7 @@ RUN apk add --no-cache font-dejavu fontconfig && fc-cache -f
 # could be read" and an agent takes that for "no rule". pdftoppm renders the pages, tesseract reads them.
 RUN apk add --no-cache tesseract-ocr tesseract-ocr-data-eng poppler-utils
 WORKDIR /app
-RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/36a139bf73d3fde184e0d50240e0464333f630fd.tar.gz
+RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archive/2059daf9f8444cf88980d8c131dab7b89db2681c.tar.gz
 # The crew directory: crew.json, values, tasks and finding schemas from crew/, everything else from the campaign.
 COPY crew/crew.json crew/values.md /crew/
 COPY crew/tasks /crew/tasks

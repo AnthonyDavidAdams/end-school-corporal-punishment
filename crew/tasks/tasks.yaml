@@ -11,7 +11,7 @@ tasks:
     schema: schemas/district-finding.schema.json
     skill: skills/district-policy-scan/SKILL.md
     collection: districts
-    scopes: ["AR: districts 1-10", "OK: districts 1-10", MO, GA, AL, AZ, MS, TN, FL, "AR: districts 11-20", "OK: districts 11-16", "AR: districts 21-28"]
+    scopes: [GA, AZ, MO, FL, OK]
     done_means:
       - Every non-unknown status has source, quote, and last_verified.
       - Notes say what was searched for every unknown.
