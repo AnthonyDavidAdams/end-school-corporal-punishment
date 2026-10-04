@@ -454,6 +454,18 @@ districts:
     policy_adopted: 2023-06-06
     policy_revised: 2023-06-06
     policy_dates_from: notes
+  - name: Chambers County
+    county: Chambers
+    nces_id: "0100600"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3505/Ccsd/78182d24-668d-4fcf-91de-9fade0fa151b/Policy_5.30.1_Corporal_Punishment.doc?disposition=inline
+    quote: In order to establish and maintain an educational climate conducive to learning, the Chambers County Board of Education permits reasonable corporal punishment (paddling) of students.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Cherokee County
     county: Cherokee
     nces_id: "0100630"
@@ -1157,6 +1169,18 @@ districts:
       public_comment: Request to Appear Before the Board (PDF form) via the Board of Education page
       as_of: 2026-09-20
     notes: "Source: Enterprise City Board of Education Policy Manual PDF, 850,988 bytes, application/pdf, 113 pages, fetched via fetch_document (sha256 fbb9be4...). Quote is section 6.17 Corporal Punishment, found on extracted page 92. Document header reads 'Enterprise City Board of Education Approved December 2019 Policy Manual Updated August 2026' -- no exact day given for either date, so policy_adopted/policy_revised left null (only month/year printed: adopted Dec 2019, updated Aug 2026). Classified consent_required rather than plain allows because the text explicitly requires the parent/guardian be contacted FOR APPROVAL prior to administering (affirmative opt-in), in addition to a separate standing opt-out right ('Parents may also opt out'). Reviewer should double check this dual-clause reading. legacy_status: none provided for this scan (CRDC 2023-24 impact slice, first record for this district)."
+  - name: Escambia County
+    county: Escambia
+    nces_id: "0101350"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5627/Ecs/aaba41ac-e45a-479c-941d-a31af4d03487/VI._Students.pdf.pdf?disposition=inline
+    quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Etowah County Schools
     county: Etowah
     nces_id: "0101380"

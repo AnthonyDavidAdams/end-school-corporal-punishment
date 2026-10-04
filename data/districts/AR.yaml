@@ -22,20 +22,20 @@ districts:
       as_of: 2026-09-25
   - name: ALPENA SCHOOL DISTRICT
     county: Boone
-    nces_id: "0502280"
+    nces_id: null
     status: bans
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/0502280-link-17b5b2.pdf
-    quote: Disciplinary measures for problems related to bus behavior shall include corporal punishment, suspension or expulsion from school, or suspending or terminating the student’s transportation privileges.
-    policy_code: null
+    source: https://files.smartsites.parentsquare.com/10992/copy_of_2026-2027_alpena_student_handbook_1.pdf
+    quote: The Alpena School Board prohibits the use of corporal punishment by any employee of the District against any student.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: records_request
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - Disciplinary measures for problems related to bus behavior shall include corporal punishment, suspension or expulsion from school, or suspending or terminating the student’s transportation privileges.
       - Violations may result in assignment to detention, ISS, OSS, or corporal punishment.
       - 6/21/21 4.39—CORPORAL PUNISHMENT The Alpena School Board prohibits the use of corporal punishment by any employee of the District against any student.
-    notes: Received from the district by email in answer to a public records request, 2026-09-29; the document is kept in the repository at data/policies/inbound/AR/0502280-link-17b5b2.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Arkadelphia School District
     county: Clark
@@ -294,20 +294,32 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: BAY SCHOOL DISTRICT
-    county: Craighead
-    nces_id: "0502820"
+  - name: BAUXITE SCHOOL DISTRICT
+    county: Saline
+    nces_id: "0502790"
     status: allows
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1647/Bay/136f8bff-1a29-4881-95f2-b6e05241b4e7/2023-2024_Student_Discipline_Policies.pdf?disposition=inline
-    quote: After school detention or corporal punishment 3.
+    source: https://docs.google.com/document/d/13BMnoB6FYbxRhu62v_vGIB69ECUz9JtbmCmAbsko0B0/export?format=pdf
+    quote: The Bauxite School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: BAY SCHOOL DISTRICT
+    county: Craighead
+    nces_id: null
+    status: allows
+    source: https://docs.google.com/document/d/1v5ci-PtCjF2278wd_voRViJnuGpOYDtWoGngcLvf8pE/export?format=pdf
+    quote: The Bay School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment or who are an administrator or teacher employed under a waiver from licensure.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - After school detention or corporal punishment 3.
-    notes: Found by crawling the district's site with a browser after the first pass hit a bot challenge; read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: kmcdaniel@bay.k12.ar.us
@@ -447,6 +459,18 @@ districts:
       phone: (870) 423-7065
       contact_source: ADE Data Center Superintendent Contact List, 2026-09-25
     notes: "Board policy 4.39 CORPORAL PUNISHMENT, reprinted in full in the district's K-5 Student Handbook, found in the district's own Documents area (https://www.bobcat.k12.ar.us/documents/ , Handbooks folder; enumerated via Apptegy's /_payload.json because the site is a JS shell). Fetched: 1,098,281 bytes, application/pdf, 108 pages; policy on page 73. The preceding policy on that page carries 'Date Adopted: Last Revised: June 2025'. The 6-12 handbook (…/f02bdab1-55ba-4d03-85e0-0cc4aafc09e0/6-12_Handbook_2025-2026.pdf) names corporal punishment as a live consequence but does not reprint the policy. No parental opt-out or opt-in; carve-out only for students who are intellectually disabled, non-ambulatory, non-verbal or autistic. CONTACT: taken from the district's own site on 2026-09-19; email left null where the site publishes only named individuals' addresses or a web form rather than a general/superintendent's office address."
+  - name: BISMARCK SCHOOL DISTRICT
+    county: Hot Spring
+    nces_id: "0503240"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/6111/section_4_2026-27.pdf
+    quote: The Bismarck School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Blevins School District
     county: Hempstead
     nces_id: "0503300"
@@ -472,6 +496,18 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: BLYTHEVILLE SCHOOL DISTRICT
+    county: Mississippi
+    nces_id: "0503320"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/23/Bsd/af911000-cdc9-4dc5-816e-c5617f1b6cce/Copy_of_Section_4_-_STUDENTS_-_2024-2025.docx_.pdf?disposition=inline
+    quote: The Blytheville School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: BOONEVILLE SCHOOL DISTRICT
     county: Logan
@@ -532,18 +568,30 @@ districts:
     county: Craighead
     nces_id: "0503640"
     status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/0503640-link-f7dab1.txt
-    quote: At the discretion of the principal, a student may be placed in in-school suspension in lieu of corporal punishment or regular suspension for up to five days for each occurrence.
-    policy_code: null
+    source: https://docs.google.com/document/d/1tFcFcB_UUoh5tJrLRXGVuIhbw--a7FvrIR64V298V-4/export?format=pdf
+    quote: The BPS School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: records_request
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - At the discretion of the principal, a student may be placed in in-school suspension in lieu of corporal punishment or regular suspension for up to five days for each occurrence.
       - Last Revised:7/1/19 4.39—CORPORAL PUNISHMENT The Brookland School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
-    notes: Received from the district by email in answer to a public records request, 2026-09-29; the document is kept in the repository at data/policies/inbound/AR/0503640-link-f7dab1.txt. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: BUFFALO IS. CENTRAL SCH. DIST.
+    county: Craighead
+    nces_id: "0503710"
+    status: allows
+    source: https://docs.google.com/document/d/1BcFXGgbtnAiIF2uaQZubmvOk1xMOSejxbATEh3D3LAs/export?format=pdf
+    quote: Reasonable punishment may include the administration of corporal punishment to a student in the exercise of sound discretion by a certified employee, provided that the corporal punishment shall not be excessive or unduly severe.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Cabot School District
     county: Lonoke
@@ -709,6 +757,18 @@ districts:
       phone: (479) 474-7220
       contact_source: ADE Data Center Superintendent Contact List, 2026-09-25
       as_of: 2026-09-25
+  - name: CENTERPOINT SCHOOL DISTRICT
+    county: Pike
+    nces_id: "0506690"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1926/Csd/f80ecbd3-f88e-4edf-993a-a8faf3b31c8f/final_policies_2016-17.pdf?disposition=inline
+    quote: The Centerpoint School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Clarendon School District
     county: Monroe
     nces_id: "0504350"
@@ -809,13 +869,13 @@ districts:
   - name: Concord School District
     county: Cleburne
     nces_id: "0504560"
-    status: silent
-    source: https://www.sau8.org/page/student-handbooks
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1l3mKSduU4GCDi7qqC2l6DgjSyqn8YLWp
+    quote: The Concord School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: handbook
@@ -830,7 +890,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Conway School District
     county: Faulkner
@@ -898,6 +958,18 @@ districts:
       phone: (870) 385-7101
       contact_source: ADE Data Center Superintendent Contact List, 2026-09-25
       as_of: 2026-09-25
+  - name: COUNTY LINE SCHOOL DISTRICT
+    county: Franklin
+    nces_id: "0504740"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/5903/2026-2027_student_handbook_1.pdf
+    quote: Corporal punishment may be administered by any administrator or designated certified staff member of the district to any pupil for disruptive or unmanageable conduct, insubordination, profane, violent, vulgar, or insulting language or any other conduct that would tend to disrupt the educational process.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: CROSS COUNTY SCHOOL DISTRICT
     county: Cross
     nces_id: "0507740"
@@ -934,16 +1006,40 @@ districts:
       phone: (870) 364-3112
       contact_source: ADE Data Center Superintendent Contact List, 2026-09-25
       as_of: 2026-09-25
+  - name: DECATUR SCHOOL DISTRICT
+    county: Benton
+    nces_id: "0504980"
+    status: consent_required
+    source: https://files.smartsites.parentsquare.com/8571/4ilfjfmi3cgobbbfgag.pdf
+    quote: Decatur School District School Board authorizes the use of corporal punishment to be administered in accordance with the guidelines of the board policy and the permission of the parent or legal guardian.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: DERMOTT SCHOOL DISTRICT
+    county: Chicot
+    nces_id: "0505170"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1973/Dermott/b0c373bd-8568-44b6-a5e7-ef364a595501/2026-2027-Student-Handbook---Updated.docx.pdf?disposition=inline
+    quote: The Dermott School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Des Arc School District
     county: Prairie
     nces_id: "0505190"
-    status: silent
-    source: https://www.desarcschools.org/
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3328/Dasd/9a41981d-f291-470e-aa53-9dcb9d8fcf38/Section-4---STUDENTS---2026-2027---Website-Copy.pdf?disposition=inline
+    quote: The Des Arc School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent's designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: other
@@ -952,7 +1048,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Dewitt School District
     county: Dewitt
@@ -990,6 +1086,18 @@ districts:
       phone: (870) 286-2191
       contact_source: ADE Data Center Superintendent Contact List, 2026-09-25
       as_of: 2026-09-25
+  - name: DOVER SCHOOL DISTRICT
+    county: Pope
+    nces_id: "0505430"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1eXagrKiXTNmdvZAvDge9n4-x0lhM74Mu
+    quote: Such consequences include actions such as teacher or principal counseling, parent conference, behavior note home, corporal punishment (paddling), in-school suspension, and suspension from school, or expulsion according to the severity of the infraction.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: DREW CENTRAL SCHOOL DISTRICT
     county: Drew
     nces_id: "0505470"
@@ -1008,6 +1116,18 @@ districts:
       phone: (870) 367-5369
       contact_source: ADE Data Center Superintendent Contact List, 2026-09-25
       as_of: 2026-09-25
+  - name: DUMAS SCHOOL DISTRICT
+    county: Desha
+    nces_id: "0505500"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2904/Dpsd/8d27f6cc-fa9a-42a3-81c5-7418c33a56e1/25-26_DSD_HANDBOOK.pdf?disposition=inline
+    quote: The Dumas School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Earle School District
     county: Crittenden
     nces_id: "0505550"
@@ -1451,6 +1571,18 @@ districts:
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of AR). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: GURDON SCHOOL DISTRICT
+    county: Clark
+    nces_id: "0507110"
+    status: bans
+    source: https://drive.google.com/uc?export=download&id=1qSdUFW_qZ2TiE9mDEKM8wV5dB_n0oREi
+    quote: The Gurdon School Board prohibits the use of corporal punishment by any employee of the District against any student.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Guy-Perkins School District
     county: Faulkner
     nces_id: "0507140"
@@ -1519,17 +1651,17 @@ districts:
     county: Ashley
     nces_id: "0500042"
     status: allows
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36032258&revid=9ZdPeVMoaiWkVrcHdkiBrA%3D%3D
-    quote: The Hamburg School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued certificate as a condition of their employment or who are an administrator or teacher employed under a waiver from licensure.
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36032258&revid=9ZdPeVMoaiWkVrcHdkiBrA==&ptid=p6v70fD4K8ukRv6vtplusTtSg==&secid=slshCslshxD3oyIfX82NzZ1yXp4w==&PG=6&IRP=0&isPndg=false
+    quote: The Hamburg School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued certificate as a condition of their employment or who are an administrator or teacher employed under a waiver from licensure.
     policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: vendor_manual
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - The Hamburg School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued certificate as a condition of their employment or who are an administrator or teacher employed under a waiver from licensure.
       - 2 The immunity from civil liability that exists for performing corporal punishment does not apply if the student who receives corporal punishment is intellectually disabled, non-ambulatory, non-verbal, or autistic.
-    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: nathan.sullivan@hsdlions.org
@@ -1558,15 +1690,15 @@ districts:
   - name: HARMONY GROVE SCHOOL DISTRICT
     county: Saline
     nces_id: "0507320"
-    status: silent
-    source: https://www.harmonygrovesd.org/70394_3
-    quote: null
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1Vc_q9cncZ1YD4SI1fPJsRIR0ZA3-kjeA
+    quote: The Harmony Grove School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent's designated staff members who are required to have a state-issued license as a condition of their employment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 5 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Harrisburg School District
     county: Poinsett
@@ -1716,19 +1848,19 @@ districts:
     county: Sevier
     nces_id: "0507860"
     status: allows
-    source: https://docs.google.com/document/d/11TURngIA8IrHUxFILNjeVk9pR7jeHYVXy3-LTKlubys/export?format=txt
-    quote: See District Policy 4.39 CORPORAL PUNISHMENT The Principal/Dean of Students may use the form of discipline he/she deems correct to handle each situation.
-    policy_code: null
+    source: https://drive.google.com/uc?export=download&id=18ixOpJCx-v9ITG37nH1Cm3wwTDTh2zm8
+    quote: The Horatio School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: none
     quotes:
       - See District Policy 4.39 CORPORAL PUNISHMENT The Principal/Dean of Students may use the form of discipline he/she deems correct to handle each situation.
       - detention or corporal punishment CATEGORY II OFFENSES 1.
       - detention 3 days or corporal punishment & mandatory parent conference 3rd Offense – ISS 3 days CATEGORY III OFFENSES 1.
       - "07-14-08 4.39—CORPORAL PUNISHMENT (Option #1) The Horatio School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment."
-    notes: Student handbook published as a Google Doc; the server could not read the editor page, so it was exported as text 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: modom@horatioschools.org
@@ -1781,18 +1913,54 @@ districts:
       district_email: kelly.gillham@hoxieschools.com
       contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "Hoxie High School Student Handbook 2026-2027, page 22 of the PDF, under the heading 'STUDENT CONDUCT BEHAVIOR CODE'. Fetched server-side with the project's fetch_document: 1,104,823 bytes, application/pdf, 47 pages, 109,340 characters, sha256 6e10c948dd9251b3b0f23f54b20caf5d08c40ee74e945081f550f9c8cabec8eb. 'Corporal Punishment' appears six times in the handbook: once in this master list of consequences and five times as a named step in the penalty ladders for specific rules (Rule #1 Insubordination, Rule #3 Truancy, Rule #11 Disorderly Conduct, Rule #12 Profanity, all as 'ISS / Corporal Punishment'). There is no consent form, no parental opt-in and no opt-out anywhere in the handbook, so this is 'allows'. Caveat for the reviewer: this is the HIGH SCHOOL handbook, the newest discipline document the district publishes. Hoxie does NOT publish a board policy manual on its site; the only board-adopted policies posted under Documents > State-Required Information are Fiscal, Personnel and Parent Involvement. The district's own site is behind a Fastly bot challenge (a 3,038-byte 'Client Challenge' page to plain curl AND to the project's server and to a public CORS proxy), so the Documents tree had to be walked in a real browser; the asset host files-backend.assets.thrillshare.com is fetchable without any challenge. The NCES record's website, http://green.nesc.k12.ar.us, no longer resolves; the live site www.hoxieschools.com came from the NCES district-detail page for 0507990. Older documents on the same page (23-24 Hoxie Elementary Discipline Policy, 23-24 Hoxie Elementary Handbook) were not used. Quote-matching note for the reviewer: the quoted passage runs across line breaks in the PDF's own text layer, so an exact raw-substring search on the extracted text will miss it; it matches once whitespace is normalized, which is how it was checked here against the server's cached extraction."
+  - name: IZARD CO. CONS. SCHOOL DIST.
+    county: Izard
+    nces_id: "0500021"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4200/Izard_County_Csd/6b77091d-7116-4f13-824f-c66beb5e1380/Discipline_Policy.pdf?disposition=inline
+    quote: Reasonable discipline may include the administration of corporal punishment to a student in the exercise of sound discretion by a certified employee, provided that corporal punishment shall not be excessive or unduly severe.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: JACKSON CO. SCHOOL DISTRICT
+    county: Jackson
+    nces_id: "0513230"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1345/Jcsd/00cd294f-0f03-4a78-b8c7-6710f914c92c/2021-2022_Jackson_County_School_District_Stude.pdf?disposition=inline
+    quote: The Jackson County School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: JACKSONVILLE NORTH PULASKI SCHOOL DISTRICT
+    county: Pulaski
+    nces_id: "0500419"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1631/Jnpsd/6c4937e8-b1ea-4df6-a276-81f97029ae4a/2026-2027-JNPSD-Student-Handbook.pdf?disposition=inline
+    quote: I authorize appropriate corporal punishment to be administered by school administration.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: JASPER SCHOOL DISTRICT
     county: Newton
     nces_id: "0508240"
     status: allows
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36032028&revid=sNDCSGRvplusQRy6bxjFslshoaVQ%3D%3D
-    quote: The Jasper School District Board of Education authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued license as a condition of their employment, or who are an administrator or teacher employed under a waiver from licensure&rdquo;.
+    source: https://docs.google.com/document/d/1tASGnHjA-Kf4NkJAJgJiRL4AP6Mqx5ectzcs8lrMH_E/export?format=pdf
+    quote: The Jasper School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    notes: Board policy manual on Simbli (eBOARDsolutions), read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-10-03
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
-    method: vendor_manual
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - The Jasper School District Board of Education authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued license as a condition of their employment, or who are an administrator or teacher employed under a waiver from licensure&rdquo;.
@@ -2122,6 +2290,18 @@ districts:
         by: Mothership (search + read)
     notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: MAGAZINE SCHOOL DISTRICT
+    county: Logan
+    nces_id: "0509150"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/649/Magazine_School_District/e81b346f-e35d-4e29-97bc-9938aa3f26b6/Section-4--STUDENTS-2026-2027.pdf?disposition=inline
+    quote: The Magazine School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Magnolia School District
     county: Columbia
     nces_id: "0500044"
@@ -2209,6 +2389,54 @@ districts:
       - Corporal punishment shall never be administered in the presence of other students;
       - Refusing corporal punishment will result in a three (3) day suspension.
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of AR). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: MANILA SCHOOL DISTRICT
+    county: Mississippi
+    nces_id: "0500046"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3635/Mps/0af0fefa-4a79-4720-a21c-4932e293b172/Student-Handbook-2026-2027-%283%29---Copy-%281%29-%281%29.pdf?disposition=inline
+    quote: The Manila School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: MANSFIELD SCHOOL DISTRICT
+    county: Scott
+    nces_id: "0509330"
+    status: consent_required
+    source: https://files.smartsites.parentsquare.com/10219/2026-27_mhs_student_handbook.pdf
+    quote: Parents will sign and return a permission slip found in this handbook.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: MARION SCHOOL DISTRICT
+    county: Crittenden
+    nces_id: "0509390"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1022/Msd/2fe54bc7-2696-47c2-a97e-6f31c546e147/7-12_Handbook_25-26_Final.pdf?disposition=inline
+    quote: The Marion School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: MARKED TREE SCHOOL DISTRICT
+    county: Poinsett
+    nces_id: "0509420"
+    status: allows
+    source: https://docs.google.com/document/d/1C2VxOYTEYwFn3iup6L7RbZmErry04xoovMIGnzYj5HI/export?format=pdf
+    quote: Reasonable discipline may include the administration of corporal punishment to a student in the exercise of sound discretion by a certified employee in the presence of an administrator provided that corporal punishment shall not be excessive or unduly severe.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: MARMADUKE SCHOOL DISTRICT
     county: Greene
@@ -2362,6 +2590,30 @@ districts:
       phone: (501) 345-8844
       contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
       as_of: 2026-09-25
+  - name: MINERAL SPRINGS SCHOOL DIST.
+    county: Howard
+    nces_id: "0509780"
+    status: consent_required
+    source: https://files.smartsites.parentsquare.com/4751/student_handbook_final_for_publication_1.pdf
+    quote: A permission to give Corporal Punishment form is kept on file in the office.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: MONTICELLO SCHOOL DISTRICT
+    county: Drew
+    nces_id: "0509840"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1mAIZ_MRlHi1RxlR5ezxK8YTiUdg3Kk5p
+    quote: The Monticello School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: MOUNT IDA SCHOOL DISTRICT
     county: Montgomery
     nces_id: "0509990"
@@ -2455,6 +2707,18 @@ districts:
       phone: (479) 369-2121
       contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
       as_of: 2026-09-25
+  - name: MULBERRY/PLEASANT VIEW BI-COUNTY SCHOOL DISTRICT
+    county: Crawford
+    nces_id: "0510290"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/42/Mulberry_Pleasant_View_School/f2094039-4c26-4b53-b137-0a6478449980/MPV-District-Student-Handbook-2026-27.pdf?disposition=inline
+    quote: Mulberry/Pleasant View By-County School District authorizes use of corporal punishment in its discipline policy.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: NASHVILLE SCHOOL DISTRICT
     county: Howard
     nces_id: "0510380"
@@ -2537,6 +2801,30 @@ districts:
       superintendent: McCoy, Roy
       contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
     notes: "NSD Student Handbook 2022-2023, section 'Corporal Punishment (Paddling)', PDF pages 29-30, on the district's own document host. Opt-out: 'The Nevada School District recognizes a parent or legal guardian's request that corporal punishment not be used with his/her child... The request shall be valid for only the current school year.' Fetched via fetch_document: 905,055 bytes, application/pdf, 75 pages, 184,468 chars, sha256 43eee183...  CAVEAT ON CURRENCY: this is the newest handbook I could reach. www.nevadaschooldistrict.net is behind a client-challenge that returns a 3038-byte JS shell to curl, to WebFetch and to the crew's own resolve_handbook, and the Wayback CDX index for the district's Apptegy asset folder (uploaded_file/4204/Nevada_Sd) holds no newer handbook or policy manual. A reviewer should re-check for a 2025-26 or 2026-27 handbook. Contact block taken from page 1 of the same handbook, which names Roy McCoy as the person to whom nondiscrimination-policy inquiries are referred; I have not recorded him as superintendent because the document does not say so."
+  - name: NEWPORT SCHOOL DISTRICT
+    county: Jackson
+    nces_id: "0500023"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1r802kDtQqBzrgunEuyHkWroEODxQusX7
+    quote: The Newport School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: NORFORK SCHOOL DISTRICT
+    county: Baxter
+    nces_id: "0510560"
+    status: consent_required
+    source: https://docs.google.com/document/d/1T8ozMTQM8VyXu9aEsN-dsGrAsohgDm7LW1jI9oidsw4/export?format=pdf
+    quote: Parents must sign a form (this will be in the student packet) to be kept in the office giving permission for their child to receive swats and/or be contacted on the phone and give verbal permission.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: North Little Rock School District
     county: Pulaski
     nces_id: "0510680"
@@ -2559,30 +2847,30 @@ districts:
     county: Boone
     nces_id: "0510920"
     status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/0510920-link-e6d22f.pdf
-    quote: July 19, 2021 © 2022 Arkansas School Boards Association Page 97 4.39—CORPORAL PUNISHMENT The Omaha School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
-    policy_code: null
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3470/Osd/95883a0d-a724-40bd-9a69-700f2958cd0f/2026-2027-Student-Handbook--.pdf?disposition=inline
+    quote: The Omaha School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "304"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: records_request
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - July 19, 2021 © 2022 Arkansas School Boards Association Page 97 4.39—CORPORAL PUNISHMENT The Omaha School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
-    notes: Received from the district by email in answer to a public records request, 2026-09-29; the document is kept in the repository at data/policies/inbound/AR/0510920-link-e6d22f.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: OSCEOLA SCHOOL DISTRICT
     county: Mississippi
     nces_id: "0510950"
     status: allows
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2177/Osd1/a33d9004-179b-4119-81b2-bf10ac223c9d/Student_Handbook_2021-22.pdf?disposition=inline
-    quote: Severe Clause - Offenses committed by students at school, while students are under school jurisdiction and considered to be anti-social and a persistent disregard for school rules, disruptive or of gross misconduct in nature shall be grounds for immediate corporal punishment and/or parent notification with possible suspension without going through each step.
-    policy_code: null
+    source: https://docs.google.com/document/d/1GHUSZWKwLDlyiW_cxFGL0-KaR4qc-Sl6b4msnQkHuqM/export?format=pdf
+    quote: The Osceola School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    notes: The document sat behind a JavaScript challenge; read 2026-09-25 with a real browser session. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
+    last_verified: 2026-10-03
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
-    method: searched_document
+    method: agent_via_crew
     parent_control: opt_out
     quotes:
       - Severe Clause - Offenses committed by students at school, while students are under school jurisdiction and considered to be anti-social and a persistent disregard for school rules, disruptive or of gross misconduct in nature shall be grounds for immediate corporal punishment and/or parent notification with possible suspension without going through each step.
@@ -2702,30 +2990,30 @@ districts:
     nces_id: "0500076"
     status: allows
     source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/0500076-link-babdf5.pdf
-    quote: 4.39—CORPORAL PUNISHMENT The Ozark Mountain School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.1 Prior to the administration of corporal punishment, the student receiving the corporal punishment shall be given an explanation of the reasons for the punishment and be given an opportunity to refute the charges.
-    policy_code: null
+    quote: The Ozark Mountain School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: records_request
-    parent_control: unknown
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    parent_control: none
     quotes:
       - 4.39—CORPORAL PUNISHMENT The Ozark Mountain School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.1 Prior to the administration of corporal punishment, the student receiving the corporal punishment shall be given an explanation of the reasons for the punishment and be given an opportunity to refute the charges.
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
       - Corporal Punishment - This may be used for behavior which interferes with the education of others, disrupts the orderly operation of the school, threatens any individual’s well-being, or knowingly violates school rules (Act 333 or 1995).
       - Attention to alternative discipline procedures shall be made before imposition of corporal punishment.
       - Corporal punishment may be administered by any certified staff member in the presence of an administrator or his designee.
-    notes: Received from the district by email in answer to a public records request, 2026-09-29; the document is kept in the repository at data/policies/inbound/AR/0500076-link-babdf5.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Ozark School District
     county: Franklin
     nces_id: "0511010"
-    status: silent
-    source: https://www.ozarktigers.org/for-parents/handbooks-and-aup
-    quote: null
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1_GKk9siFK0Wefa2n5JUlUM55q4YgzWN3
+    quote: The Ozark School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent's designated staff members who are required to have a state-issued license as a condition of their employment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: handbook
@@ -2734,7 +3022,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: PALESTINE-WHEATLEY SCH. DIST.
     county: St. Francis
@@ -2754,6 +3042,18 @@ districts:
       phone: (870) 581-2646
       contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
       as_of: 2026-09-25
+  - name: PANGBURN SCHOOL DISTRICT
+    county: White
+    nces_id: "0511070"
+    status: allows
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1922/PSD/4671178/2024-2025_Student_Handbook.pdf
+    quote: The Pangburn School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: PARAGOULD SCHOOL DISTRICT
     county: Greene
     nces_id: "0500017"
@@ -2794,18 +3094,30 @@ districts:
       - Corporal Punishment The Paris School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state issued license as a condition of their employment.
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of AR). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: PERRYVILLE SCHOOL DISTRICT
-    county: Perry
-    nces_id: "0511340"
-    status: silent
-    source: https://www.perryvilleschool.org/hshandbook
-    quote: null
+  - name: PARKERS CHAPEL SCHOOL DIST.
+    county: Union
+    nces_id: "0511220"
+    status: allows
+    source: https://aptg.co/JhqCQn
+    quote: Reasonable discipline may include the administration of corporal punishment to a student in the exercise of sound discretion by a certified employee, provided that corporal punishment shall not be excessive or unduly severe.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: PERRYVILLE SCHOOL DISTRICT
+    county: Perry
+    nces_id: null
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/6124/Psd/10749a35-1ebe-4ecb-8f91-1da673c55180/26-27-Perryville-HS-Student-Handbook-REV2.pdf?disposition=inline
+    quote: Corporal punishment may be administered to students by certified personnel only in the presence of a school administrator or his designee who shall be a teacher or administrator employed by the Perryville School District.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Document found by a fresh search, read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 2 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: kevin.campbell@perryvilleschool.org
@@ -2971,20 +3283,20 @@ districts:
     notes: "2026-2027 Rivercrest School District Student & Family Handbook, section 5.7 Corporal Punishment, page 51 of 103 (printed 'Page 51 of 103'). 1,494,510 bytes, served as application/octet-stream, PDF, 103 pages (fetch_document). Classified consent_required: 5.7 says 'Parents and guardians are asked to indicate their preference regarding corporal punishment. The official consent form is available online at rivercrestcolts.org and through any campus office.' and then the quoted sentence; the handbook's own acknowledgement form (p.102) is an explicit YES/NO permission checkbox ('YES - I give permission for my child to receive corporal punishment (paddling)...'). Note a counter-signal: the sample form on p.98 says 'Before paddling any student, we prefer to have the parent's permission.' The p.51 rule is the operative one. Handbook PDF is in the district's public Google Drive folder 1on50reuOTcLnQVh8XcTYiwpmwbU5KvEv linked from https://www.rivercrestcolts.org/page/board-of-education. NCES lists the website as smccolts.com (South Mississippi County), which no longer resolves to the district; the live site is rivercrestcolts.org and it served a 3,038-byte Apptegy/Finalsite 'Client Challenge' to browser User-Agents (filed as issue_3a478491a2bd)."
   - name: RIVERSIDE SCHOOL DISTRICT
     county: Craighead
-    nces_id: "0500012"
+    nces_id: null
     status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/0500012-link-d57d5d.html
-    quote: DOCS_modelChunk = undefined;</script><script nonce="KZxsau2tNePUCfoVwYUX8A">DOCS_modelChunkParseStart = new Date().getTime();</script><script nonce="KZxsau2tNePUCfoVwYUX8A">DOCS_modelChunk = {"chunk":[{"ty":"is","ibi":301003,"s":" \nAll corporal punishment shall be administered privately, i.e.
-    policy_code: null
+    source: https://docs.google.com/document/d/1JmOoFFOEY9E9Quny1AdY-xTA347EH3wG9Qy26_waUUw/export?format=pdf
+    quote: The Riverside School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: records_request
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: opt_out
     quotes:
       - DOCS_modelChunk = undefined;</script><script nonce="KZxsau2tNePUCfoVwYUX8A">DOCS_modelChunkParseStart = new Date().getTime();</script><script nonce="KZxsau2tNePUCfoVwYUX8A">DOCS_modelChunk = {"chunk":[{"ty":"is","ibi":301003,"s":" \nAll corporal punishment shall be administered privately, i.e.
       - out of the sight and hearing of other students, shall not be excessive, or administered with malice, and shall be administered in the presence of another school administrator or designee who shall be a licensed staff member employed by the District.\n \nCorporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.\n \nANY PARENT OPPOSED TO CORPORAL PUNISHMENT SHALL CONTACT THE SCHOOL IN WRITING.
       - "ANY STUDENT REFUSING CORPORAL PUNISHMENT WILL BE SUSPENDED FROM SCHOOL.\\n \\n Legal References:"
-    notes: Received from the district by email in answer to a public records request, 2026-09-28; the document is kept in the repository at data/policies/inbound/AR/0500012-link-d57d5d.html. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Riverview School District
     county: White
@@ -3022,15 +3334,15 @@ districts:
   - name: ROSE BUD SCHOOL DISTRICT
     county: White
     nces_id: "0512000"
-    status: silent
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/161/District/bd2b1b06-e1fe-4e02-ac0c-ccf1c2d3d28b/23-24_RBHS_Handbook.pdf?disposition=inline
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/161/District/827644a3-ac28-4e88-be27-b1a3506950c1/Code_of_Conduct.pdf?disposition=inline
+    quote: "Reasonable discipline may include the administration of corporal punishment to a student by an administrator, but should follow the guidelines below:"
+    policy_code: "8.15"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 1 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: ablackwell@rbsd.k12.ar.us
@@ -3246,15 +3558,15 @@ districts:
       as_of: 2026-09-25
   - name: SOUTH SIDE SCHOOL DISTRICT
     county: Van Buren
-    nces_id: null
+    nces_id: "0514040"
     status: allows
-    source: http://web.archive.org/web/20240818135409/https://files.gabbart.com/1040/_2024_-2025_high_school_handbook.pdf
-    quote: The teacher is authorized to administer corporal punishment according to guidelines established by district policy.
-    policy_code: null
+    source: https://files.smartsites.parentsquare.com/4173/26-27_high_school_handbook.pdf
+    quote: The South Side Bee Branch School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or his/her designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    notes: The document sat behind a JavaScript challenge; read 2026-09-25 with a real browser session. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
-    method: searched_document
+    last_verified: 2026-10-03
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    method: agent_via_crew
     parent_control: none
     quotes:
       - The teacher is authorized to administer corporal punishment according to guidelines established by district policy.
@@ -3599,6 +3911,30 @@ districts:
     method: agent_via_crew
     notes: " Submitted through the crew server by a scheduled agent; quote verified against the cached source by the server and approved by a maintainer on 2026-09-30."
     county_source: nces_edge_geocode_2023_24
+  - name: WESTSIDE CONS. SCHOOL DISTRICT
+    county: Craighead
+    nces_id: "0504020"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1683/Wcsd/2e36f840-946c-445d-bd37-4c14a63515ca/26-27-Student-Handbook-FINAL-%281%29.pdf?disposition=inline
+    quote: The Westside School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the Superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: WHITE CO. CENTRAL SCHOOL DIST.
+    county: White
+    nces_id: "0504170"
+    status: bans
+    source: https://docs.google.com/document/d/1pCK8Nasoi4FhEa1IeyfzCU_fXYlj5UW8/export?format=pdf
+    quote: The White County Central School Board prohibits the use of corporal punishment by any employee of the District against any student.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: White Hall School District
     county: White Hall
     nces_id: "0514140"
@@ -3622,17 +3958,17 @@ districts:
     county: Conway
     nces_id: "0514370"
     status: allows
-    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36032128&revid=vRUQSNfLoUEBQJySi2Ghjg%3D%3D
-    quote: The Wonderview School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued certificate as a condition of their employment.
+    source: https://drive.google.com/uc?export=download&id=1gK0uKOgv-j4D61i8CUmBavAapWQ8vy_p
+    quote: The Wonderview School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued certificate as a condition of their employment.
     policy_code: "4.39"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: vendor_manual
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     quotes:
       - The Wonderview School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent&rsquo;s designated staff members who are required to have a state-issued certificate as a condition of their employment.
       - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
-    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: jamie.stacks@wonderviewschools.org

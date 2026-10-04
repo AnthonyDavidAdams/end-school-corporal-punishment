@@ -86,21 +86,21 @@ districts:
       - If a parent or legal guardian has requested that corporal punishment not be administered to the student, alternative discipline will be considered and may include suspension from school.
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: ADAIR
+  - name: Adair Public Schools
     county: Mayes
     nces_id: "4002460"
     status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4002460-FOB.pdf
-    quote: ADAIR BOARD OF EDUCATION CORPORAL PUNISHMENT It is the policy of the Adair Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1853/Adair_Public_Schools/7f29650f-aebf-4aa5-baf8-048d247672f0/BHE_Handbook_2025-26.pdf?disposition=inline
+    quote: Corporal punishment may be used in Adair Public Schools as authorized by the School Laws of Oklahoma whenever the administrator determines that such action is necessary to enforce school discipline
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: records_request
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: opt_out
     quotes:
       - ADAIR BOARD OF EDUCATION CORPORAL PUNISHMENT It is the policy of the Adair Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
       - It is the parents' responsibility to file a request form for non-administration of corporal punishment with the principal's office each school year.
-    notes: Received from the district by email in answer to a public records request, 2026-09-29; the document is kept in the repository at data/policies/inbound/OK/4002460-FOB.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Afton
     county: Ottawa
@@ -304,6 +304,18 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: ANTLERS
+    county: Pushmataha
+    nces_id: "4003060"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3968/Aps/60bf0802-3725-4136-b245-2e659d69ef6e/AHS_Handbook_2025-2026_final.pdf?disposition=inline
+    quote: Corporal punishment will be administered in the principal’s office in the presence of a certified teacher/witness after consent it granted by the parent/guardian.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Asher
     county: Pottawatomie
     nces_id: "4003300"
@@ -381,6 +393,18 @@ districts:
       - "CORPORAL PUNISHMENT THE TEACHER OR ADMINISTRATOR OF A STUDENT ATTENDING PUBLIC SCHOOL SHALL HAVE THE SAME RIGHTS AS A PARENT TO CONTROL \x18\x18 AND DISCIPLINE SUCH INDIVIDUALS DURING THE TIME HE\\SHE IS IN ATTENDANCE, OR IN TRANSIT TO THE SCHOOL OR CLASSROOM PRESIDED OVER BY A TEACHER."
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: AVANT
+    county: Osage
+    nces_id: "4003450"
+    status: consent_required
+    source: https://drive.google.com/uc?export=download&id=1XrxzIIAItIN0C0v0nbv3EROI3n5g9gRE
+    quote: Corporal punishment may be used after all other alternative means of discipline have failed, providing a parent has signed a Consent Form to approve corporal punishment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Balko
     county: Beaver
     nces_id: "4003510"
@@ -401,18 +425,18 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: BARNSDALL
+  - name: Barnsdall Public Schools
     county: Osage
     nces_id: "4003570"
-    status: silent
-    source: https://sites.google.com/barnsdallschools.org/home/district-policy-manual
-    quote: null
+    status: allows
+    source: https://docs.google.com/document/d/1aqUcbFKYkYQaT0Qdn7Zl_klVixXYjn9esEdCwtR4ZrE/export?format=pdf
+    quote: Violation of detention rules will result in further disciplinary action. 4. Corporal punishments (swats) 5. Financial restitution
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 7 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: sbryant@barnsdallschools.org
@@ -610,18 +634,18 @@ districts:
         by: Mothership (search + read)
     notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: BINGER-ONEY
+  - name: Binger-Oney Public Schools
     county: Caddo
     nces_id: "4033603"
-    status: silent
-    source: https://sites.google.com/a/binger-oney.k12.ok.us/binger-oney-public-school/parents
-    quote: null
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1qNRErRkTl6HYA_sIJEJgRtlgitPZ0ST2
+    quote: Corporal punishment (paddling), in accordance with state school law, is approved by the Binger-Oney Board of Education as a means of discipline.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 3 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: rtrent@binger-oney.k12.ok.us
@@ -784,6 +808,18 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: BRAY-DOYLE
+    county: Stephens
+    nces_id: "4005340"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/10684/_2026-2027_student_handbook_3.pdf
+    quote: Parents may request that their child not be paddled.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Bridge Creek
     county: Grady
@@ -960,6 +996,18 @@ districts:
       - More serious violations may result in detention, suspension, corporal punishment, or expulsion on the first incident.
       - Starting to school in the morning or afternoon and never arriving or missing one class without permission constitutes ditching and may result in the violator being sent to detention hall, paddling, or suspension from school.
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: BUFFALO VALLEY
+    county: Latimer
+    nces_id: "4005820"
+    status: allows
+    source: https://www.bvpsd.org/resources-docs/Policies/student_handbook_2026-27.pdf
+    quote: The Board of Education of Buffalo Valley Public Schools has authorized the use of corporal punishment as one of the disciplinary tools available to teachers.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Burlington
     county: Alfalfa
@@ -1476,15 +1524,15 @@ districts:
   - name: CHEYENNE
     county: Roger Mills
     nces_id: "4007500"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3212/cheyenne/4743193/Cheyenne_24-25_Student_Handbook.pdf
-    quote: null
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/873/Cheyenne_Public_Schools/708b753d-af3c-41a6-bce7-6aa8445fe74b/JH-HS_Student_Handbook_2025-26.pdf?disposition=inline
+    quote: Corporal punishment shall be administered under the policy set forth by the Cheyenne School Board of Education.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 4 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: ryan.baker@cheyenne.k12.ok.us
@@ -1789,6 +1837,18 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: COALGATE
+    county: Coal
+    nces_id: "4008130"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2890/Cps/76eae715-0b09-4ba7-a688-326b8ef88c0c/HS_handbook_2025-2026_ONLINE.pdf?disposition=inline
+    quote: Refusal by parent or student to accept corporal punishment as a discipline consequence for the student will mean advancement of the offense to the next level of consequences.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: COLCORD
     county: Delaware
@@ -2775,18 +2835,18 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: FLETCHER
+  - name: Fletcher Public Schools
     county: Comanche
     nces_id: "4011700"
-    status: silent
-    source: https://campussuite-storage.s3.amazonaws.com/prod/1559116/b00c92ec-b1d8-11ec-a96b-0a0032856e8d/2447801/eb5a6a36-089a-11ed-bc41-0af9e2d280f9/file/student-handbook-1920.pdf
-    quote: null
+    status: consent_required
+    source: https://files.smartsites.parentsquare.com/6744/fletcher_jh__hs_handbook_2025-2026_1.pdf
+    quote: Corporal punishment is an option of Fletcher Schools made available by the Board of Education with parental permission.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 10 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: agrimes@fletcherschools.org
@@ -3670,18 +3730,18 @@ districts:
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
-  - name: HENRYETTA
+  - name: Henryetta Public Schools
     county: Okmulgee
     nces_id: "4014370"
-    status: silent
-    source: https://s3.amazonaws.com/scschoolfiles/179/student_handbook_final_2018-19.pdf
-    quote: null
+    status: allows
+    source: https://files.smartsites.parentsquare.com/5924/2026-2027_hms_student_handbook.pdf
+    quote: "B. METHODS OF DISCIPLINE: 1. Conference with Student 2. Contact Parent 3. Conference with Parent and Student 4. After School Detention 5. Corporal punishment (Swats)"
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 8 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: jprice@henryetta.k12.ok.us
@@ -4395,6 +4455,18 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
+  - name: Leach Public School
+    county: Delaware
+    nces_id: "4017310"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3343/Lps/24aac749-21cd-48da-8e7e-65bb809d9097/26-27-Student-Handbook-Complete.pdf?disposition=inline
+    quote: 5 In-School Detention (noon and/or after school) 6 Corporal punishment 7 Suspension (1-10 days)
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Leedey
     county: Dewey
     nces_id: "4017370"
@@ -4540,6 +4612,30 @@ districts:
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
+  - name: LONE WOLF
+    county: Kiowa
+    nces_id: "4018270"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4054/Lwps/557f82ce-2822-4164-a403-0b4c916a8c9a/LW-student-handbook-for-2026.docx?disposition=inline
+    quote: Permission from the parent or guardian must be given.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: LUKFATA
+    county: McCurtain
+    nces_id: "4018570"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/3415/student_handbook_revised_2021-2022.pdf
+    quote: Should you desire that your child NOT receive corporal punishment, you must submit this request.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Mangum
     county: Greer
     nces_id: "4018780"
@@ -4736,6 +4832,30 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: MCCORD
+    county: Osage
+    nces_id: "4019500"
+    status: consent_required
+    source: https://mccordschool.socs.net/vimages/shared/vnews/stories/63ff7fc86143f/2026-2027%20McCord%20Student%20Handbook.pdf
+    quote: Written permission must be given for corporal punishment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: MCCURTAIN
+    county: Haskell
+    nces_id: "4019410"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4576/District/a2063a8c-e949-48c3-a6d8-83c1181aebca/Handbook-2027---07132026.docx.pdf?disposition=inline
+    quote: 16. Corporal Punishment
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Mcloud
     county: Pottawatomie
@@ -5204,6 +5324,18 @@ districts:
         by: Mothership (search + read)
     notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: NEW LIMA
+    county: Seminole
+    nces_id: "4021360"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5104/Nls/289f23be-430d-4dd4-a90e-4a75a083a7c1/HANDBOOK_2024_2025__HS_Contents.doc?disposition=inline
+    quote: offenses that might warrant corporal punishment or 1 to 3 days suspensions.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Newcastle
     county: McClain
     nces_id: "4021510"
@@ -5573,15 +5705,15 @@ districts:
   - name: PADEN
     county: Okfuskee
     nces_id: "4023340"
-    status: silent
-    source: https://www.paden.k12.ok.us/155043_3
-    quote: null
+    status: allows
+    source: https://files.smartsites.parentsquare.com/9491/student_handbook_2026-2027_approved_7-6-26.pdf
+    quote: In considering alternatives of corrective actions, the faculty/administration of the school district will consider those listed below. ... O. Corporal punishment
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 7 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: mstiles@paden.k12.ok.us
@@ -5994,6 +6126,18 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: PLAINVIEW
+    county: Carter
+    nces_id: "4024240"
+    status: allows
+    source: https://plainviewpes.ss4.sharpschool.com/for_students/student_handbook
+    quote: Parents may request in writing that corporal punishment not be used.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Pleasant Grove
     county: Pottawatomie
@@ -6754,6 +6898,18 @@ districts:
       - Corporal Punishment- Only when allowed by the parent on the enrollment form and then after multiple opportunities to correct behavior and with parent acknowledgement.
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: Shady Point Public School
+    county: Le Flore
+    nces_id: "4027450"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/708/Shady_Point_School_District/b8d24d6b-f71d-4a28-a8db-599d47ba0523/SP-STUDENT-Handbook.pdf?disposition=inline
+    quote: Corporal punishment only when permitted by Board policy and applicable law; corporal punishment is prohibited for students identified with a disability under the Individuals with Disabilities Education Act (IDEA)
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Shattuck
     county: Ellis
     nces_id: "4027540"
@@ -6919,6 +7075,18 @@ districts:
     last_verified: 2026-09-30
     method: agent_via_crew
     notes: " Submitted through the crew server by a scheduled agent; quote verified against the cached source by the server and approved by a maintainer on 2026-09-30."
+    county_source: nces_edge_geocode_2023_24
+  - name: SOUTH COFFEYVILLE
+    county: Nowata
+    nces_id: "4026640"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4542/Scps/f70566cd-1046-432f-a3f7-f73baea80630/SC-handbook-2026-2027.pdf?disposition=inline
+    quote: Corporal punishment may be administered, by administration, when the punishment is age-appropriate for the student in question and with the permission of the parent.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Sperry
     county: Tulsa
@@ -7637,16 +7805,16 @@ districts:
         by: Mothership (search + read)
     notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-  - name: Twin Hills
+  - name: Twin Hills Public School
     county: Okmulgee
     nces_id: "4030450"
-    status: silent
-    source: https://www.twinhills.k12.ok.us/
-    quote: null
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=1G1ywprdwRD2UWj3zmFKLYNR8QGCV9RxO
+    quote: Any parent who does not wish corporal punishment (swats) to be administered to their child should notify the principal of the school in writing annually (included in the school enrollment information).
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
     documents:
       - kind: other
@@ -7655,7 +7823,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Tyrone
     county: Texas
@@ -7789,15 +7957,15 @@ districts:
   - name: VARNUM
     county: Seminole
     nces_id: "4030990"
-    status: silent
-    source: https://varnum.k12.ok.us/district/board-of-education/policy-book/
-    quote: null
+    status: consent_required
+    source: https://varnum.k12.ok.us/wp-content/uploads/2025/08/Elementary-Student-Handbook-2025-2026.docx.pdf
+    quote: Corporal Punishment with signed parent consent. A phone call will be made prior to any corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 4 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: jhadley@varnum.k12.ok.us
@@ -7869,14 +8037,14 @@ districts:
     county: Sequoyah
     nces_id: "4031140"
     status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4031140-Student_Behavior_Policy.pdf
-    quote: Corporal Punishment Corporal punishment may be administered at the discretion of the school administration.
+    source: https://files.smartsites.parentsquare.com/9643/section_10_-_students.pdf
+    quote: Corporal punishment may be administered at the discretion of the school administration.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: records_request
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: opt_out
-    notes: Received from the district by email in answer to a public records request, 2026-09-28; the document is kept in the repository at data/policies/inbound/OK/4031140-Student_Behavior_Policy.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: johnb@vian.k12.ok.us
@@ -8459,15 +8627,15 @@ districts:
   - name: Wilson School District
     county: Carter
     nces_id: "4032940"
-    status: silent
-    source: https://www.wsd7.org/about-us/policies-handbooks
-    quote: null
+    status: consent_required
+    source: https://files.smartsites.parentsquare.com/10345/dij6rj18eca30bmehno.pdf
+    quote: Corporal Punishment may be administered only with the consent of the principal and parent.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-29
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
     documents:
       - kind: board_policy
@@ -8552,6 +8720,18 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: WRIGHT CITY
+    county: McCurtain
+    nces_id: "4033210"
+    status: allows
+    source: https://files.smartsites.parentsquare.com/10953/0395_001.pdf
+    quote: Corporal punishment will be used only as a last resort, and local school board policy will be followed in all instances.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Wyandotte
     county: Ottawa

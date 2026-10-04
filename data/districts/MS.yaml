@@ -2158,6 +2158,18 @@ districts:
         by: Mothership (search + read)
     notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: OKOLONA SEPARATE SCHOOL DIST
+    county: Chickasaw
+    nces_id: "2803390"
+    status: allows
+    source: https://4.files.edl.io/9d4a/08/11/25/174445-cc72444d-0078-4639-b495-49ab1adbd25f.pdf
+    quote: Okolona School District uses corporal punishment as a means to correct behavior as stated in the 2025- 2026 Student Handbook.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Oktibbeha County Schools
     county: Oktibbeha
     nces_id: null

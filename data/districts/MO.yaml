@@ -1476,6 +1476,18 @@ districts:
       - Subsequent Offense Revocation of parking privileges, Detention, Corporal Punishment, In-School- Suspension, or 1-180 days Out-of-School Suspension.
     notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MO). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: El Dorado Springs R-II School District
+    county: Cedar
+    nces_id: "2911310"
+    status: consent_required
+    source: https://irp.cdn-website.com/dc754019/files/uploaded/2023-08-28%20El%20Dorado%20Springs%20Elementary%20Student%20Parent%20Handbook%20(BOE%20adopted).pdf
+    quote: Corporal punishment will only be administered by the principal or associate principal and only with the notification of parents or guardian and with their permission.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Elsberry R-II School District
     county: Lincoln
     nces_id: "2911400"
@@ -2167,15 +2179,15 @@ districts:
   - name: HAYTI R-II
     county: Pemiscot
     nces_id: "2913800"
-    status: silent
-    source: https://www.haytir2.org/district_information/district_school_board_policy
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://www.moconed.com/district/HaytiRII/district.php?pol=309
+    quote: Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
+    policy_code: "2670"
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-03
+    method: agent_via_crew
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 5 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Hazelwood
     county: St. Louis
@@ -3742,6 +3754,18 @@ districts:
         by: Mothership (search + read)
     notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: NORWOOD R-I
+    county: Wright
+    nces_id: "2922950"
+    status: consent_required
+    source: https://files.smartsites.parentsquare.com/8164/9-12_handbook_26-27docx.pdf
+    quote: Parents must sign a consent form giving permission for corporal punishment in lieu of other discipline.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Oak Grove R-VI
     county: Jackson
     nces_id: "2923010"
@@ -4284,6 +4308,18 @@ districts:
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+  - name: PUXICO R-VIII
+    county: Stoddard
+    nces_id: "2925650"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/647/Puxico_R8_School_District/705c9f1a-4465-48c3-90cd-bd28ef5c473e/26-27-PHS-Handbook.pdf?disposition=inline
+    quote: Please note that Puxico R-VIII Schools maintains a policy allowing corporal punishment.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: 2026-27 PHS Handbook, page 27, and the 2026-27 junior high handbook, discipline section. No separate board-policy manual was in the published document folders. Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03.
+    county_source: nces_edge_geocode_2023_24
   - name: Raymore-Peculiar R-II School District
     county: Cass
     nces_id: "2923730"
@@ -4392,6 +4428,18 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: RICHARDS R-V
+    county: Howell
+    nces_id: "2926370"
+    status: allows
+    source: https://resources.finalsite.net/images/v1717526859/richardsschoolk12mous/zqz1qrgvwmari3uhhxut/Final2024_2025Richardsstudenthandbook.pdf
+    quote: Corporal Punishment- Swats will be administered with a wooden paddle on the buttocks.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Richland R-I
     county: Stoddard
@@ -4685,6 +4733,30 @@ districts:
     county_source: nces_edge_geocode_2023_24
     policy_revised: 2022-05-23
     policy_dates_from: policy
+  - name: SCOTT CO. CENTRAL
+    county: Scott
+    nces_id: "2921420"
+    status: allows
+    source: https://drive.google.com/uc?export=download&id=11mOPadGprJRHseTY0tf-v4RJ3aJJ0YS_
+    quote: "GENERAL DISCIPLINARY MEASURES – May include the following: (1) Corporal Punishment (1-3 swats);"
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
+  - name: SCOTT CO. R-IV
+    county: Scott
+    nces_id: "2904890"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5012/Scrivsd/80fca46a-ab5a-4aec-8fe9-700ef1d0169c/2026-2027-KHS-Student-Handbook.pdf?disposition=inline
+    quote: Corporal punishment, defined as paddling with a paddle, may be used in the discipline process.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
+    county_source: nces_edge_geocode_2023_24
   - name: Senath-Hornersville C-8
     county: Senath
     nces_id: "2927870"
@@ -4775,6 +4847,18 @@ districts:
         retrieved: 2026-09-26
         by: Mothership (search + read)
     notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    county_source: nces_edge_geocode_2023_24
+  - name: Skyline R-II School District
+    county: Hickory
+    nces_id: "2911010"
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2631/Skyline/91223df8-aa73-4d37-a7ba-b0590554bb9d/Handbook-2026-2027.docx.pdf?disposition=inline
+    quote: Corporal punishment by the building principal will be permitted when it is felt the behavior of the child cannot be corrected by any other means.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24
   - name: Slater School District
     county: Saline
@@ -5761,4 +5845,16 @@ districts:
     last_verified: 2026-09-30
     method: agent_via_crew
     notes: " Submitted through the crew server by a scheduled agent; quote verified against the cached source by the server and approved by a maintainer on 2026-09-30."
+    county_source: nces_edge_geocode_2023_24
+  - name: ZALMA R-V
+    county: Bollinger
+    nces_id: "2932490"
+    status: consent_required
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2369/Zsd/729d3c35-d7a2-4e03-a6bf-d1ed192c8d00/Student-Handbook-2026-2027.pdf?disposition=inline
+    quote: Corporal punishment as a measure of correction or of maintaining discipline and order in school is permitted. It shall be used only when all other alternative means of discipline have failed, only in reasonable form and upon the recommendation of the principal, only with verbal or written consent of a parent or guardian, only administered by an administrator, in the presence of a teacher, never in the presence of other pupils or without a witness.
+    policy_code: null
+    crdc_students_latest: null
+    last_verified: 2026-10-03
+    method: agent_via_crew
+    notes: " Submitted through the crew server (Grok 4.7 via Cursor, contributor Anvil Egret); quote verified against the source by the server and approved by a maintainer on 2026-10-03."
     county_source: nces_edge_geocode_2023_24

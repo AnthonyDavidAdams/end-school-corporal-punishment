@@ -1,20 +1,17 @@
 {
- "generated": "2026-10-02",
+ "generated": "2026-10-04",
  "source": "US Department of Education, Civil Rights Data Collection 2023-24, computed by this project; see data/crdc/2023-24/SOURCE.md",
  "total_districts_in_federal_count": 832,
- "unchecked": 63,
+ "unchecked": 8,
  "ban_state_filing_anomalies": 18,
- "students_in_unchecked": 644,
+ "students_in_unchecked": 189,
  "by_state": {
-  "AR": 28,
-  "OK": 16,
-  "MO": 10,
-  "GA": 3,
-  "AL": 2,
+  "MO": 2,
+  "GA": 2,
   "AZ": 1,
-  "MS": 1,
   "TN": 1,
-  "FL": 1
+  "FL": 1,
+  "OK": 1
  },
  "districts": [
   {
@@ -27,75 +24,11 @@
   },
   {
    "state": "MO",
-   "nces_id": "2925650",
-   "name": "PUXICO R-VIII",
-   "students": 28,
-   "website": "http://WWW.PUXICO.K12.MO.US",
-   "city": "PUXICO"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0513230",
-   "name": "JACKSON CO. SCHOOL DISTRICT",
-   "students": 26,
-   "website": "http://bulldogs.k12.ar.us",
-   "city": "TUCKERMAN"
-  },
-  {
-   "state": "MO",
    "nces_id": "2932220",
    "name": "WINONA R-III",
    "students": 25,
    "website": "http://www.winonar3.org",
    "city": "WINONA"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4033210",
-   "name": "WRIGHT CITY",
-   "students": 25,
-   "website": "http://www.wcisd.org",
-   "city": "Wright City"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0500046",
-   "name": "MANILA SCHOOL DISTRICT",
-   "students": 22,
-   "website": "http://mps.crsc.k12.ar.us",
-   "city": "MANILA"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0511070",
-   "name": "PANGBURN SCHOOL DISTRICT",
-   "students": 22,
-   "website": "http://tigers.k12.ar.us",
-   "city": "PANGBURN"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0500023",
-   "name": "NEWPORT SCHOOL DISTRICT",
-   "students": 20,
-   "website": "http://greyhounds.k12.ar.us",
-   "city": "NEWPORT"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0503320",
-   "name": "BLYTHEVILLE SCHOOL DISTRICT",
-   "students": 20,
-   "website": "http://bythevilleschools.com",
-   "city": "BLYTHEVILLE"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4003060",
-   "name": "ANTLERS",
-   "students": 20,
-   "website": "http://www.antlers.k12.ok.us",
-   "city": "Antlers"
   },
   {
    "state": "GA",
@@ -106,284 +39,12 @@
    "city": "McRae"
   },
   {
-   "state": "AR",
-   "nces_id": "0505500",
-   "name": "DUMAS SCHOOL DISTRICT",
-   "students": 13,
-   "website": "http://dumas.k12.ar.us",
-   "city": "DUMAS"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0509420",
-   "name": "MARKED TREE SCHOOL DISTRICT",
-   "students": 13,
-   "website": "http://mtree.crsc.k12.ar.us",
-   "city": "MARKED TREE"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0500419",
-   "name": "JACKSONVILLE NORTH PULASKI SCHOOL DISTRICT",
-   "students": 12,
-   "website": "http://#www.jnpsd.org/#",
-   "city": "JACKSONVILLE"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0509780",
-   "name": "MINERAL SPRINGS SCHOOL DIST.",
-   "students": 12,
-   "website": "http://mssd2.k12.ar.us",
-   "city": "MINERAL SPRINGS"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0510560",
-   "name": "NORFORK SCHOOL DISTRICT",
-   "students": 12,
-   "website": "http://panthers.k12.ar.us",
-   "city": "NORFORK"
-  },
-  {
-   "state": "MO",
-   "nces_id": "2926370",
-   "name": "RICHARDS R-V",
-   "students": 12,
-   "website": "http://RICHARDSSCHOOL.K12.MO.US/",
-   "city": "WEST PLAINS"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0510290",
-   "name": "MULBERRY/PLEASANT VIEW BI-COUNTY SCHOOL DISTRICT",
-   "students": 11,
-   "website": "http://www.mpvschools.com",
-   "city": "MULBERRY"
-  },
-  {
    "state": "GA",
    "nces_id": "1300248",
    "name": "State Charter Schools II- Genesis Innovation Academy for Bo",
    "students": 11,
    "website": "",
    "city": "Atlanta"
-  },
-  {
-   "state": "AL",
-   "nces_id": "0101350",
-   "name": "Escambia County",
-   "students": 10,
-   "website": "http://escambiak12.net",
-   "city": "Brewton"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0503710",
-   "name": "BUFFALO IS. CENTRAL SCH. DIST.",
-   "students": 10,
-   "website": "http://www.buffaloislandcentral.com",
-   "city": "MONETTE"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4019410",
-   "name": "MCCURTAIN",
-   "students": 10,
-   "website": "http://www.mccurtainschools.org",
-   "city": "McCurtain"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0502790",
-   "name": "BAUXITE SCHOOL DISTRICT",
-   "students": 9,
-   "website": "http://miners.k12.ar.us",
-   "city": "BAUXITE"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0504980",
-   "name": "DECATUR SCHOOL DISTRICT",
-   "students": 9,
-   "website": "http://www.decatur.k12.ar.us",
-   "city": "DECATUR"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0505430",
-   "name": "DOVER SCHOOL DISTRICT",
-   "students": 9,
-   "website": "http://pirates.afsc.k12.ar.us",
-   "city": "DOVER"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0500021",
-   "name": "IZARD CO. CONS. SCHOOL DIST.",
-   "students": 8,
-   "website": "http://www.icc.k12.ar.us",
-   "city": "BROCKWELL"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0506690",
-   "name": "CENTERPOINT SCHOOL DISTRICT",
-   "students": 8,
-   "website": "http://www.centerpoint.dsc.k12.ar.us",
-   "city": "AMITY"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4021360",
-   "name": "NEW LIMA",
-   "students": 8,
-   "website": "http://www.newlima.k12.ok.us/",
-   "city": "Wewoka"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0503240",
-   "name": "BISMARCK SCHOOL DISTRICT",
-   "students": 7,
-   "website": "http://www.bsd-lions.net",
-   "city": "BISMARCK"
-  },
-  {
-   "state": "GA",
-   "nces_id": "1300253",
-   "name": "State Charter Schools II- Spring Creek Charter Academy",
-   "students": 7,
-   "website": "",
-   "city": "Bainbridge"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4018570",
-   "name": "LUKFATA",
-   "students": 7,
-   "website": "http://www.lukfata.org",
-   "city": "Broken Bow"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0504170",
-   "name": "WHITE CO. CENTRAL SCHOOL DIST.",
-   "students": 6,
-   "website": "http://whitecountycentral.k12.ar.us",
-   "city": "JUDSONIA"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0505170",
-   "name": "DERMOTT SCHOOL DISTRICT",
-   "students": 6,
-   "website": "http://dermott.k12.ar.us/",
-   "city": "DERMOTT"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4008130",
-   "name": "COALGATE",
-   "students": 6,
-   "website": "http://www.coalgateschools.org/",
-   "city": "Coalgate"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4024240",
-   "name": "PLAINVIEW",
-   "students": 6,
-   "website": "http://www.plainview.k12.ok.us",
-   "city": "Ardmore"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0509150",
-   "name": "MAGAZINE SCHOOL DISTRICT",
-   "students": 5,
-   "website": "http://magazinerattlers.k12.ar.us",
-   "city": "MAGAZINE"
-  },
-  {
-   "state": "AL",
-   "nces_id": "0100600",
-   "name": "Chambers County",
-   "students": 4,
-   "website": "http://www.chambersk12.org",
-   "city": "Lafayette"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0509330",
-   "name": "MANSFIELD SCHOOL DISTRICT",
-   "students": 4,
-   "website": "http://www.mansfieldtigers.com",
-   "city": "MANSFIELD"
-  },
-  {
-   "state": "MO",
-   "nces_id": "2921420",
-   "name": "SCOTT CO. CENTRAL",
-   "students": 4,
-   "website": "http://SCOTTCENTRAL.K12.MO.US/",
-   "city": "SIKESTON"
-  },
-  {
-   "state": "MO",
-   "nces_id": "2922950",
-   "name": "NORWOOD R-I",
-   "students": 4,
-   "website": "http://www.norwood.k12.mo.us/",
-   "city": "Norwood"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4005340",
-   "name": "BRAY-DOYLE",
-   "students": 4,
-   "website": "http://www.braydoyle.k12.ok.us/",
-   "city": "Marlow"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4018270",
-   "name": "LONE WOLF",
-   "students": 4,
-   "website": "http://lonewolfschool.com",
-   "city": "Lone Wolf"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0504020",
-   "name": "WESTSIDE CONS. SCHOOL DISTRICT",
-   "students": 3,
-   "website": "http://www.WestsideSchools.org",
-   "city": "JONESBORO"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0509840",
-   "name": "MONTICELLO SCHOOL DISTRICT",
-   "students": 3,
-   "website": "http://www.billies.org",
-   "city": "MONTICELLO"
-  },
-  {
-   "state": "MS",
-   "nces_id": "2803390",
-   "name": "OKOLONA SEPARATE SCHOOL DIST",
-   "students": 3,
-   "website": "http://okolona.k12.ms.us",
-   "city": "OKOLONA"
-  },
-  {
-   "state": "MO",
-   "nces_id": "2911010",
-   "name": "SKYLINE R-II",
-   "students": 3,
-   "website": "http://WWW.SKYLINESCHOOL.ORG",
-   "city": "NORWOOD"
   },
   {
    "state": "MO",
@@ -394,76 +55,12 @@
    "city": "NAYLOR"
   },
   {
-   "state": "OK",
-   "nces_id": "4027450",
-   "name": "SHADY POINT",
-   "students": 3,
-   "website": "http://www.spk12.org",
-   "city": "Shady Point"
-  },
-  {
    "state": "TN",
    "nces_id": "4703480",
    "name": "Putnam County",
    "students": 3,
    "website": "http://www.pcsstn.com",
    "city": "Cookeville"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0509390",
-   "name": "MARION SCHOOL DISTRICT",
-   "students": 2,
-   "website": "http://www.msd3.org",
-   "city": "MARION"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0511220",
-   "name": "PARKERS CHAPEL SCHOOL DIST.",
-   "students": 2,
-   "website": "http://parkerschapel.k12.ar.us",
-   "city": "EL DORADO"
-  },
-  {
-   "state": "MO",
-   "nces_id": "2932490",
-   "name": "ZALMA R-V",
-   "students": 2,
-   "website": "http://www.zalma.k12.mo.us",
-   "city": "Zalma"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4005820",
-   "name": "BUFFALO VALLEY",
-   "students": 2,
-   "website": "http://www.bvpsd.org",
-   "city": "Talihina"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4026640",
-   "name": "SOUTH COFFEYVILLE",
-   "students": 2,
-   "website": "http://scps.k12.ok.us",
-   "city": "South Coffeyville"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0504740",
-   "name": "COUNTY LINE SCHOOL DISTRICT",
-   "students": 1,
-   "website": "http://indians.wsc.k12.ar.us",
-   "city": "BRANCH"
-  },
-  {
-   "state": "AR",
-   "nces_id": "0507110",
-   "name": "GURDON SCHOOL DISTRICT",
-   "students": 1,
-   "website": "http://gurdon.ar.schoolwebpages.com",
-   "city": "GURDON"
   },
   {
    "state": "FL",
@@ -474,52 +71,12 @@
    "city": "ST AUGUSTINE"
   },
   {
-   "state": "MO",
-   "nces_id": "2904890",
-   "name": "SCOTT CO. R-IV",
-   "students": 1,
-   "website": "http://www.kellyhawks.org",
-   "city": "BENTON"
-  },
-  {
-   "state": "MO",
-   "nces_id": "2911310",
-   "name": "EL DORADO SPRINGS R-II",
-   "students": 1,
-   "website": "http://www.eldok12.org",
-   "city": "EL DORADO SPRINGS"
-  },
-  {
    "state": "OK",
    "nces_id": "4002670",
    "name": "ALEX",
    "students": 1,
    "website": "http://www.alex.k12.ok.us/",
    "city": "Alex"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4003450",
-   "name": "AVANT",
-   "students": 1,
-   "website": "http://www.avant.k12.ok.us",
-   "city": "Avant"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4017310",
-   "name": "LEACH",
-   "students": 1,
-   "website": "http://www.leachschool.net",
-   "city": "Rose"
-  },
-  {
-   "state": "OK",
-   "nces_id": "4019500",
-   "name": "MCCORD",
-   "students": 1,
-   "website": "http://www.mccordschool.net",
-   "city": "Ponca City"
   }
  ]
 }
