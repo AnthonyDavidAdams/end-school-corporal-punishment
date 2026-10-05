@@ -169,7 +169,7 @@
     else if (e.kind === "submitted" || e.kind === "attempted") { if (s && b) beam(s, 1400); if (b && e.kind === "submitted") { paint(b, "pending"); } if (!fast) radio(`<b>${esc(who)}</b> ${e.kind === "submitted" ? `uplinked ${esc(b?.n || e.subject)}: ${esc(e.status || "")}` : `tried ${esc(b?.n || e.subject)}: no readable source`}`);  }
     else if (e.kind === "verified") { if (b) { const s2 = { bans: "b", allows: "a", consent_required: "c", silent: "s" }[e.status] || "u"; if (!COL[b.s] || b.s === "pending") { totals.placed++; } paint(b, s2); flare(b, COL[s2] || "#fff"); } if (s) { beam(s, 1000); setTimeout(() => { if (s.lock === b) land(s); }, fast ? 200 : 2500); } if (!fast) { radio(`<b>${esc(who)}</b>: ${esc(b?.n || e.subject)} is on the record · <b style="color:${COL[{ bans: "b", allows: "a" }[e.status]] || "#fff"}">${esc(e.status || "")}</b>`, "on"); say(`${who}, ${b?.n || e.subject} is on the record.`, { priority: follow && follow === s }); } }
     else if (e.kind === "returned") { if (b) paint(b, "-"); if (!fast) radio(`<b>${esc(who)}</b>: ${esc(b?.n || e.subject)} returned for another look`); }
-    else if (e.kind === "machine" && /^VICTORY/i.test(e.headline || "")) {
+    else if (e.kind === "machine" && /^VICTORY CONFIRMED/i.test(e.headline || "")) {
       // The biggest thing that can happen on this board: a district's own rule went from permitting to
       // prohibiting. The square turns green with a long flare, the radio carries it in full, and comms
       // says it at priority whether or not anyone is being followed.
@@ -177,7 +177,7 @@
       radio(`<b style="color:#43E08A">VICTORY</b> ${esc((e.headline || "").replace(/^VICTORY:\s*/i, ""))}`, "on");
       if (!fast) say(`All stations. ${(vb?.n || e.scope || "A district")} has stopped. Say again: ${(vb?.n || e.scope || "a district")} has stopped.`, { priority: true });
     }
-    else if (e.kind === "machine") { if (!fast) { radio(`<b>Mothership</b>: ${esc(e.headline || "pass")}`, "on"); if (/complete|on station over/i.test(e.headline || "")) say(/complete/i.test(e.headline) ? "Mothership pass complete." : "Mothership on station.", { priority: true }); } mothership(e.scope, e.at); }
+    else if (e.kind === "machine") { if (!fast) { radio(`<b>Mothership</b>: ${esc((e.headline || "pass").replace(/^VICTORY:\s*(.*?) now prohibits.*$/i, "record corrected: $1 (board policy prohibits it; the handbook still lists it)"))}`, "on"); if (/complete|on station over/i.test(e.headline || "")) say(/complete/i.test(e.headline) ? "Mothership pass complete." : "Mothership on station.", { priority: true }); } mothership(e.scope, e.at); }
     hud();
   }
   let moth = null; const MOTH_HOME = [560, 470];

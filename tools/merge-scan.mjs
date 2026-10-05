@@ -79,12 +79,16 @@ for (const f of process.argv.slice(2)) {
       // put 1,192 of them there on 2026-09-25 and one re-merge of 125 records took them straight back off).
       if (!entry.county && prev.county) entry.county = prev.county;
       else if (entry.county && prev.county_source && norm(entry.county) !== norm(prev.county)) entry.county_source = null;
-      // A district whose rule goes from permitting to prohibiting is the campaign's only victory
-      // condition, and the one event everyone who worked on it should hear about. It is logged here,
-      // at the only place a status actually changes, and announced by tools/victory.mjs after publish.
+      // A status that goes from permitting to prohibiting is either a victory (the district changed its
+      // rule) or a correction (a better document replaced a worse one; Strafford R-VI, 2026-10-04, where
+      // the handbook still lists the paddle and the board policy forbids it). It only counts as a change
+      // when the same document flipped or the new policy carries a revision date after our earlier read.
       if (["allows", "consent_required"].includes(prev.status) && entry.status === "bans" && entry.quote && entry.source) {
-        appendFileSync(join(root, "data/victories.jsonl"), JSON.stringify({ at: new Date().toISOString(), state: r.state, name: entry.name || prev.name, nces_id: prev.nces_id ?? entry.nces_id ?? null, from: prev.status, to: "bans", source: entry.source, quote: entry.quote, policy_revised: entry.policy_revised ?? null, students_struck: prev.crdc_students_latest ?? null, announced: false }) + "\n");
-        console.error(`VICTORY ${r.state} ${entry.name || prev.name}: ${prev.status} -> bans`);
+        const sameDoc = prev.source && entry.source && prev.source.split("?")[0] === entry.source.split("?")[0];
+        const revisedAfter = entry.policy_revised && prev.last_verified && String(entry.policy_revised) > String(prev.last_verified);
+        const kind = sameDoc || revisedAfter ? "victory" : "correction";
+        appendFileSync(join(root, kind === "victory" ? "data/victories.jsonl" : "data/corrections.jsonl"), JSON.stringify({ at: new Date().toISOString(), kind, state: r.state, name: entry.name || prev.name, nces_id: prev.nces_id ?? entry.nces_id ?? null, from: prev.status, to: "bans", was_source: prev.source, source: entry.source, quote: entry.quote, policy_revised: entry.policy_revised ?? null, students_struck: prev.crdc_students_latest ?? null, announced: false }) + "\n");
+        console.error(`${kind.toUpperCase()} ${r.state} ${entry.name || prev.name}: ${prev.status} -> bans${kind === "correction" ? " (better document; handbook may still be out of date)" : ""}`);
       }
       doc.districts[i] = { ...prev, ...entry, name: !entry.name || prev.name.length >= entry.name.length ? prev.name : entry.name };
       updated++;

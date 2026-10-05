@@ -5,9 +5,8 @@ cd "$(dirname "$0")/.." || exit 1
 export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 (cd tools && node fill-county.mjs >/dev/null && node validate.mjs | tail -1 | grep -q "0 failures") || { echo "validation failed; not publishing"; exit 1; }
 npm --prefix tools run build-site 2>&1 | tail -1
-# Any permit-to-prohibit flip the merge logged: certificates are written into site/ here so this same
-# commit and rsync carry them; the alert mail goes out at the same time.
-node tools/victory.mjs 2>&1 | tail -3
+# Victories are logged by the merge (data/victories.jsonl) and not announced for now; tools/victory.mjs
+# is the announcer, run by hand when there is a real one.
 git add data/districts data/policies data/outreach/requests.json site >/dev/null 2>&1
 git commit -q -m "${1:-Update the record}
 
