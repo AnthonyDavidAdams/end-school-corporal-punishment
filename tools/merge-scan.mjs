@@ -72,6 +72,18 @@ for (const f of process.argv.slice(2)) {
         else if (prevIsCounty && !entryIsCounty) { console.error(`county for ${prev.name}: keeping "${prev.county}"; scan said "${entry.county}", which is not a county in ${r.state}`); entry.county = prev.county; }
         else { console.error(`county for ${prev.name}: on file "${prev.county}", scan said "${entry.county}", cannot tell which -- keeping the one on file`); entry.county = prev.county; }
       }
+      // A board policy outranks a student handbook. Strafford R-VI, 2026-10-05: the superintendent sent
+      // the current handbook, it still lists the paddle, and the merge overwrote the board's own
+      // prohibition (policy JGA-2) with "allows" -- then told him so. A lower-ranked document never
+      // changes the status a higher-ranked one set; the disagreement is kept on the record instead.
+      const rank = (x) => x.policy_code ? 2 : /handbook|student.?code|code.?of.?conduct/i.test(`${x.source || ""} ${x.notes || ""}`) ? 0 : 1;
+      if (prev.quote && entry.quote && prev.status !== entry.status && rank(entry) < rank(prev)) {
+        console.error(`HANDBOOK vs POLICY ${r.state} ${prev.name}: on file ${prev.status} (${prev.source}); the document says ${entry.status} (${entry.source}). Board policy governs; status kept, conflict noted.`);
+        const conflict = { source: entry.source, quote: entry.quote, status: entry.status, noted: new Date().toISOString().slice(0, 10) };
+        for (const k of ["status", "source", "quote", "policy_code", "parent_control", "quotes", "method", "last_verified"]) if (prev[k] !== undefined) entry[k] = prev[k];
+        entry.handbook_conflict = conflict;
+        entry.notes = `${prev.notes || ""} Handbook conflict noted ${conflict.noted}: ${conflict.source} says "${conflict.quote}" (${conflict.status}); the board policy governs and sets the status.`.trim();
+      }
       if (prev.source && entry.source && prev.source !== entry.source && prev.status === entry.status) {
         console.error(`NOTE ${prev.name}: source replaced, status unchanged (${prev.status})\n  was ${prev.source}\n  now ${entry.source}`);
       }

@@ -111,7 +111,7 @@ def send(limit=25):
         ensure_compliment(r)
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
-        m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; m.set_content(body_for(r))
+        m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
         try:
             smtp_send(m); r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["message_id"] = mid; n += 1
             delete_draft(M, subject); log("sent", r["state"], r["name"], "->", r["to"]); save(reqs); time.sleep(8)
@@ -279,7 +279,9 @@ def reply_to(r, frm, mid, subject, text, to=None):
     m["Message-ID"] = f"<escp-reply-{hashlib.sha1((r['id'] + mid + text[:40]).encode()).hexdigest()[:12]}@earthpilot.org>"
     m.set_content(text)
     try:
-        smtp_send(m); return True
+        smtp_send(m)
+        r.setdefault("our_messages", []).append({"at": datetime.datetime.now().isoformat(timespec="seconds"), "to": to or frm, "text": text})
+        return True
     except Exception as ex:
         log("reply failed", r["name"], repr(ex)[:140]); return False
 
@@ -324,17 +326,64 @@ def save_docs(r, atts, links, facts):
             break
     return [g for g in got if g]
 
-def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, quiet=False):
-    """One reply, triaged, then answered by whichever move it calls for.
+def record_status(r):
+    """What the record says for this district right now (after any merge), with its source and code."""
+    try:
+        import yaml
+        d = yaml.safe_load(open(os.path.join(ROOT, "data/districts", f"{r['state']}.yaml")))
+        for x in (d if isinstance(d, list) else d.get("districts", [])):
+            if r.get("nces_id") and str(x.get("nces_id")) == str(r["nces_id"]):
+                return x
+    except Exception as ex:
+        log("record_status failed", repr(ex)[:80])
+    return {}
 
-    Three answers go out without a person, because each is a form and each moves the district closer to
-    sending the thing: the thank-you when a document lands, the "here is where I looked, can you send the
-    link" when it does not, and the "what proof would you accept" when residency is raised. Anything that
-    is a real question, a refusal or a surprise becomes a draft, because those are a person's to answer.
+def asks_us_back(body):
+    """A reply that is a question to us ('are you saying...?') rather than an answer."""
+    t = triage_mod.strip_quoted(body)
+    return bool(re.search(r"\?\s*$", t.strip()) or re.search(r"\b(are you saying|what do you mean|why (do|did|are) you|can you (explain|clarify)|please (explain|clarify)|contradict)", t, re.I))
+
+def thread_of(r):
+    """Every message in this thread, ours and theirs, oldest first: what the model reads before it writes."""
+    msgs = []
+    first = r.get("body") or (body_for(r) if r.get("kind") in ("policy", "minutes", "research", "state_doe") else "")
+    msgs.append({"who": "us", "date": r.get("sent_at"), "text": first, "links": []})
+    for e in r.get("replies") or []:
+        if e.get("from") == "us":
+            msgs.append({"who": "us", "date": e.get("date"), "text": e.get("text") or e.get("our_reply") or e.get("action") or "", "links": []}); continue
+        path = os.path.join(REPLIES, r["id"], e.get("file") or "")
+        text = ""
+        if e.get("file") and os.path.exists(path):
+            try:
+                m = email.message_from_bytes(open(path, "rb").read()); text = triage_mod.strip_quoted(part_text(m)[0])
+            except Exception as ex:
+                log("thread_of could not read", path, repr(ex)[:80])
+        msgs.append({"who": "them", "date": e.get("date"), "text": text, "links": e.get("links") or [], "attachments": e.get("attachments") or [], "kind": e.get("kind")})
+        if e.get("our_reply"):
+            msgs.append({"who": "us", "date": e.get("date"), "text": e["our_reply"], "links": []})
+    for o in r.get("our_messages") or []:
+        msgs.append({"who": "us", "date": o.get("at"), "text": o.get("text") or "", "links": []})
+    def when(m):
+        d = m.get("date")
+        try:
+            return email.utils.parsedate_to_datetime(d).timestamp() if d and "," in str(d) else datetime.datetime.fromisoformat(str(d)[:19]).timestamp()
+        except Exception:
+            return 0
+    # stable: keep insertion order where dates tie or are missing
+    return [m for _, _, m in sorted((when(m), i, m) for i, m in enumerate(msgs))]
+
+
+def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, quiet=False):
+    """One reply: filed, read in the context of the whole thread, then answered or held.
+
+    Code does what code is certain of: the ledger of what has been answered, bounces, filing every document
+    and link through the same pipeline as everything else (a board policy outranks a handbook in the merge),
+    the re-check of their website, the facts that regexes can extract. A frontier model then reads the entire
+    thread plus the record and chooses one move and writes the reply; Jev referees it; code enforces the two
+    limits the model is not trusted with. Strafford R-VI, 2026-10-05, is why: a superintendent sent his
+    handbook, got told "the board permits it" against his own policy, said "we do not allow it", and got a
+    records request. Each reply had been read on its own.
     """
-    # Answered once, ever. retriage re-reads stored mail, and on the day the taxonomy changed it re-read
-    # mail it had already answered twenty minutes earlier and sent seventeen superintendents the same
-    # email twice. The ledger of what has been answered lives on the request, and nothing gets past it.
     if mid in (r.get("answered_message_ids") or []):
         log("already answered", r["state"], r["name"], mid[:40]); return
     d = os.path.join(REPLIES, r["id"]); os.makedirs(d, exist_ok=True); h = hashlib.sha1(mid.encode()).hexdigest()[:8]
@@ -343,107 +392,93 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     entry = {"message_id": mid, "from": frm, "date": msg.get("Date"), "kind": kind, "confidence": conf,
              "facts": facts, "attachments": [a[0] for a in atts], "links": links[:10], "file": h + ".eml", "action": None}
     log(f"reply from {frm} for {r['state']} {r['name']}: {kind} ({conf})")
-
-    # What this reply taught us about the district, kept whatever else happens.
     r["answered_from"] = frm
     r["last_reply_at"] = datetime.datetime.now().isoformat(timespec="seconds")
     if facts.get("residency_required"):
         r["residency_required"] = True
         if facts.get("residency_proof_accepted"): r["residency_proof_accepted"] = facts["residency_proof_accepted"]
-    if facts.get("claims_no_practice"): r["claims_no_practice"] = True
     if facts.get("redirect_to"): r["redirect_to"] = facts["redirect_to"]
+    r.setdefault("replies", []); r.setdefault("answered_message_ids", [])
+
+    def finish():
+        r["answered_message_ids"].append(mid); r["replies"].append(entry); save(reqs)
 
     if kind == "auto_reply_or_bounce":
         if re.search(r"delivery|undeliver|failure|not delivered|couldn't be found", subject + body[:600], re.I):
             r["status"] = "bounced"
-        entry["action"] = "logged"
+        entry["action"] = "logged"; finish(); return
 
-    elif kind in ("document_attached", "document_linked"):
-        got = save_docs(r, atts, links, facts)
-        recorded = [g for g in got if g and g != "held"]
-        if recorded:
-            r["status"] = "answered"; r["recorded_status"] = recorded[0]; entry["action"] = f"recorded {recorded[0]}"
-            said = {"bans": "Recorded: the board prohibits it.", "allows": "Recorded: the board permits it.",
-                    "consent_required": "Recorded: permitted with a parent's consent.",
-                    "silent": "Recorded: read in full, no rule on the practice."}.get(recorded[0], "It's on the record.")
-            if not quiet and reply_to(r, frm, mid, subject, messages.thanks_recorded(r, said)):
-                entry["action"] += "; thanked"
-        else:
-            r["status"] = "needs_review"; entry["action"] = "document arrived but would not record — held for a person"
-
-    elif kind == "website_no_link":
-        # Look again on their own domain before writing back. Usually they are right that it is published.
-        status, tried = (None, [])
+    # 1. Everything the reply carries, filed. The merge decides what the record says afterwards.
+    filed = []
+    if atts or links:
+        try:
+            got = save_docs(r, atts, links, facts)
+        except Exception as ex:
+            log("save_docs failed", r["name"], repr(ex)[:120]); got = []
+        filed = [g for g in got if g]
+        if "held" in filed: entry["held_documents"] = True
+    # 2. "It's on our website": look before asking.
+    recheck = None
+    if kind == "website_no_link" and not filed:
         try:
             status, tried = recheck_mod.recheck(r, file_document, log=log)
         except Exception as ex:
-            log("recheck failed", r["name"], repr(ex)[:140])
+            log("recheck failed", r["name"], repr(ex)[:140]); status, tried = None, []
         r["rechecked_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["recheck_tried"] = tried[:6]
-        if status and status != "held":
-            r["status"] = "answered"; r["recorded_status"] = status; entry["action"] = f"found on their own site; recorded {status}"
-            if not quiet: reply_to(r, frm, mid, subject, messages.thanks_recorded(r, "I found it on the site after all — thank you for the pointer."))
+        recheck = {"found": status, "looked_at": tried[:6]}
+        if status and status != "held": filed.append(status)
+    record = record_status(r)
+    recorded = [g for g in filed if g != "held"]
+    if recorded:
+        r["recorded_status"] = record.get("status") or recorded[0]
+        entry["action"] = f"recorded {r['recorded_status']}" + (f" (document said {recorded[0]}; board policy governs)" if record.get("status") and record["status"] != recorded[0] else "")
+    if facts.get("claims_no_practice"): r["claims_no_practice"] = True
+
+    # 3. The whole thread, read by the writer. Then one move.
+    thread = thread_of(r) + [{"who": "them", "date": msg.get("Date"), "text": triage_mod.strip_quoted(body), "links": links[:10], "attachments": [a[0] for a in atts], "kind": kind}]
+    filed_desc = [{"what": x, "says": y} for x, y in zip((facts.get("document_links") or []) + [a[0] for a in atts], filed)] or ([{"says": f} for f in filed] if filed else [])
+    decision = writer_mod.decide(r, thread, record, filed_desc, facts, recheck, quiet)
+    move = decision["move"] if decision else "hold"
+    text = decision["reply"] if decision else None
+    why = decision["why"] if decision else "the writer returned nothing usable"
+    their_replies = sum(1 for m in thread if m["who"] == "them")
+    # The limits code keeps whatever the model chose.
+    if move == "ask_minutes" and (record.get("status") == "bans" or their_replies > 1 or r.get("residency_required")):
+        move, why = "hold", f"minutes request blocked by rule ({'policy already prohibits' if record.get('status') == 'bans' else 'not a first reply' if their_replies > 1 else 'needs a resident'}); {why}"
+    if move == "forward" and not facts.get("redirect_to"):
+        move, why = "hold", "forward with no address named; " + why
+    if quiet:
+        move, why = "hold", "Anthony is in this thread; " + why
+    ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
+    if text and move != "hold" and not ok:
+        move, why = "hold", "the referee held it; " + why
+
+    entry["move"] = move; entry["why"] = why
+    if move == "forward":
+        to = facts["redirect_to"]
+        if reply_to(r, frm, mid, messages.nice(r["name"]) + " corporal punishment policy", text, to=to):
+            r["to"] = to; r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); entry["action"] = f"forwarded to {to}"; entry["our_reply"] = text
         else:
-            entry["action"] = "re-checked their site, nothing found; asked for the direct link"
-            r["awaiting_link_since"] = datetime.date.today().isoformat(); r["status"] = "sent"
-            if not quiet: reply_to(r, frm, mid, subject, messages.ask_link(r, USER, tried or [f"(searched {recheck_mod.domain_of(frm) or 'the site'})"]))
-
-    elif kind == "residency_required":
-        entry["action"] = "asked what proof of residency they accept"
-        r["status"] = "sent"; r["residency_asked_at"] = datetime.date.today().isoformat()
-        if not quiet: reply_to(r, frm, mid, subject, messages.ask_residency_proof(r, USER))
-
-    elif kind == "wrong_contact":
-        to = facts.get("redirect_to")
-        if to and not quiet and reply_to(r, frm, mid, messages.nice(r["name"]) + " corporal punishment policy", messages.wrong_contact(r, USER, to), to=to):
-            r["to"] = to; r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds")
-            entry["action"] = f"redirected to {to}"
+            r["status"] = "needs_review"; entry["action"] = "forward failed to send"
+    elif move != "hold":
+        if reply_to(r, frm, mid, subject, text):
+            entry["our_reply"] = text; entry["action"] = (entry.get("action") or "") + f"; replied ({move})"
+            if move == "thank_recorded": r["status"] = "answered"
+            elif move == "ask_link": r["awaiting_link_since"] = datetime.date.today().isoformat(); r["status"] = "sent"
+            elif move == "ask_residency_proof": r["residency_asked_at"] = datetime.date.today().isoformat(); r["status"] = "sent"
+            elif move == "ask_minutes": r["minutes_requested_at"] = datetime.date.today().isoformat(); r["status"] = "sent"; r["claim"] = "the district does not use corporal punishment"
+            else: r["status"] = "sent"
         else:
-            r["status"] = "needs_review"; entry["action"] = "redirected, but to nobody we could identify"
-
-    elif kind == "no_written_policy":
-        r["status"] = "no_policy"; r["recorded_status"] = "no written policy"; entry["action"] = "recorded no-policy; offer sent"
-        rec = [{"state": r["state"], "name": r["name"], "nces_id": r.get("nces_id"), "status": "unknown",
-                "notes": f"District states in a reply of {datetime.date.today().isoformat()} to a request for its policy that it has no written policy on corporal punishment. Reply kept at data/outreach/replies/{r['id']}/{h}.eml."}]
-        p = os.path.join(LOGDIR, f"nopolicy-{r['id']}.json"); json.dump(rec, open(p, "w"))
-        subprocess.run(["node", "tools/merge-scan.mjs", p], cwd=ROOT, capture_output=True)
-        publish(f"{nice(r['name'])}, {r['state']}: no written policy, by the district's own account")
-        if not quiet: reply_to(r, frm, mid, subject, messages.offer(r, USER))
-
-    elif kind == "claims_no_practice":
-        # Worth having on paper rather than as an assertion: a board that stopped decided it somewhere.
-        r["claims_no_practice"] = True
-        entry["action"] = "recorded the claim; asked for the minutes"
-        if r.get("residency_required"):
-            r["status"] = "needs_review"; entry["action"] = "claim recorded; minutes need a resident proxy"
-        else:
-            r["minutes_requested_at"] = datetime.date.today().isoformat(); r["status"] = "sent"
-            claim = "the district no longer uses corporal punishment" if re.search(r"no longer", body, re.I) else "the district does not use corporal punishment"
-            r["claim"] = claim
-            if not quiet: reply_to(r, frm, mid, subject, messages.ask_minutes(r, USER, r.get("statute") or "your state's public records law", claim))
-
-    elif kind == "will_send_later":
-        r["status"] = "promised"; r["followup_sent_at"] = None; entry["action"] = "waiting"
-
-    elif quiet:
-        entry["action"] = "logged; Anthony is handling this thread"
-
+            r["status"] = "needs_review"; entry["action"] = (entry.get("action") or "") + "; reply failed to send"
     else:
-        # A real question, a refusal, a surprise: written from the thread, refereed, and sent. Drafted
-        # only if the referee says no, which is the safe failure.
-        thread = [("us", body_for(r) if r.get("kind") else "")] + [("them", triage_mod.strip_quoted(body))]
-        text = writer_mod.reply(r, thread, kind)
-        if text and reply_to(r, frm, mid, subject, text):
-            r["status"] = "sent"; entry["action"] = f"replied ({kind}, written and checked)"; entry["our_reply"] = text
-        else:
-            r["status"] = "needs_review"; entry["action"] = f"drafted for Anthony ({kind}; the referee held it)"
-            m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + subject
+        r["status"] = "anthony_replied" if quiet else "needs_review"
+        entry["action"] = (entry.get("action") or "") + ("; logged, Anthony is handling this thread" if quiet else f"; held for Anthony: {why}")
+        if not quiet:
+            m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + " ".join(str(subject).split())
             m["In-Reply-To"] = mid; m["References"] = mid
-            m.set_content(f"[DRAFT — {kind}, confidence {conf}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1200]}\n\n---\n\n{messages.sig(USER)}\n")
+            m.set_content((text or "") + f"\n\n\n[HELD — {why}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1500]}\n")
             put_draft(M, m)
-
-    if quiet and r["status"] not in ("answered", "no_policy"): r["status"] = "anthony_replied"
-    r.setdefault("answered_message_ids", []).append(mid)
-    r["replies"].append(entry); save(reqs)
+    finish()
 
 # ---------------------------------------------------------------- follow-up
 def followup():

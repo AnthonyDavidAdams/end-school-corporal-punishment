@@ -3168,7 +3168,7 @@
   "to": "bradley.kolwyck@kellyhawks.org",
   "superintendent": null,
   "statute": "the Missouri Sunshine Law, RSMo \u00a7 610.010 et seq.",
-  "status": "sent",
+  "status": "needs_review",
   "sent_at": "2026-09-26T03:29:48",
   "message_id": "<escp-c20282a264@earthpilot.org>",
   "replies": [
@@ -3249,18 +3249,31 @@
     "file": "2b9101e2.eml",
     "action": "replied (other, written and checked)",
     "our_reply": "Hi Bradley,\n\nThanks so much for explaining how this actually works in practice\u2014that's really helpful context. I'd still love to get a copy of the written policy itself (or a link to it, if it's posted) so I can quote the district's own wording accurately rather than paraphrase. Since it sounds like parent permission is central to the process, do you also have the permission slip language or any related board policy on file? Really appreciate your time on this, Bradley.\n\nAnthony\nSafe Schools Project \u00b7 earthpilot.org/kids"
+   },
+   {
+    "message_id": "<CAF16Gtqns7nEc4nsDUops6ErNA0eCWNFwrT610UxLbUPsBAL1w@mail.gmail.com>",
+    "from": "bradley.kolwyck@kellyhawks.org",
+    "date": "Mon, 5 Oct 2026 19:19:04 -0500",
+    "kind": "other",
+    "confidence": 0.41,
+    "facts": {},
+    "attachments": [],
+    "links": [],
+    "file": "488b1b9a.eml",
+    "action": "drafted for Anthony (other; the referee held it)"
    }
   ],
   "followup_sent_at": null,
   "answered_from": "bradley.kolwyck@kellyhawks.org",
-  "last_reply_at": "2026-10-05T16:56:27",
+  "last_reply_at": "2026-10-05T17:57:30",
   "answered_message_ids": [
    "<CAF16Gto5GmFLp-VmLf5c1t3z1DQYT2FTXiRsa-Lya+TR8eJ=Xw@mail.gmail.com>",
    "<CAF16GtpamD9PX=fYBCQyKpJT-B1hwDiw3RjXhiX-5n8EPVnC=w@mail.gmail.com>",
    "<CAF16GtpEg2U=OTT=vbJ-3ppQ=1=-WyNaV+0QDereKLRK=ZH-Jg@mail.gmail.com>",
    "<CAF16Gtro0jxc9kGuQ8_krz7hGBSxDcxoC6YS6Oua4An5F+y6xg@mail.gmail.com>",
    "<CAF16GtpOwwVewk8+32=TPHL-w9T_ZQJ-Z2zL40Xn9de0wwtD2Q@mail.gmail.com>",
-   "<CAF16GtrdCBXv-2cK5MAnEJg_3hXYfCq9ik-peVnFWur0ycxOXg@mail.gmail.com>"
+   "<CAF16GtrdCBXv-2cK5MAnEJg_3hXYfCq9ik-peVnFWur0ycxOXg@mail.gmail.com>",
+   "<CAF16Gtqns7nEc4nsDUops6ErNA0eCWNFwrT610UxLbUPsBAL1w@mail.gmail.com>"
   ],
   "last_outbound_tag": "thanks",
   "recorded_status": "allows"
@@ -3494,12 +3507,63 @@
   "kind": "handbook_dated",
   "to": "markh@straffordschools.net",
   "superintendent": "Hedger, Mark",
-  "status": "sent",
+  "status": "answered",
   "sent_at": "2026-10-05T11:54:26",
   "message_id": "<escp-strafford-2929640@earthpilot.org>",
   "subject": "Strafford's handbook vs policy JGA-2 on corporal punishment",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<CA+Q4Gm4FODW41Pn9jPoEvU3fC=5Z3UZaytW0EgiqihgUjbBAdg@mail.gmail.com>",
+    "from": "markh@straffordschools.net",
+    "date": "Mon, 5 Oct 2026 15:25:52 -0500",
+    "kind": "document_linked",
+    "confidence": 1,
+    "facts": {
+     "document_links": [
+      "https://resources.finalsite.net/images/v1785787872/straffordschoolsnet/mc12tl1c4i0uielqgaun/StraffordHSStudentHandbook2026-2027docx.pdf"
+     ]
+    },
+    "attachments": [],
+    "links": [
+     "https://resources.finalsite.net/images/v1785787872/straffordschoolsnet/mc12tl1c4i0uielqgaun/StraffordHSStudentHandbook2026-2027docx.pdf"
+    ],
+    "file": "927df67b.eml",
+    "action": "recorded allows; thanked",
+    "our_reply": "Got it \u2014 thank you Mark. Recorded: the board permits it.\n\nIt's on the record here: https://earthpilot.org/kids/state/MO/\n\nIf we've read it wrong, reply and I'll fix it the same day."
+   },
+   {
+    "message_id": "<CA+Q4Gm6Onv0Wi0CZZMHqGuJqnNtuVeQ=MGFHNuyitk9Dk4k1OA@mail.gmail.com>",
+    "from": "markh@straffordschools.net",
+    "date": "Mon, 5 Oct 2026 19:23:28 -0500",
+    "kind": "claims_no_practice",
+    "confidence": 0.58,
+    "facts": {
+     "claims_no_practice": true
+    },
+    "attachments": [],
+    "links": [],
+    "file": "4f36c0c3.eml",
+    "action": "recorded the claim; asked for the minutes"
+   },
+   {
+    "message_id": "<escp-reply-strafford-2929640-fix@earthpilot.org>",
+    "from": "us",
+    "date": "Mon, 05 Oct 2026 18:10:36 -0700",
+    "kind": "our_correction",
+    "action": "sent by hand: apology, record corrected to bans per JGA-2, records request withdrawn, handbook p.21 sentence quoted"
+   }
+  ],
   "followup_sent_at": null,
-  "note": "Board policy JGA-2 prohibits; 2025-26 HS handbook still lists corporal punishment as a consequence."
+  "note": "Board policy JGA-2 prohibits; 2026-27 HS handbook still lists corporal punishment. Pipeline misrecorded allows and then asked for minutes; apology + correction drafted 2026-10-05.",
+  "answered_from": "markh@straffordschools.net",
+  "last_reply_at": "2026-10-05T17:57:36",
+  "recorded_status": "bans",
+  "answered_message_ids": [
+   "<CA+Q4Gm4FODW41Pn9jPoEvU3fC=5Z3UZaytW0EgiqihgUjbBAdg@mail.gmail.com>",
+   "<CA+Q4Gm6Onv0Wi0CZZMHqGuJqnNtuVeQ=MGFHNuyitk9Dk4k1OA@mail.gmail.com>"
+  ],
+  "claims_no_practice": false,
+  "last_our_reply_at": "2026-10-05T18:10:38",
+  "body": "hey mark, i'm with the Safe Schools Project at EarthPilot. quick heads-up: your board policy JGA-2 says nobody employed by or volunteering for the district may administer corporal punishment, but the 2025-26 high school student handbook still lists corporal punishment as a possible consequence (the \"any conduct not included herein\" paragraph in the code of conduct). students and staff reading the handbook are getting dated info. might be worth a one-line fix in the next handbook revision. if the policy on your Simbli site isn't the current one, let me know and i'll correct our record."
  }
 ]
