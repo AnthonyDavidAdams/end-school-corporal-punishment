@@ -8,7 +8,7 @@ Not knowing. Most paddling districts cannot say how many students were struck la
 
 ## The evidence
 
-Data-based decision making by a school team is a fidelity component of every PBIS trial (`../evidence.md` B1) and the Center on PBIS publishes a free team problem-solving protocol (B10, TIPS). There is no US study of what happened to referrals and suspensions after a district ended corporal punishment (B9). A district that keeps this log before and after its switch and publishes it will have produced the first one.
+The PBIS trial results depend on fidelity, and adopting PBIS without its data use, tiered systems and coaching does not reproduce them (`../evidence.md` B1); the Center on PBIS publishes a free team problem-solving protocol (B10, TIPS). There is no US study of what happened to referrals and suspensions after a district ended corporal punishment (B9). A district that keeps this log before and after its switch and publishes it will have produced the first one.
 
 ## The practice
 
@@ -28,5 +28,5 @@ The referral form, the log template, the monthly review one-pager.
 
 ## When it is not working
 
-- Referrals rise in the first month after the switch in many schools. That is staff referring what they used to handle with a threat, and it is the expected shape of the curve. It comes down in month two if the ladder is used consistently. Say this out loud before the switch so nobody panics.
+- Referrals may rise after the switch, as staff send to the office what they used to handle with a threat. No study has measured this (B9), so treat it as something to watch for, not a forecast; the log shows whether it falls as the ladder settles in. Say this out loud before the switch so nobody panics.
 - If the log is not being filled in, the form is too long. Cut it.
