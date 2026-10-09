@@ -8,7 +8,7 @@ The paddle as the parent's proxy. In many paddling communities, parents asked fo
 
 ## The evidence
 
-Parents who understand the ladder use it. The What Works Clearinghouse practice guide's fourth recommendation is to draw on colleagues and families (`../evidence.md` B10). The persuasion research in `../../strategy/playbooks/persuasion.md` applies to parents as it does to board members: their own values, a story, one number, a small ask.
+The aim is parents who understand the ladder and take part in it. The What Works Clearinghouse practice guide's fourth recommendation is to draw on colleagues and families (`../evidence.md` B10). The campaign's persuasion playbook (`../../strategy/playbooks/persuasion.md`) suggests the same approach for parents as for board members: their own values, a story, one number, a small ask. Treat that as working advice, not an established finding: the playbook was written for board members and legislators, not parents.
 
 ## The practice
 
