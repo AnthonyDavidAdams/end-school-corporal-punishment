@@ -127,8 +127,10 @@ def ensure_label(M):
     except Exception: pass
 def file_away(M, num):
     """Label a message and take it out of the inbox. Gmail's IMAP exposes labels as X-GM-LABELS."""
+    # Removing the \Inbox label over IMAP did not stick (the same 55 messages were "archived" every hour for
+    # four days). Deleting from INBOX is how Gmail's IMAP archives; the label keeps the message.
     try:
-        M.store(num, "+X-GM-LABELS", f'"{LABEL}"'); M.store(num, "-X-GM-LABELS", "\\Inbox"); return True
+        M.store(num, "+X-GM-LABELS", f'"{LABEL}"'); M.store(num, "+FLAGS", "\\Deleted"); return True
     except Exception as e:
         log("label failed", repr(e)[:80]); return False
 def tidy():
@@ -139,8 +141,10 @@ def tidy():
         typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (FROM SUBJECT IN-REPLY-TO REFERENCES MESSAGE-ID)])"); h = email.message_from_bytes(raw[0][1])
         frm = email.utils.parseaddr(h.get("From", ""))[1].lower()
         if "no-reply" in frm or "noreply" in frm or "substack" in frm or "medium.com" in frm: continue
-        if find_request(h, reqs) and file_away(M, num): moved += 1
-    M.logout(); log(f"tidy: {moved} messages labelled '{LABEL}' and archived"); return moved
+        subj = str(h.get("Subject") or "")
+        ours = find_request(h, reqs) or re.search(r"corporal|safe schools", subj, re.I) or re.search(r"\.k12\.|schools?\.|\.org$|isd\.|sd\.", frm)
+        if ours and file_away(M, num): moved += 1
+    M.expunge(); M.logout(); log(f"tidy: {moved} messages labelled '{LABEL}' and archived"); return moved
 def part_text(msg):
     texts = []; atts = []
     for part in msg.walk():
@@ -447,6 +451,11 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         move, why = "hold", f"minutes request blocked by rule ({'policy already prohibits' if record.get('status') == 'bans' else 'not a first reply' if their_replies > 1 else 'needs a resident'}); {why}"
     if move == "records_request" and r.get("formal_requested_at"):
         move, why = "hold", "a formal request already went out on this thread; " + why
+    # "We don't publish that" with the policy attached is an answer, not a refusal. Anything that arrived in
+    # this message or earlier in the thread outranks what the words say: no formal request, no ask for a link.
+    docs_in_thread = bool(atts) or bool(recorded) or any(e2.get("filed") or e2.get("attachments") for e2 in r.get("replies") or [])
+    if move in ("records_request", "ask_link", "ask_minutes") and docs_in_thread:
+        move, why = ("thank_recorded" if recorded else "hold"), f"a document is in the thread; {why}"
     if move == "forward" and not facts.get("redirect_to"):
         move, why = "hold", "forward with no address named; " + why
     if quiet:

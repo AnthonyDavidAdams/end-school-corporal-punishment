@@ -3,7 +3,7 @@
 <plist version="1.0"><dict>
   <key>Label</key><string>com.earthpilot.escp-outreach</string>
   <key>ProgramArguments</key><array><string>/bin/zsh</string><string>-lc</string><string>cd $HOME/end-school-corporal-punishment && /opt/homebrew/bin/python3 tools/outreach/run.py cycle</string></array>
-  <key>StartInterval</key><integer>3600</integer>
+  <key>StartInterval</key><integer>900</integer>
   <key>RunAtLoad</key><false/>
   <key>StandardOutPath</key><string>/tmp/escp-outreach.out</string>
   <key>StandardErrorPath</key><string>/tmp/escp-outreach.err</string>
