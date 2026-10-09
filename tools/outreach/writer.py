@@ -88,7 +88,7 @@ def decide(r, thread, record, filed, facts, recheck, quiet):
     d = None
     mm = re.search(r"MOVE:\s*([a-z_]+)\s*\n(?:WHY:\s*(.*?)\s*\n)?\s*---\s*\n(.*)$", text, re.S | re.I)
     if mm:
-        d = {"move": mm.group(1).strip().lower(), "why": (mm.group(2) or "").strip(), "reply": mm.group(3).strip()}
+        d = {"move": mm.group(1).strip().lower(), "why": (mm.group(2) or "").strip(), "reply": (mm.group(3) or "").strip()}
     else:
         j = re.search(r"\{.*\}", text, re.S)   # in case it answered in JSON anyway
         try:

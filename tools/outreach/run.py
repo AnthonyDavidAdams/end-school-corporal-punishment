@@ -533,6 +533,41 @@ def queue(n=25):
     save(reqs); log(f"queue: {added} queued of {len(cands)} eligible ({len(cands) - added} left for later nights)")
     return added
 
+
+def rehold(send=True):
+    """Threads held for a person: decide again with the whole thread. Sends when the writer picks a move and
+    the referee passes; otherwise refreshes the draft with the suggested text. Never touches a thread
+    Anthony has written in, and never re-answers a message that already got a reply from us."""
+    reqs = load(); M = imap(); mine = anthony_threads(M, reqs); sent = held = 0
+    for r in reqs:
+        if r.get("status") != "needs_review" or r["id"] in mine or not r.get("replies"): continue
+        e = r["replies"][-1]
+        if e.get("from") == "us" or e.get("our_reply") or e.get("move") not in (None, "hold"): continue
+        path = os.path.join(REPLIES, r["id"], e.get("file") or "")
+        if not os.path.exists(path): continue
+        msg = email.message_from_bytes(open(path, "rb").read()); body, atts = part_text(msg)
+        frm = email.utils.parseaddr(msg.get("From"))[1]; subject = str(make_header(decode_header(msg.get("Subject") or "")))
+        thread = thread_of(r); record = record_status(r)
+        d = writer_mod.decide(r, thread, record, [], e.get("facts") or {}, {"found": None, "looked_at": r.get("recheck_tried") or []} if r.get("rechecked_at") else None, False)
+        move = d["move"] if d else "hold"; text = d["reply"] if d else None; why = d["why"] if d else f"writer: {writer_mod.LAST_ERROR[0]}"
+        their = sum(1 for m in thread if m["who"] == "them")
+        if move == "ask_minutes" and (record.get("status") == "bans" or their > 1 or r.get("residency_required")): move = "hold"
+        if move == "forward": move = "hold"
+        ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
+        if ok and send and reply_to(r, frm, e["message_id"], subject, text):
+            e["our_reply"] = text; e["move"] = move; e["why"] = why; e["action"] = (e.get("action") or "") + f"; re-decided and replied ({move})"
+            r["status"] = "answered" if move == "thank_recorded" else "sent"; sent += 1
+            log("rehold sent", r["state"], r["name"], move)
+        else:
+            e["suggested"] = text; e["why"] = why; held += 1
+            if text:
+                delete_draft(M, "Re: " + " ".join(subject.split()))
+                m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + " ".join(subject.split()); m["In-Reply-To"] = e["message_id"]; m["References"] = e["message_id"]
+                m.set_content(text + f"\n\n\n[HELD — {why}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1500]}\n"); put_draft(M, m)
+            log("rehold held", r["state"], r["name"], why[:100])
+        save(reqs)
+    M.logout(); log(f"rehold: {sent} sent, {held} still held")
+
 # ---------------------------------------------------------------- follow-up
 def followup():
     reqs = load(); n = 0
@@ -594,6 +629,7 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "cycle"
     if cmd == "retriage": retriage(send="--send" in sys.argv); sys.exit()
     if cmd == "tidy": tidy(); sys.exit()
+    if cmd == "rehold": rehold(send="--dry" not in sys.argv); sys.exit()
     if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-dry":
         import io, contextlib
