@@ -23,6 +23,11 @@ ops() { [ -n "${ESCP_MAINTAINER_TOKEN:-}" ] && node tools/report-ops.mjs "$@" >/
 #    outreach queue; the hourly outreach job sends them and handles what comes back. ESCP_DAILY_ASKS=0 stops it.
 /opt/homebrew/bin/python3 tools/outreach/run.py queue "${ESCP_DAILY_ASKS:-25}" 2>&1 | tail -1
 
+# 0b. The association policy portals: every unquoted district in a state whose manuals sit on one.
+bash tools/portals/nightly.sh 2>&1 | tail -12
+# If the open-web slice turns out empty, whatever the portals merged still ships.
+portals_only() { if git diff --quiet -- data/districts; then echo "$1"; else echo "$1; publishing the portal reads"; bash tools/publish.sh "Nightly $DAY: policy portals" | tail -2; fi; exit 0; }
+
 # 1. The slice: unchecked districts, most children first, that were not searched in the last 14 days.
 npm --prefix tools run build-worklist >/dev/null 2>&1
 node - "$SLICE" "$LOG" <<'JS' || { echo "slice failed"; exit 1; }
@@ -38,13 +43,13 @@ fs.writeFileSync("data/handbooks/nightly-searched.json", JSON.stringify(seen));
 console.log(`slice: ${slice.length} districts`);
 JS
 ops "nightly-$DAY" "Mothership on station: reading $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/slice.json") districts nobody has checked" "$(node -e 'console.log(require(process.argv[1]).length)' "$LOG/slice.json")" 0 0
-[ "$(node -e 'console.log(require(process.argv[1]).length)' "$LOG/slice.json")" -gt 0 ] || { echo "nothing to do"; exit 0; }
+[ "$(node -e 'console.log(require(process.argv[1]).length)' "$LOG/slice.json")" -gt 0 ] || portals_only "nothing to do on the open web"
 
 # 2. Find, read, classify. Each is deterministic apart from Jev's typed decisions.
 node tools/tasb/find-document.mjs --in "$LOG/slice.json" --out "$LOG/found.jsonl" || { echo "find failed"; ops "nightly-$DAY" "Mothership pass aborted: the document search failed" 0 0 0; exit 1; }
 node tools/tasb/read-found.mjs --in "$LOG/found.jsonl" --out "$LOG/read.jsonl" --workers 4 || { echo "read failed"; exit 1; }
 grep '"rule"' "$LOG/read.jsonl" > "$LOG/rule.jsonl" || true
-[ -s "$LOG/rule.jsonl" ] || { echo "no document carried the rule tonight"; exit 0; }
+[ -s "$LOG/rule.jsonl" ] || portals_only "no document carried the rule tonight"
 node tools/tasb/classify.mjs --in "$LOG/rule.jsonl" --out "$LOG/classified.json" || { echo "classify failed"; exit 1; }
 python3 tools/tasb/records-from-classified.py "$LOG/classified.json" "$LOG/records.json" searched_document "" "Found by searching for the district's policy document and read $DAY (nightly). \`quotes\` carries every rule-bearing sentence in document order." || { echo "records failed"; exit 1; }
 node -e 'const c=require(process.argv[1]);const h=c.filter(x=>x.decision!=="record");require("fs").writeFileSync(process.argv[2],JSON.stringify(h,null,1));console.log(`held for review: ${h.length}`)' "$LOG/classified.json" "$LOG/held.json"
@@ -54,7 +59,7 @@ cp -r data/districts "$LOG/districts.before"
 node tools/merge-scan.mjs "$LOG/records.json" 2>&1 | grep -vE "^NOTE|^  (was|now)" | tail -3
 (cd tools && node fill-county.mjs && node validate.mjs | tail -1 | grep -q "0 failures") || { echo "validation failed; not publishing"; exit 1; }
 npm --prefix tools run build-site 2>&1 | tail -1
-git add data/districts data/handbooks/nightly-searched.json site && git commit -q -m "Nightly $DAY: $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/records.json") districts recorded by the Mothership
+git add data/districts data/handbooks site && git commit -q -m "Nightly $DAY: $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/records.json") districts recorded by the Mothership
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" && git push -q origin main && echo pushed
 if [ -n "${DEPLOY_PASS:-}" ]; then sshpass -p "$DEPLOY_PASS" rsync -az --delete --exclude documents --exclude og.html --exclude news.php --exclude icon.php -e "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no" site/ "$DEPLOY_HOST:$DEPLOY_PATH" && echo deployed; fi
