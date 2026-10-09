@@ -38,7 +38,11 @@ The moves. Choose exactly one:
   answer              a question or something else that a short, accurate reply settles.
   hold                anything you are not sure of: a dispute about what we recorded that the facts here do not settle, a refusal, a fee, a complaint, a legal threat, a request to stop writing, or a situation that needs Anthony. Still write the reply you would send, so he can send it.
 
-Respond with JSON only: {"move": "<one of the moves>", "reply": "<the email body>", "why": "<one line, for the log>"}"""
+Respond in exactly this form and nothing else:
+MOVE: <one of the moves>
+WHY: <one line, for the log>
+---
+<the email body>"""
 
 
 def key():
@@ -81,16 +85,18 @@ def decide(r, thread, record, filed, facts, recheck, quiet):
             LAST_ERROR[0] = repr(ex)[:160]
     if text is None:
         return None
-    m = re.search(r"\{.*\}", text, re.S)
     d = None
-    if m:
-        for cand in (m.group(0), re.sub(r"(?<!\\)\n", "\\n", m.group(0))):   # a literal newline inside a JSON string
-            try:
-                d = json.loads(cand, strict=False); break
-            except Exception as ex:
-                LAST_ERROR[0] = "json: " + repr(ex)[:120]
+    mm = re.search(r"MOVE:\s*([a-z_]+)\s*\n(?:WHY:\s*(.*?)\s*\n)?\s*---\s*\n(.*)$", text, re.S | re.I)
+    if mm:
+        d = {"move": mm.group(1).strip().lower(), "why": (mm.group(2) or "").strip(), "reply": mm.group(3).strip()}
+    else:
+        j = re.search(r"\{.*\}", text, re.S)   # in case it answered in JSON anyway
+        try:
+            d = json.loads(j.group(0), strict=False) if j else None
+        except Exception as ex:
+            LAST_ERROR[0] = "parse: " + repr(ex)[:100]
     if not d or d.get("move") not in MOVES or not isinstance(d.get("reply"), str):
-        LAST_ERROR[0] = LAST_ERROR[0] or f"shape: {str(d)[:120] if d else text[:200]}"
+        LAST_ERROR[0] = f"shape: {text[:160]!r}"
         return None
     body = d["reply"].strip()
     if not (30 < len(body) < 1800):

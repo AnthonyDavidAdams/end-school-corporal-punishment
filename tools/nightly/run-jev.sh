@@ -19,6 +19,10 @@ SLICE=${ESCP_NIGHTLY_SLICE:-60}
 [ -f "$HOME/.escp-maintainer.env" ] && source "$HOME/.escp-maintainer.env"
 ops() { [ -n "${ESCP_MAINTAINER_TOKEN:-}" ] && node tools/report-ops.mjs "$@" >/dev/null 2>&1 || true; }
 
+# 0. The day's asks: districts with no quoted rule and an office address, most children first, onto the
+#    outreach queue; the hourly outreach job sends them and handles what comes back. ESCP_DAILY_ASKS=0 stops it.
+/opt/homebrew/bin/python3 tools/outreach/run.py queue "${ESCP_DAILY_ASKS:-25}" 2>&1 | tail -1
+
 # 1. The slice: unchecked districts, most children first, that were not searched in the last 14 days.
 npm --prefix tools run build-worklist >/dev/null 2>&1
 node - "$SLICE" "$LOG" <<'JS' || { echo "slice failed"; exit 1; }

@@ -346,7 +346,7 @@ def asks_us_back(body):
 def thread_of(r):
     """Every message in this thread, ours and theirs, oldest first: what the model reads before it writes."""
     msgs = []
-    first = r.get("body") or (body_for(r) if r.get("kind") in ("policy", "minutes", "research", "state_doe") else "")
+    first = r.get("body") or body_for(r)   # older requests did not keep their text; the template is what was sent
     msgs.append({"who": "us", "date": r.get("sent_at"), "text": first, "links": []})
     for e in r.get("replies") or []:
         if e.get("from") == "us":
@@ -440,7 +440,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     decision = writer_mod.decide(r, thread, record, filed_desc, facts, recheck, quiet)
     move = decision["move"] if decision else "hold"
     text = decision["reply"] if decision else None
-    why = decision["why"] if decision else "the writer returned nothing usable"
+    why = decision["why"] if decision else f"the writer returned nothing usable ({writer_mod.LAST_ERROR[0]})"
     their_replies = sum(1 for m in thread if m["who"] == "them")
     # The limits code keeps whatever the model chose.
     if move == "ask_minutes" and (record.get("status") == "bans" or their_replies > 1 or r.get("residency_required")):
@@ -473,12 +473,65 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     else:
         r["status"] = "anthony_replied" if quiet else "needs_review"
         entry["action"] = (entry.get("action") or "") + ("; logged, Anthony is handling this thread" if quiet else f"; held for Anthony: {why}")
+        if text: entry["suggested"] = text
         if not quiet:
             m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + " ".join(str(subject).split())
             m["In-Reply-To"] = mid; m["References"] = mid
             m.set_content((text or "") + f"\n\n\n[HELD — {why}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1500]}\n")
             put_draft(M, m)
     finish()
+
+
+# ---------------------------------------------------------------- the daily queue
+def queue(n=25):
+    """Put the next n districts on the pending list: no quoted rule yet, in a state that permits the practice,
+    with an office address on file, most children struck first. The hourly cycle sends what is pending.
+    Nothing is written twice: a district already in the request file is never queued again."""
+    import yaml
+    states = json.load(open(os.path.join(ROOT, "site/data/states.json")))
+    permitting = {k for k, v in states.items() if v.get("status") in ("legal", "partial")}
+    reqs = load(); have = {str(r.get("nces_id")) for r in reqs if r.get("nces_id")} | {(r["state"], r["name"].lower()) for r in reqs}
+    statutes = {}
+    for r in reqs:
+        if r.get("statute") and r["state"] not in statutes: statutes[r["state"]] = r["statute"]
+    contacts = {}
+    for f in os.listdir(os.path.join(ROOT, "data/contacts")):
+        if not f.endswith(".json"): continue
+        d = json.load(open(os.path.join(ROOT, "data/contacts", f)))
+        rows = d if isinstance(d, list) else (d.get("contacts") or d.get("districts") or [])
+        for c in rows:
+            if isinstance(c, dict) and c.get("state") and c.get("name") and (c.get("district_email") or c.get("email")):
+                contacts[(c["state"], re.sub(r"[^a-z0-9]", "", c["name"].lower()))] = c
+    crdc = {}
+    for l in open(os.path.join(ROOT, "data/crdc/2023-24/districts.csv")).read().strip().split("\n")[1:]:
+        c = l.rsplit(",", 1); crdc[c[0].split(",")[1]] = int(c[1] or 0)
+    cands = []
+    for st in sorted(permitting):
+        fp = os.path.join(ROOT, "data/districts", f"{st}.yaml")
+        if not os.path.exists(fp): continue
+        d = yaml.safe_load(open(fp))
+        for x in (d if isinstance(d, list) else d.get("districts", [])):
+            if x.get("quote") or x.get("status") not in ("silent", "unknown"): continue
+            if str(x.get("nces_id")) in have or (st, x["name"].lower()) in have: continue
+            # The state's own superintendent directory first (23 record contacts were wrong on 2026-10-09:
+            # Little Rock carried a charter's address), then whatever the record holds.
+            k = contacts.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
+            c = x.get("contact") or {}
+            to = k.get("district_email") or k.get("email") or c.get("district_email") or c.get("board_email")
+            who = k.get("superintendent") or c.get("superintendent")
+            if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
+            cands.append({"state": st, "name": re.sub(r"\s*\(\d+\)\s*$", "", x["name"]), "nces_id": x.get("nces_id"), "kids": x.get("crdc_students_latest") or crdc.get(str(x.get("nces_id")), 0), "to": to, "superintendent": who})
+    cands.sort(key=lambda c: (-(c["kids"] or 0), c["state"], c["name"]))
+    added = 0
+    for c in cands[:n]:
+        rid = hashlib.sha1(f"{c['state']}|{c['nces_id'] or c['name']}".encode()).hexdigest()[:10]
+        reqs.append({"id": rid, "state": c["state"], "name": c["name"], "nces_id": c["nces_id"], "kids": c["kids"], "kind": "policy",
+                     "to": c["to"], "superintendent": c["superintendent"], "statute": statutes.get(c["state"]),
+                     "status": "pending", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None,
+                     "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        added += 1
+    save(reqs); log(f"queue: {added} queued of {len(cands)} eligible ({len(cands) - added} left for later nights)")
+    return added
 
 # ---------------------------------------------------------------- follow-up
 def followup():
@@ -541,6 +594,13 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "cycle"
     if cmd == "retriage": retriage(send="--send" in sys.argv); sys.exit()
     if cmd == "tidy": tidy(); sys.exit()
+    if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "queue-dry":
+        import io, contextlib
+        reqs0 = load(); queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); reqs1 = load()
+        new = [r for r in reqs1 if r.get("queued_at") and r["status"] == "pending"]
+        for r in new: print("  ", r["state"], r["name"][:34], r["kids"], r["to"])
+        save(reqs0); print("(dry: nothing kept)"); sys.exit()
     if cmd == "board":
         import track; track.cli(load()); sys.exit()
     if cmd == "send": send(int(sys.argv[2]) if len(sys.argv) > 2 else 25)
