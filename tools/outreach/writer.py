@@ -75,7 +75,7 @@ def situation(r, thread, record, filed, facts, recheck, quiet):
 
 def decide(r, thread, record, filed, facts, recheck, quiet):
     req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",
-        data=json.dumps({"model": WRITER, "max_tokens": 900, "temperature": 0.2,
+        data=json.dumps({"model": WRITER, "max_tokens": 2000, "temperature": 0.2,
                          "messages": [{"role": "system", "content": BRIEF},
                                       {"role": "user", "content": situation(r, thread, record, filed, facts, recheck, quiet)}]}).encode(),
         headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
@@ -83,15 +83,24 @@ def decide(r, thread, record, filed, facts, recheck, quiet):
     for attempt in range(3):
         try:
             j = json.load(urllib.request.urlopen(req, timeout=150))
-            text = j["choices"][0]["message"]["content"].strip(); break
+            text = (j["choices"][0]["message"].get("content") or "").strip()
+            if text: break
+            LAST_ERROR[0] = f"empty content (finish {j['choices'][0].get('finish_reason')})"
         except Exception as ex:
             LAST_ERROR[0] = repr(ex)[:160]
     if text is None:
         return None
+    # Line-based: the MOVE line, the WHY line, and everything after the first dashes-only line.
     d = None
-    mm = re.search(r"MOVE:\s*([a-z_]+)\s*\n(?:WHY:\s*(.*?)\s*\n)?\s*---\s*\n(.*)$", text, re.S | re.I)
-    if mm:
-        d = {"move": mm.group(1).strip().lower(), "why": (mm.group(2) or "").strip(), "reply": (mm.group(3) or "").strip()}
+    lines = text.replace("\r", "").split("\n")
+    mi = next((i for i, l in enumerate(lines) if re.match(r"\s*MOVE:", l, re.I)), None)
+    if mi is not None:
+        move = re.sub(r"^\s*MOVE:\s*", "", lines[mi], flags=re.I).strip().strip("`*").lower()
+        wi = next((i for i in range(mi + 1, min(mi + 4, len(lines))) if re.match(r"\s*WHY:", lines[i], re.I)), None)
+        why = re.sub(r"^\s*WHY:\s*", "", lines[wi], flags=re.I).strip() if wi is not None else ""
+        di = next((i for i in range(mi + 1, len(lines)) if re.match(r"\s*-{3,}\s*$", lines[i])), None)
+        body_lines = lines[di + 1:] if di is not None else lines[(wi if wi is not None else mi) + 1:]
+        d = {"move": move, "why": why, "reply": "\n".join(body_lines).strip()}
     else:
         j = re.search(r"\{.*\}", text, re.S)   # in case it answered in JSON anyway
         try:

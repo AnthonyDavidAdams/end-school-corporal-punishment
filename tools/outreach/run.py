@@ -550,8 +550,18 @@ def rehold(send=True):
         if not os.path.exists(path): continue
         msg = email.message_from_bytes(open(path, "rb").read()); body, atts = part_text(msg)
         frm = email.utils.parseaddr(msg.get("From"))[1]; subject = str(make_header(decode_header(msg.get("Subject") or "")))
+        # Links and attachments the first pass did not get through are filed now, so the writer sees what they said.
+        filed = []
+        links = e.get("links") or []
+        if (links or atts) and not e.get("filed"):
+            try:
+                filed = [g for g in save_docs(r, atts, links, e.get("facts") or {}) if g]
+            except Exception as ex:
+                log("rehold save_docs failed", r["name"], repr(ex)[:100])
+            e["filed"] = filed or ["nothing"]
         thread = thread_of(r); record = record_status(r)
-        d = writer_mod.decide(r, thread, record, [], e.get("facts") or {}, {"found": None, "looked_at": r.get("recheck_tried") or []} if r.get("rechecked_at") else None, False)
+        filed_desc = [{"says": f} for f in filed if f != "held"]
+        d = writer_mod.decide(r, thread, record, filed_desc, e.get("facts") or {}, {"found": None, "looked_at": r.get("recheck_tried") or []} if r.get("rechecked_at") else None, False)
         move = d["move"] if d else "hold"; text = d["reply"] if d else None; why = d["why"] if d else f"writer: {writer_mod.LAST_ERROR[0]}"
         their = sum(1 for m in thread if m["who"] == "them")
         if move == "ask_minutes" and (record.get("status") == "bans" or their > 1 or r.get("residency_required")): move = "hold"
