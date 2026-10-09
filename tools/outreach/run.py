@@ -226,26 +226,32 @@ def file_document(r, path, how):
 def publish(message):
     r = subprocess.run(["bash", "tools/publish.sh", message], cwd=ROOT, capture_output=True, text=True); log(r.stdout.strip()[-300:])
 def anthony_threads(M, reqs):
-    """Request ids Anthony has already replied to himself (from Sent Mail), so the job stays out of those threads."""
+    """Anthony's own replies from Sent Mail, folded into each request's our_messages (by: anthony) so the
+    writer reads them as part of the thread. Returns the request ids he has written in. Since 2026-10-09
+    his presence is context, not a lock: the job keeps answering unless hold_replies is set on the request."""
     done = set()
     try:
         M.select('"[Gmail]/Sent Mail"')
-        typ, data = M.search(None, "SUBJECT", '"Re: Request for"')
+        typ, data = M.search(None, "X-GM-RAW", '"newer_than:120d (subject:corporal OR subject:\"records request\" OR subject:handbook OR subject:\"safe schools\")"')
         for num in (data[0].split() if data and data[0] else []):
-            typ, raw = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (FROM TO SUBJECT IN-REPLY-TO REFERENCES MESSAGE-ID)])"); h = email.message_from_bytes(raw[0][1])
+            typ, raw = M.fetch(num, "(RFC822)"); h = email.message_from_bytes(raw[0][1])
             if not h.get("In-Reply-To"): continue          # our own outbound requests are not replies
-            if "escp-" in (h.get("In-Reply-To") or ""): continue   # the job's own automated replies
-            if "escp-reply-" in (h.get("Message-ID") or ""): continue   # ditto, replies on a district's thread
+            mid = h.get("Message-ID") or ""
+            if "escp-" in mid: continue                     # the job's own automated replies and hand-sent ones logged elsewhere
             r = find_request(h, reqs)
             if not r:
-                to = email.utils.parseaddr(h.get("To", ""))[1].lower(); r = next((x for x in reqs if x["to"].lower() == to), None)
-            if r: done.add(r["id"])
+                to = email.utils.parseaddr(h.get("To", ""))[1].lower(); r = next((x for x in reqs if (x.get("to") or "").lower() == to), None)
+            if not r: continue
+            done.add(r["id"])
+            if not any(o.get("message_id") == mid for o in r.get("our_messages") or []):
+                text, _ = part_text(h)
+                r.setdefault("our_messages", []).append({"at": h.get("Date"), "to": email.utils.parseaddr(h.get("To", ""))[1], "text": text, "message_id": mid, "by": "anthony"})
     except Exception as e: log("sent-mail scan failed", e)
     return done
 def inbox():
     reqs = load(); M = imap(); ensure_label(M); mine = anthony_threads(M, reqs)
     for r in reqs:
-        if r["id"] in mine and r["status"] in ("sent", "promised", "needs_review"): r["status"] = "anthony_replied"; r["followup_sent_at"] = r.get("followup_sent_at") or "n/a"
+        if r["id"] in mine and r["status"] == "anthony_replied": r["status"] = "sent"   # the old lock, lifted
     save(reqs); M.select("INBOX")
     # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
     # Every subject we have ever sent, not just the ones with "corporal" in them: the research and
@@ -261,7 +267,7 @@ def inbox():
         subject = str(make_header(decode_header(msg.get("Subject", "")))); frm = email.utils.parseaddr(msg.get("From", ""))[1]
         body, atts = part_text(msg); links = [u for u in re.findall(r"https?://[^\s<>\")\]]+", body) if "earthpilot" not in u]
         try:
-            handle_one(M, reqs, r, msg, raw[0][1], mid, subject, frm, body, atts, links, quiet=(r["id"] in mine)); handled += 1
+            handle_one(M, reqs, r, msg, raw[0][1], mid, subject, frm, body, atts, links, quiet=False); handled += 1
             M.select("INBOX"); file_away(M, num)
         except Exception as e:
             log("FAILED on", frm, subject[:50], repr(e)[:200])
@@ -368,7 +374,7 @@ def thread_of(r):
     seen = {m["text"].strip() for m in msgs if m["who"] == "us"}
     for o in r.get("our_messages") or []:   # reply_to logs here too; the same text must not read as a second send
         if (o.get("text") or "").strip() in seen: continue
-        msgs.append({"who": "us", "date": o.get("at"), "text": o.get("text") or "", "links": []})
+        msgs.append({"who": "Anthony himself" if o.get("by") == "anthony" else "us", "date": o.get("at"), "text": o.get("text") or "", "links": []})
     def when(m):
         d = m.get("date")
         try:
@@ -557,6 +563,63 @@ def queue(n=25):
     return added
 
 
+def catchup(send=True):
+    """Every thread whose last message from the district has no reply from our side after it (ours or
+    Anthony's): file what it carried, decide with the whole thread, send or hold. Skips bounced, closed,
+    and hold_replies threads."""
+    reqs = load(); M = imap(); anthony_threads(M, reqs); save(reqs)
+    def when(d):
+        try: return email.utils.parsedate_to_datetime(d).timestamp() if d and "," in str(d) else datetime.datetime.fromisoformat(str(d)[:19]).timestamp()
+        except Exception: return 0
+    todo = []
+    for r in reqs:
+        if r.get("status") in ("bounced", "closed") or r.get("hold_replies"): continue
+        theirs = [e for e in r.get("replies") or [] if e.get("from") != "us"]
+        if not theirs: continue
+        last = theirs[-1]
+        if last.get("our_reply") or last.get("kind") == "auto_reply_or_bounce": continue
+        if any(when(o.get("at")) > when(last.get("date")) for o in r.get("our_messages") or []): continue
+        todo.append((r, last))
+    log(f"catchup: {len(todo)} threads to answer")
+    sent = held = 0
+    for r, e in todo:
+        path = os.path.join(REPLIES, r["id"], e.get("file") or "")
+        if not os.path.exists(path): continue
+        msg = email.message_from_bytes(open(path, "rb").read()); body, atts = part_text(msg)
+        frm = email.utils.parseaddr(msg.get("From"))[1]; subject = str(make_header(decode_header(msg.get("Subject") or "")))
+        filed = []
+        if (e.get("links") or atts) and not e.get("filed"):
+            try: filed = [g for g in save_docs(r, atts, e.get("links") or [], e.get("facts") or {}) if g]
+            except Exception as ex: log("catchup save_docs failed", r["name"], repr(ex)[:100])
+            e["filed"] = filed or ["nothing"]
+        thread = thread_of(r); record = record_status(r)
+        recorded = [f for f in filed if f != "held"]
+        if recorded: r["recorded_status"] = record.get("status") or recorded[0]
+        d = writer_mod.decide(r, thread, record, [{"says": f} for f in recorded], e.get("facts") or {}, {"found": None, "looked_at": r.get("recheck_tried") or []} if r.get("rechecked_at") else None, False)
+        move = d["move"] if d else "hold"; text = d["reply"] if d else None; why = d["why"] if d else f"writer: {writer_mod.LAST_ERROR[0]}"
+        their = len([x for x in thread if x["who"] == "them"])
+        if move == "ask_minutes" and (record.get("status") == "bans" or their > 1 or r.get("residency_required")): move = "hold"
+        if move in ("forward",): move = "hold"
+        if move == "records_request" and (r.get("formal_requested_at") or recorded or atts): move = "hold"
+        if move != "hold" and re.search(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body)) and max(float(a.replace(",", "")) for a in re.findall(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body))) > 5: move = "hold"
+        ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
+        if ok and send and reply_to(r, frm, e["message_id"], subject, text):
+            e["our_reply"] = text; e["move"] = move; e["why"] = why; e["action"] = (e.get("action") or "") + f"; catch-up reply ({move})"
+            if move == "records_request": r["formal_requested_at"] = datetime.date.today().isoformat()
+            r["status"] = "answered" if move == "thank_recorded" else "sent"; sent += 1; log("catchup sent", r["state"], r["name"], move)
+        elif not text and re.search(r"acknowledg|no reply needed|nothing to answer", why, re.I):
+            e["action"] = (e.get("action") or "") + f"; catch-up: no reply needed ({why[:80]})"
+        else:
+            e["suggested"] = text; e["why"] = why; e["move"] = "hold"; r["status"] = "needs_review"; held += 1
+            if text:
+                delete_draft(M, "Re: " + " ".join(subject.split()))
+                m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + " ".join(subject.split()); m["In-Reply-To"] = e["message_id"]; m["References"] = e["message_id"]
+                m.set_content(text + f"\n\n\n[HELD — {why}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1500]}\n"); put_draft(M, m)
+            log("catchup held", r["state"], r["name"], why[:100])
+        save(reqs)
+    M.logout(); log(f"catchup: {sent} sent, {held} held")
+
+
 def rehold(send=True):
     """Threads held for a person: decide again with the whole thread. Sends when the writer picks a move and
     the referee passes; otherwise refreshes the draft with the suggested text. Never touches a thread
@@ -665,6 +728,7 @@ if __name__ == "__main__":
     if cmd == "retriage": retriage(send="--send" in sys.argv); sys.exit()
     if cmd == "tidy": tidy(); sys.exit()
     if cmd == "rehold": rehold(send="--dry" not in sys.argv); sys.exit()
+    if cmd == "catchup": catchup(send="--dry" not in sys.argv); sys.exit()
     if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-dry":
         import io, contextlib
