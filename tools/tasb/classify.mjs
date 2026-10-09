@@ -120,7 +120,7 @@ async function worker() {
       };
     });
     const d = await decide(
-      { district: `${r.district}, Texas`, policy_excerpt_sentences: options },
+      { district: `${r.district}${r._state ? `, ${r._state}` : ""}`, policy_excerpt_sentences: options },
       {
         ...sentenceQuestions,
         operative: {

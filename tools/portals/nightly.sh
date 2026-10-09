@@ -13,6 +13,7 @@ DAY=$(date +%Y-%m-%d); OUT="out/portals/$DAY"; mkdir -p "$OUT"
 # state | harvester | jsonl | policy code | note
 MANIFEST="
 KY|tools/ky/ksba-harvest.mjs|data/handbooks/ksba-ky.jsonl|09.433|Read from the district's board policy manual on the KSBA policy portal (policy.ksba.org)
+IN|tools/in/neola-harvest.mjs|data/handbooks/neola-in.jsonl||Read from the district's board policy manual (Neola, policy 5630)
 "
 echo "$MANIFEST" | grep -v '^\s*$' | while IFS='|' read -r ST HARV JSONL CODE NOTE; do
   [ -n "${1:-}" ] && [ "$1" != "$ST" ] && continue
