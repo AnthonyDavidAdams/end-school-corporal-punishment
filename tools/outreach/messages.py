@@ -29,6 +29,7 @@ def state_name(code):
 PROJECT = "Safe Schools Project"
 PARENT = "EarthPilot"
 MAIL = "11662 Old Lake Road, North East, PA 16428"   # the campaign's mailing address (Anthony, 2026-10-09)
+PHONE = "(234) 516-2545"                               # the MAJIK line; the phone agent answers as the receptionist
 SITE = "earthpilot.org/kids"
 
 
@@ -49,7 +50,7 @@ def first_name(sup, fallback="there"):
 def sig(user, formal=False):
     """The signature. The project is named, and so is who actually runs it: no one has to guess."""
     if formal:
-        return f"Anthony Adams\n{PROJECT}, a project of {PARENT}\n{SITE} · {user}\n{MAIL}"
+        return f"Anthony Adams\n{PROJECT}, a project of {PARENT}\n{SITE} · {user}\n{MAIL} · {PHONE}"
     return "Anthony\n\nSent from my iPhone"
 
 
