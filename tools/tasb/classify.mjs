@@ -153,18 +153,24 @@ async function worker() {
     const op = d.answers.operative, st = d.answers.status, pc = d.answers.parent_control;
     // Every sentence that carries the rule, in the order it appears in the document, so a reader sees
     // the permission and the exemption and the parent's say together rather than one of the three.
-    const cited = r.candidates.filter((_, i) => (d.answers[`s${i}`]?.noul ?? 0) >= 0.5);
+    let cited = r.candidates.filter((_, i) => (d.answers[`s${i}`]?.noul ?? 0) >= 0.5);
     const quote = options[op.choice] ?? null;
     // Gate on the status, which is measured at 100% agreement above 0.99, and on having selected at
     // least one rule-bearing sentence. The single-choice confidence is no longer a gate: it was
     // measured to predict nothing, and holding 216 findings on it was holding them on noise.
     const confident = st.confidence >= THRESHOLD && cited.length > 0;
     if (confident) recorded++; else held++;
-    const from = r._by?.find((x) => x.text === quote);
+    // The source is the page the lead quote is on. A harvest that pooled several policies (Simbli,
+    // the NCSBA portal) can have the operative sentence on one page and the first cited sentence on
+    // another, and a record whose quote is not on its own source page cannot be checked. So the lead
+    // quote names the page, and `quotes` keeps the cited sentences from that page only.
+    const lead = cited[0] ?? quote;
+    const from = r._by?.find((x) => x.text === lead);
+    if (from) cited = cited.filter((q) => r._by.some((x) => x.text === q && x.url === from.url));
     out.push({
       key: r.key, district: r.district, _state: r._state ?? null, source: from?.url ?? r.url,
       ...(from?.code ? { policy_code: from.code } : {}),
-      status: st.choice, quote: cited[0] ?? quote, quotes: cited,
+      status: st.choice, quote: lead, quotes: cited,
       parent_control: pc ? (pc.choice === "not_stated" ? "unknown" : pc.choice) : null,
       parent_control_confidence: pc?.confidence ?? null,
       status_confidence: st.confidence, quote_confidence: op.confidence,
