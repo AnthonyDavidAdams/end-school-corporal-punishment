@@ -8,7 +8,7 @@ Paddling the same students over and over. Every veteran teacher knows who those 
 
 ## The evidence
 
-- Check-In/Check-Out, a daily two-minute morning and afternoon contact with one adult plus a point card carried between classes, is the most studied Tier 2 practice; a systematic review calls its evidence base mixed but sufficient on some outcomes, mostly from single-case designs (`../evidence.md` B4). It is cheap, so its modest evidence is enough to make it the first thing to try.
+- Check-In/Check-Out is a Tier 2 practice built on a daily check-in and check-out with one adult (the routine in Step 2 below); a systematic review calls its evidence base mixed, enough to call it evidence-based on some outcomes but not others, mostly from single-case designs (`../evidence.md` B4). It is cheap, so its modest evidence is enough to make it the first thing to try.
 - The Good Behavior Game's long-term effects were concentrated in the boys who were most aggressive in first grade (B3): universal practice reaches this group most.
 - Collaborative and Proactive Solutions (Ross Greene) has randomized clinical evidence for oppositional children equal to parent training, but no whole-school trial (B7). Use its core idea, that the student lacks a skill rather than the will, as the frame for the plan meeting.
 - The federal Office of Special Education Programs' 2016 letter states that when a student with an IEP has behavior that impedes learning, the IEP team must consider positive behavioral interventions (B10). Module 6 covers this.
