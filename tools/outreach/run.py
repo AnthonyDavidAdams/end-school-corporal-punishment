@@ -365,7 +365,9 @@ def thread_of(r):
         msgs.append({"who": "them", "date": e.get("date"), "text": text, "links": e.get("links") or [], "attachments": e.get("attachments") or [], "kind": e.get("kind")})
         if e.get("our_reply"):
             msgs.append({"who": "us", "date": e.get("date"), "text": e["our_reply"], "links": []})
-    for o in r.get("our_messages") or []:
+    seen = {m["text"].strip() for m in msgs if m["who"] == "us"}
+    for o in r.get("our_messages") or []:   # reply_to logs here too; the same text must not read as a second send
+        if (o.get("text") or "").strip() in seen: continue
         msgs.append({"who": "us", "date": o.get("at"), "text": o.get("text") or "", "links": []})
     def when(m):
         d = m.get("date")

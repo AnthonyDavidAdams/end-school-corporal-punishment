@@ -12,9 +12,11 @@ referee fails, becomes a draft with the suggested text in it.
     decide(r, thread, record, filed, facts, recheck, quiet) -> {"move", "reply", "why"} or None
     check(body, thread, record) -> bool
 """
-import json, os, re, urllib.request
+import json, os, re, subprocess, urllib.request
 
 WRITER = "anthropic/claude-fable-5.1"   # Anthony: "use more advanced models on emails"; the replies carry his name
+CLI_MODEL = "claude-fable-5-1"           # the same model through Claude Code on the Max plan (claude -p): no per-call charge
+USE_CLI = os.environ.get("ESCP_WRITER", "cli") != "openrouter"
 LAST_ERROR = [None]
 MOVES = ("thank_recorded", "ask_link", "ask_residency_proof", "ask_minutes", "records_request", "forward", "answer", "hold")
 
@@ -73,23 +75,24 @@ def situation(r, thread, record, filed, facts, recheck, quiet):
             f"THE THREAD, OLDEST FIRST:\n\n{convo}\n\nChoose the move and write the reply.")
 
 
-def decide(r, thread, record, filed, facts, recheck, quiet):
-    req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",
-        data=json.dumps({"model": WRITER, "max_tokens": 2000, "temperature": 0.2,
-                         "messages": [{"role": "system", "content": BRIEF},
-                                      {"role": "user", "content": situation(r, thread, record, filed, facts, recheck, quiet)}]}).encode(),
-        headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
-    text = None
-    for attempt in range(3):
-        try:
-            j = json.load(urllib.request.urlopen(req, timeout=150))
-            text = (j["choices"][0]["message"].get("content") or "").strip()
-            if text: break
-            LAST_ERROR[0] = f"empty content (finish {j['choices'][0].get('finish_reason')})"
-        except Exception as ex:
-            LAST_ERROR[0] = repr(ex)[:160]
-    if text is None:
-        return None
+def ask_cli(system, user, timeout=240):
+    """The same brief and situation through the Claude Code CLI on the Max plan. Headless, no tools, no
+    session kept. Returns the text, or None so the caller falls back to OpenRouter."""
+    try:
+        p = subprocess.run(["claude", "-p", "--model", CLI_MODEL, "--output-format", "text", "--no-session-persistence",
+                            "--system-prompt", system, "--disallowedTools", "Bash", "Edit", "Write", "Read", "Glob", "Grep", "WebFetch", "WebSearch", "Agent", "Task"],
+                           input=user, capture_output=True, text=True, timeout=timeout,
+                           env={**os.environ, "PATH": os.path.expanduser("~/.local/bin") + ":/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"})
+        out = (p.stdout or "").strip()
+        if p.returncode == 0 and out:
+            return out
+        LAST_ERROR[0] = f"cli rc={p.returncode}: {(p.stderr or p.stdout or '')[:140]}"
+    except Exception as ex:
+        LAST_ERROR[0] = "cli: " + repr(ex)[:140]
+    return None
+
+
+def parse(text):
     # Line-based: the MOVE line, the WHY line, and everything after the first dashes-only line.
     d = None
     lines = text.replace("\r", "").split("\n")
@@ -116,6 +119,30 @@ def decide(r, thread, record, filed, facts, recheck, quiet):
     if not re.search(r"Sent from my iPhone|Safe Schools Project", body):
         body = body.rstrip() + "\n\nAnthony\n\nSent from my iPhone"
     return {"move": d["move"], "reply": body, "why": str(d.get("why", ""))[:200]}
+
+
+def decide(r, thread, record, filed, facts, recheck, quiet):
+    if USE_CLI:
+        text = ask_cli(BRIEF, situation(r, thread, record, filed, facts, recheck, quiet))
+        if text:
+            return parse(text)
+    req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",
+        data=json.dumps({"model": WRITER, "max_tokens": 2000, "temperature": 0.2,
+                         "messages": [{"role": "system", "content": BRIEF},
+                                      {"role": "user", "content": situation(r, thread, record, filed, facts, recheck, quiet)}]}).encode(),
+        headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
+    text = None
+    for attempt in range(3):
+        try:
+            j = json.load(urllib.request.urlopen(req, timeout=150))
+            text = (j["choices"][0]["message"].get("content") or "").strip()
+            if text: break
+            LAST_ERROR[0] = f"empty content (finish {j['choices'][0].get('finish_reason')})"
+        except Exception as ex:
+            LAST_ERROR[0] = repr(ex)[:160]
+    if text is None:
+        return None
+    return parse(text)
 
 
 def check(body, thread, record=None):
