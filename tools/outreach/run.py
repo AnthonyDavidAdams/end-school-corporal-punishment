@@ -461,6 +461,11 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         move, why = ("thank_recorded" if recorded else "hold"), f"a document is in the thread; {why}"
     if move == "forward" and not facts.get("redirect_to"):
         move, why = "hold", "forward with no address named; " + why
+    # Fees: anything above $5 is a person's call. $100 is the whole campaign's budget for copies.
+    if move != "hold" and re.search(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body)):
+        amts = [float(a.replace(",", "")) for a in re.findall(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body))]
+        if max(amts) > 5:
+            move, why = "hold", f"a fee of ${max(amts):g} is quoted; over the $5 line; " + why
     if quiet:
         move, why = "hold", "Anthony is in this thread; " + why
     ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
