@@ -84,7 +84,7 @@ def ensure_compliment(r):
 def subject_for(r):
     d = nice(r["name"])
     return {
-        "policy":   f"Can't find {d}'s corporal punishment policy",
+        "policy":   f"{d} corporal punishment policy",
         "minutes":  f"Records request: {d} board minutes on corporal punishment",
         "research": f"Records request: what {d}'s board relied on",
         "state_doe": f"Records request: district contacts, handbooks and discipline data",
@@ -445,6 +445,8 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     # The limits code keeps whatever the model chose.
     if move == "ask_minutes" and (record.get("status") == "bans" or their_replies > 1 or r.get("residency_required")):
         move, why = "hold", f"minutes request blocked by rule ({'policy already prohibits' if record.get('status') == 'bans' else 'not a first reply' if their_replies > 1 else 'needs a resident'}); {why}"
+    if move == "records_request" and r.get("formal_requested_at"):
+        move, why = "hold", "a formal request already went out on this thread; " + why
     if move == "forward" and not facts.get("redirect_to"):
         move, why = "hold", "forward with no address named; " + why
     if quiet:
@@ -467,6 +469,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
             elif move == "ask_link": r["awaiting_link_since"] = datetime.date.today().isoformat(); r["status"] = "sent"
             elif move == "ask_residency_proof": r["residency_asked_at"] = datetime.date.today().isoformat(); r["status"] = "sent"
             elif move == "ask_minutes": r["minutes_requested_at"] = datetime.date.today().isoformat(); r["status"] = "sent"; r["claim"] = "the district does not use corporal punishment"
+            elif move == "records_request": r["formal_requested_at"] = datetime.date.today().isoformat(); r["status"] = "sent"
             else: r["status"] = "sent"
         else:
             r["status"] = "needs_review"; entry["action"] = (entry.get("action") or "") + "; reply failed to send"
@@ -553,9 +556,11 @@ def rehold(send=True):
         their = sum(1 for m in thread if m["who"] == "them")
         if move == "ask_minutes" and (record.get("status") == "bans" or their > 1 or r.get("residency_required")): move = "hold"
         if move == "forward": move = "hold"
+        if move == "records_request" and r.get("formal_requested_at"): move = "hold"
         ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
         if ok and send and reply_to(r, frm, e["message_id"], subject, text):
             e["our_reply"] = text; e["move"] = move; e["why"] = why; e["action"] = (e.get("action") or "") + f"; re-decided and replied ({move})"
+            if move == "records_request": r["formal_requested_at"] = datetime.date.today().isoformat()
             r["status"] = "answered" if move == "thank_recorded" else "sent"; sent += 1
             log("rehold sent", r["state"], r["name"], move)
         else:

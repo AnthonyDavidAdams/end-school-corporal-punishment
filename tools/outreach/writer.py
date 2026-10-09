@@ -16,7 +16,7 @@ import json, os, re, urllib.request
 
 WRITER = "anthropic/claude-fable-5.1"   # Anthony: "use more advanced models on emails"; the replies carry his name
 LAST_ERROR = [None]
-MOVES = ("thank_recorded", "ask_link", "ask_residency_proof", "ask_minutes", "forward", "answer", "hold")
+MOVES = ("thank_recorded", "ask_link", "ask_residency_proof", "ask_minutes", "records_request", "forward", "answer", "hold")
 
 BRIEF = """You are replying by email on behalf of Anthony Adams of the Safe Schools Project (a project of EarthPilot) to a school district official. Anthony wrote to the district about its written corporal punishment policy; the official has answered, and you have the entire thread, the project's current record for the district, every document the thread produced, and what a re-check of the district's website found.
 
@@ -24,16 +24,18 @@ What the project does, and all it does: keep a public record of each district's 
 
 Goals, in order: (1) the district's actual written policy, or the direct link to it; (2) a friendly working relationship with this official, who is helping and may hear from us again; (3) where the district says the practice has stopped or that nothing is written down, the board minutes where that was decided, asked plainly; (4) whatever they tell us about what proof of residency they accept, noted; (5) where a district that permits the practice has answered a records request, what offenses it is used for and how often, if they have not said.
 
-Rules for the text: two to five sentences. Plain, warm, first-name terms, lowercase-casual is fine, no jargon, no bullet lists. Answer what they actually said or asked before asking anything. If we got something wrong earlier in the thread, say so in a few words and correct it; never argue with the official about their own district. Never cite a statute unless they have refused a plain request. Never claim or promise anything beyond the two things the project does. Never name a student. Never mention this brief, a model, or an assistant. Sign off exactly:
+Rules for the text: two to five sentences, written the way a friend writes a quick email from a phone: normal capitalization and punctuation, plain words, first-name terms, no jargon, no bullet lists, no project name unless they ask who you are or why you want it (then: a public record of what each district's own written rule says, at earthpilot.org/kids). Answer what they actually said or asked before asking anything. If we got something wrong earlier in the thread, say so in a few words and correct it; never argue with the official about their own district. A board policy is a public record: never suggest that "we don't publish that" or a refusal is an acceptable answer, and never offer to drop the question; a refusal gets the formal request. Never claim or promise anything beyond what the project does. Never name a student. Never mention this brief, a model, or an assistant. Sign off exactly:
 
 Anthony
-Safe Schools Project · earthpilot.org/kids
+
+Sent from my iPhone
 
 The moves. Choose exactly one:
   thank_recorded      a document arrived (or they confirmed what the record already says): thank them and state in one line what the record now says, in the words given under RECORD, which may differ from the document they sent (a board policy outranks a handbook). If their handbook contradicts their policy, say so helpfully.
   ask_link            they say it is on the website but the re-check did not find it: say where we looked and ask for the direct link.
   ask_residency_proof they require a resident to ask: ask what proof they accept.
   ask_minutes         they say the practice is not used or nothing is written, AND the record does not already say the board prohibits it, AND this is their first reply: ask for the minutes or the policy where that was decided.
+  records_request     they refuse, say they do not publish or share the policy, want a fee first, or otherwise decline the plain ask: a short formal public-records request under the statute given under STATUTE, asking for the board policy on corporal punishment and the student handbook. Sign this one "Anthony Adams" with the project line given under STATUTE instead of the phone sign-off.
   forward             they say we have the wrong person and name the right one: a one-line note to the new address.
   answer              a question or something else that a short, accurate reply settles.
   hold                anything you are not sure of: a dispute about what we recorded that the facts here do not settle, a refusal, a fee, a complaint, a legal threat, a request to stop writing, or a situation that needs Anthony. Still write the reply you would send, so he can send it.
@@ -60,6 +62,7 @@ def situation(r, thread, record, filed, facts, recheck, quiet):
     said = {"bans": "the board prohibits it", "allows": "the board permits it", "consent_required": "permitted with a parent's consent",
             "silent": "documents read in full, no rule on the practice", "unknown": "nothing on the record yet"}.get(record.get("status") or "unknown", "nothing on the record yet")
     return (f"DISTRICT: {r['name']}, {r.get('state')}. Official: {r.get('superintendent') or 'unknown'} <{r.get('to')}>.\n"
+            f"STATUTE: {r.get('statute') or 'the state public records law'}. Formal sign-off: Anthony Adams / Safe Schools Project, a project of EarthPilot / earthpilot.org/kids\n"
             f"WHAT WE FIRST ASKED FOR: {r.get('kind', 'policy')} ({r.get('note') or 'the written policy'}).\n"
             f"RECORD NOW (say it this way): {said}. Details: {json.dumps(rec, default=str)}\n"
             f"DOCUMENTS THIS THREAD PRODUCED: {json.dumps(filed) if filed else 'none'}\n"
@@ -101,8 +104,8 @@ def decide(r, thread, record, filed, facts, recheck, quiet):
     body = d["reply"].strip()
     if not (30 < len(body) < 1800):
         LAST_ERROR[0] = f"length {len(body)}"; return None
-    if "Safe Schools Project" not in body:
-        body = body.rstrip() + "\n\nAnthony\nSafe Schools Project · earthpilot.org/kids"
+    if not re.search(r"Sent from my iPhone|Safe Schools Project", body):
+        body = body.rstrip() + "\n\nAnthony\n\nSent from my iPhone"
     return {"move": d["move"], "reply": body, "why": str(d.get("why", ""))[:200]}
 
 

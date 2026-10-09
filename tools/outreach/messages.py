@@ -49,7 +49,7 @@ def sig(user, formal=False):
     """The signature. The project is named, and so is who actually runs it: no one has to guess."""
     if formal:
         return f"Anthony Adams\n{PROJECT}, a project of {PARENT}\n{SITE} · {user}"
-    return f"Anthony\n{PROJECT} · {SITE}"
+    return "Anthony\n\nSent from my iPhone"
 
 
 def nice(name):
@@ -58,17 +58,32 @@ def nice(name):
 
 # ---------------------------------------------------------------- first contact
 def ask_policy(r, user, compliment=None):
-    """The plain ask. No statute, no preamble, no attachment. One question, one link to who we are."""
+    """The first ask, the way a friend would put it (Anthony, 2026-10-09). No project name, no preamble,
+    no statute: one question. Who we are comes up if they ask, and the formal request if they refuse."""
     who = first_name(r.get("superintendent"))
-    d = nice(r["name"])
-    open_line = (compliment["line"] + "\n\n") if compliment and compliment.get("line") else ""
-    return f"""Hi {who},
+    return f"""Hey {who},
 
-{open_line}I'm trying to track down {d}'s current policy on corporal punishment and the student handbook link, and I can't find either one on the site. Can you point me to them?
-
-I keep a public, sourced record of what every district's own written rule says, one district at a time ({SITE}). We quote the district's own wording and link the document, so if yours is out of date online I'd rather have the right one than guess.
+I'm having trouble finding the policy on corporal punishment. Can you point me to the link or send it over?
 
 {sig(user)}
+"""
+
+
+def records_request(r, user, statute):
+    """A district declined the plain ask, or said it does not publish its policy. A board policy is a
+    public record in every state the project writes to, so this is the formal request, kept short."""
+    who = first_name(r.get("superintendent"))
+    d = nice(r["name"])
+    return f"""Hi {who},
+
+Understood. Under {statute}, I'm requesting copies of:
+
+  1. {d}'s current board policy on corporal punishment (and the student discipline policy it sits in), as adopted; and
+  2. the current student handbook or code of conduct.
+
+Electronic copies by reply are fine, and I'm happy to pay any copying fee the law allows. If any part is withheld, please cite the exemption.
+
+{sig(user, formal=True)}
 """
 
 
