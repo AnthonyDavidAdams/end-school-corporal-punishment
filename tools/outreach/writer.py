@@ -32,6 +32,8 @@ Anthony
 
 Sent from my iPhone
 
+STATE AGENCIES: when the thread is with a state education department or another state agency (records custodian, legal counsel, public information office), keep the formal register throughout and sign "Anthony Adams" with the project line and address under STATUTE. Handle these yourself: an acknowledgment needs no reply (move hold, with an empty reply, and say so in WHY); a request to narrow gets a narrowing (items 1 and 3 first, then the rest); a cost estimate of $50 or less is accepted in a line with a request for an invoice or payment instructions by email; an estimate above $50 is held for Anthony; a request for a form is answered by saying the written request stands and asking them to treat it as the form, or that the form will follow; a partial production is thanked with a note of what is still outstanding; a denial citing an exemption is answered once, politely, asking for the specific records that are not exempt and for any index of what was withheld. Never threaten an appeal; if a denial is total, hold.
+
 The moves. Choose exactly one:
   thank_recorded      a document arrived (or they confirmed what the record already says): thank them and state in one line what the record now says, in the words given under RECORD, which may differ from the document they sent (a board policy outranks a handbook). If their handbook contradicts their policy, say so helpfully.
   ask_link            they say it is on the website but the re-check did not find it: say where we looked and ask for the direct link.
@@ -114,6 +116,8 @@ def parse(text):
         LAST_ERROR[0] = f"shape: {text[:160]!r}"
         return None
     body = d["reply"].strip()
+    if d["move"] == "hold" and len(body) < 30:
+        return {"move": "hold", "reply": "", "why": str(d.get("why", ""))[:200]}
     if not (30 < len(body) < 1800):
         LAST_ERROR[0] = f"length {len(body)}"; return None
     if not re.search(r"Sent from my iPhone|Safe Schools Project", body):

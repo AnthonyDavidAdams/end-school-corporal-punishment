@@ -485,6 +485,9 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
             else: r["status"] = "sent"
         else:
             r["status"] = "needs_review"; entry["action"] = (entry.get("action") or "") + "; reply failed to send"
+    elif not text and re.search(r"acknowledg|no reply needed|nothing to answer|no response needed", why, re.I):
+        entry["action"] = (entry.get("action") or "") + f"; logged, no reply needed: {why}"
+        r["status"] = r.get("status") if r.get("status") in ("promised", "answered") else "sent"
     else:
         r["status"] = "anthony_replied" if quiet else "needs_review"
         entry["action"] = (entry.get("action") or "") + ("; logged, Anthony is handling this thread" if quiet else f"; held for Anthony: {why}")
