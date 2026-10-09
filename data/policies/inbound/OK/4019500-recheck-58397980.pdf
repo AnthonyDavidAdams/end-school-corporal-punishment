@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>McCord Public School District - 404 Page not found</title>
+
+  <link rel="stylesheet" href="/css/backend/bootstrap/bootstrap-3.4.1.min.css">
+
+<style>
+/* https://css-tricks.com/couple-takes-sticky-footer/ */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.body-content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+
+  background-color: #001e5a;
+  color: #fff;
+}
+
+.header {
+  background-color: #001e5a;
+  color: #fff;
+}
+
+.header .container-fluid,
+.footer .container-fluid {
+  display: flex;
+  flex-direction: column;
+
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 480px) {
+  .header .container-fluid,
+  .footer .container-fluid {
+    flex-direction: row;
+  }
+}
+
+.footer-logo {
+  background-color: #fff;
+  padding: .5em;
+}
+
+.footer-logo a {
+  display: block;
+  margin: 0 auto;
+}
+
+.header-content,
+.footer-content {
+  flex-grow: 1;
+  align-self: center;
+
+  padding: .5em;
+  text-align: center;
+  width: 100%; /* IE11 needs to get text to wrap */
+}
+
+.header-content p,
+.footer-content p {
+  margin-bottom: 0;
+}
+
+.header-content p + p,
+.footer-content p + p {
+  margin-top: .5em;
+}
+
+.header-content a,
+.footer-content a {
+  color: #fff;
+}
+
+.well > h4 {
+  margin-top: 0;
+}
+
+.container form {
+  margin-bottom: 2em;
+}
+
+.header-logo {
+  background: #fff url(/opengraph.png) no-repeat scroll center center;
+  background-size: cover;
+  min-width: 200px;
+  min-height: 125px;
+}
+
+.header-logo a {
+  display: block;
+  height: 100%;
+}
+</style>
+</head>
+<body>
+  <div class="body-content">
+
+    <header class="header">
+      <div class="container-fluid">
+        <div class="header-logo">
+          <a href="/"><span class="sr-only">Home page link</span></a>
+        </div>
+        <div class="header-content">
+          <h2><a href="/" title="Home Page">McCord Public School District</a></h2>
+          <p>404 - Page not found</p>
+        </div>
+        <!-- a href="/"><img src="/apple-touch-icon.png" alt="Site Logo"></a -->
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Sorry, the page you're looking for cannot be found.</h1>
+      </div>
+
+      <div class="well">
+        <h4>Perhaps you are here because:</h4>
+        <ul>
+          <li>The page has moved</li>
+          <li>The page no longer exists</li>
+          <li>A mistyped or truncated URL</li>
+        </ul>
+        <a class="btn btn-default" href="/">Return to home page</a>
+      </div>
+
+      <form method="get" action="/vnews/display.v/search">
+        <div class="form-group">
+          <label for="Fkeywords">Search site</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="Fkeywords" id="Fkeywords" value="" placeholder="Enter keyword(s)">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default" name="submit">Search</button>
+            </span>
+          </div>
+        </div>
+        <input name="search_type" value="vnews" type="hidden">
+      </form>
+
+    </div><!-- class="container" -->
+
+  </div><!-- class="body-content" -->
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="footer-logo">
+        <a target="_blank" rel="noopener"href="https://www.filamentservices.org/websites/"><img src="/vimages/backend/socs/Filament_3C_RGB-socs-175.png" alt="Filament Logo"></a>
+      </div>
+      <div class="footer-content">
+        <p><a href="https://www.filamentservices.org/" target="_blank" rel="noopener"title="Filament Web site (Accesskey 3)" accesskey="3">Filament Essential Services</a></p>
+        <p>1300 O Street Lincoln, NE 68508</p>
+        <p>Phone: <a href="tel:800-850-8397">800-850-8397</a></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
