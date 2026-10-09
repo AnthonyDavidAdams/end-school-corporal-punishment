@@ -28,6 +28,7 @@ def state_name(code):
 
 PROJECT = "Safe Schools Project"
 PARENT = "EarthPilot"
+MAIL = "11662 Old Lake Road, North East, PA 16428"   # the campaign's mailing address (Anthony, 2026-10-09)
 SITE = "earthpilot.org/kids"
 
 
@@ -48,7 +49,7 @@ def first_name(sup, fallback="there"):
 def sig(user, formal=False):
     """The signature. The project is named, and so is who actually runs it: no one has to guess."""
     if formal:
-        return f"Anthony Adams\n{PROJECT}, a project of {PARENT}\n{SITE} · {user}"
+        return f"Anthony Adams\n{PROJECT}, a project of {PARENT}\n{SITE} · {user}\n{MAIL}"
     return "Anthony\n\nSent from my iPhone"
 
 
@@ -81,7 +82,7 @@ Understood. Under {statute}, I'm requesting copies of:
   1. {d}'s current board policy on corporal punishment (and the student discipline policy it sits in), as adopted; and
   2. the current student handbook or code of conduct.
 
-Electronic copies by reply are fine, and I'm happy to pay any copying fee the law allows. If any part is withheld, please cite the exemption.
+Electronic copies by reply are fine; where a record is kept electronically, please provide that file rather than a printout. This request is in the public interest, not commercial, so I'd ask that any copying charge be itemized under the statute's per-page cap. If any part is withheld, please cite the exemption.
 
 {sig(user, formal=True)}
 """

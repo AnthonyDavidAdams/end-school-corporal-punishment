@@ -392,6 +392,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     """
     if mid in (r.get("answered_message_ids") or []):
         log("already answered", r["state"], r["name"], mid[:40]); return
+    quiet = quiet or bool(r.get("hold_replies"))   # a thread Anthony has taken over by hand
     d = os.path.join(REPLIES, r["id"]); os.makedirs(d, exist_ok=True); h = hashlib.sha1(mid.encode()).hexdigest()[:8]
     open(os.path.join(d, h + ".eml"), "wb").write(rawbytes)
     kind, conf, facts = triage_mod.triage(subject, frm, body, [a[0] for a in atts], links)

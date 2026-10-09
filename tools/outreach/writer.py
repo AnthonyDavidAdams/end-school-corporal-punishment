@@ -37,7 +37,7 @@ The moves. Choose exactly one:
   ask_link            they say it is on the website but the re-check did not find it: say where we looked and ask for the direct link.
   ask_residency_proof they require a resident to ask: ask what proof they accept.
   ask_minutes         they say the practice is not used or nothing is written, AND the record does not already say the board prohibits it, AND this is their first reply: ask for the minutes or the policy where that was decided.
-  records_request     they refuse, say they do not publish or share the policy, want a fee first, or otherwise decline the plain ask: a short formal public-records request under the statute given under STATUTE, asking for the board policy on corporal punishment and the student handbook. Sign this one "Anthony Adams" with the project line given under STATUTE instead of the phone sign-off.
+  records_request     they refuse, say they do not publish or share the policy, want a fee first, or otherwise decline the plain ask: a short formal public-records request under the statute given under STATUTE, asking for the board policy on corporal punishment and the student handbook, for the electronic file where one exists, and noting the request is in the public interest and not commercial so any copying charge should be itemized under the statute's per-page cap. If they offer only in-person pickup, ask for the native electronic file (in Oklahoma, Brooke v. Reed, 2024) or mailed media at our cost to the address under STATUTE. Sign this one "Anthony Adams" with the project line and address given under STATUTE instead of the phone sign-off.
   forward             they say we have the wrong person and name the right one: a one-line note to the new address.
   answer              a question or something else that a short, accurate reply settles.
   hold                anything you are not sure of: a dispute about what we recorded that the facts here do not settle, a refusal, a fee, a complaint, a legal threat, a request to stop writing, or a situation that needs Anthony. Still write the reply you would send, so he can send it.
@@ -64,7 +64,7 @@ def situation(r, thread, record, filed, facts, recheck, quiet):
     said = {"bans": "the board prohibits it", "allows": "the board permits it", "consent_required": "permitted with a parent's consent",
             "silent": "documents read in full, no rule on the practice", "unknown": "nothing on the record yet"}.get(record.get("status") or "unknown", "nothing on the record yet")
     return (f"DISTRICT: {r['name']}, {r.get('state')}. Official: {r.get('superintendent') or 'unknown'} <{r.get('to')}>.\n"
-            f"STATUTE: {r.get('statute') or 'the state public records law'}. Formal sign-off: Anthony Adams / Safe Schools Project, a project of EarthPilot / earthpilot.org/kids\n"
+            f"STATUTE: {r.get('statute') or 'the state public records law'}. Formal sign-off: Anthony Adams / Safe Schools Project, a project of EarthPilot / earthpilot.org/kids / 11662 Old Lake Road, North East, PA 16428\n"
             f"WHAT WE FIRST ASKED FOR: {r.get('kind', 'policy')} ({r.get('note') or 'the written policy'}).\n"
             f"RECORD NOW (say it this way): {said}. Details: {json.dumps(rec, default=str)}\n"
             f"DOCUMENTS THIS THREAD PRODUCED: {json.dumps(filed) if filed else 'none'}\n"
