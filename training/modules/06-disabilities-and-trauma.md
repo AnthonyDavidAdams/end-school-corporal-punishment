@@ -4,7 +4,7 @@
 
 ## What this module replaces
 
-The exemption that many paddling policies already carry for students with IEPs, which staff learn as "you can't paddle those kids," without learning what to do instead. Four states now prohibit corporal punishment of students with disabilities by law (`../../facts/claims/law-disability-exemptions-by-state.md`), and the federal data show why: in 2017-18, students with IDEA disabilities were 16.5 percent of students struck and 13.2 percent of enrollment (`crdc-disability-share.md`).
+The exemption that many paddling policies already carry for students with IEPs, which staff learn as "you can't paddle those kids," without learning what to do instead. Five states now prohibit corporal punishment of students with disabilities by law while still permitting it for other students, Tennessee with a parental-permission exception (`../../facts/claims/law-disability-exemptions-by-state.md`), and the federal data show why: in 2017-18, students with IDEA disabilities were 16.5 percent of students struck and 13.2 percent of enrollment (`../../facts/claims/crdc-disability-share.md`).
 
 ## The evidence, honestly
 
