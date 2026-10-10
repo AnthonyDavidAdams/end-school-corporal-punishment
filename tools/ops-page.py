@@ -78,78 +78,87 @@ def main():
     victories = [json.loads(l) for l in open(os.path.join(ROOT, "data/victories.jsonl")) if l.strip()] if os.path.exists(os.path.join(ROOT, "data/victories.jsonl")) else []
     corrections = [json.loads(l) for l in open(os.path.join(ROOT, "data/corrections.jsonl")) if l.strip()] if os.path.exists(os.path.join(ROOT, "data/corrections.jsonl")) else []
 
-    by = sorted(rec["by"].items(), key=lambda kv: -(kv[1]["total"] - kv[1]["quoted"]))
+    by = sorted(rec["by"].items(), key=lambda kv: -(kv[1]["allows"] + kv[1]["consent"] + (kv[1]["total"] - kv[1]["quoted"])))
+    hit = rec["status"].get("allows", 0) + rec["status"].get("consent_required", 0)
+    banned = rec["status"].get("bans", 0)
+    unknown = rec["total"] - rec["quoted"]
+    needs_you = len(rows.get("needs_you") or [])
+    replied = sum(1 for r in reqs if any(e.get("from") != "us" for e in r.get("replies") or []))
+    districts_asked = sum(1 for r in reqs if r.get("kind") not in ("state_doe",) and r.get("status") != "pending")
+    agencies_asked = len({r["state"] for r in agencies}) + len({f["state"] for f in forms if f.get("submitted_at")} - {r["state"] for r in agencies})
     H = []
     H.append(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mission control · Safe Schools Project</title><meta name="robots" content="noindex">
-<meta property="og:title" content="Mission control · Safe Schools Project"><meta property="og:description" content="The record, the correspondence, the agencies and the harvesters, as they stand right now."><meta property="og:type" content="website"><meta property="og:url" content="https://earthpilot.org/kids/ops/"><meta property="og:site_name" content="End School Corporal Punishment"><meta property="og:image" content="https://earthpilot.org/kids/assets/og.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Mission control · Safe Schools Project"><meta name="twitter:description" content="The record, the correspondence, the agencies and the harvesters, as they stand right now."><meta name="twitter:image" content="https://earthpilot.org/kids/assets/og.png">
+<title>Safe Schools Project · status</title><meta name="robots" content="noindex">
+<meta property="og:title" content="Safe Schools Project · status"><meta property="og:description" content="How many school districts still let adults hit children, how many have stopped, and what we did today."><meta property="og:type" content="website"><meta property="og:url" content="https://earthpilot.org/kids/ops/"><meta property="og:site_name" content="End School Corporal Punishment"><meta property="og:image" content="https://earthpilot.org/kids/assets/og.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Safe Schools Project · status"><meta name="twitter:description" content="How many school districts still let adults hit children, how many have stopped, and what we did today."><meta name="twitter:image" content="https://earthpilot.org/kids/assets/og.png">
 <meta http-equiv="refresh" content="300">
 <style>
 :root{{--bg:#0B0F1E;--panel:#121832;--line:#232B4A;--ink:#E8ECF1;--mute:#8B95A5;--dim:#5E6A8A;--gold:#FDE68A;--green:#43E08A;--red:#FF6B6B;--amber:#FFB000;--blue:#7DD3FC}}
-*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 'IBM Plex Mono',ui-monospace,Menlo,monospace;padding:20px 16px 60px}}
-h1{{font-size:20px;margin:0 0 .2rem;font-weight:600}}h2{{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 .6rem;font-weight:500}}
-.meta{{color:var(--dim);margin:0 0 1.2rem}}.grid{{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}}
-.panel{{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}}.wide{{grid-column:1/-1}}
-.big{{display:flex;gap:18px;flex-wrap:wrap;margin:.2rem 0 .6rem}}.big div{{min-width:90px}}.big b{{display:block;font-size:26px;font-weight:600;line-height:1.1}}.big span{{color:var(--mute);font-size:12px}}
-table{{border-collapse:collapse;width:100%}}td,th{{padding:.22rem .5rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-weight:400}}th{{color:var(--mute);font-size:11px;letter-spacing:.08em;text-transform:uppercase}}td.n{{text-align:right;font-variant-numeric:tabular-nums}}
-.g{{color:var(--green)}}.r{{color:var(--red)}}.a{{color:var(--amber)}}.m{{color:var(--mute)}}.b{{color:var(--blue)}}
-pre{{margin:0;white-space:pre-wrap;word-break:break-word;color:var(--mute);font-size:12px;max-height:380px;overflow:auto}}
-.bar{{height:6px;background:#1b2140;border-radius:3px;overflow:hidden;margin-top:3px}}.bar i{{display:block;height:100%;background:var(--green)}}
-a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}
+*{{box-sizing:border-box}}body{{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 'Source Sans 3',system-ui,sans-serif;padding:24px 16px 60px;max-width:960px;margin:0 auto}}
+h1{{font-size:26px;margin:0 0 .2rem;font-weight:600}}h2{{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 .7rem;font-weight:600}}
+.meta{{color:var(--dim);margin:0 0 1.4rem;font-size:14px}}.panel{{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px}}
+.big{{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}}.big b{{display:block;font-size:40px;font-weight:700;line-height:1.05}}.big span{{color:var(--mute);font-size:14px}}
+.ok{{border-color:#1f4d35}}.ok b{{color:var(--green)}}.bad{{border-color:#5a2222}}
+table{{border-collapse:collapse;width:100%;font-size:15px}}td,th{{padding:.3rem .5rem;border-bottom:1px solid var(--line);text-align:left;font-weight:400}}th{{color:var(--mute);font-size:12px;letter-spacing:.06em;text-transform:uppercase}}td.n{{text-align:right;font-variant-numeric:tabular-nums}}
+.g{{color:var(--green)}}.r{{color:var(--red)}}.a{{color:var(--amber)}}.m{{color:var(--mute)}}
+details{{margin-top:10px}}summary{{cursor:pointer;color:var(--mute)}}pre{{white-space:pre-wrap;word-break:break-word;color:var(--mute);font:12px/1.4 ui-monospace,Menlo,monospace;max-height:360px;overflow:auto;margin:.5rem 0 0}}
+a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}p{{margin:.5rem 0 0}}
 </style></head><body>
-<h1>Mission control</h1><p class="meta">Safe Schools Project · rebuilt {esc(now.strftime('%Y-%m-%d %H:%M'))} local · refreshes itself every 5 minutes · <a href="/kids/live/">flight board</a> · <a href="/kids/">the record</a></p>
-<div class="grid">""")
+<h1>Safe Schools Project</h1><p class="meta">Status as of {esc(now.strftime('%A %B %-d, %-I:%M %p'))}. Updates itself every few minutes. <a href="/kids/live/">Watch it live</a> · <a href="/kids/">The public record</a></p>""")
 
-    # The record
-    unq = rec["total"] - rec["quoted"]
-    H.append(f"""<div class="panel"><h2>The record</h2><div class="big">
-<div><b>{rec['total']:,}</b><span>districts</span></div><div><b class="g">{rec['quoted']:,}</b><span>policy found, exact sentence on file</span></div><div><b class="a">{unq:,}</b><span>policy not found yet</span></div></div>
-<div class="bar"><i style="width:{100*rec['quoted']/max(rec['total'],1):.1f}%"></i></div>
-<p class="m" style="margin:.6rem 0 0">Of those found: {rec['status'].get('bans',0):,} prohibit it · {rec['status'].get('allows',0):,} permit it · {rec['status'].get('consent_required',0):,} permit it only with a parent's consent</p></div>""")
+    # 1. The one question
+    H.append(f"""<div class="panel"><h2>Where we stand</h2><div class="big">
+<div><b class="r">{hit:,}</b><span>districts still allow adults to hit children</span></div>
+<div><b class="g">{banned:,}</b><span>districts have banned it</span></div>
+<div><b class="a">{unknown:,}</b><span>districts we haven't got an answer from yet</span></div></div>
+<p class="m">We count a district only when we have its own written rule, word for word, with a link to the document. {rec['status'].get('consent_required',0):,} of the "still allow" districts require a parent's permission first.</p></div>""")
 
-    # Today
+    # 2. Does anything need Anthony
+    if needs_you:
+        H.append(f"""<div class="panel bad"><h2>Needs you</h2><div class="big"><div><b class="r">{needs_you}</b><span>email threads waiting for your call</span></div></div><p class="m">Each one is a draft in Gmail with the suggested reply inside. <a href="/kids/ops/board.html">See which</a>.</p></div>""")
+    else:
+        H.append("""<div class="panel ok"><h2>Needs you</h2><div class="big"><div><b>0</b><span>nothing is waiting on you</span></div></div></div>""")
+
+    # 3. Today
     H.append(f"""<div class="panel"><h2>Today</h2><div class="big">
-<div><b>{sent_today}</b><span>asks sent</span></div><div><b>{replies_today}</b><span>replies in</span></div><div><b>{sum(v['today'] for _, v in by):,}</b><span>policies found today</span></div><div><b class="a">{pending}</b><span>queued to send</span></div></div>
-<p class="m" style="margin:.4rem 0 0">victories logged {len(victories)} · corrections {len(corrections)} · requests of every kind {sum(kinds.values())}</p></div>""")
+<div><b>{sum(v['today'] for _, v in by):,}</b><span>district rules found</span></div>
+<div><b>{sent_today}</b><span>emails sent to districts</span></div>
+<div><b>{replies_today}</b><span>replies that came in</span></div>
+<div><b>{pending}</b><span>emails lined up to go</span></div></div></div>""")
 
-    # Correspondence lanes
-    H.append('<div class="panel"><h2>Correspondence</h2><table>')
-    for key, title in track.STAGES:
-        v = rows.get(key) or []
-        if not v: continue
-        cls = "r" if key == "needs_you" else "g" if key == "done" else ""
-        H.append(f'<tr><td class="{cls}">{esc(title)}</td><td class="n">{len(v)}</td></tr>')
-    H.append(f'</table><p class="m" style="margin:.5rem 0 0">{len(reqs)} districts and agencies written to · <a href="/kids/ops/board.html">full board</a></p></div>')
+    # 4. Who we've asked
+    waiting = len(rows.get("waiting") or []) + len(rows.get("nudge") or [])
+    H.append(f"""<div class="panel"><h2>Who we've asked</h2><div class="big">
+<div><b>{districts_asked:,}</b><span>districts emailed</span></div>
+<div><b>{replied:,}</b><span>wrote back</span></div>
+<div><b>{waiting:,}</b><span>haven't answered yet</span></div>
+<div><b>{agencies_asked}</b><span>state education departments asked for everything they hold</span></div></div>
+<p class="m">Emails are answered automatically within 15 minutes. If a district refuses, it gets a formal public-records request. {len(rows.get('residency') or [])} districts will only answer a resident of their state. <a href="/kids/ops/board.html">Every conversation</a>.</p></div>""")
 
-    # Agencies
-    H.append('<div class="panel"><h2>State agencies</h2><table><tr><th>State</th><th>Route</th><th>Sent</th><th>Status</th></tr>')
+    # 5. By state, simplified
+    H.append('<div class="panel"><h2>By state</h2><table><tr><th>State</th><th class="n">Still allow it</th><th class="n">Banned it</th><th class="n">No answer yet</th><th class="n">Found today</th></tr>')
+    for st, v in by:
+        if v["total"] == 0: continue
+        H.append(f'<tr><td><a href="/kids/state/{esc(st)}/">{esc(st)}</a></td><td class="n r">{v["allows"]+v["consent"] or ""}</td><td class="n g">{v["bans"] or ""}</td><td class="n a">{(v["total"]-v["quoted"]) or ""}</td><td class="n">{v["today"] or ""}</td></tr>')
+    H.append('</table></div>')
+
+    # 6. Everything else, folded away
+    H.append('<div class="panel"><h2>Under the hood</h2>')
+    H.append('<details><summary>State education departments</summary><table><tr><th>State</th><th>How</th><th>Sent</th><th>Where it stands</th></tr>')
     seen = set()
     for r in sorted(agencies, key=lambda x: x["state"]):
         seen.add(r["state"]); st, why = track.stage(r)
-        H.append(f'<tr><td>{esc(r["state"])}</td><td class="m">email</td><td class="m">{esc((r.get("sent_at") or "")[:10])}</td><td>{esc(r.get("status"))}{(" · " + esc(r.get("promised_by"))) if r.get("promised_by") else ""}<br><span class="m">{esc(why)}</span></td></tr>')
+        H.append(f'<tr><td>{esc(r["state"])}</td><td class="m">email</td><td class="m">{esc((r.get("sent_at") or "")[:10])}</td><td>{esc(r.get("status"))}{(" · answer due " + esc(r.get("promised_by"))) if r.get("promised_by") else ""} <span class="m">{esc(why)}</span></td></tr>')
     for f in forms:
         if f["state"] in seen or not f.get("submitted_at"): continue
-        H.append(f'<tr><td>{esc(f["state"])}</td><td class="m">web form</td><td class="m">{esc(f["submitted_at"][:10])}</td><td>submitted<br><span class="m">{esc((f.get("confirmation") or "")[:80])}</span></td></tr>')
-    H.append('</table></div>')
-
-    # By state
-    H.append('<div class="panel wide"><h2>By state: policies found and still missing</h2><table><tr><th>State</th><th class="n">Districts</th><th class="n">Found</th><th class="n">Missing</th><th class="n">Prohibit</th><th class="n">Permit</th><th class="n">Consent</th><th class="n">Today</th><th></th></tr>')
-    for st, v in by:
-        if v["total"] - v["quoted"] == 0 and v["today"] == 0: continue
-        pct = 100 * v["quoted"] / max(v["total"], 1)
-        H.append(f'<tr><td><a href="/kids/state/{esc(st)}/">{esc(st)}</a></td><td class="n">{v["total"]}</td><td class="n g">{v["quoted"]}</td><td class="n a">{v["total"]-v["quoted"]}</td><td class="n">{v["bans"]}</td><td class="n">{v["allows"]}</td><td class="n">{v["consent"]}</td><td class="n b">{v["today"] or ""}</td><td style="min-width:120px"><div class="bar"><i style="width:{pct:.0f}%"></i></div></td></tr>')
-    H.append('</table></div>')
-
-    # Harvesters
-    H.append('<div class="panel"><h2>Portal harvesters (nightly)</h2><table><tr><th>State</th><th>Reader</th><th class="n">Rows</th><th>Last new records</th></tr>')
+        H.append(f'<tr><td>{esc(f["state"])}</td><td class="m">web form</td><td class="m">{esc(f["submitted_at"][:10])}</td><td>submitted</td></tr>')
+    H.append('</table></details>')
+    H.append('<details><summary>Automatic readers of state policy websites (run every night)</summary><table><tr><th>State</th><th>Reader</th><th class="n">Districts read</th><th>Last new finds</th></tr>')
     for p in portals():
-        ln = f'{p["last_new"][0]} · {p["last_new"][1]}' if p["last_new"] else "none yet"
+        ln = f'{p["last_new"][0]} · {p["last_new"][1]}' if p["last_new"] else "nothing new since the first pass"
         H.append(f'<tr><td>{esc(p["state"])}</td><td class="m">{esc(p["harvester"])}</td><td class="n">{p["rows"]}</td><td class="m">{esc(ln)}</td></tr>')
-    H.append('</table></div>')
-
-    # Logs
-    H.append('<div class="panel"><h2>Last night</h2><pre>' + esc("\n".join(nightly_tail())) + '</pre></div>')
-    H.append('<div class="panel wide"><h2>Outreach job, recent</h2><pre>' + esc("\n".join(outreach_tail())) + '</pre></div>')
+    H.append('</table></details>')
+    H.append('<details><summary>Last night\'s run</summary><pre>' + esc("\n".join(nightly_tail())) + '</pre></details>')
+    H.append('<details><summary>Email job, recent activity</summary><pre>' + esc("\n".join(outreach_tail())) + '</pre></details>')
     H.append('</div></body></html>')
 
     os.makedirs(os.path.join(ROOT, "site/ops"), exist_ok=True)
