@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse } from "yaml";
+import { wrongSource } from "../lib/quarantine.mjs";
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const argv = process.argv.slice(2);
 const arg = (k, d) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : d; };
@@ -32,7 +33,7 @@ const STATUS_LINE = {
   bans: d => `prohibits corporal punishment`,
 };
 
-let written = 0; const gaps = [];
+let written = 0; const gaps = [], held = [];
 for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith(".yaml"))) {
   const doc = parse(readFileSync(join(root, "data/districts", f), "utf8"));
   if (onlyState && doc.state !== onlyState) continue;
@@ -41,6 +42,7 @@ for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith
     // Nothing is sent about a district nobody has opened the policy for.
     if (!d.source || !d.quote || !STATUS_LINE[d.status]) continue;
     if ((d.crdc_students_latest ?? 0) < minStudents) continue;
+    if (wrongSource(doc.state, d)) { held.push(`${doc.state} ${d.name}`); continue; }
     const to = d.contact?.district_email || d.contact?.board_email || null;
     if (!to) { gaps.push(`${doc.state} ${d.name}: no published address on file`); continue; }
 
@@ -134,4 +136,5 @@ for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith
   }
 }
 console.log(`assembled ${written} message${written === 1 ? "" : "s"}`);
+if (held.length) console.log(`\n${held.length} held because the record cites another district's document (data/quarantine/wrong-source.json): ${held.join(", ")}`);
 if (gaps.length) { console.log(`\n${gaps.length} district${gaps.length === 1 ? "" : "s"} ready except for an address:`); for (const g of gaps.slice(0, 40)) console.log(`  ${g}`); if (gaps.length > 40) console.log(`  ... and ${gaps.length - 40} more`); }
