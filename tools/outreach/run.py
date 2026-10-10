@@ -232,7 +232,7 @@ def anthony_threads(M, reqs):
     done = set()
     try:
         M.select('"[Gmail]/Sent Mail"')
-        typ, data = M.search(None, "X-GM-RAW", '"newer_than:120d (subject:corporal OR subject:\"records request\" OR subject:handbook OR subject:\"safe schools\")"')
+        typ, data = M.search(None, "X-GM-RAW", '"newer_than:120d subject:(corporal OR handbook OR records OR schools)"')
         for num in (data[0].split() if data and data[0] else []):
             typ, raw = M.fetch(num, "(RFC822)"); h = email.message_from_bytes(raw[0][1])
             if not h.get("In-Reply-To"): continue          # our own outbound requests are not replies
