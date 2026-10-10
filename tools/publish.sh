@@ -7,6 +7,7 @@ export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
 npm --prefix tools run build-site 2>&1 | tail -1
 # Victories are logged by the merge (data/victories.jsonl) and not announced for now; tools/victory.mjs
 # is the announcer, run by hand when there is a real one.
+python3 tools/ops-page.py >/dev/null 2>&1
 git add data/districts data/policies data/outreach/requests.json site >/dev/null 2>&1
 git commit -q -m "${1:-Update the record}
 

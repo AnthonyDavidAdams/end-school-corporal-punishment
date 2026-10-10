@@ -666,6 +666,20 @@ def rehold(send=True):
         save(reqs)
     M.logout(); log(f"rehold: {sent} sent, {held} still held")
 
+def ops_page():
+    """Rebuild the mission-control page and push just that folder, so the dashboard is never more than 15 minutes old."""
+    try:
+        subprocess.run([sys.executable, os.path.join(ROOT, "tools/ops-page.py")], cwd=ROOT, capture_output=True, timeout=120)
+        envp = os.path.expanduser("~/.escp-deploy.env")
+        if os.path.exists(envp):
+            env = dict(l.strip().split("=", 1) for l in open(envp) if "=" in l and not l.startswith("#"))
+            env = {k: v.strip('"') for k, v in env.items()}
+            subprocess.run(["sshpass", "-p", env["DEPLOY_PASS"], "rsync", "-az", "-e", "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no",
+                            os.path.join(ROOT, "site/ops/"), f"{env['DEPLOY_HOST']}:{env['DEPLOY_PATH']}/ops/"], capture_output=True, timeout=120, env={**os.environ, "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"})
+        log("ops page rebuilt")
+    except Exception as ex:
+        log("ops page failed", repr(ex)[:100])
+
 # ---------------------------------------------------------------- follow-up
 def followup():
     reqs = load(); n = 0
@@ -741,7 +755,7 @@ if __name__ == "__main__":
     if cmd == "send": send(int(sys.argv[2]) if len(sys.argv) > 2 else 25)
     elif cmd == "inbox": inbox()
     elif cmd == "followup": followup()
-    elif cmd == "cycle": send(25); inbox(); followup(); tidy()
+    elif cmd == "cycle": send(25); inbox(); followup(); tidy(); ops_page()
     elif cmd == "compliments":
         # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
         reqs = load(); n = 0
