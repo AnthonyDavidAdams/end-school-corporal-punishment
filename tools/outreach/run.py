@@ -531,6 +531,7 @@ def queue(n=25):
         for c in rows:
             if isinstance(c, dict) and c.get("state") and c.get("name") and (c.get("district_email") or c.get("email")):
                 contacts[(c["state"], re.sub(r"[^a-z0-9]", "", c["name"].lower()))] = c
+                if c.get("nces_id"): contacts[("id", str(c["nces_id"]))] = c
     crdc = {}
     for l in open(os.path.join(ROOT, "data/crdc/2023-24/districts.csv")).read().strip().split("\n")[1:]:
         c = l.rsplit(",", 1); crdc[c[0].split(",")[1]] = int(c[1] or 0)
@@ -544,7 +545,7 @@ def queue(n=25):
             if str(x.get("nces_id")) in have or (st, x["name"].lower()) in have: continue
             # The state's own superintendent directory first (23 record contacts were wrong on 2026-10-09:
             # Little Rock carried a charter's address), then whatever the record holds.
-            k = contacts.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
+            k = contacts.get(("id", str(x.get("nces_id")))) or contacts.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
             c = x.get("contact") or {}
             to = k.get("district_email") or k.get("email") or c.get("district_email") or c.get("board_email")
             who = k.get("superintendent") or c.get("superintendent")
