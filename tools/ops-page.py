@@ -103,13 +103,13 @@ a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}
     # The record
     unq = rec["total"] - rec["quoted"]
     H.append(f"""<div class="panel"><h2>The record</h2><div class="big">
-<div><b>{rec['total']:,}</b><span>districts</span></div><div><b class="g">{rec['quoted']:,}</b><span>quoting their own rule</span></div><div><b class="a">{unq:,}</b><span>still unquoted</span></div></div>
+<div><b>{rec['total']:,}</b><span>districts</span></div><div><b class="g">{rec['quoted']:,}</b><span>policy found, exact sentence on file</span></div><div><b class="a">{unq:,}</b><span>policy not found yet</span></div></div>
 <div class="bar"><i style="width:{100*rec['quoted']/max(rec['total'],1):.1f}%"></i></div>
-<p class="m" style="margin:.6rem 0 0">prohibit {rec['status'].get('bans',0):,} · permit {rec['status'].get('allows',0):,} · permit with consent {rec['status'].get('consent_required',0):,}</p></div>""")
+<p class="m" style="margin:.6rem 0 0">Of those found: {rec['status'].get('bans',0):,} prohibit it · {rec['status'].get('allows',0):,} permit it · {rec['status'].get('consent_required',0):,} permit it only with a parent's consent</p></div>""")
 
     # Today
     H.append(f"""<div class="panel"><h2>Today</h2><div class="big">
-<div><b>{sent_today}</b><span>asks sent</span></div><div><b>{replies_today}</b><span>replies in</span></div><div><b>{sum(v['today'] for _, v in by):,}</b><span>districts verified</span></div><div><b class="a">{pending}</b><span>queued to send</span></div></div>
+<div><b>{sent_today}</b><span>asks sent</span></div><div><b>{replies_today}</b><span>replies in</span></div><div><b>{sum(v['today'] for _, v in by):,}</b><span>policies found today</span></div><div><b class="a">{pending}</b><span>queued to send</span></div></div>
 <p class="m" style="margin:.4rem 0 0">victories logged {len(victories)} · corrections {len(corrections)} · requests of every kind {sum(kinds.values())}</p></div>""")
 
     # Correspondence lanes
@@ -133,7 +133,7 @@ a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}
     H.append('</table></div>')
 
     # By state
-    H.append('<div class="panel wide"><h2>Unquoted, by state</h2><table><tr><th>State</th><th class="n">Districts</th><th class="n">Quoted</th><th class="n">Left</th><th class="n">Prohibit</th><th class="n">Permit</th><th class="n">Consent</th><th class="n">Today</th><th></th></tr>')
+    H.append('<div class="panel wide"><h2>By state: policies found and still missing</h2><table><tr><th>State</th><th class="n">Districts</th><th class="n">Found</th><th class="n">Missing</th><th class="n">Prohibit</th><th class="n">Permit</th><th class="n">Consent</th><th class="n">Today</th><th></th></tr>')
     for st, v in by:
         if v["total"] - v["quoted"] == 0 and v["today"] == 0: continue
         pct = 100 * v["quoted"] / max(v["total"], 1)
