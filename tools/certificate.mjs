@@ -19,14 +19,19 @@ const fmt = (iso) => {
   return `${MONTHS[m - 1]} ${day}, ${y}`;
 };
 
-export function certificateHtml({ d, stateName, esc, n, base }) {
-  // policy_revised is the latest date the policy prints (a revision, a reissue, sometimes a review), not
-  // the day the board prohibited corporal punishment. On TASB it is the vendor's DATE ISSUED stamp, and
-  // on some Texas records that stamp was read from FO(LEGAL) rather than the board's FO(LOCAL), so a
-  // TASB certificate prints no revision date at all.
+// The dates anything published may print for a district's policy. policy_revised is the latest date the
+// policy prints (a revision, a reissue, sometimes a review), never the day the board prohibited corporal
+// punishment, so callers word it as the date the policy is dated. On TASB it is the vendor's DATE ISSUED
+// stamp, and on some Texas records that stamp was read from FO(LEGAL) rather than the board's
+// FO(LOCAL), so it is not used at all. `dated` is whichever of the two remains, for placing or sorting.
+export const policyDates = (d) => {
   const revised = /pol\.tasb\.org/.test(d.source || "") ? null : d.policy_revised || null;
   const adopted = d.policy_adopted || null;
-  const dated = revised || adopted;
+  return { adopted, revised, dated: revised || adopted };
+};
+
+export function certificateHtml({ d, stateName, esc, n, base }) {
+  const { adopted, revised, dated } = policyDates(d);
   // The 2023-24 collection covers a school year that ends in late May or June 2024, so a policy dated
   // from June 2024 onward post-dates the conduct being reported. Pike County revised its ban on
   // 17 June 2024, after the year in which it reported 252 students struck, and a later cutoff put it

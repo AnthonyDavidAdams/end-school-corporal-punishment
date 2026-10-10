@@ -1,12 +1,13 @@
 // Static site generator for earthpilot.org/kids. Reads site/data/*.json (run build-site-data.mjs first),
 // data/crdc/*/states.csv, templates/*.md. Writes site/index.html, site/state/<XX>/index.html, site/resources/index.html, site/contribute/index.html.
-import { statSync, readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { statSync, readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync, rmSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { certificateHtml, certifiable } from "./certificate.mjs";
 import { toll as buildToll } from "./toll.mjs";
 import { connectSections, mdToHtml } from "./connect-page.mjs";
+import { policyDates } from "./certificate.mjs";
 // A district's name becomes its certificate URL, so the rule has to be stable: the same district must
 // get the same address on every rebuild or a printed link stops working.
 const slug = (x) => String(x).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -678,9 +679,8 @@ mkdirSync(join(site, "stopped"), { recursive: true });
   certs.sort((a, b) => (b.policy_revised || b.policy_adopted || "").localeCompare(a.policy_revised || a.policy_adopted || "") || a.name.localeCompare(b.name));
   const certLink = (d) => `/kids/stopped/${d.code.toLowerCase()}-${slug(d.name)}/`;
   const rows = stopped.map(d => `<tr><td>${n(d.crdc_students_latest)}</td><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${d.policy_code && d.policy_code.length <= 16 ? esc(d.policy_code) : ""}</td><td><a href="${esc(d.source)}" rel="noopener">policy</a></td><td><a href="${certLink({ ...d, code: d.code })}">certificate</a></td></tr>`).join("");
-  // The same dates the certificate prints: TASB's DATE ISSUED is a vendor stamp, not a board date.
-  const policyDate = (d) => (/pol\.tasb\.org/.test(d.source || "") ? null : d.policy_revised) || d.policy_adopted || "";
-  const certRows = certs.map(d => `<tr><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${policyDate(d).slice(0, 10) || '<span class="meta">no policy date on record</span>'}</td><td><a href="${certLink(d)}">certificate</a></td></tr>`).join("");
+  const policyDate = (d) => policyDates(d).dated || "";
+  const certRows = [...certs].sort((a, b) => policyDate(b).localeCompare(policyDate(a)) || a.name.localeCompare(b.name)).map(d => `<tr><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${policyDate(d).slice(0, 10) || '<span class="meta">no policy date on record</span>'}</td><td><a href="${certLink(d)}">certificate</a></td></tr>`).join("");
   const quotes = stopped.map(d => `<blockquote><p>${esc(d.quote)}</p><footer>${esc(d.name)}${d.policy_code && d.policy_code.length <= 16 ? `, policy ${esc(d.policy_code)}` : ""} &middot; ${n(d.crdc_students_latest)} student${d.crdc_students_latest === 1 ? "" : "s"} struck in 2023-24 &middot; read ${esc(d.last_verified || "")}</p></footer></blockquote>`).join("");
   writeFileSync(join(site, "stopped", "index.html"), shell({
     title: "Districts that used to paddle and stopped",
@@ -704,6 +704,18 @@ ${quotes}
 <p><a href="/kids/worklist/">${n(0)}</a></p>`.replace('<p><a href="/kids/worklist/">0</a></p>', '<p><a href="/kids/worklist/">The districts nobody has checked yet &rarr;</a></p>')
   }));
   console.log(`stopped: ${stopped.length} districts, ${total} students`);
+}
+
+// site/ is committed and deployed with rsync --delete, so a certificate an earlier build wrote stays
+// public after its district is renamed or stops qualifying, until the build removes it. Only district
+// folders (<state>-<slug>/index.html) are touched, never the index beside them.
+{
+  const dir = join(site, "stopped");
+  const granted = new Set();
+  for (const [code, list] of Object.entries(districts)) for (const d of list) if (certifiable(d, code)) granted.add(`${code.toLowerCase()}-${slug(d.name)}`);
+  const stale = readdirSync(dir).filter((f) => /^[a-z]{2}-[a-z0-9]+(-[a-z0-9]+)*$/.test(f) && !granted.has(f) && existsSync(join(dir, f, "index.html")));
+  for (const f of stale) rmSync(join(dir, f), { recursive: true, force: true });
+  console.log(`stopped: ${granted.size} certificates granted, ${stale.length} stale removed${stale.length ? `: ${stale.join(", ")}` : ""}`);
 }
 
 const toll = buildToll();
@@ -923,7 +935,7 @@ mkdirSync(join(site, "timeline"), { recursive: true });
 <h2>What you are looking at</h2>
 <p>Green is a state that prohibits corporal punishment in its public schools; red is a state that still permits it. Inside the red states, a county turns green in the year a school district there prohibited it, with a dot that flares for a year or two so you can see what just changed. Italic lines under the map are the things happening off it: a court ruling, a medical body taking a position, a bill. Each links to the claim it comes from.</p>
 <p>Two things are worth watching for. The state map barely moves for a century and then moves in bursts. And from about 2004 the red states stop being uniformly red: districts in Alabama, Georgia and Mississippi start making the decision their legislatures would not, one board at a time, and the pace of it picks up sharply after 2019.</p>
-<p class="meta">A district whose policy prints no date appears in the year this project first recorded it and is drawn hatched rather than solid, because that is the date we found out and not the date its board decided. Dating those properly is <a href="/kids/contribute/">its own job in the queue</a>. New Hampshire and the District of Columbia prohibit corporal punishment and this project does not hold the year either of them did it, so they are drawn in a lighter green for the whole animation rather than being given a year they may not have had. State years are the year the state prohibited it. District dates are the date printed on that district's own policy, usually the date it was last revised, so a district appears when its board last affirmed the prohibition rather than necessarily the first time it did. <b id="tundated">${tl.districts_prohibiting_without_a_date}</b> of the districts shown are on the map this way. Generated ${esc(tl.generated)} from <a href="/kids/data/timeline.json">timeline.json</a>.</p>`
+<p class="meta">A district with no policy date on record appears in the year this project first recorded it; so does a Texas district whose only date is the issue stamp TASB's policy service prints, which is not a board date and is drawn hatched rather than solid, because that is the date we found out and not the date its board decided. Dating those properly is <a href="/kids/contribute/">its own job in the queue</a>. New Hampshire and the District of Columbia prohibit corporal punishment and this project does not hold the year either of them did it, so they are drawn in a lighter green for the whole animation rather than being given a year they may not have had. State years are the year the state prohibited it. District dates are the latest date printed on that district's own policy, often a revision or a review, so a district appears at that date and not necessarily when its board first prohibited it. <b id="tundated">${tl.districts_prohibiting_without_a_date}</b> of the districts shown are on the map this way. Generated ${esc(tl.generated)} from <a href="/kids/data/timeline.json">timeline.json</a>.</p>`
   }));
 }
 

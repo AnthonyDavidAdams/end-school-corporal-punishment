@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { policyDates } from "./certificate.mjs";
 import { parse } from "yaml";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -33,7 +34,8 @@ for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith
     // They go on at the date this project first recorded them, which is the earliest date anyone here
     // can stand behind, and every one is marked so the map can draw it as what it is -- the date we
     // found out, not the date they decided. Dating them properly is its own task, date-the-change.
-    const when = d.policy_revised || d.policy_adopted || null;
+    // A TASB issue stamp is not a date the district's policy carries, so those districts count as undated.
+    const when = policyDates(d).dated;
     const at = when || d.last_verified || null;
     if (!at) { undatedBans++; continue; }
     if (!when) undatedBans++;
@@ -93,6 +95,6 @@ writeFileSync(join(root, "site/data/timeline.json"), JSON.stringify({
   last_year: Math.max(...districts.map(d => d.year), ...states.map(s => s.year)),
   states, districts, milestones, states_banned_undated: statesBannedUndated,
   districts_prohibiting_without_a_date: undatedBans,
-  note: "State years are the year the state prohibited corporal punishment in public schools. District dates are the date printed on that district's own policy, which is usually the date it was last revised. Districts prohibiting with no date on the policy are counted but not placed in time.",
+  note: "State years are the year the state prohibited corporal punishment in public schools. District dates are the latest date printed on that district's own policy, often a revision or a review, not necessarily when its board first prohibited corporal punishment. TASB's DATE ISSUED stamp is not used. Districts prohibiting with no policy date on record are placed at the date this project first recorded them and marked dated: false.",
 }, null, 1));
 console.log(`timeline: ${districts.filter(d => d.dated).length} districts on their policy date, ${districts.filter(d => !d.dated).length} on the date we first recorded them, ${milestones.length} milestones, ${states.length} dated states ${states[0]?.year}-${states[states.length - 1]?.year}, ${statesBannedUndated.length} banned states with no year (${statesBannedUndated.map(s => s.code).join(", ")}), ${districts.length} dated districts, ${undatedBans} districts prohibiting without a date`);
