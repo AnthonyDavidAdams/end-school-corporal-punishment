@@ -1,11 +1,11 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { registerBoardDocs } from "./readers/boarddocs.mjs";
-import { registerBoardPolicyOnline } from "./readers/boardpolicyonline.mjs";
-import { registerDiligent } from "./readers/diligent.mjs";
-import { registerForethought } from "./readers/forethought.mjs";
-import { registerKasb } from "./readers/kasb.mjs";
-import { registerTsba } from "./readers/tsba.mjs";
+import { boardDocsPaths, registerBoardDocs } from "./readers/boarddocs.mjs";
+import { bpoTarget, registerBoardPolicyOnline } from "./readers/boardpolicyonline.mjs";
+import { diligentTenant, registerDiligent } from "./readers/diligent.mjs";
+import { forethoughtSlug, registerForethought } from "./readers/forethought.mjs";
+import { kasbTarget, registerKasb } from "./readers/kasb.mjs";
+import { registerTsba, tsbaTarget } from "./readers/tsba.mjs";
 // Tools that belong to this campaign rather than to Ground Crew.
 //
 // Finding a school district's handbook and reading Texas board policy are problems specific to US
@@ -116,7 +116,7 @@ async function getText(url, fetchImpl, expect) {
 function links(html, base) {
   const out = [];
   for (const m of html.matchAll(/<a\b[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]{0,200}?)<\/a>/gi)) {
-    let abs; try { abs = new URL(m[1].trim(), base).toString(); } catch { continue; }
+    let abs; try { abs = new URL(m[1].trim().replace(/&amp;/g, "&"), base).toString(); } catch { continue; }
     out.push({ url: abs, text: m[2].replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() });
   }
   return out;
@@ -231,6 +231,63 @@ export function simbliSiteId(input) {
   if (/^\d{2,12}$/.test(s)) return s;
   return s.match(/[?&]S=(\d{2,12})/i)?.[1] ?? null;
 }
+
+// Board policy usually is not a file at all: it is a link out to a policy vendor, and each vendor has its
+// own reader. Given a link, returns [dedupe key, { vendor, the identifier, read_with, arguments }], or
+// null when the link is not to a policy system a reader can open. The host is checked first because the
+// readers' own parsers also accept a bare key, and would claim any string that looks like one.
+export function policySystem(url) {
+  let u; try { u = new URL(url); } catch { return null; }
+  const host = u.hostname.toLowerCase();
+  const at = (re) => re.test(host);
+  if (at(/(^|\.)simbli\.eboardsolutions\.com$/)) {
+    const site = simbliSiteId(url);
+    return site && [`simbli:${site}`, { vendor: "Simbli (eBOARDsolutions)", site, read_with: "fetch_simbli_policy", arguments: { site } }];
+  }
+  if (at(/^pol\.tasb\.org$/)) {
+    const key = url.match(/[?&]key=(\d{1,6})/i)?.[1] ?? url.match(/\/Code\/(\d{1,6})/i)?.[1];
+    return key && [`tasb:${key}`, { vendor: "TASB Policy Online", district_key: key, read_with: "fetch_tasb_policy", arguments: { district_key: key } }];
+  }
+  // BoardDocs' own pages (/about, /login) sit on the same host; a district site is <state>/<site> and Board.nsf.
+  if (at(/(^|\.)boarddocs\.com$/) && /^\/[a-z]{2,5}\/[A-Za-z0-9_-]+(\/board\.nsf\b|\/?$)/i.test(u.pathname)) {
+    const site = boardDocsPaths(url)[0];
+    return site && [`boarddocs:${site.toLowerCase()}`, { vendor: "BoardDocs", site, read_with: "fetch_boarddocs_policy", arguments: { site } }];
+  }
+  if (at(/(^|\.)(diligent\.community|community\.diligentoneplatform\.com|community\.highbond\.com)$/)) {
+    const tenant = diligentTenant(url);
+    return tenant && [`diligent:${tenant}`, { vendor: "Diligent Community", tenant, read_with: "fetch_diligent_policy", arguments: { tenant } }];
+  }
+  if (at(/^caps\.forethoughtconsulting\.com$/)) {
+    return [`forethought-caps:${u.pathname.toLowerCase()}`, {
+      vendor: "Forethought CAPS", slug: null, link: url, read_with: "fetch_forethought_policy", arguments: null,
+      note: "This links the older caps.forethoughtconsulting.com viewer, whose id the reader cannot use. The same board is published at app.forethoughtconsulting.com/kb/<board-name-slug> (e.g. 'lincoln-parish-school-board'); pass that slug as kb.",
+    }];
+  }
+  if (at(/^app\.forethoughtconsulting\.com$/) && /^\/kb\//i.test(u.pathname)) {
+    const { slug } = forethoughtSlug(url);
+    return slug && [`forethought:${slug}`, { vendor: "Forethought CAPS", slug, read_with: "fetch_forethought_policy", arguments: { kb: slug } }];
+  }
+  if (at(/^policy\.kasb\.org$/)) {
+    const showset = kasbTarget(url)?.showset;
+    return showset && [`kasb:${showset.toLowerCase()}`, { vendor: "KASB Policy Online", showset, read_with: "fetch_kasb_policy", arguments: { showset } }];
+  }
+  if (at(/(^|\.)tsba\.net$|^tsbanet(-my)?\.sharepoint\.com$/)) {
+    const t = tsbaTarget(url);
+    if (t?.manual) return [`tsba:${t.manual}`, { vendor: "TSBA (Tennessee School Boards Association)", manual: t.manual, read_with: "fetch_tsba_policy", arguments: { district: t.manual } }];
+    if (t?.guest_link) return [`tsba:${t.guest_link}`, { vendor: "TSBA (Tennessee School Boards Association)", guest_link: t.guest_link, read_with: "fetch_tsba_policy", arguments: { district: t.guest_link } }];
+    return null;
+  }
+  if (at(/(^|\.)boardpolicyonline\.com$/)) {
+    const t = bpoTarget(url);
+    if (!t) return null;
+    const args = { board: t.key, ...(t.section ? { section: t.section } : {}) };
+    return [`bpo:${t.key.toLowerCase()}`, { vendor: "BoardPolicyOnline (MicroScribe)", ...args, read_with: "fetch_boardpolicyonline_policy", arguments: args }];
+  }
+  return null;
+}
+
+// What to tell an agent to do with a policy system policySystem found.
+const callFor = (s) => (s.arguments ? `Call ${s.read_with} with ${JSON.stringify(s.arguments)}.` : s.note);
 
 // Simbli sits behind Imperva, which answers a burst of requests with an interstitial instead of an
 // error code. It is worth naming, because it is temporary and a wrong district key is not.
@@ -490,6 +547,7 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
       description:
         "Given a district website, return candidate handbook and code-of-conduct documents, newest school year first, with the page each link was found on and the vendor hosting it. " +
         "Discovery is the expensive half of a district scan and it is the same handful of hosts every time: Finalsite, Apptegy, ParentSquare, Edlio, BoardBook, Google Docs. " +
+        "It also reports links to board policy systems that have their own reader (Simbli, TASB, BoardDocs, Diligent Community, Forethought, KASB, TSBA, BoardPolicyOnline), each with `read_with`, the tool to call, and `arguments`, what to pass it. " +
         "Feed the winner to fetch_document rather than opening it yourself. If nothing comes back, the district's site is probably JavaScript-only or behind a bot challenge; say so in a report_issue and fall back to reading it yourself.",
       inputSchema: {
         website: z.string().url().describe("The district's website, from the NCES record"),
@@ -502,15 +560,15 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
       const origin = (() => { try { return new URL(website).origin; } catch { return null; } })();
       if (!origin) return fail(`'${website}' is not a usable URL.`);
 
-      // A Simbli URL is not a page to crawl; it is a policy system with an index. Hand it straight over.
-      if (/simbli\.eboardsolutions\.com/i.test(website)) {
-        const site = simbliSiteId(website);
+      // A policy vendor's URL is not a page to crawl; it is a policy system with its own reader. Hand it straight over.
+      const direct = policySystem(website)?.[1];
+      if (direct || /simbli\.eboardsolutions\.com/i.test(website)) {
         return text({
           district: district ?? null, state: state ?? null, website,
-          board_policy_system: site ? { vendor: "Simbli (eBOARDsolutions)", site } : { vendor: "Simbli (eBOARDsolutions)", site: null },
+          board_policy_system: direct ?? { vendor: "Simbli (eBOARDsolutions)", site: null },
           candidates: [],
-          next: site
-            ? `This district's policy lives on Simbli, which serves nothing to a plain fetch. Call fetch_simbli_policy with site ${site}.`
+          next: direct
+            ? `This district's policy lives on ${direct.vendor}, which a plain fetch does not read. ${callFor(direct)}`
             : "This is a Simbli URL but it carries no S= district key; find the district's own policy link, which does.",
         });
       }
@@ -535,14 +593,11 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
         }
         for (const l of links(got.html, got.final)) {
           const hay = `${l.text} ${safe(l.url)}`;
-          // Board policy usually is not a file at all: it is a link out to a policy vendor. Note it,
-          // because the tool that reads that vendor is the answer for this district.
-          if (/simbli\.eboardsolutions\.com/i.test(l.url)) {
-            const site = simbliSiteId(l.url);
-            if (site && !policySystems.has(site)) policySystems.set(site, { vendor: "Simbli (eBOARDsolutions)", site, read_with: "fetch_simbli_policy", found_on: got.final, link_text: l.text.slice(0, 120) || null });
-          } else if (/pol\.tasb\.org/i.test(l.url)) {
-            const key = l.url.match(/[?&]key=(\d{1,6})/i)?.[1] ?? l.url.match(/\/Code\/(\d{1,6})/i)?.[1];
-            if (key && !policySystems.has(key)) policySystems.set(key, { vendor: "TASB Policy Online", district_key: key, read_with: "fetch_tasb_policy", found_on: got.final, link_text: l.text.slice(0, 120) || null });
+          // A district that mirrors TSBA's manual links a guest link for every policy it has; only the
+          // corporal punishment one is worth a call.
+          const found = policySystem(l.url);
+          if (found && !(found[1].guest_link && !/6\.314|corporal|paddl/i.test(l.text)) && !policySystems.has(found[0])) {
+            policySystems.set(found[0], { ...found[1], found_on: got.final, link_text: l.text.slice(0, 120) || null });
           }
           const isDoc = /\.(pdf|docx?)(\?|#|$)/i.test(l.url) || DOC_HOSTS.some((d) => l.url.includes(d.host));
           if (HANDBOOK.test(hay) && isDoc) {
@@ -563,15 +618,17 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
       const rank = (c) => (c.school_year ? Number(c.school_year.slice(0, 4)) : 0);
       candidates.sort((a, b) => rank(b) - rank(a));
       const systems = [...policySystems.values()];
+      const vendors = [...new Set(systems.map((x) => x.vendor))].join(" and ");
+      const first = systems.find((x) => x.arguments) ?? systems[0];
       return text({
         district: district ?? null, state: state ?? null, website, pages_examined: pages,
         ...(apptegy ? { apptegy_cms_section: apptegy.section, apptegy_documents_found: apptegy.documents.length } : {}),
         candidates,
         board_policy_systems: systems,
         next: candidates.length
-          ? "Pass the newest candidate to fetch_document. Check its school_year against the current one before quoting it."
+          ? `Pass the newest candidate to fetch_document. Check its school_year against the current one before quoting it.${systems.length ? ` This district also publishes board policy through ${vendors}, which is what the board voted on and worth reading too. ${callFor(first)}` : ""}`
           : systems.length
-            ? `No handbook file, but this district publishes board policy through ${systems.map((x) => x.vendor).join(" and ")}. Call ${systems[0].read_with} with ${systems[0].site ?? systems[0].district_key}. Board policy is the better source anyway: it is what the board voted on.`
+            ? `No handbook file, but this district publishes board policy through ${vendors}. ${callFor(first)} Board policy is the better source anyway: it is what the board voted on.`
             : "Nothing found. The site is probably JavaScript-rendered or behind a bot challenge; read it yourself and submit with source_text, and file a report_issue so the pattern gets added.",
       });
     }

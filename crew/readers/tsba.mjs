@@ -77,6 +77,14 @@ export function resolveManual(urls, district) {
   return { match: near.length === 1 ? near[0] : null, near };
 }
 
+// A SharePoint guest link or a tsba.net manual page, from any URL; null for anything else.
+export function tsbaTarget(input) {
+  const s = String(input ?? "").trim();
+  if (SP_HOST.test(s)) return { guest_link: s };
+  const m = s.match(/(?:^|[/.])tsba\.net\/([a-z0-9-]+-policy-manual)(?=\/|[?#]|$)/i);
+  return m ? { manual: `${TSBA}/${m[1].toLowerCase()}/` } : null;
+}
+
 // The rows of the manual page whose policy number is `code`, with their guest links. Manuals list a
 // policy twice when TSBA has published a "Mobile" PDF beside the Word file; the Word file is the policy.
 export function policyLinks(html, code) {
@@ -148,9 +156,10 @@ export function registerTsba(server, ctx, { z, text, fail, documents }, { UA, fe
     },
     async ({ district, code = "6.314" }) => {
       let manual = null, rows = [], link = null;
-      if (SP_HOST.test(district)) link = district;
+      const target = tsbaTarget(district);
+      if (target?.guest_link) link = target.guest_link;
       else {
-        if (/tsba\.net\/[a-z0-9-]+-policy-manual/i.test(district)) manual = district.replace(/^http:/, "https:");
+        if (target?.manual) manual = target.manual;
         else {
           let urls;
           try { urls = await manuals(send, UA); }
