@@ -1,5 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { registerKasb } from "./readers/kasb.mjs";
+import { registerTsba } from "./readers/tsba.mjs";
 // Tools that belong to this campaign rather than to Ground Crew.
 //
 // Finding a school district's handbook and reading Texas board policy are problems specific to US
@@ -734,7 +736,13 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
   );
 
   const exchangeTools = await registerExchangeTool(server, { z, text, fail });
-  return [...exchangeTools, "resolve_handbook", "fetch_tasb_policy", "fetch_simbli_policy"];
+  const helpers = { z, text, fail, documents };
+  // TSBA downloads a binary .docx inside a cookie session; the egress wrapper re-encodes bodies as text.
+  const readerTools = [
+    ...registerKasb(server, ctx, helpers, { UA, fetch: vendorFetch }),
+    ...registerTsba(server, ctx, helpers, { UA, fetch: fetchImpl }),
+  ];
+  return [...exchangeTools, "resolve_handbook", "fetch_tasb_policy", "fetch_simbli_policy", ...readerTools];
 }
 
 // ---- the FOIA Request Exchange: lend standing from the chat --------------------------------------
