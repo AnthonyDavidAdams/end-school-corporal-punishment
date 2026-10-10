@@ -286,7 +286,6 @@ export function policySystem(url) {
   return null;
 }
 
-// What to tell an agent to do with a policy system policySystem found.
 const callFor = (s) => (s.arguments ? `Call ${s.read_with} with ${JSON.stringify(s.arguments)}.` : s.note);
 
 // Simbli sits behind Imperva, which answers a burst of requests with an interstitial instead of an
