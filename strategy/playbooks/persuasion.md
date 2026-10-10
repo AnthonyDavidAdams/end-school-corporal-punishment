@@ -4,12 +4,12 @@ This is the psychology layer of the CRM. Every practice here is tied to a study;
 
 ## 1. Who the message comes from matters more than what it says
 
-- Legislators respond to constituents, and respond more to personalized messages than to identical form letters. In a field experiment, a modest number of constituent emails measurably changed legislators' votes (Bergan 2009, "Does Grassroots Lobbying Work?", *American Politics Research*). The Congressional Management Foundation's surveys of congressional staff repeatedly rank individualized constituent letters and in-person visits above form emails and petitions.
+- Legislators respond to constituents, and respond more to personalized messages than to identical form letters. In a field experiment that randomly assigned state legislators to be contacted by a grassroots e-mail lobbying campaign, the e-mails had "a substantial influence on legislative voting behavior" (Bergan 2009, "Does Grassroots Lobbying Work?", *American Politics Research*; abstract only, the full text has not been verified). The Congressional Management Foundation's surveys of congressional staff repeatedly rank individualized constituent letters and in-person visits above form emails and petitions.
 - Implication: ten signed letters from parents in the seat beat a thousand form emails from elsewhere. The CRM matches real constituents; nobody writes for anyone else.
 
 ## 2. Frame in the listener's values, not yours
 
-- Moral reframing: arguments framed in the moral values of the audience persuade; arguments framed in the speaker's own values do not, and often backfire (Feinberg & Willer 2015, *Personality and Social Psychology Bulletin*; Feinberg & Willer 2019 review, *Social and Personality Psychology Compass*). Conservatives moved on environmental policy when it was framed as purity and patriotism; liberals moved on military spending framed as fairness.
+- Moral reframing: arguments reframed to appeal to the audience's moral values were more persuasive than arguments framed in the speaker's own values, across six studies on issues including same-sex marriage, universal health care, military spending, and English as the official language (Feinberg & Willer 2015, *Personality and Social Psychology Bulletin*; see also their 2019 review in *Social and Personality Psychology Compass*). The 2015 paper does not report that speaker-framed arguments backfire.
 - For this issue, the frames that match the stated values in most board dossiers:
   - **Parental rights**: the state should not hit your child without your say. Opt-in consent (Florida 2025) is the parental-rights version of a ban, and a full ban is the next step in the same logic.
   - **Local control**: the district decides. A board vote is local control in action; a state ban later merely ratifies what local boards chose.
@@ -21,8 +21,8 @@ This is the psychology layer of the CRM. Every practice here is tied to a study;
 
 ## 3. Stories beat statistics for changing minds; statistics make the story credible
 
-- Personal experiences are treated as more credible and persuasive than facts across moral divides, and are harder to dismiss (Kubin, Puryear, Schein & Gray 2021, *PNAS*).
-- Deep canvassing, a ten-minute non-judgmental conversation exchanging personal stories, durably shifted attitudes on contested issues (Broockman & Kalla 2016, *Science*; Kalla & Broockman 2020). Most brief campaign contact, by contrast, has near-zero persuasive effect (Kalla & Broockman 2018, *American Political Science Review*).
+- Political opponents respect moral beliefs more when they are supported by personal experiences rather than facts, because experiences are seen as truer and make the opponent seem rational (Kubin, Puryear, Schein & Gray 2021, *PNAS*). The paper measures respect, not persuasion; it sets persuasion aside.
+- A single conversation of about ten minutes that encouraged voters to take the perspective of others reduced anti-transgender prejudice for at least three months in a randomized field experiment (Broockman & Kalla 2016, *Science*; see also Kalla & Broockman 2020). By contrast, the same authors argue that the best estimate of the effect of campaign contact and advertising on Americans' candidate choices in general elections is zero (Kalla & Broockman 2018, *American Political Science Review*).
 - Implication: the message structure is story, then one number, then the ask. The story is the volunteer's own. The number comes from `facts/` with its year. Never a story about someone else's child.
 
 ## 4. Norms: what people like them are already doing
