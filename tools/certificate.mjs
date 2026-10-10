@@ -4,7 +4,7 @@
 // The certificate is the campaign's only piece of good news and its credibility is the whole point, so
 // it says only what the record can support:
 //   - it names the policy and quotes it, with the link, so a superintendent can check it in one click;
-//   - it gives the date the board acted only where the policy itself prints one;
+//   - it gives a date only where the district's own policy prints one, and says which date it is;
 //   - it says what EarthPilot is (a project, not an accrediting body) rather than implying a standing
 //     nobody granted us;
 //   - it never says "you stopped" to a district whose prohibition predates the federal filing it is
@@ -20,22 +20,30 @@ const fmt = (iso) => {
 };
 
 export function certificateHtml({ d, stateName, esc, n, base }) {
-  const acted = d.policy_revised || d.policy_adopted || null;
-  const year = acted ? Number(acted.slice(0, 4)) : null;
+  // policy_revised is the latest date the policy prints (a revision, a reissue, sometimes a review), not
+  // the day the board prohibited corporal punishment. On TASB it is the vendor's DATE ISSUED stamp, and
+  // on some Texas records that stamp was read from FO(LEGAL) rather than the board's FO(LOCAL), so a
+  // TASB certificate prints no revision date at all.
+  const revised = /pol\.tasb\.org/.test(d.source || "") ? null : d.policy_revised || null;
+  const adopted = d.policy_adopted || null;
+  const dated = revised || adopted;
   // The 2023-24 collection covers a school year that ends in late May or June 2024, so a policy dated
   // from June 2024 onward post-dates the conduct being reported. Pike County revised its ban on
   // 17 June 2024, after the year in which it reported 252 students struck, and a later cutoff put it
   // on the wrong side of this line.
-  const changedSince = year !== null && acted >= "2024-06-01";
+  const changedSince = dated !== null && dated >= "2024-06-01";
   const struck = d.crdc_students_latest > 0 ? d.crdc_students_latest : null;
 
+  const when = adopted && revised
+    ? ` The policy below was first adopted on ${fmt(adopted)} and is dated ${fmt(revised)}.`
+    : adopted
+      ? ` The policy below was first adopted on ${fmt(adopted)}.`
+      : revised
+        ? ` The policy below is dated ${fmt(revised)}.`
+        : "";
   const line = changedSince && struck
-    ? `In the 2023-24 school year this district reported to the United States Department of Education that ${n(struck)} of its students had been struck. On ${fmt(acted)} its board adopted the policy below, and that will not happen again.`
-    : changedSince
-      ? `On ${fmt(acted)} this district's board adopted the policy below, ending the use of corporal punishment in its schools.`
-      : acted
-        ? `This district's board has prohibited corporal punishment in its schools since ${fmt(acted)}.`
-        : `This district's board prohibits corporal punishment in its schools.`;
+    ? `In the 2023-24 school year this district reported to the United States Department of Education that ${n(struck)} of its students had been struck. Its board now prohibits corporal punishment in its schools.${when}`
+    : `This district's board prohibits corporal punishment in its schools.${when}`;
 
   return `<!DOCTYPE html>
 <html lang="en">
