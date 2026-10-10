@@ -18,6 +18,7 @@ import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { reportOps } from "./lib/ops.mjs";
+import { wrongSource } from "./lib/quarantine.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DRY = process.argv.includes("--dry");
@@ -27,8 +28,9 @@ const LOG = join(root, "data/victories.jsonl");
 if (!existsSync(LOG)) { console.log("no victories logged"); process.exit(0); }
 if (!process.argv.includes("--announce")) { console.log("victory.mjs: announcing is off for now (pass --announce). Logged victories are in data/victories.jsonl; corrections in data/corrections.jsonl."); process.exit(0); }
 const rows = readFileSync(LOG, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l));
-const fresh = rows.filter((v) => !v.announced);
-if (!fresh.length) { console.log(`${rows.length} victories, all announced`); process.exit(0); }
+for (const v of rows) if (!v.announced && wrongSource(v.state, v)) console.log(`withheld ${v.name}, ${v.state}: its source is another district's document (data/quarantine/wrong-source.json)`);
+const fresh = rows.filter((v) => !v.announced && !wrongSource(v.state, v));
+if (!fresh.length) { console.log(`${rows.length} victories, none to announce`); process.exit(0); }
 
 const token = () => { const f = join(process.env.HOME, ".escp-maintainer.env"); const m = existsSync(f) && readFileSync(f, "utf8").match(/ESCP_MAINTAINER_TOKEN=["']?([^"'\n]+)/); return m ? m[1].trim() : null; };
 async function call(name, args) {
