@@ -83,8 +83,9 @@ def main():
     banned = rec["status"].get("bans", 0)
     unknown = rec["total"] - rec["quoted"]
     needs_you = len(rows.get("needs_you") or [])
-    replied = sum(1 for r in reqs if any(e.get("from") != "us" for e in r.get("replies") or []))
-    districts_asked = sum(1 for r in reqs if r.get("kind") not in ("state_doe",) and r.get("status") != "pending")
+    dreqs = [r for r in reqs if r.get("kind") != "state_doe" and r.get("sent_at")]
+    replied = sum(1 for r in dreqs if any(e.get("from") != "us" and e.get("kind") != "auto_reply_or_bounce" for e in r.get("replies") or []))
+    districts_asked = len(dreqs)
     agencies_asked = len({r["state"] for r in agencies}) + len({f["state"] for f in forms if f.get("submitted_at")} - {r["state"] for r in agencies})
     H = []
     H.append(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -126,7 +127,7 @@ a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}p
 <div><b>{pending}</b><span>emails lined up to go</span></div></div></div>""")
 
     # 4. Who we've asked
-    waiting = len(rows.get("waiting") or []) + len(rows.get("nudge") or [])
+    waiting = districts_asked - replied
     H.append(f"""<div class="panel"><h2>Who we've asked</h2><div class="big">
 <div><b>{districts_asked:,}</b><span>districts emailed</span></div>
 <div><b>{replied:,}</b><span>wrote back</span></div>
