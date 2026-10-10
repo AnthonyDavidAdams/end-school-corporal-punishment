@@ -1,5 +1,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { registerBoardDocs } from "./readers/boarddocs.mjs";
+import { registerDiligent } from "./readers/diligent.mjs";
+import { registerForethought } from "./readers/forethought.mjs";
 // Tools that belong to this campaign rather than to Ground Crew.
 //
 // Finding a school district's handbook and reading Texas board policy are problems specific to US
@@ -733,8 +736,11 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
     }
   );
 
+  const readerDeps = { z, text, fail, documents, fetchImpl: vendorFetch, ua: UA, terms: ctx.crew?.crew?.document_terms };
+  const readers = [registerBoardDocs, registerDiligent, registerForethought].map((register) => register(server, readerDeps));
+
   const exchangeTools = await registerExchangeTool(server, { z, text, fail });
-  return [...exchangeTools, "resolve_handbook", "fetch_tasb_policy", "fetch_simbli_policy"];
+  return [...exchangeTools, "resolve_handbook", "fetch_tasb_policy", "fetch_simbli_policy", ...readers];
 }
 
 // ---- the FOIA Request Exchange: lend standing from the chat --------------------------------------
