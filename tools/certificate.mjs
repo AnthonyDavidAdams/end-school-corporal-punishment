@@ -10,7 +10,9 @@
 //   - it never says "you stopped" to a district whose prohibition predates the federal filing it is
 //     being congratulated over. Lubbock ISD removed corporal punishment in 2020 and still filed two
 //     students for 2023-24; the honest sentence there is about 2020.
-export const certifiable = (d) => d.status === "bans" && d.source && d.quote;
+import { wrongSource } from "./lib/quarantine.mjs";
+
+export const certifiable = (d, state) => d.status === "bans" && d.source && d.quote && !wrongSource(state, d);
 
 const fmt = (iso) => {
   if (!iso) return null;

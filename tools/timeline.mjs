@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync, readdirSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse } from "yaml";
+import { wrongSource } from "./lib/quarantine.mjs";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 const states = [], districts = [], statesBannedUndated = [];
@@ -27,7 +28,7 @@ states.sort((a, b) => a.year - b.year);
 for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith(".yaml"))) {
   const doc = parse(readFileSync(join(root, "data/districts", f), "utf8"));
   for (const d of doc.districts) {
-    if (d.status !== "bans" || !d.source) continue;
+    if (d.status !== "bans" || !d.source || wrongSource(doc.state, d)) continue;
     // A policy with no date on it still prohibits corporal punishment, and leaving those districts off
     // the map entirely was worse than placing them imperfectly: thirty of the forty-nine were invisible.
     // They go on at the date this project first recorded them, which is the earliest date anyone here

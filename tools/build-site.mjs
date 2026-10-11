@@ -1,10 +1,11 @@
 // Static site generator for earthpilot.org/kids. Reads site/data/*.json (run build-site-data.mjs first),
 // data/crdc/*/states.csv, templates/*.md. Writes site/index.html, site/state/<XX>/index.html, site/resources/index.html, site/contribute/index.html.
-import { statSync, readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { statSync, readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync, rmSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { certificateHtml, certifiable } from "./certificate.mjs";
+import { wrongSource } from "./lib/quarantine.mjs";
 import { toll as buildToll } from "./toll.mjs";
 import { connectSections, mdToHtml } from "./connect-page.mjs";
 // A district's name becomes its certificate URL, so the rule has to be stable: the same district must
@@ -657,24 +658,29 @@ mkdirSync(join(site, "stopped"), { recursive: true });
 {
   const stopped = [];
   for (const [code, list] of Object.entries(districts)) {
-    for (const d of list) if (d.status === "bans" && d.crdc_students_latest > 0 && d.source) stopped.push({ code, ...d });
+    for (const d of list) if (d.status === "bans" && d.crdc_students_latest > 0 && d.source && !wrongSource(code, d)) stopped.push({ code, ...d });
   }
   stopped.sort((a, b) => b.crdc_students_latest - a.crdc_students_latest);
   const total = stopped.reduce((a, d) => a + d.crdc_students_latest, 0);
   // Every district that prohibits it gets a certificate, not only the ones that also appear in the
   // federal count. A district that stopped in 2012 deserves the same page as one that stopped last
   // year; it just gets a different sentence on it.
-  const certs = [];
+  const certs = [], withheld = [];
   for (const [code, list] of Object.entries(districts)) {
     for (const d of list) {
-      if (!certifiable(d)) continue;
+      const dir = join(site, "stopped", `${code.toLowerCase()}-${slug(d.name)}`);
+      if (d.status === "bans" && wrongSource(code, d)) withheld.push(dir);
+      if (!certifiable(d, code)) continue;
       const rec = { ...d, code, slug: slug(d.name) };
-      const dir = join(site, "stopped", `${code.toLowerCase()}-${rec.slug}`);
       mkdirSync(dir, { recursive: true });
       writeFileSync(join(dir, "index.html"), certificateHtml({ d: rec, stateName: states[code].name, esc, n, base: BASE }));
       certs.push(rec);
     }
   }
+  // site/ is committed and deployed with rsync --delete, so a page an earlier build wrote stays public
+  // until the build itself removes it.
+  const written = new Set(certs.map((c) => `${c.code.toLowerCase()}-${c.slug}`));
+  for (const dir of withheld) if (!written.has(dir.split("/").pop())) rmSync(dir, { recursive: true, force: true });
   certs.sort((a, b) => (b.policy_revised || b.policy_adopted || "").localeCompare(a.policy_revised || a.policy_adopted || "") || a.name.localeCompare(b.name));
   const certLink = (d) => `/kids/stopped/${d.code.toLowerCase()}-${slug(d.name)}/`;
   const rows = stopped.map(d => `<tr><td>${n(d.crdc_students_latest)}</td><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${d.policy_code && d.policy_code.length <= 16 ? esc(d.policy_code) : ""}</td><td><a href="${esc(d.source)}" rel="noopener">policy</a></td><td><a href="${certLink({ ...d, code: d.code })}">certificate</a></td></tr>`).join("");
@@ -701,7 +707,7 @@ ${quotes}
 <p class="meta">Counts are from the US Department of Education's Civil Rights Data Collection for 2023-24; see <a href="/kids/data/">the data page</a>. Policy text is quoted from each district's own current policy, with the link beside it. If a district on this page has been read wrong, <a href="/kids/contribute/">the record is public and correctable</a>.</p>
 <p><a href="/kids/worklist/">${n(0)}</a></p>`.replace('<p><a href="/kids/worklist/">0</a></p>', '<p><a href="/kids/worklist/">The districts nobody has checked yet &rarr;</a></p>')
   }));
-  console.log(`stopped: ${stopped.length} districts, ${total} students`);
+  console.log(`stopped: ${stopped.length} districts, ${total} students; ${certs.length} certificates, ${withheld.length} withheld for a wrong-district source`);
 }
 
 const toll = buildToll();

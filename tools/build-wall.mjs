@@ -6,6 +6,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { geoAlbersUsa } from "d3-geo";
+import { wrongSource } from "./lib/quarantine.mjs";
 // The same projection the county map and the district shapes use, so a district lands on its county.
 const project = geoAlbersUsa().scale(1300).translate([487.5, 305]);
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -26,7 +27,8 @@ for (const [code, s] of Object.entries(states)) {
     const r = byId.get(d.nces_id);
     const k = crdc[d.nces_id] ?? r?.crdc_students_latest ?? 0;
     const ll = geo[d.nces_id]; const xy = ll && Number.isFinite(ll[0]) ? project(ll) : null;
-    return { i: d.nces_id, n: title(d.name), s: r ? (S[r.status] ?? "u") : "-", k, x: xy ? +xy[0].toFixed(1) : null, y: xy ? +xy[1].toFixed(1) : null, c: d.county || (r?.county ?? null) };
+    // A record whose source is another district's document has no source of its own.
+    return { i: d.nces_id, n: title(d.name), s: r ? (wrongSource(code, r) ? "u" : S[r.status] ?? "u") : "-", k, x: xy ? +xy[0].toFixed(1) : null, y: xy ? +xy[1].toFixed(1) : null, c: d.county || (r?.county ?? null) };
   });
   // Filled bricks first, so a column reads as a stack that fills from the floor; among the dark ones,
   // the districts that struck the most children come first, because they are the ones to pick up.
