@@ -579,14 +579,14 @@ districts:
   - name: Bearden School District
     county: Okfuskee
     nces_id: "4003690"
-    status: silent
-    source: https://www.beardenschools.org/bearden-school-district-board-of-ed
-    quote: null
+    status: allows
+    source: https://s3.amazonaws.com/scschoolfiles/192/2022-23_hanbook.pdf
+    quote: Penalties will be left up to the discretion of the principal based upon the severity of the infraction and may include, but are not limited to verbal warnings, parent contact, detention, Saturday school, corporal punishment, suspensions, and expulsions.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-29
+    last_verified: 2026-10-11
     method: searched_document
-    parent_control: unknown
+    parent_control: none
     documents:
       - kind: board_policy
         url: https://www.beardenschools.org/bearden-school-district-board-of-ed
@@ -606,8 +606,14 @@ districts:
         quote: null
         retrieved: 2026-09-29
         by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Document located by a searching model and read by us; the quote is verbatim from the fetched document, 2026-10-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Penalties will be left up to the discretion of the principal based upon the severity of the infraction and may include, but are not limited to verbal warnings, parent contact, detention, Saturday school, corporal punishment, suspensions, and expulsions.
+      - Corporal Punishment The Bearden School Board recognizes the need for firmness in disciplinary action to deal with problems which occur in the classrooms and during other school activities, whether on or off school premises.
+      - Accordingly, the Bearden School Board authorizes the administration of corporal punishment as part of the disciplinary process.
+      - Corporal punishment may be administered by any certified employee of the district to any pupil for disruptive or unmanageable conduct as outlined in the behavior code, or other conduct that would tend to disrupt the educational process.
+      - Refusal to take corporal punishment will result in other consequences that may range up to ISS, OSS or recommendationfor expulsion.
   - name: BEAVER
     county: Beaver
     nces_id: "4003750"
@@ -686,12 +692,12 @@ districts:
   - name: Berryhill
     county: Tulsa
     nces_id: "4004020"
-    status: silent
-    source: https://www.berryhillschools.org/media/files/Secondary%20Handbook(1).pdf
-    quote: null
+    status: allows
+    source: https://berryhillschools.org/media/files/ElemStudentHandbook22-23.pdf
+    quote: "Other appropriate disciplinary action as required and as indicated by the circumstances which may include, but is not limited to removal from eligibility to participate or attend extracurricular activities as well as removal from the privilege of attending or participating in the graduation ceremony, school dances, prom, prom activities, and/or class trips and / or corporal punishment to be administered according to the outlined policy:"
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
+    last_verified: 2026-10-11
     method: searched_document
     parent_control: unknown
     documents:
@@ -701,8 +707,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Document located by a searching model and read by us; the quote is verbatim from the fetched document, 2026-10-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - "Other appropriate disciplinary action as required and as indicated by the circumstances which may include, but is not limited to removal from eligibility to participate or attend extracurricular activities as well as removal from the privilege of attending or participating in the graduation ceremony, school dances, prom, prom activities, and/or class trips and / or corporal punishment to be administered according to the outlined policy:"
+      - Corporal punishment is a form of discipline when the infraction by the student is considered serious or is a repeated infraction of school rules B.
   - name: BETHANY
     county: Oklahoma
     nces_id: "4004110"
