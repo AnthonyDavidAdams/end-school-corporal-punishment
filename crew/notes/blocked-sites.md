@@ -11,6 +11,12 @@ permanent block, so the first answer is to slow down: `fetch_simbli_policy` pace
 one server for exactly this reason, and agents reading Simbli directly from their own browsers are
 what produced a fleet-wide block on an earlier run.
 
+Simbli's version is 6,058 bytes. It is not always momentary: on 2026-10-10 an address that had been
+probing Simbli for an afternoon was refused for hours, and a real headless browser from the same
+address got "Request unsuccessful. Incapsula incident ID" rather than the page. Simbli also answers
+plain curl with the stub at times when Node's `fetch` from the same address is served normally, so
+test a Simbli change with Node, not curl.
+
 ## Cloudflare challenge
 
 Same shape, different vendor. Same answer.
