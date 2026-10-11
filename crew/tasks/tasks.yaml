@@ -92,6 +92,7 @@ tasks:
     output: A review with each citation checked
     priority: 3
     schema: schemas/training-review-finding.schema.json
+    skill: skills/training-review/SKILL.md
     collection: training-reviews
     done_means:
       - Every citation in the module was opened and is marked ok or not, with a note.
@@ -109,6 +110,7 @@ tasks:
     output: contact blocks in data/districts/<XX>.yaml
     priority: 1
     schema: schemas/district-finding.schema.json
+    skill: skills/contact-capture/SKILL.md
     collection: districts
     scopes: [AL, AR, FL, GA, MO, MS, OK, TN, TX]
     done_means:
@@ -127,6 +129,7 @@ tasks:
     output: policy_adopted / policy_revised in data/districts/<XX>.yaml
     priority: 2
     schema: schemas/district-finding.schema.json
+    skill: skills/date-the-change/SKILL.md
     collection: districts
     done_means:
       - The date comes from a document the board itself published, not from a news report.
@@ -144,6 +147,7 @@ tasks:
     output: Entries in data/districts/<XX>.yaml with source_text
     priority: 2
     schema: schemas/district-finding.schema.json
+    skill: skills/recover-blocked-source/SKILL.md
     collection: districts
     scopes: ["CHARLESTON R-I, MO", "HOLCOMB R-III, MO", "BROKEN BOW, OK", "PUXICO R-VIII, MO", "DES ARC SCHOOL DISTRICT, AR", "JACKSON CO. SCHOOL DISTRICT, AR", "WINONA R-III, MO", "HAMBURG SCHOOL DISTRICT, AR", "PANGBURN SCHOOL DISTRICT, AR", "OSCEOLA SCHOOL DISTRICT, AR", "WONDERVIEW SCHOOL DISTRICT, AR", "White County, TN", "JASPER SCHOOL DISTRICT, AR", "DUMAS SCHOOL DISTRICT, AR", "Hardin County, TN", "EDGEWOOD ISD, TX", "NORFORK SCHOOL DISTRICT, AR", "MULBERRY/PLEASANT VIEW BI-COUNTY SCHOOL DISTRICT, AR", "GLENCOE, OK", "Escambia County, AL", "BUNKER R-III, MO", "HOWE, OK", "NEELYVILLE R-IV, MO", "SOUTHERN REYNOLDS CO. R-II, MO", "NEW LIMA, OK", "Hollow Rock - Bruceton, TN", "YAZOO CITY MUNICIPAL SCHOOL DIST, MS", "CASSVILLE R-IV, MO", "ALPENA SCHOOL DISTRICT, AR", "HORATIO SCHOOL DISTRICT, AR", "BAY SCHOOL DISTRICT, AR", "SOUTH SIDE SCHOOL DISTRICT, AR", "MOUNTAIN VIEW-BIRCH TREE R-III, MO", "SOUTHWEST R-V, MO", "WEST PLAINS R-VII, MO", "GREEN FOREST R-II, MO", "BRAY-DOYLE, OK", "Meigs County, TN", "Leeds City, AL", "OZARK MOUNTAIN SCHOOL DISTRICT, AR", "BAKERSFIELD R-IV, MO", "LINDSAY, OK", "SHADY POINT, OK", "Fentress County, TN", "RIVERSIDE SCHOOL DISTRICT, AR", "PERRYVILLE SCHOOL DISTRICT, AR", "OAK RIDGE R-VI, MO", "SOUTH IRON CO. R-I, MO", "BUFFALO VALLEY, OK", "GRAND VIEW, OK", "MARYETTA, OK", "Humphreys County, TN", "CONCORD SCHOOL DISTRICT, AR", "ADVANCE R-IV, MO", "AVANT, OK", "LEACH, OK", "VICI, OK"]
     done_means:
