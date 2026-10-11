@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { policyDates } from "../certificate.mjs";
 import { parse } from "yaml";
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const argv = process.argv.slice(2);
@@ -53,11 +54,12 @@ for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith
     // good news this project has, the certificate is the reason to open the message, and the ask is a
     // testimonial -- because the argument that moves a board is not ours, it is another board's.
     if (d.status === "bans") {
-      const acted = d.policy_revised || d.policy_adopted || null;
+      const { adopted, revised } = policyDates(d);
+      const dates = adopted && revised ? ` First adopted ${adopted}; policy dated ${revised}.` : adopted ? ` First adopted ${adopted}.` : revised ? ` Policy dated ${revised}.` : "";
       lines.push(`Dear ${d.name},`, "");
       lines.push(`We keep a public record of which school districts in the United States still permit corporal punishment. Yours does not, and we have made you a certificate saying so: ${certUrl}`, "");
       lines.push(`**What it says**`, "");
-      lines.push(`${d.name}${d.policy_code && d.policy_code.length <= 16 ? `, policy ${d.policy_code}` : ""}: prohibits corporal punishment.${acted ? ` Board acted ${acted}.` : ""}`);
+      lines.push(`${d.name}${d.policy_code && d.policy_code.length <= 16 ? `, policy ${d.policy_code}` : ""}: prohibits corporal punishment.${dates}`);
       lines.push(`Read on ${d.last_verified} at ${d.source}`, "");
       lines.push(`> ${d.quote.trim()}`, "");
       if (own) lines.push(`In the ${NATIONAL.year} Civil Rights Data Collection your district reported ${own.toLocaleString()} student${own === 1 ? "" : "s"} struck. Whatever the number was then, the policy above is what governs now.`, "");
