@@ -9,8 +9,9 @@ A principal from a district that has already made the switch is the best facilit
 | When | What | Hours |
 |---|---|---|
 | Board meeting | Module 0 (30 min) plus the policy vote | 1 |
-| First in-service day | Module 0 for all staff, then Module 2 | 4 |
+| First in-service day | Module 0 for all staff, then the first half-day of Module 2 | 3.5 |
 | Week 2 | Module 3, leadership team; ladder posted by Friday | 3 |
+| Week 3 | Module 2, second half-day, all teachers | 3 |
 | Week 4 | Module 4, all staff | 3 |
 | Week 6 | Module 7 parent letter out; parent meeting | 2 |
 | Week 8 | Module 5 and Module 8, leadership team | 4 |
@@ -33,8 +34,8 @@ There is no slide deck and there should not be a long one. Each module's practic
 
 ## Adapting for a very small school
 
-A school with one administrator and no counselor runs the ladder with the principal and one lead teacher per grade band sharing rungs 1 and 2. Check-In/Check-Out can be done by the secretary, the custodian, or a coach; the research does not require a counselor, it requires a consistent adult.
+A school with one administrator and no counselor runs the ladder with the principal and one lead teacher per grade band sharing rungs 1 and 2. Check-In/Check-Out can be done by the secretary, the custodian, or a coach; the routine in Module 5 needs one consistent adult, not a particular job title.
 
 ## Review
 
-This curriculum is a draft. The `training-review` task in `../../tasks/README.md` asks people who have run a school to review one module at a time against `../evidence.md` and file issues. The modules change when the reviews say so.
+This curriculum is a draft. The `training-review` task in `../../tasks/README.md` takes one module at a time and produces a review with its citations checked; a review from someone who has run a school is worth more than anything else (`../README.md`). The modules change when the reviews say so.
