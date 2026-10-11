@@ -38124,8 +38124,18 @@
    "last_verified": "2026-10-04",
    "method": "agent_via_crew",
    "parent_control": "opt_out",
-   "notes": " Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Submitted through the crew server; quote verified against the source by the server and approved by a maintainer on 2026-10-04. Handbook conflict noted 2026-10-11: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2909750-2670_001.pdf says \"Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.\" (consent_required); the board policy governs and sets the status.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.",
+    "No student will be administered corporal punishment without prior notification to and written permission of the student’s parents/guardians."
+   ],
+   "handbook_conflict": {
+    "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2909750-2670_001.pdf",
+    "quote": "Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.",
+    "status": "consent_required",
+    "noted": "2026-10-11"
+   }
   },
   {
    "name": "Clever R-V",

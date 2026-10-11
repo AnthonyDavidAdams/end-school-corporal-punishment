@@ -1,0 +1,64 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+
+</title></head>
+<body>
+    <form method="post" action="./DocumentManager.aspx?requestarticle=%2fKRS%2f161-00%2f180.pdf&amp;requesttype=krs" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE3OTk5NjAyMzkPZBYCAgMPZBYEAgMPFgIeCWlubmVyaHRtbAX7AklmIHlvdSBhcmUgcHJvbXB0ZWQgdG8gZG93bmxvYWQgYSBmaWxlIHRoZW4geW91IHdpbGwgbmVlZCB0byBpbnN0YWxsIEFkb2JlIEFjcm9iYXQgUmVhZGVyLiAgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFlvdSBjYW4gZG93bmxvYWQgQWRvYmUgQWNyb2JhdCBSZWFkZXIgZnJvbSA8YSBocmVmPSdodHRwOi8vZ2V0LmFkb2JlLmNvbS9yZWFkZXIvJz5oZXJlPC9hPi4gIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBBZnRlciB0aGUgZmlsZSBpcyBkb25lIGRvd25sb2FkaW5nIGNob29zZSB0aGUgJ09wZW4nIG9wdGlvbiBmcm9tIHRoZSAnRG93bmxvYWQgQ29tcGxldGUnIG5vdGlmaWNhdGlvbi5kAgUPFgIeB0VuYWJsZWRnZGRdZ9XAZfPsHOff07CwX+vcNM0jBlfcQEAZOokgfNx4JQ==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=ruwiELq8DurpJsrbjDRLzBWw_MjiuNQ5WeMi9FgPfTb-I2AG8MfKG-BwexBBxjJsMcodNk1KCaRyL-2AgPoId1sMNyZVHnhggk5TrgMITLY1&amp;t=639220970657418952" type="text/javascript"></script>
+
+
+<script src="Scripts/WebForms/MsAjax/MicrosoftAjax.js" type="text/javascript"></script>
+<script src="Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js" type="text/javascript"></script>
+<script src="Scripts/WebForms/MsAjax/MicrosoftAjaxTimer.js" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A0752409" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+        <div> 
+            <div id="lblMessage">If you are prompted to download a file then you will need to install Adobe Acrobat Reader.  
+                                            You can download Adobe Acrobat Reader from <a href='http://get.adobe.com/reader/'>here</a>.  
+                                            After the file is done downloading choose the 'Open' option from the 'Download Complete' notification.</div>
+            <span id="timer" style="visibility:hidden;display:none;"></span>
+        </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.UI._Timer, {"enabled":true,"interval":3000,"uniqueID":"timer"}, null, null, $get("timer"));
+});
+//]]>
+</script>
+</form>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=241869899" async></script></body>
+</html>
