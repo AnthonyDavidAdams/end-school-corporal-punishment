@@ -4,7 +4,7 @@
 
 ## What this module replaces
 
-An abrupt policy change with nothing behind it, which is how districts end up with a suspension spike and a board that reverses itself.
+An abrupt policy change with nothing behind it. A district that stops paddling still has suspension available, so without an alternative system a rise in suspensions is plausible; no study has measured what happens after a US district or state ends corporal punishment (`../evidence.md` B9).
 
 ## The plan
 
@@ -16,12 +16,12 @@ An abrupt policy change with nothing behind it, which is how districts end up wi
 - Send the parent letter (Module 7).
 
 **Days 31 to 60: run both systems.**
-- The ladder is the default. Corporal punishment is not administered without the principal reviewing whether the ladder was used first. Use drops sharply here on its own.
+- The ladder is the default. Corporal punishment is not administered without the principal reviewing whether the ladder was used first. Watch the log for whether use falls once that review is in place.
 - Weekly 20-minute leadership meeting: read the referral log, name the top three behaviors, the top three locations, the top three times of day. Fix the environment first (hallway supervision, transition routines, the lunch line).
 - Train staff in Module 4 (repair conversations). One half-day.
 
 **Days 61 to 90: switch.**
-- Identify the students with three or more referrals (usually 3 to 5 percent of enrollment). Start Module 5 plans for each.
+- Identify the students with three or more referrals. Start Module 5 plans for each.
 - Train on Module 6 (disabilities and trauma).
 - Day 90: the policy takes effect. Announce the baseline numbers and commit to publishing the monthly log.
 
@@ -31,4 +31,4 @@ Roughly 14 staff hours of training per teacher over 90 days plus 20 minutes a we
 
 ## When it is not working
 
-Referrals go up in the first month after the switch in many schools because staff refer what they used to handle with a threat. That is expected and it is data. It comes down in month two if the ladder is used consistently. If it does not, the problem is almost always inconsistent responses across administrators; fix the ladder, not the policy.
+Referrals may go up after the switch, as staff send to the office what they used to handle with a threat. No study has measured this (`../evidence.md` B9), so treat it as something to watch for, not a forecast; if it happens, it is data, and the log shows whether it falls as the ladder settles in. If it does not fall, check first whether administrators are using the ladder the same way (Module 3); fix the ladder, not the policy.
