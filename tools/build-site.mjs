@@ -100,7 +100,7 @@ function countyMap(code, ds) {
   const paths = cps.map(c => { const list = byCounty[norm(c.name)] || []; const st = countyStatus(code, list); counts[st] = (counts[st] || 0) + 1;
     const label = list.length ? list.map(d => `${d.name}: ${({ allows: "allows", bans: "prohibits", consent_required: "consent required", silent: "no written rule found; reports using it", unknown: "policy unknown" })[d.status]}`).join("<br>") : "No district recorded yet. State law applies. Help scan it.";
     return `<path d="${c.d}" fill="${CFILL[st]}" stroke="#fff" stroke-width="${sw}" data-county="${esc(c.name)}" data-status="${esc(CLBL[st])}" data-districts="${esc(label)}" data-key="${esc(norm(c.name))}" tabindex="0"><title>${esc(c.name)}</title></path>`; }).join("\n");
-  return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> School district lines</label>
+  return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> Show districts (off: counties only)</label>
 <span class="meta">${esc(s.name)} has ${leaCounts[code] ? n(leaCounts[code]) : "many"} school districts in ${cps.length} counties. Each district is drawn in the colour of its own policy; hover one for its name and rule, click to jump to its row. Counties show through where no district is recorded yet.</span></div>
 <script>window.__dstatus=${JSON.stringify(Object.fromEntries(ds.filter(d => d.nces_id).map(d => [String(d.nces_id), [d.status || "unknown", d.name]])))};</script>
 <svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" data-state="${code}" role="img" aria-label="School districts colored by their corporal punishment policy, over county outlines">
@@ -134,7 +134,7 @@ const FILL={allows:"#9B2C2C",consent_required:"#C05621",silent:"#B5474A",bans:"#
 const layer=document.createElementNS(NS,"g");layer.setAttribute("class","district-fills");
 for(const [id,d] of Object.entries(j.shapes)){const [status,name]=st[id]||["unknown",id];const p=document.createElementNS(NS,"path");p.setAttribute("d",d);p.setAttribute("fill",FILL[status]||FILL.unknown);p.setAttribute("fill-opacity","0.92");p.setAttribute("stroke","#fff");p.setAttribute("stroke-width",(parseFloat(svg.viewBox.baseVal.width)/900).toFixed(2));p.dataset.district=name;p.dataset.status=LBL[status]||status;p.setAttribute("tabindex","0");layer.append(p);}
 const under=document.getElementById("district-layer")||svg.querySelector("path[pointer-events=none]");svg.insertBefore(layer,under||null);
-for(const c of svg.querySelectorAll("path[data-county]")){c.setAttribute("fill-opacity","0.35");}
+const on=!dbox||dbox.checked;layer.style.display=on?"":"none";for(const c of svg.querySelectorAll("path[data-county]")){c.setAttribute("fill-opacity",on?"0.35":"1");}
 const show=(e,p)=>{tip.innerHTML="<b>"+p.dataset.district+"</b><br>"+p.dataset.status;tip.style.display="block";const b=box.getBoundingClientRect();tip.style.left=(e.clientX-b.left+12)+"px";tip.style.top=(e.clientY-b.top+12)+"px";};
 layer.addEventListener("mousemove",e=>{const p=e.target.closest("path");if(p)show(e,p);});layer.addEventListener("mouseleave",()=>{tip.style.display="none";});
 layer.addEventListener("click",e=>{const p=e.target.closest("path");if(!p)return;const row=[...document.querySelectorAll("table tr")].find(tr=>tr.textContent.toLowerCase().includes(p.dataset.district.toLowerCase()));if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.style.outline="2px solid #B7791F";setTimeout(()=>row.style.outline="",2500);}});
@@ -143,7 +143,7 @@ const leg=document.querySelector(".mapbox .legend");if(leg){const L={bans:"Distr
 const note=document.getElementById("county-live-note");if(note)note.textContent=j.count+" school districts drawn from US Census Bureau boundaries.";
 }catch(e){}})();
 let dloaded=false;
-const showLines=on=>{distLayer.style.display=on?"":"none";};
+const showLines=on=>{distLayer.style.display=on?"":"none";const f=svg.querySelector(".district-fills");if(f)f.style.display=on?"":"none";for(const c of svg.querySelectorAll("path[data-county]"))c.setAttribute("fill-opacity",on?"0.35":"1");};
 const loadLines=async()=>{if(dloaded)return;dloaded=true;
   try{const r=await fetch("/kids/data/districts/districts-"+svg.dataset.state+".json");if(!r.ok)return;const j=await r.json();
     const pth=document.createElementNS(NS,"path");pth.setAttribute("d",j.d);pth.setAttribute("class","district-lines");pth.setAttribute("fill","none");distLayer.append(pth);
