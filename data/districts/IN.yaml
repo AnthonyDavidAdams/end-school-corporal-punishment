@@ -5220,13 +5220,13 @@ districts:
   - name: West Central School Corp
     county: Pulaski
     nces_id: "1809360"
-    status: silent
-    source: https://www.wcsc.k12.in.us/
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1809360-WCSC_Adopted_policies_as_of_1-2-25__1___37_.pdf
+    quote: Most cases of disobedience can be corrected without corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-12
+    method: records_request
     parent_control: unknown
     documents:
       - kind: other
@@ -5253,8 +5253,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-12; the document is kept in the repository at data/policies/inbound/IN/1809360-WCSC_Adopted_policies_as_of_1-2-25__1___37_.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Most cases of disobedience can be corrected without corporal punishment.
+      - However, when other methods of discipline have proven unsuccessful, corporal punishment may be used as a last resort.
+      - Corporal punishment must be reasonable and not administered with anger or malice.
+      - Indiana courts consistently have held that a teacher acts in the place of a parent and that reasonable corporal punishment may be used when justified, and the fact that a pupil suffers hurt is not an indication that the teacher is brutal.
   - name: West Noble School Corporation
     county: Noble
     nces_id: "1812900"
