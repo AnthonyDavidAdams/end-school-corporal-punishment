@@ -78,9 +78,13 @@ def press_release_docx(st, path):
     doc.save(path); return path
 
 
-def cover(st):
+def cover(st, to_chief=False):
     yr = YEAR.replace("–", "-"); n = st["name"]; N = n[0].upper() + n[1:]
-    greet = f"Dear {st['gov_title']} {st['governor'].split()[-1]}," if st.get("governor") else "Dear Governor,"
+    if to_chief and st.get("chief"):
+        title = (st.get("chief_title") or "").split(" of ")[0].replace("State ", "") or "Commissioner"
+        greet = f"Dear {title} {st['chief'].split()[-1]},"
+    else:
+        greet = f"Dear {st['gov_title']} {st['governor'].split()[-1]}," if st.get("governor") else "Dear Governor,"
     since = f" It has stood since {st['year']}." if st.get("year") else ""
     paras = [
         f"Congratulations. {N} is one of the 33 states, with the District of Columbia, whose law **prohibits corporal punishment in every public school**.{since} Seventeen states still permit it, and in those states more than a thousand districts still write it into policy. We are recognizing {N} as a **Safe Schools State for the {yr} school year**.",
@@ -94,7 +98,7 @@ def cover(st):
         ]),
         "What the research says, briefly: a 2022 meta-analysis of school corporal punishment specifically, across **21 studies and more than 67,000 children**, found it associated with **more aggressive and disruptive behavior, more anxiety and depression, and lower school performance**. The 2016 review of 75 studies and 160,927 children found physical punishment linked to **13 of 17 outcomes studied, every one in the direction of harm**.",
         "Nationally, **19,851 public school students were struck as punishment in 2023-24**, down from 106,055 a decade earlier. States that settled it in law are why.",
-        "You are welcome to share this however you like. A sample press release is attached as a Word document, written so your office can send it with one edit." + (f" We are sending a copy to {st['chief_title']} {st['chief']}." if st.get("chief") and st.get("cc") else ""),
+        "You are welcome to share this however you like. A sample press release is attached as a Word document, written so your office can send it with one edit." + (f" The certificate is made out to {st['gov_title']} {st['governor']}; the Governor's office publishes no press address, so it comes to you, and we would be grateful if you passed it along." if to_chief and st.get("governor") else (f" We are sending a copy to {st['chief_title']} {st['chief']}." if st.get("chief") and st.get("cc") else "")),
         "One more, if you are willing. We are collecting **thirty-second videos** from leaders in states and districts that chose other approaches: what changed, and what you would say to a state that still permits it. Phone in hand, no script. Send one at earthpilot.org/kids/video/ and we will put a real face to this.",
         "With respect and thanks,",
         "Anthony David Adams\nFounder, EarthPilot · Safe Schools Project\nearthpilot.org/kids · anthony@175g.com · (234) 516-2545",
@@ -113,14 +117,14 @@ def cover(st):
     return "\n\n".join(tp) + "\n", f"""<!doctype html><html><body style="margin:0;padding:24px;background:#ffffff"><div style="max-width:620px;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0D132D">{''.join(hp)}</div></body></html>"""
 
 
-def package(st, to, cc=None, test=False):
+def package(st, to, cc=None, test=False, to_chief=False):
     pdf = render(st); docx = press_release_docx(st, pdf[:-4] + "-press-release.docx"); yr = YEAR.replace("–", "-")
     subject = ("[TEST] " if test else "") + f"{st['name'][0].upper() + st['name'][1:]} recognized as a Safe Schools State for {yr}"
     m = EmailMessage(); m["From"] = run.FROM; m["To"] = to
     if cc and not test: m["Cc"] = cc
     m["Subject"] = subject; m["Date"] = email.utils.formatdate(localtime=True)
     rid = hashlib.sha1(f"certificate_state|{st['state']}".encode()).hexdigest()[:10]; m["Message-ID"] = f"<escp-{rid}{'-test' if test else ''}@earthpilot.org>"; m["X-ESCP-Request"] = rid
-    text, html_doc = cover(st); m.set_content(text); m.add_alternative(html_doc, subtype="html")
+    text, html_doc = cover(st, to_chief); m.set_content(text); m.add_alternative(html_doc, subtype="html")
     m.add_attachment(open(pdf, "rb").read(), maintype="application", subtype="pdf", filename=f"Safe Schools State {yr} - {st['name'][0].upper() + st['name'][1:]}.pdf")
     m.add_attachment(open(docx, "rb").read(), maintype="application", subtype="vnd.openxmlformats-officedocument.wordprocessingml.document", filename=f"Press release - {st['name'][0].upper() + st['name'][1:]} Safe Schools State {yr}.docx")
     return m, rid, subject, text, pdf
@@ -138,14 +142,16 @@ def main():
         st = next((s for s in sts if s["state"] == (a.state or "CO")), sts[0]); m, *_ = package(st, a.test, test=True); run.smtp_send(m); print("test sent to", a.test, "for", st["name"]); return
     sent = 0
     for st in sts:
-        if st["state"] in done or not st["to"]: continue
+        if st["state"] in done: continue
+        to_chief = not st["to"]; to = st["to"] or st.get("cc")
+        if not to: print("skipped", st["state"], "no address at all"); continue
         try:
-            m, rid, subject, text, pdf = package(st, st["to"], st.get("cc")); run.smtp_send(m)
+            m, rid, subject, text, pdf = package(st, to, None if to_chief else st.get("cc"), to_chief=to_chief); run.smtp_send(m)
         except Exception as ex:
             print("failed", st["state"], str(ex)[:120]); continue
-        reqs.append({"id": rid, "kind": "certificate_state", "state": st["state"], "name": f"{st['name']} (Governor {st['governor']})", "nces_id": None, "kids": None, "to": st["to"], "cc": st.get("cc"), "superintendent": st.get("governor"),
+        reqs.append({"id": rid, "kind": "certificate_state", "state": st["state"], "name": f"{st['name']} (Governor {st['governor']})", "nces_id": None, "kids": None, "to": to, "cc": None if to_chief else st.get("cc"), "via_chief": to_chief, "superintendent": st.get("governor"),
                      "status": "sent", "sent_at": datetime.datetime.now().isoformat(timespec="seconds"), "message_id": m["Message-ID"], "subject": subject, "body": text, "replies": [], "followup_sent_at": "n/a", "certificate_pdf": os.path.relpath(pdf, ROOT), "notes": f"Safe Schools State certificate {YEAR}; {st['statute']}."})
-        run.save(reqs); sent += 1; print("sent", st["state"], "->", st["to"], "cc", st.get("cc") or "-")
+        run.save(reqs); sent += 1; print("sent", st["state"], "->", to, "cc", (None if to_chief else st.get("cc")) or "-", "(via the education chief)" if to_chief else "")
         import time; time.sleep(6)
     print("state certificates sent:", sent)
 
