@@ -38,15 +38,37 @@ export function scanScopes() {
   return out;
 }
 
+// What the correspondence has run into that a person or a browsing agent can fix:
+//   contact-capture        districts whose address bounced with nothing else on file, and districts with no address at all
+//   recover-blocked-source districts that will hand over their policy only in person, or whose documents could not be read
+export function correspondenceScopes() {
+  let reqs = []; try { reqs = JSON.parse(readFileSync(join(root, "data/outreach/requests.json"), "utf8")); } catch {}
+  const label = (r) => `${r.name}, ${r.state}`;
+  const contacts = reqs.filter((r) => r.status === "bounced" && r.bounce_retry && r.state && r.name).map((r) => `${label(r)} (address bounced: find the superintendent's current office email)`);
+  const pickups = reqs.filter((r) => /pickup/i.test(r.notes || "") && r.state && r.name).map((r) => `${label(r)} (policy offered only by in-person pickup: find it published elsewhere, or a person nearby)`);
+  return { contacts: [...new Set(contacts)], pickups: [...new Set(pickups)] };
+}
+
+function replaceScopes(yaml, taskId, scopes, keep = []) {
+  // the scopes line that belongs to this task: the first "    scopes: [...]" after "  - id: <taskId>"
+  const start = yaml.indexOf(`  - id: ${taskId}`); if (start < 0) throw new Error(`no task ${taskId}`);
+  const rest = yaml.slice(start); const m = rest.match(/^ {4}scopes: \[[^\]]*\]$/m); if (!m) throw new Error(`no scopes line on ${taskId}`);
+  const all = [...keep, ...scopes];
+  const line = `    scopes: [${all.map((s) => (/[:,()]/.test(s) ? `"${s.replace(/"/g, "'")}"` : s)).join(", ")}]`;
+  return yaml.slice(0, start) + rest.replace(m[0], line);
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   const scopes = scanScopes();
   const p = join(root, "crew/tasks/tasks.yaml");
-  const yaml = readFileSync(p, "utf8");
-  const line = `    scopes: [${scopes.map((s) => (/[:,]/.test(s) ? `"${s}"` : s)).join(", ")}]`;
-  // Distinguish "the line is not there" from "the line is already right". The first is a broken
-  // generator and has to stop; the second is the normal case on a re-run and must not.
-  if (!/^ {4}scopes: \[[^\]]*\]$/m.test(yaml)) throw new Error("crew/tasks/tasks.yaml: no scopes line to replace on district-policy-scan");
-  const next = yaml.replace(/^ {4}scopes: \[[^\]]*\]$/m, line);
-  if (next !== yaml) writeFileSync(p, next);
-  console.log(`${scopes.length} scopes across ${new Set(scopes.map((s) => s.split(":")[0])).size} states; first six: ${scopes.slice(0, 6).join(" | ")}`);
+  let yaml = readFileSync(p, "utf8");
+  yaml = replaceScopes(yaml, "district-policy-scan", scopes);
+  const c = correspondenceScopes();
+  yaml = replaceScopes(yaml, "contact-capture", c.contacts, ["AL", "AR", "FL", "GA", "MO", "MS", "OK", "TN", "TX"]);
+  // recover-blocked-source keeps its hand-listed scopes and gains the pickup-only districts
+  const rb = yaml.slice(yaml.indexOf("  - id: recover-blocked-source")).match(/^ {4}scopes: \[([^\]]*)\]$/m);
+  const existing = rb ? rb[1].split(/,\s*(?=(?:[^"]*"[^"]*")*[^"]*$)/).map((x) => x.trim().replace(/^"|"$/g, "")).filter(Boolean).filter((x) => !/pickup/i.test(x)) : [];
+  yaml = replaceScopes(yaml, "recover-blocked-source", c.pickups, existing);
+  writeFileSync(p, yaml);
+  console.log(`${scopes.length} scan scopes across ${new Set(scopes.map((s) => s.split(":")[0])).size} states; ${c.contacts.length} bounced addresses to find; ${c.pickups.length} pickup-only districts; first six: ${scopes.slice(0, 6).join(" | ")}`);
 }

@@ -23,6 +23,11 @@ ops() { [ -n "${ESCP_MAINTAINER_TOKEN:-}" ] && node tools/report-ops.mjs "$@" >/
 #    outreach queue; the hourly outreach job sends them and handles what comes back. ESCP_DAILY_ASKS=0 stops it.
 /opt/homebrew/bin/python3 tools/outreach/run.py queue "${ESCP_DAILY_ASKS:-25}" 2>&1 | tail -1
 
+# 0a. The crew's task queue: whatever the record and the correspondence now need (unquoted districts,
+#     bounced addresses, pickup-only policies). Redeployed only when the slices actually changed.
+node tools/crew-scopes.mjs 2>&1 | tail -1
+if ! git diff --quiet -- crew/tasks/tasks.yaml; then git add crew/tasks/tasks.yaml && git commit -q -m "Nightly $DAY: crew task slices" && railway up --detach 2>&1 | tail -1; fi
+
 # 0b. The association policy portals: every unquoted district in a state whose manuals sit on one.
 bash tools/portals/nightly.sh 2>&1 | tail -12
 # If the open-web slice turns out empty, whatever the portals merged still ships.
