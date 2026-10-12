@@ -1,0 +1,1026 @@
+{
+ "_note": "Current governor (mayor for DC) and state education chief for all 50 states + DC, with the press office email and public-records email where the official site publishes one. Every fact carries the official page it was read from and the date checked. Collected 2026-10-12 by opening each governor's and education agency's own site; no third-party directories. null means the site publishes no such address (see note), not that none exists.",
+ "checked": "2026-10-12",
+ "states": {
+  "AL": {
+   "governor": {
+    "name": "Kay Ivey",
+    "title": "Governor",
+    "press_email": "press.Office@governor.alabama.gov",
+    "contact_url": "https://contact.governor.alabama.gov/contact.aspx",
+    "source": "https://governor.alabama.gov/ ; https://governor.alabama.gov/newsroom/ ; https://governor.alabama.gov/contact/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Eric G. Mackey",
+    "title": "State Superintendent of Education",
+    "department": "Alabama State Department of Education",
+    "press_email": "comm@alsde.edu",
+    "records_email": null,
+    "source": "https://www.alabamaachieves.org/superintendents-corner/ ; https://www.alabamaachieves.org/contact/ ; https://www.alabamaachieves.org/public-records/",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor's public records page: https://governor.alabama.gov/contact/public-records-requests/. ALSDE press email is the Communications Section address shown on the contact page; superintendent's office email superintendent@alsde.edu. ALSDE public records go through a mycusthelp.com portal, no email published."
+  },
+  "AK": {
+   "governor": {
+    "name": "Mike Dunleavy",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://gov.alaska.gov/contact/email-the-governor/",
+    "source": "https://gov.alaska.gov/ ; https://gov.alaska.gov/contact/ ; https://gov.alaska.gov/newsroom/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Deena M. Bishop, Ed.D.",
+    "title": "Commissioner",
+    "department": "Alaska Department of Education and Early Development (DEED)",
+    "press_email": "eed.pio@alaska.gov",
+    "records_email": "eed.pio@alaska.gov",
+    "source": "https://education.alaska.gov/commissioner/commissioner ; https://education.alaska.gov/news",
+    "checked": "2026-10-12"
+   },
+   "note": "No press-office email published on gov.alaska.gov (checked home, contact, newsroom, and two releases). DEED news page lists eed.pio@alaska.gov under 'Information, Media, and FOIA Requests' (serves both press and records); commissioner's office email deed.commissioner@alaska.gov."
+  },
+  "AZ": {
+   "governor": {
+    "name": "Katie Hobbs",
+    "title": "Governor",
+    "press_email": "press@az.gov",
+    "contact_url": "https://azgovernor.gov/constituent-engagement",
+    "source": "https://azgovernor.gov/ ; https://azgovernor.gov/constituent-engagement",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Tom Horne",
+    "title": "Superintendent of Public Instruction",
+    "department": "Arizona Department of Education",
+    "press_email": "communications@azed.gov",
+    "records_email": null,
+    "source": "https://www.azed.gov/ ; https://www.azed.gov/communications/ade-secures-5-million-grant-support-teacher-development ; https://www.azed.gov/adeinfo/about-ade/contact-us",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor's public records form: https://azgovernor.gov/office-arizona-governor/form/public-information-and-records-request. ADE public records go through a web form (https://www.azed.gov/data/data-request-form), no email published. azed.gov is Cloudflare-gated for curl; read via browser."
+  },
+  "AR": {
+   "governor": {
+    "name": "Sarah Huckabee Sanders",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://governor.arkansas.gov/interact/contact-the-governor/",
+    "source": "https://governor.arkansas.gov/ ; https://governor.arkansas.gov/interact/contact-the-governor/ ; https://governor.arkansas.gov/news_post/governor-sanders-launches-myarkansas-app/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Jacob Oliva",
+    "title": "Secretary, Arkansas Department of Education (also Commissioner, ADE Division of Elementary and Secondary Education)",
+    "department": "Arkansas Department of Education / Division of Elementary and Secondary Education",
+    "press_email": "ade.communications@ade.arkansas.gov",
+    "records_email": null,
+    "source": "https://dese.ade.arkansas.gov/About/secretary ; https://dese.ade.arkansas.gov/Offices/communications",
+    "checked": "2026-10-12"
+   },
+   "note": "No press email on governor.arkansas.gov (home, contact page which is an Indigov form, newsroom, one release). No FOIA email found on DESE site."
+  },
+  "CA": {
+   "governor": {
+    "name": "Gavin Newsom",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://www.gov.ca.gov/contact/",
+    "source": "https://www.gov.ca.gov/ ; https://www.gov.ca.gov/contact/ ; https://www.gov.ca.gov/newsroom/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Tony Thurmond",
+    "title": "State Superintendent of Public Instruction",
+    "department": "California Department of Education",
+    "press_email": null,
+    "records_email": null,
+    "source": "https://www.cde.ca.gov/eo/ ; https://www.cde.ca.gov/nr/ ; https://www.cde.ca.gov/re/di/cd/",
+    "checked": "2026-10-12"
+   },
+   "note": "gov.ca.gov publishes no press email (contact page is a web form). CDE newsroom directs media to a Reporter Request Form (http://www3.cde.ca.gov/reporterrequest/) rather than an email; no Public Records Act email found on the pages checked. cde.ca.gov is bot-gated (Radware) for curl/WebFetch; read via browser."
+  },
+  "CO": {
+   "governor": {
+    "name": "Jared Polis",
+    "title": "Governor",
+    "press_email": "eric.maruyama@state.co.us",
+    "contact_url": "https://www.colorado.gov/governor/contact-us",
+    "source": "https://www.colorado.gov/governor/ ; https://www.colorado.gov/governor/contact-us ; https://www.colorado.gov/governor/media-resources ; https://www.colorado.gov/governor/CORA",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Susana Córdova",
+    "title": "Commissioner of Education",
+    "department": "Colorado Department of Education",
+    "press_email": null,
+    "records_email": null,
+    "source": "https://www.cde.state.co.us/cdecomm ; https://ed.cde.state.co.us/newsbureau ; https://ed.cde.state.co.us/offices-staff",
+    "checked": "2026-10-12"
+   },
+   "note": "No generic press-office address; media-resources page lists Press Secretary Eric Maruyama (eric.maruyama@state.co.us) plus deputies ally.sullivan@state.co.us and madelyn.remington@state.co.us. Governor CORA email: gov_cora@state.co.us. Governor general email: Governorpolis@state.co.us. CDE News Bureau lists only phone numbers for media (Jeremy Meyer, Director of Communications, 720-668-6434); commissioner office email commissioner@cde.state.co.us. A 'Governor Tolbert and Governor Hancock' release on the site refers to the student 'Governor for a Day' program, not a change in office."
+  },
+  "CT": {
+   "governor": {
+    "name": "Ned Lamont",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://portal.ct.gov/governor/contact/email-governor-lamont",
+    "source": "https://portal.ct.gov/governor ; https://portal.ct.gov/governor/contact-the-governor ; https://portal.ct.gov/governor/press-room",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Charlene M. Russell-Tucker",
+    "title": "Commissioner of Education",
+    "department": "Connecticut State Department of Education",
+    "press_email": "matthew.cerrone@ct.gov",
+    "records_email": null,
+    "source": "https://portal.ct.gov/sde ; https://portal.ct.gov/sde/press-room/press-releases/2026/connecticut-state-department-of-education-awards-$2-million-in-high-dosage-tutoring-grants",
+    "checked": "2026-10-12"
+   },
+   "note": "No press email on the governor's site (press room, contact page, one release). CSDE press contact is the individual listed under CONTACT INFORMATION on current releases, not a generic mailbox. No FOIA email found on CSDE pages reached."
+  },
+  "DE": {
+   "governor": {
+    "name": "Matt Meyer",
+    "title": "Governor",
+    "press_email": "jonah.anderson@delaware.gov",
+    "contact_url": "https://governor.delaware.gov/contact/",
+    "source": "https://governor.delaware.gov/ ; https://governor.delaware.gov/contact/ ; https://governor.delaware.gov/press-releases/ ; https://news.delaware.gov/2026/10/09/governor-meyer-announces-new-housing-and-energy-projects-accepted-into-jobsfirst-permitting-accelerator/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Cynthia (Cindy) Marten",
+    "title": "Secretary of Education",
+    "department": "Delaware Department of Education",
+    "press_email": "alison.may@doe.k12.de.us",
+    "records_email": "FOIACoordinator@doe.k12.de.us",
+    "source": "https://education.delaware.gov/about-doe/leadership/ ; https://education.delaware.gov/community/foia/ ; https://news.delaware.gov/2026/10/05/delaware-awards-7-1-million-to-strengthen-early-literacy-instruction/",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press contact is Deputy Press Secretary Jonah Anderson (listed on press-releases page and as Media Contact on releases), not a generic mailbox. DDOE media contact Alison May appears on DDOE releases; general inquiries dedoe@doe.k12.de.us. education.delaware.gov is 403 to curl/WebFetch; read via browser."
+  },
+  "DC": {
+   "governor": {
+    "name": "Muriel Bowser",
+    "title": "Mayor of the District of Columbia",
+    "press_email": "press@dc.gov",
+    "contact_url": "https://mayor.dc.gov/ask-the-mayor",
+    "source": "https://mayor.dc.gov/ ; https://mayor.dc.gov/page/resources-for-the-media ; https://mayor.dc.gov/page/open-government-foia-mayor ; https://mayor.dc.gov/ask-the-mayor",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Antoinette S. Mitchell, Ph.D.",
+    "title": "State Superintendent of Education",
+    "department": "Office of the State Superintendent of Education (OSSE)",
+    "press_email": null,
+    "records_email": "osse.foia@dc.gov",
+    "source": "https://osse.dc.gov/ ; https://osse.dc.gov/biography/antoinette-s-mitchell-phd ; https://osse.dc.gov/service/osse-open-government-and-foia",
+    "checked": "2026-10-12"
+   },
+   "note": "Mayor's media contact: Daniel Gleick, press@dc.gov; EOM FOIA: eom.foia@dc.gov; general eom@dc.gov. OSSE publishes no dedicated press mailbox on the pages checked (general osse@dc.gov; superintendent antoinette.mitchell@dc.gov). DCPS: Dr. Kim Jackson is Interim Chancellor of DC Public Schools per https://dcps.dc.gov/release/mayor-bowser-announces-dr-kim-jackson-interim-chancellor-dc-public-schools (undated on the page as rendered)."
+  },
+  "FL": {
+   "governor": {
+    "name": "Ron DeSantis",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://flgov.com/eog/leadership/people/ron-desantis/contact",
+    "source": "https://www.flgov.com/eog/ ; https://flgov.com/eog/leadership/people/ron-desantis/contact ; https://www.flgov.com/eog/news/press",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Henry Mack",
+    "title": "Commissioner of Education",
+    "department": "Florida Department of Education",
+    "press_email": "DOEPressOffice@fldoe.org",
+    "records_email": "PRR@fldoe.org",
+    "source": "https://www.fldoe.org/ ; https://www.fldoe.org/about-us/commissioner/ ; https://www.fldoe.org/newsroom/ ; https://www.fldoe.org/newsroom/public-records-requests.stml",
+    "checked": "2026-10-12"
+   },
+   "note": "No press email on flgov.com (home, contact form, press list, one release). Dr. Henry Mack selected by State Board on 2026-07-22 per FDOE commissioner page. fldoe.org is 403 to curl/WebFetch; read via browser."
+  },
+  "GA": {
+   "governor": {
+    "name": "Brian P. Kemp",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://gov.georgia.gov/contact-us",
+    "source": "https://gov.georgia.gov/ ; https://gov.georgia.gov/contact-us ; https://gov.georgia.gov/contact-us/open-records-request ; https://gov.georgia.gov/press-releases",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Richard Woods",
+    "title": "State School Superintendent",
+    "department": "Georgia Department of Education",
+    "press_email": "media@doe.k12.ga.us",
+    "records_email": "openrecords@doe.k12.ga.us",
+    "source": "https://gadoe.org/about/superintendent/ ; https://gadoe.org/contact/phone-email-contacts/ ; https://gadoe.org/contact/open-records-requests/",
+    "checked": "2026-10-12"
+   },
+   "note": "No press email on gov.georgia.gov (contact, press releases, open-records pages, one release; releases link to a Press Secretary page without an address). GaDOE Office of Communications: Chief Communications Officer Meghan Frick, media@doe.k12.ga.us. gadoe.org is a JS app; read via browser."
+  },
+  "HI": {
+   "governor": {
+    "name": "Josh Green, M.D.",
+    "title": "Governor",
+    "press_email": "Gov.Communications@hawaii.gov",
+    "contact_url": "https://governor.hawaii.gov/contact-us/contact-the-governor/",
+    "source": "https://governor.hawaii.gov/media-requests/ (press email, 'Governor's Communications Team'); https://governor.hawaii.gov/contact-us/general-contact-information/ (name/title)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Keith T. Hayashi",
+    "title": "Superintendent",
+    "department": "Hawaiʻi State Department of Education",
+    "press_email": null,
+    "records_email": "doeinfo@k12.hi.us",
+    "source": "https://hawaiipublicschools.org/about/organization/ (name/title); https://hawaiipublicschools.org/contact/ (UIPA records email)",
+    "checked": "2026-10-12"
+   },
+   "note": "hidoe.k12.hi.us does not resolve (DNS); official site is hawaiipublicschools.org (Cloudflare-obfuscated emails decoded from page source). No dedicated media/press email is published on the HIDOE contact page, only the general/UIPA mailbox doeinfo@k12.hi.us."
+  },
+  "ID": {
+   "governor": {
+    "name": "Brad Little",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://gov.idaho.gov/contact/contact-us/",
+    "source": "https://gov.idaho.gov/ (name/title); https://gov.idaho.gov/administration/governors-staff/ (staff list)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Debbie Critchfield",
+    "title": "Superintendent of Public Instruction",
+    "department": "Idaho Department of Education",
+    "press_email": "mreynolds@sde.idaho.gov",
+    "records_email": "publicrecords@sde.idaho.gov",
+    "source": "https://www.sde.idaho.gov/about-us/superintendent/ (name/title); https://www.sde.idaho.gov/about-us/communications/ (Maggie Reynolds, Public Information Officer); https://www.sde.idaho.gov/about-us/communications/public-records-requests/ (records email)",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor's site lists Communications Director Emily Callihan on the staff page but publishes no press email; only a general mailbox governor@gov.idaho.gov appears in the site footer. Public records requests go through https://gov.idaho.gov/contact/submit-public-records-request/."
+  },
+  "IL": {
+   "governor": {
+    "name": "JB Pritzker",
+    "title": "Governor",
+    "press_email": "alex.gough@illinois.gov",
+    "contact_url": "https://gov.illinois.gov/contact-us/contact-the-governor.html",
+    "source": "https://gov.illinois.gov/about/the-governor.html (name/title); https://cms.illinois.gov/agency/media/relations/mediacontacts.html (State of Illinois official media-contacts page, linked from gov.illinois.gov as 'State Press Contacts': Alex Gough, Press Secretary, Office of the Governor); https://gov.illinois.gov/transparency/foia.html (FOIA: Gov.FOIA@Illinois.gov)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Tony Sanders",
+    "title": "State Superintendent of Education",
+    "department": "Illinois State Board of Education",
+    "press_email": "press@isbe.net",
+    "records_email": "FOIA@ISBE.net",
+    "source": "https://www.isbe.net/Pages/State-Superintendent.aspx (name/title; JS-rendered page read in browser); https://cms.illinois.gov/agency/media/relations/mediacontacts.html (Alex Mayster, Press Secretary, State Board of Education); https://www.illinois.gov/about/foia-contacts.html (ISBE FOIA officer email)",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor's contact page lists phones/addresses; the web form is https://gov.illinois.gov/contact-us/voice-an-opinion.html. Governor FOIA email: Gov.FOIA@Illinois.gov. ISBE's own FOIA page (https://www.isbe.net/Pages/FOIA.aspx) directs requests to an online portal; the FOIA@ISBE.net address comes from the state FOIA-contacts page."
+  },
+  "IN": {
+   "governor": {
+    "name": "Mike Braun",
+    "title": "Governor",
+    "press_email": "greid@gov.in.gov",
+    "contact_url": "https://www.in.gov/gov/contact-gov-braun",
+    "source": "https://www.in.gov/gov/about-the-governor/about-governor-mike-braun (name/title); https://www.in.gov/gov/newsroom/press-contacts (Griffin Reid, no title shown)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Katie Jenner",
+    "title": "Indiana Secretary of Education",
+    "department": "Indiana Department of Education",
+    "press_email": "communications@doe.in.gov",
+    "records_email": null,
+    "source": "https://www.in.gov/doe/about/secretary-jenner (name/title); https://www.in.gov/doe/about/news ('Media Contact'); https://www.in.gov/doe/legal/public-records-requests (APRA portal only, no email)",
+    "checked": "2026-10-12"
+   },
+   "note": "IDOE public records requests are accepted only via the DOE APRA online portal; no records email is published."
+  },
+  "IA": {
+   "governor": {
+    "name": "Kim Reynolds",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://governor.iowa.gov/contact-office-governor",
+    "source": "https://governor.iowa.gov/meet-governor-kim-reynolds (name/title); https://governor.iowa.gov/submit-open-records-request (records: records@governor.iowa.gov)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "McKenzie Snow",
+    "title": "Director",
+    "department": "Iowa Department of Education",
+    "press_email": null,
+    "records_email": null,
+    "source": "https://educate.iowa.gov/about ('Director of the Iowa Department of Education', 'Director McKenzie Snow')",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor's site publishes no press email (press releases carry no media contact); open records email is records@governor.iowa.gov. educate.iowa.gov newsroom and press-release pages show no media-contact or public-records email."
+  },
+  "KS": {
+   "governor": {
+    "name": "Laura Kelly",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://www.governor.ks.gov/contact",
+    "source": "https://www.governor.ks.gov/about-the-office/governor-laura-kelly (name/title); https://www.governor.ks.gov/serving-kansans/open-records (records: GOKORA@ks.gov)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Jake Steel",
+    "title": "Kansas Commissioner of Education",
+    "department": "Kansas State Department of Education",
+    "press_email": "denise.kahler@ksde.gov",
+    "records_email": "GC@ksde.gov",
+    "source": "https://www.ksde.gov/meet-the-commissioner (name/title); https://www.ksde.gov/news-center/news-releases ('Media inquires, contact: Communications (785) 296-4876' - mailto target in page source is denise.kahler@ksde.gov); https://www.ksde.gov/policy-and-funding/laws-regulations-and-guidance/open-records-requests (records email)",
+    "checked": "2026-10-12"
+   },
+   "note": "governor.ks.gov returns 403 to curl/WebFetch (Akamai); pages were read in Chrome. governor.kansas.gov redirects to www.governor.ks.gov. Governor's site publishes no press/media email; contact page is a form, with Request Assistance at /serving-kansans/constituent-services/request-assistance. KSDE press email is the mailto link behind the 'Communications' media-inquiries line, not displayed as text."
+  },
+  "KY": {
+   "governor": {
+    "name": "Andy Beshear",
+    "title": "Governor",
+    "press_email": "Scottie.Ellis@ky.gov",
+    "contact_url": "https://governor.ky.gov/contact",
+    "source": "https://governor.ky.gov/about/governor-andy-beshear (name/title); https://governor.ky.gov/news ('Media Contacts: Scottie Ellis, Communications Director' mailto link); https://governor.ky.gov/Pages/Open-Records.aspx (records: GovOpenRecords@ky.gov)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Robbie Fletcher, Ed.D.",
+    "title": "Commissioner of Education",
+    "department": "Kentucky Department of Education",
+    "press_email": "jennifer.ginn@education.ky.gov",
+    "records_email": "Todd.Allen@education.ky.gov",
+    "source": "https://www.education.ky.gov/CommOfEd/Pages/default.aspx (name/title; media requests via Communications Director Jennifer Ginn); https://www.education.ky.gov/comm/Pages/default.aspx; https://www.education.ky.gov/districts/legal/Pages/Open-Records-Requests.aspx (Todd G. Allen, General Counsel, official records custodian)",
+    "checked": "2026-10-12"
+   },
+   "note": null
+  },
+  "LA": {
+   "governor": {
+    "name": "Jeff Landry",
+    "title": "Governor",
+    "press_email": "GovLandryPress@la.gov",
+    "contact_url": "https://gov.louisiana.gov/contact-the-governors-office",
+    "source": "https://gov.louisiana.gov/page/meet-the-governor (name/title); https://gov.louisiana.gov/contact-the-governors-office ('Media Inquiries'); https://gov.louisiana.gov/page/public-records-request (records: GovPublicRecords@la.gov)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Cade Brumley",
+    "title": "Louisiana State Superintendent of Education",
+    "department": "Louisiana Department of Education",
+    "press_email": "ted.beasley@la.gov",
+    "records_email": "ldepublicrecords@la.gov",
+    "source": "https://doe.louisiana.gov/about/ldoe-leadership/state-superintendent (name/title); https://doe.louisiana.gov/about/contact-us (Media Requests: Deputy Chief of Communications Ted Beasley; Public Records Requests email)",
+    "checked": "2026-10-12"
+   },
+   "note": "louisianabelieves.com redirects to doe.louisiana.gov. LDOE emails are Cloudflare-obfuscated on the page and were decoded from page source."
+  },
+  "ME": {
+   "governor": {
+    "name": "Janet T. Mills",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://www.maine.gov/governor/mills/contact",
+    "source": "https://www.maine.gov/governor/mills/about ('Janet Trafton Mills ... 75th Governor of Maine'); https://www.maine.gov/governor/mills/index.php/about/staff (Director of Communications Ben Goodman, Press Secretary Anna Parker, no emails)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Pender Makin",
+    "title": "Commissioner",
+    "department": "Maine Department of Education",
+    "press_email": "Melissa.White@maine.gov",
+    "records_email": "Jennifer.Belanger@maine.gov",
+    "source": "https://www.maine.gov/doe/about/leadership (name/title); https://www.maine.gov/doe/about/contact ('For media inquiries, contact Director of Communications Melissa White'); https://www.maine.gov/doe/about/laws/policy (Jennifer Belanger supports FOAA requests)",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor's site publishes no press email: staff page names the communications staff without addresses, newsroom and press releases carry no media contact. Web form is https://www.maine.gov/governor/mills/contact/share-your-opinion."
+  },
+  "MD": {
+   "governor": {
+    "name": "Wes Moore",
+    "title": "Governor",
+    "press_email": "ammar.moussa@maryland.gov",
+    "contact_url": "https://governor.maryland.gov/contact-us",
+    "source": "https://governor.maryland.gov/leadership/governor-wes-moore (name/title); https://governor.maryland.gov/news/press-contacts (Ammar Moussa, Senior Press Secretary and Director of Media Strategy; also elizabeth.gray@, rachel.kleinhandler@, rhyan.lake@maryland.gov); https://governor.maryland.gov/contact-us/public-information-act-requests (PIA: Amanda LaForge, Chief Counsel, 410-974-3005, no email)",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Carey M. Wright, Ed.D.",
+    "title": "State Superintendent of Schools",
+    "department": "Maryland State Department of Education",
+    "press_email": "raven.hill@maryland.gov",
+    "records_email": "pia.msde@maryland.gov",
+    "source": "https://msde.maryland.gov/about-us/state-superintendent-schools (name/title; read in browser, Cloudflare blocks curl); https://news.maryland.gov/msde/2025-26-mcap-scores/ ('MEDIA CONTACT: Raven Hill'); https://msde.maryland.gov/maryland-public-information-act (PIA questions email; formal requests via Public Records Center)",
+    "checked": "2026-10-12"
+   },
+   "note": "marylandpublicschools.org redirects to msde.maryland.gov. Governor's 'Email the Governor' form is at https://md.accessgov.com/governor/Forms/Page/cs/contact-the-governor. Governor press emails are Cloudflare-obfuscated on the page and were decoded from page source."
+  },
+  "MA": {
+   "governor": {
+    "name": "Maura Healey",
+    "title": "Governor",
+    "press_email": "gov.press@state.ma.us",
+    "contact_url": "https://www.mass.gov/info-details/governors-office-scheduling-and-special-request-forms#email-the-governor-",
+    "source": "https://www.mass.gov/orgs/governor-maura-healey-and-lt-governor-kim-driscoll ; press email from https://www.mass.gov/governors-press-office",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Pedro Martinez",
+    "title": "Commissioner",
+    "department": "Massachusetts Department of Elementary and Secondary Education",
+    "press_email": "jreis@doe.mass.edu",
+    "records_email": "ESE.RAO@mass.gov",
+    "source": "https://www.doe.mass.edu/commissioner/about.html ; emails from https://www.doe.mass.edu/news/ (Media Requests: Jacqueline Reis; Primary Records Access Officer: Helene Bettencourt)",
+    "checked": "2026-10-12"
+   },
+   "note": "mass.gov returns 403 to curl/WebFetch; read via Chrome. Governor public-records page: https://www.mass.gov/public-records-requests-for-the-office-of-the-governor"
+  },
+  "MI": {
+   "governor": {
+    "name": "Gretchen Whitmer",
+    "title": "Governor",
+    "press_email": "Press@Michigan.gov",
+    "contact_url": "https://somgovweb.state.mi.us/ContactGovernor",
+    "source": "https://www.michigan.gov/whitmer/contact ; press email from 'Press Contact / Executive Office of the Governor Communications Division' on https://www.michigan.gov/whitmer/news/press-releases",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Glenn Maleyko",
+    "title": "State Superintendent",
+    "department": "Michigan Department of Education",
+    "press_email": "MDE-Communications@michigan.gov",
+    "records_email": null,
+    "source": "https://www.michigan.gov/mde/about-us/superintendent-office ; press email from Media Contact (Bob Wheaton) on https://www.michigan.gov/mde/news-and-information/press-releases/2026/10/12/state-leaders-celebrate-school-meals-that-are-free-nutritious-and-locally-grown",
+    "checked": "2026-10-12"
+   },
+   "note": "MDE records: no MDE-specific FOIA email published; site links to statewide FOIA directory https://www.michigan.gov/foia. Governor contact form host returns 403 to curl but is the official link."
+  },
+  "MN": {
+   "governor": {
+    "name": "Tim Walz",
+    "title": "Governor",
+    "press_email": "walz.press@state.mn.us",
+    "contact_url": "https://mn.gov/governor/connect/contact-us/contact-form.jsp",
+    "source": "https://mn.gov/governor/connect/contact-us/ (page title 'Office of Governor Tim Walz and Lt. Governor Peggy Flanagan') ; press email from https://mn.gov/governor/newsroom/press-kit/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Willie Jett",
+    "title": "Minnesota Education Commissioner",
+    "department": "Minnesota Department of Education",
+    "press_email": "MDE.Communications@state.mn.us",
+    "records_email": null,
+    "source": "https://education.mn.gov/MDE/about/cmsh/ ; press email from https://education.mn.gov/MDE/about/us/ and https://education.mn.gov/MDE/about/press/",
+    "checked": "2026-10-12"
+   },
+   "note": "mn.gov and education.mn.gov are bot-walled (ShieldSquare/Radware); read via Chrome. No records/data-practices email found on pages checked; general inbox mde.contactus@state.mn.us."
+  },
+  "MS": {
+   "governor": {
+    "name": "Tate Reeves",
+    "title": "Governor",
+    "press_email": "press@govreeves.ms.gov",
+    "contact_url": "https://governorreeves.ms.gov/",
+    "source": "https://governorreeves.ms.gov/ (footer: 'To contact the Governor's office, please call 601-359-3150 or email governor@govreeves.ms.gov. For all media inquiries, please email press@govreeves.ms.gov.')",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Lance Evans",
+    "title": "State Superintendent of Education",
+    "department": "Mississippi Department of Education",
+    "press_email": null,
+    "records_email": "reporting@mdek12.org",
+    "source": "https://mdek12.org/superintendent/ ; records email from https://mdek12.org/publicreporting/request/ ; media page https://mdek12.org/communications/",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor site has no web contact form page (only phone + governor@govreeves.ms.gov). MDE publishes no general press inbox; 'Media inquiries should be directed to MDE's communication staff' -> individual staff emails at https://mdek12.org/communications/staff/."
+  },
+  "MO": {
+   "governor": {
+    "name": "Mike Kehoe",
+    "title": "Governor",
+    "press_email": "communications@governor.mo.gov",
+    "contact_url": "https://governor.mo.gov/contact-us/mo-governor",
+    "source": "https://governor.mo.gov/ ; press email from https://governor.mo.gov/media ('For media inquiries, please contact: Communications Director communications@governor.mo.gov')",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Stacey Preis",
+    "title": "Interim Commissioner of Education",
+    "department": "Missouri Department of Elementary and Secondary Education",
+    "press_email": "Communications@dese.mo.gov",
+    "records_email": null,
+    "source": "https://dese.mo.gov/state-board-education/commissioner and https://dese.mo.gov/ ; press email from https://dese.mo.gov/communications (Chief Communications Officer: Lucas Bond)",
+    "checked": "2026-10-12"
+   },
+   "note": "DESE Sunshine Law page (https://dese.mo.gov/sunshine-law) links only to the AG's Sunshine Law page; no DESE custodian email published."
+  },
+  "MT": {
+   "governor": {
+    "name": "Greg Gianforte",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://governor.mt.gov/Contact/ShareYourOpinion",
+    "source": "https://governor.mt.gov/ ; contact pages https://governor.mt.gov/Contact/ and https://governor.mt.gov/Newsroom/PressKit",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Susie Hedalen",
+    "title": "State Superintendent",
+    "department": "Montana Office of Public Instruction",
+    "press_email": "mckenna.gregg@mt.gov",
+    "records_email": "McKenna.Gregg@mt.gov",
+    "source": "https://opi.mt.gov/Leadership/Management-Operations/Office-of-the-Superintendent/ (Communications Director McKenna Gregg, mailto) ; records: https://opi.mt.gov/Leadership/legal ('Records requests can be emailed to Communications Director McKenna Gregg')",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press email null: Newsroom, Press Kit and Contact pages list only phone 406-444-3111; news.mt.gov releases carry no press contact. Superintendent office inbox: superintendent@mt.gov. ShareYourOpinion redirects to a ServiceNow form."
+  },
+  "NE": {
+   "governor": {
+    "name": "Jim Pillen",
+    "title": "Governor",
+    "press_email": "laura.strimple@nebraska.gov",
+    "contact_url": "https://ne.accessgov.com/gov/Forms/Page/contact-us/write-the-governor/0",
+    "source": "https://governor.nebraska.gov/ ; press from https://governor.nebraska.gov/press-contacts (Laura Strimple, Communications Director) ; form linked from https://governor.nebraska.gov/contact-governor",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Brian L. Maher",
+    "title": "Commissioner of Education",
+    "department": "Nebraska Department of Education",
+    "press_email": "david.jespersen@nebraska.gov",
+    "records_email": null,
+    "source": "https://www.education.ne.gov/commissioner/ ; press from https://www.education.ne.gov/i_am/media/ (David Jespersen, Administrator, Public Information and Communications)",
+    "checked": "2026-10-12"
+   },
+   "note": "NDE publishes no generic press inbox; listed PIO office administrator used. Public records requests go through the form at https://www.education.ne.gov/contact-us/ (subject 'Public Records Requests'); no records email."
+  },
+  "NV": {
+   "governor": {
+    "name": "Joe Lombardo",
+    "title": "Governor",
+    "press_email": "press@gov.nv.gov",
+    "contact_url": "https://www.gov.nv.gov/constituent-services/contacting-the-governor/share-your-thoughts-with-the-governor/",
+    "source": "https://www.gov.nv.gov/ ; press email from https://www.gov.nv.gov/press-releases/governor-lombardo-announces-suspension-of-red-dyed-diesel-enforcement/ ; contact pages https://www.gov.nv.gov/constituent-services/contacting-the-governor/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Victor Wakefield",
+    "title": "State Superintendent of Public Instruction",
+    "department": "Nevada Department of Education",
+    "press_email": "julie.woottongreener@doe.nv.gov",
+    "records_email": null,
+    "source": "https://doe.nv.gov/about/executive-team/ ; PIO email from https://doe.nv.gov/news-media/newsroom/ ; records info https://doe.nv.gov/contact",
+    "checked": "2026-10-12"
+   },
+   "note": "NDE: 'For all public records requests, please use the Public Records Request form' (https://doe.nv.gov/contact); general inbox ndeinfo@doe.nv.gov; no records email."
+  },
+  "NH": {
+   "governor": {
+    "name": "Kelly Ayotte",
+    "title": "Governor",
+    "press_email": "Ayotte.Press@governor.nh.gov",
+    "contact_url": "https://www.governor.nh.gov/contact-governor-ayotte",
+    "source": "https://www.governor.nh.gov/ ; press email from https://www.governor.nh.gov/news/governor-ayotte-announces-federal-disaster-aid-carroll-county ; contact page lists GovernorAyotte@governor.nh.gov and opinion form https://new-hampshire.my.salesforce-sites.com/support/GOV_Opinion",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Caitlin D. Davis",
+    "title": "Commissioner",
+    "department": "New Hampshire Department of Education",
+    "press_email": "Comms@doe.nh.gov",
+    "records_email": null,
+    "source": "https://www.education.nh.gov/who-we-are/commissioner/about ('New Hampshire Education Commissioner Caitlin D. Davis'; Commissioner.Davis@doe.nh.gov) ; press from https://www.education.nh.gov/partners/communications",
+    "checked": "2026-10-12"
+   },
+   "note": "governor.nh.gov and education.nh.gov return 403 to curl; read via Chrome. Right-to-Know requests go through portal https://nhdoe.justfoia.com/publicportal/home/newrequest; no records email."
+  },
+  "NJ": {
+   "governor": {
+    "name": "Mikie Sherrill",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://www-njlib.nj.gov/GOV_TRANS_APPLICANTS/BTCustomServlet",
+    "source": "https://www.nj.gov/governor/ ('Contact Us' link) ; press pages https://www.nj.gov/governor/news/presskits/ and https://www.nj.gov/governor/news/presslist/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Lily Laux",
+    "title": "Commissioner",
+    "department": "New Jersey Department of Education",
+    "press_email": null,
+    "records_email": "opra.custodian@doe.nj.gov",
+    "source": "https://www.nj.gov/education/about/commissioner/ (commissioner@doe.nj.gov) ; records from https://www.nj.gov/education/opra/ ; press phone only on https://www.nj.gov/education/news/",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press email null: Press Kit/Press List pages and press releases show no email (press list is a subscription form). Contact servlet returns 403 to curl but is the site's official 'Contact Us' link. NJDOE Office of Communications publishes phone (609) 376-9072 only."
+  },
+  "NM": {
+   "governor": {
+    "name": "Michelle Lujan Grisham",
+    "title": "Governor",
+    "press_email": "Michael.Coleman@exec.nm.gov",
+    "contact_url": "https://www.governor.state.nm.us/contact-the-governor/",
+    "source": "https://www.governor.state.nm.us/ ; press contact from https://www.governor.state.nm.us/newsroom/new-mexico-general-fund-to-hit-record-14-8-billion-2032",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Mariana Padilla",
+    "title": "Secretary of Education",
+    "department": "New Mexico Public Education Department",
+    "press_email": "Janelle.Garcia@ped.nm.gov",
+    "records_email": "ipra.request@ped.nm.gov",
+    "source": "https://web.ped.nm.gov/nmpedleadership/ ; https://web.ped.nm.gov/bureaus/public-information-office/ ; https://web.ped.nm.gov/ipra-requests/",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press email is the named 'Contact' (Michael Coleman, Office of the Governor) printed on current press releases; no generic press mailbox published. Governor records custodian: records.gov@exec.nm.gov (https://www.governor.state.nm.us/contact-the-governor/contact-records-custodian/). PED: webnew.ped.nm.gov does not resolve and ped.nm.gov refuses connections; live site is web.ped.nm.gov (blocks curl with 403, opened in browser). Leadership page labels Padilla 'Secretary of Education'; her bio says she 'stepped in as acting cabinet secretary' for PED. PED press email is the Communications Bureau manager (Janelle Taylor Garcia, Ph.D.) named as the media contact."
+  },
+  "NY": {
+   "governor": {
+    "name": "Kathy Hochul",
+    "title": "Governor",
+    "press_email": "Press.Office@exec.ny.gov",
+    "contact_url": "https://www.governor.ny.gov/contact",
+    "source": "https://www.governor.ny.gov/contact ; https://www.governor.ny.gov/news/statement-governor-kathy-hochul-180",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Betty A. Rosa",
+    "title": "Commissioner of Education and President of the University of the State of New York",
+    "department": "New York State Education Department",
+    "press_email": "Press@nysed.gov",
+    "records_email": "FOIL@nysed.gov",
+    "source": "https://www.nysed.gov/about/commissioner ; https://www.nysed.gov/news ; https://www.nysed.gov/new-york-state-education-department-foil-requests",
+    "checked": "2026-10-12"
+   },
+   "note": "governor.ny.gov blocks curl (Cloudflare 403); read via WebFetch and browser. Contact page shows 'The Honorable Kathy Hochul, Governor of New York State'. Governor FOIL page lists a Records Access Officer but the address is Cloudflare-obfuscated, not recorded."
+  },
+  "NC": {
+   "governor": {
+    "name": "Josh Stein",
+    "title": "Governor",
+    "press_email": "govpress@nc.gov",
+    "contact_url": "https://governor.nc.gov/contact/contact-governor-stein",
+    "source": "https://governor.nc.gov/ ; https://governor.nc.gov/news/press-releases/2026/10/12/icymi-new-op-ed-governor-stein-warns-everyone-will-pay-price-federal-medicaid-cuts",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Maurice \"Mo\" Green",
+    "title": "State Superintendent of Public Instruction",
+    "department": "North Carolina Department of Public Instruction",
+    "press_email": "communications@dpi.nc.gov",
+    "records_email": null,
+    "source": "https://www.dpi.nc.gov/about-dpi/state-superintendent-public-instruction ; https://www.dpi.nc.gov/news/press-releases/2026/09/02/2026-graduation-rate-reaches-historic-high-accountability-results-continue-positive-trend-north ; https://www.dpi.nc.gov/about-dpi/contact-us",
+    "checked": "2026-10-12"
+   },
+   "note": "DPI public records requests go through a Google Form linked from the contact page (https://forms.gle/WUDtSzZU6kE7qFqC7); no records email published. Governor's public records guidance is a PDF (https://governor.nc.gov/documents/files/public-records-guide/open), not parsed."
+  },
+  "ND": {
+   "governor": {
+    "name": "Kelly Armstrong",
+    "title": "Governor",
+    "press_email": "mnowatzki@nd.gov",
+    "contact_url": "https://www.governor.nd.gov/contact-us",
+    "source": "https://www.governor.nd.gov/governor-kelly-armstrong ; https://www.governor.nd.gov/media-contacts",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Levi Bachmeier",
+    "title": "State Superintendent",
+    "department": "North Dakota Department of Public Instruction",
+    "press_email": "dpi@nd.gov",
+    "records_email": null,
+    "source": "https://www.nd.gov/dpi/state-superintendent ; https://www.nd.gov/dpi/contact-us",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor media contacts: Mike Nowatzki, Communications Director (mnowatzki@nd.gov) and Mike Kennedy, Deputy Communications Director (mikekennedy@nd.gov). DPI contact page lists 'Media Requests' and 'Public Information' under 'Office of State Superintendent – (701) 328-2260, dpi@nd.gov'; no dedicated press or records mailbox. Bachmeier appointed by Gov. Armstrong Oct. 21, 2025, took office Nov. 24, 2025."
+  },
+  "OH": {
+   "governor": {
+    "name": "Mike DeWine",
+    "title": "Governor",
+    "press_email": "Daniel.Tierney@governor.ohio.gov",
+    "contact_url": "https://governor.ohio.gov/contact",
+    "source": "https://governor.ohio.gov/ ; https://governor.ohio.gov/media",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Stephen D. Dackin",
+    "title": "Director",
+    "department": "Ohio Department of Education and Workforce",
+    "press_email": "Lacey.Snoke@education.ohio.gov",
+    "records_email": null,
+    "source": "https://education.ohio.gov/About/About-The-Director ; https://education.ohio.gov/Media ; https://education.ohio.gov/Contact",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor media contact is Daniel Tierney (614) 466-3555 shown on the News Releases page. DEW press contact is Lacey Snoke, Chief Communications Officer. No DEW public-records email found; general mailbox is contact.center@education.ohio.gov."
+  },
+  "OK": {
+   "governor": {
+    "name": "J. Kevin Stitt",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://oklahoma.gov/governor/contact.html",
+    "source": "https://oklahoma.gov/governor.html ; https://oklahoma.gov/governor/contact.html ; https://oklahoma.gov/governor/contact/general-information.html",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Lindel Fields",
+    "title": "Superintendent of Public Instruction",
+    "department": "Oklahoma State Department of Education",
+    "press_email": null,
+    "records_email": "sde.orr@sde.ok.gov",
+    "source": "https://oklahoma.gov/education/state-board-of-education/superintendent-.html ; https://oklahoma.gov/education/about/administration/open-records-act-requests.html",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor site publishes no press email (newsroom and press releases carry no media contact; contact page is forms + phone 405-521-2342). OSDE newsroom and press releases list no media contact email; open-records inquiries go to sde.orr@sde.ok.gov."
+  },
+  "OR": {
+   "governor": {
+    "name": "Tina Kotek",
+    "title": "Governor",
+    "press_email": "lucas.d.bezerra@oregon.gov",
+    "contact_url": "https://www.oregon.gov/gov/pages/contact-us.aspx",
+    "source": "https://www.oregon.gov/gov/Pages/index.aspx ; https://www.oregon.gov/gov/Pages/staff.aspx",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Charlene Williams",
+    "title": "Director of the Oregon Department of Education",
+    "department": "Oregon Department of Education",
+    "press_email": null,
+    "records_email": null,
+    "source": "https://www.oregon.gov/ode/about-us/Pages/Deputy-Superintendent-of-Public-Instruction.aspx ; https://www.oregon.gov/ode/about-us/Pages/Public-Records-Requests.aspx ; https://www.oregon.gov/ode/about-us/Pages/Contact-Us.aspx",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor has no generic press mailbox; staff list gives Press Line 503-378-5965, Public Affairs and Communications Director Lucas Bezerra (recorded), Press Secretaries Hazel Tylinski (hazel.tylinski@oregon.gov) and Luke Harkins (luke.harkins@oregon.gov). Governor public records via online form (https://www.oregon.gov/gov/Pages/public-records-requests.aspx). ODE publishes no press email; records requests via online form or mail to Director's Office; general mailbox ode.FrontDesk@ode.oregon.gov."
+  },
+  "PA": {
+   "governor": {
+    "name": "Josh Shapiro",
+    "title": "Governor",
+    "press_email": "ra-gvgovpress@pa.gov",
+    "contact_url": "https://www.pa.gov/governor/contact-us",
+    "source": "https://www.pa.gov/governor ; https://www.pa.gov/governor/newsroom ; https://www.pa.gov/governor/contact-us",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Dr. Carrie Rowe",
+    "title": "Secretary of the Pennsylvania Department of Education",
+    "department": "Pennsylvania Department of Education",
+    "press_email": "ra-pdepress@pa.gov",
+    "records_email": "RA-RTK-Education@pa.gov",
+    "source": "https://www.pa.gov/agencies/education/about/pde-leadership ; https://www.pa.gov/agencies/education/contact-us/news-and-media ; https://www.pa.gov/agencies/education/about/right-to-know",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor Right-to-Know requests: RA-GOVRTKL@pa.gov (https://www.pa.gov/governor/right-to-know). Governor media line 717-783-1116; PDE media line 717-783-9802."
+  },
+  "RI": {
+   "governor": {
+    "name": "Dan McKee",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://governor.ri.gov/contact",
+    "source": "https://governor.ri.gov/ ; https://governor.ri.gov/about ; https://governor.ri.gov/contact",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Angélica Infante-Green",
+    "title": "Commissioner of Education",
+    "department": "Rhode Island Department of Education",
+    "press_email": null,
+    "records_email": "APRA@ride.ri.gov",
+    "source": "https://ride.ri.gov/ ; https://ride.ri.gov/inside-ride/commissioners-corner ; https://ride.ri.gov/inside-ride/requesting-public-records",
+    "checked": "2026-10-12"
+   },
+   "note": "governor.ri.gov and ride.ri.gov block curl and WebFetch (Cloudflare 403); read in the Chrome browser. Governor site publishes no press email (press releases carry only office phone 401-222-2080); APRA requests via form (https://governor.ri.gov/apra-request). RIDE home page signs 'Angélica Infante-Green, Commissioner of Education'; Commissioner's Corner says 'Rhode Island Commissioner of Elementary and Secondary Education'. No RIDE press email found; contact page is a form."
+  },
+  "SC": {
+   "governor": {
+    "name": "Henry McMaster",
+    "title": "Governor",
+    "press_email": "MLeClair@governor.sc.gov",
+    "contact_url": "https://contactgovernor.my.site.com/constituents/s/contact-the-governor",
+    "source": "https://governor.sc.gov/ ; https://governor.sc.gov/news ; https://governor.sc.gov/news/foia",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Ellen Weaver",
+    "title": "State Superintendent of Education",
+    "department": "South Carolina Department of Education",
+    "press_email": "communications@ed.sc.gov",
+    "records_email": "foia@ed.sc.gov",
+    "source": "https://ed.sc.gov/about/superintendent-of-education/ ; https://ed.sc.gov/newsroom/press-kit/ ; https://ed.sc.gov/newsroom/freedom-of-information-act-requests/",
+    "checked": "2026-10-12"
+   },
+   "note": "Full name on site: Henry Dargan McMaster. Governor FOIA email: FOIA@governor.sc.gov. Governor contact form is hosted on a Salesforce site linked from governor.sc.gov 'Contact Us'. SCDE superintendent page title reads 'Superintendent of Education: Ellen Weaver'; bio says 'State Superintendent of Education'."
+  },
+  "SD": {
+   "governor": {
+    "name": "Larry Rhoden",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://governor.sd.gov/office/contact.aspx",
+    "source": "https://governor.sd.gov/ ; https://governor.sd.gov/office/staff.aspx",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Joseph Graves",
+    "title": "Secretary of Education",
+    "department": "South Dakota Department of Education",
+    "press_email": "Jaeya.Jones@state.sd.us",
+    "records_email": null,
+    "source": "https://doe.sd.gov/about.aspx ; https://doe.sd.gov/pressroom/",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press_email null: staff page names Josie Harms as Press Secretary but publishes no email; 'Send an Email' form is https://iqconnect.lmhostediq.com/iqextranet/EForm.aspx?__cid=FSL_SD_GOV&__fid=2100060. DOE staff directory lists 'Dr. Joseph Graves - Secretary' and says 'For media inquiries, email Jaeya Jones' (Information Officer; address shown on pressroom page). Public records for both offices go through the statewide portal https://www.sd.gov/cs?id=sc_cat_item&sys_id=f7f939eddbd4b150b2fb93d4f39619c0 (no email published)."
+  },
+  "TN": {
+   "governor": {
+    "name": "Bill Lee",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://www.tn.gov/governor/contact-us.html",
+    "source": "https://www.tn.gov/governor ; https://www.tn.gov/governor/contact-us.html",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Lizzette Reynolds",
+    "title": "Commissioner of Education",
+    "department": "Tennessee Department of Education",
+    "press_email": null,
+    "records_email": null,
+    "source": "https://www.tn.gov/education/about-the-tdoe/commissioner.html ; https://www.tn.gov/education/about-the-tdoe/frequently-requested-contact-information.html ; https://www.tn.gov/education/legal-services/open-records-requests.html",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press_email null: no media email on governor pages or press releases. Governor's public records policy PDF (linked from contact page as 'Public Records Policy') gives Gov.PRRC@tn.gov for records requests. TDOE: no media email on news page; Commissioner's office email published as Commissioner.Education@tn.gov; records requests are via the 'TDOE Public Records Request Form' on the open-records page (no email); Office of General Counsel email TDOE.GeneralCounsel@tn.gov. tn.gov intermittently timed out on curl; all pages above eventually returned 200."
+  },
+  "TX": {
+   "governor": {
+    "name": "Greg Abbott",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://gov.texas.gov/contact",
+    "source": "https://gov.texas.gov/ ; https://gov.texas.gov/contact",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Mike Morath",
+    "title": "Commissioner of Education",
+    "department": "Texas Education Agency",
+    "press_email": "MediaRelations@tea.texas.gov",
+    "records_email": "pir@tea.texas.gov",
+    "source": "https://tea.texas.gov/about-tea/leadership/commissioner/office-commissioner ; https://tea.texas.gov/about-tea/contact-us/contact-us ; https://tea.texas.gov/about-tea/contact-us/public-information-requests",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press_email null: gov.texas.gov publishes no press email; contact page offers a web form with an 'open records request' option and the main switchboard (512) 463-2000. TEA contact page: 'Media Contact E-mail: MediaRelations@tea.texas.gov'; Public Information Requests page lists pir@tea.texas.gov."
+  },
+  "UT": {
+   "governor": {
+    "name": "Spencer J. Cox",
+    "title": "Governor",
+    "press_email": "juliapappas@utah.gov",
+    "contact_url": "https://governor.utah.gov/contact/",
+    "source": "https://governor.utah.gov/ ; https://governor.utah.gov/news/ ; https://governor.utah.gov/contact/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Molly Hart",
+    "title": "Utah State Superintendent of Public Instruction",
+    "department": "Utah State Board of Education",
+    "press_email": null,
+    "records_email": null,
+    "source": "https://schools.utah.gov/superintendency.php ; https://schools.utah.gov/publicrelations.php",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press contact is a named person, not a generic mailbox: 'Julia Pappas, Deputy Director of Communications, juliapappas@utah.gov, 1.385.977.6099' on the News page (email is Cloudflare-obfuscated in HTML; read in browser). Records policy page: https://governor.utah.gov/records-requests/ (no email). USBE superintendency page: 'Molly Hart, Ed.D. Utah State Superintendent of Public Instruction, Interim Superintendent of USDB'. USBE Public Relations page lists press releases only, no media mailbox; no GRAMA/records page found on schools.utah.gov; curl later received a Cloudflare challenge from governor.utah.gov."
+  },
+  "VT": {
+   "governor": {
+    "name": "Phil Scott",
+    "title": "Governor",
+    "press_email": "exe.press@vermont.gov",
+    "contact_url": "https://governor.vermont.gov/contact-us-requests",
+    "source": "https://governor.vermont.gov/ ; https://governor.vermont.gov/media-inquiries ; https://governor.vermont.gov/contact/public-records-requests-and-statewide-database",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Zoie Saunders",
+    "title": "Secretary of Education",
+    "department": "Vermont Agency of Education",
+    "press_email": "aoe.publicinformation@vermont.gov",
+    "records_email": "AOE.InfoOfficer@vermont.gov",
+    "source": "https://education.vermont.gov/about/meet-secretary ; https://education.vermont.gov/about/contact-us",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor Media Inquiries page: 'Media Contact: Amanda Wheeler exe.press@vermont.gov 802-828-3333'. Governor records officer: Karen Pallas, Karen.Pallas@vermont.gov. AOE page heading reads 'Zoie Saunders, Secretary' (agency is the Agency of Education). AOE contact page: press inquiries to aoe.publicinformation@vermont.gov; 'email our Records Officer' links to AOE.InfoOfficer@vermont.gov."
+  },
+  "VA": {
+   "governor": {
+    "name": "Abigail D. Spanberger",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://www.governor.virginia.gov/constituent-services/contact-the-governors-office/",
+    "source": "https://www.governor.virginia.gov/ ; https://www.governor.virginia.gov/constituent-services/foia-requests/",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Jenna Conway",
+    "title": "Superintendent of Public Instruction",
+    "department": "Virginia Department of Education",
+    "press_email": "Communications@doe.virginia.gov",
+    "records_email": null,
+    "source": "https://www.doe.virginia.gov/about-vdoe/agency-leadership/superintendent ; https://www.doe.virginia.gov/about-vdoe/communications/media-contact-resources ; https://www.doe.virginia.gov/about-vdoe/foia-requests",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press_email null: site publishes no press mailbox; it does publish 'Email the Governor' Abigail.Spanberger@governor.virginia.gov and a FOIA address FOIA@governor.virginia.gov (FOIA page, policy revised 2026-03-23). News-release list loads via JavaScript. VDOE (www.doe.virginia.gov) returns 403 Access Denied (Akamai) to curl and WebFetch; pages were read in the Chrome browser. VDOE FOIA page gives a FOIA Management Portal and Bianca Robinson, Policy Office, (804) 887-3307, no email."
+  },
+  "WA": {
+   "governor": {
+    "name": "Bob Ferguson",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://governor.wa.gov/contacting-governor/contacting-governors-office",
+    "source": "https://governor.wa.gov/ ; https://governor.wa.gov/contacting-governor/requests-invites/make-public-records-request",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Chris Reykdal",
+    "title": "State Superintendent",
+    "department": "Office of Superintendent of Public Instruction (OSPI)",
+    "press_email": "katy.payne@k12.wa.us",
+    "records_email": "publicrecordsrequest@k12.wa.us",
+    "source": "https://ospi.k12.wa.us/about-ospi/superintendent-chris-reykdal ; https://ospi.k12.wa.us/about-ospi/news-center ; https://ospi.k12.wa.us/about-ospi/contact-us/ospi-public-records-request",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press_email null: no media email on governor pages or releases; public records page lists publicdisclosure@gov.wa.gov. OSPI page title reads 'State Superintendent Chris Reykdal'; the office is the Office of Superintendent of Public Instruction. News Center 'Media Contact: Katy Payne 360-764-0201' with katy.payne@k12.wa.us (named person, not a generic mailbox)."
+  },
+  "WV": {
+   "governor": {
+    "name": "Patrick Morrisey",
+    "title": "Governor",
+    "press_email": null,
+    "contact_url": "https://wv.accessgov.com/governor/Forms/Page/submitcomment-governor/contact-governor",
+    "source": "https://governor.wv.gov/ ; https://governor.wv.gov/about-us",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Michele L. Blatt",
+    "title": "State Superintendent of Schools",
+    "department": "West Virginia Department of Education",
+    "press_email": "christy.day@k12.wv.us",
+    "records_email": null,
+    "source": "https://wvde.us/divisions-offices/state-superintendent-schools ; https://wvde.us/about-us/communications",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor press_email null: governor.wv.gov publishes no email anywhere found (home, about, news articles); the only contact is the 'Write Us a Message' form on wv.accessgov.com linked from the governor's site, plus phone 304.558.2000. WVDE Communications page: 'All media inquiries are managed by Christy Day, Director of Communications' with christy.day@k12.wv.us. Superintendent page also lists superintendent@k12.wv.us. No FOIA page or records email found on wvde.us; Legal Services lists General Counsel Kelli Talbott kelli.talbott@k12.wv.us."
+  },
+  "WI": {
+   "governor": {
+    "name": "Tony Evers",
+    "title": "Governor",
+    "press_email": "GovPress@wisconsin.gov",
+    "contact_url": "https://wi.accessgov.com/public/Forms/Page/governor/voice-an-opinion",
+    "source": "https://evers.wi.gov/ ; https://evers.wi.gov/Pages/Newsroom/Press-Kit.aspx",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Jill Underly",
+    "title": "State Superintendent of Public Instruction",
+    "department": "Wisconsin Department of Public Instruction",
+    "press_email": "media.inquiries@dpi.wi.gov",
+    "records_email": null,
+    "source": "https://dpi.wi.gov/ ; https://dpi.wi.gov/statesupt/about ; https://dpi.wi.gov/news/contacts-resources ; https://dpi.wi.gov/about-dpi/records-request/public-records-requests",
+    "checked": "2026-10-12"
+   },
+   "note": "Governor Press Kit page: 'Media Contact: Press Office GovPress@wisconsin.gov'. 'Voice an Opinion' contact form is on wi.accessgov.com, linked from evers.wi.gov; public records form https://wi.accessgov.com/public/Forms/Page/governor/governor-public-records-request. DPI: 'All media inquiries should be directed to media.inquiries@dpi.wi.gov or the media line at (608) 266-3559'; records requests are via the web form on the DPI Public Records Requests page (no email)."
+  },
+  "WY": {
+   "governor": {
+    "name": "Mark Gordon",
+    "title": "Governor",
+    "press_email": "Amy.Edmonds@wyo.gov",
+    "contact_url": "https://governor.wyo.gov/contact/governor",
+    "source": "https://governor.wyo.gov/ ; https://governor.wyo.gov/contact/governor",
+    "checked": "2026-10-12"
+   },
+   "education_chief": {
+    "name": "Megan Degenfelder",
+    "title": "State Superintendent of Public Instruction",
+    "department": "Wyoming Department of Education",
+    "press_email": "dicky.shanor@wyo.gov",
+    "records_email": null,
+    "source": "https://edu.wyoming.gov/about/leadership/ ; https://edu.wyoming.gov/wde-opens-applications-for-scholarship-granting-organizations-under-the-federal-tax-credit-scholarship-program/",
+    "checked": "2026-10-12"
+   },
+   "note": "governor.wyo.gov is a JavaScript SPA (empty HTML to curl); read in Chrome. Contact page: 'For media inquiries or interview requests, please email Communications Director Amy Edmonds at Amy.Edmonds@wyo.gov'; Contact Us menu also has Staff Directory (/contact/governors-staff) and Public Records Ombudsman (/contact/public-records-ombudsman). WDE: no general press mailbox; the 2026-10-12 media release lists 'Media Contact: Dicky Shanor, Chief of Staff, 307-777-7675, dicky.shanor@wyo.gov'. WDE contact page is a web form; no public-records page found. edu.wyoming.gov served a Cloudflare challenge to curl mid-session."
+  }
+ }
+}
