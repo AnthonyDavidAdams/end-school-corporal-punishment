@@ -37,7 +37,9 @@ const leas = csvRows(readFileSync(join(root, "data/nces/lea-directory-2023-24.cs
 const nc = parseYaml(readFileSync(join(root, "data/districts/NC.yaml"), "utf8"));
 const quoted = new Set((Array.isArray(nc) ? nc : nc.districts).filter((r) => r.quote && r.source && ["allows", "bans", "consent_required"].includes(r.status)).map((r) => String(r.nces_id)));
 const done = new Set(existsSync(OUT) ? readFileSync(OUT, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l).nces_id) : []);
-const todo = leas.filter((r) => !quoted.has(r.nces_id) && !done.has(r.nces_id)).slice(0, Number(arg("limit", Infinity)));
+// --only a,b,c re-reads named districts even when the record already quotes them (a handbook is outranked by the board policy).
+const only = arg("only", "") ? new Set(arg("only", "").split(",")) : null;
+const todo = leas.filter((r) => only ? only.has(r.nces_id) : !quoted.has(r.nces_id) && !done.has(r.nces_id)).slice(0, Number(arg("limit", Infinity)));
 const slugMap = existsSync(SLUGS) ? JSON.parse(readFileSync(SLUGS, "utf8")) : {};
 console.log(`North Carolina: ${leas.length} regular districts, ${quoted.size} already quoted, ${done.size} already read, ${todo.length} to try on the portal`);
 
