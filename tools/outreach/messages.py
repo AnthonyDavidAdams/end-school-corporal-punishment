@@ -311,3 +311,22 @@ Thank you for processing this.
 
 {sig(user, formal=True)}
 """
+
+
+def align_policy(r, user, quote=None, code=None):
+    """A district whose written policy still permits corporal punishment but which reported no use of it
+    in the last two federal counts. The ask: make the policy say what the district already does.
+    Short, friendly, and with the two things that make it easy: the model language and the certificate."""
+    who = first_name(r.get("superintendent"))
+    d = nice(r["name"])
+    line = f'Right now the policy on file ({code}) still says "{quote}"' if quote and code else (f'Right now the policy on file still says "{quote}"' if quote else "Right now the written policy still permits it")
+    return f"""Hey {who},
+
+Quick one. By the federal civil rights counts for 2021-22 and 2023-24, {d} reported no use of corporal punishment at all. {line}, so the paper lags the practice.
+
+Would the board consider adopting language that says what the district already does? The model policy most state associations now use is one paragraph, and I can send it in a form the board can adopt as written. Districts whose policy prohibits it are recognized as Safe Schools for the year, with a certificate and a press release they can use.
+
+Happy to send the language or talk it through with whoever handles policy.
+
+{sig(user)}
+"""
