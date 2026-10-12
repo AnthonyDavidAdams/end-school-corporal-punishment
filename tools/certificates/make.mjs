@@ -39,8 +39,8 @@ h1{font-weight:600;font-size:48px;letter-spacing:.08em;margin:2px 0 0;color:#0D1
 .sub{font-family:'Source Sans 3',sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#B7791F;margin-top:6px}
 .rule{width:220px;height:1px;background:linear-gradient(90deg,transparent,#B7791F,transparent);margin:14px auto}
 .pres{font-style:italic;font-size:17px;color:#5A6577}.name{font-weight:600;font-size:42px;margin:0;line-height:1.1}.state{font-size:18px;color:#5A6577;letter-spacing:.08em}
-.body{font-size:17px;line-height:1.5;max-width:7.3in;color:#293340}.body b{color:#0D132D}
-blockquote{margin:10px auto 0;max-width:6.6in;font-style:italic;font-size:18px;line-height:1.4;color:#0D132D}blockquote small{display:block;font-style:normal;font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5A6577;margin-top:6px}
+.body{font-size:17px;line-height:1.5;max-width:7.3in;color:#293340;margin:0 0 6px}.body b{color:#0D132D}.orgs{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;max-width:8in;margin:0 auto 4px;font-family:'Source Sans 3',sans-serif;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#0D132D}.orgs i{font-style:normal;color:#B7791F;margin-left:3px}
+blockquote{margin:6px auto 0;max-width:6.6in;font-style:italic;font-size:18px;line-height:1.4;color:#0D132D}blockquote small{display:block;font-style:normal;font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5A6577;margin-top:6px}
 .foot{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:20px}
 .sig{text-align:center}.sig .handimg{height:62px;width:auto;display:block;margin:0 auto -6px}.sig .line{width:220px;height:1px;background:#0D132D;margin:0 auto 5px}.sig .who{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5A6577}
 .seal{width:118px;height:118px;border-radius:50%;border:1.5px solid #B7791F;display:flex;align-items:center;justify-content:center;position:relative}.seal:before{content:"";position:absolute;inset:6px;border-radius:50%;border:.5px solid #B7791F}.seal img{width:62px;height:62px;border-radius:50%}
@@ -58,7 +58,8 @@ blockquote{margin:10px auto 0;max-width:6.6in;font-style:italic;font-size:18px;l
     <div class="name">${name}</div><div class="state">${STATE}${sup ? ` &middot; ${sup}, Superintendent` : ""}</div>
   </div>
   <div>
-    <p class="body">for a written board policy that <b>prohibits corporal punishment</b> in every school it governs, in keeping with the American Academy of Pediatrics, the U.S. Secretary of Education's 2023 call to end the practice, and the 33 states that prohibit it by law.</p>
+    <p class="body">for a written board policy that <b>prohibits corporal punishment</b> in every school it governs, joining the 33 states that prohibit it by law and the position of</p>
+<div class="orgs"><span>American Academy of Pediatrics <i>2023</i></span><span>American Psychological Association <i>2016</i></span><span>American Academy of Child &amp; Adolescent Psychiatry <i>2012</i></span><span>National Association of School Psychologists <i>2021</i></span><span>National PTA</span><span>U.S. Secretary of Education <i>2023</i></span><span>ACLU, NAACP, NEA, Children's Defense Fund <i>2016 open letter</i></span></div>
     <blockquote>“${quote}”<small>Board policy ${code} · recorded at earthpilot.org/kids</small></blockquote>
   </div>
   <div class="foot">
