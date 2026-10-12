@@ -43,8 +43,8 @@ function band() {
   const ribbon = (pts) => { let d = ""; for (const [x, y] of pts) d += (d ? " L" : "M") + `${x.toFixed(1)},${y.toFixed(1)}`; return `<path d="${d}" fill="none" stroke="${NAVY}" stroke-width=".35" opacity=".38"/>`; };
   for (const k of [-1, 1]) for (const ph of [0, Math.PI]) {
     const top = [], bot = [], left = [], right = [];
-    for (let x = B; x <= W - B + 0.01; x += 2) { const dy = 16 * Math.sin((x - B) / sx * Math.PI * 2 + ph) * k; top.push([x, B + dy]); bot.push([x, H - B + dy]); }
-    for (let y = B; y <= H - B + 0.01; y += 2) { const dx = 16 * Math.sin((y - B) / sy * Math.PI * 2 + ph) * k; left.push([B + dx, y]); right.push([W - B + dx, y]); }
+    for (let i = 0; i <= Math.round((W - 2 * B) / 2); i++) { const x = B + i * 2 * (W - 2 * B) / (2 * Math.round((W - 2 * B) / 2)); const dy = 16 * Math.sin((x - B) / sx * Math.PI * 2 + ph) * k; top.push([x, B + dy]); bot.push([x, H - B + dy]); }
+    for (let j = 0; j <= Math.round((H - 2 * B) / 2); j++) { const y = B + j * 2 * (H - 2 * B) / (2 * Math.round((H - 2 * B) / 2)); const dx = 16 * Math.sin((y - B) / sy * Math.PI * 2 + ph) * k; left.push([B + dx, y]); right.push([W - B + dx, y]); }
     out += ribbon(top) + ribbon(bot) + ribbon(left) + ribbon(right);
   }
   for (const [cx, cy] of cells) out += rosette(cx, cy, 28);
@@ -53,12 +53,15 @@ function band() {
   return out;
 }
 function scallop() {
-  // the outer edge: small arcs all the way round, like a cut certificate sheet
-  const r = 9, m = 7; let d = `M${m},${m + r}`;
-  for (let x = m; x < W - m; x += r * 2) d += ` A${r},${r} 0 0 1 ${x + r * 2},${m + r}`;
-  for (let y = m + r; y < H - m; y += r * 2) d += ` A${r},${r} 0 0 1 ${W - m - r},${y + r * 2}`;
-  for (let x = W - m; x > m; x -= r * 2) d += ` A${r},${r} 0 0 1 ${x - r * 2},${H - m - r}`;
-  for (let y = H - m - r; y > m; y -= r * 2) d += ` A${r},${r} 0 0 1 ${m + r},${y - r * 2}`;
+  // the outer edge: an exact number of arcs per side, so every corner is a full arc meeting a full arc
+  const m = 8; const r0 = 9;
+  const nx = Math.round((W - 2 * m) / (2 * r0)), ny = Math.round((H - 2 * m) / (2 * r0));
+  const rx = (W - 2 * m) / (2 * nx), ry = (H - 2 * m) / (2 * ny);
+  let d = `M${m},${m}`;
+  for (let i = 0; i < nx; i++) d += ` A${rx.toFixed(2)},${rx.toFixed(2)} 0 0 1 ${(m + (i + 1) * 2 * rx).toFixed(2)},${m}`;
+  for (let j = 0; j < ny; j++) d += ` A${ry.toFixed(2)},${ry.toFixed(2)} 0 0 1 ${W - m},${(m + (j + 1) * 2 * ry).toFixed(2)}`;
+  for (let i = nx; i > 0; i--) d += ` A${rx.toFixed(2)},${rx.toFixed(2)} 0 0 1 ${(m + (i - 1) * 2 * rx).toFixed(2)},${H - m}`;
+  for (let j = ny; j > 0; j--) d += ` A${ry.toFixed(2)},${ry.toFixed(2)} 0 0 1 ${m},${(m + (j - 1) * 2 * ry).toFixed(2)}`;
   return `<path d="${d} Z" fill="#FFFEFA" stroke="${NAVY}" stroke-width="1" opacity=".9"/>`;
 }
 const background = `<svg class="bg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
