@@ -68,6 +68,17 @@ const byState = {};
 for (const [id, d] of Object.entries(out)) { const st = wanted.get(id)?.state; if (st) (byState[st] ||= {})[id] = d; }
 for (const [st, shapes] of Object.entries(byState)) writeFileSync(join(root, `site/data/districts/shapes-${st}.json`), JSON.stringify({ state: st, count: Object.keys(shapes).length, shapes }));
 console.log(`per-state shape files: ${Object.keys(byState).length}`);
+// A lighter national copy for the home map: Douglas-Peucker at 0.3px, one decimal, every district kept.
+function simplifyRing(pts, eps) { if (pts.length < 3) return pts; const [x1, y1] = pts[0], [x2, y2] = pts[pts.length - 1]; const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy) || 1e-9; let dmax = 0, idx = 0; for (let i = 1; i < pts.length - 1; i++) { const [x, y] = pts[i]; const dist = Math.abs(dy * x - dx * y + x2 * y1 - y2 * x1) / L; if (dist > dmax) { dmax = dist; idx = i; } } if (dmax > eps) { const a = simplifyRing(pts.slice(0, idx + 1), eps), b = simplifyRing(pts.slice(idx), eps); return a.slice(0, -1).concat(b); } return [pts[0], pts[pts.length - 1]]; }
+const lite = {};
+for (const [id, d] of Object.entries(out)) {
+  const rings = d.match(/M[^M]+/g) || []; let s = "";
+  for (const ring of rings) { const nums = (ring.match(/-?\d+\.?\d*/g) || []).map(Number); const pts = []; for (let i = 0; i + 1 < nums.length; i += 2) pts.push([nums[i], nums[i + 1]]); if (pts.length < 3) continue; let r = pts.length > 3 ? simplifyRing(pts, 0.3) : pts; if (r.length < 3) r = pts.slice(0, 3); s += "M" + r.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join("L") + "Z"; }
+  lite[id] = s || d;
+}
+const litePayload = JSON.stringify({ count: Object.keys(lite).length, shapes: lite });
+writeFileSync(join(root, "site/data/district-shapes-lite.json"), litePayload);
+console.log(`lite national file: ${(litePayload.length / 1024).toFixed(0)} KB raw, ${(gzipSync(Buffer.from(litePayload)).length / 1024).toFixed(0)} KB gzipped`);
 console.log(`${Object.keys(out).length} district shapes, ${(payload.length / 1024).toFixed(0)} KB raw, ${(gzipSync(Buffer.from(payload)).length / 1024).toFixed(0)} KB gzipped`);
 if (missing.length) {
   console.log(`\nno boundary found for ${missing.length}:`);
