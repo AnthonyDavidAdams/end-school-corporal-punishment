@@ -231,7 +231,7 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 /* counties somebody is working on right now, ringed over the settled record */
 .county-live{stroke:#B7791F;stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
 /* school district borders: the unit policy is actually set in, over the county fills */
-.district-lines{stroke:rgba(13,19,45,.42);stroke-width:.6;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.district-lines{stroke:rgba(13,19,45,.75);stroke-width:.7;vector-effect:non-scaling-stroke;stroke-linejoin:round}
 .dlines{display:inline-flex;align-items:center;gap:.35rem;font-size:.88rem;color:var(--charcoal);cursor:pointer;white-space:nowrap}
 .dlines input{cursor:pointer}
 .county-live-verified{stroke:#F6E05E}

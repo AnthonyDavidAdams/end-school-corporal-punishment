@@ -133,7 +133,7 @@ const dbox=document.getElementById("dlines");
 const FILL={allows:"#9B2C2C",consent_required:"#C05621",silent:"#B5474A",bans:"#2D6A4F",unknown:"#B0A8A0"};const LBL={allows:"permits it",consent_required:"permits it with a parent's consent",silent:"no written rule found",bans:"prohibits it",unknown:"policy not read yet"};
 const layer=document.createElementNS(NS,"g");layer.setAttribute("class","district-fills");
 for(const [id,d] of Object.entries(j.shapes)){const [status,name]=st[id]||["unknown",id];const p=document.createElementNS(NS,"path");p.setAttribute("d",d);p.setAttribute("fill",FILL[status]||FILL.unknown);p.setAttribute("fill-opacity","0.92");p.setAttribute("stroke","#fff");p.setAttribute("stroke-width",(parseFloat(svg.viewBox.baseVal.width)/900).toFixed(2));p.dataset.district=name;p.dataset.status=LBL[status]||status;p.setAttribute("tabindex","0");layer.append(p);}
-const outline=svg.querySelector("path[pointer-events=none]");svg.insertBefore(layer,outline||null);
+const under=document.getElementById("district-layer")||svg.querySelector("path[pointer-events=none]");svg.insertBefore(layer,under||null);
 for(const c of svg.querySelectorAll("path[data-county]")){c.setAttribute("fill-opacity","0.35");}
 const show=(e,p)=>{tip.innerHTML="<b>"+p.dataset.district+"</b><br>"+p.dataset.status;tip.style.display="block";const b=box.getBoundingClientRect();tip.style.left=(e.clientX-b.left+12)+"px";tip.style.top=(e.clientY-b.top+12)+"px";};
 layer.addEventListener("mousemove",e=>{const p=e.target.closest("path");if(p)show(e,p);});layer.addEventListener("mouseleave",()=>{tip.style.display="none";});
@@ -442,7 +442,7 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 /* counties somebody is working on right now, ringed over the settled record */
 .county-live{stroke:#B7791F;stroke-width:2.2;vector-effect:non-scaling-stroke;stroke-linejoin:round}
 /* school district borders: the unit policy is actually set in, over the county fills */
-.district-lines{stroke:rgba(13,19,45,.42);stroke-width:.6;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.district-lines{stroke:rgba(13,19,45,.75);stroke-width:.7;vector-effect:non-scaling-stroke;stroke-linejoin:round}
 .dlines{display:inline-flex;align-items:center;gap:.35rem;font-size:.88rem;color:var(--charcoal);cursor:pointer;white-space:nowrap}
 .dlines input{cursor:pointer}
 .county-live-verified{stroke:#F6E05E}
