@@ -892,7 +892,15 @@ if __name__ == "__main__":
     elif cmd == "inbox": inbox()
     elif cmd == "followup": followup()
     elif cmd == "bounces": bounces()
-    elif cmd == "cycle": send(25); inbox(); bounces(); followup(); tidy(); ops_page()
+    elif cmd == "cycle":
+        send(25); inbox(); bounces(); followup(); tidy()
+        # A superintendent who just sent us a prohibiting policy gets the certificate the same day.
+        try:
+            out = subprocess.run([os.path.join(ROOT, "tools/.venv/bin/python"), os.path.join(ROOT, "tools/certificates/send.py"), "--momentum", "--limit", "20"], cwd=ROOT, capture_output=True, text=True, timeout=1500).stdout.strip().splitlines()
+            if out: log("certificates (momentum):", out[-1][:100])
+        except Exception as ex:
+            log("momentum certificates failed", repr(ex)[:100])
+        ops_page()
     elif cmd == "compliments":
         # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
         reqs = load(); n = 0

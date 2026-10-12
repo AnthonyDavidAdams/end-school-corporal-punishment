@@ -198,9 +198,13 @@ def cover(d, reqs=None):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--dry", action="store_true"); ap.add_argument("--limit", type=int, default=150); ap.add_argument("--state"); ap.add_argument("--test", help="send the first district's package to this address instead; nothing is logged"); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--dry", action="store_true"); ap.add_argument("--limit", type=int, default=150); ap.add_argument("--state"); ap.add_argument("--test", help="send the first district's package to this address instead; nothing is logged")
+    ap.add_argument("--momentum", action="store_true", help="only districts whose superintendent has written to us (they sent the policy): keep the momentum, certificate the same day"); a = ap.parse_args()
     reqs = run.load(); cands = candidates(reqs)
     if a.state: cands = [c for c in cands if c["state"] == a.state]
+    if a.momentum:
+        cands = [c for c in cands if prior(c, reqs)]
+        cands.sort(key=lambda c: (prior(c, reqs) or {}).get("when") or "", reverse=True)
     batch = cands[:a.limit]
     if a.test:
         d = batch[0]; pdf = render(d); subject = f"[TEST] {clean_name(d['name'])} recognized as a Safe School for {YEAR.replace('–', '-')}"
