@@ -446,7 +446,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         r["answered_message_ids"].append(mid); r["replies"].append(entry); save(reqs)
 
     if kind == "auto_reply_or_bounce":
-        if re.search(r"delivery|undeliver|failure|not delivered|couldn't be found", subject + body[:600], re.I):
+        if re.search(r"delivery|undeliver|failure|not delivered|couldn't be found|address not found|wasn't delivered|could not be delivered|does not exist|no such user|user unknown|rejected|mailbox (is )?(full|unavailable)", subject + body[:900], re.I):
             r["status"] = "bounced"
         entry["action"] = "logged"; finish(); return
 
@@ -763,6 +763,59 @@ def ops_page():
     except Exception as ex:
         log("ops page failed", repr(ex)[:100])
 
+
+def bounces():
+    """Every bounced request gets one more try at a different address: the state directories first
+    (another address for the same district), then the district's own website. The same message goes
+    again, certificate attachments included. A district with no other address stays bounced."""
+    reqs = load(); todo = [r for r in reqs if r.get("status") == "bounced" and not r.get("bounce_retry")]
+    if not todo: return 0
+    contacts = {}
+    for f in os.listdir(os.path.join(ROOT, "data/contacts")):
+        if not f.endswith(".json"): continue
+        d = json.load(open(os.path.join(ROOT, "data/contacts", f)))
+        for c in (d if isinstance(d, list) else d.get("contacts") or []):
+            if isinstance(c, dict) and (c.get("district_email") or c.get("email")):
+                for k in ((("id", str(c["nces_id"])) if c.get("nces_id") else None), ((c.get("state"), re.sub(r"[^a-z0-9]", "", (c.get("name") or "").lower())) if c.get("state") and c.get("name") else None)):
+                    if k: contacts.setdefault(k, []).append((c.get("district_email") or c.get("email")).lower())
+    # the website harvest, for everything the directories cannot answer
+    need = []
+    for r in todo:
+        alts = [a for a in contacts.get(("id", str(r.get("nces_id"))), []) + contacts.get((r["state"], re.sub(r"[^a-z0-9]", "", r["name"].lower())), []) if a != (r.get("to") or "").lower() and not re.search(r"@(gmail|yahoo|hotmail|aol)\.", a)]
+        r["_alts"] = list(dict.fromkeys(alts))
+        if not r["_alts"] and website_of(r): need.append({"name": r["name"], "state": r["state"], "website": website_of(r), "nces_id": r.get("nces_id")})
+    harvested = {}
+    if need:
+        tin = os.path.join(LOGDIR, "bounce-targets.json"); tout = os.path.join(LOGDIR, "bounce-harvest.jsonl")
+        json.dump(need, open(tin, "w"))
+        if os.path.exists(tout): os.remove(tout)
+        try:
+            subprocess.run(["node", "tools/contacts/harvest-emails.mjs", tin, tout], cwd=ROOT, capture_output=True, timeout=900)
+            for line in open(tout):
+                row = json.loads(line); harvested[str(row.get("nces_id") or row.get("name"))] = row.get("superintendent_email") or row.get("generic_email")
+        except Exception as ex:
+            log("bounce harvest failed", repr(ex)[:100])
+    retried = 0
+    for r in todo:
+        alt = (r.pop("_alts", None) or [None])[0] or harvested.get(str(r.get("nces_id"))) or harvested.get(r["name"])
+        r["bounce_retry"] = datetime.datetime.now().isoformat(timespec="seconds")
+        if not alt:
+            r["notes"] = (r.get("notes") or "") + f" Bounced at {r.get('to')}; no other address found ({r['bounce_retry'][:10]})."; continue
+        m = EmailMessage(); m["From"] = FROM; m["To"] = alt; m["Subject"] = r.get("subject") or subject_for(r)
+        m["Date"] = email.utils.formatdate(localtime=True); m["Message-ID"] = f"<escp-{r['id']}-r@earthpilot.org>"; m["X-ESCP-Request"] = r["id"]
+        body = r.get("body") or body_for(r); m.set_content(body)
+        if r.get("kind") == "certificate" and r.get("certificate_pdf") and os.path.exists(os.path.join(ROOT, r["certificate_pdf"])):
+            pdf = os.path.join(ROOT, r["certificate_pdf"]); m.add_attachment(open(pdf, "rb").read(), maintype="application", subtype="pdf", filename=os.path.basename(pdf))
+            docx = pdf[:-4] + "-press-release.docx"
+            if os.path.exists(docx): m.add_attachment(open(docx, "rb").read(), maintype="application", subtype="vnd.openxmlformats-officedocument.wordprocessingml.document", filename=os.path.basename(docx))
+        try:
+            smtp_send(m)
+        except Exception as ex:
+            log("bounce resend failed", r["name"], repr(ex)[:100]); continue
+        r.setdefault("bounced_from", []).append(r.get("to")); r["to"] = alt; r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["message_id"] = m["Message-ID"]
+        retried += 1; log("bounce: resent", r["state"], r["name"], "->", alt); time.sleep(6)
+    save(reqs); log(f"bounces: {retried} resent of {len(todo)}"); return retried
+
 # ---------------------------------------------------------------- follow-up
 def followup():
     reqs = load(); n = 0
@@ -838,7 +891,8 @@ if __name__ == "__main__":
     if cmd == "send": send(int(sys.argv[2]) if len(sys.argv) > 2 else 25)
     elif cmd == "inbox": inbox()
     elif cmd == "followup": followup()
-    elif cmd == "cycle": send(25); inbox(); followup(); tidy(); ops_page()
+    elif cmd == "bounces": bounces()
+    elif cmd == "cycle": send(25); inbox(); bounces(); followup(); tidy(); ops_page()
     elif cmd == "compliments":
         # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
         reqs = load(); n = 0
