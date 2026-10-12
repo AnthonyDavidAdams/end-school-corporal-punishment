@@ -1,3 +1,4 @@
+#!/usr/bin/env tools/.venv/bin/python
 """Safe School certificates: who gets one, in what order, and the sending.
 
 A district qualifies when its record carries a quoted BOARD POLICY (policy_code on file) with status
@@ -116,73 +117,84 @@ def prior(d, reqs):
     return None
 
 
+def press_release(d):
+    """The sample press release, in plain paragraphs; rendered to .docx for the attachment."""
+    name = clean_name(d["name"]); st = STATE_NAMES.get(d["state"], d["state"]); yr = YEAR.replace("–", "-")
+    return [
+        ("h", f"{name} Recognized as a Safe School for {yr}"),
+        ("i", "District's written ban on corporal punishment earns recognition from EarthPilot's Safe Schools Project"),
+        ("p", f"{name.upper()}, {st} — {name} has been recognized as a Safe School for the {yr} school year by the Safe Schools Project, a public record of every U.S. school district's written policy on corporal punishment."),
+        ("p", f"The recognition goes to districts whose board policy prohibits corporal punishment in every school. {name}'s policy {d['code']} states: \"{d['quote']}\""),
+        ("p", f"\"{name} put it in writing, and that is what protects children,\" said Anthony David Adams, founder of EarthPilot. \"In the 17 states where paddling is still legal, most districts have not. {name} is on the right side of the line, and the record shows it.\""),
+        ("p", "[Optional quote from the superintendent or board president.]"),
+        ("p", "The district's policy is in keeping with the American Academy of Pediatrics, which in 2023 called for corporal punishment to be abolished in all school settings; the U.S. Secretary of Education, who asked every state to end the practice in 2023; and the American Psychological Association, the ACLU, the NEA and the NAACP, among more than 100 organizations that signed a 2016 open letter calling for its end. Thirty-three states prohibit it by law."),
+        ("p", "According to the federal Civil Rights Data Collection, 19,851 public school students in the United States received corporal punishment in the 2023-24 school year."),
+        ("p", "The Safe Schools Project keeps a public, sourced record of each district's own written rule at earthpilot.org/kids. Districts may view their entry and its source document there."),
+        ("b", "About EarthPilot"),
+        ("p", "EarthPilot builds open projects that point many people and their AI agents at one public problem. The Safe Schools Project is its first: a district-by-district record of corporal punishment policy in U.S. public schools, quoted from each district's own documents."),
+        ("b", "Contact"),
+        ("p", "Anthony David Adams, EarthPilot · anthony@175g.com · (234) 516-2545"),
+    ]
+
+
+def press_release_docx(d, path):
+    import docx
+    from docx.shared import Pt
+    doc = docx.Document()
+    st = doc.styles["Normal"]; st.font.name = "Calibri"; st.font.size = Pt(11)
+    doc.add_paragraph("FOR IMMEDIATE RELEASE").runs[0].bold = True
+    for kind, text in press_release(d):
+        if kind == "h": doc.add_heading(text, level=1)
+        elif kind == "i": r = doc.add_paragraph().add_run(text); r.italic = True
+        elif kind == "b": r = doc.add_paragraph().add_run(text); r.bold = True
+        else: doc.add_paragraph(text)
+    doc.save(path); return path
+
+
 def cover(d, reqs=None):
-    name = clean_name(d["name"]); st = STATE_NAMES.get(d["state"], d["state"]); last = sup_last(d.get("superintendent"))
+    """The cover email, as (plain text, html). Bold in the html marks the sentence fragments and figures
+    a busy reader should catch; the plain part reads the same without it."""
+    name = clean_name(d["name"]); st = STATE_NAMES.get(d["state"], d["state"]); last = sup_last(d.get("superintendent")); yr = YEAR.replace("–", "-")
     p = prior(d, reqs or [])
     if p and p.get("who") and p["who"].lower() not in ("there", "superintendent"):
         greet = f"Hi {p['who']},"
-        opening = f"Thanks again for {p['did']} when we wrote earlier this fall; it is the reason this is in hand. {name} has a written board policy that prohibits corporal punishment in every school it governs. Not every district in {st} can say that, and in the 17 states where the practice is still legal, most cannot. So we made you a certificate."
+        lead = f"Congratulations, and thanks again for {p['did']} when we wrote earlier this fall. "
     else:
         greet = f"Dear Superintendent {last}," if last else "Dear Superintendent,"
-        opening = f"{name} has a written board policy that prohibits corporal punishment in every school it governs. Not every district in {st} can say that, and in the 17 states where the practice is still legal, most cannot. So we made you a certificate."
-    return f"""{greet}
-
-{opening}
-
-It is attached as a print-ready PDF. It carries your policy's own sentence, "{d['quote']}", your policy number, and a QR code to the district's entry in the public record at earthpilot.org/kids, where anyone can see the source.
-
-What the district's policy lines up with:
-
-  - The American Academy of Pediatrics, which in 2023 called for corporal punishment to be abolished in all school settings in every state, and whose 2018 discipline guidance found all forms of it minimally effective in the short term and harmful over time.
-  - The U.S. Secretary of Education, who wrote to every governor and state education chief in March 2023 asking them to end it.
-  - The American Psychological Association, the ACLU, the NEA, the NAACP and more than 100 other organizations, in a 2016 open letter calling for an end to the practice in schools.
-  - The American Academy of Child and Adolescent Psychiatry (2012), the National Association of School Psychologists (2021) and the National PTA, each on record against it.
-
-What the research says, briefly: a 2022 meta-analysis of school corporal punishment specifically, across 21 studies and more than 67,000 children, found it associated with more aggressive and disruptive behavior, more anxiety and depression, and lower school performance. A 2019 study of young adults from the states where it was legal found that those who had received it in school had lower high school GPAs and more depressive symptoms. The 2016 review of 75 studies and 160,927 children found physical punishment linked to 13 of 17 outcomes studied, every one in the direction of harm.
-
-Nationally, 19,851 public school students were struck as punishment in 2023-24, down from 106,055 a decade earlier. Districts like yours are why.
-
-Two things you are welcome to do with this: hang it, and tell people. A short press release is below, written so your office can send it to local media with one edit.
-
-One more, if you are willing. We are collecting thirty-second selfie videos from superintendents, principals and teachers in districts that chose other approaches: what you do instead, what changed, or what you would tell a district that still paddles. No script, phone in hand. Send one at earthpilot.org/kids/video/ and we will put a real face to this.
-
-With respect and thanks,
-
-Anthony David Adams
-Founder, EarthPilot · Safe Schools Project
-earthpilot.org/kids · anthony@175g.com
-
-
-------------------------------------------------------------
-SAMPLE PRESS RELEASE (yours to use)
-------------------------------------------------------------
-
-FOR IMMEDIATE RELEASE
-
-{name} Recognized as a Safe School for {YEAR.replace('–', '-')}
-
-District's written ban on corporal punishment earns recognition from EarthPilot's Safe Schools Project
-
-{name.upper()}, {st} — {name} has been recognized as a Safe School for the {YEAR.replace('–', '-')} school year by the Safe Schools Project, a public record of every U.S. school district's written policy on corporal punishment.
-
-The recognition goes to districts whose board policy prohibits corporal punishment in every school. {name}'s policy {d['code']} states: "{d['quote']}"
-
-"{name} put it in writing, and that is what protects children," said Anthony David Adams, founder of EarthPilot. "In the 17 states where paddling is still legal, most districts have not. {name} is on the right side of the line, and the record shows it."
-
-[Optional quote from the superintendent or board president.]
-
-The district's policy is in keeping with the American Academy of Pediatrics, which in 2023 called for corporal punishment to be abolished in all school settings; the U.S. Secretary of Education, who asked every state to end the practice in 2023; and the American Psychological Association, the ACLU, the NEA and the NAACP, among more than 100 organizations that signed a 2016 open letter calling for its end. Thirty-three states prohibit it by law.
-
-According to the federal Civil Rights Data Collection, 19,851 public school students in the United States received corporal punishment in the 2023-24 school year.
-
-The Safe Schools Project keeps a public, sourced record of each district's own written rule at earthpilot.org/kids. Districts may view their entry and its source document there.
-
-About EarthPilot
-EarthPilot builds open projects that point many people and their AI agents at one public problem. The Safe Schools Project is its first: a district-by-district record of corporal punishment policy in U.S. public schools, quoted from each district's own documents.
-
-Contact
-Anthony David Adams, EarthPilot · anthony@175g.com · (234) 516-2545
-"""
+        lead = "Congratulations. "
+    # paragraphs as (text with **bold** marks); rendered two ways below
+    paras = [
+        lead + f"{name} has a written board policy that **prohibits corporal punishment in every school it governs**. Not every district in {st} can say that, and in the 17 states where the practice is still legal, most cannot. We are recognizing {name} with a **Safe School certificate for the {yr} school year**.",
+        f"It's attached as a print-ready PDF featuring your policy's own sentence, **\"{d['quote']}\"** (policy {d['code']}), and a QR code to the district's entry in the public record at earthpilot.org/kids, where anyone can see the source.",
+        "Your policy stands with:",
+        "LIST:" + "||".join([
+            "**The American Academy of Pediatrics**, which in 2023 called for corporal punishment to be abolished in all school settings in every state, and whose 2018 discipline guidance found all forms of it minimally effective in the short term and harmful over time.",
+            "**The U.S. Secretary of Education**, who wrote to every governor and state education chief in March 2023 asking them to end it.",
+            "**The American Psychological Association, the ACLU, the NEA, the NAACP** and more than 100 other organizations, in a 2016 open letter calling for an end to the practice in schools.",
+            "**The American Academy of Child and Adolescent Psychiatry** (2012), **the National Association of School Psychologists** (2021) and **the National PTA**, each on record against it.",
+        ]),
+        "What the research says, briefly: a 2022 meta-analysis of school corporal punishment specifically, across **21 studies and more than 67,000 children**, found it associated with **more aggressive and disruptive behavior, more anxiety and depression, and lower school performance**. A 2019 study of young adults from the states where it was legal found that those who had received it in school had **lower high school GPAs and more depressive symptoms**. The 2016 review of 75 studies and 160,927 children found physical punishment linked to **13 of 17 outcomes studied, every one in the direction of harm**.",
+        f"Nationally, **19,851 public school students were struck as punishment in 2023-24**, down from 106,055 a decade earlier. Districts like yours are why.",
+        "Two things you are welcome to do with this: hang it, and tell people. A sample press release is attached as a Word document, written so your office can send it to local media with one edit.",
+        "One more, if you are willing. We are collecting **thirty-second selfie videos** from superintendents, principals and teachers in districts that chose other approaches: what you do instead, what changed, or what you would tell a district that still paddles. No script, phone in hand. Send one at earthpilot.org/kids/video/ and we will put a real face to this.",
+        "With respect and thanks,",
+        "Anthony David Adams\nFounder, EarthPilot · Safe Schools Project\nearthpilot.org/kids · anthony@175g.com",
+    ]
+    import html as H
+    def plain(t): return t.replace("**", "")
+    def rich(t):
+        t = H.escape(t); t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+        return re.sub(r"(earthpilot\.org/kids(?:/video/)?)", r'<a href="https://\1" style="color:#0D132D">\1</a>', t).replace("\n", "<br>")
+    text_parts, html_parts = [greet], [f"<p>{H.escape(greet)}</p>"]
+    for t in paras:
+        if t.startswith("LIST:"):
+            items = t[5:].split("||")
+            text_parts.append("\n".join("  - " + plain(i) for i in items)); html_parts.append("<ul style='margin:0 0 14px 18px;padding:0'>" + "".join(f"<li style='margin:0 0 6px'>{rich(i)}</li>" for i in items) + "</ul>")
+        else:
+            text_parts.append(plain(t)); html_parts.append(f"<p style='margin:0 0 14px'>{rich(t)}</p>")
+    text = "\n\n".join(text_parts) + "\n"
+    html_doc = f"""<!doctype html><html><body style="margin:0;padding:24px;background:#ffffff"><div style="max-width:620px;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0D132D">{''.join(html_parts)}</div></body></html>"""
+    return text, html_doc
 
 
 def main():
@@ -193,7 +205,10 @@ def main():
     if a.test:
         d = batch[0]; pdf = render(d); subject = f"[TEST] {clean_name(d['name'])} recognized as a Safe School for {YEAR.replace('–', '-')}"
         m = EmailMessage(); m["From"] = run.FROM; m["To"] = a.test; m["Subject"] = subject; m["Date"] = email.utils.formatdate(localtime=True); m["Message-ID"] = f"<escp-cert-test-{datetime.datetime.now().strftime('%H%M%S')}@earthpilot.org>"
-        m.set_content(cover(d, reqs)); m.add_attachment(open(pdf, "rb").read(), maintype="application", subtype="pdf", filename=f"Safe School {YEAR.replace('–', '-')} - {clean_name(d['name'])}.pdf")
+        body, html_doc = cover(d, reqs); m.set_content(body); m.add_alternative(html_doc, subtype="html")
+        m.add_attachment(open(pdf, "rb").read(), maintype="application", subtype="pdf", filename=f"Safe School {YEAR.replace('–', '-')} - {clean_name(d['name'])}.pdf")
+        docx_path = press_release_docx(d, pdf[:-4] + "-press-release.docx")
+        m.add_attachment(open(docx_path, "rb").read(), maintype="application", subtype="vnd.openxmlformats-officedocument.wordprocessingml.document", filename=f"Press release - {clean_name(d['name'])} Safe School {YEAR.replace('–', '-')}.docx")
         run.smtp_send(m); print("test sent to", a.test, "for", clean_name(d["name"]), "| would have gone to", d["to"]); return
     print(f"qualifying with an address: {len(cands)} · this batch: {len(batch)}")
     if a.dry:
@@ -209,8 +224,10 @@ def main():
         subject = f"{clean_name(d['name'])} recognized as a Safe School for {YEAR.replace('–', '-')}"
         m = EmailMessage(); m["From"] = run.FROM; m["To"] = d["to"]; m["Subject"] = subject
         m["Date"] = email.utils.formatdate(localtime=True); m["Message-ID"] = f"<escp-{rid}@earthpilot.org>"; m["X-ESCP-Request"] = rid
-        body = cover(d, reqs); m.set_content(body)
+        body, html_doc = cover(d, reqs); m.set_content(body); m.add_alternative(html_doc, subtype="html")
         m.add_attachment(open(pdf, "rb").read(), maintype="application", subtype="pdf", filename=f"Safe School {YEAR.replace('–', '-')} - {clean_name(d['name'])}.pdf")
+        docx_path = press_release_docx(d, pdf[:-4] + "-press-release.docx")
+        m.add_attachment(open(docx_path, "rb").read(), maintype="application", subtype="vnd.openxmlformats-officedocument.wordprocessingml.document", filename=f"Press release - {clean_name(d['name'])} Safe School {YEAR.replace('–', '-')}.docx")
         try:
             run.smtp_send(m)
         except Exception as ex:
