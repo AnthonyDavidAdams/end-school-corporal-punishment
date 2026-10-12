@@ -202,8 +202,19 @@ def doc_text(path):
     if path.lower().endswith((".docx", ".doc")):
         return subprocess.run(["textutil", "-convert", "txt", "-stdout", path], capture_output=True, text=True).stdout
     return open(path, encoding="utf-8", errors="ignore").read()
+TOKENS = re.compile(r"(sk|pk)\.[A-Za-z0-9_\-\.]{40,}|AIza[0-9A-Za-z_\-]{35}|ghp_[A-Za-z0-9]{36}|xox[baprs]-[A-Za-z0-9-]{10,}")
+def scrub(path):
+    """A fetched web page can carry the district's own embedded API keys (a Mapbox token blocked a push on
+    2026-10-12). They are not part of the record; strip them before the file is kept."""
+    if not path.endswith((".html", ".htm", ".txt")): return
+    try:
+        t = open(path, errors="ignore").read(); t2 = TOKENS.sub("[token removed]", t)
+        if t2 != t: open(path, "w").write(t2)
+    except Exception: pass
+
 def file_document(r, path, how):
     """Clip -> Jev classify -> record -> merge -> publish. Returns the status recorded, or None."""
+    scrub(path)
     text = doc_text(path); cands = clip(text)
     rel = os.path.relpath(path, ROOT); url = RAW + rel
     if not cands:
