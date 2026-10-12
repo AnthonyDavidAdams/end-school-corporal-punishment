@@ -274,3 +274,40 @@ If fees apply, please tell me the estimate before incurring them. If any part is
 Thank you,
 {sig(user, formal=True)}
 """
+
+
+def expanded_pickup(r, user, statute):
+    """A district will release its policy only by in-person pickup. One trip should bring back the whole
+    picture, so the request grows to cover the rules, their use, the decision and the liability trail.
+    Oklahoma's model policy requires each instance to be documented, so item 5 should exist."""
+    who = first_name(r.get("superintendent"))
+    return f"""{who},
+
+Understood on pickup. Since someone will be making the trip, I'd like to collect everything in one visit rather than ask again later. Under {statute}, please add the following to the request, to be made available at the superintendent's office with the policy and handbook already processed. If an item does not exist, a line saying so is a complete answer for it.
+
+The rules
+  1. The complete student discipline series of board policy as currently adopted, including the corporal punishment policy and any regulations, exhibits and forms under it.
+  2. Every prior version of the corporal punishment policy since 2015, with adoption and revision dates.
+  3. The current student handbook for each school site, and the discipline matrix or ladder that lists offenses and their consequences.
+  4. The parental consent or opt-out form in use, and the count of forms on file for each school year since 2021-22, by school.
+
+How it is used
+  5. The district's record of corporal punishment administered for 2021-22 through 2025-26: for each instance, the date, school, grade, the offense, the number of strikes, whether a witness was present, and the race, sex and disability status of the student as reported to the federal Civil Rights Data Collection. No names.
+  6. The district's Civil Rights Data Collection submissions for 2021-22 and 2023-24, the corporal punishment items.
+  7. Any complaint, grievance, or report to child protective services or law enforcement arising from corporal punishment since 2021, and the district's response, with students' identities redacted.
+
+How the decision was made
+  8. Board agendas, minutes and attached materials for every meeting since July 1, 2021 at which corporal punishment or the student discipline policy was discussed or voted on.
+  9. Any report, study, research summary or recommendation the board or administration relied on in adopting or keeping the policy, including anything from the state school boards association.
+ 10. Written communications among board members and administrators concerning corporal punishment since July 1, 2021, including email.
+
+Staff and liability
+ 11. Training materials, written procedures and any sign-off records for staff who administer it.
+ 12. Any notice, claim or correspondence with the district's liability insurer concerning corporal punishment since 2021.
+
+Copies rather than inspection, please; I will pay the copying charge under the Act, itemized at the statutory per-page rate. If any part is withheld, please cite the exemption and describe what was withheld.
+
+Thank you for processing this.
+
+{sig(user, formal=True)}
+"""

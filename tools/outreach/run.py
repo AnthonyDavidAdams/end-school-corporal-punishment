@@ -455,6 +455,22 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     def finish():
         r["answered_message_ids"].append(mid); r["replies"].append(entry); save(reqs)
 
+    # A thread waiting on one specific answer: will the district mail or email, or is it pickup only? The
+    # expanded request goes the moment pickup-only is confirmed, and is dropped if copies are coming.
+    if r.get("pending_expanded") and kind != "auto_reply_or_bounce":
+        try:
+            a = triage_mod.jev({"their_reply": triage_mod.strip_quoted(body)[:1500]}, {"pickup_only": {"type": "noul", "instructions": "Does this reply say the documents will be available ONLY by in-person pickup at the office, declining to mail or email them?", "criteria": {"true": "Pickup only; no mailing or emailing.", "false": "They will mail or email, or the reply is about something else."}},
+                                                                                        "will_send": {"type": "noul", "instructions": "Does this reply agree to mail or email the documents (possibly for a fee)?", "criteria": {"true": "They will mail or email them.", "false": "They do not."}}})
+            pickup = float(a["pickup_only"].get("noul") or 0); will = float(a["will_send"].get("noul") or 0)
+        except Exception:
+            pickup = will = 0
+        if pickup >= 0.7 and will < 0.5:
+            text = messages.expanded_pickup(r, USER, r.get("statute") or "your state's public records law")
+            if reply_to(r, frm, mid, subject, text):
+                entry["action"] = "pickup-only confirmed; the expanded request went"; entry["our_reply"] = text; r["expanded_requested_at"] = datetime.date.today().isoformat(); r.pop("pending_expanded", None); r["status"] = "sent"
+                r["answered_message_ids"].append(mid); r["replies"].append(entry); save(reqs); return
+        elif will >= 0.7:
+            entry["action"] = "they will send copies; the expanded request is not needed"; r.pop("pending_expanded", None)
     if kind == "auto_reply_or_bounce":
         if re.search(r"delivery|undeliver|failure|not delivered|couldn't be found|address not found|wasn't delivered|could not be delivered|does not exist|no such user|user unknown|rejected|mailbox (is )?(full|unavailable)", subject + body[:900], re.I):
             r["status"] = "bounced"
