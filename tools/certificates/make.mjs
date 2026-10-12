@@ -14,26 +14,69 @@ const logo = "data:image/png;base64," + readFileSync(new URL("../../site/assets/
 const signature = "data:image/png;base64," + readFileSync(new URL("../../assets/signature/anthony-david-adams.png", import.meta.url)).toString("base64");
 const STATE = { KS: "Kansas", MO: "Missouri", OK: "Oklahoma", TX: "Texas", KY: "Kentucky", IN: "Indiana", NC: "North Carolina", AR: "Arkansas", GA: "Georgia", MS: "Mississippi", AL: "Alabama", TN: "Tennessee", LA: "Louisiana", FL: "Florida", SC: "South Carolina", WY: "Wyoming", AZ: "Arizona" }[state] || state;
 
-// Filigree: one corner ornament drawn once, mirrored to the other three; a thin double rule between.
-const corner = `<g fill="none" stroke="#B7791F" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-<path d="M4 96 C 4 60, 20 30, 60 18 C 80 12, 96 8, 96 4"/>
-<path d="M4 96 C 10 70, 26 46, 54 36 C 66 32, 78 24, 86 14"/>
-<path d="M14 92 C 18 74, 30 58, 50 50 C 58 47, 64 42, 66 36 C 60 40, 52 40, 48 36 C 54 34, 60 30, 62 24 C 56 28, 48 30, 42 28 C 48 24, 54 18, 54 12 C 48 16, 40 20, 34 20 C 38 14, 42 8, 40 4"/>
-<path d="M22 86 C 28 76, 36 68, 46 64 C 42 70, 40 76, 42 82 C 38 78, 34 74, 30 74"/>
-<path d="M64 46 C 72 42, 78 36, 80 28 C 76 34, 70 38, 64 38"/>
-<path d="M30 60 C 24 64, 20 70, 20 78 C 24 72, 28 68, 34 66"/>
-<circle cx="47" cy="47" r="2.4" fill="#B7791F" stroke="none"/><circle cx="66" cy="36" r="1.4" fill="#B7791F" stroke="none"/><circle cx="36" cy="66" r="1.4" fill="#B7791F" stroke="none"/><circle cx="62" cy="24" r="1.1" fill="#B7791F" stroke="none"/><circle cx="24" cy="62" r="1.1" fill="#B7791F" stroke="none"/>
-<path d="M4 4 C 30 12, 60 40, 96 96" opacity=".25" stroke-width=".6"/>
-</g>`;
-const vine = `<svg width="100%" height="14" viewBox="0 0 400 14" preserveAspectRatio="none" style="display:block"><g fill="none" stroke="#B7791F" stroke-width=".8" opacity=".9"><path d="M0 7 Q 12 0 24 7 T 48 7 T 72 7 T 96 7 T 120 7 T 144 7 T 168 7 T 192 7 T 216 7 T 240 7 T 264 7 T 288 7 T 312 7 T 336 7 T 360 7 T 384 7 T 408 7"/><g fill="#B7791F" stroke="none">${Array.from({length:17},(_,i)=>`<circle cx="${i*24+12}" cy="7" r="1.1"/>`).join("")}</g></g></svg>`;
+// Guilloché: the engraved banknote border, generated. Hypotrochoid rosettes tiled along a band, a wave-line
+// field behind the text, and a scalloped outer edge, all in EarthPilot navy at low weight. No stock art.
+const W = 1056, H = 816;                      // 11in x 8.5in at 96px/in
+const NAVY = "#0D132D", GOLD = "#B7791F";
+function hypo(cx, cy, R, r, d, turns, steps = 720) {
+  const pts = [];
+  for (let i = 0; i <= steps; i++) { const t = (i / steps) * Math.PI * 2 * turns; const x = cx + (R - r) * Math.cos(t) + d * Math.cos(((R - r) / r) * t); const y = cy + (R - r) * Math.sin(t) - d * Math.sin(((R - r) / r) * t); pts.push(`${x.toFixed(1)},${y.toFixed(1)}`); }
+  return `<polyline points="${pts.join(" ")}" fill="none" stroke="${NAVY}" stroke-width=".32" opacity=".34"/>`;
+}
+function rosette(cx, cy, size) {
+  // three nested spirograph curves make one medallion
+  return hypo(cx, cy, size, size * 0.29, size * 0.4, 13, 900) + hypo(cx, cy, size * 0.74, size * 0.21, size * 0.26, 7, 600) + hypo(cx, cy, size * 0.5, size * 0.12, size * 0.18, 9, 500) + `<circle cx="${cx}" cy="${cy}" r="${(size*0.12).toFixed(1)}" fill="none" stroke="${GOLD}" stroke-width=".6"/>`;
+}
+function waves(x0, y0, w, h, rows = 70, amp = 2.2, period = 60) {
+  let out = "";
+  for (let i = 0; i < rows; i++) { const y = y0 + (i / rows) * h; let d = `M${x0},${y.toFixed(1)}`; for (let x = x0; x <= x0 + w; x += 4) d += ` L${x},${(y + amp * Math.sin((x / period) * Math.PI * 2 + i * 0.35)).toFixed(1)}`; out += `<path d="${d}" fill="none" stroke="${NAVY}" stroke-width=".3" opacity=".16"/>`; }
+  return out;
+}
+function band() {
+  // the border band: medallions every 72px along all four edges, with lattice lines between them
+  const B = 42, step = 72; let out = "";
+  const cells = [];
+  for (let x = B; x <= W - B; x += step) { cells.push([x, B]); cells.push([x, H - B]); }
+  for (let y = B + step; y < H - B; y += step) { cells.push([B, y]); cells.push([W - B, y]); }
+  for (const [cx, cy] of cells) out += rosette(cx, cy, 28);
+  // lattice: two sine ribbons running along each edge through the medallion centers
+  const ribbon = (pts) => { let d = ""; for (const [x, y] of pts) d += (d ? " L" : "M") + `${x.toFixed(1)},${y.toFixed(1)}`; return `<path d="${d}" fill="none" stroke="${NAVY}" stroke-width=".35" opacity=".38"/>`; };
+  for (const k of [-1, 1]) for (const ph of [0, Math.PI]) {
+    const top = [], bot = [], left = [], right = [];
+    for (let x = B; x <= W - B; x += 3) { const dy = 16 * Math.sin((x - B) / step * Math.PI * 2 + ph) * k; top.push([x, B + dy]); bot.push([x, H - B + dy]); }
+    for (let y = B; y <= H - B; y += 3) { const dx = 16 * Math.sin((y - B) / step * Math.PI * 2 + ph) * k; left.push([B + dx, y]); right.push([W - B + dx, y]); }
+    out += ribbon(top) + ribbon(bot) + ribbon(left) + ribbon(right);
+  }
+  return out;
+}
+function scallop() {
+  // the outer edge: small arcs all the way round, like a cut certificate sheet
+  const r = 9, m = 7; let d = `M${m},${m + r}`;
+  for (let x = m; x < W - m; x += r * 2) d += ` A${r},${r} 0 0 1 ${x + r * 2},${m + r}`;
+  for (let y = m + r; y < H - m; y += r * 2) d += ` A${r},${r} 0 0 1 ${W - m - r},${y + r * 2}`;
+  for (let x = W - m; x > m; x -= r * 2) d += ` A${r},${r} 0 0 1 ${x - r * 2},${H - m - r}`;
+  for (let y = H - m - r; y > m; y -= r * 2) d += ` A${r},${r} 0 0 1 ${m + r},${y - r * 2}`;
+  return `<path d="${d} Z" fill="#FFFEFA" stroke="${NAVY}" stroke-width="1" opacity=".9"/>`;
+}
+const background = `<svg class="bg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+<rect width="${W}" height="${H}" fill="#F3F5F9"/>
+${scallop()}
+<rect x="20" y="20" width="${W - 40}" height="${H - 40}" fill="none" stroke="${NAVY}" stroke-width=".8" opacity=".7"/>
+<rect x="24" y="24" width="${W - 48}" height="${H - 48}" fill="none" stroke="${GOLD}" stroke-width=".5"/>
+${band()}
+<rect x="76" y="76" width="${W - 152}" height="${H - 152}" fill="#FFFFFF"/>
+${waves(76, 76, W - 152, H - 152)}
+<rect x="76" y="76" width="${W - 152}" height="${H - 152}" fill="none" stroke="${NAVY}" stroke-width=".8"/>
+<rect x="80" y="80" width="${W - 160}" height="${H - 160}" fill="none" stroke="${GOLD}" stroke-width=".5"/>
+</svg>`;
 const html = `<!doctype html><html><head><meta charset="utf-8"><title>Safe School certificate: ${name}, ${STATE}</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
 @page{size:11in 8.5in;margin:0}html,body{margin:0;background:#fff}
-.sheet{position:relative;width:11in;height:8.5in;background:#FFFEFA;color:#0D132D;font-family:'Cormorant Garamond',Georgia,serif;overflow:hidden}
+.sheet{position:relative;width:11in;height:8.5in;background:#fff;color:#0D132D;font-family:'Cormorant Garamond',Georgia,serif;overflow:hidden}
 .frame{position:absolute;inset:.42in;border:1px solid #B7791F}.frame2{position:absolute;inset:.5in;border:2px solid #0D132D}.frame3{position:absolute;inset:.58in;border:.5px solid #B7791F}
 .corner{position:absolute;width:100px;height:100px}.tl{top:.64in;left:.64in}.tr{top:.64in;right:.64in;transform:scaleX(-1)}.bl{bottom:.64in;left:.64in;transform:scaleY(-1)}.br{bottom:.64in;right:.64in;transform:scale(-1,-1)}.vine{position:absolute;left:1.9in;right:1.9in}.vtop{top:.66in}.vbot{bottom:.64in}
-.inner{position:absolute;inset:1.02in 1.2in 1.22in;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:8px}
+.inner{position:absolute;inset:1in 1.25in 1.2in;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:8px}
 .mark{display:flex;align-items:center;gap:12px;font-family:'Source Sans 3',sans-serif;letter-spacing:.32em;text-transform:uppercase;font-size:11px;color:#5A6577}.mark img{width:34px;height:34px;border-radius:50%}
 h1{font-weight:600;font-size:48px;letter-spacing:.08em;margin:2px 0 0;color:#0D132D}
 .sub{font-family:'Source Sans 3',sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#B7791F;margin-top:6px}
@@ -45,10 +88,9 @@ blockquote{margin:6px auto 0;max-width:6.6in;font-style:italic;font-size:18px;li
 .sig{text-align:center}.sig .handimg{height:62px;width:auto;display:block;margin:0 auto -6px}.sig .line{width:220px;height:1px;background:#0D132D;margin:0 auto 5px}.sig .who{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5A6577}
 .seal{width:118px;height:118px;border-radius:50%;border:1.5px solid #B7791F;display:flex;align-items:center;justify-content:center;position:relative}.seal:before{content:"";position:absolute;inset:6px;border-radius:50%;border:.5px solid #B7791F}.seal img{width:62px;height:62px;border-radius:50%}
 .qr{text-align:center}.qr svg{width:84px;height:84px;display:block;margin:0 auto 4px}.qr small{font-family:'Source Sans 3',sans-serif;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#5A6577}
-.no{position:absolute;bottom:.84in;left:0;right:0;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#8B95A5}
-</style></head><body><div class="sheet">
-<div class="frame"></div><div class="frame2"></div><div class="frame3"></div>
-<svg class="corner tl" viewBox="0 0 100 100">${corner}</svg><svg class="corner tr" viewBox="0 0 100 100">${corner}</svg><svg class="corner bl" viewBox="0 0 100 100">${corner}</svg><svg class="corner br" viewBox="0 0 100 100">${corner}</svg><div class="vine vtop">${vine}</div><div class="vine vbot">${vine}</div>
+.no{position:absolute;bottom:.9in;left:0;right:0;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#8B95A5}
+.bg{position:absolute;inset:0;width:100%;height:100%}</style></head><body><div class="sheet">
+${background}
 <div class="inner">
   <div>
     <div class="mark"><img src="${logo}" alt=""><span>EarthPilot · Safe Schools Project</span></div>
