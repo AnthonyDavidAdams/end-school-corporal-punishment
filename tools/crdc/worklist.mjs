@@ -23,12 +23,15 @@ for (const line of leaText.split("\n").slice(1)) {
 }
 
 // Everything already opened, by id and by name, so a district is not offered twice.
-const doneId = new Set(), doneName = new Set();
+const doneId = new Set(), doneName = new Set(); const silent = new Map();
 const states = new Set();
 for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith(".yaml"))) {
   const doc = parse(readFileSync(join(root, "data/districts", f), "utf8"));
   for (const d of doc.districts) {
-    if (!d.source) continue;
+    // Done means the district's own rule is quoted. A record whose only source is a handbook that says
+    // nothing (status "silent") is not done: the board policy is still out there, and that is exactly
+    // the job a browsing agent can do. 1,069 such districts sat off the worklist until 2026-10-11.
+    if (!d.quote) { if (["silent", "unknown"].includes(d.status) && d.nces_id) silent.set(String(d.nces_id), { state: doc.state, name: d.name, note: d.status === "silent" ? "handbook or site read, no rule found; the board policy manual is the document to find" : "nothing read yet" }); continue; }
     if (d.nces_id) doneId.add(d.nces_id);
     doneName.add(`${doc.state}|${norm(d.name)}|${kind(d.name)}`);
   }
@@ -42,13 +45,18 @@ const banned = new Set([...states].map(s => JSON.parse(s)).filter(([, st]) => st
 // A district in a state that prohibits the practice is not "unchecked": its filing is the anomaly, and the
 // project has written that up as a claim. Nineteen of them sat on the worklist for two weeks reading as
 // unread policies that a scan would settle. Counted separately, never as work.
-const open = rows
+// Districts with no quoted rule that the federal count does not name (no students struck, or not filed)
+// go on the list after the ones it does, so the biggest counts still come first.
+const inCrdc = new Set(rows.map(r => r.nces_id));
+const extra = [...silent.entries()].filter(([id, d]) => !inCrdc.has(id) && !banned.has(d.state)).map(([id, d]) => ({ state: d.state, nces_id: id, name: d.name, students: 0 }));
+const open = [...rows, ...extra]
   .filter(r => !banned.has(r.state))
   .filter(r => !doneId.has(r.nces_id) && !doneName.has(`${r.state}|${norm(r.name)}|${kind(r.name)}`))
   .sort((a, b) => b.students - a.students)
   .map(r => ({
     state: r.state, nces_id: r.nces_id, name: r.name, students: r.students,
     ...(lea.get(r.nces_id) || {}),
+    ...(silent.get(r.nces_id) ? { read: silent.get(r.nces_id).note } : {}),
     // A ban-state district reporting students struck is either a filing error or a serious story, and
     // either way it is not the routine "read the policy, it permits it" job the rest of this list is.
     ...(banned.has(r.state) ? { flag: "state prohibits corporal punishment: this filing needs explaining, not a routine scan" } : {}),

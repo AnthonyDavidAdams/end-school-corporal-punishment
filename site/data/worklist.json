@@ -2,24 +2,90 @@
  "generated": "2026-10-12",
  "source": "US Department of Education, Civil Rights Data Collection 2023-24, computed by this project; see data/crdc/2023-24/SOURCE.md",
  "total_districts_in_federal_count": 832,
- "unchecked": 6,
+ "unchecked": 627,
  "ban_state_filing_anomalies": 18,
- "students_in_unchecked": 183,
+ "students_in_unchecked": 918,
  "by_state": {
-  "GA": 2,
-  "AZ": 1,
-  "MO": 1,
-  "FL": 1,
-  "OK": 1
+  "OK": 154,
+  "MO": 97,
+  "KS": 89,
+  "TN": 46,
+  "IN": 42,
+  "GA": 39,
+  "AR": 31,
+  "LA": 28,
+  "AL": 21,
+  "FL": 20,
+  "NC": 17,
+  "WY": 14,
+  "SC": 12,
+  "MS": 9,
+  "KY": 7,
+  "AZ": 1
  },
  "districts": [
+  {
+   "state": "AR",
+   "nces_id": "0506870",
+   "name": "GREEN FOREST SCHOOL DISTRICT",
+   "students": 136,
+   "website": "http://www.gf.k12.ar.us",
+   "city": "GREEN FOREST",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
   {
    "state": "AZ",
    "nces_id": "0400863",
    "name": "The Paideia Academies Inc (91250)",
    "students": 131,
    "website": "http://www.paideiaacademies.com",
-   "city": "PHOENIX"
+   "city": "PHOENIX",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0101950",
+   "name": "Lamar County",
+   "students": 124,
+   "website": "http://www.lamarcountyk12.com",
+   "city": "Vernon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4704080",
+   "name": "Tipton County",
+   "students": 123,
+   "website": "http://www.tipton-county.com/",
+   "city": "Covington",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0101660",
+   "name": "Geneva County",
+   "students": 113,
+   "website": "http://www.genevacountyschools.com",
+   "city": "Geneva",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2802880",
+   "name": "MCCOMB SCHOOL DISTRICT",
+   "students": 74,
+   "website": "http://www.mccomb.k12.ms.us",
+   "city": "McComb",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4005520",
+   "name": "BROKEN BOW",
+   "students": 29,
+   "website": "http://www.bbisdapp.org",
+   "city": "Broken Bow",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
    "state": "MO",
@@ -30,12 +96,39 @@
    "city": "WINONA"
   },
   {
+   "state": "OK",
+   "nces_id": "4031020",
+   "name": "VELMA-ALMA",
+   "students": 19,
+   "website": "http://www.velma-alma.com",
+   "city": "Velma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032970",
+   "name": "WISTER",
+   "students": 15,
+   "website": "http://www.wisterschools.org",
+   "city": "Wister",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
    "state": "GA",
    "nces_id": "1304830",
    "name": "Telfair County",
    "students": 14,
    "website": "",
    "city": "McRae"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013620",
+   "name": "HAILEYVILLE",
+   "students": 14,
+   "website": "http://www.haileyville.k12.ok.us",
+   "city": "Haileyville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
    "state": "GA",
@@ -46,6 +139,132 @@
    "city": "Atlanta"
   },
   {
+   "state": "MS",
+   "nces_id": "2800840",
+   "name": "BROOKHAVEN SCHOOL DIST",
+   "students": 11,
+   "website": "http://www.brookhavenschools.org",
+   "city": "Brookhaven",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4015120",
+   "name": "HOWE",
+   "students": 10,
+   "website": "http://www.howeschools.org",
+   "city": "Howe",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0503480",
+   "name": "BRADFORD SCHOOL DISTRICT",
+   "students": 8,
+   "website": "http://bradford.k12.ar.us",
+   "city": "BRADFORD",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4030300",
+   "name": "TURNER",
+   "students": 8,
+   "website": "http://www.turnerisd.org",
+   "city": "Burneyville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4029310",
+   "name": "SWEETWATER",
+   "students": 7,
+   "website": "http://www.sweetwater.k12.ok.us",
+   "city": "Sweetwater",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4006420",
+   "name": "CANEY",
+   "students": 6,
+   "website": "http://www.caneyisd.org",
+   "city": "Caney",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4012750",
+   "name": "GLOVER",
+   "students": 6,
+   "website": "http://www.glover.k12.ok.us",
+   "city": "Broken Bow",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4018240",
+   "name": "LONE STAR",
+   "students": 6,
+   "website": "http://www.lonestar.k12.ok.us",
+   "city": "Sapulpa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4024870",
+   "name": "POTEAU",
+   "students": 5,
+   "website": "http://www.poteau.k12.ok.us",
+   "city": "Poteau",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201830",
+   "name": "Vernon Parish",
+   "students": 4,
+   "website": "",
+   "city": "Leesville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4003660",
+   "name": "BATTIEST",
+   "students": 3,
+   "website": "http://battiest.k12.ok.us",
+   "city": "Battiest",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010890",
+   "name": "EMPIRE",
+   "students": 3,
+   "website": "http://www.empireschools.org",
+   "city": "Duncan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4020640",
+   "name": "MOYERS",
+   "students": 3,
+   "website": "http://moyersisd.org",
+   "city": "MOYERS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4029820",
+   "name": "TEXHOMA",
+   "students": 3,
+   "website": "http://www.texhoma61.net",
+   "city": "Texhoma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
    "state": "FL",
    "nces_id": "1201740",
    "name": "ST. JOHNS",
@@ -54,12 +273,5395 @@
    "city": "ST AUGUSTINE"
   },
   {
+   "state": "FL",
+   "nces_id": "1201890",
+   "name": "UNION",
+   "students": 1,
+   "website": "http://www.union.k12.fl.us/",
+   "city": "LAKE BUTLER",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4000015",
+   "name": "THOMAS-FAY-CUSTER UNIFIED DIST",
+   "students": 1,
+   "website": "http://www.thomas.k12.ok.us",
+   "city": "Thomas",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
    "state": "OK",
    "nces_id": "4002670",
    "name": "ALEX",
    "students": 1,
    "website": "http://www.alex.k12.ok.us/",
-   "city": "Alex"
+   "city": "Alex",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4012000",
+   "name": "FORT SUPPLY",
+   "students": 1,
+   "website": "http://www.fortsupply.k12.ok.us",
+   "city": "Fort Supply",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4029430",
+   "name": "TALOGA",
+   "students": 1,
+   "website": "http://www.taloga.k12.ok.us",
+   "city": "Taloga",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4031350",
+   "name": "WAGONER",
+   "students": 1,
+   "website": "http://www.wagonerps.org",
+   "city": "Wagoner",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100190",
+   "name": "Alabaster City",
+   "students": 0,
+   "website": "http://acsboe.org",
+   "city": "Alabaster",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100180",
+   "name": "Attalla City",
+   "students": 0,
+   "website": "http://www.attalla.k12.al.us",
+   "city": "Attalla",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100330",
+   "name": "Bessemer City",
+   "students": 0,
+   "website": "http://www.bessk12.org",
+   "city": "Bessemer",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100012",
+   "name": "Boaz City",
+   "students": 0,
+   "website": "http://www.boazk12.org",
+   "city": "Boaz",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100630",
+   "name": "Cherokee County",
+   "students": 0,
+   "website": "http://www.cherokeek12.org",
+   "city": "Centre",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100188",
+   "name": "Chickasaw City",
+   "students": 0,
+   "website": "http://www.chickasawschools.com/",
+   "city": "Chickasaw",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100750",
+   "name": "Clay County",
+   "students": 0,
+   "website": "http://www.claycoboe.org",
+   "city": "Ashland",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0101410",
+   "name": "Eufaula City",
+   "students": 0,
+   "website": "http://www.eufaulacityschools.org",
+   "city": "Eufaula",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0101680",
+   "name": "Greene County",
+   "students": 0,
+   "website": "http://www.greene.k12.al.us",
+   "city": "Eutaw",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100202",
+   "name": "Gulf Shores City",
+   "students": 0,
+   "website": "http://www.gsboe.org",
+   "city": "Gulf Shores",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0101760",
+   "name": "Homewood City",
+   "students": 0,
+   "website": "http://www.homewood.k12.al.us",
+   "city": "Homewood",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100007",
+   "name": "Hoover City",
+   "students": 0,
+   "website": "http://www.hoovercityschools.net",
+   "city": "Hoover",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0101860",
+   "name": "Jacksonville City",
+   "students": 0,
+   "website": "http://www.jcsboe.org",
+   "city": "Jacksonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0102550",
+   "name": "Oneonta City",
+   "students": 0,
+   "website": "http://www.oneontacityschools.com",
+   "city": "Oneonta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0102580",
+   "name": "Opelika City",
+   "students": 0,
+   "website": "http://www.opelikaschools.org",
+   "city": "Opelika",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100194",
+   "name": "Pelham City",
+   "students": 0,
+   "website": "http://www.pelhamcityschools.org",
+   "city": "Pelham",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100189",
+   "name": "Satsuma City",
+   "students": 0,
+   "website": "http://www.satsumaschools.com",
+   "city": "Satsuma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0103090",
+   "name": "Sumter County",
+   "students": 0,
+   "website": "http://sumter.k12.al.us",
+   "city": "Livingston",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0100013",
+   "name": "Trussville City",
+   "students": 0,
+   "website": "http://trussvillecityschools.com",
+   "city": "Trussville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0502430",
+   "name": "Arkadelphia School District",
+   "students": 0,
+   "website": "http://arkadelphiaschools.org",
+   "city": "ARKADELPHIA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0502550",
+   "name": "Armorel School District",
+   "students": 0,
+   "website": "http://armorel.crsc.k12.ar.us",
+   "city": "ARMOREL",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0502610",
+   "name": "Atkins School District",
+   "students": 0,
+   "website": "http://ahs.atkins.k12.ar.us",
+   "city": "ATKINS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0500019",
+   "name": "Batesville School District",
+   "students": 0,
+   "website": "http://www.batesvilleschools.com",
+   "city": "BATESVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0503300",
+   "name": "Blevins School District",
+   "students": 0,
+   "website": "http://hornet.swsc.k12.ar.us",
+   "city": "BLEVINS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0504590",
+   "name": "Conway School District",
+   "students": 0,
+   "website": "http://www.conwayschools.org",
+   "city": "CONWAY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0505680",
+   "name": "El Dorado School District",
+   "students": 0,
+   "website": "http://www.eldoradopublicschools.com",
+   "city": "EL DORADO",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0505760",
+   "name": "Elkins School District",
+   "students": 0,
+   "website": "http://elks.k12.ar.us",
+   "city": "ELKINS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0506330",
+   "name": "Fort Smith School District",
+   "students": 0,
+   "website": "http://www.fortsmithschools.org",
+   "city": "FORT SMITH",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0506420",
+   "name": "Fountain Lake School District",
+   "students": 0,
+   "website": "http://flcobra.k12.ar.us",
+   "city": "HOT SPRINGS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0506930",
+   "name": "Greenland School District",
+   "students": 0,
+   "website": "http://greenlandschools.k12.ar.us",
+   "city": "GREENLAND",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0507140",
+   "name": "Guy-Perkins School District",
+   "students": 0,
+   "website": "http://thunderbird.k12.ar.us",
+   "city": "GUY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0507380",
+   "name": "Harrison School District",
+   "students": 0,
+   "website": "http://harrison.k12.ar.us",
+   "city": "HARRISON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0507890",
+   "name": "Hot Springs School District",
+   "students": 0,
+   "website": "http://www.hssd.net",
+   "city": "HOT SPRINGS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0508490",
+   "name": "Kirby School District",
+   "students": 0,
+   "website": "http://kirby.dsc.k12.ar.us/",
+   "city": "KIRBY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0508610",
+   "name": "Lake Hamilton School District",
+   "students": 0,
+   "website": "http://wolves.k12.ar.us",
+   "city": "PEARCY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0509000",
+   "name": "Little Rock School District",
+   "students": 0,
+   "website": "http://www.lrsd.org",
+   "city": "LITTLE ROCK",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0509060",
+   "name": "Lonoke School District",
+   "students": 0,
+   "website": "http://lonokeschools.org",
+   "city": "LONOKE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0500044",
+   "name": "Magnolia School District",
+   "students": 0,
+   "website": "http://www.magnliaschools.net",
+   "city": "MAGNOLIA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0500043",
+   "name": "Mountain Home School District",
+   "students": 0,
+   "website": "http://bombers.k12.ar.us",
+   "city": "MOUNTAIN HOME",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0511760",
+   "name": "Prairie Grove School District",
+   "students": 0,
+   "website": "http://pgtigers.org",
+   "city": "PRAIRIE GROVE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0512060",
+   "name": "Russellville School District",
+   "students": 0,
+   "website": "http://rsdweb.k12.ar.us",
+   "city": "RUSSELLVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0500028",
+   "name": "Star City School District",
+   "students": 0,
+   "website": "http://www.starcityschools.com",
+   "city": "STAR CITY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0512930",
+   "name": "Strong-Huttig School District",
+   "students": 0,
+   "website": "http://stronghuttig.k12.ar.us",
+   "city": "STRONG",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0513410",
+   "name": "Van Buren School District",
+   "students": 0,
+   "website": "http://www.vbsd.us",
+   "city": "VAN BUREN",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0500006",
+   "name": "Warren School District",
+   "students": 0,
+   "website": "http://se.sesc.k12.ar.us/warren/",
+   "city": "WARREN",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0513930",
+   "name": "Watson Chapel School District",
+   "students": 0,
+   "website": "http://watson2.arsc.k12.ar.us",
+   "city": "PINE BLUFF",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0514010",
+   "name": "West Fork School District",
+   "students": 0,
+   "website": "http://www.westforkschools.org",
+   "city": "WEST FORK",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AR",
+   "nces_id": "0514430",
+   "name": "Wynne School District",
+   "students": 0,
+   "website": "http://wynne.k12.ar.us",
+   "city": "WYNNE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200180",
+   "name": "Broward County School District",
+   "students": 0,
+   "website": "http://www.browardschools.com",
+   "city": "FORT LAUDERDALE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200270",
+   "name": "Citrus County School District",
+   "students": 0,
+   "website": "http://www.citrus.k12.fl.us/",
+   "city": "INVERNESS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200330",
+   "name": "Collier County School District",
+   "students": 0,
+   "website": "http://www.CollierSchools.com",
+   "city": "NAPLES",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200480",
+   "name": "Duval County School District",
+   "students": 0,
+   "website": "http://www.duvalschools.org",
+   "city": "JACKSONVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200540",
+   "name": "Flagler County School District",
+   "students": 0,
+   "website": "http://www.flaglerschools.com",
+   "city": "BUNNELL",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200810",
+   "name": "Hernando County School District",
+   "students": 0,
+   "website": "http://www.hernandoschools.org",
+   "city": "BROOKSVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200840",
+   "name": "Highlands County School District",
+   "students": 0,
+   "website": "http://www.highlands.k12.fl.us/",
+   "city": "SEBRING",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200930",
+   "name": "Indian River County School District",
+   "students": 0,
+   "website": "http://www.indianriverschools.org",
+   "city": "VERO BEACH",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201230",
+   "name": "Manatee County School District",
+   "students": 0,
+   "website": "http://www.manateeschools.net/",
+   "city": "BRADENTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201320",
+   "name": "Monroe County School District",
+   "students": 0,
+   "website": "http://www.keysschools.com",
+   "city": "KEY WEST",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201410",
+   "name": "Okeechobee County School District",
+   "students": 0,
+   "website": "http://www.okee.k12.fl.us",
+   "city": "OKEECHOBEE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201470",
+   "name": "Osceola County School District",
+   "students": 0,
+   "website": "http://www.osceolaschools.net",
+   "city": "KISSIMMEE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201500",
+   "name": "Palm Beach County School District",
+   "students": 0,
+   "website": "http://www.palmbeachschools.org",
+   "city": "WEST PALM BEACH",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201530",
+   "name": "Pasco County School District",
+   "students": 0,
+   "website": "http://WWW.PASCO.K12.FL.US",
+   "city": "LAND O LAKES",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201650",
+   "name": "Santa Rosa County School District",
+   "students": 0,
+   "website": "http://www.santarosa.k12.fl.us/",
+   "city": "MILTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201710",
+   "name": "Seminole County School District",
+   "students": 0,
+   "website": "http://www.scps.k12.fl.us/",
+   "city": "SANFORD",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201770",
+   "name": "St. Lucie County School District",
+   "students": 0,
+   "website": "http://www.stlucieschools.org",
+   "city": "PORT ST LUCIE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201800",
+   "name": "Sumter County School District",
+   "students": 0,
+   "website": "http://www.sumter.k12.fl.us/",
+   "city": "BUSHNELL",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1300240",
+   "name": "Banks County",
+   "students": 0,
+   "website": "",
+   "city": "Homer",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1300290",
+   "name": "Barrow County",
+   "students": 0,
+   "website": "",
+   "city": "Winder",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1300420",
+   "name": "Bibb County",
+   "students": 0,
+   "website": "http://www.bibb.k12.ga.us",
+   "city": "Macon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1300870",
+   "name": "Carrollton City",
+   "students": 0,
+   "website": "",
+   "city": "Carrollton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301050",
+   "name": "Chattahoochee County",
+   "students": 0,
+   "website": "",
+   "city": "Cusseta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301110",
+   "name": "Cherokee County Schools",
+   "students": 0,
+   "website": "",
+   "city": "Canton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301170",
+   "name": "Clarke County",
+   "students": 0,
+   "website": "http://clarke.k12.ga.us",
+   "city": "Athens",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301410",
+   "name": "Columbia County",
+   "students": 0,
+   "website": "",
+   "city": "Evans",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301470",
+   "name": "Cook County",
+   "students": 0,
+   "website": "",
+   "city": "Adel",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301500",
+   "name": "Coweta County",
+   "students": 0,
+   "website": "http://cowetaschools.org",
+   "city": "Newnan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301620",
+   "name": "Dalton Public Schools",
+   "students": 0,
+   "website": "",
+   "city": "Dalton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301650",
+   "name": "Dawson County",
+   "students": 0,
+   "website": "",
+   "city": "Dawsonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302220",
+   "name": "Forsyth County Schools",
+   "students": 0,
+   "website": "http://www.forsyth.k12.ga.us",
+   "city": "Cumming",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302400",
+   "name": "Glynn County",
+   "students": 0,
+   "website": "",
+   "city": "Brunswick",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302430",
+   "name": "Gordon County",
+   "students": 0,
+   "website": "http://gcbe.org",
+   "city": "Calhoun",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302490",
+   "name": "Greene County",
+   "students": 0,
+   "website": "http://www.greene.k12.ga.us",
+   "city": "Greensboro",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302670",
+   "name": "Haralson County",
+   "students": 0,
+   "website": "",
+   "city": "Tallapoosa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302700",
+   "name": "Harris County",
+   "students": 0,
+   "website": "",
+   "city": "Hamilton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302730",
+   "name": "Hart County",
+   "students": 0,
+   "website": "",
+   "city": "Hartwell",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303060",
+   "name": "Jefferson County",
+   "students": 0,
+   "website": "http://jefferson.k12.ga.us",
+   "city": "Louisville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303300",
+   "name": "Liberty County",
+   "students": 0,
+   "website": "",
+   "city": "Hinesville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303390",
+   "name": "Lowndes County",
+   "students": 0,
+   "website": "",
+   "city": "Valdosta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303510",
+   "name": "Marietta City",
+   "students": 0,
+   "website": "",
+   "city": "Marietta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303600",
+   "name": "Mcintosh County",
+   "students": 0,
+   "website": "",
+   "city": "Darien",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303630",
+   "name": "Meriwether County",
+   "students": 0,
+   "website": "http://www.meriwether.k12.ga.us",
+   "city": "Greenville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303780",
+   "name": "Morgan County",
+   "students": 0,
+   "website": "",
+   "city": "Madison",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304020",
+   "name": "Paulding County",
+   "students": 0,
+   "website": "",
+   "city": "Dallas",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304200",
+   "name": "Polk County",
+   "students": 0,
+   "website": "",
+   "city": "Cedartown",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304320",
+   "name": "Rabun County",
+   "students": 0,
+   "website": "http://www.rabun.k12.ga.us",
+   "city": "Clayton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304380",
+   "name": "Richmond County",
+   "students": 0,
+   "website": "",
+   "city": "Augusta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304440",
+   "name": "Rome City",
+   "students": 0,
+   "website": "http://www.rcs.rome.ga.us",
+   "city": "Rome",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304530",
+   "name": "Seminole County",
+   "students": 0,
+   "website": "http://www.seminole.k12.ga.us",
+   "city": "Donalsonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304680",
+   "name": "Taliaferro County",
+   "students": 0,
+   "website": "",
+   "city": "Crawfordville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1305280",
+   "name": "Thomaston-Upson County",
+   "students": 0,
+   "website": "http://www.upson.k12.ga.us",
+   "city": "Thomaston",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1305130",
+   "name": "Trion City",
+   "students": 0,
+   "website": "http://www.trionschools.org",
+   "city": "Trion",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1305390",
+   "name": "Walton County",
+   "students": 0,
+   "website": "",
+   "city": "Monroe",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1305700",
+   "name": "Whitfield County",
+   "students": 0,
+   "website": "",
+   "city": "Dalton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1800270",
+   "name": "Avon Community School Corp",
+   "students": 0,
+   "website": "http://www.avon-schools.org",
+   "city": "Avon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1800570",
+   "name": "Blackford County Schools",
+   "students": 0,
+   "website": "http://www.bcs.k12.in.us/",
+   "city": "Hartford City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1801890",
+   "name": "Clark-Pleasant Community School Corp",
+   "students": 0,
+   "website": "http://www.cpcsc.k12.in.us/",
+   "city": "Whiteland",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803660",
+   "name": "Community Schools Of Frankfort",
+   "students": 0,
+   "website": "http://www.frankfortschools.org/",
+   "city": "Frankfort",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1802550",
+   "name": "Danville Community School Corp",
+   "students": 0,
+   "website": "http://www.danville.k12.in.us/",
+   "city": "Danville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1802850",
+   "name": "East Allen County Schools",
+   "students": 0,
+   "website": "http://www.eacs.k12.in.us/",
+   "city": "New Haven",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1809000",
+   "name": "East Porter County School Corp",
+   "students": 0,
+   "website": "http://www.eastporter.k12.in.us",
+   "city": "Kouts",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803510",
+   "name": "Fayette County School Corporation",
+   "students": 0,
+   "website": "http://www.fayette.k12.in.us/",
+   "city": "Connersville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803570",
+   "name": "Flat Rock-Hawcreek School Corp",
+   "students": 0,
+   "website": "http://www.flatrock.k12.in.us",
+   "city": "Hope",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803630",
+   "name": "Fort Wayne Community Schools",
+   "students": 0,
+   "website": "http://www.fortwayneschools.org/",
+   "city": "Fort Wayne",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1812880",
+   "name": "Frankton-Lapel Community Schools",
+   "students": 0,
+   "website": "http://www.frankton-lapel.org",
+   "city": "Anderson",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803960",
+   "name": "Greater Jasper Consolidated School",
+   "students": 0,
+   "website": "http://www.gjcs.k12.in.us/",
+   "city": "Jasper",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1805400",
+   "name": "Lafayette School Corporation",
+   "students": 0,
+   "website": "http://www.lsc.k12.in.us/",
+   "city": "Lafayette",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1805460",
+   "name": "Lake Ridge New Tech Schools",
+   "students": 0,
+   "website": "http://www.lakeridge.k12.in.us/",
+   "city": "Gary",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1805520",
+   "name": "Lakeland School Corporation",
+   "students": 0,
+   "website": "http://www.lakelandlakers.org/",
+   "city": "LaGrange",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1805790",
+   "name": "Lebanon Community School Corp",
+   "students": 0,
+   "website": "http://www.leb.k12.in.us",
+   "city": "Lebanon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1806090",
+   "name": "Maconaquah School Corp",
+   "students": 0,
+   "website": "http://www.maconaquah.k12.in.us/",
+   "city": "Bunker Hill",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1801230",
+   "name": "Medora Community School Corp",
+   "students": 0,
+   "website": "http://www.medora.k12.in.us/",
+   "city": "Medora",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1809690",
+   "name": "Merrillville Community School Corp",
+   "students": 0,
+   "website": "http://www.mvsc.k12.in.us/index.htm",
+   "city": "Merrillville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1806630",
+   "name": "Milan Community Schools",
+   "students": 0,
+   "website": "http://www.milan.k12.in.us",
+   "city": "Milan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1807080",
+   "name": "Monroe Central School Corp",
+   "students": 0,
+   "website": "http://www.monroecentral.org",
+   "city": "Parker City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1812720",
+   "name": "Msd Washington Township",
+   "students": 0,
+   "website": "http://www.msdwt.k12.in.us",
+   "city": "Indianapolis",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1807320",
+   "name": "Muncie Community Schools",
+   "students": 0,
+   "website": "http://www.muncie.k12.in.us/",
+   "city": "Muncie",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1807650",
+   "name": "Noblesville Schools",
+   "students": 0,
+   "website": "http://www.noblesvilleschools.org",
+   "city": "Noblesville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1807680",
+   "name": "North Adams Community Schools",
+   "students": 0,
+   "website": "http://www.nadams.k12.in.us/",
+   "city": "Decatur",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1807800",
+   "name": "North Judson-San Pierre School Corp",
+   "students": 0,
+   "website": "http://www.njsp.k12.in.us/",
+   "city": "North Judson",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1808100",
+   "name": "North West Hendricks Schools",
+   "students": 0,
+   "website": "http://www.hendricks.k12.in.us/",
+   "city": "Lizton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1808250",
+   "name": "Northwest Allen County Schools",
+   "students": 0,
+   "website": "http://www.nacs.k12.in.us/",
+   "city": "Fort Wayne",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1802040",
+   "name": "Northwestern School Corp",
+   "students": 0,
+   "website": "http://www.nwsc.k12.in.us/",
+   "city": "Kokomo",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1808820",
+   "name": "Perry Township Schools",
+   "students": 0,
+   "website": "http://www.perryschools.org/",
+   "city": "Indianapolis",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1808970",
+   "name": "Plainfield Community School Corp",
+   "students": 0,
+   "website": "http://www.plainfield.k12.in.us/",
+   "city": "Plainfield",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1809810",
+   "name": "Salem Community Schools",
+   "students": 0,
+   "website": "http://www.salemschools.com",
+   "city": "Salem",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1810920",
+   "name": "School Town Of Speedway",
+   "students": 0,
+   "website": "http://www.speedwayschools.net",
+   "city": "Speedway",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1810020",
+   "name": "Scott County School District 2",
+   "students": 0,
+   "website": "http://www.scsd2.k12.in.us",
+   "city": "Scottsburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803210",
+   "name": "Shelby Eastern Schools",
+   "students": 0,
+   "website": "http://www.ses.k12.in.us",
+   "city": "Shelbyville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1806480",
+   "name": "Sheridan Community Schools",
+   "students": 0,
+   "website": "http://www.scs.k12.in.us",
+   "city": "Sheridan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1810470",
+   "name": "South Newton School Corp",
+   "students": 0,
+   "website": "http://www.newton.k12.in.us",
+   "city": "Kentland",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1811910",
+   "name": "Union-North United School Corp",
+   "students": 0,
+   "website": "http://www.unorth.k12.in.us/",
+   "city": "Lakeville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1812090",
+   "name": "Vigo County School Corp",
+   "students": 0,
+   "website": "http://www.vigoschools.org",
+   "city": "Terre Haute",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1812390",
+   "name": "Warrick County School Corp",
+   "students": 0,
+   "website": "http://www.warrick.k12.in.us",
+   "city": "Boonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1809360",
+   "name": "West Central School Corp",
+   "students": 0,
+   "website": "http://www.wcsc.k12.in.us",
+   "city": "Francesville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1813050",
+   "name": "Western Wayne Schools",
+   "students": 0,
+   "website": "http://www.wwayne.k12.in.us",
+   "city": "Pershing",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2003510",
+   "name": "Ashland",
+   "students": 0,
+   "website": "http://usd220.net",
+   "city": "Ashland",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2003540",
+   "name": "Atchison Public Schools",
+   "students": 0,
+   "website": "http://www.usd409.net",
+   "city": "Atchison",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2003570",
+   "name": "Attica",
+   "students": 0,
+   "website": "http://www.usd511.net/",
+   "city": "Attica",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2003630",
+   "name": "Augusta",
+   "students": 0,
+   "website": "http://www.usd402.com",
+   "city": "Augusta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2003780",
+   "name": "Basehor-Linwood",
+   "students": 0,
+   "website": "http://www.usd458.org",
+   "city": "Basehor",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2003900",
+   "name": "Belle Plaine",
+   "students": 0,
+   "website": "http://www.usd357.org",
+   "city": "Belle Plaine",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010980",
+   "name": "Blue Valley School District",
+   "students": 0,
+   "website": "http://www.usd384.org",
+   "city": "Randolph",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2004050",
+   "name": "Bonner Springs",
+   "students": 0,
+   "website": "http://www.usd204.net",
+   "city": "Bonner Springs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2004200",
+   "name": "Buhler",
+   "students": 0,
+   "website": "http://www.usd313.org",
+   "city": "Buhler",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2004290",
+   "name": "Burlington",
+   "students": 0,
+   "website": "http://www.usd244ks.org",
+   "city": "Burlington",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2004380",
+   "name": "Caldwell School District",
+   "students": 0,
+   "website": "http://www.usd360.com",
+   "city": "Caldwell",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000349",
+   "name": "Central Plains",
+   "students": 0,
+   "website": "http://www.usd112.org",
+   "city": "Claflin",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2004590",
+   "name": "Chanute Public Schools",
+   "students": 0,
+   "website": "http://www.usd413.org",
+   "city": "Chanute",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2011520",
+   "name": "Chautauqua County Community",
+   "students": 0,
+   "website": "http://www.usd286.org",
+   "city": "Sedan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2004670",
+   "name": "Cheney",
+   "students": 0,
+   "website": "http://www.usd268.org",
+   "city": "Cheney",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2004920",
+   "name": "Clearwater",
+   "students": 0,
+   "website": "http://www.usd264.org",
+   "city": "Clearwater",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2005100",
+   "name": "Concordia",
+   "students": 0,
+   "website": "http://www.usd333.com",
+   "city": "Concordia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2005130",
+   "name": "Conway Springs",
+   "students": 0,
+   "website": "http://usd356.org",
+   "city": "Conway Springs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2005190",
+   "name": "Copeland",
+   "students": 0,
+   "website": "http://usd476.org",
+   "city": "Copeland",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2008040",
+   "name": "Crest",
+   "students": 0,
+   "website": "http://www.usd479.org/",
+   "city": "Colony",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2005490",
+   "name": "De Soto School District",
+   "students": 0,
+   "website": "http://www.usd232.org",
+   "city": "De Soto",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2005870",
+   "name": "Ellsworth",
+   "students": 0,
+   "website": "http://www.usd327.org",
+   "city": "Ellsworth",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2008310",
+   "name": "Fairfield",
+   "students": 0,
+   "website": "http://www.usd310.org",
+   "city": "Langdon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006210",
+   "name": "Fowler",
+   "students": 0,
+   "website": "http://www.usd225.org",
+   "city": "Fowler",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006360",
+   "name": "Galena",
+   "students": 0,
+   "website": "http://usd499.org",
+   "city": "Galena",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006420",
+   "name": "Gardner Edgerton",
+   "students": 0,
+   "website": "http://www.usd231.com",
+   "city": "Gardner",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2007890",
+   "name": "Geary County Schools",
+   "students": 0,
+   "website": "http://usd475.org",
+   "city": "Junction City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006570",
+   "name": "Goessel",
+   "students": 0,
+   "website": "http://www.usd411.org",
+   "city": "Goessel",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006660",
+   "name": "Great Bend",
+   "students": 0,
+   "website": "http://www.greatbendschools.net",
+   "city": "Great Bend",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006690",
+   "name": "Greeley County Schools",
+   "students": 0,
+   "website": "http://www.tribuneschools.org",
+   "city": "Tribune",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006780",
+   "name": "Grinnell Public Schools",
+   "students": 0,
+   "website": "http://www.usd291.com",
+   "city": "Grinnell",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006870",
+   "name": "Hamilton",
+   "students": 0,
+   "website": "http://www.hamilton390.net",
+   "city": "Hamilton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006990",
+   "name": "Haviland",
+   "students": 0,
+   "website": "http://www.usd474.org",
+   "city": "Haviland",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2007020",
+   "name": "Hays",
+   "students": 0,
+   "website": "http://www.usd489.com",
+   "city": "Hays",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000006",
+   "name": "Hiawatha",
+   "students": 0,
+   "website": "http://www.hiawathaschools.org",
+   "city": "Hiawatha",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2007800",
+   "name": "Hodgeman County",
+   "students": 0,
+   "website": "http://www.usd227.org",
+   "city": "Jetmore",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2007560",
+   "name": "Hugoton Public Schools",
+   "students": 0,
+   "website": "http://www.usd210.org",
+   "city": "Hugoton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2007590",
+   "name": "Humboldt",
+   "students": 0,
+   "website": "http://www.usd258.net",
+   "city": "Humboldt",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2008100",
+   "name": "Kinsley-Offerle",
+   "students": 0,
+   "website": "http://www.kinsleypublicschools.org",
+   "city": "Kinsley",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006720",
+   "name": "Kiowa County",
+   "students": 0,
+   "website": "http://www.usd422.org",
+   "city": "Greensburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2012810",
+   "name": "Lebo-Waverly",
+   "students": 0,
+   "website": "http://www.usd243ks.org",
+   "city": "Waverly",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009140",
+   "name": "Maize",
+   "students": 0,
+   "website": "http://www.usd266.com",
+   "city": "Maize",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009180",
+   "name": "Manhattan-Ogden",
+   "students": 0,
+   "website": "http://www.usd383.org",
+   "city": "Manhattan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009480",
+   "name": "Marais Des Cygnes Valley",
+   "students": 0,
+   "website": "http://www.usd456.org",
+   "city": "Melvern",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009660",
+   "name": "Marmaton Valley",
+   "students": 0,
+   "website": "http://www.usd256.org",
+   "city": "Moran",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000016",
+   "name": "Marysville",
+   "students": 0,
+   "website": "http://www.usd364.org",
+   "city": "Marysville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009600",
+   "name": "Minneola",
+   "students": 0,
+   "website": "http://usd219.org",
+   "city": "Minneola",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006060",
+   "name": "Mission Valley",
+   "students": 0,
+   "website": "http://www.mv330.org",
+   "city": "Eskridge",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009630",
+   "name": "Montezuma",
+   "students": 0,
+   "website": "http://www.usd371.org",
+   "city": "Montezuma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009780",
+   "name": "Moundridge",
+   "students": 0,
+   "website": "http://www.usd423.org",
+   "city": "Moundridge",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000353",
+   "name": "Nemaha Central",
+   "students": 0,
+   "website": "http://www.usd115.org",
+   "city": "Seneca",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009930",
+   "name": "Ness City",
+   "students": 0,
+   "website": "http://www.nesscityschools.org",
+   "city": "Ness City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2009990",
+   "name": "Nickerson",
+   "students": 0,
+   "website": "http://www.usd309ks.org",
+   "city": "Hutchinson",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010020",
+   "name": "Norton Community Schools",
+   "students": 0,
+   "website": "http://www.usd211.org",
+   "city": "Norton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010050",
+   "name": "Oakley",
+   "students": 0,
+   "website": "http://www.oakleyschoolsks.com",
+   "city": "Oakley",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010080",
+   "name": "Oberlin",
+   "students": 0,
+   "website": "http://www.usd294.org",
+   "city": "Oberlin",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010320",
+   "name": "Oskaloosa Public Schools",
+   "students": 0,
+   "website": "http://www.usd341.org",
+   "city": "Oskaloosa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010350",
+   "name": "Oswego",
+   "students": 0,
+   "website": "http://www.usd504.org",
+   "city": "Oswego",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2004020",
+   "name": "Otis-Bison",
+   "students": 0,
+   "website": "http://www.usd403.org",
+   "city": "Otis",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000015",
+   "name": "Ottawa",
+   "students": 0,
+   "website": "http://www.usd290.org",
+   "city": "Ottawa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010500",
+   "name": "Paola",
+   "students": 0,
+   "website": "http://usd368.org",
+   "city": "Paola",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010650",
+   "name": "Phillipsburg",
+   "students": 0,
+   "website": "http://www.usd325.com",
+   "city": "Phillipsburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2005310",
+   "name": "Pike Valley",
+   "students": 0,
+   "website": "http://www.pikevalley.com",
+   "city": "Scandia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010740",
+   "name": "Plainville",
+   "students": 0,
+   "website": "http://www.plainville270.net",
+   "city": "Plainville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010890",
+   "name": "Pratt",
+   "students": 0,
+   "website": "http://www.usd382.com",
+   "city": "Pratt",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010920",
+   "name": "Pretty Prairie",
+   "students": 0,
+   "website": "http://www.usd311.com",
+   "city": "Pretty Prairie",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010950",
+   "name": "Quinter Public Schools",
+   "students": 0,
+   "website": "http://www.quinterschools.org",
+   "city": "Quinter",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000023",
+   "name": "Rawlins County",
+   "students": 0,
+   "website": "http://www.usd105.org",
+   "city": "Atwood",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000351",
+   "name": "Riverside School District",
+   "students": 0,
+   "website": "http://www.usd114.org",
+   "city": "Elwood",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2011130",
+   "name": "Riverton",
+   "students": 0,
+   "website": "http://www.usd404.org",
+   "city": "Riverton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000029",
+   "name": "Rock Hills",
+   "students": 0,
+   "website": "http://www.usd107.org",
+   "city": "Mankato",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2011190",
+   "name": "Rolla",
+   "students": 0,
+   "website": "http://www.usd217.org",
+   "city": "Rolla",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2011370",
+   "name": "Salina",
+   "students": 0,
+   "website": "http://www.usd305.com",
+   "city": "Salina",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000017",
+   "name": "Scott County",
+   "students": 0,
+   "website": "http://www.usd466.com/",
+   "city": "Scott City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2011490",
+   "name": "Seaman",
+   "students": 0,
+   "website": "http://www.seamanschools.org",
+   "city": "Topeka",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2011700",
+   "name": "Silver Lake",
+   "students": 0,
+   "website": "http://www.silverlakeschools.org",
+   "city": "Silver Lake",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2012060",
+   "name": "Stockton",
+   "students": 0,
+   "website": "http://www.usd271.com",
+   "city": "Stockton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2012260",
+   "name": "Topeka Public Schools",
+   "students": 0,
+   "website": "http://www.topekapublicschools.net",
+   "city": "Topeka",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2012330",
+   "name": "Troy Public Schools",
+   "students": 0,
+   "website": "http://www.troyusd.org",
+   "city": "Troy",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2012450",
+   "name": "Uniontown",
+   "students": 0,
+   "website": "http://www.uniontown235.org",
+   "city": "Uniontown",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2012510",
+   "name": "Valley Center Public School",
+   "students": 0,
+   "website": "http://www.usd262.net",
+   "city": "Valley Center",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2003240",
+   "name": "Wabaunsee",
+   "students": 0,
+   "website": "http://www.usd329.com",
+   "city": "Alma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2011610",
+   "name": "Wallace County Schools",
+   "students": 0,
+   "website": "http://usd241.org",
+   "city": "Sharon Springs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2000003",
+   "name": "Wamego",
+   "students": 0,
+   "website": "http://www.usd320.com",
+   "city": "Wamego",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2012870",
+   "name": "Wellsville",
+   "students": 0,
+   "website": "http://www.wellsville-usd289.org",
+   "city": "Wellsville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2007500",
+   "name": "West Elk",
+   "students": 0,
+   "website": "http://westelk.us",
+   "city": "Howard",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2010800",
+   "name": "West Franklin",
+   "students": 0,
+   "website": "http://usd287.org",
+   "city": "Pomona",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006630",
+   "name": "Wheatland",
+   "students": 0,
+   "website": "http://www.thunderhawks.net",
+   "city": "Grainfield",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2012990",
+   "name": "Wichita Public Schools",
+   "students": 0,
+   "website": "http://www.usd259.org",
+   "city": "Wichita",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2100120",
+   "name": "Anderson County",
+   "students": 0,
+   "website": "http://www.anderson.k12.ky.us/",
+   "city": "Lawrenceburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2101410",
+   "name": "Cumberland County",
+   "students": 0,
+   "website": "http://www.cland.k12.ky.us/",
+   "city": "Burkesville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2101740",
+   "name": "Erlanger-Elsmere Independent",
+   "students": 0,
+   "website": "http://www.erlanger.k12.ky.us/",
+   "city": "Erlanger",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2102280",
+   "name": "Graves County",
+   "students": 0,
+   "website": "http://www.graves.kyschools.us",
+   "city": "Mayfield",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2102540",
+   "name": "Harlan County",
+   "students": 0,
+   "website": "http://www.harlan.kyschools.us/",
+   "city": "Harlan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2103240",
+   "name": "Lawrence County",
+   "students": 0,
+   "website": "http://www.lawrence.kyschools.us/",
+   "city": "Louisa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2104860",
+   "name": "Pineville Independent",
+   "students": 0,
+   "website": "http://pineville.kyschools.us/",
+   "city": "Pineville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200060",
+   "name": "Allen Parish",
+   "students": 0,
+   "website": "",
+   "city": "Oberlin",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200090",
+   "name": "Ascension Parish",
+   "students": 0,
+   "website": "",
+   "city": "Donaldsonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200120",
+   "name": "Assumption Parish",
+   "students": 0,
+   "website": "",
+   "city": "Napoleonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200180",
+   "name": "Beauregard Parish",
+   "students": 0,
+   "website": "",
+   "city": "DeRidder",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200210",
+   "name": "Bienville Parish",
+   "students": 0,
+   "website": "",
+   "city": "Arcadia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200330",
+   "name": "Calcasieu Parish Schools",
+   "students": 0,
+   "website": "",
+   "city": "Lake Charles",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200360",
+   "name": "Caldwell Parish",
+   "students": 0,
+   "website": "",
+   "city": "Columbia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200390",
+   "name": "Cameron Parish",
+   "students": 0,
+   "website": "",
+   "city": "Cameron",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200420",
+   "name": "Catahoula Parish",
+   "students": 0,
+   "website": "",
+   "city": "Harrisonburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200040",
+   "name": "City Of Baker School District",
+   "students": 0,
+   "website": "",
+   "city": "Baker",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200720",
+   "name": "Iberia Parish",
+   "students": 0,
+   "website": "",
+   "city": "New Iberia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200840",
+   "name": "Jefferson Parish Schools",
+   "students": 0,
+   "website": "",
+   "city": "Harvey",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2200870",
+   "name": "Lafayette Parish Schools",
+   "students": 0,
+   "website": "",
+   "city": "Lafayette",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201050",
+   "name": "Madison Parish",
+   "students": 0,
+   "website": "",
+   "city": "Tallulah",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201110",
+   "name": "Morehouse Parish",
+   "students": 0,
+   "website": "",
+   "city": "Bastrop",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201170",
+   "name": "Orleans Parish Schools",
+   "students": 0,
+   "website": "",
+   "city": "New Orleans",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201200",
+   "name": "Ouachita Parish Schools",
+   "students": 0,
+   "website": "",
+   "city": "West Monroe",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201230",
+   "name": "Plaquemines Parish",
+   "students": 0,
+   "website": "",
+   "city": "Belle Chasse",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201410",
+   "name": "St. Bernard Parish",
+   "students": 0,
+   "website": "",
+   "city": "Chalmette",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201440",
+   "name": "St. Charles Parish",
+   "students": 0,
+   "website": "",
+   "city": "Luling",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201500",
+   "name": "St. James Parish",
+   "students": 0,
+   "website": "",
+   "city": "Lutcher",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201530",
+   "name": "St. John The Baptist Parish",
+   "students": 0,
+   "website": "",
+   "city": "Reserve",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201560",
+   "name": "St. Landry Parish",
+   "students": 0,
+   "website": "",
+   "city": "Opelousas",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201680",
+   "name": "Tangipahoa Parish Schools",
+   "students": 0,
+   "website": "",
+   "city": "Amite",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201740",
+   "name": "Terrebonne Parish",
+   "students": 0,
+   "website": "",
+   "city": "Houma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201950",
+   "name": "West Carroll Parish",
+   "students": 0,
+   "website": "",
+   "city": "Oak Grove",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "LA",
+   "nces_id": "2201980",
+   "name": "West Feliciana Parish",
+   "students": 0,
+   "website": "",
+   "city": "St. Francisville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2902850",
+   "name": "Adrian R-III",
+   "students": 0,
+   "website": "http://WWW.ADRIAN.K12.MO.US",
+   "city": "ADRIAN",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2902970",
+   "name": "Albany R-III School District",
+   "students": 0,
+   "website": "http://www.albany.k12.mo.us",
+   "city": "ALBANY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2903200",
+   "name": "Archie R-V",
+   "students": 0,
+   "website": "http://archie.k12.mo.us",
+   "city": "ARCHIE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2904110",
+   "name": "Avilla R-XIII",
+   "students": 0,
+   "website": "http://avillapanthers.org",
+   "city": "AVILLA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2904500",
+   "name": "Bayless",
+   "students": 0,
+   "website": "http://WWW.BAYLESSK12.ORG",
+   "city": "ST LOUIS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2905070",
+   "name": "Billings R-IV",
+   "students": 0,
+   "website": "http://www.billings.k12.mo.us",
+   "city": "BILLINGS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2905190",
+   "name": "Blackwater R-II",
+   "students": 0,
+   "website": "http://WWW.BLACKWATER.K12.MO.US",
+   "city": "BLACKWATER",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2905880",
+   "name": "Brentwood",
+   "students": 0,
+   "website": "http://www.brentwoodmoschools.org",
+   "city": "BRENTWOOD",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2906450",
+   "name": "Cainsville R-I",
+   "students": 0,
+   "website": "http://cainsville.k12.mo.us",
+   "city": "CAINSVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2906480",
+   "name": "Calhoun R-VIII",
+   "students": 0,
+   "website": "http://www.calhoun.k12.mo.us",
+   "city": "CALHOUN",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2906990",
+   "name": "Camdenton R-III",
+   "students": 0,
+   "website": "http://www.camdentonschools.org",
+   "city": "CAMDENTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2907020",
+   "name": "Cameron R-I School District",
+   "students": 0,
+   "website": "http://www.cameron.k12.mo.us",
+   "city": "CAMERON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2907080",
+   "name": "Canton R-V",
+   "students": 0,
+   "website": "http://www.canton.k12.mo.us",
+   "city": "CANTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2907460",
+   "name": "Carthage R-IX",
+   "students": 0,
+   "website": "http://WWW.CARTHAGETIGERS.ORG",
+   "city": "CARTHAGE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2908400",
+   "name": "Centralia R-VI",
+   "students": 0,
+   "website": "http://www.cr6.org",
+   "city": "CENTRALIA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2909090",
+   "name": "Clarksburg C-2",
+   "students": 0,
+   "website": "http://www.CLARKSBURG.K12.MO.US",
+   "city": "CLARKSBURG",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2909720",
+   "name": "Clayton",
+   "students": 0,
+   "website": "http://www.claytonschools.net",
+   "city": "CLAYTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2909860",
+   "name": "Clinton School District",
+   "students": 0,
+   "website": "http://clintoncardinals.org",
+   "city": "CLINTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2910500",
+   "name": "Desoto School District 73",
+   "students": 0,
+   "website": "http://www.desoto.k12.mo.us",
+   "city": "DESOTO",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2910800",
+   "name": "Diamond R-IV",
+   "students": 0,
+   "website": "http://www.diamondwildcats.org",
+   "city": "DIAMOND",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2911070",
+   "name": "Drexel R-IV",
+   "students": 0,
+   "website": "http://www.drexel.k12.mo.us/",
+   "city": "DREXEL",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2911160",
+   "name": "East Lynne 40",
+   "students": 0,
+   "website": "http://www.eastlynne40school.org",
+   "city": "EAST LYNNE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2911650",
+   "name": "Excelsior Springs 40",
+   "students": 0,
+   "website": "http://WWW.ESSD40.COM",
+   "city": "EXCELSIOR SPRINGS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2911990",
+   "name": "Fayette R-III",
+   "students": 0,
+   "website": "http://www.fayette.k12.mo.us",
+   "city": "FAYETTE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2912030",
+   "name": "Festus R-VI",
+   "students": 0,
+   "website": "http://WWW.FESTUS.K12.MO.US",
+   "city": "Festus",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2908370",
+   "name": "Fort Zumwalt School District",
+   "students": 0,
+   "website": "http://www.fz.k12.mo.us",
+   "city": "O'FALLON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2912300",
+   "name": "Fox C-6",
+   "students": 0,
+   "website": "http://www.foxc6.org",
+   "city": "ARNOLD",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2912630",
+   "name": "Galena R-II",
+   "students": 0,
+   "website": "http://www.galena.k12.mo.us",
+   "city": "GALENA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2912660",
+   "name": "Gallatin R-V",
+   "students": 0,
+   "website": "http://gallatin.k12.mo.us/",
+   "city": "GALLATIN",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2912870",
+   "name": "Gilman City R-IV",
+   "students": 0,
+   "website": "http://www.gilman.k12.mo.us",
+   "city": "GILMAN CITY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2913080",
+   "name": "Grain Valley R-V",
+   "students": 0,
+   "website": "http://GRAINVALLEYSCHOOLS.ORG",
+   "city": "GRAIN VALLEY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2913140",
+   "name": "Grandview C-4",
+   "students": 0,
+   "website": "http://grandviewc4.net",
+   "city": "GRANDVIEW",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2913320",
+   "name": "Greenfield R-IV",
+   "students": 0,
+   "website": "http://WWW.GREENFIELDWILDCATS.ORG",
+   "city": "GREENFIELD",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2913590",
+   "name": "Hamilton R-II",
+   "students": 0,
+   "website": "http://hamilton.k12.mo.us",
+   "city": "HAMILTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2913620",
+   "name": "Hancock Place",
+   "students": 0,
+   "website": "http://www.hancock.k12.mo.us/",
+   "city": "ST LOUIS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2913710",
+   "name": "Harrisburg R-VIII",
+   "students": 0,
+   "website": "http://harrisburg.k12.mo.us/",
+   "city": "HARRISBURG",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2921150",
+   "name": "High Point R-III",
+   "students": 0,
+   "website": "http://www.highpointr3.com",
+   "city": "HIGH POINT",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2914520",
+   "name": "Holliday C-2",
+   "students": 0,
+   "website": "http://www.hollidayc2school.weebly.com",
+   "city": "HOLLIDAY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2915330",
+   "name": "Hume R-VIII",
+   "students": 0,
+   "website": "http://sites.google.com/a/humer8.k12.mo.us/hume-r-viii-school/home",
+   "city": "Hume",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2915480",
+   "name": "Independence School District 30",
+   "students": 0,
+   "website": "http://www.isdschools.org",
+   "city": "INDEPENDENCE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2915600",
+   "name": "Jackson R-II",
+   "students": 0,
+   "website": "http://WWW.JACKSONR2SCHOOLS.COM",
+   "city": "JACKSON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2916530",
+   "name": "Keytesville R-III",
+   "students": 0,
+   "website": "http://keytesville.k12.mo.us",
+   "city": "KEYTESVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2910520",
+   "name": "Lakeland R-III",
+   "students": 0,
+   "website": "http://WWW.LAKELAND.K12.MO.US",
+   "city": "DEEPWATER",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2917850",
+   "name": "Lamar R-I",
+   "students": 0,
+   "website": "http://www.lamar.k12.mo.us/",
+   "city": "LAMAR",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2918220",
+   "name": "Lawson R-XIV",
+   "students": 0,
+   "website": "http://LAWSONCARDINALS.ORG",
+   "city": "LAWSON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2918360",
+   "name": "Leeton R-X",
+   "students": 0,
+   "website": "http://www.leeton.k12.mo.us",
+   "city": "LEETON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2918540",
+   "name": "Liberty 53",
+   "students": 0,
+   "website": "http://LPS53.org",
+   "city": "LIBERTY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2918600",
+   "name": "Licking R-VIII School District",
+   "students": 0,
+   "website": "http://licking.k12.mo.us",
+   "city": "LICKING",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2918690",
+   "name": "Lindbergh Schools",
+   "students": 0,
+   "website": "http://WWW.LINDBERGHSCHOOLS.WS",
+   "city": "St. Louis",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2919230",
+   "name": "Lone Jack C-6",
+   "students": 0,
+   "website": "http://WWW.LONEJACKC6.NET/",
+   "city": "LONE JACK",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923400",
+   "name": "Lutie R-VI",
+   "students": 0,
+   "website": "http://schoolweb.missouri.edu/lutieschool.com",
+   "city": "THEODOSIA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2919840",
+   "name": "Madison C-3 School District",
+   "students": 0,
+   "website": "http://www.madison.k12.mo.us",
+   "city": "MADISON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2919980",
+   "name": "Mansfield R-IV",
+   "students": 0,
+   "website": "http://MANSFIELDSCHOOL.NET",
+   "city": "MANSFIELD",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923460",
+   "name": "Meramec Valley R-III",
+   "students": 0,
+   "website": "http://www.mvr3.k12.mo.us/",
+   "city": "PACIFIC",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2920810",
+   "name": "Mexico 59",
+   "students": 0,
+   "website": "http://www.mexicoschools.net",
+   "city": "MEXICO",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2931800",
+   "name": "Midway R-I",
+   "students": 0,
+   "website": "http://www.midwayk12.net",
+   "city": "CLEVELAND",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2907320",
+   "name": "Nell Holcomb R-IV School District",
+   "students": 0,
+   "website": "http://www.nellholcomb.k12.mo.us",
+   "city": "CAPE GIRARDEAU",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2921940",
+   "name": "New Franklin R-I School District",
+   "students": 0,
+   "website": "http://WWW.NFRANKLIN.K12.MO.US/",
+   "city": "NEW FRANKLIN",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2922140",
+   "name": "Newburg R-II",
+   "students": 0,
+   "website": "http://NEWBURG.K12.MO.US/",
+   "city": "NEWBURG",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2922470",
+   "name": "Newtown-Harris R-III",
+   "students": 0,
+   "website": "http://nhtigers.k12.mo.us/",
+   "city": "Newtown",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2922770",
+   "name": "North Harrison R-III",
+   "students": 0,
+   "website": "http://WWW.NHR3.NET",
+   "city": "EAGLEVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2922920",
+   "name": "Northwestern R-I",
+   "students": 0,
+   "website": "http://www.northwestern.k12.mo.us/index.html",
+   "city": "MENDON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923010",
+   "name": "Oak Grove R-VI",
+   "students": 0,
+   "website": "http://www.oakgrove.k12.mo.us",
+   "city": "OAK GROVE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923270",
+   "name": "Osceola",
+   "students": 0,
+   "website": "http://www.osceola.k12.mo.us",
+   "city": "Osceola",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923530",
+   "name": "Paris R-II School District",
+   "students": 0,
+   "website": "http://www.pariscoyotes.com",
+   "city": "PARIS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923550",
+   "name": "Park Hill",
+   "students": 0,
+   "website": "http://WWW.PARKHILL.K12.MO.US/",
+   "city": "KANSAS CITY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923670",
+   "name": "Pattonsburg R-II",
+   "students": 0,
+   "website": "http://www.pattonsburg.k12.mo.us",
+   "city": "PATTONSBURG",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923700",
+   "name": "Pattonville R-III",
+   "students": 0,
+   "website": "http://www.psdr3.org/",
+   "city": "ST ANN",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2925170",
+   "name": "Pilot Grove C-4",
+   "students": 0,
+   "website": "http://www.pilotgrove.k12.mo.us",
+   "city": "PILOT GROVE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2925330",
+   "name": "Pleasant Hill R-III",
+   "students": 0,
+   "website": "http://phr3.org",
+   "city": "PLEASANT HILL",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2925450",
+   "name": "Poplar Bluff R-I",
+   "students": 0,
+   "website": "http://WWW.POPLARBLUFFSCHOOLS.NET",
+   "city": "POPLAR BLUFF",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2923730",
+   "name": "Raymore-Peculiar R-II School District",
+   "students": 0,
+   "website": "http://www.raypec.org",
+   "city": "PECULIAR",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2926310",
+   "name": "Rich Hill R-IV",
+   "students": 0,
+   "website": "http://www.richhill.k12.mo.us",
+   "city": "Rich Hill",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2926430",
+   "name": "Richland R-IV",
+   "students": 0,
+   "website": "http://WWW.RICHLANDBEARS.US",
+   "city": "RICHLAND",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2926480",
+   "name": "Richmond R-XVI",
+   "students": 0,
+   "website": "http://www.richmondspartans.org",
+   "city": "RICHMOND",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2926850",
+   "name": "Rockwood R-VI School District",
+   "students": 0,
+   "website": "http://www.rsdmo.org",
+   "city": "EUREKA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2926890",
+   "name": "Rolla 31",
+   "students": 0,
+   "website": "http://rolla31.org",
+   "city": "ROLLA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2927520",
+   "name": "Salisbury R-IV",
+   "students": 0,
+   "website": "http://www.salisbury.k12.mo.us",
+   "city": "SALISBURY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2927570",
+   "name": "Savannah R-III",
+   "students": 0,
+   "website": "http://WWW.SAVANNAHR3.COM",
+   "city": "SAVANNAH",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2928080",
+   "name": "Shawnee R-III School District",
+   "students": 0,
+   "website": "http://shawnee.k12.mo.us",
+   "city": "CHILHOWEE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2928360",
+   "name": "Slater School District",
+   "students": 0,
+   "website": "http://WWW.SLATERSCHOOLS.NET",
+   "city": "SLATER",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2929100",
+   "name": "St. Clair R-XIII",
+   "students": 0,
+   "website": "http://stcmo.org",
+   "city": "ST CLAIR",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2927060",
+   "name": "St. Joseph School District",
+   "students": 0,
+   "website": "http://www.sjsd.k12.mo.us",
+   "city": "ST JOSEPH",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2929340",
+   "name": "Stanberry R-II",
+   "students": 0,
+   "website": "http://sr2.k12.mo.us",
+   "city": "STANBERRY",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2929730",
+   "name": "Success R-VI",
+   "students": 0,
+   "website": "http://www.success.k12.mo.us",
+   "city": "SUCCESS",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2930300",
+   "name": "Tina-Avalon R-II School District",
+   "students": 0,
+   "website": "http://tinaavalon.k12.mo.us/",
+   "city": "TINA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2930570",
+   "name": "Union R-XI",
+   "students": 0,
+   "website": "http://unionrxi.org",
+   "city": "UNION",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2930720",
+   "name": "Valley R-VI School District",
+   "students": 0,
+   "website": "http://www.valleyschooldistrict.org",
+   "city": "CALEDONIA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2930810",
+   "name": "Verona R-VII",
+   "students": 0,
+   "website": "http://schoolweb.missouri.edu/verona.k12.mo.us/",
+   "city": "VERONA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2930990",
+   "name": "Walnut Grove R-V",
+   "students": 0,
+   "website": "http://WWW.WGTIGERS.COM",
+   "city": "WALNUT GROVE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2931110",
+   "name": "Washington",
+   "students": 0,
+   "website": "http://www.washington.k12.mo.us",
+   "city": "WASHINGTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2931440",
+   "name": "Waynesville R-VI",
+   "students": 0,
+   "website": "http://www.waynesville.k12.mo.us/",
+   "city": "WAYNESVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2931650",
+   "name": "Wentzville R-IV",
+   "students": 0,
+   "website": "http://WWW.WENTZVILLE.K12.MO.US/",
+   "city": "WENTZVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2931950",
+   "name": "Wheaton R-III",
+   "students": 0,
+   "website": "http://wheatonschools.org",
+   "city": "WHEATON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2932010",
+   "name": "Willard R-II",
+   "students": 0,
+   "website": "http://www.willardschools.net",
+   "city": "WILLARD",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MO",
+   "nces_id": "2932190",
+   "name": "Winfield R-IV",
+   "students": 0,
+   "website": "http://WWW.WINFIELD.K12.MO.US",
+   "city": "Winfield",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2800570",
+   "name": "Bay St Louis Waveland School District",
+   "students": 0,
+   "website": "http://www.bwsd.org/",
+   "city": "Bay St. Louis",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2801090",
+   "name": "Clinton Public School District",
+   "students": 0,
+   "website": "http://www.clintonpublicschools.com",
+   "city": "Clinton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2801170",
+   "name": "Columbia School District",
+   "students": 0,
+   "website": "http://www.columbiaschools.org",
+   "city": "Columbia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2801260",
+   "name": "Corinth School District",
+   "students": 0,
+   "website": "http://www.corinth.k12.ms.us",
+   "city": "Corinth",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2802670",
+   "name": "Long Beach School District",
+   "students": 0,
+   "website": "http://www.lbsdk12.com/",
+   "city": "Long Beach",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2803360",
+   "name": "Ocean Springs School District",
+   "students": 0,
+   "website": "http://www.ossdms.org",
+   "city": "Ocean Springs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2804320",
+   "name": "Tupelo Public School District",
+   "students": 0,
+   "website": "http://www.tupeloschools.com/",
+   "city": "Tupelo",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3700487",
+   "name": "Aggie Academy",
+   "students": 0,
+   "website": "",
+   "city": "Greensboro",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3700090",
+   "name": "Alexander County Schools",
+   "students": 0,
+   "website": "http://www.alexander.k12.nc.us",
+   "city": "Taylorsville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3700120",
+   "name": "Alleghany County Schools",
+   "students": 0,
+   "website": "http://www.alleghany.k12.nc.us",
+   "city": "Sparta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3700300",
+   "name": "Avery County Schools",
+   "students": 0,
+   "website": "http://www.averyschools.net",
+   "city": "Newland",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3700720",
+   "name": "Chapel Hill-Carrboro City Schools",
+   "students": 0,
+   "website": "http://www.chccs.k12.nc.us/",
+   "city": "Chapel Hill",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3702970",
+   "name": "Charlotte-Mecklenburg Schools",
+   "students": 0,
+   "website": "http://www.cmsk12.org",
+   "city": "Charlotte",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3700780",
+   "name": "Cherokee County Schools",
+   "students": 0,
+   "website": "http://www.cherokee.k12.nc.us/",
+   "city": "Murphy",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3701260",
+   "name": "Durham Public Schools",
+   "students": 0,
+   "website": "http://www.dpsnc.net",
+   "city": "Durham",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3701320",
+   "name": "Edgecombe County Public Schools",
+   "students": 0,
+   "website": "http://www.ecps.us/",
+   "city": "Tarboro",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3702640",
+   "name": "Lexington City Schools",
+   "students": 0,
+   "website": "http://www.lexcs.org/",
+   "city": "Lexington",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3702940",
+   "name": "Mcdowell County Schools",
+   "students": 0,
+   "website": "http://www.mcdowell.k12.nc.us",
+   "city": "Marion",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3704380",
+   "name": "Stokes County Schools",
+   "students": 0,
+   "website": "http://www.stokes.k12.nc.us/",
+   "city": "Danbury",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3704410",
+   "name": "Surry County Schools",
+   "students": 0,
+   "website": "http://www.surry.k12.nc.us/",
+   "city": "Dobson",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3704830",
+   "name": "Watauga County Schools",
+   "students": 0,
+   "website": "http://www.wataugaschools.org",
+   "city": "Boone",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3704950",
+   "name": "Wilkes County Schools",
+   "students": 0,
+   "website": "http://www.wilkescountyschools.org/",
+   "city": "North Wilkesboro",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3705040",
+   "name": "Yadkin County Schools",
+   "students": 0,
+   "website": "http://www.yadkin.k12.nc.us",
+   "city": "Yadkinville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3705070",
+   "name": "Yancey County Schools",
+   "students": 0,
+   "website": "http://www.yanceync.net",
+   "city": "Burnsville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4002580",
+   "name": "Albion",
+   "students": 0,
+   "website": "http://www.albion.k12.ok.us",
+   "city": "Albion",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4002850",
+   "name": "Altus",
+   "students": 0,
+   "website": "http://www.altusps.com",
+   "city": "Altus",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4003010",
+   "name": "Anderson",
+   "students": 0,
+   "website": "http://www.andersontrojans.org",
+   "city": "Sand Springs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4003510",
+   "name": "Balko",
+   "students": 0,
+   "website": "http://www.balko.k12.ok.us/",
+   "city": "Balko",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4004350",
+   "name": "Big Pasture",
+   "students": 0,
+   "website": "http://www.bigpasture.org",
+   "city": "Randlett",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4004650",
+   "name": "Blair",
+   "students": 0,
+   "website": "http://www.blairschool.org",
+   "city": "Blair",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4004680",
+   "name": "Blanchard",
+   "students": 0,
+   "website": "http://www.blanchard.k12.ok.us",
+   "city": "Blanchard",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4005010",
+   "name": "Boone-Apache",
+   "students": 0,
+   "website": "http://www.apacheps.org",
+   "city": "Apache",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4005130",
+   "name": "Bowlegs",
+   "students": 0,
+   "website": "http://www.bowlegs.k12.ok.us",
+   "city": "Bowlegs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4005400",
+   "name": "Bridge Creek",
+   "students": 0,
+   "website": "http://www.bridgecreekbobcats.org",
+   "city": "Blanchard",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4005430",
+   "name": "Briggs",
+   "students": 0,
+   "website": "http://www.briggs.k12.ok.us",
+   "city": "Tahlequah",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4005460",
+   "name": "Bristow",
+   "students": 0,
+   "website": "http://www.bristow.k12.ok.us",
+   "city": "Bristow",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4006060",
+   "name": "Byng",
+   "students": 0,
+   "website": "http://www.byngschools.com",
+   "city": "Ada",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4006240",
+   "name": "Calumet",
+   "students": 0,
+   "website": "http://www.chs.k12.ok.us",
+   "city": "Calumet",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4007170",
+   "name": "Central High",
+   "students": 0,
+   "website": "http://www.central.k12.ok.us/index.htm",
+   "city": "Marlow",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4007320",
+   "name": "Chattanooga",
+   "students": 0,
+   "website": "http://www.chatty.k12.ok.us",
+   "city": "Chattanooga",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4007380",
+   "name": "Chelsea",
+   "students": 0,
+   "website": "http://www.chelseadragons.net",
+   "city": "Chelsea",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4007560",
+   "name": "Chickasha",
+   "students": 0,
+   "website": "http://www.chickasha.k12.ok.us",
+   "city": "Chickasha",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4021780",
+   "name": "Chisholm",
+   "students": 0,
+   "website": "http://www.chisholm.k12.ok.us",
+   "city": "Enid",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4007620",
+   "name": "Choctaw-Nicoma Park",
+   "students": 0,
+   "website": "http://www.cnpschools.org",
+   "city": "Choctaw",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4007710",
+   "name": "Cimarron",
+   "students": 0,
+   "website": "http://www.cimarron.k12.ok.us/",
+   "city": "Lahoma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4007740",
+   "name": "Claremore",
+   "students": 0,
+   "website": "http://claremore.k12.ok.us",
+   "city": "Claremore",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4008070",
+   "name": "Clinton",
+   "students": 0,
+   "website": "http://www.clintonokschools.org",
+   "city": "Clinton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4008610",
+   "name": "Copan",
+   "students": 0,
+   "website": "http://www.copan.k12.ok.us",
+   "city": "Copan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4008790",
+   "name": "Covington-Douglas",
+   "students": 0,
+   "website": "http://AWICKER@CDWILDCATS.COM",
+   "city": "Covington",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4008850",
+   "name": "Coweta",
+   "students": 0,
+   "website": "http://www.cowetaps.com",
+   "city": "Coweta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4009060",
+   "name": "Crooked Oak",
+   "students": 0,
+   "website": "http://www.crookedoak.org",
+   "city": "Oklahoma City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4009450",
+   "name": "Davenport",
+   "students": 0,
+   "website": "http://www.davenportk12.com/",
+   "city": "Davenport",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4009510",
+   "name": "Davis",
+   "students": 0,
+   "website": "http://www.daviswolves.org",
+   "city": "Davis",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4009570",
+   "name": "Deer Creek",
+   "students": 0,
+   "website": "http://www.deercreekschools.org",
+   "city": "Edmond",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4017020",
+   "name": "Deer Creek-Lamont",
+   "students": 0,
+   "website": "http://www.dclak12.org",
+   "city": "Lamont",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4009810",
+   "name": "Dewey",
+   "students": 0,
+   "website": "http://www.deweyk12.org",
+   "city": "Dewey",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4009910",
+   "name": "Dickson",
+   "students": 0,
+   "website": "http://www.dickson.k12.ok.us",
+   "city": "Ardmore",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010050",
+   "name": "Dover",
+   "students": 0,
+   "website": "http://www.dover.k12.ok.us",
+   "city": "Dover",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010170",
+   "name": "Drummond",
+   "students": 0,
+   "website": "http://www.drummond.k12.ok.us",
+   "city": "Drummond",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010290",
+   "name": "Duncan",
+   "students": 0,
+   "website": "http://www.duncanps.org",
+   "city": "Duncan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010440",
+   "name": "Eagletown",
+   "students": 0,
+   "website": "http://www.eagletownisd.org/index.htm",
+   "city": "Eagletown",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010590",
+   "name": "Edmond Public Schools",
+   "students": 0,
+   "website": "http://www.edmondschools.net",
+   "city": "Edmond",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010650",
+   "name": "El Reno",
+   "students": 0,
+   "website": "http://www.elrenops.org",
+   "city": "El Reno",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010710",
+   "name": "Elgin",
+   "students": 0,
+   "website": "http://www.elginps.org",
+   "city": "Elgin",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4010920",
+   "name": "Enid",
+   "students": 0,
+   "website": "http://www.enidpublicschools.org",
+   "city": "Enid",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4011280",
+   "name": "Fairview",
+   "students": 0,
+   "website": "http://www.fairviewschools.net/",
+   "city": "Fairview",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4011850",
+   "name": "Forest Grove School District",
+   "students": 0,
+   "website": "http://forestgrove.k12.ok.us",
+   "city": "Garvin",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4011880",
+   "name": "Forgan",
+   "students": 0,
+   "website": "http://www.forganschool.com",
+   "city": "Forgan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4012240",
+   "name": "Frink-Chambers",
+   "students": 0,
+   "website": "http://www.frink.k12.ok.us",
+   "city": "McAlester",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4012420",
+   "name": "Garber",
+   "students": 0,
+   "website": "http://www.garber.k12.ok.us/",
+   "city": "Garber",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013080",
+   "name": "Gracemont",
+   "students": 0,
+   "website": "http://www.gracemont.k12.ok.us",
+   "city": "Gracemont",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013200",
+   "name": "Grandfield",
+   "students": 0,
+   "website": "http://www.grandfield.k12.ok.us/",
+   "city": "Grandfield",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013290",
+   "name": "Granite",
+   "students": 0,
+   "website": "http://www.granite.k12.ok.us",
+   "city": "Granite",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013530",
+   "name": "Grove",
+   "students": 0,
+   "website": "http://www.ridgerunners.net",
+   "city": "Grove",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013560",
+   "name": "Guthrie",
+   "students": 0,
+   "website": "http://www.guthrieps.net",
+   "city": "Guthrie",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013680",
+   "name": "Hanna",
+   "students": 0,
+   "website": "http://www.hanna.k12.ok.us/",
+   "city": "Hanna",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013950",
+   "name": "Haskell School District",
+   "students": 0,
+   "website": "http://www.haskellps.org",
+   "city": "Haskell",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4014100",
+   "name": "Haywood",
+   "students": 0,
+   "website": "http://www.haywood.k12.ok.us",
+   "city": "MCAlester",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4014130",
+   "name": "Healdton",
+   "students": 0,
+   "website": "http://www.healdtonschools.org",
+   "city": "Healdton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4000032",
+   "name": "Hydro-Eakly",
+   "students": 0,
+   "website": "http://www.hydroeakly.k12.ok.us",
+   "city": "Hydro",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4015420",
+   "name": "Indiahoma",
+   "students": 0,
+   "website": "http://www.indiahoma.k12.ok.us",
+   "city": "Indiahoma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4015450",
+   "name": "Indianola",
+   "students": 0,
+   "website": "http://www.indianola.k12.ok.us/",
+   "city": "Indianola",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4015840",
+   "name": "Jones",
+   "students": 0,
+   "website": "http://www.jones.k12.ok.us",
+   "city": "Jones",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4016380",
+   "name": "Ketchum",
+   "students": 0,
+   "website": "http://www.ketchumwarriors.com",
+   "city": "Ketchum",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4016470",
+   "name": "Keystone",
+   "students": 0,
+   "website": "http://www.keystonerangers.org",
+   "city": "Sand Springs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4016590",
+   "name": "Kingston",
+   "students": 0,
+   "website": "http://www.kingston.k12.ok.us/",
+   "city": "Kingston",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4017250",
+   "name": "Lawton Public Schools",
+   "students": 0,
+   "website": "http://www.lawtonps.org",
+   "city": "Lawton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4017370",
+   "name": "Leedey",
+   "students": 0,
+   "website": "http://www.leedey.k12.ok.us",
+   "city": "Leedey",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4017880",
+   "name": "Little Axe",
+   "students": 0,
+   "website": "http://www.littleaxeps.org",
+   "city": "Norman",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4018840",
+   "name": "Mannford",
+   "students": 0,
+   "website": "http://www.mannfordschool.com/",
+   "city": "Mannford",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4019080",
+   "name": "Marlow",
+   "students": 0,
+   "website": "http://www.marlow.k12.ok.us",
+   "city": "Marlow",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4019260",
+   "name": "Mason",
+   "students": 0,
+   "website": "http://www.mason.k12.ok.us/",
+   "city": "Mason",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4019620",
+   "name": "Medford",
+   "students": 0,
+   "website": "http://www.medford.k12.ok.us",
+   "city": "Medford",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4019860",
+   "name": "Miami",
+   "students": 0,
+   "website": "http://www.miamiwardogs.com",
+   "city": "Miami",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4020080",
+   "name": "Millwood",
+   "students": 0,
+   "website": "http://www.millwoodps.org",
+   "city": "Oklahoma City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4020310",
+   "name": "Morris",
+   "students": 0,
+   "website": "http://www.morrisschools.net",
+   "city": "Morris",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4020550",
+   "name": "Mounds",
+   "students": 0,
+   "website": "http://www.moundsps.com",
+   "city": "Mounds",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4020880",
+   "name": "Muldrow",
+   "students": 0,
+   "website": "http://www.muldrowps.org/",
+   "city": "MULDROW",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4021000",
+   "name": "Mustang",
+   "students": 0,
+   "website": "http://www.mustangps.org",
+   "city": "Yukon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4021120",
+   "name": "Nashoba",
+   "students": 0,
+   "website": "http://www.nashoba.k12.ok.us",
+   "city": "Nashoba",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4021510",
+   "name": "Newcastle",
+   "students": 0,
+   "website": "http://www.newcastle.k12.ok.us",
+   "city": "Newcastle",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4021600",
+   "name": "Ninnekah",
+   "students": 0,
+   "website": "http://www.ninnekah.ok.nph.schoolinsites.com/",
+   "city": "Ninnekah",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4021900",
+   "name": "Norwood",
+   "students": 0,
+   "website": "http://www.norwood.k12.ok.us",
+   "city": "Hulbert",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4022770",
+   "name": "Oklahoma City School District",
+   "students": 0,
+   "website": "http://www.okcps.org",
+   "city": "Oklahoma City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023070",
+   "name": "Optima",
+   "students": 0,
+   "website": "http://optima.k12.ok.us",
+   "city": "Optima",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023190",
+   "name": "Osage",
+   "students": 0,
+   "website": "http://www.osageelementary.com",
+   "city": "Pryor",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023280",
+   "name": "Owasso",
+   "students": 0,
+   "website": "http://www.owassops.org",
+   "city": "Owasso",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023370",
+   "name": "Panama",
+   "students": 0,
+   "website": "http://www.panama.k12.ok.us/",
+   "city": "PANAMA",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023400",
+   "name": "Panola",
+   "students": 0,
+   "website": "http://www.panolabearcats.org",
+   "city": "Panola",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023550",
+   "name": "Pauls Valley",
+   "students": 0,
+   "website": "http://www.paulsvalleyschools.com",
+   "city": "Pauls Valley",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023580",
+   "name": "Pawhuska",
+   "students": 0,
+   "website": "http://www.pawhuskadistrict.org",
+   "city": "Pawhuska",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023700",
+   "name": "Peckham",
+   "students": 0,
+   "website": "http://www.peckham.k12.ok.us",
+   "city": "Newkirk",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023730",
+   "name": "Peggs",
+   "students": 0,
+   "website": "http://peggspanthers.com",
+   "city": "Peggs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4023970",
+   "name": "Piedmont",
+   "students": 0,
+   "website": "http://www.piedmontschools.org/",
+   "city": "Piedmont",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4024150",
+   "name": "Pioneer",
+   "students": 0,
+   "website": "http://pioneerk8.k12.ok.us",
+   "city": "Chickasha",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4024180",
+   "name": "Pittsburg",
+   "students": 0,
+   "website": "http://www.pittsburg.k12.ok.us",
+   "city": "Pittsburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4024930",
+   "name": "Prague",
+   "students": 0,
+   "website": "http://www.prague.k12.ok.us",
+   "city": "PRAGUE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4025170",
+   "name": "Prue",
+   "students": 0,
+   "website": "http://www.prue.k12.ok.us",
+   "city": "Prue",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4025230",
+   "name": "Purcell",
+   "students": 0,
+   "website": "http://www.purcellps.org",
+   "city": "Purcell",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4025320",
+   "name": "Quapaw",
+   "students": 0,
+   "website": "http://www.qpswildcats.com",
+   "city": "Quapaw",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4025410",
+   "name": "Quinton",
+   "students": 0,
+   "website": "http://www.quintonschools.com",
+   "city": "Quinton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4025530",
+   "name": "Ravia",
+   "students": 0,
+   "website": "http://www.ravia.k12.ok.us",
+   "city": "Ravia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4025860",
+   "name": "Ringling",
+   "students": 0,
+   "website": "http://www.ringling.k12.ok.us/",
+   "city": "Ringling",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4025920",
+   "name": "Ringwood",
+   "students": 0,
+   "website": "http://www.ringwood.k12.ok.us/",
+   "city": "Ringwood",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4025950",
+   "name": "Ripley",
+   "students": 0,
+   "website": "http://www.ripley.k12.ok.us",
+   "city": "Ripley",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4026010",
+   "name": "Riverside",
+   "students": 0,
+   "website": "http://www.riverside.k12.ok.us",
+   "city": "El Reno",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4026550",
+   "name": "Rush Springs",
+   "students": 0,
+   "website": "http://www.rushsprings.k12.ok.us/",
+   "city": "Rush Springs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4026910",
+   "name": "Sapulpa",
+   "students": 0,
+   "website": "http://www.sapulpaps.org/",
+   "city": "Sapulpa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4027300",
+   "name": "Seminole",
+   "students": 0,
+   "website": "http://www.sps.k12.ok.us/",
+   "city": "Seminole",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4027540",
+   "name": "Shattuck",
+   "students": 0,
+   "website": "http://www.shattuck.k12.ok.us",
+   "city": "Shattuck",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4027750",
+   "name": "Skiatook",
+   "students": 0,
+   "website": "http://www.skiatookschools.org",
+   "city": "Skiatook",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4027930",
+   "name": "Snyder",
+   "students": 0,
+   "website": "http://www.snyder.k12.ok.us",
+   "city": "Snyder",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4028680",
+   "name": "Stillwater",
+   "students": 0,
+   "website": "http://www.stillwaterschools.com",
+   "city": "Stillwater",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4028980",
+   "name": "Stratford",
+   "students": 0,
+   "website": "http://www.stratford.k12.ok.us",
+   "city": "Stratford",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4029160",
+   "name": "Sulphur",
+   "students": 0,
+   "website": "http://www.sulphurk12.org",
+   "city": "Sulphur",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4029380",
+   "name": "Tahlequah",
+   "students": 0,
+   "website": "http://www.tahlequahschools.org",
+   "city": "Tahlequah",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4029520",
+   "name": "Tannehill",
+   "students": 0,
+   "website": "http://www.tannehill.k12.ok.us",
+   "city": "McAlester",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4030120",
+   "name": "Tonkawa",
+   "students": 0,
+   "website": "http://www.tonkawa.k12.ok.us",
+   "city": "Tonkawa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4030290",
+   "name": "Turkey Ford",
+   "students": 0,
+   "website": "http://www.turkeyford.net",
+   "city": "WYANDOTTE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4030360",
+   "name": "Tushka",
+   "students": 0,
+   "website": "http://tushka.k12.ok.us",
+   "city": "Atoka",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4030420",
+   "name": "Tuttle",
+   "students": 0,
+   "website": "http://www.tuttleschools.org",
+   "city": "Tuttle",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4030600",
+   "name": "Union",
+   "students": 0,
+   "website": "http://www.unionps.org/",
+   "city": "Tulsa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4030630",
+   "name": "Union City",
+   "students": 0,
+   "website": "http://www.unioncity.k12.ok.us",
+   "city": "Union City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4031110",
+   "name": "Verdigris",
+   "students": 0,
+   "website": "http://www.vps.k12.ok.us",
+   "city": "Claremore",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4031590",
+   "name": "Wapanucka",
+   "students": 0,
+   "website": "http://wpss.k12.ok.us",
+   "city": "Wapanucka",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4031650",
+   "name": "Warner",
+   "students": 0,
+   "website": "http://www.warner.k12.ok.us",
+   "city": "Warner",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032010",
+   "name": "Wayne",
+   "students": 0,
+   "website": "http://www.wayne.k12.ok.us",
+   "city": "Wayne",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032040",
+   "name": "Waynoka",
+   "students": 0,
+   "website": "http://www.waynoka.k12.ok.us",
+   "city": "Waynoka",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032220",
+   "name": "Weleetka",
+   "students": 0,
+   "website": "http://www.weleetka.k12.ok.us",
+   "city": "Weleetka",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032430",
+   "name": "Wetumka",
+   "students": 0,
+   "website": "http://www.wetumka.k12.ok.us",
+   "city": "Wetumka",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032640",
+   "name": "White Rock",
+   "students": 0,
+   "website": "http://www.whiterock.k12.ok.us",
+   "city": "McLoud",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032760",
+   "name": "Wickliffe",
+   "students": 0,
+   "website": "http://www.wickliffeschool.com",
+   "city": "Salina",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032790",
+   "name": "Wilburton",
+   "students": 0,
+   "website": "http://www.wilburtondiggers.org",
+   "city": "Wilburton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4033090",
+   "name": "Woodall",
+   "students": 0,
+   "website": "http://www.woodall.k12.ok.us",
+   "city": "Tahlequah",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4033180",
+   "name": "Woodward",
+   "students": 0,
+   "website": "http://www.woodwardps.net",
+   "city": "Woodward",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4033300",
+   "name": "Wynnewood",
+   "students": 0,
+   "website": "http://www.wynnewood.k12.ok.us",
+   "city": "Wynnewood",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4033360",
+   "name": "Yale",
+   "students": 0,
+   "website": "http://www.yale.k12.ok.us",
+   "city": "Yale",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4033480",
+   "name": "Yukon",
+   "students": 0,
+   "website": "http://www.yukonps.com",
+   "city": "Yukon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4501080",
+   "name": "Barnwell School District 45",
+   "students": 0,
+   "website": "http://www.barnwell45.org/",
+   "city": "Barnwell",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4502010",
+   "name": "Dorchester School District 2",
+   "students": 0,
+   "website": "http://www.ddtwo.org/DO",
+   "city": "Summerville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4502130",
+   "name": "Florence School District 1",
+   "students": 0,
+   "website": "http://www.f1s.org/",
+   "city": "Florence",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4503907",
+   "name": "Governor'S School For Science And Mathematics",
+   "students": 0,
+   "website": "http://www.scgssm.org/",
+   "city": "Hartsville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4502340",
+   "name": "Greenwood School District 50",
+   "students": 0,
+   "website": "http://www.gwd50.org/",
+   "city": "Greenwood",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4502790",
+   "name": "Lexington School District 4",
+   "students": 0,
+   "website": "http://www.lexington4.net/",
+   "city": "Swansea",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4503910",
+   "name": "Orangeburg",
+   "students": 0,
+   "website": "http://www.ocsdsc.org/",
+   "city": "Orangeburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4503390",
+   "name": "Richland School District 2",
+   "students": 0,
+   "website": "http://www.richland2.org/",
+   "city": "Columbia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4503510",
+   "name": "Spartanburg School District 2",
+   "students": 0,
+   "website": "http://www.spart2.org/",
+   "city": "Chesnee",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4503570",
+   "name": "Spartanburg School District 4",
+   "students": 0,
+   "website": "http://www.spartanburg4.org/",
+   "city": "Woodruff",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4503660",
+   "name": "Spartanburg School District 7",
+   "students": 0,
+   "website": "http://www.spartanburg7.org/",
+   "city": "Spartanburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4503810",
+   "name": "York School District 1",
+   "students": 0,
+   "website": "http://www.york.k12.sc.us/",
+   "city": "York",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700060",
+   "name": "Alcoa",
+   "students": 0,
+   "website": "http://www.alcoaschools.net",
+   "city": "Alcoa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700152",
+   "name": "Arlington",
+   "students": 0,
+   "website": "http://www.acsk-12.org",
+   "city": "Arlington",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700180",
+   "name": "Bedford County",
+   "students": 0,
+   "website": "http://www.bedfordk12tn.com",
+   "city": "Shelbyville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700270",
+   "name": "Bledsoe County",
+   "students": 0,
+   "website": "http://www.bledsoe.k12.tn.us/home.html",
+   "city": "Pikeville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700360",
+   "name": "Bristol",
+   "students": 0,
+   "website": "http://www.btcs.org/",
+   "city": "Bristol",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700450",
+   "name": "Cannon County",
+   "students": 0,
+   "website": "http://ccstn.net/",
+   "city": "Woodbury",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700510",
+   "name": "Carter County",
+   "students": 0,
+   "website": "http://www.carterk12.org/",
+   "city": "Elizabethton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700570",
+   "name": "Cheatham County",
+   "students": 0,
+   "website": "http://www.cheathamcountyschools.net",
+   "city": "Ashland City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700660",
+   "name": "Clay County",
+   "students": 0,
+   "website": "http://www.clayedu.com",
+   "city": "Celina",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700720",
+   "name": "Clinton",
+   "students": 0,
+   "website": "http://www.clintonschools.org/",
+   "city": "Clinton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700750",
+   "name": "Cocke County",
+   "students": 0,
+   "website": "http://cockecountyschools.org/",
+   "city": "Newport",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700149",
+   "name": "Collierville",
+   "students": 0,
+   "website": "http://www.colliervilleschools.org/",
+   "city": "Collierville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700850",
+   "name": "Crockett County",
+   "students": 0,
+   "website": "http://www.ccetc.org/",
+   "city": "Alamo",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700930",
+   "name": "Dayton",
+   "students": 0,
+   "website": "",
+   "city": "Dayton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701020",
+   "name": "Dickson County",
+   "students": 0,
+   "website": "http://www.dicksoncountyschools.org/",
+   "city": "Dickson",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701050",
+   "name": "Dyer County",
+   "students": 0,
+   "website": "http://www.dyercs.net",
+   "city": "Dyersburg",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700151",
+   "name": "Germantown",
+   "students": 0,
+   "website": "http://www.gmsdk12.org/",
+   "city": "Germantown",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701440",
+   "name": "Grainger County",
+   "students": 0,
+   "website": "http://www.grainger.k12.tn.us",
+   "city": "Rutledge",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701530",
+   "name": "Grundy County",
+   "students": 0,
+   "website": "http://www.grundycoschools.com",
+   "city": "Altamont",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700001",
+   "name": "Hamblen County",
+   "students": 0,
+   "website": "http://www.hcboe.net",
+   "city": "Morristown",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701650",
+   "name": "Hardeman County Schools",
+   "students": 0,
+   "website": "http://www.hcsedu.org",
+   "city": "Bolivar",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701860",
+   "name": "Hickman County",
+   "students": 0,
+   "website": "http://www.hickmank12.org",
+   "city": "Centerville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701950",
+   "name": "Humboldt City Schools",
+   "students": 0,
+   "website": "http://www.humboldtschools.com/",
+   "city": "Humboldt",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702100",
+   "name": "Jefferson County",
+   "students": 0,
+   "website": "http://www.jc-tn.net",
+   "city": "Dandridge",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702190",
+   "name": "Kingsport",
+   "students": 0,
+   "website": "http://www.k12k.com",
+   "city": "Kingsport",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702220",
+   "name": "Knox County Schools",
+   "students": 0,
+   "website": "http://www.knoxschools.org/",
+   "city": "Knoxville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702280",
+   "name": "Lake County",
+   "students": 0,
+   "website": "http://www.lcfalcons.net",
+   "city": "Tiptonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702310",
+   "name": "Lauderdale County",
+   "students": 0,
+   "website": "http://www.lced.net/",
+   "city": "Ripley",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702400",
+   "name": "Lenoir City",
+   "students": 0,
+   "website": "http://www.lenoircityschools.com",
+   "city": "Lenoir City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702610",
+   "name": "Manchester",
+   "students": 0,
+   "website": "http://www.manchestercitysch.org",
+   "city": "Manchester",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702760",
+   "name": "Maury County Schools",
+   "students": 0,
+   "website": "http://www.mauryk12.org/",
+   "city": "Columbia",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702970",
+   "name": "Milan",
+   "students": 0,
+   "website": "http://www.milanssd.org/",
+   "city": "Milan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700150",
+   "name": "Millington Municipal Schools",
+   "students": 0,
+   "website": "http://www.millingtonschools.org",
+   "city": "Millington",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703000",
+   "name": "Monroe County",
+   "students": 0,
+   "website": "http://www.monroe.k12.tn.us",
+   "city": "Madisonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703030",
+   "name": "Montgomery County",
+   "students": 0,
+   "website": "http://www.cmcss.net",
+   "city": "Clarksville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703150",
+   "name": "Murfreesboro",
+   "students": 0,
+   "website": "http://www.cityschools.net/administration/director",
+   "city": "Murfreesboro",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703210",
+   "name": "Newport",
+   "students": 0,
+   "website": "",
+   "city": "Newport",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703240",
+   "name": "Oak Ridge",
+   "students": 0,
+   "website": "http://www.ortn.edu/",
+   "city": "Oak Ridge",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703510",
+   "name": "Rhea County",
+   "students": 0,
+   "website": "http://www.rheacounty.org",
+   "city": "Dayton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703590",
+   "name": "Roane County",
+   "students": 0,
+   "website": "http://www.roaneschools.com/",
+   "city": "Kingston",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703690",
+   "name": "Rutherford County",
+   "students": 0,
+   "website": "http://www.rcschools.net",
+   "city": "Murfreesboro",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703990",
+   "name": "Sullivan County",
+   "students": 0,
+   "website": "http://www.scde.k12.tn.us",
+   "city": "Blountville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4704020",
+   "name": "Sumner County",
+   "students": 0,
+   "website": "http://www.sumnerschools.org",
+   "city": "Gallatin",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4704170",
+   "name": "Trousdale County",
+   "students": 0,
+   "website": "http://www.tcschools.org",
+   "city": "Hartsville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4704200",
+   "name": "Tullahoma",
+   "students": 0,
+   "website": "http://www.tullahomacityschools.net/",
+   "city": "Tullahoma",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5601700",
+   "name": "Carbon County School District #2",
+   "students": 0,
+   "website": "http://www.crb2.org",
+   "city": "Saratoga",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5602140",
+   "name": "Converse County School District #1",
+   "students": 0,
+   "website": "http://www.ccsd1.org",
+   "city": "Douglas",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5602370",
+   "name": "Crook County School District #1",
+   "students": 0,
+   "website": "http://www.crook1.com",
+   "city": "Sundance",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5602670",
+   "name": "Fremont County School District # 2",
+   "students": 0,
+   "website": "http://www.fremont2.org",
+   "city": "Dubois",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5604450",
+   "name": "Fremont County School District #14",
+   "students": 0,
+   "website": "http://www.wyomingindianschools.com",
+   "city": "Ethete",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5603310",
+   "name": "Hot Springs County School District #1",
+   "students": 0,
+   "website": "http://www.hotsprings1.org",
+   "city": "Thermopolis",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5604060",
+   "name": "Lincoln County School District #2",
+   "students": 0,
+   "website": "http://www.lcsd2.org",
+   "city": "Afton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5604510",
+   "name": "Natrona County School District #1",
+   "students": 0,
+   "website": "http://www.natronaschools.org/",
+   "city": "Casper",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5604230",
+   "name": "Niobrara County School District #1",
+   "students": 0,
+   "website": "http://www.growingluskleaders.org",
+   "city": "Lusk",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5605160",
+   "name": "Park County School District # 1",
+   "students": 0,
+   "website": "http://www.pcsd1.org",
+   "city": "Powell",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5605690",
+   "name": "Sheridan County School District #1",
+   "students": 0,
+   "website": "http://www.sheridan.k12.wy.us/",
+   "city": "Ranchester",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5605695",
+   "name": "Sheridan County School District #2",
+   "students": 0,
+   "website": "http://www.scsd2.com/",
+   "city": "Sheridan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5605302",
+   "name": "Sweetwater County School District #1",
+   "students": 0,
+   "website": "http://www.sweetwater1.org",
+   "city": "Rock Springs",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "WY",
+   "nces_id": "5604500",
+   "name": "Uinta County School District #4",
+   "students": 0,
+   "website": "http://www.uinta4.com",
+   "city": "Mountain View",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   }
  ]
 }
