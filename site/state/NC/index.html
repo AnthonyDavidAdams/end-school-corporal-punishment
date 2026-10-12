@@ -184,7 +184,7 @@ const show=(e,p)=>{tip.innerHTML="<b>"+p.dataset.district+"</b><br>"+p.dataset.s
 layer.addEventListener("mousemove",e=>{const p=e.target.closest("path");if(p)show(e,p);});layer.addEventListener("mouseleave",()=>{tip.style.display="none";});
 layer.addEventListener("click",e=>{const p=e.target.closest("path");if(!p)return;const row=[...document.querySelectorAll("table tr")].find(tr=>tr.textContent.toLowerCase().includes(p.dataset.district.toLowerCase()));if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.style.outline="2px solid #B7791F";setTimeout(()=>row.style.outline="",2500);}});
 const counts={};for(const id of Object.keys(j.shapes)){const k=(st[id]||["unknown"])[0];counts[k]=(counts[k]||0)+1;}
-const leg=document.querySelector(".mapbox .legend");if(leg){const L={bans:"District prohibits it",consent_required:"Permits it with a parent's consent",allows:"District permits it",silent:"No written rule found",unknown:"Policy not read yet"};leg.innerHTML=["bans","consent_required","allows","silent","unknown"].filter(k=>counts[k]).map(k=>"<span><i style="background:"+FILL[k]+""></i>"+L[k]+" ("+counts[k]+")</span>").join("");}
+const leg=document.querySelector(".mapbox .legend");if(leg){const L={bans:"District prohibits it",consent_required:"Permits it with a parent's consent",allows:"District permits it",silent:"No written rule found",unknown:"Policy not read yet"};leg.innerHTML=["bans","consent_required","allows","silent","unknown"].filter(k=>counts[k]).map(k=>'<span><i style="background:'+FILL[k]+'"></i>'+L[k]+' ('+counts[k]+')</span>').join("");}
 const note=document.getElementById("county-live-note");if(note)note.textContent=j.count+" school districts drawn from US Census Bureau boundaries.";
 }catch(e){}})();
 let dloaded=false;
