@@ -33,20 +33,23 @@ function waves(x0, y0, w, h, rows = 70, amp = 2.2, period = 60) {
   return out;
 }
 function band() {
-  // the border band: medallions every 72px along all four edges, with lattice lines between them
-  const B = 42, step = 72; let out = "";
+  // the border band: medallions spaced so a medallion sits exactly on each corner, with the spacing
+  // worked out per axis; ribbons use the same spacing so their crests meet the medallion centers.
+  const B = 42; const nx = Math.round((W - 2 * B) / 72), ny = Math.round((H - 2 * B) / 72);
+  const sx = (W - 2 * B) / nx, sy = (H - 2 * B) / ny; let out = "";
   const cells = [];
-  for (let x = B; x <= W - B; x += step) { cells.push([x, B]); cells.push([x, H - B]); }
-  for (let y = B + step; y < H - B; y += step) { cells.push([B, y]); cells.push([W - B, y]); }
-  for (const [cx, cy] of cells) out += rosette(cx, cy, 28);
-  // lattice: two sine ribbons running along each edge through the medallion centers
+  for (let i = 0; i <= nx; i++) { cells.push([B + i * sx, B]); cells.push([B + i * sx, H - B]); }
+  for (let j = 1; j < ny; j++) { cells.push([B, B + j * sy]); cells.push([W - B, B + j * sy]); }
   const ribbon = (pts) => { let d = ""; for (const [x, y] of pts) d += (d ? " L" : "M") + `${x.toFixed(1)},${y.toFixed(1)}`; return `<path d="${d}" fill="none" stroke="${NAVY}" stroke-width=".35" opacity=".38"/>`; };
   for (const k of [-1, 1]) for (const ph of [0, Math.PI]) {
     const top = [], bot = [], left = [], right = [];
-    for (let x = B; x <= W - B; x += 3) { const dy = 16 * Math.sin((x - B) / step * Math.PI * 2 + ph) * k; top.push([x, B + dy]); bot.push([x, H - B + dy]); }
-    for (let y = B; y <= H - B; y += 3) { const dx = 16 * Math.sin((y - B) / step * Math.PI * 2 + ph) * k; left.push([B + dx, y]); right.push([W - B + dx, y]); }
+    for (let x = B; x <= W - B + 0.01; x += 2) { const dy = 16 * Math.sin((x - B) / sx * Math.PI * 2 + ph) * k; top.push([x, B + dy]); bot.push([x, H - B + dy]); }
+    for (let y = B; y <= H - B + 0.01; y += 2) { const dx = 16 * Math.sin((y - B) / sy * Math.PI * 2 + ph) * k; left.push([B + dx, y]); right.push([W - B + dx, y]); }
     out += ribbon(top) + ribbon(bot) + ribbon(left) + ribbon(right);
   }
+  for (const [cx, cy] of cells) out += rosette(cx, cy, 28);
+  // corners get a slightly larger medallion, drawn last so it sits on top
+  for (const [cx, cy] of [[B, B], [W - B, B], [B, H - B], [W - B, H - B]]) out += rosette(cx, cy, 34);
   return out;
 }
 function scallop() {
