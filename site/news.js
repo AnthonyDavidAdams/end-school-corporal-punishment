@@ -22,6 +22,9 @@ const ICON_V = 2;
         ? `<span class="nthumb" data-letter="${letter}"><img src="/kids/icon.php?d=${encodeURIComponent(i.domain)}&v=${ICON_V}" alt="" loading="lazy" decoding="async" width="28" height="28" onload="this.classList.add('ok')" onerror="this.remove()"></span>`
         : `<span class="nthumb" data-letter="${letter}"></span>`;
     };
-    ul.innerHTML = j.items.slice(0, 8).map(i => `<li>${thumb(i)}<span class="nbody"><a href="${esc(i.link)}" rel="noopener">${esc(i.title)}</a><span class="meta">${i.source ? esc(i.source) + " · " : ""}${esc(i.date)}</span></span></li>`).join("") + `<li class="meta">Via Google News; headlines are not verified facts. <a href="https://news.google.com/search?q=${encodeURIComponent(ul.dataset.q)}" rel="noopener">More</a></li>`;
+    // The same story comes back under more than one query; one line per headline. No model needed:
+    // a normalised title (case, punctuation, the outlet suffix) is the key.
+    const seen = new Set(); const items = j.items.filter(i => { const k = String(i.title || "").toLowerCase().replace(/\s+[-|·–]\s+[^-|·–]+$/, "").replace(/[^a-z0-9]+/g, " ").trim(); if (!k || seen.has(k)) return false; seen.add(k); return true; });
+    ul.innerHTML = items.slice(0, 8).map(i => `<li>${thumb(i)}<span class="nbody"><a href="${esc(i.link)}" rel="noopener">${esc(i.title)}</a><span class="meta">${i.source ? esc(i.source) + " · " : ""}${esc(i.date)}</span></span></li>`).join("") + `<li class="meta">Via Google News; headlines are not verified facts. <a href="https://news.google.com/search?q=${encodeURIComponent(ul.dataset.q)}" rel="noopener">More</a></li>`;
   } catch (e) { ul.innerHTML = '<li class="meta">News is unavailable right now.</li>'; }
 })();
