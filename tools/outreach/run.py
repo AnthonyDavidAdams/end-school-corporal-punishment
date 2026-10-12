@@ -142,7 +142,9 @@ def tidy():
         frm = email.utils.parseaddr(h.get("From", ""))[1].lower()
         if "no-reply" in frm or "noreply" in frm or "substack" in frm or "medium.com" in frm: continue
         subj = str(h.get("Subject") or "")
-        ours = find_request(h, reqs) or re.search(r"corporal|safe schools", subj, re.I) or re.search(r"\.k12\.|schools?\.|\.org$|isd\.|sd\.", frm)
+        # A message is ours if it belongs to a request thread, or its subject is unmistakably the campaign's.
+        # A sender-domain test used to be here too and swept in newsletters (Intercept, Brilianze, Print@).
+        ours = find_request(h, reqs) or re.search(r"corporal punishment|safe schools project|records request: district", subj, re.I)
         if ours and file_away(M, num): moved += 1
     M.expunge(); M.logout(); log(f"tidy: {moved} messages labelled '{LABEL}' and archived"); return moved
 def part_text(msg):
