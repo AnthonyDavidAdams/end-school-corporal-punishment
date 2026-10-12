@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Send a 30-second video: why your district chose other approaches</title>
+<meta name="description" content="Superintendents, principals and teachers: record a 30-second selfie video on why your district uses discipline other than corporal punishment, and send it here. We feature real faces.">
+<link rel="canonical" href="https://earthpilot.org/kids/video/">
+<meta property="og:title" content="Send a 30-second video: why your district chose other approaches">
+<meta property="og:description" content="Superintendents, principals and teachers: record a 30-second selfie video on why your district uses discipline other than corporal punishment, and send it here. We feature real faces.">
+<meta property="og:image" content="https://earthpilot.org/kids/assets/og-image.png">
+<meta property="og:url" content="https://earthpilot.org/kids/video/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="End School Corporal Punishment">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Send a 30-second video: why your district chose other approaches">
+<meta name="twitter:description" content="Superintendents, principals and teachers: record a 30-second selfie video on why your district uses discipline other than corporal punishment, and send it here. We feature real faces.">
+<meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
+<link rel="stylesheet" href="/kids/site.css?v=8eed820b">
+<script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href")||"";if(/^(https?:)?///.test(h)&&a.hostname!==location.hostname){a.target="_blank";a.rel="noopener";}});</script>
+<script defer src="/kids/news.js?v=f8fbb05a"></script>
+<script defer src="/kids/activity.js?v=dcb6dfd2"></script>
+<style>.vid{max-width:40rem}.vid .card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.2rem 1.3rem;box-shadow:var(--shadow);margin:1rem 0}.vid ol li{margin:.4rem 0}.vid input,.vid textarea{font:inherit;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;width:100%;margin:.3rem 0}.vid button{font:inherit;font-weight:700;padding:.8rem 1.1rem;border-radius:8px;border:0;background:var(--navy-dark);color:#fff;cursor:pointer;width:100%;margin-top:.5rem}.vid label.file{display:block;border:2px dashed var(--rule);border-radius:10px;padding:1.2rem;text-align:center;cursor:pointer;margin:.6rem 0}.vid .bar{height:8px;background:var(--gray-light);border-radius:4px;overflow:hidden;margin:.6rem 0;display:none}.vid .bar i{display:block;height:100%;width:0;background:var(--green)}.vid .ok{color:#1f7a4d;font-weight:700}.vid .small{color:var(--muted);font-size:.9rem}</style>
+<script>
+document.addEventListener("submit",async function(e){const f=e.target.closest("form.vidform");if(!f)return;e.preventDefault();const file=f.file.files[0];if(!file){alert("Pick a video or photo first");return;}if(!f.consent.checked){alert("Please tick the permission box");return;}const b=f.querySelector("button");b.disabled=true;b.textContent="Sending…";const bar=f.querySelector(".bar");bar.style.display="block";const fill=bar.querySelector("i");
+try{await new Promise((res,rej)=>{const x=new XMLHttpRequest();x.open("POST","https://escp-mcp-production.up.railway.app/upload");x.setRequestHeader("x-file-name",file.name);x.setRequestHeader("x-district",f.district.value);x.setRequestHeader("x-name",f.name.value);x.setRequestHeader("x-email",f.email.value);x.setRequestHeader("x-consent","yes");x.upload.onprogress=ev=>{if(ev.lengthComputable)fill.style.width=Math.round(100*ev.loaded/ev.total)+"%";};x.onload=()=>{try{const d=JSON.parse(x.responseText);d.ok?res(d):rej(new Error(d.error||"failed"));}catch(err){rej(err);}};x.onerror=()=>rej(new Error("network"));x.send(file);});
+f.innerHTML='<p class="ok">Got it. Thank you. We will write back before anything is published.</p>';}catch(err){b.disabled=false;b.textContent="Send";alert("That did not go through ("+err.message+"). If the file is large, your phone can send a smaller version, or email it to anthony@175g.com.");}});
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
+  <nav><a href="/kids/">Map</a><a href="/kids/live/">Live</a><a href="/kids/act/">Act</a><a href="/kids/connect/">Connect</a><a href="/kids/resources/">Facts</a><a href="/kids/share/">Share</a></nav>
+</div></header>
+<section class="hero"><div class="wrap"><h1>Thirty seconds, in your own words</h1>
+<p class="lede">We would like to show real faces from districts that chose other approaches. A selfie video from your phone is exactly right. No script, no production.</p></div></section>
+<main class="wrap">
+
+<div class="vid">
+<div class="card"><h2>What to say</h2><p>Pick one, look at the phone, and talk for about thirty seconds:</p>
+<ol><li><b>What your district does instead,</b> and what you have seen change in students because of it.</li><li><b>The moment you knew</b> corporal punishment was not the answer for your schools.</li><li><b>What you would tell a superintendent</b> in a district that still uses it.</li></ol>
+<p class="small">Say your name, your role and the district at the start. Horizontal or vertical both work. Teachers, principals and board members are welcome too.</p></div>
+<div class="card"><h2>Send it</h2>
+<form class="vidform"><input name="district" placeholder="District (and state)" required><input name="name" placeholder="Your name and role" required><input name="email" type="email" placeholder="Email, so we can send you the link" required>
+<label class="file"><input type="file" name="file" accept="video/*,image/*" style="display:none" onchange="this.parentNode.querySelector('span').textContent=this.files[0]?this.files[0].name:'Choose a video or photo'"><span>Choose a video or photo</span></label>
+<div class="bar"><i></i></div>
+<label class="small"><input type="checkbox" name="consent"> I give EarthPilot permission to publish this video or photo, with my name, role and district, on earthpilot.org and in its posts about the Safe Schools Project, and I confirm no student appears in it.</label>
+<button type="submit">Send</button></form>
+<p class="small">Up to about 300 MB. If your phone offers to send a smaller version, that is fine. Nothing is published until we have written back to you.</p></div>
+</div>
+</main>
+<footer class="wrap foot">
+  <p class="footnav"><a href="/kids/crew/">The crew</a> · <a href="/kids/timeline/">The map moving</a> · <a href="/kids/stopped/">Districts that stopped</a> · <a href="/kids/worklist/">Worklist</a> · <a href="/kids/contribute/">Bring an agent</a> · <a href="/kids/ops/">Status</a> · <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment" rel="noopener">GitHub</a></p>
+  <p>End School Corporal Punishment™ is an open project of <a href="https://earthpilot.ai">EarthPilot</a>. Every figure on this site is a file in the <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/tree/main/facts/claims">claims registry</a> with its source and verification date; data generated 2026-10-12. Content CC BY 4.0, code MIT. Map boundaries: US Census Bureau (public domain).</p>
+  <p>No student is named on this site. Officials' public positions are documented; their private lives are not.</p>
+  <p class="builtwith"><img src="/kids/assets/earthpilot.png" alt="" width="26" height="26">
+    <span>Created with <a href="https://github.com/AnthonyDavidAdams/groundcrew" rel="noopener">Ground Crew</a> &mdash; an open protocol for pointing many agents at one public problem.
+    Ground Crew is part of <a href="https://earthpilot.ai">EarthPilot</a>: mission support for Spaceship Earth.</span></p>
+</footer>
+</body>
+</html>

@@ -144,6 +144,8 @@ Nationally, 19,851 public school students were struck as punishment in 2023-24, 
 
 Two things you are welcome to do with this: hang it, and tell people. A short press release is below, written so your office can send it to local media with one edit.
 
+One more, if you are willing. We are collecting thirty-second selfie videos from superintendents, principals and teachers in districts that chose other approaches: what you do instead, what changed, or what you would tell a district that still paddles. No script, phone in hand. Send one at earthpilot.org/kids/video/ and we will put a real face to this.
+
 With respect and thanks,
 
 Anthony David Adams

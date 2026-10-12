@@ -160,6 +160,11 @@
 
   // ---- events: replay, then live ----
   let lastAt = null, replaying = true;
+  // Skip the replay: the button, the Esc key, ?live=1, or a remembered choice. The rest of the window
+  // is applied instantly and silently, then the board is live.
+  let skip = /[?&]live=1/.test(location.search); try { if (localStorage.getItem("flSkipReplay") === "1") skip = true; } catch {}
+  const skipBtn = $("flSkip"); if (skipBtn) skipBtn.addEventListener("click", () => { skip = true; try { localStorage.setItem("flSkipReplay", "1"); } catch {} });
+  document.addEventListener("keydown", (ev) => { if (ev.key === "Escape" && replaying) skip = true; });
   function apply(e, fast) {
     const b = resolve(e.scope, e.nces_id); const s = e.contributor ? ships.get(e.contributor) || ship({ id: e.contributor, callsign: e.callsign, hull: "custom", agent: e.agent, home: e.place, districts: 0, children: 0 }) : null;
     if (s && e.kind !== "claimed") s.lastActivity = e.at;
@@ -210,8 +215,9 @@
     const ev = d.events || []; for (const e of ev) if (e.kind === "verified") { const b = resolve(e.scope, e.nces_id); if (b && COL[b.s]) { paint(b, "-"); totals.placed--; } }
     hud(); $("flStatus").textContent = `Replaying ${ev.length} events from the last 30 days`; const clock = $("flClock");
     const total = Math.max(1, ev.length), per = Math.max(40, Math.min(220, 20000 / total));
-    for (let i = 0; i < ev.length; i++) { const e = ev[i]; if (clock) clock.textContent = new Date(e.at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric" }).toUpperCase(); apply(e, i < ev.length - 25); lastAt = e.at; await new Promise((r) => setTimeout(r, per)); }
-    replaying = false; $("flStatus").textContent = "LIVE"; if (clock) clock.textContent = "";
+    if (skipBtn) skipBtn.hidden = false;
+    for (let i = 0; i < ev.length; i++) { const e = ev[i]; if (skip) { apply(e, true); lastAt = e.at; continue; } if (clock) clock.textContent = new Date(e.at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric" }).toUpperCase(); apply(e, i < ev.length - 25); lastAt = e.at; await new Promise((r) => setTimeout(r, per)); }
+    replaying = false; $("flStatus").textContent = "LIVE"; if (clock) clock.textContent = ""; if (skipBtn) { skipBtn.hidden = true; }
     if (!ev.some((e) => Date.now() - Date.parse(e.at) < 3600e3)) radio(`<b>Mission Support</b>: quiet hour. No ship on station. The Mothership's ${nextPass().toLowerCase()} <a target="_blank" rel="noopener" href="/kids/connect/" style="color:var(--cyan)">Send a ship</a> and it lands within the hour.`);
     // Ships that hold a lease right now stay on station.
     for (const row of d.ships) { const s = ships.get(row.id); if (row.flying) fly(s, resolve(row.flying.scope)); else if (s.lock) land(s); }

@@ -782,7 +782,7 @@ mkdirSync(join(site, "live"), { recursive: true });
     <div class="stat" title="AI agents reading a district's policy right now. Each one is a ship on the map."><b id="flFlying" class="amber">0</b><span>agents reading<small>right now</small></span></div>
     <div class="stat wide" title="Rules found and checked in the last seven days."><b id="flWeek">&mdash;</b><span>found<small>this week</small></span></div>
     <div class="stat wide" title="Students who received corporal punishment in US public schools in ${esc(toll.year)}, by the districts' own federal filings."><b class="red">${n(toll.reported.students)}</b><span>children hit<small>${esc(toll.year)}, federal count</small></span></div>
-    <div class="right"><span class="status"><i></i><span id="flStatus">LINKING</span> <span id="flClock"></span></span><button type="button" id="flBrief" class="flcomms brief">What is this?</button><button type="button" id="flComms" class="flcomms">Open comms</button><a class="exit" href="/kids/">Exit</a></div>
+    <div class="right"><span class="status"><i></i><span id="flStatus">LINKING</span> <span id="flClock"></span></span><button type="button" id="flSkip" class="flcomms" hidden title="Jump to now (Esc)">Skip replay</button><button type="button" id="flBrief" class="flcomms brief">What is this?</button><button type="button" id="flComms" class="flcomms">Open comms</button><a class="exit" href="/kids/">Exit</a></div>
   </div>
   <div class="stage">
     <div id="flightmap" aria-label="The fleet over the fog"></div>
@@ -899,6 +899,34 @@ ${pickups.length ? `<p><b>Wanted now:</b></p><ul class="pickups">${pickups.map((
 </div>`,
   }));
 }
+
+
+// ---- Video: a 30-second selfie from a district that chose other approaches ----
+mkdirSync(join(site, "video"), { recursive: true });
+writeFileSync(join(site, "video", "index.html"), shell({
+  title: "Send a 30-second video: why your district chose other approaches", path: "/video/",
+  description: "Superintendents, principals and teachers: record a 30-second selfie video on why your district uses discipline other than corporal punishment, and send it here. We feature real faces.",
+  extraHead: `<style>.vid{max-width:40rem}.vid .card{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.2rem 1.3rem;box-shadow:var(--shadow);margin:1rem 0}.vid ol li{margin:.4rem 0}.vid input,.vid textarea{font:inherit;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;width:100%;margin:.3rem 0}.vid button{font:inherit;font-weight:700;padding:.8rem 1.1rem;border-radius:8px;border:0;background:var(--navy-dark);color:#fff;cursor:pointer;width:100%;margin-top:.5rem}.vid label.file{display:block;border:2px dashed var(--rule);border-radius:10px;padding:1.2rem;text-align:center;cursor:pointer;margin:.6rem 0}.vid .bar{height:8px;background:var(--gray-light);border-radius:4px;overflow:hidden;margin:.6rem 0;display:none}.vid .bar i{display:block;height:100%;width:0;background:var(--green)}.vid .ok{color:#1f7a4d;font-weight:700}.vid .small{color:var(--muted);font-size:.9rem}</style>
+<script>
+document.addEventListener("submit",async function(e){const f=e.target.closest("form.vidform");if(!f)return;e.preventDefault();const file=f.file.files[0];if(!file){alert("Pick a video or photo first");return;}if(!f.consent.checked){alert("Please tick the permission box");return;}const b=f.querySelector("button");b.disabled=true;b.textContent="Sending…";const bar=f.querySelector(".bar");bar.style.display="block";const fill=bar.querySelector("i");
+try{await new Promise((res,rej)=>{const x=new XMLHttpRequest();x.open("POST","${MCP_URL.replace(/\/mcp$/, "")}/upload");x.setRequestHeader("x-file-name",file.name);x.setRequestHeader("x-district",f.district.value);x.setRequestHeader("x-name",f.name.value);x.setRequestHeader("x-email",f.email.value);x.setRequestHeader("x-consent","yes");x.upload.onprogress=ev=>{if(ev.lengthComputable)fill.style.width=Math.round(100*ev.loaded/ev.total)+"%";};x.onload=()=>{try{const d=JSON.parse(x.responseText);d.ok?res(d):rej(new Error(d.error||"failed"));}catch(err){rej(err);}};x.onerror=()=>rej(new Error("network"));x.send(file);});
+f.innerHTML='<p class="ok">Got it. Thank you. We will write back before anything is published.</p>';}catch(err){b.disabled=false;b.textContent="Send";alert("That did not go through ("+err.message+"). If the file is large, your phone can send a smaller version, or email it to anthony@175g.com.");}});
+</script>`,
+  body: `<section class="hero"><div class="wrap"><h1>Thirty seconds, in your own words</h1>
+<p class="lede">We would like to show real faces from districts that chose other approaches. A selfie video from your phone is exactly right. No script, no production.</p></div></section>
+<div class="vid">
+<div class="card"><h2>What to say</h2><p>Pick one, look at the phone, and talk for about thirty seconds:</p>
+<ol><li><b>What your district does instead,</b> and what you have seen change in students because of it.</li><li><b>The moment you knew</b> corporal punishment was not the answer for your schools.</li><li><b>What you would tell a superintendent</b> in a district that still uses it.</li></ol>
+<p class="small">Say your name, your role and the district at the start. Horizontal or vertical both work. Teachers, principals and board members are welcome too.</p></div>
+<div class="card"><h2>Send it</h2>
+<form class="vidform"><input name="district" placeholder="District (and state)" required><input name="name" placeholder="Your name and role" required><input name="email" type="email" placeholder="Email, so we can send you the link" required>
+<label class="file"><input type="file" name="file" accept="video/*,image/*" style="display:none" onchange="this.parentNode.querySelector('span').textContent=this.files[0]?this.files[0].name:'Choose a video or photo'"><span>Choose a video or photo</span></label>
+<div class="bar"><i></i></div>
+<label class="small"><input type="checkbox" name="consent"> I give EarthPilot permission to publish this video or photo, with my name, role and district, on earthpilot.org and in its posts about the Safe Schools Project, and I confirm no student appears in it.</label>
+<button type="submit">Send</button></form>
+<p class="small">Up to about 300 MB. If your phone offers to send a smaller version, that is fine. Nothing is published until we have written back to you.</p></div>
+</div>`,
+}));
 
 mkdirSync(join(site, "connect"), { recursive: true });
 {
