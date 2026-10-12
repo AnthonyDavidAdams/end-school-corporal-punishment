@@ -56,13 +56,14 @@ def candidates(reqs):
         if not f.endswith(".yaml"): continue
         st = f[:2]
         for x in yaml.safe_load(open(os.path.join(ROOT, "data/districts", f)))["districts"]:
-            if x.get("status") != "bans" or not x.get("quote") or not x.get("policy_code") or not x.get("nces_id"): continue
+            # a board policy on file (policy code), or the policy the superintendent sent us by email
+            if x.get("status") != "bans" or not x.get("quote") or not x.get("nces_id") or not (x.get("policy_code") or x.get("method") == "records_request"): continue
             if str(x["nces_id"]) in done: continue
             c = by_id.get(str(x["nces_id"])) or by_name.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
             to = c.get("district_email") or c.get("email") or (x.get("contact") or {}).get("district_email")
             if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
             out.append({"state": st, "name": x["name"], "nces_id": str(x["nces_id"]), "to": to, "superintendent": c.get("superintendent") or (x.get("contact") or {}).get("superintendent"),
-                        "quote": x["quote"], "code": str(x["policy_code"]), "source": x.get("source"), "permitting": st in permitting, "enrollment": enr.get(str(x["nces_id"]), 0)})
+                        "quote": x["quote"], "code": str(x.get("policy_code") or "as sent by the district"), "source": x.get("source"), "permitting": st in permitting, "enrollment": enr.get(str(x["nces_id"]), 0)})
     out.sort(key=lambda d: (not d["permitting"], d["state"], -d["enrollment"], d["name"]))
     return out
 
