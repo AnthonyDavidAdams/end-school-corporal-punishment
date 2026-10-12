@@ -156,6 +156,7 @@ if __name__ == "__main__":
 
 # ---------------------------------------------------------------- following a link to the actual file
 DRIVE = re.compile(r"drive\.google\.com/file/d/([\w-]{20,})")
+DRIVE_OPEN = re.compile(r"drive\.google\.com/open\?id=([A-Za-z0-9_-]+)")
 DOCS = re.compile(r"docs\.google\.com/(document|spreadsheets|presentation)/d/([\w-]{20,})")
 
 
@@ -167,9 +168,10 @@ def expand(url):
     returns the direct addresses worth fetching, best first, without following anything off the host.
     """
     out = []
-    m = DRIVE.search(url)
+    m = DRIVE.search(url) or DRIVE_OPEN.search(url)
     if m:
         out.append(f"https://drive.google.com/uc?export=download&id={m.group(1)}")
+        out.append(f"https://docs.google.com/document/d/{m.group(1)}/export?format=txt")
     m = DOCS.search(url)
     if m:
         kind = {"document": "txt", "spreadsheets": "csv", "presentation": "pdf"}[m.group(1)]

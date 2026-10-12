@@ -3209,14 +3209,14 @@ districts:
   - name: Enid
     county: Garfield
     nces_id: "4010920"
-    status: silent
-    source: https://s3.amazonaws.com/scschoolfiles/814/ehs_student_handbook_20182019_finaldocx.pdf
-    quote: null
+    status: consent_required
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4010920-FOB-Corporal_Punishment.pdf
+    quote: ENID BOARD OF EDUCATION FOB CORPORAL PUNISHMENT It is the policy of the Enid Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-12
+    method: records_request
+    parent_control: opt_in
     documents:
       - kind: handbook
         url: https://s3.amazonaws.com/scschoolfiles/814/ehs_student_handbook_20182019_finaldocx.pdf
@@ -3224,8 +3224,14 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-12; the document is kept in the repository at data/policies/inbound/OK/4010920-FOB-Corporal_Punishment.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - ENID BOARD OF EDUCATION FOB CORPORAL PUNISHMENT It is the policy of the Enid Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - However, under no circumstances shall any child in DHS custody be administered corporal punishment.
+      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to request the administration of corporal punishment to their child (ren).
+      - Under no circumstances will the administration administer corporal punishment to a student where written consent was not provided.
+      - If a parent or legal guardian has requested that corporal punishment not be administered to the student, alternative discipline will be considered and may include suspension from school.
   - name: Eufaula
     county: McIntosh
     nces_id: "4011160"
@@ -5641,14 +5647,14 @@ districts:
   - name: Medford
     county: Grant
     nces_id: "4019620"
-    status: silent
-    source: https://resources.finalsite.net/images/v1758742025/mps02155org/wl7rg2imcsntv8qxh3sy/MedfordHighSchoolStudentHandbookSY25-262.pdf
-    quote: null
+    status: consent_required
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4019620-S-19_Corporal_Punishment.docx
+    quote: S-19 Page 1 of 1 Corporal Punishment It is the policy of the Medford Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-12
+    method: records_request
+    parent_control: opt_in
     documents:
       - kind: handbook
         url: https://resources.finalsite.net/images/v1758742025/mps02155org/wl7rg2imcsntv8qxh3sy/MedfordHighSchoolStudentHandbookSY25-262.pdf
@@ -5662,8 +5668,14 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-12; the document is kept in the repository at data/policies/inbound/OK/4019620-S-19_Corporal_Punishment.docx. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - S-19 Page 1 of 1 Corporal Punishment It is the policy of the Medford Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - However, under no circumstances shall any child in DHS custody or any student on an individualized educational program (IEP) be administered corporal punishment.
+      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to allow the administration of corporal punishment to their child(ren).
+      - Under no circumstances will the administration administer corporal punishment to a student where written consent was not provided.
+      - If a parent or legal guardian has requested that corporal punishment not be administered to the student, alternative discipline will be considered and may include suspension from school.
   - name: Merritt School District
     county: Beckham
     nces_id: "4019800"
@@ -7507,14 +7519,14 @@ districts:
   - name: Ringwood
     county: Major
     nces_id: "4025920"
-    status: silent
-    source: https://www.ringwood.k12.ok.us/vnews/display.v/SEC/District%7CSchool%20Policy%20Reference%20Manual
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4025920-link-fc5bd1.pdf
+    quote: RINGWOOD BOARD OF EDUCATION FOB CORPORAL PUNISHMENT It is the policy of the Ringwood Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-12
+    method: records_request
+    parent_control: opt_out
     documents:
       - kind: other
         url: https://www.ringwood.k12.ok.us/vnews/display.v/SEC/District%7CSchool%20Policy%20Reference%20Manual
@@ -7534,8 +7546,15 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-12; the document is kept in the repository at data/policies/inbound/OK/4025920-link-fc5bd1.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - RINGWOOD BOARD OF EDUCATION FOB CORPORAL PUNISHMENT It is the policy of the Ringwood Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - However, under no circumstances shall any child in DHS custody be administered corporal punishment At the beginning of the school year, parents and legal guardians will be provided the opportunity to request the nonadministration of corporal punishment to their children.
+      - If a request for the nonadministration of corporal punishment has not been signed, the administration shall notify a parent or legal guardian that corporal punishment is being planned.
+      - At that time, the parent or legal guardian may request that corporal punishment not be administered.
+      - If a parent or legal guardian has requested that corporal punishment not be administered to the student, alternative discipline will be considered and may include suspension from school.
+      - School district personnel shall be prohibited from using corporal punishment on any student identified with a disability in accordance with the Individuals with Disabilities Education Act (IDEA).
   - name: Ripley
     county: Payne
     nces_id: "4025950"
@@ -8019,13 +8038,13 @@ districts:
   - name: Skiatook
     county: Tulsa
     nces_id: "4027750"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/4578/SPS/4539144/SHS_Student_Handbook_23-24.pdf
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4027750-link-fef23c.pdf
+    quote: Corporal punishment will not be utilized at any school site.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-12
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -8034,8 +8053,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-12; the document is kept in the repository at data/policies/inbound/OK/4027750-link-fef23c.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Corporal punishment will not be utilized at any school site.
   - name: SMITHVILLE
     county: McCurtain
     nces_id: "4027840"
@@ -9936,14 +9957,14 @@ districts:
   - name: Yale
     county: Payne
     nces_id: "4033360"
-    status: consent_required
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4033360-fob-corporal-punishment.doc
-    quote: CORPORAL PUNISHMENT It is the policy of the ____Yale______ Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4033360-email-b8c8f703.txt
+    quote: We haven't used any type of corporal punishment for probably the last 15 years or so.
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-10-12
     method: records_request
-    parent_control: opt_in
+    parent_control: unknown
     documents:
       - kind: handbook
         url: https://resources.finalsite.net/images/v1713897203/ypsdus/hxrkxkpjav8h2ccrxw4c/yjhstudenthandbook-23.pdf
@@ -9957,14 +9978,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-10-12; the document is kept in the repository at data/policies/inbound/OK/4033360-fob-corporal-punishment.doc. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-12; the document is kept in the repository at data/policies/inbound/OK/4033360-email-b8c8f703.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
-      - CORPORAL PUNISHMENT It is the policy of the ____Yale______ Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
-      - However, under no circumstances shall any child in DHS custody or any student on an individualized educational program (IEP) be administered corporal punishment.
-      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to allow the administration of corporal punishment to their child(ren).
-      - Under no circumstances will the administration administer corporal punishment to a student where written consent was not provided.
-      - If a parent or legal guardian has requested that corporal punishment not be administered to the student, alternative discipline will be considered and may include suspension from school.
+      - We haven't used any type of corporal punishment for probably the last 15 years or so.
   - name: YARBROUGH
     county: Texas
     nces_id: "4033390"

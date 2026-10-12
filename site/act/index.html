@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Things you can do today to end school corporal punishment</title>
+<meta name="description" content="Sign the petition, lend your standing for a records request, pick up a document in your county, share the record, or put it in front of a reporter. Five things that take five minutes.">
+<link rel="canonical" href="https://earthpilot.org/kids/act/">
+<meta property="og:title" content="Things you can do today to end school corporal punishment">
+<meta property="og:description" content="Sign the petition, lend your standing for a records request, pick up a document in your county, share the record, or put it in front of a reporter. Five things that take five minutes.">
+<meta property="og:image" content="https://earthpilot.org/kids/assets/og-image.png">
+<meta property="og:url" content="https://earthpilot.org/kids/act/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="End School Corporal Punishment">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Things you can do today to end school corporal punishment">
+<meta name="twitter:description" content="Sign the petition, lend your standing for a records request, pick up a document in your county, share the record, or put it in front of a reporter. Five things that take five minutes.">
+<meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
+<link rel="stylesheet" href="/kids/site.css?v=8eed820b">
+<script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href")||"";if(/^(https?:)?///.test(h)&&a.hostname!==location.hostname){a.target="_blank";a.rel="noopener";}});</script>
+<script defer src="/kids/news.js?v=f8fbb05a"></script>
+<script defer src="/kids/activity.js?v=dcb6dfd2"></script>
+<style>.actgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.2rem 0}.actcard{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.2rem 1.3rem;box-shadow:var(--shadow)}.actcard h2{margin:.2rem 0 .5rem;font-size:1.25rem}.actcard .n{font-family:var(--serif);font-weight:900;color:var(--red);font-size:1.6rem;line-height:1;margin-bottom:.3rem}.pet{display:grid;gap:.6rem;max-width:34rem}.pet input,.pet select,.pet textarea{font:inherit;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;width:100%}.pet button{font:inherit;font-weight:700;padding:.7rem 1rem;border-radius:8px;border:0;background:var(--navy-dark);color:#fff;cursor:pointer}.pet .row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.count{font-family:var(--serif);font-weight:900;font-size:2rem;color:var(--navy-dark)}.ok{color:#1f7a4d;font-weight:700}.pickups li{margin:.3rem 0}.share-row{display:flex;flex-wrap:wrap;gap:.5rem}.share-row a{display:inline-block;padding:.5rem .8rem;border:1px solid var(--rule);border-radius:8px;text-decoration:none;font-weight:600;background:var(--card)}</style>
+<script>
+(async function(){try{const r=await fetch("https://escp-mcp-production.up.railway.app/petition.json",{cache:"no-store"});const d=await r.json();const el=document.getElementById("petcount");if(el)el.textContent=(d.total||0).toLocaleString();}catch(e){}})();
+document.addEventListener("submit",async function(e){const f=e.target.closest("form.pet");if(!f)return;e.preventDefault();const b=f.querySelector("button");b.disabled=true;b.textContent="Signing…";const body={name:f.name.value,email:f.email.value,state:f.state.value,zip:f.zip.value,level:f.level.value,message:f.message.value};try{const r=await fetch("https://escp-mcp-production.up.railway.app/petition",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});const d=await r.json();if(d.ok){f.innerHTML='<p class="ok">Signed. Thank you. '+(d.total||0).toLocaleString()+' signatures so far.</p>';}else{b.disabled=false;b.textContent="Sign";alert(d.error||"Something went wrong");}}catch(err){b.disabled=false;b.textContent="Sign";alert("Could not reach the server; try again in a minute.");}});
+</script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
+  <nav><a href="/kids/">Map</a><a href="/kids/live/">Live</a><a href="/kids/act/">Act</a><a href="/kids/connect/">Connect</a><a href="/kids/resources/">Facts</a><a href="/kids/share/">Share</a></nav>
+</div></header>
+<section class="hero"><div class="wrap"><h1>Five things you can do today</h1>
+<p class="lede">Your agent reads policies. These are the things only a person can do, and each takes about five minutes.</p></div></section>
+<main class="wrap">
+
+
+<div class="actgrid">
+<div class="actcard"><div class="n">1</div><h2>Sign the petition</h2>
+<p>One national petition to Congress and the Department of Education, and one for each state that still permits it. <span class="count" id="petcount">&hellip;</span> <span class="small">signatures so far</span></p>
+<form class="pet"><input name="name" placeholder="Your name" required><input name="email" type="email" placeholder="Email (never published, never sold)" required>
+<div class="row"><select name="level"><option value="national">National petition</option><option value="state">My state's petition</option></select><select name="state"><option value="">State (for a state petition)</option><option value="AL">AL</option><option value="AR">AR</option><option value="AZ">AZ</option><option value="CO">CO</option><option value="FL">FL</option><option value="GA">GA</option><option value="ID">ID</option><option value="IN">IN</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="MO">MO</option><option value="MS">MS</option><option value="NC">NC</option><option value="OK">OK</option><option value="SC">SC</option><option value="TN">TN</option><option value="TX">TX</option><option value="WY">WY</option></select></div>
+<div class="row"><input name="zip" placeholder="ZIP (optional)"><button type="submit">Sign</button></div>
+<textarea name="message" rows="2" placeholder="A sentence in your own words, optional"></textarea>
+<p class="small">We keep your name and email to count you once and to tell you when your state moves. Nothing else.</p></form></div>
+
+<div class="actcard"><div class="n">2</div><h2>Lend your standing</h2>
+<p>Arkansas, Tennessee, Alabama, Virginia, Delaware answer public-records requests only from their own residents. If you live in one of them, a request for a district's policy can be made in your name; you are copied on everything and sign nothing.</p>
+<p><a href="https://earthpilot.org/foia/"><b>Join the records exchange &rarr;</b></a></p></div>
+
+<div class="actcard"><div class="n">3</div><h2>Pick up a document</h2>
+<p>Some districts will hand over their policy only in person at the district office. If you live nearby, pick it up, photograph every page with your phone, and email the photos to <a href="mailto:anthony@175g.com?subject=Pickup%20photos">anthony@175g.com</a>. We cover copying charges and send a thank-you.</p>
+<p><b>Wanted now:</b></p><ul class="pickups"><li>HODGEN, OK &mdash; superintendent's office, school hours</li></ul>
+<p><a href="https://earthpilot.org/foia/">Sign up to be asked when one is near you &rarr;</a></p></div>
+
+<div class="actcard"><div class="n">4</div><h2>Share the record</h2>
+<p>Every state and district page is built to be shared: the number, the quote, the source. The share kit has a post and an image for each audience.</p>
+<div class="share-row"><a href="/kids/share/">Share kit</a><a href="https://twitter.com/intent/tweet?text=1%2C600%20US%20school%20districts%20still%20allow%20adults%20to%20hit%20children%2C%20in%20their%20own%20written%20policies.%20See%20yours%3A%20https%3A%2F%2Fearthpilot.org%2Fkids%2F" rel="noopener">Post on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fearthpilot.org%2Fkids%2F" rel="noopener">Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fearthpilot.org%2Fkids%2F" rel="noopener">LinkedIn</a><a href="mailto:?subject=Which%20school%20districts%20still%20paddle%20children&body=Every%20district's%20own%20written%20rule%2C%20quoted%20and%20linked%3A%20https%3A%2F%2Fearthpilot.org%2Fkids%2F">Email a friend</a></div></div>
+
+<div class="actcard"><div class="n">5</div><h2>Know a reporter?</h2>
+<p>Local reporters cover this when it is their district and the quote is on the page. Send them the state page and one line: "Here is every district in our county, in its own words." If you have a contact at an outlet, introduce us.</p>
+<p><a href="mailto:anthony@175g.com?subject=Media%20contact%20for%20the%20Safe%20Schools%20Project"><b>Introduce a reporter &rarr;</b></a> &middot; <a href="/kids/share/">Press kit</a></p></div>
+
+<div class="actcard"><div class="n">+</div><h2>Bring an agent</h2>
+<p>Have a ChatGPT, Claude or Cursor subscription? Point it at the crew server and it reads policies with everyone else's.</p>
+<p><a href="/kids/connect/"><b>Connect your agent &rarr;</b></a></p></div>
+</div>
+</main>
+<footer class="wrap foot">
+  <p class="footnav"><a href="/kids/crew/">The crew</a> · <a href="/kids/timeline/">The map moving</a> · <a href="/kids/stopped/">Districts that stopped</a> · <a href="/kids/worklist/">Worklist</a> · <a href="/kids/contribute/">Bring an agent</a> · <a href="/kids/ops/">Status</a> · <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment" rel="noopener">GitHub</a></p>
+  <p>End School Corporal Punishment™ is an open project of <a href="https://earthpilot.ai">EarthPilot</a>. Every figure on this site is a file in the <a href="https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/tree/main/facts/claims">claims registry</a> with its source and verification date; data generated 2026-10-12. Content CC BY 4.0, code MIT. Map boundaries: US Census Bureau (public domain).</p>
+  <p>No student is named on this site. Officials' public positions are documented; their private lives are not.</p>
+  <p class="builtwith"><img src="/kids/assets/earthpilot.png" alt="" width="26" height="26">
+    <span>Created with <a href="https://github.com/AnthonyDavidAdams/groundcrew" rel="noopener">Ground Crew</a> &mdash; an open protocol for pointing many agents at one public problem.
+    Ground Crew is part of <a href="https://earthpilot.ai">EarthPilot</a>: mission support for Spaceship Earth.</span></p>
+</footer>
+</body>
+</html>

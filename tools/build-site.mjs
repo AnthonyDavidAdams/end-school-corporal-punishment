@@ -170,13 +170,14 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/resources/">Facts &amp; templates</a><a href="/kids/live/">Live</a><a href="/kids/crew/">The crew</a><a href="/kids/timeline/">The map moving</a><a href="/kids/stopped/">Districts that stopped</a><a href="/kids/worklist/">Worklist</a><a href="/kids/contribute/">Bring an agent</a><a href="/kids/connect/">Connect</a><a href="/kids/share/">Share</a><a href="${REPO}" rel="noopener">GitHub</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/live/">Live</a><a href="/kids/act/">Act</a><a href="/kids/connect/">Connect</a><a href="/kids/resources/">Facts</a><a href="/kids/share/">Share</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
 ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</section>") + 10) : body}
 </main>
 <footer class="wrap foot">
+  <p class="footnav"><a href="/kids/crew/">The crew</a> · <a href="/kids/timeline/">The map moving</a> · <a href="/kids/stopped/">Districts that stopped</a> · <a href="/kids/worklist/">Worklist</a> · <a href="/kids/contribute/">Bring an agent</a> · <a href="/kids/ops/">Status</a> · <a href="${REPO}" rel="noopener">GitHub</a></p>
   <p>End School Corporal Punishment™ is an open project of <a href="https://earthpilot.ai">EarthPilot</a>. Every figure on this site is a file in the <a href="${REPO}/tree/main/facts/claims">claims registry</a> with its source and verification date; data generated ${summary.generated}. Content CC BY 4.0, code MIT. Map boundaries: US Census Bureau (public domain).</p>
   <p>No student is named on this site. Officials' public positions are documented; their private lives are not.</p>
   <p class="builtwith"><img src="/kids/assets/earthpilot.png" alt="" width="26" height="26">
@@ -356,6 +357,8 @@ a{color:var(--navy-dark)}.wrap{max-width:1200px;margin:0 auto;padding:0 1.25rem}
 .top{background:var(--navy-dark);color:#fff;border-bottom:3px solid var(--red)}.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1.25rem;flex-wrap:wrap}
 .wordmark{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--serif);font-weight:700;font-size:1.35rem;text-decoration:none;color:#fff;letter-spacing:.02em}.wordmark span{color:#fff}.epmark{width:30px;height:30px;border-radius:50%;flex:0 0 auto;display:block}/* The line every Ground Crew site carries: this crew owns the mission, the protocol is somebody else's. */.builtwith{display:flex;align-items:flex-start;gap:.6rem;margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--rule)}.builtwith img{width:26px;height:26px;border-radius:50%;flex:0 0 auto;margin-top:.1rem}
 .top nav{display:flex;gap:2rem;flex-wrap:wrap}.top nav a{text-decoration:none;color:var(--gray-pale);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid transparent;padding-bottom:2px}.top nav a:hover{color:#fff;border-color:#fff}
+img{max-width:100%;height:auto}pre,code{overflow-wrap:anywhere}main{overflow-x:hidden}.footnav{font-size:.85rem;color:var(--muted)}.footnav a{color:var(--muted)}
+@media(max-width:700px){.top .wrap{padding:.6rem 1rem;gap:.5rem}.wordmark{font-size:1rem;gap:.4rem;white-space:nowrap}.wordmark span{display:none}.epmark{width:24px;height:24px}.top nav{gap:1rem;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch;width:100%;padding:.2rem 0 .3rem}.top nav::-webkit-scrollbar{display:none}.top nav a{font-size:.74rem;flex:0 0 auto}.hero{padding:1.6rem 1rem 1.4rem}.hero h1{font-size:1.7rem}.hero .lede{font-size:1rem}.wrap{padding:0 1rem}main table{display:block;overflow-x:auto;max-width:100%;font-size:.88rem}.states-list{columns:1}.lede{font-size:1.02rem}}
 h1{font-family:var(--serif);font-weight:900;font-size:clamp(1.8rem,3.6vw,2.7rem);line-height:1.12;margin:1.6rem 0 .6rem}h2{font-family:var(--serif);font-size:1.45rem;margin:2.2rem 0 .7rem;color:var(--navy-dark)}h3{font-size:1.05rem;margin:1.3rem 0 .4rem;text-transform:uppercase;letter-spacing:.04em;color:var(--charcoal)}
 .hero{background:var(--navy-dark);color:#fff;text-align:center;padding:2.5rem 1.25rem 2rem}.hero h1{color:#fff;margin:0 0 .5rem;font-size:clamp(1.9rem,3.8vw,2.6rem)}.hero .lede{color:var(--gray-pale);margin:0 auto;max-width:70ch}.hero .status{margin-top:.6rem}.hero .crumb{color:var(--gray-pale);font-size:.9rem;margin-bottom:.5rem}.hero .crumb a{color:#fff}
 .lede{font-size:1.15rem;color:var(--muted);max-width:66ch;margin:0 0 1.4rem}
@@ -845,6 +848,58 @@ mkdirSync(join(site, "live"), { recursive: true });
 // ---------- connect your agent ----------
 // One URL to say out loud in a meeting. The per-client procedures come from mcp/README.md so they
 // cannot drift from the copy a developer reads in the repository.
+
+// ---- Act: what a person can do while their agent works ----
+{
+  const reqs = JSON.parse(readFileSync(join(root, "data/outreach/requests.json"), "utf8"));
+  const pickups = reqs.filter((r) => /pickup/i.test(r.notes || "") && r.state && r.name).map((r) => ({ state: r.state, name: r.name }));
+  const RESIDENT = ["AR", "TN", "AL", "VA", "DE"];
+  const STATES = ["AL","AR","AZ","CO","FL","GA","ID","IN","KS","KY","LA","MO","MS","NC","OK","SC","TN","TX","WY"];
+  mkdirSync(join(site, "act"), { recursive: true });
+  writeFileSync(join(site, "act", "index.html"), shell({
+    title: "Things you can do today to end school corporal punishment", path: "/act/",
+    description: "Sign the petition, lend your standing for a records request, pick up a document in your county, share the record, or put it in front of a reporter. Five things that take five minutes.",
+    extraHead: `<style>.actgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.2rem 0}.actcard{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.2rem 1.3rem;box-shadow:var(--shadow)}.actcard h2{margin:.2rem 0 .5rem;font-size:1.25rem}.actcard .n{font-family:var(--serif);font-weight:900;color:var(--red);font-size:1.6rem;line-height:1;margin-bottom:.3rem}.pet{display:grid;gap:.6rem;max-width:34rem}.pet input,.pet select,.pet textarea{font:inherit;padding:.6rem .7rem;border:1px solid var(--rule);border-radius:8px;width:100%}.pet button{font:inherit;font-weight:700;padding:.7rem 1rem;border-radius:8px;border:0;background:var(--navy-dark);color:#fff;cursor:pointer}.pet .row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.count{font-family:var(--serif);font-weight:900;font-size:2rem;color:var(--navy-dark)}.ok{color:#1f7a4d;font-weight:700}.pickups li{margin:.3rem 0}.share-row{display:flex;flex-wrap:wrap;gap:.5rem}.share-row a{display:inline-block;padding:.5rem .8rem;border:1px solid var(--rule);border-radius:8px;text-decoration:none;font-weight:600;background:var(--card)}</style>
+<script>
+(async function(){try{const r=await fetch("${MCP_URL.replace(/\/mcp$/, "")}/petition.json",{cache:"no-store"});const d=await r.json();const el=document.getElementById("petcount");if(el)el.textContent=(d.total||0).toLocaleString();}catch(e){}})();
+document.addEventListener("submit",async function(e){const f=e.target.closest("form.pet");if(!f)return;e.preventDefault();const b=f.querySelector("button");b.disabled=true;b.textContent="Signing…";const body={name:f.name.value,email:f.email.value,state:f.state.value,zip:f.zip.value,level:f.level.value,message:f.message.value};try{const r=await fetch("${MCP_URL.replace(/\/mcp$/, "")}/petition",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});const d=await r.json();if(d.ok){f.innerHTML='<p class="ok">Signed. Thank you. '+(d.total||0).toLocaleString()+' signatures so far.</p>';}else{b.disabled=false;b.textContent="Sign";alert(d.error||"Something went wrong");}}catch(err){b.disabled=false;b.textContent="Sign";alert("Could not reach the server; try again in a minute.");}});
+</script>`,
+    body: `<section class="hero"><div class="wrap"><h1>Five things you can do today</h1>
+<p class="lede">Your agent reads policies. These are the things only a person can do, and each takes about five minutes.</p></div></section>
+
+<div class="actgrid">
+<div class="actcard"><div class="n">1</div><h2>Sign the petition</h2>
+<p>One national petition to Congress and the Department of Education, and one for each state that still permits it. <span class="count" id="petcount">&hellip;</span> <span class="small">signatures so far</span></p>
+<form class="pet"><input name="name" placeholder="Your name" required><input name="email" type="email" placeholder="Email (never published, never sold)" required>
+<div class="row"><select name="level"><option value="national">National petition</option><option value="state">My state's petition</option></select><select name="state"><option value="">State (for a state petition)</option>${STATES.map((x) => `<option value="${x}">${x}</option>`).join("")}</select></div>
+<div class="row"><input name="zip" placeholder="ZIP (optional)"><button type="submit">Sign</button></div>
+<textarea name="message" rows="2" placeholder="A sentence in your own words, optional"></textarea>
+<p class="small">We keep your name and email to count you once and to tell you when your state moves. Nothing else.</p></form></div>
+
+<div class="actcard"><div class="n">2</div><h2>Lend your standing</h2>
+<p>${RESIDENT.map((c) => ({AR:"Arkansas",TN:"Tennessee",AL:"Alabama",VA:"Virginia",DE:"Delaware"})[c]).join(", ")} answer public-records requests only from their own residents. If you live in one of them, a request for a district's policy can be made in your name; you are copied on everything and sign nothing.</p>
+<p><a href="https://earthpilot.org/foia/"><b>Join the records exchange &rarr;</b></a></p></div>
+
+<div class="actcard"><div class="n">3</div><h2>Pick up a document</h2>
+<p>Some districts will hand over their policy only in person at the district office. If you live nearby, pick it up, photograph every page with your phone, and email the photos to <a href="mailto:anthony@175g.com?subject=Pickup%20photos">anthony@175g.com</a>. We cover copying charges and send a thank-you.</p>
+${pickups.length ? `<p><b>Wanted now:</b></p><ul class="pickups">${pickups.map((d) => `<li>${esc(d.name)}, ${esc(d.state)} &mdash; superintendent's office, school hours</li>`).join("")}</ul>` : `<p class="small">Nothing waiting at the moment; this list fills as districts answer.</p>`}
+<p><a href="https://earthpilot.org/foia/">Sign up to be asked when one is near you &rarr;</a></p></div>
+
+<div class="actcard"><div class="n">4</div><h2>Share the record</h2>
+<p>Every state and district page is built to be shared: the number, the quote, the source. The share kit has a post and an image for each audience.</p>
+<div class="share-row"><a href="/kids/share/">Share kit</a><a href="https://twitter.com/intent/tweet?text=${encodeURIComponent("1,600 US school districts still allow adults to hit children, in their own written policies. See yours: https://earthpilot.org/kids/")}" rel="noopener">Post on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://earthpilot.org/kids/")}" rel="noopener">Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://earthpilot.org/kids/")}" rel="noopener">LinkedIn</a><a href="mailto:?subject=${encodeURIComponent("Which school districts still paddle children")}&body=${encodeURIComponent("Every district's own written rule, quoted and linked: https://earthpilot.org/kids/")}">Email a friend</a></div></div>
+
+<div class="actcard"><div class="n">5</div><h2>Know a reporter?</h2>
+<p>Local reporters cover this when it is their district and the quote is on the page. Send them the state page and one line: "Here is every district in our county, in its own words." If you have a contact at an outlet, introduce us.</p>
+<p><a href="mailto:anthony@175g.com?subject=${encodeURIComponent("Media contact for the Safe Schools Project")}"><b>Introduce a reporter &rarr;</b></a> &middot; <a href="/kids/share/">Press kit</a></p></div>
+
+<div class="actcard"><div class="n">+</div><h2>Bring an agent</h2>
+<p>Have a ChatGPT, Claude or Cursor subscription? Point it at the crew server and it reads policies with everyone else's.</p>
+<p><a href="/kids/connect/"><b>Connect your agent &rarr;</b></a></p></div>
+</div>`,
+  }));
+}
+
 mkdirSync(join(site, "connect"), { recursive: true });
 {
   const { preamble, sections } = connectSections();

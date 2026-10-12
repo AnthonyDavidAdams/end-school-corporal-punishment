@@ -280,8 +280,12 @@ def inbox():
             text_anthony(track.digest(load()))
         except Exception as e:
             log("digest failed", repr(e)[:120])
+HARD_BLOCK = re.compile(r"attorney|lawyer|legal action|cease|desist|stop (contacting|emailing|writing)|do not contact|harass|complaint against|report you|unsubscribe", re.I)
+NOTE_MARKS = re.compile(r"\[(HELD|DRAFT)[^\]]*\]|They wrote:|^WHY:|^MOVE:", re.M)
 def reply_to(r, frm, mid, subject, text, to=None):
-    """One reply on an existing thread. Returns True if it went."""
+    """One reply on an existing thread. Returns True if it went. A body carrying a reviewer's note never goes."""
+    if NOTE_MARKS.search(text or ""):
+        log("REFUSED to send: the text carries a reviewer note", r["name"]); return False
     m = EmailMessage(); m["From"] = FROM; m["To"] = to or frm
     subject = " ".join(str(subject).split())   # a folded subject line carries a newline, which a header may not
     m["Subject"] = subject if subject.lower().startswith("re:") else "Re: " + subject
@@ -335,6 +339,18 @@ def save_docs(r, atts, links, facts):
                     hopped += 1; queue = inner[:3] + queue
             break
     return [g for g in got if g]
+
+_LEA = {}
+def website_of(r):
+    """The district's website from the federal directory, by id."""
+    global _LEA
+    if not _LEA:
+        try:
+            for line in open(os.path.join(ROOT, "data/nces/lea-directory-2023-24.csv")).read().split("\n")[1:]:
+                c = line.split(",")
+                if len(c) > 5: _LEA[c[0]] = c[4]
+        except Exception: pass
+    return _LEA.get(str(r.get("nces_id") or ""), "")
 
 def record_status(r):
     """What the record says for this district right now (after any merge), with its source and code."""
@@ -422,7 +438,19 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         entry["action"] = "logged"; finish(); return
 
     # 1. Everything the reply carries, filed. The merge decides what the record says afterwards.
+    # Policy text pasted straight into the email (Anderson County KY pasted 09.433 in full) is a document:
+    # the email itself is kept in the repository as the source.
     filed = []
+    pasted = [x for x in clip(triage_mod.strip_quoted(body)) if len(x) > 40]
+    if pasted and not atts:
+        try:
+            dd = os.path.join(INBOUND, r["state"]); os.makedirs(dd, exist_ok=True)
+            pth = os.path.join(dd, f"{r.get('nces_id') or r['id']}-email-{h}.txt")
+            open(pth, "w").write(f"Policy text as sent by email from {frm} on {msg.get('Date')}:\n\n{triage_mod.strip_quoted(body)}\n")
+            got = file_document(r, pth, f"pasted into the district's email reply of {str(msg.get('Date'))[:16]}")
+            if got: filed.append(got)
+        except Exception as ex:
+            log("pasted text could not be filed", r["name"], repr(ex)[:100])
     if atts or links:
         try:
             got = save_docs(r, atts, links, facts)
@@ -430,6 +458,17 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
             log("save_docs failed", r["name"], repr(ex)[:120]); got = []
         filed = [g for g in got if g]
         if "held" in filed: entry["held_documents"] = True
+    # 1b. Directions in prose ("Section 4 on the Diligent site"): find what they pointed at and read it.
+    if not [f for f in filed if f != "held"] and not atts:
+        site = website_of(r)
+        urls = writer_mod.leads(r, triage_mod.strip_quoted(body), site)
+        if urls:
+            log("following their directions:", r["name"], urls[:3])
+            try:
+                got = save_docs(r, [], urls, {"document_links": urls})
+                filed += [g for g in got if g]; entry["directions_followed"] = urls
+            except Exception as ex:
+                log("directions fetch failed", r["name"], repr(ex)[:100])
     # 2. "It's on our website": look before asking.
     recheck = None
     if kind == "website_no_link" and not filed:
@@ -474,6 +513,10 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
             move, why = "hold", f"a fee of ${max(amts):g} is quoted; over the $5 line; " + why
     if quiet:
         move, why = "hold", "Anthony is in this thread; " + why
+    # Anthony sends nothing by hand: a hold that still has a usable reply goes out as an answer unless
+    # the thread is hard-blocked (threats, complaints, stop-writing, residency, a fee over $5).
+    if move == "hold" and text and not quiet and not HARD_BLOCK.search(triage_mod.strip_quoted(body)) and not r.get("residency_required") and not re.search(r"fee|\$\s*\d", why, re.I):
+        move, why = "answer", "sent despite the writer's hesitation (Anthony sends nothing by hand); " + why
     ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
     if text and move != "hold" and not ok:
         move, why = "hold", "the referee held it; " + why
@@ -506,7 +549,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         if not quiet:
             m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + " ".join(str(subject).split())
             m["In-Reply-To"] = mid; m["References"] = mid
-            m.set_content((text or "") + f"\n\n\n[HELD — {why}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1500]}\n")
+            m.set_content(text or "")
             put_draft(M, m)
     finish()
 
@@ -589,7 +632,18 @@ def catchup(send=True):
         msg = email.message_from_bytes(open(path, "rb").read()); body, atts = part_text(msg)
         frm = email.utils.parseaddr(msg.get("From"))[1]; subject = str(make_header(decode_header(msg.get("Subject") or "")))
         filed = []
-        if (e.get("links") or atts) and not e.get("filed"):
+        pasted = [x for x in clip(triage_mod.strip_quoted(body)) if len(x) > 40]
+        if pasted and not atts and not e.get("pasted_filed"):
+            try:
+                dd = os.path.join(INBOUND, r["state"]); os.makedirs(dd, exist_ok=True)
+                pth = os.path.join(dd, f"{r.get('nces_id') or r['id']}-email-{e.get('file','x')[:8]}.txt")
+                open(pth, "w").write(f"Policy text as sent by email from {frm} on {msg.get('Date')}:\n\n{triage_mod.strip_quoted(body)}\n")
+                got = file_document(r, pth, f"pasted into the district's email reply of {str(msg.get('Date'))[:16]}")
+                if got: filed.append(got)
+            except Exception as ex:
+                log("pasted text could not be filed", r["name"], repr(ex)[:100])
+            e["pasted_filed"] = True
+        if (e.get("links") or atts) and (not e.get("filed") or e.get("filed") == ["nothing"]):
             try: filed = [g for g in save_docs(r, atts, e.get("links") or [], e.get("facts") or {}) if g]
             except Exception as ex: log("catchup save_docs failed", r["name"], repr(ex)[:100])
             e["filed"] = filed or ["nothing"]
@@ -603,6 +657,10 @@ def catchup(send=True):
         if move in ("forward",): move = "hold"
         if move == "records_request" and (r.get("formal_requested_at") or recorded or atts): move = "hold"
         if move != "hold" and re.search(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body)) and max(float(a.replace(",", "")) for a in re.findall(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body))) > 5: move = "hold"
+        if move == "hold" and text and not HARD_BLOCK.search(triage_mod.strip_quoted(body)) and not r.get("residency_required") and not re.search(r"fee|\$\s*\d", why, re.I):
+            move, why = "answer", "sent despite the writer's hesitation; " + why
+        if move == "hold" and text and not HARD_BLOCK.search(triage_mod.strip_quoted(body)) and not r.get("residency_required") and not re.search(r"fee|\$\s*\d", why, re.I):
+            move, why = "answer", "sent despite the writer's hesitation; " + why
         ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
         if ok and send and reply_to(r, frm, e["message_id"], subject, text):
             e["our_reply"] = text; e["move"] = move; e["why"] = why; e["action"] = (e.get("action") or "") + f"; catch-up reply ({move})"
@@ -615,7 +673,7 @@ def catchup(send=True):
             if text:
                 delete_draft(M, "Re: " + " ".join(subject.split()))
                 m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + " ".join(subject.split()); m["In-Reply-To"] = e["message_id"]; m["References"] = e["message_id"]
-                m.set_content(text + f"\n\n\n[HELD — {why}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1500]}\n"); put_draft(M, m)
+                m.set_content(text); put_draft(M, m)
             log("catchup held", r["state"], r["name"], why[:100])
         save(reqs)
     M.logout(); log(f"catchup: {sent} sent, {held} held")
@@ -636,8 +694,19 @@ def rehold(send=True):
         frm = email.utils.parseaddr(msg.get("From"))[1]; subject = str(make_header(decode_header(msg.get("Subject") or "")))
         # Links and attachments the first pass did not get through are filed now, so the writer sees what they said.
         filed = []
+        pasted = [x for x in clip(triage_mod.strip_quoted(body)) if len(x) > 40]
+        if pasted and not atts and not e.get("pasted_filed"):
+            try:
+                dd = os.path.join(INBOUND, r["state"]); os.makedirs(dd, exist_ok=True)
+                pth = os.path.join(dd, f"{r.get('nces_id') or r['id']}-email-{e.get('file','x')[:8]}.txt")
+                open(pth, "w").write(f"Policy text as sent by email from {frm} on {msg.get('Date')}:\n\n{triage_mod.strip_quoted(body)}\n")
+                got = file_document(r, pth, f"pasted into the district's email reply of {str(msg.get('Date'))[:16]}")
+                if got: filed.append(got)
+            except Exception as ex:
+                log("pasted text could not be filed", r["name"], repr(ex)[:100])
+            e["pasted_filed"] = True
         links = e.get("links") or []
-        if (links or atts) and not e.get("filed"):
+        if (links or atts) and (not e.get("filed") or e.get("filed") == ["nothing"]):
             try:
                 filed = [g for g in save_docs(r, atts, links, e.get("facts") or {}) if g]
             except Exception as ex:
@@ -662,7 +731,7 @@ def rehold(send=True):
             if text:
                 delete_draft(M, "Re: " + " ".join(subject.split()))
                 m = EmailMessage(); m["From"] = FROM; m["To"] = frm; m["Subject"] = "Re: " + " ".join(subject.split()); m["In-Reply-To"] = e["message_id"]; m["References"] = e["message_id"]
-                m.set_content(text + f"\n\n\n[HELD — {why}]\n\nThey wrote:\n\n{triage_mod.strip_quoted(body)[:1500]}\n"); put_draft(M, m)
+                m.set_content(text); put_draft(M, m)
             log("rehold held", r["state"], r["name"], why[:100])
         save(reqs)
     M.logout(); log(f"rehold: {sent} sent, {held} still held")
