@@ -186,10 +186,15 @@ Anthony David Adams, EarthPilot · anthony@175g.com · (234) 516-2545
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--dry", action="store_true"); ap.add_argument("--limit", type=int, default=150); ap.add_argument("--state"); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--dry", action="store_true"); ap.add_argument("--limit", type=int, default=150); ap.add_argument("--state"); ap.add_argument("--test", help="send the first district's package to this address instead; nothing is logged"); a = ap.parse_args()
     reqs = run.load(); cands = candidates(reqs)
     if a.state: cands = [c for c in cands if c["state"] == a.state]
     batch = cands[:a.limit]
+    if a.test:
+        d = batch[0]; pdf = render(d); subject = f"[TEST] {clean_name(d['name'])} recognized as a Safe School for {YEAR.replace('–', '-')}"
+        m = EmailMessage(); m["From"] = run.FROM; m["To"] = a.test; m["Subject"] = subject; m["Date"] = email.utils.formatdate(localtime=True); m["Message-ID"] = f"<escp-cert-test-{datetime.datetime.now().strftime('%H%M%S')}@earthpilot.org>"
+        m.set_content(cover(d, reqs)); m.add_attachment(open(pdf, "rb").read(), maintype="application", subtype="pdf", filename=f"Safe School {YEAR.replace('–', '-')} - {clean_name(d['name'])}.pdf")
+        run.smtp_send(m); print("test sent to", a.test, "for", clean_name(d["name"]), "| would have gone to", d["to"]); return
     print(f"qualifying with an address: {len(cands)} · this batch: {len(batch)}")
     if a.dry:
         for d in batch: print(f"  {d['state']}  {clean_name(d['name'])[:40]:<40}  {d['code']:<8}  {(d.get('superintendent') or '')[:26]:<26}  {d['to']:<40}  {'(prior exchange)' if prior(d, reqs) else ''}")
