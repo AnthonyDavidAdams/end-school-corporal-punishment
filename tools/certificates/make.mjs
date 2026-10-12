@@ -54,7 +54,7 @@ function band() {
 }
 function scallop() {
   // the outer edge: an exact number of arcs per side, so every corner is a full arc meeting a full arc
-  const m = 8; const r0 = 9;
+  const m = 12; const r0 = 9;
   const nx = Math.round((W - 2 * m) / (2 * r0)), ny = Math.round((H - 2 * m) / (2 * r0));
   const rx = (W - 2 * m) / (2 * nx), ry = (H - 2 * m) / (2 * ny);
   let d = `M${m},${m}`;
@@ -62,10 +62,9 @@ function scallop() {
   for (let j = 0; j < ny; j++) d += ` A${ry.toFixed(2)},${ry.toFixed(2)} 0 0 1 ${W - m},${(m + (j + 1) * 2 * ry).toFixed(2)}`;
   for (let i = nx; i > 0; i--) d += ` A${rx.toFixed(2)},${rx.toFixed(2)} 0 0 1 ${(m + (i - 1) * 2 * rx).toFixed(2)},${H - m}`;
   for (let j = ny; j > 0; j--) d += ` A${ry.toFixed(2)},${ry.toFixed(2)} 0 0 1 ${m},${(m + (j - 1) * 2 * ry).toFixed(2)}`;
-  return `<path d="${d} Z" fill="#FFFEFA" stroke="${NAVY}" stroke-width="1" opacity=".9"/>`;
+  return `<path d="${d} Z" fill="#F7F8FB" stroke="${NAVY}" stroke-width="1" opacity=".9"/>`;
 }
 const background = `<svg class="bg" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
-<rect width="${W}" height="${H}" fill="#F3F5F9"/>
 ${scallop()}
 <rect x="20" y="20" width="${W - 40}" height="${H - 40}" fill="none" stroke="${NAVY}" stroke-width=".8" opacity=".7"/>
 <rect x="24" y="24" width="${W - 48}" height="${H - 48}" fill="none" stroke="${GOLD}" stroke-width=".5"/>
