@@ -79,6 +79,9 @@ const COUNTY_COLOR = { allows: "#9B2C2C", consent_required: "#C05621", silent: "
 function countyStatus(code, list) {
   const base = states[code].status;
   if (!list.length) return base === "banned" ? "bans" : base === "partial" ? "bans" : "state";
+  // A county with both kinds is shown as both, not as its worst district.
+  const permits = list.some(d => d.status === "allows" || d.status === "consent_required"), bansSome = list.some(d => d.status === "bans");
+  if (permits && bansSome) return "mixed";
   if (list.some(d => d.status === "allows")) return "allows";
   if (list.some(d => d.status === "consent_required")) return "consent_required";
   // No written rule anywhere and the district reports using it: the practice runs on custom.
@@ -86,8 +89,8 @@ function countyStatus(code, list) {
   if (list.every(d => d.status === "bans")) return "bans";
   return "unknown";
 }
-const CFILL = { allows: "#9B2C2C", consent_required: "#C05621", silent: "#B5474A", bans: "#2D6A4F", unknown: "#B0A8A0", state: "#C98383" };
-const CLBL = { allows: "A district's policy allows it", consent_required: "Parental consent required", silent: "No written rule found; the district reports using it", bans: "Every sourced district prohibits it", unknown: "District policy not yet checked", state: "No district recorded yet: state law applies" };
+const CFILL = { allows: "#9B2C2C", consent_required: "#C05621", silent: "#B5474A", bans: "#2D6A4F", unknown: "#B0A8A0", state: "#C98383", mixed: "url(#mixed)" };
+const CLBL = { mixed: "Mixed: some districts here prohibit it, some permit it", allows: "A district's policy allows it", consent_required: "Parental consent required", silent: "No written rule found; the district reports using it", bans: "Every sourced district prohibits it", unknown: "District policy not yet checked", state: "No district recorded yet: state law applies" };
 function countyMap(code, ds) {
   const cps = countyPaths.filter(c => c.state === code); if (!cps.length) return "";
   const s = states[code];
@@ -100,12 +103,13 @@ function countyMap(code, ds) {
   return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> School district lines</label>
 <span class="meta">${esc(s.name)} has ${cps.length} counties and ${leaCounts[code] ? n(leaCounts[code]) : "many"} school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
 <svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" data-state="${code}" role="img" aria-label="Counties colored by school district corporal punishment policy">
+<defs><pattern id="mixed" patternUnits="userSpaceOnUse" width="${(Math.max(w, h) / 60).toFixed(2)}" height="${(Math.max(w, h) / 60).toFixed(2)}" patternTransform="rotate(45)"><rect width="${(Math.max(w, h) / 60).toFixed(2)}" height="${(Math.max(w, h) / 60).toFixed(2)}" fill="#2D6A4F"/><rect width="${(Math.max(w, h) / 120).toFixed(2)}" height="${(Math.max(w, h) / 60).toFixed(2)}" fill="#9B2C2C"/></pattern></defs>
 ${paths}
 <path d="${statePaths[code]}" fill="none" stroke="#0D132D" stroke-width="${(Math.max(w, h) / 450).toFixed(2)}" pointer-events="none"/>
 </svg><div class="tip" id="ctip"></div>
-<div class="legend">${Object.keys(CLBL).filter(k => counts[k]).map(k => `<span><i style="background:${CFILL[k]}"></i>${CLBL[k]} (${counts[k]})</span>`).join("")}</div></div>
+<div class="legend">${Object.keys(CLBL).filter(k => counts[k]).map(k => `<span><i style="background:${k === "mixed" ? "repeating-linear-gradient(45deg,#2D6A4F 0 3px,#9B2C2C 3px 6px)" : CFILL[k]}"></i>${CLBL[k]} (${counts[k]})</span>`).join("")}</div></div>
 <p class="meta" id="county-live-note"></p>
-<p class="meta">Counties take the state's status unless a recorded district differs. Boundaries: US Census Bureau (public domain). District policies with a source link are verified; the rest were carried over from the original map and are being re-checked.</p>
+<p class="meta">The map is counties, and most counties hold several districts: green when every recorded district prohibits it, striped when some prohibit and some permit, red when a district permits it. The table below is district by district. Counties take the state's status unless a recorded district differs. Boundaries: US Census Bureau (public domain). District policies with a source link are verified; the rest were carried over from the original map and are being re-checked.</p>
 <script>(function(){const tip=document.getElementById("ctip"),box=document.querySelector(".mapbox"),svg=document.querySelector(".countymap");if(!svg)return;
 // The state outline is drawn after the counties, so a highlight painted on a county is cut across by
 // it. This group is appended after everything, and every highlight goes here.
