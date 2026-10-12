@@ -46,7 +46,8 @@ export function correspondenceScopes() {
   const label = (r) => `${r.name}, ${r.state}`;
   const contacts = reqs.filter((r) => r.status === "bounced" && r.bounce_retry && r.state && r.name).map((r) => `${label(r)} (address bounced: find the superintendent's current office email)`);
   const pickups = reqs.filter((r) => /pickup/i.test(r.notes || "") && r.state && r.name).map((r) => `${label(r)} (policy offered only by in-person pickup: find it published elsewhere, or a person nearby)`);
-  return { contacts: [...new Set(contacts)], pickups: [...new Set(pickups)] };
+  const unreadable = reqs.filter((r) => r.unreadable && !r.recorded_status && r.state && r.name).map((r) => `${label(r)} (the district sent its policy but our readers could not open it: open the link in a browser and quote it)`);
+  return { contacts: [...new Set(contacts)], pickups: [...new Set([...pickups, ...unreadable])] };
 }
 
 function replaceScopes(yaml, taskId, scopes, keep = []) {

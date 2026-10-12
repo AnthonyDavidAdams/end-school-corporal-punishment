@@ -195,6 +195,14 @@ ANCH = re.compile(r"corporal punishment|corporal|paddl|spank|swat|licks", re.I)
 NOT = ["physical restraint", "restraint and seclusion", "seclusion", "mechanical restraint", "chemical restraint", "self-defense", "imminent bodily harm"]
 def clip(t): return [s for s in (re.sub(r"\s+", " ", x).strip() for x in re.split(r"(?<=[.:;])\s+", t)) if 30 < len(s) < 600 and ANCH.search(s) and not any(n in s.lower() for n in NOT)]
 def doc_text(path):
+    head = open(path, "rb").read(5)
+    if head == b"%PDF-" and not path.lower().endswith(".pdf"):
+        os.rename(path, path + ".pdf"); path = path + ".pdf"
+    if path.lower().endswith((".html", ".htm")):
+        raw = open(path, encoding="utf-8", errors="ignore").read()
+        raw = re.sub(r"<(script|style|noscript)[\s\S]*?</\1>", " ", raw, flags=re.I)
+        raw = re.sub(r"</(p|div|li|tr|h[1-6]|br|section|article)>", "\n", raw, flags=re.I)
+        return htmlmod.unescape(re.sub(r"<[^>]+>", " ", raw))
     if path.lower().endswith(".pdf"):
         t = subprocess.run(["pdftotext", "-layout", path, "-"], capture_output=True, text=True).stdout
         if len(t.strip()) < 500:
@@ -339,6 +347,8 @@ def save_docs(r, atts, links, facts):
             head = open(p, "rb").read(5)
             if head[:5] != b"%PDF-" and ext == ".pdf":
                 ext = ".html"
+            if head[:5] == b"%PDF-" and not p.endswith(".pdf"):
+                os.rename(p, p[:-len(ext)] + ".pdf"); p = p[:-len(ext)] + ".pdf"; ext = ".pdf"
             try:
                 status = file_document(r, p, "link in the district's reply: " + u)
             except Exception as ex:
@@ -815,6 +825,44 @@ def bounces():
         r.setdefault("bounced_from", []).append(r.get("to")); r["to"] = alt; r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["message_id"] = m["Message-ID"]
         retried += 1; log("bounce: resent", r["state"], r["name"], "->", alt); time.sleep(6)
     save(reqs); log(f"bounces: {retried} resent of {len(todo)}"); return retried
+
+
+def refile(names=None):
+    """Threads where a document was sent but nothing recorded: try again with the current readers (Drive
+    open?id links, pasted policy text, one-hop pages), across every reply in the thread. We told these
+    superintendents the record would be updated; this is how it gets done."""
+    reqs = load(); done = 0
+    for r in reqs:
+        if names and r["name"] not in names: continue
+        if record_status(r).get("quote"): continue
+        theirs = [e for e in r.get("replies") or [] if e.get("from") != "us"]
+        if not theirs: continue
+        filed = []; tried = False
+        for e in reversed(theirs):
+            path = os.path.join(REPLIES, r["id"], e.get("file") or "")
+            if not os.path.exists(path): continue
+            msg = email.message_from_bytes(open(path, "rb").read()); body, atts = part_text(msg); frm = email.utils.parseaddr(msg.get("From"))[1]
+            pasted = [x for x in clip(triage_mod.strip_quoted(body)) if len(x) > 40]
+            if not pasted and not atts and not e.get("links"): continue
+            tried = True
+            if pasted and not atts:
+                dd = os.path.join(INBOUND, r["state"]); os.makedirs(dd, exist_ok=True)
+                pth = os.path.join(dd, f"{r.get('nces_id') or r['id']}-email-{e.get('file','x')[:8]}.txt")
+                open(pth, "w").write(f"Policy text as sent by email from {frm} on {msg.get('Date')}:\n\n{triage_mod.strip_quoted(body)}\n")
+                try: got = file_document(r, pth, f"pasted into the district's email reply of {str(msg.get('Date'))[:16]}"); filed += [got] if got else []
+                except Exception as ex: log("refile pasted failed", r["name"], repr(ex)[:100])
+            if e.get("links") or atts:
+                try: filed += [g for g in save_docs(r, atts, e.get("links") or [], e.get("facts") or {}) if g]
+                except Exception as ex: log("refile links failed", r["name"], repr(ex)[:100])
+            e["filed"] = [f for f in filed if f] or ["nothing"]
+            if record_status(r).get("quote"): break
+        if not tried: continue
+        rec = record_status(r)
+        if rec.get("quote"):
+            r["recorded_status"] = rec.get("status"); r.pop("unreadable", None); done += 1; log("refiled", r["state"], r["name"], "->", rec.get("status"), (rec.get("source") or "")[:70])
+        else:
+            r["unreadable"] = datetime.date.today().isoformat(); log("refile: still nothing readable for", r["state"], r["name"])
+    save(reqs); log(f"refile: {done} records filled"); return done
 
 # ---------------------------------------------------------------- follow-up
 def followup():
