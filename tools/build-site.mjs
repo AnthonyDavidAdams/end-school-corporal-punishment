@@ -265,13 +265,13 @@ writeFileSync(join(site, "site.css"), `
 .k-machine { background:#1A2E46; color:#7FB3D5; letter-spacing:.08em; }
 .rep { color:#C9A227; font-weight:600; font-size:12px; }
 /* Headlines, in the same card as everything else. They are not verified facts and the list says so. */
-#news { list-style:none; padding:0; margin:0; }
-#news li { display:flex; gap:9px; align-items:flex-start; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:13px; line-height:1.4; }
-#news a { color:#F4F1E8; text-decoration:none; }
-#news a:hover { color:#7CE0A8; text-decoration:underline; }
-#news .nthumb { flex:0 0 22px; }
-#news .nthumb img { width:22px; height:22px; border-radius:4px; display:block; }
-#news .meta { display:block; color:#9AA6C4; font-size:11px; margin-top:2px; }
+.cc #news { list-style:none; padding:0; margin:0; }
+.cc #news li { display:flex; gap:9px; align-items:flex-start; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.08); font-size:13px; line-height:1.4; }
+.cc #news a { color:#F4F1E8; text-decoration:none; }
+.cc #news a:hover { color:#7CE0A8; text-decoration:underline; }
+.cc #news .nthumb { flex:0 0 22px; }
+.cc #news .nthumb img { width:22px; height:22px; border-radius:4px; display:block; }
+.cc #news .meta { display:block; color:#9AA6C4; font-size:11px; margin-top:2px; }
 .livefoot { color:#9AA6C4; font-size:13px; margin-top:16px; line-height:1.6; }
 .livefoot b { color:#7CE0A8; }
 @media (max-width:1240px) { .livehead { grid-template-columns:repeat(3,1fr); } }
@@ -389,7 +389,7 @@ code{background:var(--gray-light);padding:.05rem .3rem;border-radius:var(--radiu
 .news{list-style:none;padding:0;margin:0}
 .news li{display:flex;gap:.7rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px solid var(--rule)}
 .news li.meta{display:block}
-.news a{text-decoration:none;font-weight:600}
+.news a{text-decoration:none;font-weight:600;color:var(--navy-dark)}.news .meta{color:var(--muted)}
 .news .nbody{flex:1;min-width:0}
 .news .nbody .meta{display:block}
 /* the publisher's mark; their initial shows through when they have no usable icon */
