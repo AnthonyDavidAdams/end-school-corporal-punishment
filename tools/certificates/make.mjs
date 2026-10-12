@@ -8,6 +8,8 @@ const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ?
 const state = arg("state", "KS"), name = arg("name", "Derby"), code = arg("code", "JDA"), year = arg("year", "2026–27");
 const quote = arg("quote", "Corporal punishment shall not be permitted in the school district.");
 const sup = arg("superintendent", "");
+const level = arg("level", "district");            // district (board policy) or school (a school's own handbook)
+const school = arg("school", ""), principal = arg("principal", ""), doc = arg("document", level === "school" ? "student handbook" : "board policy");
 const url = arg("url", "https://earthpilot.org/kids/state/KS/"), out = arg("out", "out/certificates/derby");
 const qr = readFileSync(arg("qr", "out/certificates/qr-derby.svg"), "utf8").replace(/<\?xml[^>]*>/, "");
 const logo = "data:image/png;base64," + readFileSync(new URL("../../site/assets/earthpilot.png", import.meta.url)).toString("base64");
@@ -102,12 +104,12 @@ ${background}
     <h1>Safe School</h1><div class="sub">Recognition for the ${year} school year</div>
     <div class="rule"></div>
     <div class="pres">is presented to</div>
-    <div class="name">${name}</div><div class="state">${STATE}${sup ? ` &middot; ${sup}, Superintendent` : ""}</div>
+    <div class="name">${level === "school" ? school : name}</div><div class="state">${level === "school" ? `${name} &middot; ${STATE}${principal ? ` &middot; ${principal}, Principal` : ""}` : `${STATE}${sup ? ` &middot; ${sup}, Superintendent` : ""}`}</div>
   </div>
   <div>
-    <p class="body">for a written board policy that <b>prohibits corporal punishment</b> in every school it governs, joining the 33 states that prohibit it by law and the position of</p>
+    <p class="body">${level === "school" ? `for a written ${doc} that <b>prohibits corporal punishment</b> at the school, joining the 33 states that prohibit it by law and the position of` : `for a written board policy that <b>prohibits corporal punishment</b> in every school it governs, joining the 33 states that prohibit it by law and the position of`}</p>
 <div class="orgs"><span>American Academy of Pediatrics <i>2023</i></span><span>American Psychological Association <i>2016</i></span><span>American Academy of Child &amp; Adolescent Psychiatry <i>2012</i></span><span>National Association of School Psychologists <i>2021</i></span><span>National PTA</span><span>U.S. Secretary of Education <i>2023</i></span><span>ACLU, NAACP, NEA, Children's Defense Fund <i>2016 open letter</i></span></div>
-    <blockquote>“${quote}”<small>Board policy ${code} · recorded at earthpilot.org/kids</small></blockquote>
+    <blockquote>“${quote}”<small>${level === "school" ? `${doc.charAt(0).toUpperCase() + doc.slice(1)}${code ? ` · ${code}` : ""}` : `Board policy ${code}`} · recorded at earthpilot.org/kids</small></blockquote>
   </div>
   <div class="foot">
     <div class="sig"><img class="handimg" src="${signature}" alt="Anthony David Adams"><div class="line"></div><div class="who">Anthony David Adams · Founder, EarthPilot</div></div>
@@ -115,7 +117,7 @@ ${background}
     <div class="qr">${qr}<small>Live record · scan</small></div>
   </div>
 </div>
-<div class="no">Certificate ${state}-${name.replace(/\W+/g, "").toUpperCase().slice(0, 10)}-${year.replace(/\D/g, "")} · verify at earthpilot.org/kids/state/${state}/</div>
+<div class="no">Certificate ${state}-${(level === "school" ? school : name).replace(/\W+/g, "").toUpperCase().slice(0, 10)}-${year.replace(/\D/g, "")} · verify at earthpilot.org/kids/state/${state}/</div>
 </div></body></html>`;
 writeFileSync(`${out}.html`, html);
 const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1056, height: 816 }, deviceScaleFactor: 2 });
