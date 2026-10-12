@@ -48,7 +48,8 @@
 <h2>Counties</h2>
 <div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> School district lines</label>
 <span class="meta">South Carolina has 46 counties and 79 school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
-<svg viewBox="728.5 362.0 97.0 75.3" class="countymap" data-state="SC" role="img" aria-label="Counties colored by school district corporal punishment policy">
+<script>window.__dstatus={"4500780":["bans","Anderson 01"],"4501080":["silent","Barnwell School District 45"],"4502010":["silent","Dorchester School District 2"],"4502130":["silent","Florence School District 1"],"4502340":["silent","Greenwood School District 50"],"4502790":["silent","Lexington School District 4"],"4503390":["silent","Richland School District 2"],"4503510":["silent","Spartanburg School District 2"],"4503570":["silent","Spartanburg School District 4"],"4503660":["silent","Spartanburg School District 7"],"4503810":["silent","York School District 1"],"4503907":["silent","Governor'S School For Science And Mathematics"],"4503910":["silent","Orangeburg"],"4503912":["allows","Hampton"]};</script>
+<svg viewBox="728.5 362.0 97.0 75.3" class="countymap" data-state="SC" role="img" aria-label="School districts colored by their corporal punishment policy, over county outlines">
 <defs><pattern id="mixed" patternUnits="userSpaceOnUse" width="1.52" height="1.52" patternTransform="rotate(45)"><rect width="1.52" height="1.52" fill="#2D6A4F"/><rect width="0.76" height="1.52" fill="#9B2C2C"/></pattern></defs>
 <path d="M744.149,369.076L745.641,368.198L746.596,368.174L747.215,366.981L748.007,367.402L750.494,366.951L751.448,374.805L753.123,376.063L752.108,380.8L752.311,381.952L751.052,383.335L748.931,382.035L748.027,380.509L747.459,377.832L747.57,377.078L746.799,376.194L746.423,374.496L745.824,373.849L745.225,371.884L744.22,372.199L744.088,371.017L742.535,371.13L741.266,371.7L740.931,371.279L741.53,370.596Z" fill="#B0A8A0" stroke="#fff" stroke-width="0.13" data-county="Greenville" data-status="District policy not yet checked" data-districts="Greenville County Schools: policy unknown" data-key="greenville" tabindex="0"><title>Greenville</title></path>
 <path d="M774.768,403.891L775.488,404.437L777.61,404.936L780.514,406.141L782.493,407.328L782.777,408.088L783.62,408.569L781.986,410.023L782.026,411.525L781.295,410.664L778.859,412.807L776.463,411.056L775.671,410.207L775.092,404.817Z" fill="#C98383" stroke="#fff" stroke-width="0.13" data-county="Bamberg" data-status="No district recorded yet: state law applies" data-districts="No district recorded yet. State law applies. Help scan it." data-key="bamberg" tabindex="0"><title>Bamberg</title></path>
@@ -118,6 +119,18 @@ p.addEventListener("click",()=>{const row=document.querySelector('tr[data-key="'
 // outline and the county fills are already here; this is the layer that shows the unit policy is
 // actually set in.
 const dbox=document.getElementById("dlines");
+// Districts, coloured by their own policy. Counties stay underneath as the base map.
+(async()=>{try{const r=await fetch("/kids/data/districts/shapes-"+svg.dataset.state+".json");if(!r.ok)return;const j=await r.json();const st=window.__dstatus||{};
+const FILL={allows:"#9B2C2C",consent_required:"#C05621",silent:"#B5474A",bans:"#2D6A4F",unknown:"#B0A8A0"};const LBL={allows:"permits it",consent_required:"permits it with a parent's consent",silent:"no written rule found",bans:"prohibits it",unknown:"policy not read yet"};
+const layer=document.createElementNS(NS,"g");layer.setAttribute("class","district-fills");
+for(const [id,d] of Object.entries(j.shapes)){const [status,name]=st[id]||["unknown",id];const p=document.createElementNS(NS,"path");p.setAttribute("d",d);p.setAttribute("fill",FILL[status]||FILL.unknown);p.setAttribute("fill-opacity","0.92");p.setAttribute("stroke","#fff");p.setAttribute("stroke-width",(parseFloat(svg.viewBox.baseVal.width)/900).toFixed(2));p.dataset.district=name;p.dataset.status=LBL[status]||status;p.setAttribute("tabindex","0");layer.append(p);}
+const outline=svg.querySelector("path[pointer-events=none]");svg.insertBefore(layer,outline||null);
+for(const c of svg.querySelectorAll("path[data-county]")){c.setAttribute("fill-opacity","0.35");}
+const show=(e,p)=>{tip.innerHTML="<b>"+p.dataset.district+"</b><br>"+p.dataset.status;tip.style.display="block";const b=box.getBoundingClientRect();tip.style.left=(e.clientX-b.left+12)+"px";tip.style.top=(e.clientY-b.top+12)+"px";};
+layer.addEventListener("mousemove",e=>{const p=e.target.closest("path");if(p)show(e,p);});layer.addEventListener("mouseleave",()=>{tip.style.display="none";});
+layer.addEventListener("click",e=>{const p=e.target.closest("path");if(!p)return;const row=[...document.querySelectorAll("table tr")].find(tr=>tr.textContent.toLowerCase().includes(p.dataset.district.toLowerCase()));if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.style.outline="2px solid #B7791F";setTimeout(()=>row.style.outline="",2500);}});
+const note=document.getElementById("county-live-note");if(note)note.textContent=j.count+" school districts drawn from US Census Bureau boundaries, each in the colour of its own policy; counties underneath show the state's status where no district is recorded.";
+}catch(e){}})();
 let dloaded=false;
 const showLines=on=>{distLayer.style.display=on?"":"none";};
 const loadLines=async()=>{if(dloaded)return;dloaded=true;

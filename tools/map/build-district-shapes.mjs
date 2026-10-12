@@ -29,7 +29,8 @@ if (!dir) { console.error("usage: node build-district-shapes.mjs <dir with the C
 const wanted = new Map();
 for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith(".yaml"))) {
   const doc = parse(readFileSync(join(root, "data/districts", f), "utf8"));
-  for (const d of doc.districts) if (d.source && d.nces_id) wanted.set(d.nces_id, { state: doc.state, name: d.name });
+  // Every district on the record, sourced or not: an unread district is drawn too, in the "unknown" grey.
+  for (const d of doc.districts) if (d.nces_id) wanted.set(String(d.nces_id), { state: doc.state, name: d.name });
 }
 
 const projection = geoAlbersUsa().scale(1300).translate([487.5, 305]);
@@ -62,6 +63,11 @@ const payload = JSON.stringify({
   shapes: out,
 });
 writeFileSync(join(root, "site/data/district-shapes.json"), payload);
+// One file per state for the state pages, so a page loads only its own districts.
+const byState = {};
+for (const [id, d] of Object.entries(out)) { const st = wanted.get(id)?.state; if (st) (byState[st] ||= {})[id] = d; }
+for (const [st, shapes] of Object.entries(byState)) writeFileSync(join(root, `site/data/districts/shapes-${st}.json`), JSON.stringify({ state: st, count: Object.keys(shapes).length, shapes }));
+console.log(`per-state shape files: ${Object.keys(byState).length}`);
 console.log(`${Object.keys(out).length} district shapes, ${(payload.length / 1024).toFixed(0)} KB raw, ${(gzipSync(Buffer.from(payload)).length / 1024).toFixed(0)} KB gzipped`);
 if (missing.length) {
   console.log(`\nno boundary found for ${missing.length}:`);

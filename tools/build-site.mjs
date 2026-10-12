@@ -102,7 +102,8 @@ function countyMap(code, ds) {
     return `<path d="${c.d}" fill="${CFILL[st]}" stroke="#fff" stroke-width="${sw}" data-county="${esc(c.name)}" data-status="${esc(CLBL[st])}" data-districts="${esc(label)}" data-key="${esc(norm(c.name))}" tabindex="0"><title>${esc(c.name)}</title></path>`; }).join("\n");
   return `<div class="mapbox"><div class="mapctl"><input id="dsearch" type="search" placeholder="Find a district or county" aria-label="Find a district or county"><label class="dlines"><input type="checkbox" id="dlines" checked> School district lines</label>
 <span class="meta">${esc(s.name)} has ${cps.length} counties and ${leaCounts[code] ? n(leaCounts[code]) : "many"} school districts; the map is counties, and policy is set district by district. Hover one for its districts; click to jump to the table.</span></div>
-<svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" data-state="${code}" role="img" aria-label="Counties colored by school district corporal punishment policy">
+<script>window.__dstatus=${JSON.stringify(Object.fromEntries(ds.filter(d => d.nces_id).map(d => [String(d.nces_id), [d.status || "unknown", d.name]])))};</script>
+<svg viewBox="${(x - pad).toFixed(1)} ${(y - pad).toFixed(1)} ${(w + 2 * pad).toFixed(1)} ${(h + 2 * pad).toFixed(1)}" class="countymap" data-state="${code}" role="img" aria-label="School districts colored by their corporal punishment policy, over county outlines">
 <defs><pattern id="mixed" patternUnits="userSpaceOnUse" width="${(Math.max(w, h) / 60).toFixed(2)}" height="${(Math.max(w, h) / 60).toFixed(2)}" patternTransform="rotate(45)"><rect width="${(Math.max(w, h) / 60).toFixed(2)}" height="${(Math.max(w, h) / 60).toFixed(2)}" fill="#2D6A4F"/><rect width="${(Math.max(w, h) / 120).toFixed(2)}" height="${(Math.max(w, h) / 60).toFixed(2)}" fill="#9B2C2C"/></pattern></defs>
 ${paths}
 <path d="${statePaths[code]}" fill="none" stroke="#0D132D" stroke-width="${(Math.max(w, h) / 450).toFixed(2)}" pointer-events="none"/>
@@ -127,6 +128,18 @@ p.addEventListener("click",()=>{const row=document.querySelector('tr[data-key="'
 // outline and the county fills are already here; this is the layer that shows the unit policy is
 // actually set in.
 const dbox=document.getElementById("dlines");
+// Districts, coloured by their own policy. Counties stay underneath as the base map.
+(async()=>{try{const r=await fetch("/kids/data/districts/shapes-"+svg.dataset.state+".json");if(!r.ok)return;const j=await r.json();const st=window.__dstatus||{};
+const FILL={allows:"#9B2C2C",consent_required:"#C05621",silent:"#B5474A",bans:"#2D6A4F",unknown:"#B0A8A0"};const LBL={allows:"permits it",consent_required:"permits it with a parent's consent",silent:"no written rule found",bans:"prohibits it",unknown:"policy not read yet"};
+const layer=document.createElementNS(NS,"g");layer.setAttribute("class","district-fills");
+for(const [id,d] of Object.entries(j.shapes)){const [status,name]=st[id]||["unknown",id];const p=document.createElementNS(NS,"path");p.setAttribute("d",d);p.setAttribute("fill",FILL[status]||FILL.unknown);p.setAttribute("fill-opacity","0.92");p.setAttribute("stroke","#fff");p.setAttribute("stroke-width",(parseFloat(svg.viewBox.baseVal.width)/900).toFixed(2));p.dataset.district=name;p.dataset.status=LBL[status]||status;p.setAttribute("tabindex","0");layer.append(p);}
+const outline=svg.querySelector("path[pointer-events=none]");svg.insertBefore(layer,outline||null);
+for(const c of svg.querySelectorAll("path[data-county]")){c.setAttribute("fill-opacity","0.35");}
+const show=(e,p)=>{tip.innerHTML="<b>"+p.dataset.district+"</b><br>"+p.dataset.status;tip.style.display="block";const b=box.getBoundingClientRect();tip.style.left=(e.clientX-b.left+12)+"px";tip.style.top=(e.clientY-b.top+12)+"px";};
+layer.addEventListener("mousemove",e=>{const p=e.target.closest("path");if(p)show(e,p);});layer.addEventListener("mouseleave",()=>{tip.style.display="none";});
+layer.addEventListener("click",e=>{const p=e.target.closest("path");if(!p)return;const row=[...document.querySelectorAll("table tr")].find(tr=>tr.textContent.toLowerCase().includes(p.dataset.district.toLowerCase()));if(row){row.scrollIntoView({behavior:"smooth",block:"center"});row.style.outline="2px solid #B7791F";setTimeout(()=>row.style.outline="",2500);}});
+const note=document.getElementById("county-live-note");if(note)note.textContent=j.count+" school districts drawn from US Census Bureau boundaries, each in the colour of its own policy; counties underneath show the state's status where no district is recorded.";
+}catch(e){}})();
 let dloaded=false;
 const showLines=on=>{distLayer.style.display=on?"":"none";};
 const loadLines=async()=>{if(dloaded)return;dloaded=true;
