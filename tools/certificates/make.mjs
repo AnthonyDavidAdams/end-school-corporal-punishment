@@ -11,6 +11,7 @@ const sup = arg("superintendent", "");
 const url = arg("url", "https://earthpilot.org/kids/state/KS/"), out = arg("out", "out/certificates/derby");
 const qr = readFileSync(arg("qr", "out/certificates/qr-derby.svg"), "utf8").replace(/<\?xml[^>]*>/, "");
 const logo = "data:image/png;base64," + readFileSync(new URL("../../site/assets/earthpilot.png", import.meta.url)).toString("base64");
+const signature = "data:image/png;base64," + readFileSync(new URL("../../assets/signature/anthony-david-adams.png", import.meta.url)).toString("base64");
 const STATE = { KS: "Kansas", MO: "Missouri", OK: "Oklahoma", TX: "Texas", KY: "Kentucky", IN: "Indiana", NC: "North Carolina", AR: "Arkansas", GA: "Georgia", MS: "Mississippi", AL: "Alabama", TN: "Tennessee", LA: "Louisiana", FL: "Florida", SC: "South Carolina", WY: "Wyoming", AZ: "Arizona" }[state] || state;
 
 // Filigree: one corner ornament drawn once, mirrored to the other three; a thin double rule between.
@@ -41,7 +42,7 @@ h1{font-weight:600;font-size:48px;letter-spacing:.08em;margin:2px 0 0;color:#0D1
 .body{font-size:17px;line-height:1.5;max-width:7.3in;color:#293340}.body b{color:#0D132D}
 blockquote{margin:10px auto 0;max-width:6.6in;font-style:italic;font-size:18px;line-height:1.4;color:#0D132D}blockquote small{display:block;font-style:normal;font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5A6577;margin-top:6px}
 .foot{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:20px}
-.sig{text-align:center}.sig .hand{font-family:'Great Vibes',cursive;font-size:30px;line-height:1;color:#0D132D;margin-bottom:2px}.sig .line{width:220px;height:1px;background:#0D132D;margin:0 auto 5px}.sig .who{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5A6577}
+.sig{text-align:center}.sig .handimg{height:62px;width:auto;display:block;margin:0 auto -6px}.sig .line{width:220px;height:1px;background:#0D132D;margin:0 auto 5px}.sig .who{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5A6577}
 .seal{width:118px;height:118px;border-radius:50%;border:1.5px solid #B7791F;display:flex;align-items:center;justify-content:center;position:relative}.seal:before{content:"";position:absolute;inset:6px;border-radius:50%;border:.5px solid #B7791F}.seal img{width:62px;height:62px;border-radius:50%}
 .qr{text-align:center}.qr svg{width:84px;height:84px;display:block;margin:0 auto 4px}.qr small{font-family:'Source Sans 3',sans-serif;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#5A6577}
 .no{position:absolute;bottom:.84in;left:0;right:0;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#8B95A5}
@@ -61,7 +62,7 @@ blockquote{margin:10px auto 0;max-width:6.6in;font-style:italic;font-size:18px;l
     <blockquote>“${quote}”<small>Board policy ${code} · recorded at earthpilot.org/kids</small></blockquote>
   </div>
   <div class="foot">
-    <div class="sig"><div class="hand">Anthony David Adams</div><div class="line"></div><div class="who">Anthony David Adams · Founder, EarthPilot</div></div>
+    <div class="sig"><img class="handimg" src="${signature}" alt="Anthony David Adams"><div class="line"></div><div class="who">Anthony David Adams · Founder, EarthPilot</div></div>
     <div class="seal"><img src="${logo}" alt=""></div>
     <div class="qr">${qr}<small>Live record · scan</small></div>
   </div>
