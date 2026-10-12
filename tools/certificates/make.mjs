@@ -7,6 +7,7 @@ import { chromium } from "playwright";
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
 const state = arg("state", "KS"), name = arg("name", "Derby"), code = arg("code", "JDA"), year = arg("year", "2026–27");
 const quote = arg("quote", "Corporal punishment shall not be permitted in the school district.");
+const sup = arg("superintendent", "");
 const url = arg("url", "https://earthpilot.org/kids/state/KS/"), out = arg("out", "out/certificates/derby");
 const qr = readFileSync(arg("qr", "out/certificates/qr-derby.svg"), "utf8").replace(/<\?xml[^>]*>/, "");
 const logo = "data:image/png;base64," + readFileSync(new URL("../../site/assets/earthpilot.png", import.meta.url)).toString("base64");
@@ -31,7 +32,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><title>Safe Schoo
 .sheet{position:relative;width:11in;height:8.5in;background:#FFFEFA;color:#0D132D;font-family:'Cormorant Garamond',Georgia,serif;overflow:hidden}
 .frame{position:absolute;inset:.42in;border:1px solid #B7791F}.frame2{position:absolute;inset:.5in;border:2px solid #0D132D}.frame3{position:absolute;inset:.58in;border:.5px solid #B7791F}
 .corner{position:absolute;width:100px;height:100px}.tl{top:.64in;left:.64in}.tr{top:.64in;right:.64in;transform:scaleX(-1)}.bl{bottom:.64in;left:.64in;transform:scaleY(-1)}.br{bottom:.64in;right:.64in;transform:scale(-1,-1)}.vine{position:absolute;left:1.9in;right:1.9in}.vtop{top:.66in}.vbot{bottom:.64in}
-.inner{position:absolute;inset:1.05in 1.2in .95in;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:8px}
+.inner{position:absolute;inset:1.02in 1.2in 1.22in;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:8px}
 .mark{display:flex;align-items:center;gap:12px;font-family:'Source Sans 3',sans-serif;letter-spacing:.32em;text-transform:uppercase;font-size:11px;color:#5A6577}.mark img{width:34px;height:34px;border-radius:50%}
 h1{font-weight:600;font-size:48px;letter-spacing:.08em;margin:2px 0 0;color:#0D132D}
 .sub{font-family:'Source Sans 3',sans-serif;letter-spacing:.3em;text-transform:uppercase;font-size:11px;color:#B7791F;margin-top:6px}
@@ -40,10 +41,10 @@ h1{font-weight:600;font-size:48px;letter-spacing:.08em;margin:2px 0 0;color:#0D1
 .body{font-size:17px;line-height:1.5;max-width:7.3in;color:#293340}.body b{color:#0D132D}
 blockquote{margin:10px auto 0;max-width:6.6in;font-style:italic;font-size:18px;line-height:1.4;color:#0D132D}blockquote small{display:block;font-style:normal;font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5A6577;margin-top:6px}
 .foot{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:20px}
-.sig{text-align:center}.sig .hand{font-family:'Great Vibes',cursive;font-size:34px;line-height:1;color:#0D132D;margin-bottom:2px}.sig .line{width:220px;height:1px;background:#0D132D;margin:0 auto 5px}.sig .who{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5A6577}
+.sig{text-align:center}.sig .hand{font-family:'Great Vibes',cursive;font-size:30px;line-height:1;color:#0D132D;margin-bottom:2px}.sig .line{width:220px;height:1px;background:#0D132D;margin:0 auto 5px}.sig .who{font-family:'Source Sans 3',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#5A6577}
 .seal{width:118px;height:118px;border-radius:50%;border:1.5px solid #B7791F;display:flex;align-items:center;justify-content:center;position:relative}.seal:before{content:"";position:absolute;inset:6px;border-radius:50%;border:.5px solid #B7791F}.seal img{width:62px;height:62px;border-radius:50%}
 .qr{text-align:center}.qr svg{width:84px;height:84px;display:block;margin:0 auto 4px}.qr small{font-family:'Source Sans 3',sans-serif;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:#5A6577}
-.no{position:absolute;bottom:.86in;left:0;right:0;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#8B95A5}
+.no{position:absolute;bottom:.84in;left:0;right:0;text-align:center;font-family:'Source Sans 3',sans-serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#8B95A5}
 </style></head><body><div class="sheet">
 <div class="frame"></div><div class="frame2"></div><div class="frame3"></div>
 <svg class="corner tl" viewBox="0 0 100 100">${corner}</svg><svg class="corner tr" viewBox="0 0 100 100">${corner}</svg><svg class="corner bl" viewBox="0 0 100 100">${corner}</svg><svg class="corner br" viewBox="0 0 100 100">${corner}</svg><div class="vine vtop">${vine}</div><div class="vine vbot">${vine}</div>
@@ -53,14 +54,14 @@ blockquote{margin:10px auto 0;max-width:6.6in;font-style:italic;font-size:18px;l
     <h1>Safe School</h1><div class="sub">Recognition for the ${year} school year</div>
     <div class="rule"></div>
     <div class="pres">is presented to</div>
-    <div class="name">${name}</div><div class="state">${STATE}</div>
+    <div class="name">${name}</div><div class="state">${STATE}${sup ? ` &middot; ${sup}, Superintendent` : ""}</div>
   </div>
   <div>
-    <p class="body">for a written board policy that <b>prohibits corporal punishment</b> in every school it governs, placing the district with the American Academy of Pediatrics, the U.S. Department of Education and the 33 states that have ended the practice.</p>
+    <p class="body">for a written board policy that <b>prohibits corporal punishment</b> in every school it governs, in keeping with the American Academy of Pediatrics, the U.S. Secretary of Education's 2023 call to end the practice, and the 33 states that prohibit it by law.</p>
     <blockquote>“${quote}”<small>Board policy ${code} · recorded at earthpilot.org/kids</small></blockquote>
   </div>
   <div class="foot">
-    <div class="sig"><div class="hand">Anthony Adams</div><div class="line"></div><div class="who">Anthony Adams · Founder, EarthPilot</div></div>
+    <div class="sig"><div class="hand">Anthony David Adams</div><div class="line"></div><div class="who">Anthony David Adams · Founder, EarthPilot</div></div>
     <div class="seal"><img src="${logo}" alt=""></div>
     <div class="qr">${qr}<small>Live record · scan</small></div>
   </div>
