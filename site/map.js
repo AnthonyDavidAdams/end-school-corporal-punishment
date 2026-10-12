@@ -86,6 +86,29 @@ async function main() {
     path.addEventListener("blur", () => tip.style.display = "none");
     path.addEventListener("keydown", (e) => { if (e.key === "Enter") location.href = `/kids/state/${code}/`; });
   }
+  // Districts on the national map, in permitting states: each recorded district in the colour of its
+  // own policy, drawn above the county fills and below the state borders. Loaded after the map is up
+  // (a 220 KB file), so the page is usable first.
+  (async () => {
+    try {
+      const r = await fetch("/kids/data/district-shapes-lite.json"); if (!r.ok) return; const j = await r.json();
+      const status = {}; for (const [st, list] of Object.entries(districts)) for (const d of list) if (d.nces_id) status[String(d.nces_id)] = [st, d.status || "unknown", d.name];
+      const DF = { allows: "#9B2C2C", consent_required: "#C05621", silent: "#B5474A", bans: "#2D6A4F", unknown: "#B0A8A0" };
+      const DL = { allows: "permits it", consent_required: "permits it with a parent's consent", silent: "no written rule found", bans: "prohibits it", unknown: "policy not read yet" };
+      const g = document.createElementNS(NS, "g"); g.id = "district-fills";
+      let n = 0;
+      for (const [id, d] of Object.entries(j.shapes)) {
+        const [st, stat, name] = status[id] || []; if (!st || !states[st] || states[st].status === "banned") continue;
+        const p = document.createElementNS(NS, "path"); p.setAttribute("d", d); p.setAttribute("fill", DF[stat] || DF.unknown); p.setAttribute("stroke", "#fff"); p.setAttribute("stroke-width", "0.25"); p.setAttribute("stroke-opacity", "0.6");
+        p.dataset.state = st; p.dataset.name = name; p.dataset.status = DL[stat] || stat; g.append(p); n++;
+      }
+      const borders = svg.querySelector("#state-borders"); svg.insertBefore(g, borders);
+      g.addEventListener("mousemove", (e) => { const p = e.target.closest("path"); if (!p) return; const s = states[p.dataset.state]; tip.innerHTML = `<b>${p.dataset.name}</b>, ${s ? s.name : p.dataset.state}<span class="st">District ${p.dataset.status}</span><br><span class="st">Click for the state record</span>`; tip.style.display = "block"; place(e); });
+      g.addEventListener("mouseleave", clearHover);
+      g.addEventListener("click", (e) => { const p = e.target.closest("path"); if (p) location.href = `/kids/state/${p.dataset.state}/`; });
+      const leg = document.getElementById("legend"); if (leg && n) leg.insertAdjacentHTML("beforeend", `<span><i style="background:${DF.bans}"></i>District prohibits it</span><span><i style="background:${DF.consent_required}"></i>Parent's consent required</span><span><i style="background:${DF.allows}"></i>District permits it</span><span><i style="background:${DF.silent}"></i>No written rule found</span>`);
+    } catch (e) {}
+  })();
   svg.querySelector("#state-borders").setAttribute("stroke", "#fff");
   svg.querySelector("#state-borders").style.pointerEvents = "none";
   host.addEventListener("mouseleave", clearHover);
