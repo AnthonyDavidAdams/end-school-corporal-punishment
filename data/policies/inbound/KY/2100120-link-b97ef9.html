@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="Images/ksba.ico" /><title>
+	Kentucky School Boards Association Policy Services System
+</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!--<link href="/Content/css?v=MQ2kcnsLup38vOGitin-64hdtGUOOWumrhsqYcLZSoI1" rel="stylesheet"/>
+-->
+    <script src="Scripts/CommonScript.js" type="text/javascript"></script>
+    <script src="Scripts/ScriptConstants.js" type="text/javascript"></script>
+    <!--<meta name="viewport" content="width=device-width" />-->
+    <link rel="stylesheet" href="Content/Site2.css?v=1.2" />
+    <style type="text/css">
+        /*.rcbSlide { margin-left: inherit !important; margin-top: 10px; }*/
+        .rcbSlide {
+            margin-top: 10px;
+            position: absolute;
+            overflow: hidden;
+            display: none;
+            _height: 1px;
+            float: left;
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+        function OnClientSelectedIndexChanged(sender, eventArgs) {
+            var item = eventArgs.get_item();
+            //this.hfPolicyID.Value = ddlPolicy.SelectedValue.ToString();
+            //this.hfPolicyName.Value = ddlPolicy.SelectedItem.Text.Substring(0, ddlPolicy.SelectedItem.Text.IndexOf("-") - 1).ToString();
+
+            //var pname = item.get_text().substring(0, item.get_text().indexOf('-') - 1);
+            //alert(item.get_value());
+            //alert(pname);
+
+            //document.getElementById('MainContent_hfPolicyID').Value = item.get_value();
+            //document.getElementById('MainContent_hfPolicyName').Value = pname;
+            //alert(document.getElementById('MainContent_hfPolicyID').Value);
+            //alert(document.getElementById('MainContent_hfPolicyName').Value);
+
+            //var pol = $find('MainContent_hfPolicyID');
+            //pol.set_value(item.get_value());
+            //var polName = $('MainContent_hfPolicyName');
+            //polName.set_value(pname);
+
+            //document.getElementById('ctl00_MainContent_ddlProcedure').Value = 0;
+            //alert(document.getElementById('ctl00_MainContent_ddlProcedure').Value);
+            var combo = $find('ctl00_MainContent_ddlProcedure');
+            combo.set_value('0');
+            combo.set_text("");
+
+            //set null values to procedure
+            //document.getElementById('MainContent_hfProcedureID').Value = null;
+            //document.getElementById('MainContent_hfProcedureName').Value = null;
+
+            //alert('OnClientSelectedIndexChanged');
+            if (item.get_value() != 0)
+                PrintOnlineManualDocument('POLICY');
+            //OpenPolicyProcedureDocument('POLICY');
+
+            //sender.set_text("You selected " + item.get_text());
+        }
+        function OnClientSelectedIndexChanged_Procedure(sender, eventArgs) {
+            var item = eventArgs.get_item();
+
+            //var pname = item.get_text().substring(0, item.get_text().indexOf('-') - 1);
+            //alert(pname);
+            //alert(item.get_value());
+
+            //document.getElementById('MainContent_hfProcedureID').Value = item.get_value();
+            //document.getElementById('MainContent_hfProcedureName').Value = pname;
+
+            //document.getElementById('ctl00_MainContent_ddlPolicy').Value = 0;
+            //alert(document.getElementById('ctl00_MainContent_ddlPolicy').Value);
+            var combo = $find('ctl00_MainContent_ddlPolicy');
+            combo.set_value('0');
+            combo.set_text("");
+
+            //set null values to policy
+            //document.getElementById('MainContent_hfPolicyID').Value = null;
+            //document.getElementById('MainContent_hfPolicyName').Value = null;
+
+            //alert('OnClientSelectedIndexChanged_Procedure');
+            if (item.get_value() != 0)
+                PrintOnlineManualDocument('PROCEDURE');
+            //OpenPolicyProcedureDocument('PROCEDURE');
+        }
+
+    </script>
+<link href="/WebResource.axd?d=ZdkyoYrqu5VG1EWV3GtpPwIf3O0b9KzFvLa2g9T1qFS-vgQpz4Ww4PXZE5p2zjL7fdP4kYSv2-vBtdp3RYgo--gGGZubBlkXzxNrRmqWVHymI78d6tYq8uR8f_HPTOccim_uvo6k6XK6xnN8hqs8pg2&amp;t=635054153560000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=A5M1deMnQ7Zqd4xCr93phoEhvWkFSVA4K0BqshV49N7IdaVlnHqWDilVSNXsO-k09yoIOumw36w1NYt6I89IdAo5XmCUz_TFGlPD9Qd285H1Os7tPFFe8MixHQSWpKySv8m1gDugHVbpwZLMGwlYIxleN9SoR_SgRhOKe97rtgg1&amp;t=635054153560000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body>
+    <form method="post" action="./Chapter.aspx?distid=149" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE0ODM2OTM0ODEPZBYCZg8PFgQeD19fQW50aVhzcmZUb2tlbgUgNjQ3YWMzNGEyMWZhNGVlMWE2YWE0Y2JkZGRhMTgyMDYeEl9fQW50aVhzcmZVc2VyTmFtZWVkFgICAw9kFggCCg9kFgICAQ8PFgIeBFRleHQFHkFuZGVyc29uIENvdW50eSAgT25saW5lIE1hbnVhbGRkAgsPFgIeCWlubmVyaHRtbAU2V2VsY29tZSB0byB0aGUgRGlzdHJpY3QmIzM5O3MgUG9saWN5L1Byb2NlZHVyZSBNYW51YWwhZAIMD2QWBgIBDxQrAAIPFg4eC18hRGF0YUJvdW5kZx4ORGF0YVZhbHVlRmllbGQFBENvZGUeFEFwcGVuZERhdGFCb3VuZEl0ZW1zZx8CZR4TY2FjaGVkU2VsZWN0ZWRWYWx1ZWQeF0VuYWJsZUFqYXhTa2luUmVuZGVyaW5naB4NRGF0YVRleHRGaWVsZAUIQ29kZU5hbWVkDxQrAAsUKwACDxYGHwJlHgVWYWx1ZQUBMB4IU2VsZWN0ZWRnZGQUKwACDxYGHwIFHkNoYXB0ZXIgMDEgLSBQb3dlcnMgYW5kIER1dGllcx8KBQIwMR8LaGRkFCsAAg8WBh8CBRtDaGFwdGVyIDAyIC0gQWRtaW5pc3RyYXRpb24fCgUCMDIfC2hkZBQrAAIPFgYfAgUWQ2hhcHRlciAwMyAtIFBlcnNvbm5lbB8KBQIwMx8LaGRkFCsAAg8WBh8CBR5DaGFwdGVyIDA0IC0gRmlzY2FsIE1hbmFnZW1lbnQfCgUCMDQfC2hkZBQrAAIPFgYfAgUeQ2hhcHRlciAwNSAtIFNjaG9vbCBGYWNpbGl0aWVzHwoFAjA1HwtoZGQUKwACDxYGHwIFG0NoYXB0ZXIgMDYgLSBUcmFuc3BvcnRhdGlvbh8KBQIwNh8LaGRkFCsAAg8WBh8CBR1DaGFwdGVyIDA3IC0gU3VwcG9ydCBTZXJ2aWNlcx8KBQIwNx8LaGRkFCsAAg8WBh8CBSdDaGFwdGVyIDA4IC0gQ3VycmljdWx1bSBhbmQgSW5zdHJ1Y3Rpb24fCgUCMDgfC2hkZBQrAAIPFgYfAgUVQ2hhcHRlciAwOSAtIFN0dWRlbnRzHwoFAjA5HwtoZGQUKwACDxYGHwIFIENoYXB0ZXIgMTAgLSBDb21tdW5pdHkgUmVsYXRpb25zHwoFAjEwHwtoZGQPFCsBC2ZmZmZmZmZmZmZmFgEFeFRlbGVyaWsuV2ViLlVJLlJhZENvbWJvQm94SXRlbSwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAxMi4zLjEzMDguNDAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49MTIxZmFlNzgxNjViYTNkNBYaZg8PFgQeCENzc0NsYXNzBQlyY2JIZWFkZXIeBF8hU0ICAmRkAgEPDxYEHwwFCXJjYkZvb3Rlch8NAgJkZAICDw8WBh8CZR8KBQEwHwtnZGQCAw8PFgYfAgUeQ2hhcHRlciAwMSAtIFBvd2VycyBhbmQgRHV0aWVzHwoFAjAxHwtoZGQCBA8PFgYfAgUbQ2hhcHRlciAwMiAtIEFkbWluaXN0cmF0aW9uHwoFAjAyHwtoZGQCBQ8PFgYfAgUWQ2hhcHRlciAwMyAtIFBlcnNvbm5lbB8KBQIwMx8LaGRkAgYPDxYGHwIFHkNoYXB0ZXIgMDQgLSBGaXNjYWwgTWFuYWdlbWVudB8KBQIwNB8LaGRkAgcPDxYGHwIFHkNoYXB0ZXIgMDUgLSBTY2hvb2wgRmFjaWxpdGllcx8KBQIwNR8LaGRkAggPDxYGHwIFG0NoYXB0ZXIgMDYgLSBUcmFuc3BvcnRhdGlvbh8KBQIwNh8LaGRkAgkPDxYGHwIFHUNoYXB0ZXIgMDcgLSBTdXBwb3J0IFNlcnZpY2VzHwoFAjA3HwtoZGQCCg8PFgYfAgUnQ2hhcHRlciAwOCAtIEN1cnJpY3VsdW0gYW5kIEluc3RydWN0aW9uHwoFAjA4HwtoZGQCCw8PFgYfAgUVQ2hhcHRlciAwOSAtIFN0dWRlbnRzHwoFAjA5HwtoZGQCDA8PFgYfAgUgQ2hhcHRlciAxMCAtIENvbW11bml0eSBSZWxhdGlvbnMfCgUCMTAfC2hkZAIDDxQrAAIPFgIfCGhkZBYEZg8PFgQfDAUJcmNiSGVhZGVyHw0CAmRkAgEPDxYEHwwFCXJjYkZvb3Rlch8NAgJkZAIFDxQrAAIPFgIfCGhkZBYEZg8PFgQfDAUJcmNiSGVhZGVyHw0CAmRkAgEPDxYEHwwFCXJjYkZvb3Rlch8NAgJkZAIODxYCHgdWaXNpYmxlZ2QYBAUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgMFHGN0bDAwJE1haW5Db250ZW50JGRkbENoYXB0ZXIFG2N0bDAwJE1haW5Db250ZW50JGRkbFBvbGljeQUeY3RsMDAkTWFpbkNvbnRlbnQkZGRsUHJvY2VkdXJlBR5jdGwwMCRNYWluQ29udGVudCRkZGxQcm9jZWR1cmUPFCsAAmVlZAUbY3RsMDAkTWFpbkNvbnRlbnQkZGRsUG9saWN5DxQrAAJlZWQFHGN0bDAwJE1haW5Db250ZW50JGRkbENoYXB0ZXIPFCsAAmUFATBkcp1J7eSEappGJNUeSoMyps574xRuJ9F0NDTYZfEj11U=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=ruwiELq8DurpJsrbjDRLzBWw_MjiuNQ5WeMi9FgPfTb-I2AG8MfKG-BwexBBxjJsMcodNk1KCaRyL-2AgPoId1sMNyZVHnhggk5TrgMITLY1&amp;t=639220970657418952" type="text/javascript"></script>
+
+
+<script src="Scripts/WebForms/MsAjax/MicrosoftAjax.js" type="text/javascript"></script>
+<script src="Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=lmFTsZYXOF5DGS8rjlP2eFYXpJnT6kDavsgst9cnEQ--LpMPm2zNYucgp6xqTsT4X3n9C32faPF9fKTK-RqFZtQgGCNtQft3Yat5s_hwijmdpFrmumIiJWOdK3cZtUU11wLfI_OsMPbFBOF1h5TOqQ2&amp;t=7fbb4881" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=WKFrftqUNVblK-jKISYuCoWTaBTAfxKIxMSTnMtQ24sMvPoQ86u2v4Yrmxwqxu7bGc0zfOUOKzsD_xQ6wVyc0S2ySFmaCrgca4ZeofHdfPQFA8WCwh3A6YLlbLTMmdUy7x0r0cTfRm9Iz3wwoqhcqA2&amp;t=7fbb4881" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=x6RMnaBNw8WE7atfVN0xdzgdFDRiWMsAV1BxU3N0qm-FvylJSh1WxKKrTJHEq3h5nLNJ25B777j5_PJhPIibGdok6pMXMpy8DcXA0f8SMHfCZPFc5iVwx7AL3sMZHc-wWaj35dxbiekZrtpJTSpGVA2&amp;t=7fbb4881" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=FWRQWOQdIMTS2Wi92fVOlOUi4HD91CHP68T_JNzuTQpzxHAJpbgz6aTH5T3A4WASTFB8PolenrV7JoAuk982wUYsGQBhpKH_E_hzVhfmJMzcWokTE8v2Ub99EdkkYCgfmeYr45S5Q7I2VR5ezz-2VxEf8-AeUwj6MoJs9pLASOI1&amp;t=7fbb4881" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=XCZ1FWoGRmQk94zykYEqZSMDQGG-sJhM-pF4d7wlVJ4VSEwLH2ky7-bf0H8EIYXNoHdGvJMFCnky9ZS1FO2KkZzv-Q2YKVrNV_1sse6qD37ZrYUAA97TyRg47Itxfbu935AVdd3yQpdQG0x4ph05rYE2aU_2VN25io1lVdLLly01&amp;t=7fbb4881" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=QLUPU1jZ1Xw2fOt7aZB1F8BXvnFxWYbolAJfAPIxyrlgDlsORfTUECjolZyIi4OLtOZ7-LnZJ59zbpy5EkxOeuhXTSiDwWxke35wIyvp3fTM0PnONemV_MOI3SyuqLhE-vhRQWbwUchZiXJ6Ylmf5g4_qnaPZxedHL2_DuTEBcs1&amp;t=7fbb4881" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=4XsG8CEAN8-Pbjzygh09Qrbq3L_W6O42wXD9Yc2wZnd5XLFVSIKbKdulFVbOao-FtdFHYgIJ1i-7KWM15TsJujxOxkOSb6I4-4U2khY2FyjFlq9KPj6w0cFLvg29mpMHW_tt4I7OyHMApeQOlxN7IU8SU6mAvYAIwvqwflycdAE1&amp;t=7fbb4881" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="679D6B48" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAb3I80/LYv0JHNv8INxM9ZZgnJr6xFug7G95pOKyfu+kdxKJ96Xgpg/Hz6PJ3HF05x213W1T9sdHkxJImqF3GdIcg3E6jK38nhlinTKQeTqgiP3Ixh5VCbf1CLfyhLESXRg8H7Oy36zrE+kHiVhYyeNVPYr+lqS80H/Gcf3DeXANw==" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'form1', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        
+        <div class="container-fluid">
+            <div class="row">
+                
+                <div class="col-sm-12">
+                    <nav class="navbar navbar-expand-sm navbar-light">
+                        <a href="./" id="A1" class="navbar-brand headerPadding">
+                            <img src="Images/newlogo.jpg" alt="Kentucky School Boards Association" style="width: 160px; height: auto;" /></a>
+                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" id="menu">
+                            <a href="javascript:OpenWindowFromMenu('CHAPTER')" id="A2" class="nav-item nav-link menu_links" style="color: #000 !important; font-weight: bold;" onclick="OpenWindowFromMenu(&#39;CHAPTER&#39;)"><b>Chapters</b></a>
+                                <a href="javascript:OpenWindowFromMenu('ALL')" id="A7" class="nav-item nav-link menu_links" style="color: #375575 !important; font-weight: bold;" onclick="OpenWindowFromMenu(&#39;ALL&#39;)"><b>All Documents</b></a>
+                                <a href="javascript:OpenWindowFromMenu('SEARCH')" id="A8" class="nav-item nav-link menu_links" style="color: #375575 !important; font-weight: bold;" onclick="OpenWindowFromMenu(&#39;SEARCH&#39;)"><b>Search Manual</b></a>
+                                <a href="javascript:OpenWindowFromMenu('PRINT')" id="A9" class="nav-item nav-link menu_links" style="color: #375575 !important; font-weight: bold;" onclick="OpenWindowFromMenu(&#39;PRINT&#39;)"><b>Print Selected Chapters</b></a>
+                                
+                        </div>
+                      </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 featureText">
+                    
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+            </hgroup>
+            <h1 class="h1left">
+                <span id="FeaturedContent_lblSubscriberName" class="headerText">Anderson County  Online Manual</span></h1>
+            <hgroup>
+            </hgroup>
+        </div>
+    </section>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="divCenterSiteMaster">
+                        
+                        <p id="welcomeMessage">Welcome to the District&#39;s Policy/Procedure Manual!</p>
+                        <br />
+                        
+    <div class="divcenter">
+        <div class="form-inline">
+            <div class="col-2">
+                <label for="ctl00_MainContent_ddlChapter_Input" class="rcbLabel combolabel justfyleft">Chapter</label>
+            </div>
+            <div class="col-10">
+                <div id="ctl00_MainContent_ddlChapter" class="RadComboBox RadComboBox_Default dropdown" style="font-family:Cambria;width:160px;white-space:normal;">
+	<table summary="combobox" style="border-width:0;border-collapse:collapse;width:100%">
+		<tr class="rcbReadOnly">
+			<td style="width:100%;" class="rcbInputCell rcbInputCellLeft"><input name="ctl00$MainContent$ddlChapter" type="text" class="rcbInput radPreventDecorate rcbEmptyMessage" id="ctl00_MainContent_ddlChapter_Input" value="Select a chapter..." readonly="readonly" title="Chapter List" style="font-family:Cambria;" /></td>
+			<td class="rcbArrowCell rcbArrowCellRight"><a id="ctl00_MainContent_ddlChapter_Arrow" style="overflow: hidden;display: block;position: relative;outline: none;">select</a></td>
+		</tr>
+	</table>
+	<!-- 2012.3.1308.40 --><div class="rcbSlide" style="z-index:6000;"><div id="ctl00_MainContent_ddlChapter_DropDown" class="RadComboBoxDropDown RadComboBoxDropDown_Default " style="display:none;"><div class="rcbScroll rcbWidth" style="width:100%;"><ul class="rcbList" style="list-style:none;margin:0;padding:0;zoom:1;"><li class="rcbItem "></li><li class="rcbItem ">Chapter 01 - Powers and Duties</li><li class="rcbItem ">Chapter 02 - Administration</li><li class="rcbItem ">Chapter 03 - Personnel</li><li class="rcbItem ">Chapter 04 - Fiscal Management</li><li class="rcbItem ">Chapter 05 - School Facilities</li><li class="rcbItem ">Chapter 06 - Transportation</li><li class="rcbItem ">Chapter 07 - Support Services</li><li class="rcbItem ">Chapter 08 - Curriculum and Instruction</li><li class="rcbItem ">Chapter 09 - Students</li><li class="rcbItem ">Chapter 10 - Community Relations</li></ul></div></div></div><input id="ctl00_MainContent_ddlChapter_ClientState" name="ctl00_MainContent_ddlChapter_ClientState" type="hidden" />
+</div>
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="col-2">
+                <label for="ctl00_MainContent_ddlPolicy_Input" class="rcbLabel combolabel justfyleft">Policy</label>
+            </div>
+            <div class="col-10">
+                <div id="ctl00_MainContent_ddlPolicy" class="RadComboBox RadComboBox_Default dropdown" style="font-family:Cambria;width:160px;white-space:normal;">
+	<table summary="combobox" style="border-width:0;border-collapse:collapse;width:100%">
+		<tr class="rcbReadOnly">
+			<td style="width:100%;" class="rcbInputCell rcbInputCellLeft"><input name="ctl00$MainContent$ddlPolicy" type="text" class="rcbInput radPreventDecorate rcbEmptyMessage" id="ctl00_MainContent_ddlPolicy_Input" value="Select a policy..." readonly="readonly" title="Policy List" style="font-family:Cambria;" /></td>
+			<td class="rcbArrowCell rcbArrowCellRight"><a id="ctl00_MainContent_ddlPolicy_Arrow" style="overflow: hidden;display: block;position: relative;outline: none;">select</a></td>
+		</tr>
+	</table>
+	<div class="rcbSlide" style="z-index:6000;"><div id="ctl00_MainContent_ddlPolicy_DropDown" class="RadComboBoxDropDown RadComboBoxDropDown_Default " style="display:none;"><div class="rcbScroll rcbWidth" style="height:200px;width:100%;"></div></div></div><input id="ctl00_MainContent_ddlPolicy_ClientState" name="ctl00_MainContent_ddlPolicy_ClientState" type="hidden" />
+</div>
+            </div>
+        </div>
+        <div class="form-inline"></div>
+        <div class="form-inline">
+            <div class="col-2">
+                <label for="ctl00_MainContent_ddlProcedure_Input" class="rcbLabel combolabel justfyleft">Procedure</label>
+            </div>
+            <div class="col-10">
+                <div id="ctl00_MainContent_ddlProcedure" class="RadComboBox RadComboBox_Default dropdown" style="font-family:Cambria;width:160px;white-space:normal;">
+	<table summary="combobox" style="border-width:0;border-collapse:collapse;width:100%">
+		<tr class="rcbReadOnly">
+			<td style="width:100%;" class="rcbInputCell rcbInputCellLeft"><input name="ctl00$MainContent$ddlProcedure" type="text" class="rcbInput radPreventDecorate rcbEmptyMessage" id="ctl00_MainContent_ddlProcedure_Input" value="Select a procedure..." readonly="readonly" title="Procedure List" style="font-family:Cambria;" /></td>
+			<td class="rcbArrowCell rcbArrowCellRight"><a id="ctl00_MainContent_ddlProcedure_Arrow" style="overflow: hidden;display: block;position: relative;outline: none;">select</a></td>
+		</tr>
+	</table>
+	<div class="rcbSlide" style="z-index:6000;"><div id="ctl00_MainContent_ddlProcedure_DropDown" class="RadComboBoxDropDown RadComboBoxDropDown_Default " style="display:none;"><div class="rcbScroll rcbWidth" style="height:200px;width:100%;"></div></div></div><input id="ctl00_MainContent_ddlProcedure_ClientState" name="ctl00_MainContent_ddlProcedure_ClientState" type="hidden" />
+</div>
+            </div>
+        </div>
+        
+        <input type="hidden" name="ctl00$MainContent$hfSubscriberID" id="MainContent_hfSubscriberID" value="149" />
+        <input type="hidden" name="ctl00$MainContent$hfPolicyID" id="MainContent_hfPolicyID" />
+        <input type="hidden" name="ctl00$MainContent$hfPolicyName" id="MainContent_hfPolicyName" />
+        <input type="hidden" name="ctl00$MainContent$hfProcedureID" id="MainContent_hfProcedureID" />
+        <input type="hidden" name="ctl00$MainContent$hfProcedureName" id="MainContent_hfProcedureName" />
+    </div>
+
+                        <br />
+                        <div>
+                            <h6 style="color: #000; font-weight: bold; font-family: Cambria;">Notification</h6>
+                            <p style="border: 2px solid #000; padding: 5px; text-align: center; font-size: small; color: #000; display: none; font-family: Cambria;">
+                                Due to a Legislative Research Commission website upgrade, the statute links in the Online Manual may be broken. We are working to rectify this issue. However, in the meantime, you may search statutes by title at the following link:
+                                        <br />
+                                <a style="color: #000; font-weight: bold" href="https://apps.legislature.ky.gov/law/statutes/" target="_blank">Click here to visit the Legislative website for statutes (KRS).</a>
+
+                            </p>
+                        </div>
+                        
+                        <div>
+                            
+                            <p id="buttomMessage" style="border: 2px solid #000; padding: 5px; text-align: center; font-weight: bold; font-size: small; color: #000; font-family: Cambria;">This online manual is not an official copy of the school board’s official policy/procedure manual. These documents may not contain the most recent changes made by the Board of Education. For an official copy of a policy or procedure, please contact the school district Central Office.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="footer">
+                        <br />
+                        Copyright © 2026 Kentucky School Boards Association
+                    <br />
+                        All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+
+<script type="text/javascript">
+//<![CDATA[
+
+var callBackFrameUrl='/WebResource.axd?d=HG6O4vW6mEigNIMd0txK_04UhXB5wj6bu7RF_-zvjgZABWlkoQ1G5VTQIp7koWZAcjGg1dgytBZ8slK_3HPPn1LdITqcIK42OttESaZBnBg1&t=639220970657418952';
+WebForm_InitCallback();Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadComboBox, {"_dropDownWidth":0,"_height":0,"_postBackReference":"__doPostBack(\u0027ctl00$MainContent$ddlChapter\u0027,\u0027arguments\u0027)","_skin":"Default","_uniqueId":"ctl00$MainContent$ddlChapter","_value":"0","clientStateFieldID":"ctl00_MainContent_ddlChapter_ClientState","collapseAnimation":"{\"duration\":450}","emptyMessage":"Select a chapter...","expandAnimation":"{\"duration\":450}","itemData":[{"value":"0","selected":true},{"value":"01"},{"value":"02"},{"value":"03"},{"value":"04"},{"value":"05"},{"value":"06"},{"value":"07"},{"value":"08"},{"value":"09"},{"value":"10"}],"localization":"{\"AllItemsCheckedString\":\"All items checked\",\"ItemsCheckedString\":\"items checked\",\"CheckAllString\":\"Check All\"}","selectedIndex":0}, null, null, $get("ctl00_MainContent_ddlChapter"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadComboBox, {"_dropDownWidth":0,"_height":200,"_skin":"Default","_uniqueId":"ctl00$MainContent$ddlPolicy","clientStateFieldID":"ctl00_MainContent_ddlPolicy_ClientState","collapseAnimation":"{\"duration\":450}","emptyMessage":"Select a policy...","expandAnimation":"{\"duration\":450}","itemData":[],"localization":"{\"AllItemsCheckedString\":\"All items checked\",\"ItemsCheckedString\":\"items checked\",\"CheckAllString\":\"Check All\"}"}, {"selectedIndexChanged":OnClientSelectedIndexChanged}, null, $get("ctl00_MainContent_ddlPolicy"));
+});
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadComboBox, {"_dropDownWidth":0,"_height":200,"_skin":"Default","_uniqueId":"ctl00$MainContent$ddlProcedure","clientStateFieldID":"ctl00_MainContent_ddlProcedure_ClientState","collapseAnimation":"{\"duration\":450}","emptyMessage":"Select a procedure...","expandAnimation":"{\"duration\":450}","itemData":[],"localization":"{\"AllItemsCheckedString\":\"All items checked\",\"ItemsCheckedString\":\"items checked\",\"CheckAllString\":\"Check All\"}"}, {"selectedIndexChanged":OnClientSelectedIndexChanged_Procedure}, null, $get("ctl00_MainContent_ddlProcedure"));
+});
+//]]>
+</script>
+</form>
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=9&cb=684969337" async></script></body>
+</html>
