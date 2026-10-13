@@ -5040,13 +5040,13 @@ districts:
   - name: Wabaunsee
     county: Wabaunsee
     nces_id: "2003240"
-    status: silent
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/526/Usd_329/d9b76509-59d3-49ad-8c65-03c1cced022d/Policy_Handbook_2023-A.pdf?disposition=inline
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2003240-Board_Agenda_9_11_2023.docx.pdf
+    quote: Strike the policy that allows corporal punishment of students for SCOC violations (JDA) DI 4.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-13
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -5061,8 +5061,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-13; the document is kept in the repository at data/policies/inbound/KS/2003240-Board_Agenda_9_11_2023.docx.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Strike the policy that allows corporal punishment of students for SCOC violations (JDA) DI 4.
   - name: Waconda
     county: Mitchell
     nces_id: "2004470"
