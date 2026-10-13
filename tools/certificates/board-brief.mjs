@@ -35,13 +35,13 @@ const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "
 const html = `<!doctype html><html><head><meta charset="utf-8"><title>Board brief: ${esc(name)}</title>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-@page{size:8.5in 11in;margin:0}html,body{margin:0;background:#fff;color:#0D132D;font-family:'Source Sans 3',system-ui,sans-serif;font-size:11.5pt;line-height:1.5}
-.page{width:8.5in;min-height:11in;padding:.8in .85in .9in;box-sizing:border-box;position:relative;page-break-after:always}.page:last-child{page-break-after:auto}
-.top{display:flex;align-items:center;gap:10px;font-size:9.5pt;letter-spacing:.22em;text-transform:uppercase;color:#5A6577;border-bottom:1px solid #B7791F;padding-bottom:10px;margin-bottom:22px}.top img{width:28px;height:28px;border-radius:50%}.top span.r{margin-left:auto;letter-spacing:.08em;text-transform:none}
+@page{size:8.5in 11in;margin:0}html,body{margin:0;background:#fff;color:#0D132D;font-family:'Source Sans 3',system-ui,sans-serif;font-size:11pt;line-height:1.42}
+.page{width:8.5in;height:11in;padding:.7in .85in .85in;box-sizing:border-box;position:relative;overflow:hidden;page-break-after:always;break-after:page}.page:last-child{page-break-after:auto;break-after:auto}
+.top{display:flex;align-items:center;gap:10px;font-size:9pt;letter-spacing:.2em;text-transform:uppercase;color:#5A6577;border-bottom:1px solid #B7791F;padding-bottom:8px;margin-bottom:16px}.top img{width:28px;height:28px;border-radius:50%}.top span.r{margin-left:auto;letter-spacing:.08em;text-transform:none}
 h1{font-family:Merriweather,Georgia,serif;font-weight:900;font-size:21pt;line-height:1.2;margin:0 0 4px}.sub{color:#5A6577;font-size:12pt;margin:0 0 18px}
-h2{font-family:Merriweather,Georgia,serif;font-size:12.5pt;margin:20px 0 6px;color:#0D132D}
+h2{font-family:Merriweather,Georgia,serif;font-size:12pt;margin:14px 0 5px;color:#0D132D}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 4px}.card{border:1px solid #D9DEE8;border-radius:6px;padding:10px 13px;background:#F7F8FB}.card .k{font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:#B7791F;margin-bottom:4px}.card .v{font-family:Merriweather,Georgia,serif;font-size:13pt;line-height:1.35}.card .s{font-size:9.5pt;color:#5A6577;margin-top:4px}
-blockquote{margin:6px 0 4px;padding:10px 14px;border-left:3px solid #B7791F;background:#FFFDF7;font-family:Merriweather,Georgia,serif;font-size:12pt;line-height:1.45}
+blockquote{margin:5px 0 3px;padding:8px 12px;border-left:3px solid #B7791F;background:#FFFDF7;font-family:Merriweather,Georgia,serif;font-size:12pt;line-height:1.45}
 .adopt{border:1.5px solid #0D132D;border-radius:6px;padding:14px 16px;margin:8px 0 4px;background:#fff}.adopt .k{font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:#B7791F;margin-bottom:6px}.adopt p{margin:0;font-family:Merriweather,Georgia,serif;font-size:12.5pt;line-height:1.5}
 ul{margin:4px 0 0 18px;padding:0}li{margin:0 0 5px}.orgs{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:9.5pt;letter-spacing:.08em;text-transform:uppercase;margin:4px 0 0}.orgs i{font-style:normal;color:#B7791F;margin-left:3px}
 .small{font-size:9.5pt;color:#5A6577}.foot{position:absolute;left:.85in;right:.85in;bottom:.5in;font-size:8.5pt;color:#8B95A5;border-top:1px solid #E8ECF1;padding-top:6px;display:flex;justify-content:space-between}
@@ -98,6 +98,6 @@ ul{margin:4px 0 0 18px;padding:0}li{margin:0 0 5px}.orgs{display:flex;flex-wrap:
 writeFileSync(out + ".html", html);
 const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 816, height: 1056 }, deviceScaleFactor: 2 });
 await p.setContent(html, { waitUntil: "networkidle" }); await p.waitForTimeout(600);
-await p.pdf({ path: out + ".pdf", width: "8.5in", height: "11in", printBackground: true, preferCSSPageSize: true });
+await p.pdf({ path: out + ".pdf", width: "8.5in", height: "11in", printBackground: true, preferCSSPageSize: true, margin: { top: "0", bottom: "0", left: "0", right: "0" } });
 await p.screenshot({ path: out + ".png", fullPage: true }); await b.close();
 console.log(`wrote ${out}.pdf (${name}, ${d.state})`);
