@@ -28,6 +28,8 @@ const out = arg("out", join(root, "out/briefs", `${d.state.toLowerCase()}-${name
 mkdirSync(dirname(out), { recursive: true });
 const logo = "data:image/png;base64," + readFileSync(join(root, "site/assets/earthpilot.png")).toString("base64");
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
+// A clipped sentence sometimes carries its section heading in front ("Corporal Punishment Corporal punishment may..."): show the sentence.
+const tidy = (q) => String(q || "").replace(/^(?:\d+\s*)?CORPORAL PUNISHMENT[:.\s-]*(?=[A-Z])/i, "").replace(/^Corporal Punishment\s+(?=(?:Corporal|The|No|Principals|Employees|Using|Physical))/, "").trim();
 const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><title>Board brief: ${esc(name)}</title>
@@ -52,12 +54,12 @@ ul{margin:4px 0 0 18px;padding:0}li{margin:0 0 5px}.orgs{display:flex;flex-wrap:
 <div class="card"><div class="k">What the district reported</div><div class="v">${d.reported_2023_24 === 0 ? "Zero students" : "No students"} received corporal punishment</div><div class="s">Federal Civil Rights Data Collection, 2023-24, as reported by the district.</div></div>
 <div class="card"><div class="k">What the written policy says</div><div class="v">It ${d.status === "consent_required" ? "permits it with a parent's consent" : "permits it"}</div><div class="s">${d.policy_code ? `Policy ${esc(d.policy_code)}` : "The policy on file"}${d.source ? `, as published` : ""}.</div></div>
 </div>
-<blockquote>“${esc(d.quote)}”</blockquote>
+<blockquote>“${esc(tidy(d.quote))}”</blockquote>
 <p class="small">The district's own wording, quoted from ${d.source ? `<span style="word-break:break-all">${esc(d.source)}</span>` : "the document on file"}.</p>
 
 <h2>What other ${STATE} boards adopted</h2>
 <p>${m.bans ? `${m.bans} ${STATE} districts have a written policy that prohibits corporal punishment. ` : ""}Most used ${esc(modelNote)}:</p>
-<blockquote>“${esc(modelLine)}”</blockquote>
+<blockquote>“${esc(tidy(modelLine))}”</blockquote>
 
 <h2>What the research says</h2>
 <ul>
@@ -83,7 +85,7 @@ ul{margin:4px 0 0 18px;padding:0}li{margin:0 0 5px}.orgs{display:flex;flex-wrap:
 
 <h2>Language the board can adopt as written</h2>
 <div class="adopt"><div class="k">Proposed policy ${d.policy_code ? `(replacing ${esc(d.policy_code)})` : ""}</div>
-<p>${esc(modelLine)} This prohibition applies to every school, program and activity under the Board's authority and to every employee, contractor and volunteer. Nothing in this policy limits the use of reasonable physical force necessary to protect a student or others from imminent harm, to obtain possession of a weapon, or to maintain safety, in accordance with state law.</p></div>
+<p>${esc(tidy(modelLine))} This prohibition applies to every school, program and activity under the Board's authority and to every employee, contractor and volunteer. Nothing in this policy limits the use of reasonable physical force necessary to protect a student or others from imminent harm, to obtain possession of a weapon, or to maintain safety, in accordance with state law.</p></div>
 <p class="small">The first sentence is the wording ${m.used_by >= 5 ? `${m.used_by} ${STATE} boards already use` : "most boards use"}; the rest is the standard scope and safety clause. The board's attorney or policy service can fit it to the manual's numbering.</p>
 
 <h2>What follows</h2>
