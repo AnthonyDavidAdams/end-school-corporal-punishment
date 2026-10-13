@@ -5668,14 +5668,14 @@ districts:
   - name: Stanberry R-II
     county: Gentry
     nces_id: "2929340"
-    status: silent
-    source: https://www.sr2.k12.mo.us/student-handbook
-    quote: null
+    status: consent_required
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2929340-Stanberry_RII_Policy_2670.pdf
+    quote: Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-13
+    method: records_request
+    parent_control: opt_in
     documents:
       - kind: handbook
         url: https://www.sr2.k12.mo.us/student-handbook
@@ -5683,8 +5683,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-13; the document is kept in the repository at data/policies/inbound/MO/2929340-Stanberry_RII_Policy_2670.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
+      - No student will be administered corporal punishment without prior notification to and written permission of the student’s parents/guardians.
   - name: Steelville R-III
     county: Crawford
     nces_id: "2929430"
