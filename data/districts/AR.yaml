@@ -3642,19 +3642,25 @@ districts:
     notes: "The district's published board policy manual is at http://shbears.org/page/district-policies (shbears.org is the live site; the NCES-listed springhill.k12.ar.us refuses TLS connections). Each policy is a separate Google Doc; 4.39—CORPORAL PUNISHMENT is doc id 1j5DdCTN1MMhrv20ZT9m4tJvWEkyeOsIL. Fetched server-side with fetch_document as the txt export: HTTP 200, text/plain; charset=utf-8, 1,664 bytes, 1,653 chars, single page, no OCR. No parental consent or opt-out provision appears anywhere in the policy, so 'allows'. ADOPTION/REVISION DATES: the document's own footer reads 'Date Adopted: Last Revised: ________________' — both are blank in the published copy. Legal references cited: A.C.A. § 6-18-503(b), DESE Rules Governing Student Discipline and School Safety."
   - name: Springdale School District
     county: Washington
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "0512660"
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/3f73475356-email-933defbd.txt
+    quote: We do not have a corporal punishment policy and do not use it.
+    last_verified: 2026-10-13
     legacy_status: allows
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: Received from the district by email in answer to a public records request, 2026-10-13; the document is kept in the repository at data/policies/inbound/AR/3f73475356-email-933defbd.txt. Identity is name and state matched against the federal LEA directory.
     contact:
       district_email: jcleveland@sdale.org
       superintendent: Cleveland, Jared
       phone: (479) 750-8800
       contact_source: ADE Data Center Superintendent Contact List (CSV export), 2026-09-25
       as_of: 2026-09-25
+    policy_code: null
+    crdc_students_latest: null
+    method: records_request
+    parent_control: unknown
+    quotes:
+      - We do not have a corporal punishment policy and do not use it.
   - name: Star City School District
     county: Lincoln
     nces_id: "0500028"
