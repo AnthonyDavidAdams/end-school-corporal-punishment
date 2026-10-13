@@ -4114,14 +4114,14 @@ districts:
   - name: Haskell School District
     county: Muskogee
     nces_id: "4013950"
-    status: silent
-    source: http://s3.amazonaws.com/scschoolfiles/672/mshs_handbook_18-19_updated.pdf
-    quote: null
+    status: consent_required
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4013950-Corporal-Punishment_Policy.pdf
+    quote: OSSBA POLICY SERVICES FOB CORPORAL PUNISHMENT It is the policy of the _Haskell_ Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-29
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-13
+    method: records_request
+    parent_control: opt_in
     documents:
       - kind: handbook
         url: http://s3.amazonaws.com/scschoolfiles/672/mshs_handbook_18-19_updated.pdf
@@ -4129,8 +4129,14 @@ districts:
         quote: null
         retrieved: 2026-09-29
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-13; the document is kept in the repository at data/policies/inbound/OK/4013950-Corporal-Punishment_Policy.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - OSSBA POLICY SERVICES FOB CORPORAL PUNISHMENT It is the policy of the _Haskell_ Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - However, under no circumstances shall any child in DHS custody or any student on an individualized educational program (IEP) be administered corporal punishment.
+      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to allow the administration of corporal punishment to their child(ren).
+      - Under no circumstances will the administration administer corporal punishment to a student where written consent was not provided.
+      - If a parent or legal guardian has requested that corporal punishment not be administered to the student, alternative discipline will be considered and may include suspension from school.
   - name: Haworth
     county: McCurtain
     nces_id: "4014080"
