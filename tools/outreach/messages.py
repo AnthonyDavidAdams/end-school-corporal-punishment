@@ -322,11 +322,11 @@ def align_policy(r, user, quote=None, code=None):
     line = f'Right now the policy on file ({code}) still says "{quote}"' if quote and code else (f'Right now the policy on file still says "{quote}"' if quote else "Right now the written policy still permits it")
     return f"""Hey {who},
 
-Quick one. In the most recent federal civil rights count (2023-24), {d} reported no use of corporal punishment. {line}, so the paper lags the practice.
+I'd like to invite {d} to be recognized as a Safe School for 2026-27. In practice you're already there: in the most recent federal civil rights count (2023-24), the district reported no use of corporal punishment. {line}, so the paper lags the practice.
 
-Would the board consider adopting language that says what the district already does? A Kansas superintendent who just took his board through it told me it was easy: "a great way to harvest litigation, not to mention that zero research supports it." The model policy most state associations now use is one paragraph, and I can send it in a form the board can adopt as written. Districts whose policy prohibits it are recognized as Safe Schools for the year, with a certificate and a press release they can use.
+Would the board consider adopting language that says what the district already does? That is the whole ask. A Kansas superintendent who just took his board through it told me it was easy: "a great way to harvest litigation, not to mention that zero research supports it." The attached two-page brief has the sentence most boards in your state already use, in a form the board can adopt as written. When it's adopted, the district gets the Safe School certificate and a press release it can use.
 
-Happy to send the language or talk it through with whoever handles policy.
+Happy to talk it through with whoever handles policy.
 
 {sig(user)}
 """

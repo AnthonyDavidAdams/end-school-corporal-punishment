@@ -48,8 +48,8 @@ ul{margin:4px 0 0 18px;padding:0}li{margin:0 0 5px}.orgs{display:flex;flex-wrap:
 </style></head><body>
 <div class="page">
 <div class="top"><img src="${logo}" alt=""><span>EarthPilot · Safe Schools Project</span><span class="r">Board brief · ${esc(today)}</span></div>
-<h1>${esc(name)}: the policy says one thing, the district does another</h1>
-<p class="sub">A one-paragraph change would bring the written rule in line with current practice, and with ${m.bans ? `${m.bans} other ${STATE} boards` : "most boards nationally"}.</p>
+<h1>An invitation: ${esc(name)} as a Safe School for 2026-27</h1>
+<p class="sub">The district already runs its schools without corporal punishment. Its written policy still permits it. One paragraph aligns the two, and the recognition follows, alongside ${m.bans ? `${m.bans} other ${STATE} boards` : "most boards nationally"}.</p>
 <div class="row">
 <div class="card"><div class="k">What the district reported</div><div class="v">${d.reported_2023_24 === 0 ? "Zero students" : "No students"} received corporal punishment</div><div class="s">Federal Civil Rights Data Collection, 2023-24, as reported by the district.</div></div>
 <div class="card"><div class="k">What the written policy says</div><div class="v">It ${d.status === "consent_required" ? "permits it with a parent's consent" : "permits it"}</div><div class="s">${d.policy_code ? `Policy ${esc(d.policy_code)}` : "The policy on file"}${d.source ? `, as published` : ""}.</div></div>
