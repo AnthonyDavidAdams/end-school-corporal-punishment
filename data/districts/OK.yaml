@@ -3262,14 +3262,14 @@ districts:
   - name: Fairview
     county: Major
     nces_id: "4011280"
-    status: silent
-    source: https://www.fschool.org/o/fairview/page/student-handbooks
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4011280-link-9c77bb.pdf
+    quote: All lost/found items that are not claimed will be donated at the end of each semester BOARD-APPROVED CORPORAL PUNISHMENT POLICY ​ 1.​ Corporal punishment may be used by public schools as authorized by Oklahoma statutes whenever a teacher or administrator determines that such action is necessary to enforce school discipline.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-13
+    method: records_request
+    parent_control: opt_out
     documents:
       - kind: handbook
         url: https://www.fschool.org/o/fairview/page/student-handbooks
@@ -3277,8 +3277,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-13; the document is kept in the repository at data/policies/inbound/OK/4011280-link-9c77bb.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - All lost/found items that are not claimed will be donated at the end of each semester BOARD-APPROVED CORPORAL PUNISHMENT POLICY ​ 1.​ Corporal punishment may be used by public schools as authorized by Oklahoma statutes whenever a teacher or administrator determines that such action is necessary to enforce school discipline.
+      - ​ 3.​ Any parent who does not wish corporal punishment administered to his/her child or children should notify the principal of that school in writing annually and that request will be considered.
+      - If parents do not wish corporal punishment, then the student may receive a three-day suspension.
+      - 4.​ If schoolwork is not completed or there are any problems with the students, extra days will be added or possibly swats.
   - name: FANSHAWE
     county: Le Flore
     nces_id: "4011400"
