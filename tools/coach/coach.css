@@ -31,10 +31,10 @@ body.chatting #chat { display:flex; }
 .msg { max-width:46rem; padding:.8rem 1rem; border-radius:12px; line-height:1.5; font-size:1rem; }
 .msg p { margin:0 0 .6rem; } .msg p:last-child { margin-bottom:0; }
 .msg ol, .msg ul { margin:.3rem 0 .6rem 1.2rem; padding:0; } .msg li { margin:.25rem 0; }
-.msg.you { align-self:flex-end; background:var(--navy-dark); color:#fff; border-bottom-right-radius:4px; }
-.msg.coach { align-self:flex-start; background:var(--bg); border:1px solid var(--rule); border-bottom-left-radius:4px; }
-.msg.wait { color:var(--muted); font-style:italic; }
-.msg.err { border-color:var(--red); color:var(--red-dark); }
+.cmsg.you { align-self:flex-end; background:var(--navy-dark); color:#fff; border-bottom-right-radius:4px; }
+.cmsg.coach { align-self:flex-start; background:var(--bg); border:1px solid var(--rule); border-bottom-left-radius:4px; }
+.cmsg.wait { color:var(--muted); font-style:italic; }
+.cmsg.err { border-color:var(--red); color:var(--red-dark); }
 #composer { display:flex; gap:.6rem; align-items:flex-end; padding:.8rem 1rem; border-top:1px solid var(--rule); background:#fff; }
 #composer.done { display:none; }
 #say { flex:1; border:1px solid var(--rule); border-radius:10px; padding:.65rem .8rem; font:1rem/1.4 var(--sans); resize:none; min-height:44px; max-height:160px; }

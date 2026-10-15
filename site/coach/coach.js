@@ -45,7 +45,7 @@
     });
   }
   function add(role, text) {
-    var d = document.createElement("div"); d.className = "msg " + role;
+    var d = document.createElement("div"); d.className = "cmsg " + role;
     d.innerHTML = role === "coach" ? md(text) : "<p>" + esc(text).replace(/\n/g, "<br>") + "</p>";
     log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
   }
