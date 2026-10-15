@@ -46,7 +46,7 @@
   }
   function add(role, text) {
     var d = document.createElement("div"); d.className = "cmsg " + role;
-    d.innerHTML = role === "coach" ? md(text) : "<p>" + esc(text).replace(/\n/g, "<br>") + "</p>";
+    d.innerHTML = role === "bot" ? md(text) : "<p>" + esc(text).replace(/\n/g, "<br>") + "</p>";
     log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
   }
   function track(name) {
@@ -57,16 +57,16 @@
     if (busy) return;
     messages.push({ role: "user", content: text });
     add("you", text); busy = true; send.disabled = true;
-    var w = add("coach wait", "Thinking it through.");
+    var w = add("bot wait", "Thinking it through.");
     fetch("/kids/coach/api.php", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: messages }) })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
         w.remove();
-        if (!x.ok || !x.j.text) { add("coach err", x.j.error || "The coach did not answer. Try once more."); messages.pop(); return; }
-        messages.push({ role: "assistant", content: x.j.text }); add("coach", x.j.text); track("CoachReply");
+        if (!x.ok || !x.j.text) { add("bot err", x.j.error || "The coach did not answer. Try once more."); messages.pop(); return; }
+        messages.push({ role: "assistant", content: x.j.text }); add("bot", x.j.text); track("CoachReply");
       })
-      .catch(function () { w.remove(); add("coach err", "The coach did not answer. Try once more."); messages.pop(); })
-      .then(function () { busy = false; send.disabled = false; box.focus({ preventScroll: true }); if (messages.length >= 28) { composer.classList.add("done"); add("coach", "That is the end of this conversation. Press Start over to begin another."); } });
+      .catch(function () { w.remove(); add("bot err", "The coach did not answer. Try once more."); messages.pop(); })
+      .then(function () { busy = false; send.disabled = false; box.focus({ preventScroll: true }); if (messages.length >= 28) { composer.classList.add("done"); add("bot", "That is the end of this conversation. Press Start over to begin another."); } });
   }
 
   form.addEventListener("submit", function (e) {
