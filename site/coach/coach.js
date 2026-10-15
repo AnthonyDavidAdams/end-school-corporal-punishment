@@ -66,7 +66,7 @@
         messages.push({ role: "assistant", content: x.j.text }); add("coach", x.j.text); track("CoachReply");
       })
       .catch(function () { w.remove(); add("coach err", "The coach did not answer. Try once more."); messages.pop(); })
-      .then(function () { busy = false; send.disabled = false; box.focus(); if (messages.length >= 28) { composer.classList.add("done"); add("coach", "That is the end of this conversation. Press Start over to begin another."); } });
+      .then(function () { busy = false; send.disabled = false; box.focus({ preventScroll: true }); if (messages.length >= 28) { composer.classList.add("done"); add("coach", "That is the end of this conversation. Press Start over to begin another."); } });
   }
 
   form.addEventListener("submit", function (e) {

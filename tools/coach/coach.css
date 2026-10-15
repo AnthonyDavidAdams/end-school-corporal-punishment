@@ -1,7 +1,7 @@
 /* coach v2 */
 /* The Behavior Coach. A chat app, not a chat box: the intake and then the conversation fill the viewport
    under the header, the composer is pinned, and the page itself does not scroll while chatting. */
-.coach { display:grid; grid-template-columns:320px 1fr; gap:1.25rem; height:calc(100dvh - 66px); min-height:520px; padding:1rem 0; }
+.coach { display:grid; grid-template-columns:320px 1fr; gap:1.25rem; height:calc(100dvh - 70px - 2rem); min-height:520px; padding:1rem 0; }
 .coach aside { overflow:auto; font-size:.95rem; color:var(--charcoal); padding-right:.25rem; }
 .coach aside h1 { font-size:1.6rem; margin:.2rem 0 .5rem; }
 .coach aside p { margin:0 0 .8rem; }
