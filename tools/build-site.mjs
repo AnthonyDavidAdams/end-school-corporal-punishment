@@ -56,7 +56,10 @@ const verCache = {};
 const ver = (name) => {
   if (verCache[name]) return verCache[name];
   const f = join(site, name);
-  const h = existsSync(f) ? createHash("sha1").update(readFileSync(f)).digest("hex").slice(0, 8) : String(Date.now());
+  // site.css is written in pieces through this script, after most pages reference it, so its hash
+  // comes from its sources (this file and the coach stylesheet) rather than from the half-built output.
+  const bytes = name === "site.css" ? Buffer.concat([readFileSync(fileURLToPath(import.meta.url)), readFileSync(join(root, "tools/coach/coach.css"))]) : existsSync(f) ? readFileSync(f) : null;
+  const h = bytes ? createHash("sha1").update(bytes).digest("hex").slice(0, 8) : String(Date.now());
   return (verCache[name] = h);
 };
 const crdc = {};

@@ -300,6 +300,7 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 .pfeed{list-style:none;margin:0;padding:0;font-size:.82rem}.pfeed li{padding:.25rem 0;border-bottom:1px solid #1B2340;color:#C9D1E0}.pfeed li.on{color:#A7F3D0}.pfeed time{color:#8B95A5;font-size:.72rem;margin-left:.3rem}
 @media(max-width:900px){.arcboard{grid-template-columns:1fr}}
 
+/* coach v2 */
 /* The Behavior Coach. A chat app, not a chat box: the intake and then the conversation fill the viewport
    under the header, the composer is pinned, and the page itself does not scroll while chatting. */
 .coach { display:grid; grid-template-columns:320px 1fr; gap:1.25rem; height:calc(100dvh - 66px); min-height:520px; padding:1rem 0; }
