@@ -299,3 +299,56 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 .pleaders{margin:0;padding-left:1.3rem}.pleaders li{display:flex;justify-content:space-between;gap:.5rem;padding:.2rem 0;border-bottom:1px solid #1B2340;font-size:.88rem}.pleaders em{color:#8B95A5;font-style:normal;font-size:.76rem}.pleaders b{color:#FDE68A}
 .pfeed{list-style:none;margin:0;padding:0;font-size:.82rem}.pfeed li{padding:.25rem 0;border-bottom:1px solid #1B2340;color:#C9D1E0}.pfeed li.on{color:#A7F3D0}.pfeed time{color:#8B95A5;font-size:.72rem;margin-left:.3rem}
 @media(max-width:900px){.arcboard{grid-template-columns:1fr}}
+
+/* The Behavior Coach. A chat app, not a chat box: the intake and then the conversation fill the viewport
+   under the header, the composer is pinned, and the page itself does not scroll while chatting. */
+.coach { display:grid; grid-template-columns:320px 1fr; gap:1.25rem; height:calc(100dvh - 66px); min-height:520px; padding:1rem 0; }
+.coach aside { overflow:auto; font-size:.95rem; color:var(--charcoal); padding-right:.25rem; }
+.coach aside h1 { font-size:1.6rem; margin:.2rem 0 .5rem; }
+.coach aside p { margin:0 0 .8rem; }
+.coach aside .fine { font-size:.85rem; color:var(--muted); }
+.coachpane { position:relative; display:flex; flex-direction:column; min-height:0; background:var(--card); border:1px solid var(--rule); border-radius:10px; box-shadow:var(--shadow); overflow:hidden; }
+#intake { overflow:auto; padding:1.25rem 1.4rem 1.6rem; }
+#intake h2 { margin:.2rem 0 .3rem; font-size:1.3rem; }
+#intake .fine { font-size:.9rem; color:var(--muted); margin:0; }
+#intake .q { margin:1rem 0 0; }
+#intake .q label { display:block; font-weight:600; margin-bottom:.4rem; }
+#intake .q label small { font-weight:400; color:var(--muted); }
+.chips { display:flex; flex-wrap:wrap; gap:.4rem; }
+.chips button { border:1px solid var(--rule); background:#fff; border-radius:99px; padding:.42rem .85rem; font:500 .92rem/1 var(--sans); color:var(--ink); cursor:pointer; }
+.chips button:hover { border-color:var(--navy-dark); }
+.chips button.on { background:var(--navy-dark); color:#fff; border-color:var(--navy-dark); }
+.chips.missing button { border-color:var(--red); }
+#intake textarea { width:100%; min-height:88px; border:1px solid var(--rule); border-radius:8px; padding:.6rem .75rem; font:1rem/1.45 var(--sans); resize:vertical; }
+#intake .go { margin-top:1.1rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+#intake .go button { background:var(--green); color:#fff; border:0; border-radius:8px; padding:.8rem 1.4rem; font:600 1rem/1 var(--sans); cursor:pointer; }
+#intake .go small { color:var(--muted); }
+.q.parent, .q.teacher { display:none; }
+body[data-role="parent"] .q.parent, body[data-role="teacher"] .q.teacher, body[data-role="admin"] .q.teacher { display:block; }
+#chat { display:none; flex:1; min-height:0; flex-direction:column; }
+body.chatting #intake { display:none; }
+body.chatting #chat { display:flex; }
+#log { flex:1; overflow:auto; padding:1.2rem 1.4rem; display:flex; flex-direction:column; gap:.8rem; }
+.msg { max-width:46rem; padding:.8rem 1rem; border-radius:12px; line-height:1.5; font-size:1rem; }
+.msg p { margin:0 0 .6rem; } .msg p:last-child { margin-bottom:0; }
+.msg ol, .msg ul { margin:.3rem 0 .6rem 1.2rem; padding:0; } .msg li { margin:.25rem 0; }
+.msg.you { align-self:flex-end; background:var(--navy-dark); color:#fff; border-bottom-right-radius:4px; }
+.msg.coach { align-self:flex-start; background:var(--bg); border:1px solid var(--rule); border-bottom-left-radius:4px; }
+.msg.wait { color:var(--muted); font-style:italic; }
+.msg.err { border-color:var(--red); color:var(--red-dark); }
+#composer { display:flex; gap:.6rem; align-items:flex-end; padding:.8rem 1rem; border-top:1px solid var(--rule); background:#fff; }
+#composer.done { display:none; }
+#say { flex:1; border:1px solid var(--rule); border-radius:10px; padding:.65rem .8rem; font:1rem/1.4 var(--sans); resize:none; min-height:44px; max-height:160px; }
+#send { background:var(--green); color:#fff; border:0; border-radius:10px; padding:.75rem 1.1rem; font:600 1rem/1 var(--sans); cursor:pointer; }
+#send:disabled { opacity:.5; cursor:default; }
+.coachtools { display:flex; gap:.5rem; padding:.5rem 1rem; border-top:1px solid var(--rule); background:#fff; font-size:.85rem; }
+.coachtools button { background:none; border:1px solid var(--rule); border-radius:6px; padding:.35rem .7rem; font:500 .85rem/1 var(--sans); cursor:pointer; color:var(--charcoal); }
+.coachtools span { margin-left:auto; color:var(--muted); align-self:center; }
+@media (max-width: 900px) {
+  .coach { grid-template-columns:1fr; height:auto; min-height:0; padding:.6rem 0 1rem; }
+  .coach aside { order:2; }
+  .coachpane { height:calc(100dvh - 76px); }
+  body.chatting .coach aside { display:none; }
+  .coachtools span { display:none; }
+}
+@media print { .top, .foot, .coach aside, #composer, .coachtools, #intake { display:none !important; } .coachpane { border:0; box-shadow:none; } #log { overflow:visible; } .msg { max-width:none; } }

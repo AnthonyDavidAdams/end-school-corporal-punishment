@@ -163,8 +163,20 @@ const COLOR = { banned: "#2D6A4F", partial: "#C05621", legal: "#9B2C2C" };
 const claim = id => claims.find(c => c.id === id);
 const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`(.+?)`/g, "<code>$1</code>");
 
+const TRACK = (() => { try { return JSON.parse(readFileSync(join(root, "data/site/tracking.json"), "utf8")); } catch { return {}; } })();
+function trackingHead() {
+  let h = `<script>window.__escpNoAds = (navigator.globalPrivacyControl === true);</script>\n`;
+  if (TRACK.meta_pixel_id) h += `<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');if(!window.__escpNoAds){fbq('init','${TRACK.meta_pixel_id}');fbq('track','PageView');}</script>\n`;
+  const g = TRACK.ga4_measurement_id || TRACK.google_ads_id;
+  if (g) h += `<script async src="https://www.googletagmanager.com/gtag/js?id=${g}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());if(window.__escpNoAds){gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'})}${TRACK.ga4_measurement_id ? `gtag('config','${TRACK.ga4_measurement_id}');` : ""}${TRACK.google_ads_id ? `gtag('config','${TRACK.google_ads_id}');` : ""}</script>\n`;
+  if (TRACK.linkedin_partner_id) h += `<script>if(!window.__escpNoAds){_linkedin_partner_id="${TRACK.linkedin_partner_id}";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);}</script>\n`;
+  // First-party: remember a tagged link (?r=) for the session and log the visit; tell the ad tags who came, by district only
+  h += `<script>(function(){try{var q=new URLSearchParams(location.search),r=q.get("r");if(r){localStorage.setItem("escp_r",r);localStorage.setItem("escp_r_at",String(Date.now()))}r=r||localStorage.getItem("escp_r");if(!r&&!/\\/kids\\/board\\//.test(location.pathname))return;var p=location.pathname;navigator.sendBeacon?navigator.sendBeacon("/kids/hit.php",new Blob([new URLSearchParams({r:r||"",p:p})],{type:"application/x-www-form-urlencoded"})):fetch("/kids/hit.php?r="+encodeURIComponent(r||"")+"&p="+encodeURIComponent(p),{keepalive:true});if(r&&window.fbq)fbq("trackCustom","TaggedVisit",{page:p});if(r&&window.gtag)gtag("event","tagged_visit",{page:p});if(r&&window.lintrk)lintrk("track",{conversion_id:"tagged_visit"})}catch(e){}})();</script>\n`;
+  return h;
+}
 function shell({ title, description, path, body, image = `${BASE}/assets/og-image.png`, extraHead = "" }) {
   const url = `${BASE}${path}`;
+  extraHead = trackingHead() + extraHead;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,14 +201,14 @@ ${extraHead}
 <body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
-  <nav><a href="/kids/">Map</a><a href="/kids/live/">Live</a><a href="/kids/act/">Act</a><a href="/kids/connect/">Connect</a><a href="/kids/resources/">Facts</a><a href="/kids/share/">Share</a></nav>
+  <nav><a href="/kids/">Map</a><a href="/kids/live/">Live</a><a href="/kids/act/">Act</a><a href="/kids/coach/">Coach</a><a href="/kids/connect/">Connect</a><a href="/kids/resources/">Facts</a><a href="/kids/share/">Share</a></nav>
 </div></header>
 ${body.startsWith("<section class=\"hero\">") ? body.slice(0, body.indexOf("</section>") + 10) : ""}
 <main class="wrap">
 ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</section>") + 10) : body}
 </main>
 <footer class="wrap foot">
-  <p class="footnav"><a href="/kids/crew/">The crew</a> · <a href="/kids/timeline/">The map moving</a> · <a href="/kids/stopped/">Districts that stopped</a> · <a href="/kids/worklist/">Worklist</a> · <a href="/kids/contribute/">Bring an agent</a> · <a href="/kids/ops/">Status</a> · <a href="${REPO}" rel="noopener">GitHub</a></p>
+  <p class="footnav"><a href="/kids/crew/">The crew</a> · <a href="/kids/privacy/">Privacy</a> · <a href="/kids/timeline/">The map moving</a> · <a href="/kids/stopped/">Districts that stopped</a> · <a href="/kids/worklist/">Worklist</a> · <a href="/kids/contribute/">Bring an agent</a> · <a href="/kids/ops/">Status</a> · <a href="${REPO}" rel="noopener">GitHub</a></p>
   <p>End School Corporal Punishment™ is an open project of <a href="https://earthpilot.ai">EarthPilot</a>. Every figure on this site is a file in the <a href="${REPO}/tree/main/facts/claims">claims registry</a> with its source and verification date; data generated ${summary.generated}. Content CC BY 4.0, code MIT. Map boundaries: US Census Bureau (public domain).</p>
   <p>No student is named on this site. Officials' public positions are documented; their private lives are not.</p>
   <p class="builtwith"><img src="/kids/assets/earthpilot.png" alt="" width="26" height="26">
@@ -874,6 +886,85 @@ mkdirSync(join(site, "live"), { recursive: true });
   const pickups = reqs.filter((r) => /pickup/i.test(r.notes || "") && r.state && r.name).map((r) => ({ state: r.state, name: r.name }));
   const RESIDENT = ["AR", "TN", "AL", "VA", "DE"];
   const STATES = ["AL","AR","AZ","CO","FL","GA","ID","IN","KS","KY","LA","MO","MS","NC","OK","SC","TN","TX","WY"];
+  mkdirSync(join(site, "privacy"), { recursive: true });
+  writeFileSync(join(site, "privacy", "index.html"), shell({
+    title: "Privacy", path: "/privacy/",
+    description: "What this site records about visitors, which advertising and analytics tags it uses, and how to opt out.",
+    body: `<section class="hero"><div class="wrap"><h1>Privacy</h1><p class="lede">What this site records, why, and how to opt out. Plain words, no popup.</p></div></section>
+<h2>What we record</h2>
+<p>This site is a public record of school district policy. It has no accounts and no logins. When you visit, our web host keeps ordinary server logs (IP address, browser, pages requested). If you arrive through a link in an email we sent you, that link carries a short tag so we can tell which district or office the visit came from; the tag is stored in your browser for the session and the visit is written to our own log. The tag maps to a district and a recipient on our side only; it never contains a name or an email address.</p>
+<h2>The Behavior Coach</h2>
+<p>The <a href="/kids/coach/">Behavior Coach</a> is anonymous by design. It never asks for a child's name, a school's name or anything that identifies a person, and it asks you not to type them. What you type is sent to the model that writes the replies (through OpenRouter, to Anthropic's Claude) to produce that reply, and is not stored by us: the conversation lives in your browser tab and is gone when you close it. Our server keeps one line per reply with the time, the length and the cost, and a per-day count under a one-way code made from your address that changes every day, so that one visitor cannot use the whole day's budget. There is no account and no login.</p>
+<h2>Advertising and analytics tags</h2>
+<p>Pages may load the Meta Pixel, the Google tag (Google Analytics and Google Ads) and the LinkedIn Insight Tag. They set cookies and report page views to those companies, which lets us measure the site and show advertisements about school corporal punishment to people who have visited it. We do not send them names, email addresses or anything you type. Each company's own policy governs what it does with the data: <a href="https://www.facebook.com/privacy/policy/" rel="noopener">Meta</a>, <a href="https://policies.google.com/privacy" rel="noopener">Google</a>, <a href="https://www.linkedin.com/legal/privacy-policy" rel="noopener">LinkedIn</a>.</p>
+<h2>How to opt out</h2>
+<ul>
+<li><b>Global Privacy Control.</b> If your browser sends the GPC signal (Firefox, Brave, DuckDuckGo and several extensions do), this site loads none of the advertising tags.</li>
+<li><b>Per company.</b> <a href="https://www.facebook.com/adpreferences/ad_settings" rel="noopener">Meta ad settings</a>, <a href="https://adssettings.google.com/" rel="noopener">Google ad settings</a> and <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">the Analytics opt-out</a>, <a href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out" rel="noopener">LinkedIn opt-out</a>.</li>
+<li><b>Ask us.</b> Email <a href="mailto:anthony@175g.com">anthony@175g.com</a> and we will delete the visit log entries tied to your tagged link.</li>
+</ul>
+<h2>Petitions, uploads and emails</h2>
+<p>If you sign the petition, send a video, or write to us, we keep what you sent and use it only for this project. We do not sell or share lists. Districts' own policies and the names of their officials are public records and stay on the record.</p>
+<p class="small">End School Corporal Punishment is a project of EarthPilot. This notice was last updated October 14, 2026.</p>`
+  }));
+  // Board members: the film, the brief, the one sentence, and the ask. Reached from tagged links (?r=).
+  // ---- Behavior Coach: a chat for parents, teachers and principals, built on the training and the evidence file ----
+  mkdirSync(join(site, "coach"), { recursive: true });
+  writeFileSync(join(site, "coach", "index.html"), shell({
+    title: "Behavior Coach: what to do instead, for parents and teachers", path: "/coach/",
+    description: "A free, anonymous coach for a child's behavior at home or at school. Built only on practices with published evidence, from the Safe Schools Project. No names, no accounts, nothing stored.",
+    extraHead: `<script defer src="/kids/coach/coach.js?v=${ver("coach/coach.js")}"></script>`,
+    body: `<div class="coach">
+<aside>
+<h1>Behavior Coach</h1>
+<p>A child is refusing, hitting, melting down, or not doing the work. Tell the coach what is happening and it gives you the one highest-leverage thing to do this week, the words to say, and what to watch.</p>
+<p>It is built only on practices with published evidence: the classroom routines, the office response ladder, repair conversations and Check-In/Check-Out from the free <a href="/kids/kit/">Safe Discipline Program kit</a>, and the American Academy of Pediatrics' guidance for parents. It will not suggest hitting a child, and it says when something needs a counselor, a pediatrician or a hotline instead of a plan.</p>
+<p class="fine">Anonymous by design. The coach never asks for a name and the site keeps no record of the conversation; it lives in this tab and is gone when you close it. It is a coach, not a clinician or a lawyer. If a child is in danger, call 911. For thoughts of self-harm, call or text 988.</p>
+<p class="fine">Schools: the coach draws on the same free training your staff can adopt on a Monday. <a href="/kids/kit/">The kit</a> · <a href="/kids/kit/when-a-parent-asks-for-the-paddle.pdf">When a parent asks for the paddle</a> · <a href="/kids/board/">The film for school boards</a></p>
+</aside>
+<div class="coachpane">
+<form id="intake" autocomplete="off">
+<h2>Tell the coach what is going on</h2>
+<p class="fine">Pick what fits. No names, no school names: the coach does not need them and the site does not keep them.</p>
+<div class="q"><label>I am a</label><div class="chips"><input type="hidden" name="role"><button data-v="parent">Parent</button><button data-v="teacher">Teacher</button><button data-v="admin">Principal or assistant principal</button><button data-v="teacher">Other school staff</button></div></div>
+<div class="q"><label>The child is in</label><div class="chips"><input type="hidden" name="grade"><button>PreK to K</button><button>Grades 1 to 2</button><button>Grades 3 to 5</button><button>Grades 6 to 8</button><button>Grades 9 to 12</button></div></div>
+<div class="q"><label>It happens</label><div class="chips"><input type="hidden" name="setting"><button>At home</button><button>In the classroom</button><button>In the hallway, bus, recess or cafeteria</button><button>In the office or during discipline</button><button>Everywhere</button></div></div>
+<div class="q"><label>What is happening <small>(pick all that fit)</small></label><div class="chips" data-multi><input type="hidden" name="behavior"><button>Refusing or arguing</button><button>Hitting, kicking or throwing</button><button>Calling out or disrupting</button><button>Leaving the seat or the room</button><button>Meltdowns or shutting down</button><button>Not doing the work</button><button>Conflict with other kids</button><button>Lying or taking things</button><button>Something else</button></div></div>
+<div class="q"><label>How often</label><div class="chips"><input type="hidden" name="freq"><button>First time</button><button>A few times a month</button><button>Weekly</button><button>Daily</button><button>Several times a day</button></div></div>
+<div class="q"><label>Already tried <small>(pick all that fit)</small></label><div class="chips" data-multi><input type="hidden" name="tried"><button>Talking it through</button><button>Warnings</button><button>Taking things away</button><button>Time-out</button><button>Calls or notes home</button><button>Office referral</button><button>Rewards or a chart</button><button>Spanking or paddling</button><button>Nothing yet</button></div></div>
+<div class="q parent"><label>Anything new at home <small>(pick all that fit)</small></label><div class="chips" data-multi><input type="hidden" name="home"><button>Nothing new</button><button>New baby or sibling</button><button>A move or a new school</button><button>Separation or divorce</button><button>A death or illness in the family</button><button>Less sleep lately</button><button>More screen time lately</button><button>Prefer not to say</button></div></div>
+<div class="q teacher"><label>When it tends to happen <small>(pick all that fit)</small></label><div class="chips" data-multi><input type="hidden" name="when"><button>First minutes of class</button><button>Transitions</button><button>Independent work</button><button>Group work</button><button>After lunch or recess</button><button>End of the day</button><button>With one particular adult or peer</button></div></div>
+<div class="q"><label>The last time it happened <small>(optional)</small></label><textarea name="describe" maxlength="1500" placeholder="What happened right before, what the child did, and what the adult did next. No names, please."></textarea></div>
+<div class="go"><button type="submit">Ask the coach</button><small>Free. Anonymous. Nothing you type is stored.</small></div>
+</form>
+<div id="chat">
+<div id="log"></div>
+<form id="composer"><textarea id="say" rows="1" maxlength="2500" placeholder="Reply, ask a follow-up, or describe the next thing that happened. No names."></textarea><button id="send" type="submit">Send</button></form>
+<div class="coachtools"><button type="button" id="restart">Start over</button><button type="button" id="print">Print this plan</button><span>Nothing here is stored. Closing the tab erases it.</span></div>
+</div>
+</div>
+</div>`,
+  }));
+
+  mkdirSync(join(site, "board"), { recursive: true });
+  writeFileSync(join(site, "board", "index.html"), shell({
+    title: "One sentence: corporal punishment and your school board", path: "/board/",
+    description: "A four-minute film for school board members on corporal punishment: what Texas law permits, what the research finds, where the immunity for staff stops, and the one sentence 291 boards already adopted.",
+    image: `${BASE}/assets/one-sentence-poster.jpg`,
+    extraHead: `<style>.film{background:#0B1F33;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:1rem 0 1.4rem}.film video{display:block;width:100%;height:auto}.sentence{font-family:var(--serif);font-weight:900;font-size:1.7rem;line-height:1.25;color:var(--navy-dark);border-left:6px solid var(--red);padding:.4rem 0 .4rem 1rem;margin:1.2rem 0}.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}.bcard{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--shadow)}.bcard h2{font-size:1.15rem;margin:.1rem 0 .5rem}.bcard p{margin:.3rem 0}.cta{display:inline-block;margin:.4rem .6rem .4rem 0;padding:.65rem 1rem;border-radius:8px;background:var(--navy-dark);color:#fff;text-decoration:none;font-weight:700}.cta.alt{background:var(--card);color:var(--navy-dark);border:1px solid var(--rule)}</style>`,
+    body: `<section class="hero"><div class="wrap"><h1>One sentence.</h1>
+<p class="lede">A four-minute film for school board members: what the law permits, what the research finds, where the protection for staff stops, and the sentence 291 Texas boards already adopted.</p></div></section>
+<div class="film"><video controls preload="metadata" poster="/kids/assets/one-sentence-poster.jpg" playsinline><source src="/kids/media/one-sentence.mp4" type="video/mp4">Your browser cannot play this video. <a href="/kids/media/one-sentence.mp4">Download it</a>.</video></div>
+<p class="sentence">&ldquo;The Board prohibits the use of corporal punishment in the District.&rdquo;</p>
+<p>That is the whole policy. In Texas it is one word in FO(LOCAL), the policy code every board already has. For a district that permits corporal punishment on paper and has not used it in years, adopting the sentence changes nothing on Monday morning except the exposure.</p>
+<div class="bgrid">
+<div class="bcard"><h2>What the research finds</h2><p>Across 21 studies and 67,400 children, school corporal punishment is associated with more aggressive and disruptive behavior, more anxiety and depression, and lower school performance. Across 75 studies it did not even reliably stop the behavior in the moment. Every source is at <a href="/kids/resources/">Facts</a>.</p></div>
+<div class="bcard"><h2>Where the immunity stops</h2><p>Texas shields employees from personal liability except for excessive force or negligence causing bodily injury (Education Code 22.0511), and protects their job and certificate only for force a court later agrees was reasonable and necessary (22.0512, Penal Code 9.62). Those words are decided afterward, by someone else.</p></div>
+<div class="bcard"><h2>What we are asking</h2><p>Put the sentence on an agenda. We will send the two-page board brief for your district, the model language in your state's policy code, and, when it is adopted, the Safe School recognition and a press release the district can use.</p></div>
+</div>
+<p><a class="cta" href="mailto:anthony@175g.com?subject=${encodeURIComponent("Board brief for our district")}&body=${encodeURIComponent("Please send the two-page board brief and the model language for our district: ")}">Request the brief for your district</a> <a class="cta alt" href="/kids/stopped/">See the districts that already did it</a> <a class="cta alt" href="/kids/">Find your district's policy</a></p>
+<p class="small">Figures: U.S. Department of Education Civil Rights Data Collection 2023-24; Texas statutes read at statutes.capitol.texas.gov; the Safe Schools Project record of each district's own written policy. Not legal advice.</p>`
+  }));
   mkdirSync(join(site, "act"), { recursive: true });
   writeFileSync(join(site, "act", "index.html"), shell({
     title: "Things you can do today to end school corporal punishment", path: "/act/",
@@ -1114,4 +1205,7 @@ AddType image/svg+xml .svg
   AddOutputFilterByType DEFLATE application/json image/svg+xml text/plain
 </IfModule>
 `);
+// The Behavior Coach's styles live beside its builder so the page and its CSS change together.
+writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8") + "\n" + readFileSync(join(root, "tools/coach/coach.css"), "utf8"));
+
 console.log(`built index, ${Object.keys(states).length} state pages, resources, contribute`);
