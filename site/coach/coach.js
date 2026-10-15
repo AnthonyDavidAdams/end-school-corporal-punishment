@@ -2,7 +2,7 @@
 // localStorage, nothing is sent anywhere but /kids/coach/api.php, and closing the tab erases it.
 (function () {
   var $ = function (s, r) { return (r || document).querySelector(s); };
-  var form = $("#intake"), chat = $("#chat"), log = $("#log"), composer = $("#composer"), box = $("#say"), send = $("#send");
+  var form = $("#intake"), stage = $("#stage"), log = $("#log"), composer = $("#composer"), box = $("#say"), send = $("#send");
   var messages = [], busy = false, started = false;
 
   // Chips: a button group that writes to a hidden field. Single or multi.
@@ -46,8 +46,10 @@
   }
   function add(role, text) {
     var d = document.createElement("div"); d.className = "cmsg " + role;
-    d.innerHTML = role === "bot" ? md(text) : "<p>" + esc(text).replace(/\n/g, "<br>") + "</p>";
-    log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
+    if (/wait/.test(role)) d.innerHTML = '<div><span class="dots"><i></i><i></i><i></i></span></div>';
+    else if (/bot/.test(role)) d.innerHTML = "<div>" + md(text) + "</div>";
+    else d.textContent = text;
+    log.appendChild(d); stage.scrollTop = stage.scrollHeight; return d;
   }
   function track(name) {
     try { if (window.fbq && !window.__escpNoAds) fbq("trackCustom", name); if (window.gtag) gtag("event", name.toLowerCase()); if (window.lintrk && !window.__escpNoAds) lintrk("track", { conversion_id: name.toLowerCase() }); } catch (e) {}
@@ -57,7 +59,7 @@
     if (busy) return;
     messages.push({ role: "user", content: text });
     add("you", text); busy = true; send.disabled = true;
-    var w = add("bot wait", "Thinking it through.");
+    var w = add("bot wait", "");
     fetch("/kids/coach/api.php", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: messages }) })
       .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
       .then(function (x) {
@@ -83,14 +85,19 @@
     if (f.get("home")) parts.push("Recent changes at home: " + f.get("home").toLowerCase() + ".");
     if (f.get("when")) parts.push("When it tends to happen: " + f.get("when").toLowerCase() + ".");
     var d = (f.get("describe") || "").trim(); if (d) parts.push("The last time it happened: " + d);
-    document.body.classList.add("chatting"); started = true; track("CoachStart");
+    document.body.classList.add("chatting"); started = true; track("CoachStart"); stage.scrollTop = 0;
     ask(parts.join(" "));
   });
 
   composer.addEventListener("submit", function (e) { e.preventDefault(); var t = box.value.trim(); if (!t || busy) return; box.value = ""; box.style.height = ""; ask(t); });
   box.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); composer.requestSubmit(); } });
   box.addEventListener("input", function () { box.style.height = "auto"; box.style.height = Math.min(box.scrollHeight, 160) + "px"; });
-  $("#restart").addEventListener("click", function () { messages = []; log.innerHTML = ""; composer.classList.remove("done"); document.body.classList.remove("chatting"); form.reset(); document.querySelectorAll(".chips button").forEach(function (b) { b.classList.remove("on"); }); document.querySelectorAll(".chips input[type=hidden]").forEach(function (h) { h.value = ""; }); window.scrollTo(0, 0); });
+  $("#restart").addEventListener("click", function () { messages = []; log.innerHTML = ""; composer.classList.remove("done"); document.body.classList.remove("chatting", "menu"); document.body.removeAttribute("data-role"); form.reset(); document.querySelectorAll(".chips button").forEach(function (b) { b.classList.remove("on"); }); document.querySelectorAll(".chips input[type=hidden]").forEach(function (h) { h.value = ""; }); stage.scrollTop = 0; });
+  function menu(on) { document.body.classList.toggle("menu", on); }
+  $("#burger").addEventListener("click", function () { menu(true); });
+  $("#closeside").addEventListener("click", function () { menu(false); });
+  $("#scrim").addEventListener("click", function () { menu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") menu(false); });
   $("#print").addEventListener("click", function () { window.print(); });
   window.addEventListener("beforeunload", function () { messages = []; });
 })();

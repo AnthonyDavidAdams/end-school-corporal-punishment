@@ -177,7 +177,7 @@ function trackingHead() {
   h += `<script>(function(){try{var q=new URLSearchParams(location.search),r=q.get("r");if(r){localStorage.setItem("escp_r",r);localStorage.setItem("escp_r_at",String(Date.now()))}r=r||localStorage.getItem("escp_r");if(!r&&!/\\/kids\\/board\\//.test(location.pathname))return;var p=location.pathname;navigator.sendBeacon?navigator.sendBeacon("/kids/hit.php",new Blob([new URLSearchParams({r:r||"",p:p})],{type:"application/x-www-form-urlencoded"})):fetch("/kids/hit.php?r="+encodeURIComponent(r||"")+"&p="+encodeURIComponent(p),{keepalive:true});if(r&&window.fbq)fbq("trackCustom","TaggedVisit",{page:p});if(r&&window.gtag)gtag("event","tagged_visit",{page:p});if(r&&window.lintrk)lintrk("track",{conversion_id:"tagged_visit"})}catch(e){}})();</script>\n`;
   return h;
 }
-function shell({ title, description, path, body, image = `${BASE}/assets/og-image.png`, extraHead = "" }) {
+function shell({ title, description, path, body, image = `${BASE}/assets/og-image.png`, extraHead = "", app = false }) {
   const url = `${BASE}${path}`;
   extraHead = trackingHead() + extraHead;
   return `<!DOCTYPE html>
@@ -201,7 +201,8 @@ function shell({ title, description, path, body, image = `${BASE}/assets/og-imag
 <link rel="stylesheet" href="/kids/site.css?v=${ver("site.css")}">\n<script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href")||"";if(/^(https?:)?\\/\\//.test(h)&&a.hostname!==location.hostname){a.target="_blank";a.rel="noopener";}});</script>\n<script defer src="/kids/news.js?v=${ver("news.js")}"></script>\n<script defer src="/kids/activity.js?v=${ver("activity.js")}"></script>
 ${extraHead}
 </head>
-<body>
+${app ? `<body class="app">${body}</body></html>` : ""}
+${app ? "" : `<body>
 <header class="top"><div class="wrap">
   <a class="wordmark" href="/kids/"><img src="/kids/assets/earthpilot.png" alt="" width="30" height="30" class="epmark">End School <span>Corporal Punishment</span></a>
   <nav><a href="/kids/">Map</a><a href="/kids/live/">Live</a><a href="/kids/act/">Act</a><a href="/kids/coach/">Coach</a><a href="/kids/connect/">Connect</a><a href="/kids/resources/">Facts</a><a href="/kids/share/">Share</a></nav>
@@ -219,7 +220,7 @@ ${body.startsWith("<section class=\"hero\">") ? body.slice(body.indexOf("</secti
     Ground Crew is part of <a href="https://earthpilot.ai">EarthPilot</a>: mission support for Spaceship Earth.</span></p>
 </footer>
 </body>
-</html>`;
+</html>`}`;
 }
 
 // ---------- CSS ----------
@@ -911,24 +912,38 @@ mkdirSync(join(site, "live"), { recursive: true });
 <p class="small">End School Corporal Punishment is a project of EarthPilot. This notice was last updated October 14, 2026.</p>`
   }));
   // Board members: the film, the brief, the one sentence, and the ask. Reached from tagged links (?r=).
-  // ---- Behavior Coach: a chat for parents, teachers and principals, built on the training and the evidence file ----
+  // ---- Behavior Coach: a chat app for parents, teachers and principals, built on the training and the evidence file ----
   mkdirSync(join(site, "coach"), { recursive: true });
   writeFileSync(join(site, "coach", "index.html"), shell({
+    app: true,
     title: "Behavior Coach: what to do instead, for parents and teachers", path: "/coach/",
     description: "A free, anonymous coach for a child's behavior at home or at school. Built only on practices with published evidence, from the Safe Schools Project. No names, no accounts, nothing stored.",
-    extraHead: `<script defer src="/kids/coach/coach.js?v=${ver("coach/coach.js")}"></script>`,
-    body: `<div class="coach">
-<aside>
-<h1>Behavior Coach</h1>
-<p>A child is refusing, hitting, melting down, or not doing the work. Tell the coach what is happening and it gives you the one highest-leverage thing to do this week, the words to say, and what to watch.</p>
-<p>It is built only on practices with published evidence: the classroom routines, the office response ladder, repair conversations and Check-In/Check-Out from the free <a href="/kids/kit/">Safe Discipline Program kit</a>, and the American Academy of Pediatrics' guidance for parents. It will not suggest hitting a child, and it says when something needs a counselor, a pediatrician or a hotline instead of a plan.</p>
-<p class="fine">Anonymous by design. The coach never asks for a name and the site keeps no record of the conversation; it lives in this tab and is gone when you close it. It is a coach, not a clinician or a lawyer. If a child is in danger, call 911. For thoughts of self-harm, call or text 988.</p>
-<p class="fine">Schools: the coach draws on the same free training your staff can adopt on a Monday. <a href="/kids/kit/">The kit</a> · <a href="/kids/kit/when-a-parent-asks-for-the-paddle.pdf">When a parent asks for the paddle</a> · <a href="/kids/board/">The film for school boards</a></p>
+    extraHead: `<meta name="theme-color" content="#0D132D"><script defer src="/kids/coach/coach.js?v=${ver("coach/coach.js")}"></script>`,
+    body: `<aside class="side" id="side">
+<div class="sidehead"><a class="brandlink" href="/kids/coach/"><img src="/kids/assets/earthpilot.png" alt="" width="28" height="28"><span>Behavior Coach</span></a><button class="closeside" id="closeside" aria-label="Close menu">&times;</button></div>
+<button class="newchat" id="restart">+ New conversation</button>
+<nav class="sidenav">
+<b>For schools</b>
+<a href="/kids/kit/">The Safe Discipline Program kit</a>
+<a href="/kids/kit/when-a-parent-asks-for-the-paddle.pdf">When a parent asks for the paddle</a>
+<a href="/kids/board/">The film for school boards</a>
+<b>End School Corporal Punishment</b>
+<a href="/kids/">The map</a>
+<a href="/kids/act/">Act</a>
+<a href="/kids/resources/">Facts</a>
+<a href="/kids/share/">Share</a>
+<a href="/kids/privacy/">Privacy</a>
+</nav>
+<p class="sidefoot">Anonymous by design: the coach never asks for a name and the site keeps no record of the conversation. It is a coach, not a clinician or a lawyer. If a child is in danger, call 911. For thoughts of self-harm, call or text 988.</p>
+<p class="sidefoot">An open project of <a href="https://earthpilot.ai">EarthPilot</a>.</p>
 </aside>
-<div class="coachpane">
+<div class="scrim" id="scrim"></div>
+<div class="main">
+<header class="bar"><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button><span class="bartitle">Behavior Coach</span><span class="barnote">Free, anonymous, evidence only</span><button class="barbtn" id="print" type="button">Print</button></header>
+<div id="stage"><div class="col">
 <form id="intake" autocomplete="off">
-<h2>Tell the coach what is going on</h2>
-<p class="fine">Pick what fits. No names, no school names: the coach does not need them and the site does not keep them.</p>
+<h1>What is going on?</h1>
+<p class="lede">Pick what fits and the coach gives you the one highest-leverage thing to do this week, the words to say, and what to watch. No names, no school names: it does not need them and nothing you type is stored.</p>
 <div class="q"><label>I am a</label><div class="chips"><input type="hidden" name="role"><button data-v="parent">Parent</button><button data-v="teacher">Teacher</button><button data-v="admin">Principal or assistant principal</button><button data-v="teacher">Other school staff</button></div></div>
 <div class="q"><label>The child is in</label><div class="chips"><input type="hidden" name="grade"><button>PreK to K</button><button>Grades 1 to 2</button><button>Grades 3 to 5</button><button>Grades 6 to 8</button><button>Grades 9 to 12</button></div></div>
 <div class="q"><label>It happens</label><div class="chips"><input type="hidden" name="setting"><button>At home</button><button>In the classroom</button><button>In the hallway, bus, recess or cafeteria</button><button>In the office or during discipline</button><button>Everywhere</button></div></div>
@@ -938,14 +953,11 @@ mkdirSync(join(site, "live"), { recursive: true });
 <div class="q parent"><label>Anything new at home <small>(pick all that fit)</small></label><div class="chips" data-multi><input type="hidden" name="home"><button>Nothing new</button><button>New baby or sibling</button><button>A move or a new school</button><button>Separation or divorce</button><button>A death or illness in the family</button><button>Less sleep lately</button><button>More screen time lately</button><button>Prefer not to say</button></div></div>
 <div class="q teacher"><label>When it tends to happen <small>(pick all that fit)</small></label><div class="chips" data-multi><input type="hidden" name="when"><button>First minutes of class</button><button>Transitions</button><button>Independent work</button><button>Group work</button><button>After lunch or recess</button><button>End of the day</button><button>With one particular adult or peer</button></div></div>
 <div class="q"><label>The last time it happened <small>(optional)</small></label><textarea name="describe" maxlength="1500" placeholder="What happened right before, what the child did, and what the adult did next. No names, please."></textarea></div>
-<div class="go"><button type="submit">Ask the coach</button><small>Free. Anonymous. Nothing you type is stored.</small></div>
+<div class="go"><button type="submit">Ask the coach</button><small>Free. Anonymous. Built only on practices with published evidence.</small></div>
 </form>
-<div id="chat">
 <div id="log"></div>
-<form id="composer"><textarea id="say" rows="1" maxlength="2500" placeholder="Reply, ask a follow-up, or describe the next thing that happened. No names."></textarea><button id="send" type="submit">Send</button></form>
-<div class="coachtools"><button type="button" id="restart">Start over</button><button type="button" id="print">Print this plan</button><span>Nothing here is stored. Closing the tab erases it.</span></div>
-</div>
-</div>
+</div></div>
+<div class="composerwrap"><form id="composer"><textarea id="say" rows="1" maxlength="2500" placeholder="Reply, ask a follow-up, or describe the next thing that happened. No names."></textarea><button id="send" type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button></form><p class="composernote">The coach can be wrong. Nothing here is stored; closing the tab erases it.</p></div>
 </div>`,
   }));
 
