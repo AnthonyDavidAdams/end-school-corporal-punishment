@@ -73,7 +73,7 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var f = new FormData(form), need = ["role", "grade", "setting", "behavior", "freq"], ok = true;
+    var f = new FormData(form), need = ["role", "grade", "setting", "behavior", "freq", "willing"], ok = true;
     need.forEach(function (n) { if (!f.get(n)) { ok = false; $('[name="' + n + '"]', form).closest(".chips").classList.add("missing"); } });
     if (!ok) { $(".missing", form).scrollIntoView({ block: "center", behavior: "smooth" }); return; }
     var role = f.get("role"), parts = ["I am " + (/^a/i.test(role) ? "an " : "a ") + role.toLowerCase() + "."];
@@ -84,6 +84,7 @@
     if (f.get("tried")) parts.push("Already tried: " + f.get("tried").toLowerCase() + ".");
     if (f.get("home")) parts.push("Recent changes at home: " + f.get("home").toLowerCase() + ".");
     if (f.get("when")) parts.push("When it tends to happen: " + f.get("when").toLowerCase() + ".");
+    if (f.get("willing")) parts.push("Asked whether I would try something different if it is more likely to work: " + f.get("willing") + ".");
     var d = (f.get("describe") || "").trim(); if (d) parts.push("The last time it happened: " + d);
     document.body.classList.add("chatting"); started = true; track("CoachStart"); stage.scrollTop = 0;
     ask(parts.join(" "));
