@@ -90,15 +90,29 @@
     ask(parts.join(" "));
   });
 
+  // The short way in: a role if they picked one, and whatever they typed. The coach asks for the rest.
+  $("#start").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = new FormData($("#start")), t = (f.get("text") || "").trim(), role = f.get("role");
+    if (!t) { $("#start textarea").focus(); return; }
+    var parts = [];
+    if (role) parts.push("I am " + (/^a/i.test(role) ? "an " : "a ") + role.replace(/^I am an? /i, "").toLowerCase() + ".");
+    parts.push(t);
+    document.body.classList.add("chatting"); started = true; track("CoachStart"); stage.scrollTop = 0;
+    ask(parts.join(" "));
+  });
+  $("#openquiz").addEventListener("click", function (e) { e.preventDefault(); document.body.classList.add("quiz"); });
+  $("#closemodal").addEventListener("click", function () { document.body.classList.remove("quiz"); });
+  $("#modal").addEventListener("click", function (e) { if (e.target === e.currentTarget) document.body.classList.remove("quiz"); });
   composer.addEventListener("submit", function (e) { e.preventDefault(); var t = box.value.trim(); if (!t || busy) return; box.value = ""; box.style.height = ""; ask(t); });
   box.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); composer.requestSubmit(); } });
   box.addEventListener("input", function () { box.style.height = "auto"; box.style.height = Math.min(box.scrollHeight, 160) + "px"; });
-  $("#restart").addEventListener("click", function () { messages = []; log.innerHTML = ""; composer.classList.remove("done"); document.body.classList.remove("chatting", "menu"); document.body.removeAttribute("data-role"); form.reset(); document.querySelectorAll(".chips button").forEach(function (b) { b.classList.remove("on"); }); document.querySelectorAll(".chips input[type=hidden]").forEach(function (h) { h.value = ""; }); stage.scrollTop = 0; });
+  $("#restart").addEventListener("click", function () { messages = []; log.innerHTML = ""; composer.classList.remove("done"); document.body.classList.remove("chatting", "menu", "quiz"); $("#start").reset(); document.body.removeAttribute("data-role"); form.reset(); document.querySelectorAll(".chips button").forEach(function (b) { b.classList.remove("on"); }); document.querySelectorAll(".chips input[type=hidden]").forEach(function (h) { h.value = ""; }); stage.scrollTop = 0; });
   function menu(on) { document.body.classList.toggle("menu", on); }
   $("#burger").addEventListener("click", function () { menu(true); });
   $("#closeside").addEventListener("click", function () { menu(false); });
   $("#scrim").addEventListener("click", function () { menu(false); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") menu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") { menu(false); document.body.classList.remove("quiz"); } });
   $("#print").addEventListener("click", function () { window.print(); });
   window.addEventListener("beforeunload", function () { messages = []; });
 })();

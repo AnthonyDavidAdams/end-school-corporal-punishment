@@ -941,9 +941,17 @@ mkdirSync(join(site, "live"), { recursive: true });
 <div class="main">
 <header class="bar"><button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button><span class="bartitle">Behavior Coach</span><span class="barnote">Free, anonymous, evidence only</span><button class="barbtn" id="print" type="button">Print</button></header>
 <div id="stage"><div class="col">
-<form id="intake" autocomplete="off">
+<form id="start" autocomplete="off">
 <h1>What is going on?</h1>
-<p class="lede">Pick what fits and the coach gives you the one highest-leverage thing to do this week, the words to say, and what to watch. No names, no school names: it does not need them and nothing you type is stored.</p>
+<p class="lede">Tell the coach in a sentence or two: what the child does, when, and what you did next. It gives you the one highest-leverage thing to do this week, the words to say, and what to watch. No names, please; nothing you type is stored.</p>
+<div class="chips startrole"><input type="hidden" name="role"><button data-v="parent">I am a parent</button><button data-v="teacher">I am a teacher</button><button data-v="admin">I am a principal</button></div>
+<div class="startbox"><textarea name="text" rows="3" maxlength="2500" placeholder="My son is in second grade and every morning..."></textarea><button type="submit" aria-label="Ask the coach"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button></div>
+<p class="startalt">Prefer to tap through? <a href="#" id="openquiz">Answer a few quick questions instead</a>.</p>
+</form>
+<div class="modal" id="modal"><div class="modalbox">
+<form id="intake" autocomplete="off">
+<div class="modalhead"><h2>A few quick questions</h2><button type="button" class="closemodal" id="closemodal" aria-label="Close">&times;</button></div>
+<p class="fine">Pick what fits. No names, no school names.</p>
 <div class="q"><label>I am a</label><div class="chips"><input type="hidden" name="role"><button data-v="parent">Parent</button><button data-v="teacher">Teacher</button><button data-v="admin">Principal or assistant principal</button><button data-v="teacher">Other school staff</button></div></div>
 <div class="q"><label>The child is in</label><div class="chips"><input type="hidden" name="grade"><button>PreK to K</button><button>Grades 1 to 2</button><button>Grades 3 to 5</button><button>Grades 6 to 8</button><button>Grades 9 to 12</button></div></div>
 <div class="q"><label>It happens</label><div class="chips"><input type="hidden" name="setting"><button>At home</button><button>In the classroom</button><button>In the hallway, bus, recess or cafeteria</button><button>In the office or during discipline</button><button>Everywhere</button></div></div>
@@ -956,6 +964,7 @@ mkdirSync(join(site, "live"), { recursive: true });
 <div class="q"><label>The last time it happened <small>(optional)</small></label><textarea name="describe" maxlength="1500" placeholder="What happened right before, what the child did, and what the adult did next. No names, please."></textarea></div>
 <div class="go"><button type="submit">Ask the coach</button><small>Free. Anonymous. Built only on practices with published evidence.</small></div>
 </form>
+</div></div>
 <div id="log"></div>
 </div></div>
 <div class="composerwrap"><form id="composer"><textarea id="say" rows="1" maxlength="2500" placeholder="Reply, ask a follow-up, or describe the next thing that happened. No names."></textarea><button id="send" type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button></form><p class="composernote">The coach can be wrong. Nothing here is stored; closing the tab erases it.</p></div>

@@ -300,7 +300,7 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 .pfeed{list-style:none;margin:0;padding:0;font-size:.82rem}.pfeed li{padding:.25rem 0;border-bottom:1px solid #1B2340;color:#C9D1E0}.pfeed li.on{color:#A7F3D0}.pfeed time{color:#8B95A5;font-size:.72rem;margin-left:.3rem}
 @media(max-width:900px){.arcboard{grid-template-columns:1fr}}
 
-/* coach v3 */
+/* coach v4 */
 /* The Behavior Coach, in the shape people know from Claude and ChatGPT: a sidebar with the way back to the
    rest of the site, one centered conversation column, the composer pinned at the bottom, and on a phone the
    sidebar folds behind a menu button. The page itself never scrolls; the stage does. */
@@ -382,3 +382,24 @@ body.chatting .composerwrap { display:block; }
   .composerwrap { padding-left:.7rem; padding-right:.7rem; }
 }
 @media print { .side, .bar, .composerwrap, #intake { display:none !important; } body.app { height:auto; overflow:visible; } #stage { overflow:visible; } }
+
+/* the first screen: one question, one box; the chips wait behind a link */
+#start { padding-top:min(10vh,90px); }
+#start h1 { font-family:var(--serif); font-weight:900; font-size:clamp(1.7rem,3.2vw,2.3rem); margin:.4rem 0 .5rem; line-height:1.15; }
+#start .lede { color:var(--muted); font-size:1rem; margin:0 0 1rem; max-width:62ch; }
+.startrole { margin-bottom:.8rem; }
+.startbox { display:flex; align-items:flex-end; gap:.5rem; border:1px solid var(--rule); border-radius:18px; padding:.5rem .5rem .5rem 1rem; background:#fff; box-shadow:0 2px 12px rgba(13,19,45,.08); }
+.startbox:focus-within { border-color:var(--navy-dark); }
+.startbox textarea { flex:1; border:0; outline:0; resize:none; font:16px/1.45 var(--sans); padding:.5rem 0; background:transparent; min-height:70px; }
+.startbox button { width:40px; height:40px; border-radius:50%; border:0; background:var(--navy-dark); color:#fff; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:0 0 auto; }
+.startalt { margin:.9rem 0 0; font-size:.9rem; color:var(--muted); }
+.startalt a { color:var(--navy-dark); }
+body.chatting #start { display:none; }
+.modal { display:none; position:fixed; inset:0; z-index:20; background:rgba(13,19,45,.5); align-items:center; justify-content:center; padding:1rem; }
+body.quiz .modal { display:flex; }
+.modalbox { background:#fff; border-radius:16px; width:min(760px,100%); max-height:92dvh; overflow:auto; padding:1.1rem 1.3rem 1.3rem; box-shadow:0 20px 60px rgba(13,19,45,.3); }
+.modalhead { display:flex; align-items:center; justify-content:space-between; gap:.6rem; }
+.modalhead h2 { font-family:var(--serif); font-size:1.35rem; margin:0; }
+.closemodal { background:none; border:0; font-size:1.8rem; line-height:1; color:var(--muted); cursor:pointer; padding:.2rem .4rem; }
+#intake .fine { color:var(--muted); font-size:.9rem; margin:.3rem 0 0; }
+@media (max-width: 860px) { .modal { padding:0; } .modalbox { width:100%; max-height:100dvh; border-radius:0; } #start { padding-top:1rem; } }
