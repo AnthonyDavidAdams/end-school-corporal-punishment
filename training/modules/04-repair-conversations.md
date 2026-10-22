@@ -8,7 +8,7 @@ The idea that a consequence is over when the pain stops. A paddled student owes 
 
 ## The evidence, honestly
 
-Restorative practices cut days lost to suspension by 36 percent against 18 percent in control schools in a 44-school randomized trial in Pittsburgh and narrowed racial disparities; the same trial found academic outcomes worsened in grades 6 to 8, no effect for students with IEPs, and no drop in arrests. A second randomized trial in 13 Maine middle schools found no significant effects at all (`../evidence.md` B2). So this module is deliberately small: a five-minute conversation script inside the ladder in Module 3, not a whole-school restorative program with circles in every class. Schools with the staff and two years of coaching can go further; this is the version any school can run on Monday.
+Restorative practices cut days lost to suspension by 36 percent against 18 percent in control schools in a 44-school randomized trial in Pittsburgh and narrowed racial disparities; the same trial found academic outcomes worsened in grades 6 to 8, no reduction in suspensions for students with IEPs, and no drop in arrests. A second randomized trial in 13 Maine middle schools found no significant effects at all (`../evidence.md` B2). So this module is deliberately small: a five-minute conversation script inside the ladder in Module 3, not a whole-school restorative program with circles in every class. Schools with the staff and two years of coaching can go further; this is the version any school can run on Monday.
 
 ## The practice: the five questions
 
