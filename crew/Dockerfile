@@ -15,6 +15,7 @@ COPY crew/crew.json crew/values.md /crew/
 COPY crew/tasks /crew/tasks
 COPY crew/schemas /crew/schemas
 COPY crew/tools.mjs /crew/tools.mjs
+COPY crew/readers /crew/readers
 COPY tasks/README.md /crew/tasks/README.md
 COPY facts /crew/facts
 COPY AGENTS.md CODE_OF_CONDUCT.md /crew/
