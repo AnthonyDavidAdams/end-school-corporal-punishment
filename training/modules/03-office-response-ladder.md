@@ -9,8 +9,8 @@
 ## The evidence
 
 - School-wide PBIS, which is this ladder plus the routines in Module 2 plus the data in Module 8, reduced suspensions and office referrals in a five-year randomized trial across 37 schools; children in PBIS schools were 33 percent less likely to be referred (`../evidence.md` B1).
-- Consistency across administrators is the fidelity component the trials measured. A ladder used by one administrator and not another is not the intervention.
-- The risk of swapping paddling for suspension is real and undocumented in the research (B9). The ladder is designed so that suspension is the last rung, not the second.
+- The trial results came from schools implementing PBIS with fidelity, and the effects depend on it (B1). A ladder used by one administrator and not another is not being implemented as designed.
+- Swapping paddling for suspension is a plausible risk that no study has measured (B9). The ladder is designed so that suspension is the last rung, not the second.
 
 ## The ladder
 
