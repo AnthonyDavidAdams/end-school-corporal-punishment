@@ -324,8 +324,10 @@ def inbox():
     # Every subject we have ever sent, not just the ones with "corporal" in them: the research and
     # agency requests would otherwise never have their replies read.
     typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
-    handled = 0
-    for num in (data[0].split() if data and data[0] else []):
+    handled = 0; nums = data[0].split() if data and data[0] else []; t0 = time.time()
+    log(f"inbox: {len(nums)} candidate messages in the last 60 days")
+    for num in nums:
+        if time.time() - t0 > 9 * 60: log("inbox: nine-minute budget reached; the rest waits for the next cycle"); break
         # Message-ID first, whole body only for mail we have not handled: All Mail holds every reply ever
         # answered, and fetching each one in full (attachments included) dropped the socket.
         typ, hdr = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (MESSAGE-ID)])")
@@ -1151,7 +1153,10 @@ if __name__ == "__main__":
     elif cmd == "followup": followup()
     elif cmd == "bounces": bounces()
     elif cmd == "cycle":
-        send(25); inbox(); bounces(); followup(); tidy()
+        # Order matters under the watchdog: the quick, capped steps and the health line ("ops page rebuilt")
+        # come first, and the inbox pass, the one step that can stall on Gmail, runs last so a stall costs
+        # only the inbox and never the follow-ups or the ops page (2026-10-26).
+        send(25); followup(); tidy(); bounces()
         # A superintendent who just sent us a prohibiting policy gets the certificate the same day.
         try:
             out = subprocess.run([os.path.join(ROOT, "tools/.venv/bin/python"), os.path.join(ROOT, "tools/certificates/send.py"), "--momentum", "--limit", "20"], cwd=ROOT, capture_output=True, text=True, timeout=1500).stdout.strip().splitlines()
@@ -1159,6 +1164,7 @@ if __name__ == "__main__":
         except Exception as ex:
             log("momentum certificates failed", repr(ex)[:100])
         ops_page()
+        inbox()
     elif cmd == "compliments":
         # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
         reqs = load(); n = 0
