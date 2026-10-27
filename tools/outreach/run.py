@@ -1097,9 +1097,10 @@ def signs_as(pol):
             if not os.path.exists(path): continue
             body, _ = part_text(email.message_from_bytes(open(path, "rb").read()))
             for line in triage_mod.strip_quoted(body).splitlines():
-                w = line.strip().rstrip(",")
-                if re.fullmatch(r"[A-Z][a-z]{1,11}", w) and first and (first.lower().startswith(w.lower()) or w.lower().startswith(first.lower()[:3])):
-                    return w
+                w = line.strip().rstrip(",").split(",")[0]
+                m = re.fullmatch(r"([A-Z][a-z]{1,11})( [A-Z][A-Za-z'.-]+){0,2}", w)   # "Pat", "Matt Simpson", "Shane Walter"
+                if m and first and (first.lower().startswith(m.group(1).lower()) or m.group(1).lower().startswith(first.lower()[:3])):
+                    return m.group(1)
     except Exception: pass
     return None
 
