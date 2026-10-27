@@ -10,12 +10,20 @@
    "count": 2186
   },
   {
+   "id": "record-completion",
+   "title": "Complete a silent district's record from its board policy manual",
+   "priority": 1,
+   "unit": "districts whose handbook was read and says nothing, or that nobody could read: the board policy manual's own sentence is wanted",
+   "scopes": null,
+   "count": 712
+  },
+  {
    "id": "district-policy-scan",
    "title": "District policy scan",
    "priority": 1,
    "unit": "districts that reported striking a student and whose policy nobody has read",
    "scopes": 64,
-   "count": 561,
+   "count": 560,
    "where": "/kids/worklist/"
   },
   {
@@ -32,15 +40,23 @@
    "priority": 2,
    "unit": "districts that prohibit it with no date on the policy, so they cannot be placed on the timeline",
    "scopes": null,
-   "count": 829,
+   "count": 830,
    "where": "/kids/timeline/"
+  },
+  {
+   "id": "neighbor-ask-research",
+   "title": "Who to ask in a permitting district next to one that banned",
+   "priority": 2,
+   "unit": "permitting districts next door to one that moved to a ban: who to ask and when the board meets, with sources",
+   "scopes": null,
+   "count": 279
   },
   {
    "id": "recover-blocked-source",
    "title": "Recover a source the server cannot read",
    "priority": 2,
    "unit": "districts left unknown after a real search, most of them behind a vendor wall",
-   "scopes": 70,
+   "scopes": 72,
    "count": 64
   },
   {
