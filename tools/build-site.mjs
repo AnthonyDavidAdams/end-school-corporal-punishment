@@ -1,6 +1,6 @@
 // Static site generator for earthpilot.org/kids. Reads site/data/*.json (run build-site-data.mjs first),
 // data/crdc/*/states.csv, templates/*.md. Writes site/index.html, site/state/<XX>/index.html, site/resources/index.html, site/contribute/index.html.
-import { statSync, readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { statSync, readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync, rmSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -712,6 +712,11 @@ mkdirSync(join(site, "stopped"), { recursive: true });
       writeFileSync(join(dir, "index.html"), certificateHtml({ d: rec, stateName: states[code].name, esc, n, base: BASE }));
       certs.push(rec);
     }
+  }
+  // A district that drops out of the certifiable set (reclassified, retracted) loses its page the same build.
+  const keep = new Set(certs.map(c => `${c.code.toLowerCase()}-${c.slug}`));
+  for (const dir of readdirSync(join(site, "stopped"), { withFileTypes: true })) {
+    if (dir.isDirectory() && !keep.has(dir.name)) rmSync(join(site, "stopped", dir.name), { recursive: true, force: true });
   }
   certs.sort((a, b) => (b.policy_revised || b.policy_adopted || "").localeCompare(a.policy_revised || a.policy_adopted || "") || a.name.localeCompare(b.name));
   const certLink = (d) => `/kids/stopped/${d.code.toLowerCase()}-${slug(d.name)}/`;
