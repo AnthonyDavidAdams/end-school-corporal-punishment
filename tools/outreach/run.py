@@ -596,6 +596,8 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     # The limits code keeps whatever the model chose.
     if move == "ask_minutes" and (record.get("status") == "bans" or their_replies > 1 or r.get("residency_required")):
         move, why = "hold", f"minutes request blocked by rule ({'policy already prohibits' if record.get('status') == 'bans' else 'not a first reply' if their_replies > 1 else 'needs a resident'}); {why}"
+    if move == "invite_policy" and (record.get("status") == "bans" or r.get("invited_policy_at")):
+        move, why = "hold", f"invitation blocked by rule ({'policy already prohibits' if record.get('status') == 'bans' else 'already invited on ' + r['invited_policy_at']}); {why}"
     if move == "records_request" and r.get("formal_requested_at"):
         move, why = "hold", "a formal request already went out on this thread; " + why
     # "We don't publish that" with the policy attached is an answer, not a refusal. Anything that arrived in
@@ -638,6 +640,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
             elif move == "ask_link": r["awaiting_link_since"] = datetime.date.today().isoformat(); r["status"] = "sent"
             elif move == "ask_residency_proof": r["residency_asked_at"] = datetime.date.today().isoformat(); r["status"] = "sent"
             elif move == "ask_minutes": r["minutes_requested_at"] = datetime.date.today().isoformat(); r["status"] = "sent"; r["claim"] = "the district does not use corporal punishment"
+            elif move == "invite_policy": r["invited_policy_at"] = datetime.date.today().isoformat(); r["status"] = "sent"; r["claim"] = "the district does not use corporal punishment"
             elif move == "records_request": r["formal_requested_at"] = datetime.date.today().isoformat(); r["status"] = "sent"
             else: r["status"] = "sent"
         else:
@@ -758,6 +761,7 @@ def catchup(send=True):
         move = d["move"] if d else "hold"; text = d["reply"] if d else None; why = d["why"] if d else f"writer: {writer_mod.LAST_ERROR[0]}"
         their = len([x for x in thread if x["who"] == "them"])
         if move == "ask_minutes" and (record.get("status") == "bans" or their > 1 or r.get("residency_required")): move = "hold"
+        if move == "invite_policy" and (record.get("status") == "bans" or r.get("invited_policy_at")): move = "hold"
         if move in ("forward",): move = "hold"
         if move == "records_request" and (r.get("formal_requested_at") or recorded or atts): move = "hold"
         if move != "hold" and re.search(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body)) and max(float(a.replace(",", "")) for a in re.findall(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body))) > 5: move = "hold"
@@ -769,6 +773,7 @@ def catchup(send=True):
         if ok and send and reply_to(r, frm, e["message_id"], subject, text):
             e["our_reply"] = text; e["move"] = move; e["why"] = why; e["action"] = (e.get("action") or "") + f"; catch-up reply ({move})"
             if move == "records_request": r["formal_requested_at"] = datetime.date.today().isoformat()
+            if move == "invite_policy": r["invited_policy_at"] = datetime.date.today().isoformat()
             r["status"] = "answered" if move == "thank_recorded" else "sent"; sent += 1; log("catchup sent", r["state"], r["name"], move)
         elif not text and re.search(r"acknowledg|no reply needed|nothing to answer", why, re.I):
             e["action"] = (e.get("action") or "") + f"; catch-up: no reply needed ({why[:80]})"
@@ -822,12 +827,14 @@ def rehold(send=True):
         move = d["move"] if d else "hold"; text = d["reply"] if d else None; why = d["why"] if d else f"writer: {writer_mod.LAST_ERROR[0]}"
         their = sum(1 for m in thread if m["who"] == "them")
         if move == "ask_minutes" and (record.get("status") == "bans" or their > 1 or r.get("residency_required")): move = "hold"
+        if move == "invite_policy" and (record.get("status") == "bans" or r.get("invited_policy_at")): move = "hold"
         if move == "forward": move = "hold"
         if move == "records_request" and r.get("formal_requested_at"): move = "hold"
         ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
         if ok and send and reply_to(r, frm, e["message_id"], subject, text):
             e["our_reply"] = text; e["move"] = move; e["why"] = why; e["action"] = (e.get("action") or "") + f"; re-decided and replied ({move})"
             if move == "records_request": r["formal_requested_at"] = datetime.date.today().isoformat()
+            if move == "invite_policy": r["invited_policy_at"] = datetime.date.today().isoformat()
             r["status"] = "answered" if move == "thank_recorded" else "sent"; sent += 1
             log("rehold sent", r["state"], r["name"], move)
         else:
@@ -1095,8 +1102,8 @@ def retriage(send=False):
                 "website_no_link": "re-check their own domain, then record it or ask for the direct link",
                 "residency_required": "ask what proof they accept, and note it for the exchange",
                 "wrong_contact": f"start again with {facts.get('redirect_to') or 'whoever they named'}",
-                "no_written_policy": "record no-policy and send the grant offer",
-                "claims_no_practice": "record the claim and ask for the board minutes",
+                "no_written_policy": "record no-policy and invite the board to put a prohibition in writing",
+                "claims_no_practice": "record the claim and invite the board to put a prohibition in writing",
                 "will_send_later": "wait", "auto_reply_or_bounce": "mark the address dead",
                 }.get(kind, "draft it for you")
         plans.append((r, kind, conf, move))
