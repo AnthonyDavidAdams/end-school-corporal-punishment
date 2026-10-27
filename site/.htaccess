@@ -22,3 +22,7 @@ AddType image/svg+xml .svg
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE application/json image/svg+xml text/plain
 </IfModule>
+
+# the hit log, coach spend state and the decisions inbox live in cache/; written by PHP, never served.
+# (cache/ is excluded from the deploy rsync; the host also carries cache/.htaccess with "Require all denied")
+RewriteRule ^cache/ - [F,L]
