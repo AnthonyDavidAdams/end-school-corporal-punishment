@@ -1,0 +1,118 @@
+{
+ "title": "Two girls, one sentence",
+ "voice": {
+  "model": "fal-ai/elevenlabs/tts/multilingual-v2",
+  "voice": "Brian",
+  "speed": 0.95
+ },
+ "voice_witness": {
+  "model": "fal-ai/elevenlabs/tts/multilingual-v2",
+  "voice": "Sarah",
+  "speed": 0.92
+ },
+ "style": "torn-paper collage on warm cream card stock, flat lay photographed in soft daylight: layered cut and torn paper shapes with white fibrous torn edges, fragments of vintage newsprint and ledger grid paper, one or two black-and-white photo cutouts, red paper strips, kraft brown card, blue ballpoint doodles in the margins, real shadows under each paper layer, handmade and tactile, palette of cream, black, brick red, navy blue and kraft brown; no legible words, no letters, no numbers, no logos",
+ "motion": "stop-motion paper cut-out animation at twelve frames per second: the paper layers shift and settle a little, one torn piece slides into place, the shadows flicker the way a handmade stop-motion film does, slight camera breathing, nothing legible appears, no text",
+ "notes": "The story is two girls, Ava and Emma, same town, same Tuesday, two policies. It opens on a real first-hand account (facts/claims/testimony-first-hand-accounts.md), read in a second voice and attributed on a typewriter card. The stats are the side story and are shown as paper strips, never narrated as a list. The audience is a board member or superintendent who went into education because they believe in students, results and keeping an open mind; the film speaks to that identity and asks for one vote.",
+ "scenes": [
+  {
+   "id": "s01_witness",
+   "voice": "witness",
+   "card": "{witness_attr}",
+   "image": "a school office seen through a cut-paper doorway, a wooden chair against the wall, a long paper shadow, a child's backpack of patterned paper on the floor",
+   "vo": "{witness_quote}",
+   "highlight": []
+  },
+  {
+   "id": "s02_frame",
+   "card": "{state}, this school year",
+   "image": "a child's wooden school desk by a tall window made of cut paper, the window light a pale yellow paper rectangle, an empty chair, a ballpoint doodle of a sun in the margin",
+   "vo": "That is what being hit at school is like. In {state} it is still legal. {opening_count}",
+   "highlight": [
+    "still legal"
+   ]
+  },
+  {
+   "id": "s03_two_girls",
+   "card": "Ava and Emma",
+   "image": "two small cut-paper girls at two identical paper desks by two identical windows, one made of warm cream paper and one of cool blue, seen from behind, a shoved paper chair between them",
+   "vo": "Take two girls. Same town, same grade, same kind of family. Call them Ava and Emma. On a Tuesday in October, each of them does the same thing: she shoves a classmate who took her seat. Two schools. Two policies.",
+   "highlight": [
+    "two policies"
+   ]
+  },
+  {
+   "id": "s04_ava",
+   "card": "Ava's school permits it",
+   "image": "a cut-paper hallway to a school office door, a wooden paddle cut from kraft card on a hook beside the door, a single paper chair, a long red paper shadow across the floor",
+   "vo": "Ava's school permits corporal punishment. She is sent to the office, told to bend over a chair, and struck with a wooden board. It is over in a minute.",
+   "highlight": [
+    "over in a minute"
+   ]
+  },
+  {
+   "id": "s05_emma",
+   "card": "Emma's school prohibits it",
+   "image": "a cut-paper office with a round table, a child and an adult of patterned paper sitting across from each other, a telephone, a window of pale yellow paper light, a calendar of torn pages",
+   "vo": "Emma's school prohibits it. She is sent to the office too. Her teacher calls home. She loses recess for a week, and she practices, with an adult, what to do the next time someone takes her seat. It takes a month.",
+   "highlight": [
+    "it takes a month"
+   ]
+  },
+  {
+   "id": "s06_research",
+   "card": "21 studies, 67,400 children",
+   "image": "two paper paths from the same cut-paper schoolhouse, one into torn navy shade with a small figure walking alone, one into pale yellow light with a small figure walking beside an adult",
+   "vo": "Here is what the research says happens next. Across twenty-one studies and sixty-seven thousand children, girls like Ava are more likely to hit someone again, more anxious, more likely to fall behind. And the one thing the paddle was for? Across seventy-five studies it did not even reliably stop the behavior in the moment. Not one study found a benefit. Emma's school used the approach the research does support.",
+   "highlight": [
+    "not one study"
+   ]
+  },
+  {
+   "id": "s07_who",
+   "card": "{who_card}",
+   "image": "a row of nine cut-paper children of different sizes side by side in a school hallway, one in a wheelchair, each a different scrap of patterned paper",
+   "vo": "{who_line}",
+   "highlight": [
+    "{who_highlight}"
+   ],
+   "skip_if": "no_crdc"
+  },
+  {
+   "id": "s08_identity",
+   "card": "Open minds",
+   "image": "a teacher's desk of cut paper with a stack of graded papers, a red pen, an apple of red paper, a window with a torn-paper sunrise, a ballpoint doodle of a lightbulb in the margin",
+   "vo": "If you work in education, you already believe two things: that children can change, and that evidence should change us. Changing your mind when the evidence is in is what you ask of students every day. On this one, the evidence is in.",
+   "highlight": [
+    "the evidence is in"
+   ]
+  },
+  {
+   "id": "s09_paper_lags",
+   "card": "{lag_card}",
+   "image": "a thick dusty policy binder made of kraft card on a shelf in a quiet paper office, a coffee mug, a cat cut from newsprint asleep beside it",
+   "vo": "{lag_line}",
+   "highlight": [
+    "paper lags the practice"
+   ],
+   "skip_if": "no_lag"
+  },
+  {
+   "id": "s10_sentence",
+   "card": "{sentence_card}",
+   "image": "a long board-room table seen from above cut from kraft card, seven paper chairs, a single bright white sheet of paper in the middle under a yellow paper lamp glow",
+   "vo": "{boards_line} {sentence_line} For a district that has not used the paddle in years, nothing changes on Monday morning except the exposure, and what the policy says about who you are.",
+   "highlight": [
+    "{sentence_highlight}"
+   ]
+  },
+  {
+   "id": "s11_close",
+   "card": "earthpilot.org/kids/board",
+   "image": "a small brick school of red paper on a hill at sunrise, a sun of torn yellow paper, a yellow cut-paper bus arriving, two small paper girls walking in together, long kraft shadows",
+   "vo": "Ava and Emma are the same girl. The only difference was the policy. One sentence, on one agenda. The model policy, the letters to staff and families, and the training are free at earth pilot dot org, slash kids, slash board. The Safe Schools Project.",
+   "highlight": [
+    "one agenda"
+   ]
+  }
+ ]
+}
