@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { attachGeneratedScopes, describeGeneratedScope } from "./units.mjs";
 // Tools that belong to this campaign rather than to Ground Crew.
 //
 // Finding a school district's handbook and reading Texas board policy are problems specific to US
@@ -349,13 +350,31 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
   vendorFetch = egressFetch ? egressFetch(fetchImpl) : fetchImpl;
   simbliSend = vendorFetch;
 
+  // The generated queues: record-completion (every silent or unknown district, board manual wanted) and
+  // neighbor-ask-research (every permitting district next to one that moved to a ban). Their scopes are
+  // computed from the record once per process and attached to the tasks, so claim_task hands them out
+  // like any other unit. A missing data file leaves those two tasks empty rather than breaking the server.
+  const crewDir = ctx.crewDir ?? "/crew";
+  try {
+    const counts = attachGeneratedScopes(ctx.crew, crewDir);
+    if (!ctx.crew._generatedLogged) { ctx.crew._generatedLogged = true; console.error(`generated task units: ${Object.entries(counts).map(([k, v]) => `${k} ${v}`).join(", ") || "none"}`); }
+  } catch (err) {
+    console.error(`generated task units failed: ${err.message}`);
+  }
+
   // A contributor is assigned a scope like "TX: districts 11-20" and has to be able to turn that into
   // ten named districts without asking anyone. The worklist is published and ordered (most students
   // struck first), so the slice is just positions in that order -- deterministic, so two agents given
   // the same scope get the same districts, and so a scope means the same thing tomorrow as today.
   // The scope, resolved to its districts. Used by get_worklist and handed to the engine so claim_task
   // can return the districts inline (a connector that hides tools still gets them).
-  async function describeScope(scope) {
+  async function describeScope(scope, task) {
+      // A unit of one of the generated queues: the district, what the record already holds on it, the
+      // ask, and the shape of the record to submit.
+      try {
+        const u = describeGeneratedScope(ctx.crew, crewDir, scope, task);
+        if (u) return text(u);
+      } catch { /* fall through */ }
       // A scope that names one district returns exactly what the Mothership already knows about it:
       // which documents were read and found silent, which URL is walled and how, and what is being
       // asked for. The queue used to hand out slices of a worklist; now it hands out the residue that
@@ -395,7 +414,7 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
         worklist_generated: wl.generated,
       });
   }
-  ctx.describeScope = async (scope) => { const r = await describeScope(scope); if (r?.isError) return null; try { return JSON.parse(r.content[0].text); } catch { return null; } };
+  ctx.describeScope = async (scope, task) => { const r = await describeScope(scope, task); if (r?.isError) return null; try { return JSON.parse(r.content[0].text); } catch { return null; } };
 
   server.registerTool(
     "get_worklist",
@@ -404,12 +423,14 @@ export async function registerTools(server, ctx, { z, text, fail, documents, egr
       description:
         "Turn the scope you were assigned into the actual districts to read: name, state, NCES id, how many students it reported striking, and its address and website where the federal directory has them. " +
         "Call this first, right after claim_task. A scope like 'TX: districts 11-20' means positions 11 to 20 of Texas in the published worklist, which is ordered by how many children each district reported striking. A bare state means every unchecked district in it. " +
-        "Every district here told the federal government it struck a student in 2023-24 and none has ever been read.",
+        "A scope that names one district ('Hall County Schools, GA') returns that district: what the record already holds on it, what is asked, and the shape of the record to submit. " +
+        "For record-completion that is the board policy manual's sentence on corporal punishment; for neighbor-ask-research it is the superintendent, the board, the next meeting date and the neighboring district that already banned, each with its source URL.",
       inputSchema: {
-        scope: z.string().trim().min(1).describe("The scope from your lease, e.g. 'TX: districts 11-20' or 'MS'"),
+        scope: z.string().trim().min(1).describe("The scope from your lease, e.g. 'TX: districts 11-20', 'MS', or 'Hall County Schools, GA'"),
+        task: z.string().trim().min(1).optional().describe("The task from your lease, when a district name could be a unit of more than one task"),
       },
     },
-    async ({ scope }) => describeScope(scope)
+    async ({ scope, task }) => describeScope(scope, task)
   );
 
   server.registerTool(

@@ -70,13 +70,17 @@ for f in os.listdir(os.path.join(ROOT, "data/districts")):
 tally = collections.Counter(); approved, held = [], []
 GOOD = ("allows", "bans", "consent_required")
 
-for task in ("district-policy-scan", "recover-blocked-source"):
+for task in ("district-policy-scan", "recover-blocked-source", "record-completion"):
     for x in pending(task):
         r = x.get("record") or {}; chk = (x.get("source_check") or {}).get("status"); st = r.get("status")
         sourced = bool(r.get("quote") and r.get("source") and chk in ("cached", "matched", "agent_text") and st in GOOD)
         cur = rec.get(str(r.get("nces_id") or ""))
         if not r.get("nces_id"):
             held.append((task, r.get("state"), r.get("name"), "no federal id")); tally[(task, "held")] += 1; continue
+        if task == "record-completion" and st == "silent" and r.get("source"):
+            # The board manual was read and has no policy either. That is a finding, but it changes a record
+            # only by what it names as read, so a person decides whether it adds anything.
+            held.append((task, r.get("state"), r.get("name"), f"board manual silent: {r.get('source')}")); tally[(task, "held")] += 1; continue
         if not sourced:
             ok = review(x["id"], "rejected", "No verified primary source; the district stays on the worklist rather than entering the record as unknown."); tally[(task, "rejected", ok)] += 1; continue
         if cur and cur.get("quote") and cur.get("status") != st:
@@ -95,7 +99,7 @@ for task in ("crdc-refresh", "bill-watch"):
         r = x.get("record") or {}; good = bool(r.get("source") or r.get("url"))
         ok = review(x["id"], "approved" if good else "rejected", "Sourced document on file." if good else "No source."); tally[(task, "approved" if good else "rejected", ok)] += 1
 
-for task in ("share-kit", "decision-maker-dossier", "verify-claim", "training-review", "date-the-change"):
+for task in ("share-kit", "decision-maker-dossier", "verify-claim", "training-review", "date-the-change", "neighbor-ask-research"):
     n = len(pending(task))
     if n: tally[(task, "held for a person")] += n
 

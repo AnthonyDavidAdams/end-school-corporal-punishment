@@ -46,6 +46,14 @@ const OPEN = {
     count: claims.filter(t => /^status: reported/m.test(t)).length,
     unit: "claims still marked reported rather than verified",
   },
+  "record-completion": {
+    count: districts.filter(d => d.status === "silent" || d.status === "unknown").length,
+    unit: "districts whose handbook was read and says nothing, or that nobody could read: the board policy manual's own sentence is wanted",
+  },
+  "neighbor-ask-research": {
+    count: (() => { try { return JSON.parse(readFileSync(join(root, "data/game/next-targets.json"), "utf8")).ranked.length; } catch { return null; } })(),
+    unit: "permitting districts next door to one that moved to a ban: who to ask and when the board meets, with sources",
+  },
   "bill-watch": { count: null, unit: "states, each one legislative session" },
   "crdc-refresh": { count: null, unit: "federal release years" },
   "decision-maker-dossier": { count: null, unit: "school boards and state education committees" },

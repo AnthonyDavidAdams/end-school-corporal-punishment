@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Who to ask in one district (finding kind `contacts`; merges into the contacts collection)",
+  "description": "Public record only: every item carries the URL of the district page it was read from. Nothing is sent by the task that produces this; a person reads it first.",
+  "type": "object",
+  "required": ["kind", "state", "name", "as_of", "superintendent", "board_members", "next_board_meeting", "neighbor_ban"],
+  "properties": {
+    "kind": { "const": "contacts" },
+    "state": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "name": { "type": "string", "minLength": 1, "description": "District name as it appears in the record" },
+    "nces_id": { "type": ["string", "null"], "pattern": "^[0-9]{7}$", "description": "NCES LEA ID, 7 digits" },
+    "as_of": { "type": "string", "format": "date", "description": "The day the pages were read" },
+    "superintendent": {
+      "type": "object",
+      "required": ["name", "email", "source"],
+      "properties": {
+        "name": { "type": ["string", "null"], "description": "Current superintendent, as the district's own page names them" },
+        "email": { "type": ["string", "null"], "description": "The office email the district publishes for the superintendent's office; null when it publishes only a web form or a phone number" },
+        "contact_form": { "type": ["string", "null"], "format": "uri", "description": "The web form, when that is what the district publishes instead of an address" },
+        "phone": { "type": ["string", "null"] },
+        "source": { "type": ["string", "null"], "format": "uri", "description": "The district page this was read from" },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "board_members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "source"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "role": { "type": ["string", "null"], "description": "President, Vice President, District 3, Member, and the like, as the board page says it" },
+          "email": { "type": ["string", "null"], "description": "Only when the district publishes a board address for the member; never a personal mailbox" },
+          "term_ends": { "type": ["string", "null"] },
+          "source": { "type": ["string", "null"], "format": "uri" }
+        }
+      }
+    },
+    "board_page": { "type": ["string", "null"], "format": "uri", "description": "The district's board page" },
+    "next_board_meeting": {
+      "type": "object",
+      "required": ["date", "source"],
+      "properties": {
+        "date": { "type": ["string", "null"], "format": "date", "description": "The next regular meeting after as_of; null when no schedule is posted" },
+        "time": { "type": ["string", "null"] },
+        "place": { "type": ["string", "null"] },
+        "public_comment": { "type": ["string", "null"], "description": "How the public signs up to speak, when the page says" },
+        "source": { "type": ["string", "null"], "format": "uri", "description": "The schedule or agenda page the date was read from" },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "neighbor_ban": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": ["string", "null"], "description": "The neighboring district that already moved to a ban; the unit names the one the game computed" },
+        "nces_id": { "type": ["string", "null"], "pattern": "^[0-9]{7}$" },
+        "source": { "type": ["string", "null"], "format": "uri", "description": "Its policy or the record page, when you checked it" },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "notes": { "type": ["string", "null"], "description": "Anything the reviewer needs: a superintendent change, a page that is out of date, what could not be found" }
+  }
+}

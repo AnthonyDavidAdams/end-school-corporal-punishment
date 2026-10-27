@@ -150,3 +150,47 @@ tasks:
       - The policy text is attached verbatim, with the page or section it came from.
       - Notes say which wall it was and what was tried through the shared tools first.
       - Anything learned about the vendor is added to crew/notes/blocked-sites.md.
+
+  # The two tasks below list no scopes here. Their units are generated from the record when the server
+  # starts (crew/units.mjs): one per silent or unknown district, one per district in next-targets.json.
+  - id: record-completion
+    title: Complete a silent district's record from its board policy manual
+    description: >
+      For a district whose record is `silent` (its handbook and the other documents found were read in full
+      and carry no rule) or `unknown` (nothing readable was found), find the BOARD POLICY on corporal
+      punishment in the board policy manual, not the student handbook, and submit the sentence that settles
+      it verbatim, with the policy code and the URL of the policy page. A manual that is online and has no
+      such policy is submitted as `silent` with the manual's URL; no manual found online is `unknown` with
+      what was searched. Units are handed out one district at a time, the exposed states first
+      (score.json permitting_states_by_exposure), one district per state in turn, largest enrollment first.
+    unit: One district. claim_task returns the district with what the record already holds on it; get_worklist with the scope returns the same.
+    output: Entries in data/districts/<XX>.yaml with source, quote and policy_code
+    priority: 1
+    schema: schemas/district-finding.schema.json
+    skill: skills/district-policy-scan/SKILL.md
+    collection: districts
+    done_means:
+      - The source is the board policy manual or a policy page in it, not a handbook or a news report.
+      - The quote is the sentence that establishes the status, copied verbatim, and policy_code is the manual's own code for it.
+      - A `silent` finding names the manual read and the sections searched; an `unknown` finding says what was searched and where.
+
+  - id: neighbor-ask-research
+    title: Who to ask in a permitting district next to one that banned
+    description: >
+      For a district that permits corporal punishment on paper and sits in the same or an adjacent county
+      as a district that moved to a ban (data/game/next-targets.json), collect from the district's own
+      pages, with the URL each item was read from: the current superintendent's name and the public office
+      email the district publishes for that office, every board member's name and seat, the date of the
+      next regular board meeting, and the name of the neighboring district that already moved to a ban
+      (the unit carries the anchors the game computed; confirm or correct them). Submit one record with
+      kind `contacts`. Nothing is sent to anyone by this task; a person reads every finding before any of it is used.
+    unit: One district. claim_task returns the district, its banning neighbors and what the record holds; get_worklist with the scope returns the same.
+    output: Records in the contacts collection, one per district
+    priority: 2
+    schema: schemas/contacts-finding.schema.json
+    collection: contacts
+    done_means:
+      - Every item has the URL of the district page it was read from, and that page is one the district publishes for the public.
+      - The superintendent's email is the office address the district publishes, never a personal mailbox; a district that publishes only a web form says so.
+      - The meeting date is from the district's posted schedule or agenda, and is in the future on the day it is submitted.
+      - Nothing about anyone's family, home, health, finances or private accounts, and no minor is named.

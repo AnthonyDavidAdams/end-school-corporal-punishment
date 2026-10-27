@@ -8,7 +8,7 @@
     "name": { "type": "string", "description": "District name as it appears in NCES" },
     "county": { "type": ["string", "null"] },
     "nces_id": { "type": ["string", "null"], "pattern": "^[0-9]{7}$", "description": "NCES LEA ID, 7 digits" },
-    "status": { "enum": ["allows", "bans", "consent_required", "unknown"] },
+    "status": { "enum": ["allows", "bans", "consent_required", "silent", "unknown"], "description": "silent: the document named in source was read in full and carries no rule on corporal punishment" },
     "source": { "type": ["string", "null"], "format": "uri", "description": "URL of the board policy, handbook, or official record that establishes the status" },
     "quote": { "type": ["string", "null"], "description": "Verbatim sentence from the source that establishes the status" },
     "policy_code": { "type": ["string", "null"], "description": "Board policy number, e.g. 'JDA' or 'FO(LOCAL)'" },
@@ -25,6 +25,10 @@
     {
       "if": { "properties": { "status": { "enum": ["allows", "bans", "consent_required"] } } },
       "then": { "required": ["source", "quote"], "properties": { "source": { "type": "string" }, "quote": { "type": "string", "minLength": 1 } } }
+    },
+    {
+      "if": { "properties": { "status": { "const": "silent" } } },
+      "then": { "required": ["source"], "properties": { "source": { "type": "string" } } }
     }
   ]
 }

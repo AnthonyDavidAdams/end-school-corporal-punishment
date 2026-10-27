@@ -14,7 +14,7 @@ RUN npm install --omit=dev https://github.com/AnthonyDavidAdams/groundcrew/archi
 COPY crew/crew.json crew/values.md /crew/
 COPY crew/tasks /crew/tasks
 COPY crew/schemas /crew/schemas
-COPY crew/tools.mjs /crew/tools.mjs
+COPY crew/tools.mjs crew/units.mjs /crew/
 COPY tasks/README.md /crew/tasks/README.md
 COPY facts /crew/facts
 COPY AGENTS.md CODE_OF_CONDUCT.md /crew/
@@ -28,6 +28,10 @@ COPY data/crdc /crew/data/crdc
 COPY site/data/worklist.json /crew/data/worklist.json
 # Per-district residue: what the Mothership read, what is walled, what is asked of a contributor.
 COPY data/handbooks/residue.json /crew/data/residue.json
+# The game's scoreboard and next targets, and enrollment per district, from which crew/units.mjs generates the
+# record-completion and neighbor-ask-research queues at start. Kept outside /crew/data so they are not served as collections.
+COPY data/game/score.json data/game/next-targets.json /crew/game/
+COPY data/nces/lea-enrollment-2023-24.csv /crew/data/nces/lea-enrollment-2023-24.csv
 ENV NODE_ENV=production PORT=3000 GROUNDCREW_CREW=/crew GROUNDCREW_STATE=/state/state.json GROUNDCREW_ISSUES_DIR=/state/issues GROUNDCREW_DOCS_DIR=/state/documents
 RUN mkdir -p /state
 EXPOSE 3000

@@ -31,6 +31,19 @@ Both validate input (status enum, http(s) source URL, non-empty quote, 7-digit N
 
 Resources: `escp://facts` (claims.json) and `escp://states` (states.json).
 
+## The hosted crew server and its task queue
+
+The address below (`escp-mcp-production.up.railway.app`) is served by the **Ground Crew** engine built from `crew/Dockerfile` (`RAILWAY_DOCKERFILE_PATH=crew/Dockerfile`, the `@earthpilot/groundcrew` package pinned in that Dockerfile), with `crew/` as the crew directory, not by `server.mjs` in this folder. It is the server that leases work: `list_tasks`, `claim_task`, `get_worklist`, `renew_lease`, `release_lease`, `submit_finding`, `next_ask`, and the campaign's own tools from `crew/tools.mjs`. `server.mjs` here is the read-only facts server for stdio clients and the `submit_*` issue filers; it has no leases.
+
+The task queue is `crew/tasks/tasks.yaml`. Most tasks list their scopes there (the district-scan slices are rewritten nightly by `tools/crew-scopes.mjs`). Two are generated from the record by `crew/units.mjs` when the server starts, so they never go stale between deploys:
+
+| Task | One unit is | The agent submits |
+|---|---|---|
+| `record-completion` | A district whose record is `silent` or `unknown` (about 713): the board policy manual's own sentence on corporal punishment is wanted, not the handbook. Handed out exposed states first (`data/game/score.json` `permitting_states_by_exposure`), one district per state in turn, largest enrollment first. | `submit_finding` with the district-finding record: `status`, `source` (the policy page), `quote` (verbatim), `policy_code`, `last_verified`; `silent` with the manual's URL when the manual has no such policy, `unknown` with notes when none is online |
+| `neighbor-ask-research` | A permitting district in the same or an adjacent county as one that moved to a ban (`data/game/next-targets.json` `ranked`, 279). The unit names the banning neighbors the game computed. | One record of kind `contacts` (`crew/schemas/contacts-finding.schema.json`): superintendent name and public office email, board members, next board meeting date, the neighbor that banned, each with its source URL. Nothing is sent by this task. |
+
+`claim_task` returns the unit inline; `get_worklist` with the scope (`Hall County Schools, GA`) returns the same. `node crew/test.mjs` runs both through the engine locally. Redeploy after changing anything under `crew/`: the nightly job runs `railway up --detach` from the repository root when `crew/tasks/tasks.yaml` changes, and the same command redeploys by hand.
+
 Prompt: `district-scan` (optional argument `state`) returns the `district-policy-scan` skill plus `AGENTS.md`.
 
 ## Running

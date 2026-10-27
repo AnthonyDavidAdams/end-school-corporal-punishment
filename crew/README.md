@@ -6,4 +6,6 @@ Live server: https://escp-mcp-production.up.railway.app/mcp (Streamable HTTP; `/
 
 Run it yourself: `docker build -f crew/Dockerfile -t escp-crew . && docker run -p 3000:3000 -e ESCP_MAINTAINER_TOKEN=... escp-crew`, or without Docker, `npx @earthpilot/groundcrew serve <assembled crew dir> --http`.
 
+Two tasks, `record-completion` and `neighbor-ask-research`, declare no scopes in `tasks/tasks.yaml`: `units.mjs` generates their units from the record when the server starts (every `silent` or `unknown` district; every district in `data/game/next-targets.json`), reading `game/score.json`, `game/next-targets.json` and `data/nces/lea-enrollment-2023-24.csv` from beside the crew, which the Dockerfile copies in. `node crew/test.mjs` assembles that layout in a temp directory and drives both tasks through the engine (it looks for the engine in `$GROUNDCREW_DIR`, `~/groundcrew`, or `node_modules/@earthpilot/groundcrew`).
+
 Approved findings are merged into `data/` by a maintainer with `groundcrew findings` and the campaign's `tools/merge-scan.mjs`.
