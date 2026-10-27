@@ -27,7 +27,17 @@ for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith
   report(`data/districts/${f}`, vDistrict(doc), vDistrict.errors || []);
   if (doc?.state && !codes.has(doc.state)) report(`data/districts/${f}`, false, [{ message: `unknown state ${doc.state}` }]);
   const names = new Set();
-  for (const d of doc?.districts || []) { if (names.has(d.name)) report(`data/districts/${f}`, false, [{ message: `duplicate district ${d.name}` }]); names.add(d.name); }
+  for (const d of doc?.districts || []) {
+    if (names.has(d.name)) report(`data/districts/${f}`, false, [{ message: `duplicate district ${d.name}` }]); names.add(d.name);
+    // A "bans" record built from an email needs a policy code, and its quote must be the board's words, never a
+    // sentence somebody wrote to us. Eighteen certificates went out on "we do not use it" before this (2026-10-27).
+    if (d.status === "bans") {
+      const emailed = /-email-/.test(d.source || "");
+      if (!d.quote) report(`data/districts/${f}`, false, [{ message: `${d.name}: bans without a quote` }]);
+      else if (emailed && !d.policy_code) report(`data/districts/${f}`, false, [{ message: `${d.name}: bans from an email with no policy code` }]);
+      else if (emailed && /\b(we|our|us|I|I'm|I've|my|me|Anthony|Mr\.? Adams)\b/.test(d.quote)) report(`data/districts/${f}`, false, [{ message: `${d.name}: bans quoting a sentence written to us, not a policy` }]);
+    }
+  }
 }
 const ids = new Set();
 for (const f of readdirSync(join(root, "facts/claims")).filter(f => f.endsWith(".md"))) {

@@ -13,7 +13,24 @@ that they are requests under the state's law.
 Nothing here is generated at send time except the district's name, the recipient's first name and the
 compliment line, which comes from compliment.py and is checked against its own source before it ships.
 """
-import re
+import re, datetime, email.utils
+
+def ago(when):
+    """'this morning', 'yesterday', 'last week', 'back in September': every message knows when the other side
+    wrote. A certificate that goes out the same hour must not say 'when we wrote earlier this fall' (Milan IN,
+    2026-10-27), and a board note must not say 'two weeks ago' on its own authority."""
+    try:
+        t = email.utils.parsedate_to_datetime(when) if when and "," in when else datetime.datetime.fromisoformat(str(when)[:19])
+        if t.tzinfo: t = t.astimezone().replace(tzinfo=None)
+    except Exception:
+        return "when we wrote"
+    now = datetime.datetime.now(); days = (now.date() - t.date()).days
+    if days <= 0: return "this morning" if t.hour < 12 else "this afternoon" if t.hour < 17 else "this evening"
+    if days == 1: return "yesterday"
+    if days < 7: return "earlier this week" if now.isocalendar()[1] == t.isocalendar()[1] else "last week"
+    if days < 14: return "last week"
+    if days < 32: return "earlier this month" if now.month == t.month else "last month"
+    return f"back in {t.strftime('%B')}"
 
 STATE_NAMES = {"AL": "Alabama", "AR": "Arkansas", "AZ": "Arizona", "CO": "Colorado", "DE": "Delaware",
                "FL": "Florida", "GA": "Georgia", "ID": "Idaho", "IN": "Indiana", "KS": "Kansas",
@@ -373,9 +390,10 @@ def board_note(r, user, link):
     d = nice(r["name"]); who = (r.get("member") or "").split(" ")[0] or "there"
     code = r.get("policy_code"); quote = (tidy_quote(r.get("quote")) or "").rstrip(". ")
     line = f'the policy on file ({code}) still says "{quote}"' if quote and code else (f'the written policy still says "{quote}"' if quote else "the written policy still permits it")
+    wrote = ago(r["wrote_sup_at"]) if r.get("wrote_sup_at") else "a couple of weeks ago"
     return f"""Hi {who},
 
-I wrote to your superintendent two weeks ago about {d}'s corporal punishment policy and wanted to send you the same thing directly, since it is the board's call. In the latest federal count the district reported no use of corporal punishment, but {line}. The paper lags the practice.
+I wrote to your superintendent {wrote} about {d}'s corporal punishment policy and wanted to send you the same thing directly, since it is the board's call. In the latest federal count the district reported no use of corporal punishment, but {line}. The paper lags the practice.
 
 Here is a four-minute film made for board members, with the one sentence boards in your state have adopted: {link}
 
@@ -415,6 +433,12 @@ def certificate_correction(r, user):
     said = (r.get("district_says") or "").strip().rstrip(".")
     peers = r.get("peers") or {}
     company = f" {peers['bans']} {st} boards already have it in writing, so it's well-trodden." if peers.get("bans", 0) >= 10 else ""
+    if r.get("board_vote"):   # the board did vote (Highlands FL, 2025-07-08); what is missing is the revised text itself
+        whose = f"an email from {r['writer_name']} in your office" if r.get("writer_name") else "your email"
+        return f"""{'Hi' if ' ' in who else 'Hey'} {who}, I owe you a correction. The certificate I sent quotes {whose} ("{said}") as if it were the policy, which it isn't, and that's on me. What I actually have is the {r['board_vote']} vote adopting the revision, and {r.get('writer_name') or 'your'}{"'s" if r.get('writer_name') else ''} word that the revision took corporal punishment out. The certificate should carry the policy's own words. Could you send me {r.get('policy_code') and 'Policy ' + str(r['policy_code']) or 'the policy'} as it reads now, or a link to it, and I'll reissue the certificate quoting it? Until then please don't hang the one I sent.
+
+{sig(user)}
+"""
     return f"""Hey {who}, I owe you a correction. The certificate I sent says {r['name']} has a written board policy against corporal punishment, and it quotes your email as if it were the policy. That's on me, my system jumped ahead of what you actually told me. What I have is your word that the district doesn't use it, which I take at face value and have the record saying exactly that now, but a certificate should rest on the board's own words, so please don't hang that one yet.
 
 Two ways to make it right. If the board does have it in writing somewhere, send me the policy number and the line and the certificate stands as is. If it doesn't, would the board be opposed to adding one sentence?{company} The model language, the motion and the letters to staff and families are free at earthpilot.org/kids/kit, and the day it's adopted the certificate is real.

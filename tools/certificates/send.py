@@ -109,6 +109,22 @@ def render(d):
 def messages_subject(r):
     try: return run.subject_for(r)
     except Exception: return None
+def open_thread(d, reqs):
+    """Why a momentum certificate must wait: the thread still has a question of ours in the air (a link, minutes,
+    a formal request), a person is reviewing it, or their reply is less than two hours old and the record has
+    not had a full cycle to settle. Fifteen certificates went onto open threads before this (Anderson County KY
+    was still being asked for the link; Blackford IN got one 25 minutes after the ask)."""
+    for r in reqs:
+        if r.get("kind") == "certificate" or str(r.get("nces_id")) != d["nces_id"]: continue
+        if r.get("status") in ("needs_review", "held", "pending"): return f"{r['status']} ({r['id']})"
+        if r.get("status") != "answered" and any(r.get(k) for k in ("awaiting_link_since", "minutes_requested_at", "formal_requested_at", "residency_asked_at", "pending_expanded")): return f"an ask is open ({r['id']})"
+        last = r.get("last_reply_at")
+        try:
+            if last and (datetime.datetime.now() - datetime.datetime.fromisoformat(last[:19])).total_seconds() < 2 * 3600: return f"their reply is under two hours old ({r['id']})"
+        except Exception: pass
+    return None
+
+
 def prior(d, reqs):
     """The earlier exchange with this district, if there was one: who answered and what they did."""
     for r in reqs:
@@ -166,21 +182,7 @@ def press_release_docx(d, path):
     doc.save(path); return path
 
 
-def ago(when):
-    """'this morning', 'yesterday', 'last week', 'back in September': the cover knows when they wrote. A
-    certificate that goes out the same hour must not say 'when we wrote earlier this fall' (Milan IN, 2026-10-27)."""
-    try:
-        t = email.utils.parsedate_to_datetime(when) if when and "," in when else datetime.datetime.fromisoformat(when)
-        if t.tzinfo: t = t.astimezone().replace(tzinfo=None)
-    except Exception:
-        return "when we wrote"
-    now = datetime.datetime.now(); days = (now.date() - t.date()).days
-    if days <= 0: return "this morning" if t.hour < 12 else "this afternoon" if t.hour < 17 else "this evening"
-    if days == 1: return "yesterday"
-    if days < 7: return "earlier this week" if now.isocalendar()[1] == t.isocalendar()[1] else "last week"
-    if days < 14: return "last week"
-    if days < 32: return "earlier this month" if now.month == t.month else "last month"
-    return f"back in {t.strftime('%B')}"
+ago = messages.ago
 
 
 def cover(d, reqs=None):
@@ -235,7 +237,7 @@ def main():
     reqs = run.load(); cands = candidates(reqs)
     if a.state: cands = [c for c in cands if c["state"] == a.state]
     if a.momentum:
-        cands = [c for c in cands if prior(c, reqs)]
+        cands = [c for c in cands if prior(c, reqs) and not open_thread(c, reqs)]
         cands.sort(key=lambda c: (prior(c, reqs) or {}).get("when") or "", reverse=True)
     batch = cands[:a.limit]
     if a.test:

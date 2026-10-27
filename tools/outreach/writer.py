@@ -12,7 +12,58 @@ referee fails, becomes a draft with the suggested text in it.
     decide(r, thread, record, filed, facts, recheck, quiet) -> {"move", "reply", "why"} or None
     check(body, thread, record) -> bool
 """
-import json, os, re, subprocess, urllib.request
+import json, os, re, subprocess, urllib.request, datetime, email.utils
+import messages
+
+
+DOC_LINK = re.compile(r"polic|handbook|conduct|manual|boarddocs|simbli|docs\.google|drive\.google|boardontrack|\.pdf|board", re.I)
+SIGNOFF_RE = re.compile(r"^([A-Z][a-z]{1,11})( [A-Z][A-Za-z'.-]+){0,2}$")
+STOCK = ["that's a straight answer", "exactly what I needed", "that settles it", "I appreciate it", "I really appreciate you", "thanks for the quick", "just bumping this"]
+
+
+def signed_as(thread, superintendent):
+    """The name they sign with ('Pat' under a superintendent listed as Patrick Murphy), read off their own
+    messages, latest first. None when no sign-off line matches the listed first name."""
+    first = messages.first_name(superintendent or "", fallback="")
+    for m in reversed([m for m in thread if m.get("who") == "them"]):
+        for line in (m.get("text") or "").splitlines():
+            w = line.strip().rstrip(",").split(",")[0]
+            g = SIGNOFF_RE.match(w)
+            if g and first and (first.lower().startswith(g.group(1).lower()) or g.group(1).lower().startswith(first.lower()[:3])):
+                return g.group(1)
+    return None
+
+
+def thread_context(r, thread):
+    """One view of the thread that every outbound message reads before it is written: who wrote last and when,
+    what they said, how they signed, which mailbox it came from, what we last said, and which of our asks are
+    still open. Greeting, timing words ('thanks for the link yesterday') and 'thanks for the link' itself all
+    come from here, never from the template's imagination (55 certificate covers said 'earlier this fall'
+    within a day of the reply; nine replies greeted a superintendent inside an assistant's mailbox)."""
+    theirs = [m for m in thread if m.get("who") == "them"]
+    ours = [m for m in thread if m.get("who") != "them"]
+    last = thread[-1] if thread else {}
+    sup = r.get("superintendent") or ""
+    frm = (r.get("answered_from") or "").lower()
+    toks = [t for t in re.findall(r"[a-z]{3,}", re.sub(r"\b(dr|mr|mrs|ms|jr|sr)\b", " ", sup.lower()))]
+    own_mailbox = bool(frm) and any(t in frm.split("@")[0] for t in toks)
+    open_asks = [k.replace("_since", "").replace("_at", "") for k in ("awaiting_link_since", "minutes_requested_at", "formal_requested_at", "residency_asked_at", "invited_policy_at") if r.get(k) and r.get("status") != "answered"]
+    carried = []
+    if theirs:
+        if theirs[-1].get("attachments"): carried.append("an attachment")
+        if any(DOC_LINK.search(u) for u in theirs[-1].get("links") or []): carried.append("a link")   # a signature's website or Twitter link is not "the link"
+    return {"who_wrote_last": "them" if last.get("who") == "them" else "us",
+            "their_last_at": messages.ago(theirs[-1].get("date")) if theirs else None,
+            "their_last_said": (theirs[-1].get("text") or "")[:600] if theirs else None,
+            "their_last_carried": " and ".join(carried) or "words only",
+            "signed_as": signed_as(thread, sup),
+            "from_address": frm or None,
+            "from_the_superintendents_own_mailbox": own_mailbox if frm else None,
+            "our_last_at": messages.ago(ours[-1].get("date")) if ours else None,
+            "our_last_said": (ours[-1].get("text") or "")[:600] if ours else None,
+            "our_asks_still_open": open_asks,
+            "their_replies": len(theirs), "ours_after_the_first": max(len(ours) - 1, 0)}
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 WRITER = "anthropic/claude-fable-5.1"   # Anthony: "use more advanced models on emails"; the replies carry his name
@@ -27,7 +78,7 @@ What the project does, and all it does: keep a public record of each district's 
 
 Goals, in order: (1) the district's actual written policy, or the direct link to it; (2) a friendly working relationship with this official, who is helping and may hear from us again; (3) where the district says it does not use the practice, has stopped, or has nothing written down, keep them engaged: ask whether the board would be opposed to adopting an explicit written prohibition, and share the free tools that make it easy (never the passive "if you ever want to change"); the board minutes or policy where the practice was ended, asked in one line; (4) whatever they tell us about what proof of residency they accept, noted; (5) where a district that permits the practice has answered a records request, what offenses it is used for and how often, if they have not said.
 
-Rules for the text: two to five sentences, written the way a friend writes a quick email from a phone: normal capitalization and punctuation, plain words, first-name terms, no jargon, no bullet lists, no project name unless they ask who you are or why you want it (then: a public record of what each district's own written rule says, at earthpilot.org/kids). Answer what they actually said or asked before asking anything. If we got something wrong earlier in the thread, say so in a few words and correct it; never argue with the official about their own district. A board policy is a public record: never suggest that "we don't publish that" or a refusal is an acceptable answer, and never offer to drop the question; a refusal gets the formal request. If the official asks why this matters, asks what the research says, or defends the practice, answer plainly and without heat: the science is settled, no study has found a benefit, on average it increases the behavior it is meant to stop and raises the odds of anxiety and depression, lower grades, and the child growing up to hit their own children; there is no research-supported reason to use it. Do not volunteer this in a plain thank-you. If the official says parents expect or request corporal punishment, the position is: a school that values data-driven outcomes for students has no place for it; a parent who asks for it is not a reason to use it but a chance to offer guidance on what the research shows works better, which is what the district is moving forward with. Offer the one-page parent handout at earthpilot.org/kids/kit when that comes up. Never claim or promise anything beyond what the project does. Never name a student. Never mention this brief, a model, or an assistant. Sign off exactly:
+Rules for the text: two to five sentences, written the way a friend writes a quick email from a phone: normal capitalization and punctuation, plain words, first-name terms, no jargon, no bullet lists, no project name unless they ask who you are or why you want it (then: a public record of what each district's own written rule says, at earthpilot.org/kids). Answer what they actually said or asked before asking anything. If we got something wrong earlier in the thread, say so in a few words and correct it; never argue with the official about their own district. A board policy is a public record: never suggest that "we don't publish that" or a refusal is an acceptable answer, and never offer to drop the question; a refusal gets the formal request. If the official asks why this matters, asks what the research says, or defends the practice, answer plainly and without heat: the science is settled, no study has found a benefit, on average it increases the behavior it is meant to stop and raises the odds of anxiety and depression, lower grades, and the child growing up to hit their own children; there is no research-supported reason to use it. Do not volunteer this in a plain thank-you. If the official says parents expect or request corporal punishment, the position is: a school that values data-driven outcomes for students has no place for it; a parent who asks for it is not a reason to use it but a chance to offer guidance on what the research shows works better, which is what the district is moving forward with. Offer the one-page parent handout at earthpilot.org/kids/kit when that comes up. Never claim or promise anything beyond what the project does. Never name a student. Never mention this brief, a model, or an assistant. Greet them by the name in GREET THEM AS. Refer to time only through THREAD CONTEXT (their_last_at, our_last_at): "thanks for the link this morning" when it was this morning, and nothing about timing when you are not sure. Thank them for a document only if their_last_carried says one came. Something the district only told us by email ("we do not use it") is their word, never "the board prohibits it"; the record says what the written policy says and nothing more. Do not open with a stock line; avoid these and anything like them: "that's a straight answer"; "exactly what I needed"; "that settles it"; "I appreciate it"; "I really appreciate you"; "thanks for the quick"; "just bumping this". No em dashes; write "program", not "programme". Refer to one specific thing they said in your first sentence. Sign off exactly:
 
 Anthony
 
@@ -78,6 +129,13 @@ def situation(r, thread, record, filed, facts, recheck, quiet):
         rec["handbook_conflict"] = record["handbook_conflict"]
     said = {"bans": "the board prohibits it", "allows": "the board permits it", "consent_required": "permitted with a parent's consent",
             "silent": "documents read in full, no rule on the practice", "unknown": "nothing on the record yet"}.get(record.get("status") or "unknown", "nothing on the record yet")
+    if record.get("status") == "silent" and record.get("district_says"):
+        said = "no written rule on file; the district told us by email that it does not use it (%r). Say it that way: their word, not a board policy" % record["district_says"]
+    ctx = thread_context(r, thread)
+    greet = ctx["signed_as"] or (messages.first_name(r.get("superintendent")) if ctx["from_the_superintendents_own_mailbox"] else None)
+    if not greet and ctx["from_address"]:
+        local = ctx["from_address"].split("@")[0]
+        greet = messages.first_name(local.replace(".", " ").replace("_", " ").split()[0]) if ("." in local or "_" in local) else "there"
     return (f"DISTRICT: {r['name']}, {r.get('state')}. Official: {r.get('superintendent') or 'unknown'} <{r.get('to')}>.\n"
             f"STATUTE: {r.get('statute') or 'the state public records law'}. Formal sign-off: Anthony Adams / Safe Schools Project, a project of EarthPilot / earthpilot.org/kids / 11662 Old Lake Road, North East, PA 16428\n"
             f"WHAT WE FIRST ASKED FOR: {r.get('kind', 'policy')} ({r.get('note') or 'the written policy'}).\n"
@@ -88,7 +146,9 @@ def situation(r, thread, record, filed, facts, recheck, quiet):
             f"WEBSITE RE-CHECK: {json.dumps(recheck) if recheck else 'not run'}\n"
             f"EXTRACTED FACTS: {json.dumps(facts)}\n"
             f"ANTHONY HAS WRITTEN IN THIS THREAD HIMSELF: {'yes, so nothing will be sent automatically' if quiet else 'no'}\n"
-            f"THEIR REPLIES SO FAR: {sum(1 for m in thread if m['who'] == 'them')}; OURS AFTER THE FIRST: {sum(1 for m in thread if m['who'] == 'us') - 1}\n\n"
+            f"THREAD CONTEXT (use it; do not invent timing or thanks): {json.dumps(ctx, default=str)}\n"
+            f"GREET THEM AS: {greet or 'there'} (the name they sign with, or the mailbox the reply came from; never a name that is not in the thread)\n"
+            f"THEIR REPLIES SO FAR: {ctx['their_replies']}; OURS AFTER THE FIRST: {ctx['ours_after_the_first']}\n\n"
             f"THE THREAD, OLDEST FIRST:\n\n{convo}\n\nChoose the move and write the reply.")
 
 
@@ -165,9 +225,11 @@ def decide(r, thread, record, filed, facts, recheck, quiet):
 
 
 def check(body, thread, record=None):
-    """Five things a reply must not do, judged by Jev without sight of the brief."""
+    """Six things a reply must not do, judged by Jev without sight of the brief."""
     theirs = [m for m in thread if m["who"] == "them"]
     last = theirs[-1]["text"] if theirs else ""
+    ours = [m for m in thread if m["who"] != "them"]
+    prev = (ours[-1].get("text") or "")[:1500] if ours else ""
     rec = {k: (record or {}).get(k) for k in ("status", "policy_code", "quote")}
     qs = {
         "answers": {"type": "noul", "instructions": "Does the reply respond to what the official actually said or asked in their latest message, rather than talking past it? If their message was only an attachment or a bare link with no words, a thank-you that says what was received counts as responding.",
@@ -180,14 +242,16 @@ def check(body, thread, record=None):
                   "criteria": {"true": "A student's or child's name appears.", "false": "No child is named; only adults such as the official are addressed."}},
         "contradicts": {"type": "noul", "instructions": "Does the reply state the district's policy status as the OPPOSITE of the record given (saying the board permits it when the record says it prohibits it, or the reverse)? Saying the record will be updated from a document just received, or restating the record's own status in other words (e.g. 'permitted with a parent's consent' for consent_required), is not a contradiction.",
                         "criteria": {"true": "It states the opposite status from the record.", "false": "It matches the record, says it will be updated from a new document, or does not state a status."}},
+        "reverses": {"type": "noul", "instructions": "Compare our reply with our previous message in the same thread. Does the reply say something that contradicts what we ourselves told them earlier (a different policy status, a thank-you for a document we had said we did not receive, a changed position) WITHOUT saying in plain words that we are correcting ourselves?",
+                     "criteria": {"true": "It silently contradicts our earlier message.", "false": "It is consistent with our earlier message, or it openly corrects it."}},
     }
     req = urllib.request.Request("https://openrouter.ai/api/alpha/decisions",
-        data=json.dumps({"model": "typesafe/jev-1.13", "state": {"their_latest": last[:2000], "record": json.loads(json.dumps(rec, default=str)), "our_reply": body}, "questions": qs}).encode(),
+        data=json.dumps({"model": "typesafe/jev-1.13", "state": {"their_latest": last[:2000], "our_previous_message": prev, "record": json.loads(json.dumps(rec, default=str)), "our_reply": body}, "questions": qs}).encode(),
         headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
     try:
         a = json.load(urllib.request.urlopen(req, timeout=60))["answers"]
         p = lambda k: float(a[k].get("noul") or 0)
-        return p("answers") >= 0.5 and p("promises") < 0.35 and p("tone") >= 0.7 and p("minor") < 0.4 and p("contradicts") < 0.6
+        return p("answers") >= 0.5 and p("promises") < 0.35 and p("tone") >= 0.7 and p("minor") < 0.4 and p("contradicts") < 0.6 and p("reverses") < 0.6
     except Exception:
         return False
 

@@ -122,6 +122,9 @@ def body_for(r):
     if k == "align":
         return messages.align_policy(r, USER, r.get("quote"), r.get("policy_code"))
     if k == "board_note":
+        if not r.get("wrote_sup_at") and r.get("parent_request"):
+            parent = next((p for p in load() if p["id"] == r["parent_request"]), None)
+            if parent and parent.get("sent_at"): r["wrote_sup_at"] = parent["sent_at"]
         return messages.board_note(r, USER, r.get("link") or "https://earthpilot.org/kids/board/")
     if k == "apology":
         return messages.apology(r, USER)
@@ -138,10 +141,34 @@ def record_move(r):
     try: game_ledger.record_move(r)
     except Exception as ex: log("ledger failed", r.get("name"), repr(ex)[:80])
 
+def when_ts(d):
+    """A timestamp from either date shape the ledger keeps (RFC 2822 from mail, ISO from us); 0 when unreadable."""
+    try:
+        return email.utils.parsedate_to_datetime(d).timestamp() if d and "," in str(d) else datetime.datetime.fromisoformat(str(d)[:19]).timestamp()
+    except Exception:
+        return 0
+
+def last_contact(address, reqs, exclude=None):
+    """When we last wrote to this address, across every request: first sends, nudges, replies, Anthony's own
+    mail. The one number behind the cooldown: nothing new goes to one address twice in a day unless it
+    answers their latest message (Milan got two replies in 42 seconds and a certificate 22 minutes later)."""
+    address = (address or "").lower(); best = 0
+    for r in reqs:
+        if r.get("id") == exclude or (r.get("to") or "").lower() != address: continue
+        for d in (r.get("sent_at"), r.get("followup_sent_at")): best = max(best, when_ts(d))
+        for e in r.get("replies") or []:
+            if e.get("our_reply"): best = max(best, when_ts(e.get("date")))
+        for o in r.get("our_messages") or []: best = max(best, when_ts(o.get("at")))
+    return best
+
+COOLDOWN_EXEMPT = ("apology", "certificate_correction")   # these answer a thread of ours and must not wait
+
 def send(limit=25):
-    reqs = load(); M = imap(); n = 0
+    reqs = load(); M = imap(); n = 0; cooled = 0
     for r in reqs:
         if r["status"] != "pending" or n >= limit: continue
+        if r.get("kind") not in COOLDOWN_EXEMPT and time.time() - last_contact(r.get("to"), reqs, exclude=r["id"]) < 24 * 3600:
+            cooled += 1; continue   # stays pending; the next cycle after the day is up sends it
         subject = r.get("subject") or subject_for(r)
         r["subject"] = subject; r.setdefault("kind", "policy")
         ensure_compliment(r)
@@ -162,7 +189,7 @@ def send(limit=25):
             delete_draft(M, subject); log("sent", r["state"], r["name"], "->", r["to"]); save(reqs); record_move(r); time.sleep(8)
         except Exception as e:
             log("SEND FAILED", r["name"], e); r["status"] = "error"; r["error"] = str(e)[:200]; save(reqs)
-    M.logout(); log(f"send: {n} sent, {sum(1 for r in reqs if r['status']=='pending')} still pending")
+    M.logout(); log(f"send: {n} sent, {sum(1 for r in reqs if r['status']=='pending')} still pending" + (f", {cooled} waiting on the 24-hour cooldown" if cooled else ""))
 
 # ---------------------------------------------------------------- inbox
 
@@ -353,8 +380,12 @@ def inbox():
     typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
     handled = 0; nums = data[0].split() if data and data[0] else []; t0 = time.time()
     log(f"inbox: {len(nums)} candidate messages in the last 60 days")
+    # Gather first, answer second: a district that sent three emails in twenty minutes (Milan IN, 2026-10-27:
+    # the link, the directions, the answer) gets ONE reply, to the latest, with the earlier ones filed as
+    # context. Twelve threads got two replies a minute apart, the second contradicting the first, before this.
+    batch = {}
     for num in nums:
-        if time.time() - t0 > 9 * 60 or time.time() > CYCLE_DEADLINE: log(f"inbox: time budget reached after {handled} handled; the rest waits for the next cycle"); break
+        if time.time() - t0 > 6 * 60 or time.time() > CYCLE_DEADLINE: log(f"inbox: time budget reached while gathering; the rest waits for the next cycle"); break
         # Message-ID first, whole body only for mail we have not handled: All Mail holds every reply ever
         # answered, and fetching each one in full (attachments included) dropped the socket.
         typ, hdr = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (MESSAGE-ID)])")
@@ -366,13 +397,18 @@ def inbox():
         msg = email.message_from_bytes(raw[0][1])
         r = find_request(msg, reqs)
         if not r: continue
-        subject = str(make_header(decode_header(msg.get("Subject", "")))); frm = email.utils.parseaddr(msg.get("From", ""))[1]
-        body, atts = part_text(msg); links = [u for u in re.findall(r"https?://[^\s<>\")\]]+", body) if "earthpilot" not in u]
-        try:
-            handle_one(M, reqs, r, msg, raw[0][1], mid, subject, frm, body, atts, links, quiet=False); handled += 1
-            file_away_by_mid(M, mid)   # by Message-ID in INBOX; the loop's sequence numbers belong to All Mail
-        except Exception as e:
-            log("FAILED on", frm, subject[:50], repr(e)[:200])
+        batch.setdefault(r["id"], []).append((when_ts(msg.get("Date")), r, msg, raw[0][1], mid))
+    for rid, items in batch.items():
+        if time.time() > CYCLE_DEADLINE: log(f"inbox: time budget reached after {handled} handled; the rest waits for the next cycle"); break
+        items.sort(key=lambda x: x[0])
+        for i, (_, r, msg, rawbytes, mid) in enumerate(items):
+            subject = str(make_header(decode_header(msg.get("Subject", "")))); frm = email.utils.parseaddr(msg.get("From", ""))[1]
+            body, atts = part_text(msg); links = [u for u in re.findall(r"https?://[^\s<>\")\]]+", body) if "earthpilot" not in u]
+            try:
+                handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, quiet=False, fold=i < len(items) - 1); handled += 1
+                file_away_by_mid(M, mid)   # by Message-ID in INBOX; the loop's sequence numbers belong to All Mail
+            except Exception as e:
+                log("FAILED on", frm, subject[:50], repr(e)[:200])
     M.logout(); log(f"inbox: {handled} new replies handled")
     # One message, not one per reply. Twenty-eight texts in an afternoon is how a good response rate
     # becomes a burden; the board carries the detail and this carries the headline.
@@ -456,6 +492,19 @@ def website_of(r):
         except Exception: pass
     return _LEA.get(str(r.get("nces_id") or ""), "")
 
+FIRST_PERSON_QUOTE = re.compile(r"\b(we|our|us|I|I'm|I've|my|me|Anthony|Mr\.? Adams)\b")
+def sane_record(x):
+    """The invariant behind every 'the board prohibits it': a bans record built from an email needs a policy code,
+    and its quote must not be somebody's sentence to us. A record that fails is read as silent with the sentence
+    kept as the district's word, so no reply and no certificate can repeat the Milan mistake even if a bad
+    record slips into the file. validate.mjs enforces the same rule at publish time."""
+    if x.get("status") != "bans": return x
+    emailed = "-email-" in str(x.get("source") or "")
+    bad = not x.get("quote") or (emailed and (not x.get("policy_code") or FIRST_PERSON_QUOTE.search(x.get("quote") or "")))
+    if not bad: return x
+    y = dict(x); y["status"] = "silent"; y["district_says"] = y.get("district_says") or x.get("quote"); y["quote"] = None; y["policy_code"] = None
+    log("record read as silent (bans without a policy behind it):", x.get("name")); return y
+
 def record_status(r):
     """What the record says for this district right now (after any merge), with its source and code."""
     try:
@@ -463,7 +512,7 @@ def record_status(r):
         d = yaml.safe_load(open(os.path.join(ROOT, "data/districts", f"{r['state']}.yaml")))
         for x in (d if isinstance(d, list) else d.get("districts", [])):
             if r.get("nces_id") and str(x.get("nces_id")) == str(r["nces_id"]):
-                return x
+                return sane_record(x)
     except Exception as ex:
         log("record_status failed", repr(ex)[:80])
     return {}
@@ -505,7 +554,7 @@ def thread_of(r):
     return [m for _, _, m in sorted((when(m), i, m) for i, m in enumerate(msgs))]
 
 
-def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, quiet=False):
+def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, quiet=False, fold=False):
     """One reply: filed, read in the context of the whole thread, then answered or held.
 
     Code does what code is certain of: the ledger of what has been answered, bounces, filing every document
@@ -605,6 +654,9 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         r["recorded_status"] = record.get("status") or recorded[0]
         entry["action"] = f"recorded {r['recorded_status']}" + (f" (document said {recorded[0]}; board policy governs)" if record.get("status") and record["status"] != recorded[0] else "")
     if facts.get("claims_no_practice"): r["claims_no_practice"] = True
+    if fold:
+        entry["action"] = (entry.get("action") or "") + "; filed, answered with their later message in the same batch"; entry["move"] = "fold"
+        log("folded", r["state"], r["name"], mid[:40]); finish(); return
 
     # 3. The whole thread, read by the writer. Then one move.
     thread = thread_of(r) + [{"who": "them", "date": msg.get("Date"), "text": triage_mod.strip_quoted(body), "links": links[:10], "attachments": [a[0] for a in atts], "kind": kind}]
@@ -1090,19 +1142,8 @@ def peers_for(state):
 
 def signs_as(pol):
     """The name they sign with, read off their own replies ('Pat' under a superintendent listed as Patrick Murphy)."""
-    try:
-        first = messages.first_name(pol.get("superintendent") or "", fallback="")
-        for e in reversed(pol.get("replies") or []):
-            path = os.path.join(REPLIES, pol["id"], e.get("file") or "")
-            if not os.path.exists(path): continue
-            body, _ = part_text(email.message_from_bytes(open(path, "rb").read()))
-            for line in triage_mod.strip_quoted(body).splitlines():
-                w = line.strip().rstrip(",").split(",")[0]
-                m = re.fullmatch(r"([A-Z][a-z]{1,11})( [A-Z][A-Za-z'.-]+){0,2}", w)   # "Pat", "Matt Simpson", "Shane Walter"
-                if m and first and (first.lower().startswith(m.group(1).lower()) or m.group(1).lower().startswith(first.lower()[:3])):
-                    return m.group(1)
-    except Exception: pass
-    return None
+    try: return writer_mod.signed_as(thread_of(pol), pol.get("superintendent"))
+    except Exception: return None
 
 def queue_corrections():
     """One held correction per district that received a certificate on the superintendent's sentence rather than a
@@ -1243,7 +1284,10 @@ def followup():
     reqs = load(); n = 0
     for r in reqs:
         if n >= 15: break   # at most 15 nudges per cycle; the rest wait for the next one
-        if r["status"] in ("sent", "promised") and not r.get("followup_sent_at") and business_days_since(r.get("sent_at")) >= 10:
+        answered = r.get("last_reply_at") or any(e.get("kind") != "auto_reply_or_bounce" for e in r.get("replies") or [])
+        if answered: continue   # a thread with a reply never gets "in case it got buried" (39 did before 2026-10-27)
+        ours = max([r.get("sent_at") or ""] + [str(o.get("at") or "") for o in r.get("our_messages") or []], key=when_ts)
+        if r["status"] in ("sent", "promised") and not r.get("followup_sent_at") and business_days_since(ours if "," not in ours else datetime.datetime.fromtimestamp(when_ts(ours)).isoformat()) >= 10:
             m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = "Re: " + (r.get("subject") or subject_for(r))
             m["In-Reply-To"] = r["message_id"]; m["References"] = r["message_id"]; m.set_content(messages.nudge(r, USER))
             try: smtp_send(m); r["followup_sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); n += 1; log("nudged", r["state"], r["name"]); save(reqs); time.sleep(8)   # saved per send: a cycle killed mid-loop re-nudged 45 districts on 2026-10-26
