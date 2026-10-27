@@ -344,9 +344,15 @@ def align_policy(r, user, quote=None, code=None):
     who = addressed_name(r)
     d = nice(r["name"]); quote = tidy_quote(quote)
     line = f'Right now the policy on file ({code}) still says "{quote}"' if quote and code else (f'Right now the policy on file still says "{quote}"' if quote else "Right now the written policy still permits it")
+    p = r.get("peers") or {}; st = state_name(r.get("state"))
+    if p.get("stopped_statewide") and p.get("bans"):
+        peers = f" The rest of {st} is already there too: no district in the state has used it since 2018, {p['bans']} of the {p['total']} boards on our record prohibit it in writing, and {d} is one of the last whose manual still says it may be done."
+    elif p.get("bans", 0) >= 10:
+        peers = f" You'd be in good company: {p['bans']} {st} boards already prohibit it in writing."
+    else: peers = ""
     return f"""Hey {who},
 
-I'd like to invite {d} to be recognized as a Safe School for 2026-27. In practice you're already there: in the most recent federal civil rights count (2023-24), the district reported no use of corporal punishment. {line}, so the paper lags the practice.
+I'd like to invite {d} to be recognized as a Safe School for 2026-27. In practice you're already there: in the most recent federal civil rights count (2023-24), the district reported no use of corporal punishment. {line}, so the paper lags the practice.{peers}
 
 Would the board consider adopting language that says what the district already does? That is the whole ask. The science on this is settled: no study has found a benefit, and on average the practice increases the behavior it is meant to stop, along with anxiety, depression, lower grades, and the odds a child grows up to hit their own children. A Kansas superintendent who just took his board through it told me it was easy: "a great way to harvest litigation, not to mention that zero research supports it." The attached two-page brief has the sentence most boards in your state already use, in a form the board can adopt as written. When it's adopted, the district gets the Safe School certificate and a press release it can use.
 

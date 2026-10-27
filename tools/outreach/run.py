@@ -1056,6 +1056,17 @@ def refile(names=None):
     save(reqs); log(f"refile: {done} records filled"); return done
 
 
+def peers_for(state):
+    """What the rest of the state already does, for the invitation: boards that prohibit it in writing, the
+    count on record, and whether the practice has stopped statewide (a 'partial' state in data/states)."""
+    try:
+        rows = json.load(open(os.path.join(ROOT, "site/data/records", f"{state}.json")))
+        bans = sum(1 for x in rows if x.get("status") == "bans"); total = len(rows)
+        import yaml
+        st = yaml.safe_load(open(os.path.join(ROOT, "data/states", f"{state}.yaml")))
+        return {"bans": bans, "total": total, "stopped_statewide": st.get("status") == "partial"}
+    except Exception: return None
+
 def queue_align(n=25, states=None):
     """Districts whose written policy permits corporal punishment but which reported no use of it: the
     invitation to become a Safe School by aligning the policy with the practice, with the board brief
@@ -1085,7 +1096,7 @@ def queue_align(n=25, states=None):
             r = subprocess.run(["node", "certificates/board-brief.mjs", "--nces", d["nces_id"]], cwd=os.path.join(ROOT, "tools"), capture_output=True, text=True, timeout=180)
             if r.returncode != 0 or not os.path.exists(os.path.join(ROOT, brief)): log("brief failed", d["name"], r.stderr[-120:]); continue
         rid = hashlib.sha1(f"align|{d['state']}|{d['nces_id']}".encode()).hexdigest()[:10]
-        reqs.append({"id": rid, "state": d["state"], "name": d["name"], "nces_id": d["nces_id"], "kids": 0, "kind": "align", "to": to, "superintendent": c.get("superintendent"),
+        reqs.append({"id": rid, "state": d["state"], "name": d["name"], "nces_id": d["nces_id"], "kids": 0, "kind": "align", "to": to, "superintendent": c.get("superintendent"), "peers": peers_for(d["state"]),
                      "statute": statutes.get(d["state"]), "quote": d["quote"], "policy_code": d.get("policy_code"), "attachments": [brief],
                      "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
         if game_assign: game_assign.apply(reqs[-1])   # experiment + variant; variant B goes out without the attachment
