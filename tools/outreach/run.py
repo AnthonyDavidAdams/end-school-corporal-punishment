@@ -145,6 +145,11 @@ def send(limit=25):
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
+        if r.get("kind") == "apology" and r.get("parent_request"):   # lands in the same thread as the repeats it apologises for
+            parent = next((p for p in reqs if p["id"] == r["parent_request"]), None)
+            if parent and parent.get("message_id"):
+                m["In-Reply-To"] = parent["message_id"]; m["References"] = parent["message_id"]
+                del m["Subject"]; subject = "Re: " + (parent.get("subject") or subject_for(parent)); m["Subject"] = subject; r["subject"] = subject
         for att in r.get("attachments") or []:
             pth = os.path.join(ROOT, att)
             if os.path.exists(pth):
