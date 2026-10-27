@@ -73,6 +73,10 @@ def text_anthony(line):
 # ---------------------------------------------------------------- the messages
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import messages, triage as triage_mod, recheck as recheck_mod, writer as writer_mod
+# The game (tools/game): which variant of a message a district gets, and the ledger of moves. Never fatal to the cycle.
+sys.path.insert(0, os.path.join(ROOT, "tools/game"))
+try: import assign as game_assign, ledger as game_ledger
+except Exception as _ex: game_assign = game_ledger = None; log("game modules unavailable", repr(_ex)[:80])
 
 def ensure_compliment(r):
     """One true, specific line about the district from its own recent news (compliment.py), looked up once
@@ -86,6 +90,9 @@ def ensure_compliment(r):
     return r["compliment"]
 
 def subject_for(r):
+    if game_assign and r.get("variant"):
+        s = game_assign.subject(r)
+        if s: return s       # a templated variant (B); variant A is the copy below
     d = nice(r["name"])
     return {
         "policy":   f"{d} corporal punishment policy",
@@ -96,6 +103,9 @@ def subject_for(r):
     }.get(r.get("kind", "policy"), f"Can't find {d}'s corporal punishment policy")
 
 def body_for(r):
+    if game_assign and r.get("variant"):
+        b = game_assign.body(r)
+        if b: return b
     k = r.get("kind", "policy")
     statute = r.get("statute") or "your state's public records law"
     if k == "minutes":
@@ -109,6 +119,12 @@ def body_for(r):
     return messages.ask_policy(r, USER, r.get("compliment"))
 
 # ---------------------------------------------------------------- send
+def record_move(r):
+    """One line in the game ledger (data/game/moves.jsonl) per message sent, with its experiment and variant."""
+    if not game_ledger: return
+    try: game_ledger.record_move(r)
+    except Exception as ex: log("ledger failed", r.get("name"), repr(ex)[:80])
+
 def send(limit=25):
     reqs = load(); M = imap(); n = 0
     for r in reqs:
@@ -125,7 +141,7 @@ def send(limit=25):
                 m.add_attachment(open(pth, "rb").read(), maintype="application", subtype="pdf" if pth.endswith(".pdf") else "octet-stream", filename=os.path.basename(pth))
         try:
             smtp_send(m); r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["message_id"] = mid; n += 1
-            delete_draft(M, subject); log("sent", r["state"], r["name"], "->", r["to"]); save(reqs); time.sleep(8)
+            delete_draft(M, subject); log("sent", r["state"], r["name"], "->", r["to"]); save(reqs); record_move(r); time.sleep(8)
         except Exception as e:
             log("SEND FAILED", r["name"], e); r["status"] = "error"; r["error"] = str(e)[:200]; save(reqs)
     M.logout(); log(f"send: {n} sent, {sum(1 for r in reqs if r['status']=='pending')} still pending")
@@ -672,6 +688,7 @@ def queue(n=25):
                      "to": c["to"], "superintendent": c["superintendent"], "statute": statutes.get(c["state"]),
                      "status": "pending", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None,
                      "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        if game_assign: game_assign.apply(reqs[-1])   # experiment + variant on the request; an unapproved variant is queued held
         added += 1
     save(reqs); log(f"queue: {added} queued of {len(cands)} eligible ({len(cands) - added} left for later nights)")
     return added
@@ -946,6 +963,7 @@ def queue_align(n=25):
         reqs.append({"id": rid, "state": d["state"], "name": d["name"], "nces_id": d["nces_id"], "kids": 0, "kind": "align", "to": to, "superintendent": c.get("superintendent"),
                      "statute": statutes.get(d["state"]), "quote": d["quote"], "policy_code": d.get("policy_code"), "attachments": [brief],
                      "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        if game_assign: game_assign.apply(reqs[-1])   # experiment + variant; variant B goes out without the attachment
         added += 1
     save(reqs); log(f"queue-align: {added} queued"); return added
 
@@ -1029,6 +1047,11 @@ if __name__ == "__main__":
         for r in reqs:
             if r.get("kind") == "align" and r["status"] == "held" and r["state"] not in skip: r["status"] = "pending"; k += 1
         save(reqs); log(f"release-align: {k} released"); sys.exit()
+    if cmd == "release-variant":   # Anthony has read the held batch of an experiment variant: python3 run.py release-variant ask_policy B
+        exp, var = sys.argv[2], sys.argv[3]; reqs = load(); k = 0
+        for r in reqs:
+            if r.get("experiment") == exp and r.get("variant") == var and r["status"] == "held": r["status"] = "pending"; k += 1
+        save(reqs); log(f"release-variant: {k} released ({exp} {var}); set approved: true in data/game/experiments.yaml so the next batch is not held"); sys.exit()
     if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-dry":
         import io, contextlib

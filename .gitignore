@@ -17,3 +17,7 @@ data/documents/
 data/outcomes/*.csv
 tools/.venv/
 data/census/
+
+# the game ledger: lock and temp files only, the ledgers themselves are committed
+data/game/*.lock
+data/game/.tmp-*

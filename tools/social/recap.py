@@ -11,6 +11,11 @@ OUT = os.path.join(ROOT, "out/social"); os.makedirs(OUT, exist_ok=True)
 STILLS = [os.path.join(ROOT, "out/video/one-sentence/img", n) for n in ("paddle.jpg", "hallway.jpg", "classroom.jpg", "boardroom.jpg", "sunrise.jpg", "two_desks.jpg")]
 weekly = "--weekly" in sys.argv; days = 7 if weekly else 1
 now = datetime.datetime.now(); since = now - datetime.timedelta(days=days)
+# Sundays: the game's weekly review (scoreboard, experiments, next targets, proposed variants) is written to
+# out/game/review-<date>.md for Anthony. It is not posted or texted anywhere.
+if now.weekday() == 6 and "--no-review" not in sys.argv:
+    try: subprocess.run([sys.executable, os.path.join(ROOT, "tools/game/review.py")], cwd=ROOT, capture_output=True, text=True, timeout=1200)
+    except Exception as ex: print("game review failed", repr(ex)[:120])
 
 def ts(x):
     try: return datetime.datetime.fromisoformat(str(x)[:19])

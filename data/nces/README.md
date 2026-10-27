@@ -19,3 +19,11 @@ district's administrative office, from the NCES EDGE Geocode file for public LEA
 district on the county map when the record itself does not say which county it is in. It is the
 county of the office, not every county the district serves; a district that straddles a line is
 drawn in the one where its office sits. Regenerate with `tools/fill-county.mjs` when a new year is released.
+
+# District enrollment
+
+`lea-enrollment-2023-24.csv` — total enrollment per district (NCES LEA id, state, students), summed from the US
+Department of Education Civil Rights Data Collection 2023-24 school enrollment file (`tools/crdc/raw/SCH/Enrollment.csv`,
+not in git; negative values are CRDC reserve codes and are skipped). This is the weight behind the game's scoreboard
+(`tools/game/score.py`): children covered by a written ban, not districts. Rebuild with
+`python3 tools/game/common.py --build-enrollment` when the raw file is refreshed.

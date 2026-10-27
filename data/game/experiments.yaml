@@ -1,0 +1,77 @@
+# Experiments: the variants the game can choose between for each kind of move. Variant A of every live experiment is
+# the copy that goes out today, rendered by the code in tools/outreach (messages.py and run.py); it has no template
+# here. Every other variant is rendered from this file by tools/game/assign.py and goes out only once `approved: true`
+# is set; until then a district assigned to it is queued `held` so Anthony sees the first batch before it sends.
+#
+# Assignment is deterministic: a hash of district id and experiment id, balanced within each (state, enrollment band)
+# stratum, frozen in data/game/assignments.json the first time a district is assigned. tools/game/report.py reads
+# the reply rate at 7 days and the document or status-flip rate at 14 and 30 days per variant.
+#
+# Template fields: {who} first name or "there" (the same rule the live copy uses), {district} the district name,
+# {sig} the signature, {quote} and {code} the permitting policy text and code (align only), {state} the state code.
+# No em dashes in copy.
+
+experiments:
+  ask_policy:
+    kind: policy                     # request kind in data/outreach/requests.json
+    status: live
+    question: Does saying who we are and why up front, and asking only for a link, get more replies than the bare friend's note?
+    started: 2026-10-27
+    variants:
+      A:
+        name: friend's note
+        approved: true
+        approved_by: Anthony
+        approved_on: 2026-10-09
+        subject: "{district} corporal punishment policy"
+        opener: "I'm having trouble finding the policy on corporal punishment."
+        ask_size: link or document
+        attachment: none
+        # body: messages.ask_policy() in tools/outreach/messages.py
+      B:
+        name: who and why, link only
+        approved: false              # PROPOSAL: set true once Anthony has read the held batch
+        subject: "Where does {district}'s corporal punishment policy live?"
+        opener: who we are and what the record is, in one line
+        ask_size: link only
+        attachment: none
+        body: |
+          Hey {who},
+
+          I keep a public record of every district's own written rule on corporal punishment, quoted from its documents (earthpilot.org/kids). I can't find {district}'s. Where does the board policy on it live? A link is plenty.
+
+          {sig}
+
+  align_policy:
+    kind: align
+    status: live
+    question: Does a shorter invitation with the model sentence inline and a link, no attachment, move more boards than the full brief attached?
+    started: 2026-10-27
+    variants:
+      A:
+        name: full invitation, brief attached
+        approved: true
+        approved_by: Anthony
+        approved_on: 2026-10-12
+        subject: "An invitation: {district} as a Safe School for 2026-27"
+        opener: invitation to be recognized; the paper lags the practice
+        ask_size: adopt the model language
+        attachment: board brief (two pages, PDF)
+        # body: messages.align_policy() in tools/outreach/messages.py
+      B:
+        name: short, sentence inline, link
+        approved: false              # PROPOSAL: set true once Anthony has read the held batch
+        subject: "{district} reported zero. Can the policy say so?"
+        opener: the federal count first, then the gap
+        ask_size: put one sentence in front of the board
+        attachment: none             # the brief is linked, not attached; queue_align drops the PDF for this variant
+        body: |
+          Hey {who},
+
+          In the most recent federal civil rights count (2023-24), {district} reported no use of corporal punishment. The written policy still permits it, so the paper lags the practice.
+
+          Would you put one sentence in front of the board? Most Texas boards that made the change adopted this one: "The Board prohibits the use of corporal punishment in the District." When it is adopted, the district is recognized as a Safe School for 2026-27, with a certificate and a press release it can use.
+
+          The two-page brief for boards is at earthpilot.org/kids/board/. Happy to talk it through with whoever handles policy.
+
+          {sig}
