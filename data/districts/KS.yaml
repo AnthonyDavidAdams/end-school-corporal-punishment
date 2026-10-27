@@ -2417,13 +2417,13 @@ districts:
   - name: Hugoton Public Schools
     county: Stevens
     nces_id: "2007560"
-    status: silent
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/424589/2019-2020_Student-Parent_Handbook_-_FINAL_Copy_.pdf
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2007560-Policy_JDA_-_Corporal_Punishment.pdf
+    quote: JDA Corporal Punishment JDA Corporal punishment shall not be permitted in the school district.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-27
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -2438,8 +2438,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/KS/2007560-Policy_JDA_-_Corporal_Punishment.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - JDA Corporal Punishment JDA Corporal punishment shall not be permitted in the school district.
   - name: Humboldt
     county: Allen
     nces_id: "2007590"
