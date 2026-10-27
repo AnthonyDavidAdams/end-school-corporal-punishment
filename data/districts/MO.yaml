@@ -797,13 +797,13 @@ districts:
   - name: Canton R-V
     county: Lewis
     nces_id: "2907080"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/5385/CRV/5953160/2025-2026_High_School_Handbook.pdf
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2907080-email-f4a296ff.txt
+    quote: Prohibited No person employed by or volunteering for the School District shall administer or cause to be administered corporal punishment upon a student attending District schools.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-27
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -812,8 +812,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/MO/2907080-email-f4a296ff.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Prohibited No person employed by or volunteering for the School District shall administer or cause to be administered corporal punishment upon a student attending District schools.
   - name: Carl Junction R-I
     county: Jasper
     nces_id: "2907350"
@@ -5929,9 +5931,9 @@ districts:
     county: Carroll
     nces_id: "2930300"
     status: consent_required
-    source: 'https://drive.google.com/file/d/1zY7fmGImdJrmUnvd-p_ny4_uRajKaXI2/view'
+    source: https://drive.google.com/file/d/1zY7fmGImdJrmUnvd-p_ny4_uRajKaXI2/view
     quote: No student will be administered corporal punishment without prior notification to and written permission of the student's parents/guardians.
-    policy_code: "P 2670"
+    policy_code: P 2670
     crdc_students_latest: null
     last_verified: 2026-10-15
     method: records_request
@@ -6208,7 +6210,7 @@ districts:
     county: Pulaski
     nces_id: "2931440"
     status: bans
-    source: 'https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=389&revid=kuMZkzpcCePh6NR0hCbqAg%3D%3D'
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=389&revid=kuMZkzpcCePh6NR0hCbqAg%3D%3D
     quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
     policy_code: JGA-2
     crdc_students_latest: null
