@@ -58,6 +58,10 @@ def candidates(reqs):
         for x in yaml.safe_load(open(os.path.join(ROOT, "data/districts", f)))["districts"]:
             # a board policy on file (policy code), or the policy the superintendent sent us by email
             if x.get("status") != "bans" or not x.get("quote") or not x.get("nces_id") or not (x.get("policy_code") or x.get("method") == "records_request"): continue
+            # The quote must be the board's words. A sentence from the superintendent's email ("we do not use it")
+            # is not a policy, and a record built from an email needs a policy code before it is certified.
+            if "-email-" in str(x.get("source") or "") and not x.get("policy_code"): continue
+            if re.search(r"\b(we|our|us|I|I'm|I've|my|me|Anthony|Mr\.? Adams)\b", x["quote"]): continue
             if str(x["nces_id"]) in done: continue
             c = by_id.get(str(x["nces_id"])) or by_name.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
             to = c.get("district_email") or c.get("email") or (x.get("contact") or {}).get("district_email")
@@ -162,6 +166,23 @@ def press_release_docx(d, path):
     doc.save(path); return path
 
 
+def ago(when):
+    """'this morning', 'yesterday', 'last week', 'back in September': the cover knows when they wrote. A
+    certificate that goes out the same hour must not say 'when we wrote earlier this fall' (Milan IN, 2026-10-27)."""
+    try:
+        t = email.utils.parsedate_to_datetime(when) if when and "," in when else datetime.datetime.fromisoformat(when)
+        if t.tzinfo: t = t.astimezone().replace(tzinfo=None)
+    except Exception:
+        return "when we wrote"
+    now = datetime.datetime.now(); days = (now.date() - t.date()).days
+    if days <= 0: return "this morning" if t.hour < 12 else "this afternoon" if t.hour < 17 else "this evening"
+    if days == 1: return "yesterday"
+    if days < 7: return "earlier this week" if now.isocalendar()[1] == t.isocalendar()[1] else "last week"
+    if days < 14: return "last week"
+    if days < 32: return "earlier this month" if now.month == t.month else "last month"
+    return f"back in {t.strftime('%B')}"
+
+
 def cover(d, reqs=None):
     """The cover email, as (plain text, html). Bold in the html marks the sentence fragments and figures
     a busy reader should catch; the plain part reads the same without it."""
@@ -169,7 +190,7 @@ def cover(d, reqs=None):
     p = prior(d, reqs or [])
     if p and p.get("who") and p["who"].lower() not in ("there", "superintendent"):
         greet = f"Hi {p['who']},"
-        lead = f"Congratulations, and thanks again for {p['did']} when we wrote earlier this fall. "
+        lead = f"Congratulations, and thanks for {p['did']} {ago(p.get('when'))}. "
     else:
         greet = f"Dear Superintendent {last}," if last else "Dear Superintendent,"
         lead = "Congratulations. "

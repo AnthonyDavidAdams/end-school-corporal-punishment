@@ -73,6 +73,7 @@ def peers_line(state):
 def situation(r, thread, record, filed, facts, recheck, quiet):
     convo = "\n\n".join(f"[{m['who']} · {m.get('date') or ''}]\n{(m.get('text') or '')[:2200]}" for m in thread[-10:])
     rec = {k: record.get(k) for k in ("status", "policy_code", "source", "quote", "last_verified", "method") if record.get(k) is not None}
+    if record.get("district_says"): rec["district_says_by_email_not_policy"] = record["district_says"]
     if record.get("handbook_conflict"):
         rec["handbook_conflict"] = record["handbook_conflict"]
     said = {"bans": "the board prohibits it", "allows": "the board permits it", "consent_required": "permitted with a parent's consent",

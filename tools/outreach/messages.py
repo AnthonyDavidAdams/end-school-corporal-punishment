@@ -405,3 +405,19 @@ def apology(r, user):
 
 {sig(user)}
 """
+
+
+def certificate_correction(r, user):
+    """A Safe School certificate went out on the superintendent's own sentence ("we do not use it") instead of a
+    board policy (Milan IN and 17 others, 2026-10-27). Own it in one line, say what the record now says, and
+    turn it into the real ask: put it in writing and the certificate is earned."""
+    who = r.get("signs_as") or addressed_name(r); st = r.get("state_name") or r.get("state") or "your state"
+    said = (r.get("district_says") or "").strip().rstrip(".")
+    peers = r.get("peers") or {}
+    company = f" {peers['bans']} {st} boards already have it in writing, so it's well-trodden." if peers.get("bans", 0) >= 10 else ""
+    return f"""Hey {who}, I owe you a correction. The certificate I sent says {r['name']} has a written board policy against corporal punishment, and it quotes your email as if it were the policy. That's on me, my system jumped ahead of what you actually told me. What I have is your word that the district doesn't use it, which I take at face value and have the record saying exactly that now, but a certificate should rest on the board's own words, so please don't hang that one yet.
+
+Two ways to make it right. If the board does have it in writing somewhere, send me the policy number and the line and the certificate stands as is. If it doesn't, would the board be opposed to adding one sentence?{company} The model language, the motion and the letters to staff and families are free at earthpilot.org/kids/kit, and the day it's adopted the certificate is real.
+
+{sig(user)}
+"""

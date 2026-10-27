@@ -104,6 +104,7 @@ def subject_for(r):
         "board_note": f"{d}: a four-minute film for the board",
         "neighbor": f"{d} corporal punishment policy",
         "apology": "Sorry for the repeat emails",
+        "certificate_correction": f"A correction on the {d} certificate",
     }.get(r.get("kind", "policy"), f"Can't find {d}'s corporal punishment policy")
 
 def body_for(r):
@@ -124,6 +125,8 @@ def body_for(r):
         return messages.board_note(r, USER, r.get("link") or "https://earthpilot.org/kids/board/")
     if k == "apology":
         return messages.apology(r, USER)
+    if k == "certificate_correction":
+        return messages.certificate_correction(r, USER)
     if k == "neighbor":
         return messages.neighbor_ask(r, USER, r.get("anchor") or "a neighboring district")
     return messages.ask_policy(r, USER, r.get("compliment"))
@@ -145,11 +148,11 @@ def send(limit=25):
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
-        if r.get("kind") == "apology" and r.get("parent_request"):   # lands in the same thread as the repeats it apologises for
+        if r.get("kind") in ("apology", "certificate_correction") and r.get("parent_request"):   # lands in the thread it corrects
             parent = next((p for p in reqs if p["id"] == r["parent_request"]), None)
             if parent and parent.get("message_id"):
                 m["In-Reply-To"] = parent["message_id"]; m["References"] = parent["message_id"]
-                del m["Subject"]; subject = "Re: " + (parent.get("subject") or subject_for(parent)); m["Subject"] = subject; r["subject"] = subject
+                del m["Subject"]; subject = "Re: " + re.sub(r"^(re:\s*)+", "", parent.get("subject") or subject_for(parent), flags=re.I); m["Subject"] = subject; r["subject"] = subject
         for att in r.get("attachments") or []:
             pth = os.path.join(ROOT, att)
             if os.path.exists(pth):
@@ -274,10 +277,28 @@ def scrub(path):
         if t2 != t: open(path, "w").write(t2)
     except Exception: pass
 
+RULE_RE = re.compile(r"\b(shall|must|may not|will not|prohibit(s|ed)?|permitted|authoriz(es|ed)|the policy (does not|prohibits|allows|permits|states)|policy\s+[A-Z]{0,4}-?\d+)\b", re.I)
+FIRST_PERSON_RE = re.compile(r"\b(we|our|us|I|I'm|I've|my|me)\b")
+def policy_like(text):
+    """True when pasted email text reads like a policy (a rule's verb or a policy code, not written in the first
+    person), false when it is the superintendent's own word: "we do not use it" is a claim, never a policy.
+    Milan IN, 2026-10-27: one such sentence was filed as a prohibition and a certificate quoted it the same hour."""
+    t = triage_mod.strip_quoted(text or "")
+    for s in re.split(r"(?<=[.!?\"])\s+|\n{2,}", t):
+        if re.search(r"corporal punishment", s, re.I) and RULE_RE.search(s) and not FIRST_PERSON_RE.search(s):
+            return True
+    return False
 def file_document(r, path, how):
     """Clip -> Jev classify -> record -> merge -> publish. Returns the status recorded, or None."""
     scrub(path)
     text = doc_text(path); cands = clip(text)
+    if how.startswith("pasted into") and not policy_like(text):
+        # Their word, not their policy: the thread keeps it (the writer reads it), the record does not.
+        log("email is a statement, not policy text; not filed:", r["name"], (cands[0][:80] if cands else ""))
+        try: os.remove(path)
+        except OSError: pass
+        r["district_says"] = (cands[0].strip()[:300] if cands else None); r["district_says_on"] = datetime.date.today().isoformat()
+        return None
     rel = os.path.relpath(path, ROOT); url = RAW + rel
     if not cands:
         log("document silent on corporal punishment:", rel); return None
@@ -1067,6 +1088,49 @@ def peers_for(state):
         return {"bans": bans, "total": total, "stopped_statewide": st.get("status") == "partial"}
     except Exception: return None
 
+def signs_as(pol):
+    """The name they sign with, read off their own replies ('Pat' under a superintendent listed as Patrick Murphy)."""
+    try:
+        first = messages.first_name(pol.get("superintendent") or "", fallback="")
+        for e in reversed(pol.get("replies") or []):
+            path = os.path.join(REPLIES, pol["id"], e.get("file") or "")
+            if not os.path.exists(path): continue
+            body, _ = part_text(email.message_from_bytes(open(path, "rb").read()))
+            for line in triage_mod.strip_quoted(body).splitlines():
+                w = line.strip().rstrip(",")
+                if re.fullmatch(r"[A-Z][a-z]{1,11}", w) and first and (first.lower().startswith(w.lower()) or w.lower().startswith(first.lower()[:3])):
+                    return w
+    except Exception: pass
+    return None
+
+def queue_corrections():
+    """One held correction per district that received a certificate on the superintendent's sentence rather than a
+    board policy (records now 'silent' with district_says). Threads under the certificate; Anthony reads the batch."""
+    import yaml
+    reqs = load(); have = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "certificate_correction"}
+    names = {}
+    try: names = {k: v["name"] for k, v in json.load(open(os.path.join(ROOT, "site/data/states.json"))).items()}
+    except Exception: pass
+    added = 0
+    for f in sorted(os.listdir(os.path.join(ROOT, "data/districts"))):
+        if not f.endswith(".yaml"): continue
+        st = f[:2]
+        for x in yaml.safe_load(open(os.path.join(ROOT, "data/districts", f)))["districts"]:
+            if x.get("status") != "silent" or not x.get("district_says") or str(x.get("nces_id")) in have: continue
+            cert = next((r for r in reqs if r.get("kind") == "certificate" and str(r.get("nces_id")) == str(x["nces_id"]) and r.get("status") == "sent"), None)
+            if not cert: continue
+            rid = hashlib.sha1(f"certificate_correction|{st}|{x['nces_id']}".encode()).hexdigest()[:10]
+            reqs.append({"id": rid, "state": st, "state_name": names.get(st, st), "name": x["name"], "nces_id": str(x["nces_id"]), "kids": 0, "kind": "certificate_correction", "to": cert["to"],
+                         "superintendent": cert.get("superintendent"), "parent_request": cert["id"], "district_says": x["district_says"], "peers": peers_for(st),
+                         "status": "held", "queued_at": datetime.datetime.now().isoformat(timespec="seconds"), "notes": f"Certificate {cert['id']} sent {cert.get('sent_at','')[:16]} quoted the superintendent's email as policy; record reclassified silent 2026-10-27."})
+            cert["retracted_at"] = datetime.date.today().isoformat(); cert["notes"] = (cert.get("notes") or "") + " RETRACTED 2026-10-27: quoted the superintendent's email, not a board policy; correction queued."
+            pol = next((r for r in reqs if r.get("kind") == "policy" and str(r.get("nces_id")) == str(x["nces_id"])), None)
+            if pol:
+                pol["claim"] = "the district does not use corporal punishment"; pol["invited_policy_at"] = datetime.date.today().isoformat(); pol["district_says"] = x["district_says"]
+                reqs[-1]["signs_as"] = signs_as(pol)
+            added += 1
+    save(reqs); log(f"queued {added} held certificate corrections")
+
 def queue_align(n=25, states=None):
     """Districts whose written policy permits corporal punishment but which reported no use of it: the
     invitation to become a Safe School by aligning the policy with the practice, with the board brief
@@ -1249,6 +1313,7 @@ if __name__ == "__main__":
     if cmd == "rehold": rehold(send="--dry" not in sys.argv); sys.exit()
     if cmd == "decide": decide(); sys.exit()
     if cmd == "catchup": catchup(send="--dry" not in sys.argv); sys.exit()
+    if cmd == "queue-corrections": queue_corrections(); sys.exit()
     if cmd == "queue-align": queue_align(int(sys.argv[2]) if len(sys.argv) > 2 else 25, sys.argv[3].split(",") if len(sys.argv) > 3 else None); sys.exit()
     if cmd == "release-align":   # Anthony has seen the held list; let the next cycle send it
         reqs = load(); k = 0; skip = set(sys.argv[sys.argv.index("--not") + 1].split(",")) if "--not" in sys.argv else set()
