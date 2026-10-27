@@ -306,9 +306,9 @@ path.state-active{stroke:#F6E05E !important;stroke-width:2.4 !important;filter:d
 .scorecard b{display:block;font-family:var(--serif);font-size:1.7rem;line-height:1.1;color:var(--navy-dark)}.scorecard span{display:block;font-size:.9rem;color:var(--muted);margin-top:.4rem;line-height:1.4}
 .scorecard.red{border-left-color:var(--red)}.scorecard.gold{border-left-color:var(--gold)}.scorecard.gray{border-left-color:var(--gray-medium)}
 table.exp{border-collapse:collapse;width:100%;font-size:.92rem;margin:.4rem 0 1.2rem}table.exp th,table.exp td{border-bottom:1px solid var(--rule);padding:.45rem .6rem;text-align:left;vertical-align:top}table.exp th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-table.states td.bar{width:40%}table.states td.bar i{display:block;height:14px;background:var(--red);border-radius:2px}table.states td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sbars{margin:.4rem 0 1.4rem}.sbar{display:grid;grid-template-columns:3rem 1fr 6.5rem 5.5rem 7rem;gap:.6rem;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--rule);font-size:.92rem}.sbar span{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.sbar .track{height:14px;background:var(--gray-light);border-radius:2px}.sbar .track i{display:block;height:100%;background:var(--red);border-radius:2px}.sbar.head span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
 .targets li{margin:.3rem 0}
-@media(max-width:900px){.scorerow{grid-template-columns:1fr 1fr}}@media(max-width:560px){.scorerow{grid-template-columns:1fr}table.states td.bar{width:25%}}
+@media(max-width:900px){.scorerow{grid-template-columns:1fr 1fr}}@media(max-width:560px){.scorerow{grid-template-columns:1fr}.sbar{grid-template-columns:2.6rem 1fr 5rem 4rem;font-size:.85rem}.sbar span:last-child{display:none}}
 
 /* coach v4 */
 /* The Behavior Coach, in the shape people know from Claude and ChatGPT: a sidebar with the way back to the
