@@ -4132,13 +4132,13 @@ districts:
   - name: Quinter Public Schools
     county: Gove
     nces_id: "2010950"
-    status: silent
-    source: https://www.quinterschools.org/vimages/shared/vnews/stories/53da5f662d198/Quinter%20Junior%20Senior%20High%20School%20Student%20Parent%20Handbook%202021-2022.pdf
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2010950-email-1e2531e3.txt
+    quote: Quinter does not use corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-27
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -4147,8 +4147,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/KS/2010950-email-1e2531e3.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Quinter does not use corporal punishment.
   - name: Rawlins County
     county: Rawlins
     nces_id: "2000023"
