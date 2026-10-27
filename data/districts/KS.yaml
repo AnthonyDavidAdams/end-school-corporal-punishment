@@ -1737,13 +1737,13 @@ districts:
   - name: Fowler
     county: Meade
     nces_id: "2006210"
-    status: silent
-    source: https://www.fowlerusd.org/apps/pages/index.jsp?uREC_ID=4351018&type=d&pREC_ID=2625702
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2006210-email-6a48e166.txt
+    quote: https://www.usd225.org/ We do not allow corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-27
+    method: records_request
     parent_control: unknown
     documents:
       - kind: other
@@ -1758,8 +1758,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/KS/2006210-email-6a48e166.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - https://www.usd225.org/ We do not allow corporal punishment.
   - name: Fredonia
     county: Wilson
     nces_id: "2006270"
