@@ -11,7 +11,7 @@ appears later (not in the record, or added to it) is dealt by hash parity and ap
 From the pipeline: apply(request) sets request["experiment"], request["variant"], drops the attachment when the variant
 says `attachment: none`, and sets status `held` when the variant is not yet approved. subject(request) and
 body(request) return the rendered copy for a templated variant, or None so run.py keeps today's code path."""
-import os, sys, json, hashlib, collections
+import os, sys, re, json, hashlib, collections
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import GAME, ROOT, load_districts, district_id, band, enrollment_map, write_json
 
@@ -88,7 +88,20 @@ def _fields(r):
     import messages
     who = messages.addressed_name(r) if r.get("kind") == "align" else messages.first_name(r.get("superintendent"))
     return {"who": who, "district": messages.nice(r["name"]), "sig": messages.sig(None), "state": r.get("state"), "state_name": messages.state_name(r.get("state")),
-            "quote": messages.tidy_quote(r.get("quote")), "code": r.get("policy_code") or "", "peers": messages.peers_sentence(r)}
+            "quote": messages.tidy_quote(r.get("quote")), "code": r.get("policy_code") or "", "peers": messages.peers_sentence(r),
+            "brief_link": "earthpilot.org/kids/board/" if r.get("state") == "TX" else "earthpilot.org/kids/kit/", **model_fields(r.get("state"))}
+
+def model_fields(state):
+    """The state's own model sentence when enough of its boards use one; otherwise the Texas sentence, named as
+    such. The Texas board page and film are Texas-specific; everyone else is sent to the kit."""
+    try: m = json.load(open(os.path.join(ROOT, "data/states/model-language.json"))).get(state) or {}
+    except Exception: m = {}
+    sys.path.insert(0, os.path.join(ROOT, "tools/outreach")); import messages
+    used = int(m.get("used_by") or 0)
+    if used >= 5 and m.get("modal_quote"):
+        q = re.sub(r"^Corporal Punishment\s+", "", str(m["modal_quote"])).strip()
+        return {"model_sentence": q, "model_note": f"The sentence {used} {messages.state_name(state)} boards already use" + (f" (policy {m['modal_code']})" if m.get("modal_code") else "") + " is"}
+    return {"model_sentence": "The Board prohibits the use of corporal punishment in the District.", "model_note": "The sentence most Texas boards that made the change adopted is"}
 
 def subject(r):
     s = spec(r.get("experiment"), r.get("variant")) if r.get("experiment") else {}
