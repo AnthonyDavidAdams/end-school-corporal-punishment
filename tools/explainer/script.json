@@ -1,14 +1,14 @@
 {
  "title": "Two girls, one sentence",
  "voice": {
-  "model": "fal-ai/elevenlabs/tts/multilingual-v2",
+  "model": "fal-ai/elevenlabs/tts/eleven-v3",
   "voice": "Brian",
-  "speed": 0.95
+  "stability": 0.4
  },
  "voice_witness": {
-  "model": "fal-ai/elevenlabs/tts/multilingual-v2",
+  "model": "fal-ai/elevenlabs/tts/eleven-v3",
   "voice": "Sarah",
-  "speed": 0.92
+  "stability": 0.3
  },
  "style": "torn-paper collage on warm cream card stock, flat lay photographed in soft daylight: layered cut and torn paper shapes with white fibrous torn edges, fragments of vintage newsprint and ledger grid paper, one or two black-and-white photo cutouts, red paper strips, kraft brown card, blue ballpoint doodles in the margins, real shadows under each paper layer, handmade and tactile, palette of cream, black, brick red, navy blue and kraft brown; no legible words, no letters, no numbers, no logos",
  "motion": "stop-motion paper cut-out animation at twelve frames per second: the paper layers shift and settle a little, one torn piece slides into place, the shadows flicker the way a handmade stop-motion film does, slight camera breathing, nothing legible appears, no text",
@@ -20,7 +20,8 @@
    "card": "{witness_attr}",
    "image": "a school office seen through a cut-paper doorway, a wooden chair against the wall, a long paper shadow, a child's backpack of patterned paper on the floor",
    "vo": "{witness_quote}",
-   "highlight": []
+   "highlight": [],
+   "tone": "quiet, remembering, a small pause between sentences"
   },
   {
    "id": "s02_frame",
@@ -29,7 +30,8 @@
    "vo": "{after_witness} In {state} it is still legal. {opening_count}",
    "highlight": [
     "still legal"
-   ]
+   ],
+   "tone": "calm and plain"
   },
   {
    "id": "s03_two_girls",
@@ -38,7 +40,8 @@
    "vo": "Take two girls. Same town, same grade, same kind of family. Call them Ava and Emma. On a Tuesday in October, each of them does the same thing: she shoves a classmate who took her seat. Two schools. Two policies.",
    "highlight": [
     "two policies"
-   ]
+   ],
+   "tone": "warm, storytelling"
   },
   {
    "id": "s04_ava",
@@ -47,7 +50,8 @@
    "vo": "Ava's school permits corporal punishment. She is sent to the office, told to bend over a chair, and struck with a wooden board. It is over in a minute.",
    "highlight": [
     "over in a minute"
-   ]
+   ],
+   "tone": "flat, factual, no drama"
   },
   {
    "id": "s05_emma",
@@ -56,7 +60,8 @@
    "vo": "Emma's school prohibits it. She is sent to the office too. Her teacher calls home. She loses recess for a week, and she practices, with an adult, what to do the next time someone takes her seat. It takes a month.",
    "highlight": [
     "it takes a month"
-   ]
+   ],
+   "tone": "warm, a little lighter"
   },
   {
    "id": "s06_research",
@@ -65,7 +70,8 @@
    "vo": "Here is what the research says happens next. Across twenty-one studies and sixty-seven thousand children, girls like Ava are more likely to hit someone again, more anxious, more likely to fall behind. And the one thing the paddle was for? Across seventy-five studies it did not even reliably stop the behavior in the moment. Not one study found a benefit. Emma's school used the approach the research does support.",
    "highlight": [
     "not one study"
-   ]
+   ],
+   "tone": "measured, serious"
   },
   {
    "id": "s07_who",
@@ -75,7 +81,8 @@
    "highlight": [
     "{who_highlight}"
    ],
-   "skip_if": "no_crdc"
+   "skip_if": "no_crdc",
+   "tone": "quiet"
   },
   {
    "id": "s08_identity",
@@ -84,7 +91,8 @@
    "vo": "If you work in education, you already believe two things: that children can change, and that evidence should change us. Changing your mind when the evidence is in is what you ask of students every day. On this one, the evidence is in.",
    "highlight": [
     "the evidence is in"
-   ]
+   ],
+   "tone": "respectful, direct, speaking to a colleague"
   },
   {
    "id": "s09_paper_lags",
@@ -94,7 +102,8 @@
    "highlight": [
     "paper lags the practice"
    ],
-   "skip_if": "no_lag"
+   "skip_if": "no_lag",
+   "tone": "matter of fact"
   },
   {
    "id": "s10_sentence",
@@ -103,7 +112,8 @@
    "vo": "{boards_line} {sentence_line} For a district that has not used the paddle in years, nothing changes on Monday morning except the exposure, and what the policy says about who you are.",
    "highlight": [
     "{sentence_highlight}"
-   ]
+   ],
+   "tone": "steady, hopeful"
   },
   {
    "id": "s11_close",
@@ -112,7 +122,8 @@
    "vo": "Ava and Emma are the same girl. The only difference was the policy. One sentence, on one agenda. The model policy, the letters to staff and families, and the training are free at earth pilot dot org, slash kids, slash board. The Safe Schools Project.",
    "highlight": [
     "one agenda"
-   ]
+   ],
+   "tone": "gentle, resolved"
   }
  ]
 }

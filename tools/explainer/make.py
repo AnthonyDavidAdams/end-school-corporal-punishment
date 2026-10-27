@@ -157,9 +157,11 @@ def clips(code, only=None, res="720p"):
         img = os.path.join(OUT, code, "img", s["id"] + ".png")
         nxt = ids[ids.index(s["id"]) + 1] if ids.index(s["id"]) + 1 < len(ids) else None
         end = os.path.join(OUT, code, "img", nxt + ".png") if nxt else None
-        payload = {"image_url": upload(img), "prompt": f"{s['image']}. {sc['motion']}" + (" Over the clip the picture gently dissolves and redraws itself into the next scene." if end and os.path.exists(end) else ""),
-                   "duration": "5", "resolution": res, "generate_audio": False, "codec": "H264"}
-        if end and os.path.exists(end): payload["end_image_url"] = upload(end)
+        tts = os.path.join(OUT, code, "tts", s["id"] + ".json"); vo_dur = json.load(open(tts))["vo_dur"] if os.path.exists(tts) else 8
+        morph = bool(end and os.path.exists(end) and vo_dur <= 8)   # a morph stretched over a long line shows the next scene for half the scene
+        payload = {"image_url": upload(img), "prompt": f"{s['image']}. {sc['motion']}" + (" Over the clip the picture gently dissolves and redraws itself into the next scene." if morph else ""),
+                   "duration": "5" if morph else "10", "resolution": res, "generate_audio": False, "codec": "H264"}
+        if morph: payload["end_image_url"] = upload(end)
         r = fal("bytedance/seedance-2.5/us/image-to-video", payload)
         fetch(r["video"]["url"], p); n += 1; print("clip", s["id"])
     print(f"clips: {n} new")
@@ -174,7 +176,11 @@ def voice(code, voice_dir=None):
             continue
         if os.path.exists(p): continue
         v = {"witness": sc.get("voice_witness"), "witness_m": {"model": sc["voice"]["model"], "voice": "Daniel", "speed": 0.93}}.get(s.get("voice")) or sc["voice"]
-        r = fal(v["model"], {"text": s["vo"], "voice": v["voice"], "speed": v["speed"], "stability": 0.5, "similarity_boost": 0.75})
+        text = (f"[{s['tone']}] " if s.get("tone") else "") + s["vo"]
+        if "eleven-v3" in v["model"]:
+            r = fal(v["model"], {"text": text, "voice": v["voice"], "stability": v.get("stability", 0.35), "language_code": "en", "apply_text_normalization": "off"})
+        else:
+            r = fal(v["model"], {"text": s["vo"], "voice": v["voice"], "speed": v.get("speed", 1.0), "stability": 0.5, "similarity_boost": 0.75})
         fetch(r["audio"]["url"], p); n += 1; print("voice", s["id"])
     print(f"voice: {n} new")
 
@@ -190,14 +196,16 @@ def words_(code):
         json.dump({"vo_dur": dur, "words": ws}, open(p, "w")); n += 1; print("words", s["id"], len(ws))
     print(f"words: {n} new")
 
-def stage(code):
+def stage(code, only=None):
     sc = load(code); src = os.path.join(OUT, code); dst = os.path.join(REM, "public/explainer")
     if os.path.exists(dst): shutil.rmtree(dst)
     for sub in ("img", "clips", "tts"): shutil.copytree(os.path.join(src, sub), os.path.join(dst, sub), dirs_exist_ok=True)
     scenes = []
-    for s in sc["scenes"]:
+    for s in pick(sc["scenes"], only):
         t = json.load(open(os.path.join(src, "tts", s["id"] + ".json")))
-        scenes.append({"id": s["id"], "vo": s["vo"], "card": s.get("card") or "", "voice": s.get("voice") or "narrator", "highlight": s.get("highlight", []), "vo_dur": t["vo_dur"], "words": t["words"], "clip_len": 5.0})
+        clip = os.path.join(src, "clips", s["id"] + ".mp4")
+        clen = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", clip], capture_output=True, text=True).stdout.strip() or 5) if os.path.exists(clip) else 5.0
+        scenes.append({"id": s["id"], "vo": s["vo"], "card": s.get("card") or "", "voice": s.get("voice") or "narrator", "highlight": s.get("highlight", []), "vo_dur": t["vo_dur"], "words": t["words"], "clip_len": clen})
     data = {"fps": FPS, "lead": LEAD, "tail": TAIL, "xf": XF, "state": code, "state_name": sc["state_name"], "title": sc["title"], "scenes": scenes}
     json.dump(data, open(os.path.join(dst, "data.json"), "w"), indent=1)
     print(f"staged {len(scenes)} scenes, {round(sum(s['vo_dur'] + LEAD + TAIL for s in scenes) - XF * (len(scenes) - 1), 1)} s")
@@ -219,7 +227,7 @@ if __name__ == "__main__":
     elif a.cmd == "clips": clips(code, only, a.res)
     elif a.cmd == "voice": voice(code, a.voice_dir)
     elif a.cmd == "words": words_(code)
-    elif a.cmd == "stage": stage(code)
+    elif a.cmd == "stage": stage(code, only)
     elif a.cmd == "render": render(code, a.vertical, a.draft)
     elif a.cmd == "all":
         fill(code); stills(code); clips(code, None, a.res); voice(code, a.voice_dir); words_(code); stage(code); render(code, a.vertical, a.draft)

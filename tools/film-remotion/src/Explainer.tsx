@@ -125,7 +125,7 @@ const Paper: React.FC<{ vertical: boolean }> = ({ vertical }) => (
   <AbsoluteFill style={{ background: PAPER }}>
     <AbsoluteFill style={{ opacity: 0.5, backgroundImage: "radial-gradient(rgba(22,22,22,0.05) 1px, transparent 1px), radial-gradient(rgba(180,138,90,0.08) 1px, transparent 1px)", backgroundSize: "7px 7px, 11px 11px", backgroundPosition: "0 0, 3px 5px" }} />
     <AbsoluteFill style={{ background: "radial-gradient(ellipse at center, rgba(255,255,255,0) 50%, rgba(120,100,70,0.22) 100%)" }} />
-    <div style={{ position: "absolute", left: 36, top: vertical ? 60 : 24, fontFamily: MARKER, color: NAVY, fontSize: 26, opacity: 0.55, transform: "rotate(-8deg)" }}>one sentence</div>
+    <div style={{ position: "absolute", left: 40, bottom: 26, fontFamily: MARKER, color: NAVY, fontSize: 24, opacity: 0.5, transform: "rotate(-6deg)" }}>one sentence</div>
     <div style={{ position: "absolute", right: 40, bottom: 24, fontFamily: MARKER, color: NAVY, fontSize: 22, opacity: 0.45, transform: "rotate(5deg)" }}>safe schools project</div>
   </AbsoluteFill>
 );
