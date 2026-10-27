@@ -1,0 +1,19 @@
+# Railway config-as-code for the always-on engine (one service, one volume at /data).
+# In the service's Settings, set "Config-as-code file path" to deploy/always-on/railway.toml. The service
+# must be connected to the GitHub repository (branch main), NOT deployed with `railway up` from the laptop:
+# `railway up` uploads the working tree, which carries 1.4 GB of gitignored documents under data/documents
+# and 1.6 GB under out/, and the upload is silently dropped.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "deploy/always-on/Dockerfile"
+# The pipeline pushes to main several times a day (records, site, score). Without this, every push would
+# rebuild the image and restart the container mid-cycle. Only the runtime's own inputs trigger a redeploy;
+# code under tools/ reaches the host through the scheduler's git pull before each cycle.
+watchPatterns = ["deploy/always-on/**", "package.json", "package-lock.json", "tools/package.json", "tools/package-lock.json"]
+
+[deploy]
+numReplicas = 1
+restartPolicyType = "ALWAYS"
+# No healthcheck: the service serves no HTTP. Liveness is the dead-man check (deadman.py) and the
+# "ops page rebuilt" line on earthpilot.org/kids/ops/.

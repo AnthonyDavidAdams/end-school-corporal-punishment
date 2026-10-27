@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+"""A stand-in for `claude -p` on the always-on host, answered by OpenRouter.
+
+On the laptop two scripts write through Claude Code on the Max plan, where a call costs nothing per use:
+    tools/outreach/writer.py   ask_cli()    the reply writer (has its own OpenRouter fallback; ESCP_WRITER=openrouter
+                                            skips the CLI entirely and is set in the Dockerfile)
+    tools/game/review.py       proposals()  three proposed message variants, Sundays, no fallback of its own
+This shim accepts the exact invocation both use:
+    claude -p --model <id> --output-format text --no-session-persistence --system-prompt <text> --disallowedTools ...
+reads the user prompt from stdin, and asks OpenRouter for the same model. THIS COSTS MONEY on the OpenRouter key
+(anthropic/claude-fable-5.1 is $10 per million input tokens and $50 per million output tokens, thinking included);
+see INVENTORY.md for the per-call estimate. Set ESCP_CLAUDE_SHIM=off to make it fail fast instead (exit 70), in
+which case review.py prints "(the model call failed ...)" in place of the proposals and the writer uses its own
+fallback.
+"""
+import json
+import os
+import sys
+import urllib.request
+
+MODELS = {"claude-fable-5-1": "anthropic/claude-fable-5.1", "claude-fable-5": "anthropic/claude-fable-5",
+          "claude-opus-5-5": "anthropic/claude-opus-5.5", "claude-sonnet-5-5": "anthropic/claude-sonnet-5.5"}
+
+
+def key():
+    k = os.environ.get("OPENROUTER_API_KEY")
+    if k: return k
+    p = os.path.expanduser("~/personality-bench/.env.local")
+    if os.path.exists(p):
+        for l in open(p):
+            if l.startswith("OPENROUTER_API_KEY="): return l.split("=", 1)[1].strip().strip('"')
+    return None
+
+
+def main():
+    if os.environ.get("ESCP_CLAUDE_SHIM", "").lower() in ("off", "0", "no"):
+        print("claude shim disabled (ESCP_CLAUDE_SHIM=off)", file=sys.stderr); return 70
+    args = sys.argv[1:]
+    model, system, prompt = "claude-fable-5-1", "", None
+    i = 0
+    while i < len(args):
+        a = args[i]
+        if a == "--model" and i + 1 < len(args): model = args[i + 1]; i += 2; continue
+        if a == "--system-prompt" and i + 1 < len(args): system = args[i + 1]; i += 2; continue
+        if a in ("--output-format", "--permission-mode") and i + 1 < len(args): i += 2; continue
+        if a == "-p":
+            if i + 1 < len(args) and not args[i + 1].startswith("-"): prompt = args[i + 1]; i += 2; continue
+            i += 1; continue
+        i += 1   # --no-session-persistence, --disallowedTools and its tool names, anything else
+    if prompt is None:
+        prompt = sys.stdin.read()
+    if not prompt.strip():
+        print("claude shim: empty prompt", file=sys.stderr); return 2
+    k = key()
+    if not k:
+        print("claude shim: no OPENROUTER_API_KEY", file=sys.stderr); return 70
+    slug = os.environ.get("ESCP_CLAUDE_SHIM_MODEL") or MODELS.get(model, "anthropic/claude-fable-5.1")
+    body = {"model": slug, "max_tokens": 4000, "messages": ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": prompt}]}
+    req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions", data=json.dumps(body).encode(),
+                                 headers={"Authorization": f"Bearer {k}", "Content-Type": "application/json", "HTTP-Referer": "https://earthpilot.org/kids", "X-Title": "ESCP always-on"})
+    last = None
+    for attempt in range(3):
+        try:
+            j = json.load(urllib.request.urlopen(req, timeout=600))
+            text = (j["choices"][0]["message"].get("content") or "").strip()
+            if text:
+                sys.stdout.write(text); return 0
+            last = f"empty content (finish {j['choices'][0].get('finish_reason')})"
+        except Exception as ex:
+            last = repr(ex)[:200]
+    print(f"claude shim: {last}", file=sys.stderr); return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

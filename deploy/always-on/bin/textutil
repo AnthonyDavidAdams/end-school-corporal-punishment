@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+"""A stand-in for macOS textutil on the always-on host, for the one call the pipeline makes:
+
+    textutil -convert txt -stdout <file.docx|file.doc>
+
+tools/outreach/run.py (doc_text) and tools/ok/policy-harvest.mjs read Word documents this way. .docx goes
+through python-docx (paragraphs and table cells, in document order); .doc goes through antiword when it is
+installed, else whatever printable text can be pulled from the binary. Output is UTF-8 on stdout.
+"""
+import re
+import shutil
+import subprocess
+import sys
+
+args = sys.argv[1:]
+files = [a for a in args if not a.startswith("-") and a not in ("txt", "html", "rtf")]
+if not files:
+    sys.exit(0)
+path = files[-1]
+out = ""
+try:
+    head = open(path, "rb").read(8)
+    if head.startswith(b"PK"):
+        import docx
+        d = docx.Document(path)
+        parts = [p.text for p in d.paragraphs]
+        for t in d.tables:
+            for row in t.rows:
+                parts.append("\t".join(c.text for c in row.cells))
+        out = "\n".join(parts)
+    elif head.startswith(b"\xd0\xcf\x11\xe0") and shutil.which("antiword"):
+        out = subprocess.run(["antiword", "-w", "0", path], capture_output=True, text=True, timeout=60).stdout
+    else:
+        raw = open(path, "rb").read()
+        out = "\n".join(x.decode("ascii", "ignore") for x in re.findall(rb"[\x20-\x7e\t]{6,}", raw))
+except Exception as ex:
+    print(f"textutil shim: {ex!r}", file=sys.stderr)
+    sys.exit(1)
+sys.stdout.write(out)
