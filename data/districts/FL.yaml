@@ -533,9 +533,9 @@ districts:
     county: Highlands
     nces_id: "1200840"
     status: bans
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/FL/1200840-email-be3c63d3.txt
-    quote: Then revision removed corporal punishment.
-    policy_code: null
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/FL/1200840-Agenda_Item_-_Corporal_Punishment.pdf
+    quote: Consider approval of adoption of the revisions to School Board Policy 5630 - Corporal punishment and Use of Reasonable Force and Restraint. Dr. Durrance moved to approve. Mrs. Howerton seconded. On roll call, all members present voted 'yes'. Motion carried.
+    policy_code: "5630"
     crdc_students_latest: null
     last_verified: 2026-10-15
     method: records_request
@@ -559,10 +559,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read, Florida sweep)
-    notes: Received from the district by email in answer to a public records request, 2026-10-15; the document is kept in the repository at data/policies/inbound/FL/1200840-email-be3c63d3.txt. Identity is name and state matched against the federal LEA directory.
+    notes: On July 8, 2025 the School Board voted unanimously to adopt revisions to Policy 5630 (agenda item sent by the district, 2026-10-13). The deputy superintendent's office wrote on 2026-10-15 that the revision removed corporal punishment from the policy; the copy of 5630 the district sent is the pre-revision text (dated April 4, 2025, marked 'to workshop') and still carries the authorizing section. The revised text itself has been requested. Status rests on the board's vote and the district's statement about it, not on a quoted prohibition. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
       - Then revision removed corporal punishment.
+    district_says: Then revision removed corporal punishment.
+    district_says_on: 2026-10-15
+    district_says_source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/FL/1200840-email-be3c63d3.txt
   - name: Hillsborough County School District
     county: Hillsborough
     nces_id: "1200870"

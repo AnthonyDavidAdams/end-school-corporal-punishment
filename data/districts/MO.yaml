@@ -4976,10 +4976,10 @@ districts:
   - name: Richland R-IV
     county: Pulaski
     nces_id: "2926430"
-    status: bans
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2926430-email-7a9c2384.txt
-    quote: Richland R-IV has not used corporal punishment in more than a decade.
-    policy_code: null
+    status: consent_required
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2926430-Richland_R-IV___P_2670_Corporal_Punishment__Authorized.pdf
+    quote: No student will be administered corporal punishment without prior notification to and written permission of the student's parents/guardians.
+    policy_code: "2670"
     crdc_students_latest: null
     last_verified: 2026-10-27
     method: records_request
@@ -4991,10 +4991,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/MO/2926430-email-7a9c2384.txt. Identity is name and state matched against the federal LEA directory.
+    notes: "Board policy P 2670 \"Corporal Punishment: Authorized\" (approved September 19, 2022), sent by the district by email on 2026-10-27 in answer to a public records request; it permits the practice with the parents' prior written permission. The superintendent's office wrote the same day: \"Richland R-IV has not used corporal punishment in more than a decade.\" That is the district's word about practice; the board policy on file still authorizes it. (The record briefly read bans on the strength of that sentence, 2026-10-27; corrected the same day.) Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
     quotes:
       - Richland R-IV has not used corporal punishment in more than a decade.
+    district_says: Richland R-IV has not used corporal punishment in more than a decade.
+    district_says_on: 2026-10-27
+    district_says_source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2926430-email-7a9c2384.txt
   - name: Richmond R-XVI
     county: Ray
     nces_id: "2926480"
