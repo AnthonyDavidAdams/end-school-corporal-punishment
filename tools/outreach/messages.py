@@ -385,3 +385,14 @@ If it is something the board might take up, the one-sentence language {a} and mo
 
 {sig(user)}
 """
+
+
+def apology(r, user):
+    """After the 2026-10-26 misfire, when a killed cycle re-sent the same nudge up to five times in one evening."""
+    who = addressed_name(r)
+    return f"""Hey {who},
+
+Sorry about that. My mail client misfired last night and sent the same short follow-up more than once. One copy was plenty, and no reply is needed to this one.
+
+{sig(user)}
+"""

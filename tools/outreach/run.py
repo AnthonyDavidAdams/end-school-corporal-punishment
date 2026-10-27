@@ -102,6 +102,7 @@ def subject_for(r):
         "align":    f"An invitation: {d} as a Safe School for 2026-27",
         "board_note": f"{d}: a four-minute film for the board",
         "neighbor": f"{d} corporal punishment policy",
+        "apology": "Sorry for the repeat emails",
     }.get(r.get("kind", "policy"), f"Can't find {d}'s corporal punishment policy")
 
 def body_for(r):
@@ -120,6 +121,8 @@ def body_for(r):
         return messages.align_policy(r, USER, r.get("quote"), r.get("policy_code"))
     if k == "board_note":
         return messages.board_note(r, USER, r.get("link") or "https://earthpilot.org/kids/board/")
+    if k == "apology":
+        return messages.apology(r, USER)
     if k == "neighbor":
         return messages.neighbor_ask(r, USER, r.get("anchor") or "a neighboring district")
     return messages.ask_policy(r, USER, r.get("compliment"))
@@ -1049,10 +1052,11 @@ def release(kind, states=None):
 def followup():
     reqs = load(); n = 0
     for r in reqs:
+        if n >= 15: break   # at most 15 nudges per cycle; the rest wait for the next one
         if r["status"] in ("sent", "promised") and not r.get("followup_sent_at") and business_days_since(r.get("sent_at")) >= 10:
             m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = "Re: " + (r.get("subject") or subject_for(r))
             m["In-Reply-To"] = r["message_id"]; m["References"] = r["message_id"]; m.set_content(messages.nudge(r, USER))
-            try: smtp_send(m); r["followup_sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); n += 1; log("nudged", r["state"], r["name"]); time.sleep(8)
+            try: smtp_send(m); r["followup_sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); n += 1; log("nudged", r["state"], r["name"]); save(reqs); time.sleep(8)   # saved per send: a cycle killed mid-loop re-nudged 45 districts on 2026-10-26
             except Exception as e: log("nudge failed", r["name"], e)
     save(reqs); log(f"followup: {n} nudges")
 
