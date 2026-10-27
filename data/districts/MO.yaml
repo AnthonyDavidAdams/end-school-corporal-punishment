@@ -1956,13 +1956,13 @@ districts:
   - name: Galena R-II
     county: Stone
     nces_id: "2912630"
-    status: silent
-    source: https://www.galena.k12.mo.us/81278_2
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2912630-link-01c502.html
+    quote: Corporal punishment is strictly prohibited as a method of discipline.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-27
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -1971,8 +1971,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/MO/2912630-link-01c502.html. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Corporal punishment is strictly prohibited as a method of discipline.
   - name: Gallatin R-V
     county: Daviess
     nces_id: "2912660"
