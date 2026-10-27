@@ -3127,13 +3127,13 @@ districts:
   - name: Liberty 53
     county: Clay
     nces_id: "2918540"
-    status: silent
-    source: https://resources.finalsite.net/images/v1779366432/libertyk12mous/l79fwweigzzwikomlgwr/HSHandbook26-27.pdf
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2918540-link-c40b34.pdf
+    quote: 3.2 No person who is employed or engaged by the District may inflict or cause to be inflicted corporal punishment on a student.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-27
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -3148,8 +3148,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/MO/2918540-link-c40b34.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - 3.2 No person who is employed or engaged by the District may inflict or cause to be inflicted corporal punishment on a student.
+      - DELEGATION OF AUTHORITY 9.1 Each teacher, and any other school personnel, when students are under his or her charge, is authorized to impose any disciplinary measure (other than suspension, expulsion, corporal punishment, or in-school suspension) which is appropriate and in accordance with the policies and rules on student discipline.
   - name: Licking R-VIII School District
     county: Texas
     nces_id: "2918600"
