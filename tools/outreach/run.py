@@ -1016,8 +1016,9 @@ if __name__ == "__main__":
             try: log("watchdog: cycle exceeded 13 minutes; aborting so the next one can run")
             except Exception: pass
             os._exit(3)
-        signal.signal(signal.SIGALRM, _watchdog); signal.alarm(13 * 60)
+        signal.signal(signal.SIGALRM, _watchdog)
     _LOCK = open(REQ + ".lock", "w"); fcntl.flock(_LOCK, fcntl.LOCK_EX)
+    if cmd == "cycle": signal.alarm(13 * 60)   # the clock starts once we hold the lock, not while waiting for it
     if cmd == "retriage": retriage(send="--send" in sys.argv); sys.exit()
     if cmd == "tidy": tidy(); sys.exit()
     if cmd == "rehold": rehold(send="--dry" not in sys.argv); sys.exit()
