@@ -1,0 +1,85 @@
+<!doctype html><html lang="en-CA" xml:lang="en-CA" style="overflow: hidden; height: 100%"><head><meta charset="utf-8"><title>Diligent Community</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="true"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="app-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><meta name="apple-touch-fullscreen" content="YES"><link rel="preconnect" href="https://fonts.gstatic.com"><script>(function () {
+			const [tld, domain, subdomain] = window.location.hostname.split('.').reverse();
+			// fallback to relative path for local development
+			//const cdnHost = subdomain && window.location.hostname.toLowerCase().indexOf('wopi') < 0 ? `https://${subdomain}-cdn.${domain}.${tld}` : '';
+			const cdnHost = subdomain && !isReservedSubdomain() ? `https://${subdomain}-cdn.${domain}.${tld}` : '';
+
+			function isReservedSubdomain() {
+				const hostname = window.location.hostname.toLowerCase();
+				// Direct indexOf checks - fastest approach
+				return hostname.indexOf('scopeone') !== -1 ||
+					hostname.indexOf('scopetwo') !== -1 ||
+					hostname.indexOf('bdparity') !== -1 ||
+					hostname.indexOf('rk') !== -1 ||
+					hostname.indexOf('wopi') !== -1;
+			}
+
+			const headTags = {
+				script: ["/home/build/runtime.bbd7b845e76ca1d5143e.js","/home/build/npm.core-js.d0d4c4eead018f15950e.js","/home/build/polyfill.32c64c2e07620196b803.js","/home/build/atlas-icons-b1cf515f.954670fb58ad57a34110.js","/home/build/atlas-icons-fc0549ab.7a0f78451fd6180a42d3.js","/home/build/atlas-icons-5ab5e41a.ecb5d9fbfc194b103407.js","/home/build/atlas-icons-d2c21b61.8ad72a50f413fa363c9b.js","/home/build/atlas-icons-42e6358e.4122e580e7f078cd8fae.js","/home/build/atlas-icons-284e58f2.31ba5c4755d2386299c2.js","/home/build/atlas-icons-bbe87d65.534ea1130dead7e1b124.js","/home/build/atlas-icons-cd17127b.750ca44e031428cdc244.js","/home/build/atlas-icons-4ee77a3f.36ab0d4b695e4a0815e4.js","/home/build/atlas-icons-7a2adcef.5bbf7f13b30660fd4b32.js","/home/build/atlas-icons-bb235ee5.e149d9559ad0ec8a4563.js","/home/build/atlas-icons-80e6cfd5.2b0b84e6438a2f00233f.js","/home/build/atlas-icons-ab0b963d.8d3bb9d3ad07b1557147.js","/home/build/atlas-icons-fadca56b.8942cf95a5f6040c5147.js","/home/build/npm.diligentcorp-52c66505-f30fa851.b7c76afe469a398694b7.js","/home/build/npm.diligentcorp-52c66505-0e284ea5.2bea4c58ac32357b06a8.js","/home/build/npm.diligentcorp-52c66505-923b2a54.f846f4ae635d5ddbbe72.js","/home/build/npm.diligentcorp-ebea684d.ed09e80df2cead46fda7.js","/home/build/npm.diligentcorp-2050baa7.0c23de6dc46cfe784dba.js","/home/build/npm.diligentcorp-22c3d094.28c932a65932e769aaff.js","/home/build/npm.mui-781283e3.e17e0115ad0b6745e0ba.js","/home/build/npm.mui-23e2a055.06f875e8347534b9d795.js","/home/build/npm.mui-58465378.68fad48e46f9917505fc.js","/home/build/npm.mui-f92f78ac-f92f78ac.15738b65119e9cbaeb44.js","/home/build/npm.mui-f92f78ac-c605cc12.4a51be7de0c27e09234f.js","/home/build/npm.mui-f92f78ac-f8d75dad.ca5967528d2a6d034108.js","/home/build/npm.mui-ba3c9f4a.64ba826dbb89898a2a18.js","/home/build/npm.mui-490c9b7b.b64754aca7d7ebc4afd3.js","/home/build/npm.mui-b15111ae.c038cad2e5551f1bc7df.js","/home/build/npm.mui-fd4959de-5cf0955f.27b13faa3af79197784e.js","/home/build/npm.mui-fd4959de-fd4959de.2013669117b391430881.js","/home/build/npm.mui-6e52f548.4dbef4ae91ca24807326.js","/home/build/npm.mui-e31f14b0.9773ef0b4c1f4df5298d.js","/home/build/npm.react-dom.0552d35203d758e0d3d5.js","/home/build/npm.react-transition-group.20dd1e40a5b9c3cac71e.js","/home/build/npm.superagent.690a52a8c206fa1d0807.js","/home/build/npm.popperjs.deef0f8381fc87672c03.js","/home/build/npm.jss.ca08d7ed498055122b7c.js","/home/build/npm.emotion.d979d403794a53f5483f.js","/home/build/npm.qs.05374c53ea91b08bc9ae.js","/home/build/npm.react-i18next.04fcbe27d9fa0b293037.js","/home/build/npm.i18next.c0974ccfa150def6d420.js","/home/build/5784.6bd5778e88d893c3ee4b.js","/home/build/8879.d3490dfddb6358cac1ff.js","/home/build/4707.b662152424ba8cfb72c8.js","/home/build/reactapp.696c9f3a46d04c525f95.js","/home/build/npm.lodash.4d9ba5a5f11bbbc4580b.js","/home/build/npm.remix-run.5245dc77344f8dcd50d4.js","/home/build/npm.react-router.5f35bb209aeb55bc77d7.js","/home/build/npm.react-redux.dcddbd6ee176fd6cd80e.js","/home/build/2774.c7ec60b812dfacc77241.js","/home/build/190.a7359e3a9eb3795f812e.js","/home/build/dashboard.425f872166340a72d309.js"],
+				css: ["/home/build/npm.unknown.717372a8239f7adf317a.css"]
+					};
+
+			function addHeadTag(tagName, attributes) {
+				const tag = document.createElement(tagName);
+				Object.assign(tag, attributes);
+				document.head.appendChild(tag);
+			};
+
+			for (const path of headTags.script) {
+				addHeadTag('script', { defer: true, src: cdnHost + path });
+			}
+			for (const path of headTags.css) {
+				addHeadTag('link', { rel: 'stylesheet', href: cdnHost + path });
+			}
+		})();</script><link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700,800" as="style"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700,800"><link id="favicon" rel="icon" href="/Global/Images/icon.png" type="image/png"><style>body {
+			font-family: "Source Sans Pro", Arial, sans-serif;
+			font-display: swap;
+		}
+
+		.maple-background {
+			background-color: #f6f8fa;
+			height: 100%;
+		}
+
+		.skiptocontent a {
+			visibility: hidden;
+		}</style></head><body class="maple-background"><div class="skiptocontent"><a href="#cont" id="skiptoContent">Skip to content</a></div><div id="wrapper"></div><div id="portal-root"></div><script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2"></script><script>if (/trident/.test(navigator.userAgent.toLowerCase())) {
+				window.location.href = "/unsupportedbrowser";
+			}</script><script>(function (apiKey) {
+				(function (p, e, n, d, o) {
+					var v, w, x, y, z;
+					o = p[d] = p[d] || {};
+					o._q = o._q || [];
+					v = ["initialize", "identify", "updateOptions", "pageLoad", "track"];
+					for (w = 0, x = v.length; w < x; ++w)
+						(function (m) {
+							o[m] =
+								o[m] ||
+								function () {
+									o._q[m === v[0] ? "unshift" : "push"]([m].concat([].slice.call(arguments, 0)));
+								};
+						})(v[w]);
+					y = e.createElement(n);
+					y.async = !0;
+					y.src = "https://cdn.pendo.io/agent/static/" + apiKey + "/pendo.js";
+					z = e.getElementsByTagName(n)[0];
+					z.parentNode.insertBefore(y, z);
+				})(window, document, "script", "pendo");
+			})("c5cfe7a5-44ad-40b3-7324-22a4220cd50f");</script><script>(function (n, i, v, r, s, c, x, z) {
+				x = window.AwsRumClient = { q: [], n: n, i: i, v: v, r: r, c: c };
+				window[n] = function (c, p) {
+					x.q.push({ c: c, p: p });
+				};
+				z = document.createElement("script");
+				z.async = true;
+				z.src = s;
+				document.head.insertBefore(z, document.head.getElementsByTagName("script")[0]);
+			})("cwr", "323ae07f-d77f-44fb-80fc-fc93e75f8d0c", "1.0.0", "us-west-2", "https://client.rum.us-east-1.amazonaws.com/1.19.0/cwr.js", {
+				sessionSampleRate: 1,
+				identityPoolId: "us-west-2:e0e945da-ff5d-4910-9a2d-a1ab7eeb047f",
+				endpoint: "https://dataplane.rum.us-west-2.amazonaws.com",
+				telemetries: ["errors", "performance", "http"],
+				allowCookies: true,
+				enableXRay: true,
+				signing: true, // If you have a public resource policy and wish to send unsigned requests please set this to false
+			});</script></body></html>
