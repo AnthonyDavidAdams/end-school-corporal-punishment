@@ -19,6 +19,7 @@ import socket, signal
 # A cycle hung for a week on an IMAP socket with no timeout (2026-10-19 to 10-26) and, holding the lock, stopped
 # every cycle behind it. Every socket times out, and a cycle that outlives its slot is killed before the next one.
 socket.setdefaulttimeout(120)
+CYCLE_DEADLINE = float('inf')   # set by the cycle command once it holds the lock
 from email.message import EmailMessage
 from email.header import decode_header, make_header
 
@@ -323,11 +324,11 @@ def inbox():
     # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
     # Every subject we have ever sent, not just the ones with "corporal" in them: the research and
     # agency requests would otherwise never have their replies read.
-    typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
     handled = 0; nums = data[0].split() if data and data[0] else []; t0 = time.time()
     log(f"inbox: {len(nums)} candidate messages in the last 60 days")
     for num in nums:
-        if time.time() - t0 > 9 * 60: log("inbox: nine-minute budget reached; the rest waits for the next cycle"); break
+        if time.time() - t0 > 9 * 60 or time.time() > CYCLE_DEADLINE: log(f"inbox: time budget reached after {handled} handled; the rest waits for the next cycle"); break
         # Message-ID first, whole body only for mail we have not handled: All Mail holds every reply ever
         # answered, and fetching each one in full (attachments included) dropped the socket.
         typ, hdr = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (MESSAGE-ID)])")
@@ -1120,7 +1121,7 @@ if __name__ == "__main__":
             os._exit(3)
         signal.signal(signal.SIGALRM, _watchdog)
     _LOCK = open(REQ + ".lock", "w"); fcntl.flock(_LOCK, fcntl.LOCK_EX)
-    if cmd == "cycle": signal.alarm(13 * 60)   # the clock starts once we hold the lock, not while waiting for it
+    if cmd == "cycle": signal.alarm(13 * 60); CYCLE_DEADLINE = time.time() + 13 * 60 - 25   # the clock starts once we hold the lock, not while waiting for it
     if cmd == "retriage": retriage(send="--send" in sys.argv); sys.exit()
     if cmd == "tidy": tidy(); sys.exit()
     if cmd == "rehold": rehold(send="--dry" not in sys.argv); sys.exit()
