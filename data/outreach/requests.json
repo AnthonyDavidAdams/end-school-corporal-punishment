@@ -11635,10 +11635,26 @@
   "to": "jmitchell@dickson.k12.ok.us",
   "superintendent": "Jamie Mitchell",
   "statute": "the Oklahoma Open Records Act, 51 O.S. \u00a7 24A.1 et seq.",
-  "status": "sent",
+  "status": "answered",
   "sent_at": "2026-10-10T15:53:03",
   "message_id": "<escp-fc1a045b6d@earthpilot.org>",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<CAHeQ93rouirztBgdvbkETP2DY3UbzCWmrR7fT8_tSzzU7LFk3Q@mail.gmail.com>",
+    "from": "jmitchell@dickson.k12.ok.us",
+    "date": "Tue, 27 Oct 2026 09:05:55 -0500",
+    "kind": "claims_no_practice",
+    "confidence": 0.76,
+    "facts": {},
+    "attachments": [],
+    "links": [],
+    "file": "c0fe2e39.eml",
+    "action": "recorded bans; replied (thank_recorded)",
+    "move": "thank_recorded",
+    "why": "Superintendent confirmed no corporal punishment, matching the record (board prohibits it); thanked, stated the record, and asked lightly for the minutes behind it.",
+    "our_reply": "Thanks Jamie, that's exactly what I needed. I've noted that the board prohibits it, quoting your line that Dickson Public School does not utilize corporal punishment. If there's a board vote or a set of minutes where that was decided, a link would let me cite it directly. Appreciate the quick reply.\n\nAnthony\n\nSent from my iPhone"
+   }
+  ],
   "followup_sent_at": "2026-10-27T00:33:11",
   "queued_at": "2026-10-10T15:40:20",
   "subject": "Dickson corporal punishment policy",
@@ -11651,8 +11667,19 @@
     "text": "Hi Jamie, just bumping this in case it got buried. Still after Dickson's corporal punishment policy and the handbook link. A URL is plenty, or forward it to whoever keeps the board policies and I'll take it from there.\r\n\r\nAnthony\r\n\r\nSent from my iPhone",
     "message_id": "<6ae053b7.c1d3b8a3.9589f.fb2f@mx.google.com>",
     "by": "anthony"
+   },
+   {
+    "at": "2026-10-27T08:51:32",
+    "to": "jmitchell@dickson.k12.ok.us",
+    "text": "Thanks Jamie, that's exactly what I needed. I've noted that the board prohibits it, quoting your line that Dickson Public School does not utilize corporal punishment. If there's a board vote or a set of minutes where that was decided, a link would let me cite it directly. Appreciate the quick reply.\n\nAnthony\n\nSent from my iPhone"
    }
-  ]
+  ],
+  "answered_from": "jmitchell@dickson.k12.ok.us",
+  "last_reply_at": "2026-10-27T08:50:55",
+  "answered_message_ids": [
+   "<CAHeQ93rouirztBgdvbkETP2DY3UbzCWmrR7fT8_tSzzU7LFk3Q@mail.gmail.com>"
+  ],
+  "recorded_status": "bans"
  },
  {
   "id": "abf6286629",
@@ -41476,5 +41503,49 @@
   "followup_sent_at": "n/a",
   "certificate_pdf": "out/certificates/sent/KS-quinter-public-schools.pdf",
   "notes": "Safe School certificate 2026\u201327; board policy as sent by the district."
+ },
+ {
+  "id": "45e9ce71f7",
+  "state": "NC",
+  "name": "Randolph County School System",
+  "nces_id": "3703780",
+  "kids": 0,
+  "kind": "align",
+  "to": "sgainey@randolph.k12.nc.us",
+  "superintendent": "Stephen Gainey",
+  "statute": null,
+  "quote": "Although not encouraged, corporal punishment may be administered at all levels.",
+  "policy_code": "4355",
+  "attachments": [],
+  "status": "held",
+  "sent_at": null,
+  "message_id": null,
+  "replies": [],
+  "followup_sent_at": null,
+  "queued_at": "2026-10-27T08:54:16",
+  "experiment": "align_policy",
+  "variant": "B"
+ },
+ {
+  "id": "88d62e7902",
+  "state": "NC",
+  "name": "Bladen County Schools",
+  "nces_id": "3700390",
+  "kids": 0,
+  "kind": "align",
+  "to": "jbatkinson@bladen.k12.nc.us",
+  "superintendent": "Jason Atkinson",
+  "statute": null,
+  "quote": "Corporal punishment is a possible consequence only for certain types of student misconduct.",
+  "policy_code": "4355",
+  "attachments": [],
+  "status": "held",
+  "sent_at": null,
+  "message_id": null,
+  "replies": [],
+  "followup_sent_at": null,
+  "queued_at": "2026-10-27T08:54:18",
+  "experiment": "align_policy",
+  "variant": "B"
  }
 ]
