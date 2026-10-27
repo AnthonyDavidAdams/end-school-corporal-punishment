@@ -13,6 +13,7 @@ referee fails, becomes a draft with the suggested text in it.
     check(body, thread, record) -> bool
 """
 import json, os, re, subprocess, urllib.request
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 WRITER = "anthropic/claude-fable-5.1"   # Anthony: "use more advanced models on emails"; the replies carry his name
 CLI_MODEL = "claude-fable-5-1"           # the same model through Claude Code on the Max plan (claude -p): no per-call charge
@@ -39,6 +40,7 @@ The moves. Choose exactly one:
   ask_link            they say it is on the website but the re-check did not find it: say where we looked and ask for the direct link.
   ask_residency_proof they require a resident to ask: ask what proof they accept.
   invite_policy       they say the practice is not used, has stopped, or nothing is written down, AND the record does not say the board prohibits it, AND INVITED under RECORD is "no": thank them for the straight answer, then ask directly whether the board would be opposed to putting that in writing as an explicit prohibition, since right now the written policy is silent or still permits it and the paper lags the practice. Make it an easy yes, in a sentence or two: the free kit at earthpilot.org/kids/kit has the one-sentence model policy most boards in the state use, the motion, and the staff and family letters, so it can be adopted as written; when it is adopted the district is listed as a Safe School and gets a certificate and a press release it can use. Where it fits, one more thing to share: the free behavior coach for teachers and parents at earthpilot.org/kids/coach. Then one line asking for the policy or minutes where the practice was ended, if any exist. Ask it as a real question they can say no to, not "if you ever want to change".
+                      Value language for the invitation, one line of it at most, in their terms: the drafting, the motion, the staff script and the family letter are already written, so what is left is one agenda item; the opt-out forms and the state reporting stop being anyone's job; the one thing the manual still permits is the one thing a new hire can still get wrong; in their state, N boards already prohibit it in writing (use the number under PEERS when given). Never say they will be sued and never quote a settlement figure; there is none.
   ask_minutes         the invitation already went out (INVITED is a date) and they answered without the minutes or policy where the practice was ended: ask for them plainly, once.
   records_request     they refuse, say they do not publish or share the policy, want a fee first, or otherwise decline the plain ask: a short formal public-records request under the statute given under STATUTE, asking for the board policy on corporal punishment and the student handbook, for the electronic file where one exists, and noting the request is in the public interest and not commercial so any copying charge should be itemized under the statute's per-page cap. If they offer only in-person pickup, do not cite case law (an Oklahoma case we once cited, Brooke v. Reed, was vacated in 2025); ask whether they can mail copies at our cost to the address under STATUTE, and if not, say we will arrange a local pickup. Sign this one "Anthony Adams" with the project line and address given under STATUTE instead of the phone sign-off.
   forward             they say we have the wrong person and name the right one: a one-line note to the new address.
@@ -59,6 +61,15 @@ def key():
     return os.environ.get("OPENROUTER_API_KEY")
 
 
+def peers_line(state):
+    """Boards in the state that prohibit it in writing, and whether the practice has stopped statewide."""
+    try:
+        import yaml
+        rows = json.load(open(os.path.join(ROOT, "site/data/records", f"{state}.json")))
+        st = yaml.safe_load(open(os.path.join(ROOT, "data/states", f"{state}.yaml")))
+        return {"boards_prohibiting_in_writing": sum(1 for x in rows if x.get("status") == "bans"), "boards_on_record": len(rows), "no_district_uses_it": st.get("status") == "partial"}
+    except Exception: return None
+
 def situation(r, thread, record, filed, facts, recheck, quiet):
     convo = "\n\n".join(f"[{m['who']} · {m.get('date') or ''}]\n{(m.get('text') or '')[:2200]}" for m in thread[-10:])
     rec = {k: record.get(k) for k in ("status", "policy_code", "source", "quote", "last_verified", "method") if record.get(k) is not None}
@@ -71,6 +82,7 @@ def situation(r, thread, record, filed, facts, recheck, quiet):
             f"WHAT WE FIRST ASKED FOR: {r.get('kind', 'policy')} ({r.get('note') or 'the written policy'}).\n"
             f"RECORD NOW (say it this way): {said}. Details: {json.dumps(rec, default=str)}\n"
             f"INVITED (asked the board to adopt an explicit prohibition): {r.get('invited_policy_at') or 'no'}\n"
+            f"PEERS: {json.dumps(peers_line(r.get('state')))}\n"
             f"DOCUMENTS THIS THREAD PRODUCED: {json.dumps(filed) if filed else 'none'}\n"
             f"WEBSITE RE-CHECK: {json.dumps(recheck) if recheck else 'not run'}\n"
             f"EXTRACTED FACTS: {json.dumps(facts)}\n"
