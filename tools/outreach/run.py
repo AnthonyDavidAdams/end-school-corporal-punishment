@@ -15,6 +15,10 @@ district says it has no written policy). Everything else becomes a Gmail draft a
 Anthony.
 """
 import sys, os, json, re, time, imaplib, smtplib, email, email.utils, hashlib, subprocess, datetime, html as htmlmod, urllib.request
+import socket, signal
+# A cycle hung for a week on an IMAP socket with no timeout (2026-10-19 to 10-26) and, holding the lock, stopped
+# every cycle behind it. Every socket times out, and a cycle that outlives its slot is killed before the next one.
+socket.setdefaulttimeout(120)
 from email.message import EmailMessage
 from email.header import decode_header, make_header
 
@@ -88,6 +92,7 @@ def subject_for(r):
         "minutes":  f"Records request: {d} board minutes on corporal punishment",
         "research": f"Records request: what {d}'s board relied on",
         "state_doe": f"Records request: district contacts, handbooks and discipline data",
+        "align":    f"An invitation: {d} as a Safe School for 2026-27",
     }.get(r.get("kind", "policy"), f"Can't find {d}'s corporal punishment policy")
 
 def body_for(r):
@@ -99,6 +104,8 @@ def body_for(r):
         return messages.ask_research(r, USER, statute)
     if k == "state_doe":
         return messages.state_doe(r.get("state_name", r["state"]), r["state"], statute, USER, r.get("dept", "department of education"))
+    if k == "align":
+        return messages.align_policy(r, USER, r.get("quote"), r.get("policy_code"))
     return messages.ask_policy(r, USER, r.get("compliment"))
 
 # ---------------------------------------------------------------- send
@@ -112,6 +119,10 @@ def send(limit=25):
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
+        for att in r.get("attachments") or []:
+            pth = os.path.join(ROOT, att)
+            if os.path.exists(pth):
+                m.add_attachment(open(pth, "rb").read(), maintype="application", subtype="pdf" if pth.endswith(".pdf") else "octet-stream", filename=os.path.basename(pth))
         try:
             smtp_send(m); r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["message_id"] = mid; n += 1
             delete_draft(M, subject); log("sent", r["state"], r["name"], "->", r["to"]); save(reqs); time.sleep(8)
@@ -130,9 +141,19 @@ def file_away(M, num):
     # Removing the \Inbox label over IMAP did not stick (the same 55 messages were "archived" every hour for
     # four days). Deleting from INBOX is how Gmail's IMAP archives; the label keeps the message.
     try:
-        M.store(num, "+X-GM-LABELS", f'"{LABEL}"'); M.store(num, "+FLAGS", "\\Deleted"); return True
+        M.store(num, "+X-GM-LABELS", f'"{LABEL}"'); M.store(num, "+FLAGS", "\\Seen"); M.store(num, "+FLAGS", "\\Deleted"); return True
     except Exception as e:
         log("label failed", repr(e)[:80]); return False
+def file_away_by_mid(M, mid):
+    """Label and archive the INBOX copy of one message, then return to All Mail. A \\Deleted flag set while
+    All Mail is selected would trash the message, so the inbox loop never files by its own sequence numbers."""
+    try:
+        M.select("INBOX"); typ, d = M.search(None, "HEADER", "Message-ID", f'"{mid}"')
+        for n in (d[0].split() if d and d[0] else []): file_away(M, n)
+    except Exception as e:
+        log("file_away_by_mid failed", repr(e)[:80])
+    finally:
+        M.select('"[Gmail]/All Mail"')
 def tidy():
     """One pass over the inbox: every message that belongs to a request thread gets the label and leaves the inbox."""
     reqs = load(); M = imap(); ensure_label(M); M.select("INBOX"); moved = 0
@@ -273,23 +294,29 @@ def inbox():
     reqs = load(); M = imap(); ensure_label(M); mine = anthony_threads(M, reqs)
     for r in reqs:
         if r["id"] in mine and r["status"] == "anthony_replied": r["status"] = "sent"   # the old lock, lifted
-    save(reqs); M.select("INBOX")
+    save(reqs); M.select('"[Gmail]/All Mail"')   # not INBOX: a reply Anthony archived from his phone is still a reply (Norfork, 2026-10-13)
     # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
     # Every subject we have ever sent, not just the ones with "corporal" in them: the research and
     # agency requests would otherwise never have their replies read.
-    typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:60d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
     handled = 0
     for num in (data[0].split() if data and data[0] else []):
-        typ, raw = M.fetch(num, "(BODY.PEEK[])"); msg = email.message_from_bytes(raw[0][1])
-        mid = msg.get("Message-ID", "").strip()
+        # Message-ID first, whole body only for mail we have not handled: All Mail holds every reply ever
+        # answered, and fetching each one in full (attachments included) dropped the socket.
+        typ, hdr = M.fetch(num, "(BODY.PEEK[HEADER.FIELDS (MESSAGE-ID)])")
+        if not hdr or not isinstance(hdr[0], tuple): continue   # expunged between search and fetch
+        mid = email.message_from_bytes(hdr[0][1]).get("Message-ID", "").strip()
         if not mid or mid in seen: continue
+        typ, raw = M.fetch(num, "(BODY.PEEK[])")
+        if not raw or not isinstance(raw[0], tuple): continue
+        msg = email.message_from_bytes(raw[0][1])
         r = find_request(msg, reqs)
         if not r: continue
         subject = str(make_header(decode_header(msg.get("Subject", "")))); frm = email.utils.parseaddr(msg.get("From", ""))[1]
         body, atts = part_text(msg); links = [u for u in re.findall(r"https?://[^\s<>\")\]]+", body) if "earthpilot" not in u]
         try:
             handle_one(M, reqs, r, msg, raw[0][1], mid, subject, frm, body, atts, links, quiet=False); handled += 1
-            M.select("INBOX"); file_away(M, num)
+            file_away_by_mid(M, mid)   # by Message-ID in INBOX; the loop's sequence numbers belong to All Mail
         except Exception as e:
             log("FAILED on", frm, subject[:50], repr(e)[:200])
     M.logout(); log(f"inbox: {handled} new replies handled")
@@ -558,7 +585,11 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         move, why = "answer", "sent despite the writer's hesitation (Anthony sends nothing by hand); " + why
     ok = bool(text) and move != "hold" and writer_mod.check(text, thread, record)
     if text and move != "hold" and not ok:
-        move, why = "hold", "the referee held it; " + why
+        # a thank-you that restates a record just updated from the district's own document is low risk: it sends.
+        # money, requests, deadlines or legal steps in the draft still hold for a person.
+        low_risk = move in ("thank_recorded", "answer") and bool(recorded) and not re.search(r"\$|\bfee\b|deadline|lawsuit|attorney|\bsue\b|request under|freedom of information|open records|sunshine|deleted|repealed|rescinded", text, re.I)
+        if low_risk: ok = True; why = "referee flagged, sent anyway (thank-you on a recorded document); " + why
+        else: move, why = "hold", "the referee held it; " + why
 
     entry["move"] = move; entry["why"] = why
     if move == "forward":
@@ -578,7 +609,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
             else: r["status"] = "sent"
         else:
             r["status"] = "needs_review"; entry["action"] = (entry.get("action") or "") + "; reply failed to send"
-    elif not text and re.search(r"acknowledg|no reply needed|nothing to answer|no response needed", why, re.I):
+    elif not text and re.search(r"acknowledg|no reply needed|nothing to answer|no response needed|pleasantry|courtesy|sign-off|signoff|closing|closes the thread|thread is (settled|complete|closed)|duplicat", why, re.I):
         entry["action"] = (entry.get("action") or "") + f"; logged, no reply needed: {why}"
         r["status"] = r.get("status") if r.get("status") in ("promised", "answered") else "sent"
     else:
@@ -786,6 +817,8 @@ def ops_page():
             subprocess.run(["sshpass", "-p", env["DEPLOY_PASS"], "rsync", "-az", "-e", "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no",
                             os.path.join(ROOT, "site/ops/"), f"{env['DEPLOY_HOST']}:{env['DEPLOY_PATH']}/ops/"], capture_output=True, timeout=120, env={**os.environ, "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"})
         log("ops page rebuilt")
+        try: subprocess.run([sys.executable, os.path.join(ROOT, "tools/crm.py")], cwd=ROOT, capture_output=True, text=True, timeout=300)
+        except Exception as ex: log("crm failed", repr(ex)[:80])
     except Exception as ex:
         log("ops page failed", repr(ex)[:100])
 
@@ -880,6 +913,42 @@ def refile(names=None):
             r["unreadable"] = datetime.date.today().isoformat(); log("refile: still nothing readable for", r["state"], r["name"])
     save(reqs); log(f"refile: {done} records filled"); return done
 
+
+def queue_align(n=25):
+    """Districts whose written policy permits corporal punishment but which reported no use of it: the
+    invitation to become a Safe School by aligning the policy with the practice, with the board brief
+    attached. Largest districts first; Texas and Oklahoma lead by weight of numbers."""
+    import yaml
+    lag = sorted(json.load(open(os.path.join(ROOT, "data/outreach/policy-lag.json"))), key=lambda d: -(d.get("enrollment") or 0))   # largest first, whatever order the file is in
+    reqs = load(); have = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "align"}
+    contacts = {}
+    for f in os.listdir(os.path.join(ROOT, "data/contacts")):
+        if not f.endswith(".json"): continue
+        d = json.load(open(os.path.join(ROOT, "data/contacts", f)))
+        for c in (d if isinstance(d, list) else d.get("contacts") or []):
+            if isinstance(c, dict) and (c.get("district_email") or c.get("email")):
+                if c.get("nces_id"): contacts[("id", str(c["nces_id"]))] = c
+                if c.get("state") and c.get("name"): contacts[(c["state"], re.sub(r"[^a-z0-9]", "", c["name"].lower()))] = c
+    statutes = {r["state"]: r["statute"] for r in reqs if r.get("statute")}
+    added = 0
+    for d in lag:
+        if added >= n: break
+        if d["nces_id"] in have: continue
+        c = contacts.get(("id", d["nces_id"])) or contacts.get((d["state"], re.sub(r"[^a-z0-9]", "", d["name"].lower()))) or {}
+        to = c.get("district_email") or c.get("email")
+        if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
+        slug = re.sub(r"[^a-z0-9]+", "-", re.sub(r"\s*\(\d+\)\s*$", "", d["name"]).lower()).strip("-")
+        brief = f"out/briefs/{d['state'].lower()}-{slug}.pdf"
+        if not os.path.exists(os.path.join(ROOT, brief)):
+            r = subprocess.run(["node", "certificates/board-brief.mjs", "--nces", d["nces_id"]], cwd=os.path.join(ROOT, "tools"), capture_output=True, text=True, timeout=180)
+            if r.returncode != 0 or not os.path.exists(os.path.join(ROOT, brief)): log("brief failed", d["name"], r.stderr[-120:]); continue
+        rid = hashlib.sha1(f"align|{d['state']}|{d['nces_id']}".encode()).hexdigest()[:10]
+        reqs.append({"id": rid, "state": d["state"], "name": d["name"], "nces_id": d["nces_id"], "kids": 0, "kind": "align", "to": to, "superintendent": c.get("superintendent"),
+                     "statute": statutes.get(d["state"]), "quote": d["quote"], "policy_code": d.get("policy_code"), "attachments": [brief],
+                     "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        added += 1
+    save(reqs); log(f"queue-align: {added} queued"); return added
+
 # ---------------------------------------------------------------- follow-up
 def followup():
     reqs = load(); n = 0
@@ -938,11 +1007,27 @@ def retriage(send=False):
     print(f"\n  {len(plans)} threads {'handled' if send else 'would be handled'}")
 
 if __name__ == "__main__":
+    # One command at a time on requests.json: a cycle holds its copy for minutes while it sends, and a
+    # queue run saving in the middle of that would be overwritten (it was, 2026-10-12). Blocking lock.
+    import fcntl
     cmd = sys.argv[1] if len(sys.argv) > 1 else "cycle"
+    if cmd == "cycle":
+        def _watchdog(signum, frame):
+            try: log("watchdog: cycle exceeded 13 minutes; aborting so the next one can run")
+            except Exception: pass
+            os._exit(3)
+        signal.signal(signal.SIGALRM, _watchdog); signal.alarm(13 * 60)
+    _LOCK = open(REQ + ".lock", "w"); fcntl.flock(_LOCK, fcntl.LOCK_EX)
     if cmd == "retriage": retriage(send="--send" in sys.argv); sys.exit()
     if cmd == "tidy": tidy(); sys.exit()
     if cmd == "rehold": rehold(send="--dry" not in sys.argv); sys.exit()
     if cmd == "catchup": catchup(send="--dry" not in sys.argv); sys.exit()
+    if cmd == "queue-align": queue_align(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "release-align":   # Anthony has seen the held list; let the next cycle send it
+        reqs = load(); k = 0; skip = set(sys.argv[sys.argv.index("--not") + 1].split(",")) if "--not" in sys.argv else set()
+        for r in reqs:
+            if r.get("kind") == "align" and r["status"] == "held" and r["state"] not in skip: r["status"] = "pending"; k += 1
+        save(reqs); log(f"release-align: {k} released"); sys.exit()
     if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-dry":
         import io, contextlib
