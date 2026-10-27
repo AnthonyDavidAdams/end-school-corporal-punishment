@@ -912,6 +912,52 @@ mkdirSync(join(site, "live"), { recursive: true });
 <p class="small">End School Corporal Punishment is a project of EarthPilot. This notice was last updated October 14, 2026.</p>`
   }));
   // Board members: the film, the brief, the one sentence, and the ask. Reached from tagged links (?r=).
+  // ---- The game board: the score the whole campaign is played against (data/game/, tools/game/) ----
+  try {
+    const G = JSON.parse(readFileSync(join(root, "data/game/score.json"), "utf8"));
+    const T = JSON.parse(readFileSync(join(root, "data/game/next-targets.json"), "utf8"));
+    const hist = readFileSync(join(root, "data/game/score-history.jsonl"), "utf8").trim().split("\n").filter(Boolean).map(l => JSON.parse(l));
+    const rep = existsSync(join(root, "data/game/report.md")) ? readFileSync(join(root, "data/game/report.md"), "utf8") : "";
+    const N = G.national, pct = x => (x * 100).toFixed(1) + "%";
+    const M = x => (x / 1e6).toFixed(2) + " million";
+    const stateRows = G.permitting_states_by_exposure.map(st => { const x = G.states[st]; return { st, ...x }; });
+    const maxExp = Math.max(...stateRows.map(r => r.exposed), 1);
+    const bars = stateRows.map(r => `<div class="sbar"><a href="/kids/state/${r.st}/">${r.st}</a><div class="track"><i style="width:${(r.exposed / maxExp * 100).toFixed(1)}%"></i></div><span>${n(r.exposed)}</span><span>${pct(r.covered_share)}</span><span>${n(r.policy_lag_students)}</span></div>`).join("");
+    const targets = T.ranked.slice(0, 12).map(t => `<li><b>${esc(t.name)}</b>, ${t.state} · ${n(t.enrollment)} students · ${t.status === "consent_required" ? "permits with consent" : "permits"}${t.policy_lag ? " · zero reported use" : ""}</li>`).join("");
+    // the experiment tables, from the report's markdown tables
+    const tables = rep.split(/\n(?=### )/).filter(x => x.startsWith("### ")).map(sec => {
+      const lines = sec.split("\n"); const title = lines[0].replace("### ", "");
+      const q = lines.slice(1).find(l => l.trim() && !l.startsWith("|")) || "";
+      const rows = lines.filter(l => l.startsWith("|") && !/^\|-/.test(l)).map(l => l.split("|").slice(1, -1).map(c => c.trim()));
+      if (!rows.length) return "";
+      return `<h3>${esc(title)}</h3><p class="small">${esc(q)}</p><table class="exp"><tr>${rows[0].map(c => `<th>${esc(c)}</th>`).join("")}</tr>${rows.slice(1).map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</table>`;
+    }).join("");
+    const curve = hist.map(h => `<span title="${h.as_of || h.date || ""}">${pct(h.national ? h.national.covered_share : h.covered_share)}</span>`).join(" → ");
+    mkdirSync(join(site, "game"), { recursive: true });
+    writeFileSync(join(site, "game", "index.html"), shell({
+      title: "The scoreboard: how many children are covered by a written ban", path: "/game/",
+      description: `${pct(N.covered_share)} of public school students are covered by a written ban on corporal punishment. ${M(N.exposed)} are not. The campaign is played against this number.`,
+      body: `<section class="hero"><div class="wrap"><p class="crumb">The game</p><h1>${pct(N.covered_share)} of children are covered by a written ban</h1><p class="lede">Every move this project makes is judged by whether this number goes up. Updated ${esc(G.as_of.slice(0, 10))} from the record and the federal 2023-24 count.</p></div></section>
+<div class="scorerow">
+<div class="scorecard"><b>${M(N.covered)}</b><span>students covered: ${M(N.covered_by_state_law)} by state law, ${M(N.covered_by_district_ban)} by their district's own written rule</span></div>
+<div class="scorecard red"><b>${M(N.exposed)}</b><span>students whose district's written rule still permits it</span></div>
+<div class="scorecard gold"><b>${M(N.policy_lag_students)}</b><span>in ${n(N.policy_lag_districts)} districts that permit it on paper and reported zero uses: the nearest wins</span></div>
+<div class="scorecard gray"><b>${M(N.unmapped + N.unrecorded)}</b><span>in districts whose documents say nothing, or that are not yet in the record</span></div>
+</div>
+<p class="small">Score so far: ${curve}. ${N.states_banned} states ban it by law; ${N.states_permitting} permit it.</p>
+<h2>Where the exposed children are</h2>
+<p class="small">Permitting states, by students under a written rule that allows it. Coverage is the share of each state's students under a written ban.</p>
+<div class="sbars"><div class="sbar head"><span>State</span><span></span><span>Exposed</span><span>Covered</span><span>Zero-use districts</span></div>${bars}</div>
+<h2>Next targets</h2>
+<p class="small">Permitting districts in the same or a neighboring county as a district that already moved to a ban, largest first. ${n(T.target_count)} in all, next to ${n(T.anchor_count)} districts that flipped.</p>
+<ol class="targets">${targets}</ol>
+<h2>What is being tested</h2>
+<p class="small">Each kind of message runs as an experiment. A win is a document received, a status recorded, a policy flip or a certificate for that district after the move.</p>
+${tables}
+<p class="small">The scripts and data behind this page are open: <a href="${REPO}/tree/main/tools/game" rel="noopener">tools/game</a> and <a href="${REPO}/tree/main/data/game" rel="noopener">data/game</a>. Any agent on the <a href="/kids/crew/">crew</a> can play.</p>`,
+    }));
+  } catch (e) { console.warn("game board skipped:", e.message); }
+
   // ---- Behavior Coach: a chat app for parents, teachers and principals, built on the training and the evidence file ----
   mkdirSync(join(site, "coach"), { recursive: true });
   writeFileSync(join(site, "coach", "index.html"), shell({
@@ -1230,6 +1276,18 @@ AddType image/svg+xml .svg
   AddOutputFilterByType DEFLATE application/json image/svg+xml text/plain
 </IfModule>
 `);
+writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8") + `
+/* the game board */
+.scorerow{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1.4rem 0 .6rem}
+.scorecard{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--green);border-radius:var(--radius);padding:1rem 1.1rem;box-shadow:var(--shadow)}
+.scorecard b{display:block;font-family:var(--serif);font-size:1.7rem;line-height:1.1;color:var(--navy-dark)}.scorecard span{display:block;font-size:.9rem;color:var(--muted);margin-top:.4rem;line-height:1.4}
+.scorecard.red{border-left-color:var(--red)}.scorecard.gold{border-left-color:var(--gold)}.scorecard.gray{border-left-color:var(--gray-medium)}
+table.exp{border-collapse:collapse;width:100%;font-size:.92rem;margin:.4rem 0 1.2rem}table.exp th,table.exp td{border-bottom:1px solid var(--rule);padding:.45rem .6rem;text-align:left;vertical-align:top}table.exp th{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.sbars{margin:.4rem 0 1.4rem}.sbar{display:grid;grid-template-columns:3rem 1fr 6.5rem 5.5rem 7rem;gap:.6rem;align-items:center;padding:.4rem 0;border-bottom:1px solid var(--rule);font-size:.92rem}.sbar span{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.sbar .track{height:14px;background:var(--gray-light);border-radius:2px}.sbar .track i{display:block;height:100%;background:var(--red);border-radius:2px}.sbar.head span{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.targets li{margin:.3rem 0}
+@media(max-width:900px){.scorerow{grid-template-columns:1fr 1fr}}@media(max-width:560px){.scorerow{grid-template-columns:1fr}.sbar{grid-template-columns:2.6rem 1fr 5rem 4rem;font-size:.85rem}.sbar span:last-child{display:none}}
+`);
+
 // The Behavior Coach's styles live beside its builder so the page and its CSS change together.
 writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8") + "\n" + readFileSync(join(root, "tools/coach/coach.css"), "utf8"));
 

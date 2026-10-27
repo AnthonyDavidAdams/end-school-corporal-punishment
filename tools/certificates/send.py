@@ -10,7 +10,7 @@ as a request of kind "certificate" so replies thread into the same pipeline as e
     python3 tools/certificates/send.py --dry            the next batch, nothing sent
     python3 tools/certificates/send.py --limit 150      send the next 150
 """
-import argparse, datetime, email.utils, hashlib, json, os, re, subprocess, sys
+import re, argparse, datetime, email.utils, hashlib, json, os, re, subprocess, sys
 from email.message import EmailMessage
 import yaml
 
@@ -102,6 +102,9 @@ def render(d):
     return base + ".pdf"
 
 
+def messages_subject(r):
+    try: return run.subject_for(r)
+    except Exception: return None
 def prior(d, reqs):
     """The earlier exchange with this district, if there was one: who answered and what they did."""
     for r in reqs:
@@ -114,7 +117,14 @@ def prior(d, reqs):
                else "pointing us to where it lives on your site" if "website_no_link" in kinds
                else "answering our note about the policy")
         when = (theirs[-1].get("date") or "")[:16]
-        return {"who": messages.first_name(r.get("superintendent")) if r.get("superintendent") else None, "did": did, "when": when, "from": theirs[-1].get("from")}
+        frm = (theirs[-1].get("from") or "")
+        # greet the person who wrote back; the superintendent's name only when the reply came from their own mailbox
+        who = messages.first_name(r.get("superintendent")) if r.get("superintendent") else None
+        if frm and r.get("superintendent"):
+            toks = [t for t in re.findall(r"[a-z]{3,}", re.sub(r"\b(dr|mr|mrs|ms|jr|sr)\b", " ", r["superintendent"].lower()))]
+            if not any(t in frm.lower().split("@")[0] for t in toks):
+                who = messages.first_name(theirs[-1].get("name") or theirs[-1].get("from_name") or "") if (theirs[-1].get("name") or theirs[-1].get("from_name")) else messages.first_name(frm.split("@")[0].replace(".", " ").replace("_", " ").split()[0]) if "." in frm.split("@")[0] or "_" in frm.split("@")[0] else "there"
+        return {"who": who, "did": did, "when": when, "from": frm, "thread_id": r.get("message_id"), "thread_subject": r.get("subject") or messages_subject(r)}
     return None
 
 
@@ -227,7 +237,12 @@ def main():
             print("render failed", d["name"], str(ex)[:120]); continue
         rid = hashlib.sha1(f"certificate|{d['state']}|{d['nces_id']}".encode()).hexdigest()[:10]
         subject = f"{clean_name(d['name'])} recognized as a Safe School for {YEAR.replace('–', '-')}"
+        pr = prior(d, reqs) if a.momentum else None
+        if pr and pr.get("thread_id") and pr.get("thread_subject"):
+            # keep the certificate in the conversation the district already has with us
+            subject = "Re: " + pr["thread_subject"]
         m = EmailMessage(); m["From"] = run.FROM; m["To"] = d["to"]; m["Subject"] = subject
+        if pr and pr.get("thread_id"): m["In-Reply-To"] = pr["thread_id"]; m["References"] = pr["thread_id"]
         m["Date"] = email.utils.formatdate(localtime=True); m["Message-ID"] = f"<escp-{rid}@earthpilot.org>"; m["X-ESCP-Request"] = rid
         body, html_doc = cover(d, reqs); m.set_content(body); m.add_alternative(html_doc, subtype="html")
         m.add_attachment(open(pdf, "rb").read(), maintype="application", subtype="pdf", filename=f"Safe School {YEAR.replace('–', '-')} - {clean_name(d['name'])}.pdf")

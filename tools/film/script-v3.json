@@ -1,0 +1,182 @@
+{
+ "title": "One Sentence",
+ "voice": "Brian",
+ "notes": "v3: Remotion rebuild. Numbers spelled out for the voice; digits on screen. Outcome claims limited to Visser 2022, Gershoff 2016, Gershoff/Sattler/Holden 2019, Korpershoek 2016, AAP 2018. 'highlight' = phrases the kinetic captions land on, taken from the ElevenLabs character timestamps.",
+ "scenes": [
+  {
+   "id": "s01_paddle",
+   "kind": "clip",
+   "clip": "paddle",
+   "look": "photo",
+   "vo": "This is a school paddle. In Texas, it is still legal.",
+   "highlight": [
+    "still legal"
+   ]
+  },
+  {
+   "id": "s02_hallway",
+   "kind": "clip",
+   "clip": "hallway",
+   "look": "photo",
+   "vo": "The school year was twenty twenty-three to twenty twenty-four. Texas public schools reported corporal punishment of five thousand, three hundred and fifty-nine students. That is not a count of incidents. It is a count of children. Not in nineteen seventy-four. Last year.",
+   "highlight": [
+    "twenty twenty-three to twenty twenty-four",
+    "five thousand, three hundred and fifty-nine",
+    "not a count of incidents",
+    "a count of children",
+    "nineteen seventy-four",
+    "Last year"
+   ],
+   "screen": {
+    "twenty twenty-three to twenty twenty-four": "2023-24 school year",
+    "five thousand, three hundred and fifty-nine": "5,359 students",
+    "not a count of incidents": "Not a count of incidents.",
+    "a count of children": "A count of children.",
+    "nineteen seventy-four": "Not in 1974."
+   }
+  },
+  {
+   "id": "s03_counter",
+   "kind": "motion",
+   "scene": "counter",
+   "vo": "Five thousand, three hundred and fifty-nine students. Eight thousand, five hundred and twenty-eight separate instances, so many of them were struck more than once. In two hundred and eighty-four districts."
+  },
+  {
+   "id": "s04_statute",
+   "kind": "motion",
+   "scene": "statute",
+   "vo": "Texas law defines it plainly. Quote: the deliberate infliction of physical pain by hitting, paddling, spanking, slapping, or any other physical force used as a means of discipline. The law does not require it. It does not recommend it. It permits it, if a school board says so, unless a parent files a signed letter. Every year."
+  },
+  {
+   "id": "s05_two_girls",
+   "kind": "clip",
+   "clip": "two_desks",
+   "look": "paint",
+   "vo": "Take two girls. Same town, same grade, same kind of family, same desk by the window. Call them Ava and Emma. On a Tuesday in October, each of them does the same thing. She shoves a classmate who took her seat. Two schools. Two policies.",
+   "highlight": [
+    "Same town, same grade",
+    "the same thing",
+    "Two schools. Two policies."
+   ],
+   "screen": {
+    "Same town, same grade": "Same town. Same grade."
+   }
+  },
+  {
+   "id": "s06_two_halls",
+   "kind": "split",
+   "left": "ava_hall",
+   "right": "emma_hall",
+   "look": "paint",
+   "vo": "Ava's school permits corporal punishment. She is sent to the office, told to bend over a chair, and struck with a wooden board. It is over in a minute. Emma's school prohibits it. She is sent to the office too. Her teacher calls home. She loses recess for a week, and she practices, with an adult, what to do the next time someone takes her seat. It takes a month.",
+   "highlight": [
+    "permits",
+    "over in a minute",
+    "prohibits",
+    "takes a month"
+   ],
+   "labels": {
+    "left": "Ava",
+    "right": "Emma"
+   }
+  },
+  {
+   "id": "s07_outcomes",
+   "kind": "split-motion",
+   "left": "ava_desk",
+   "right": "emma_desk",
+   "look": "paint",
+   "vo": "Here is what the research says happens next. Across twenty-one studies and sixty-seven thousand children, girls like Ava are more likely to hit someone again, more likely to be anxious or depressed, and more likely to fall behind in school. Followed into their twenties, they had lower grades, more symptoms of depression, and were more likely to say they would hit their own children one day. And the one thing the paddle was for? Across seventy-five studies, it did not even reliably stop the behavior in the moment. Emma was never paddled. The same research says she is more likely to be happier, healthier, and doing better in school, and less likely to say she would ever hit her own children. Her school used the approach the research does support. Taught expectations. A consequence that fits. Practice.",
+   "cards": {
+    "left": [
+     "More aggression",
+     "More anxiety and depression",
+     "Lower grades",
+     "More likely to hit her own children"
+    ],
+    "right": [
+     "Happier",
+     "Healthier",
+     "Doing better in school",
+     "Less likely to hit her own children"
+    ]
+   },
+   "sources": "Visser et al. 2022 (21 studies, 67,400 children); Gershoff, Sattler and Holden 2019; Gershoff and Grogan-Kaylor 2016 (75 studies); Korpershoek et al. 2016 (54 studies)",
+   "cues": {
+    "left": [
+     "hit someone again",
+     "anxious or depressed",
+     "fall behind",
+     "own children"
+    ],
+    "right": [
+     "happier",
+     "healthier",
+     "better in school",
+     "less likely"
+    ]
+   },
+   "switch": "Emma was never"
+  },
+  {
+   "id": "s08_bars",
+   "kind": "motion",
+   "scene": "bars",
+   "vo": "And here is the thing. It is already leaving. In twenty seventeen, Texas districts reported thirteen thousand, eight hundred and ninety-two students paddled. Four years later, seven thousand, three hundred and twenty-four. Last year, five thousand, three hundred and fifty-nine. Down sixty-one percent, with no change in the law. Principals and boards are quietly stopping on their own."
+  },
+  {
+   "id": "s09_pictogram",
+   "kind": "motion",
+   "scene": "pictogram",
+   "vo": "Who is it landing on? Of every one hundred students paddled in Texas, eighty-three are boys. Twenty-two have a disability. And nationally, the United States Secretary of Education told every governor that Black students are more than twice as likely to be paddled as white students, and Black girls four times as likely as white girls."
+  },
+  {
+   "id": "s10_words",
+   "kind": "motion",
+   "scene": "words",
+   "vo": "For the adult holding it, the law offers protection, right up to three words. Excessive. Reasonable. Necessary. Texas shields a teacher from personal liability, except for excessive force. It shields their job and certificate, only for force a court later agrees was reasonable and necessary. Those words are decided afterward, by someone else, who will be shown the research."
+  },
+  {
+   "id": "s11_board",
+   "kind": "clip",
+   "clip": "boardroom",
+   "look": "photo",
+   "vo": "Three hundred Texas school boards already prohibit corporal punishment in board policy. Two hundred and ninety-one of them use exactly the same sentence.",
+   "highlight": [
+    "Three hundred",
+    "exactly the same sentence"
+   ],
+   "screen": {
+    "Three hundred": "300",
+    "Two hundred and ninety-one": "291"
+   }
+  },
+  {
+   "id": "s12_sentence",
+   "kind": "motion",
+   "scene": "sentence",
+   "vo": "The Board prohibits the use of corporal punishment in the District. That is the whole policy. One sentence, in a policy code every Texas board already has."
+  },
+  {
+   "id": "s13_sunrise",
+   "kind": "clip",
+   "clip": "sunrise",
+   "look": "photo",
+   "vo": "Three hundred and ninety-six districts still permit it on paper, and did not use it once last year. For those boards, nothing changes on Monday morning except the risk. One sentence. One meeting. And every Ava gets Emma's Tuesday.",
+   "highlight": [
+    "Three hundred and ninety-six",
+    "One sentence. One meeting.",
+    "Emma's Tuesday"
+   ],
+   "screen": {
+    "Three hundred and ninety-six": "396"
+   }
+  },
+  {
+   "id": "s14_close",
+   "kind": "motion",
+   "scene": "close",
+   "vo": "Find your district's policy, in its own words, at earthpilot dot org, slash kids. Bring the sentence to your board. The Safe Schools Project."
+  }
+ ]
+}

@@ -29,7 +29,7 @@ mkdirSync(dirname(out), { recursive: true });
 const logo = "data:image/png;base64," + readFileSync(join(root, "site/assets/earthpilot.png")).toString("base64");
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
 // A clipped sentence sometimes carries its section heading in front ("Corporal Punishment Corporal punishment may..."): show the sentence.
-const tidy = (q) => String(q || "").replace(/^(?:\d+\s*)?CORPORAL PUNISHMENT[:.\s-]*(?=[A-Z])/i, "").replace(/^Corporal Punishment\s+(?=(?:Corporal|The|No|Principals|Employees|Using|Physical))/, "").trim();
+const tidy = (q) => String(q || "").replace(/^(?:[A-Z]{2,5}\s+)?(?:\d+[\s\u2013\u2014:.\-]*)?CORPORAL PUNISHMENT[:.\s\-\u2013]*(?:\([^)]*\)\s*)?(?=[A-Z])/, "").replace(/^Corporal Punishment\s+(?=(?:Corporal|The|No|Any|Principals|Employees|Using|Physical|A |An ))/, "").trim();
 const today = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 
 const html = `<!doctype html><html><head><meta charset="utf-8"><title>Board brief: ${esc(name)}</title>

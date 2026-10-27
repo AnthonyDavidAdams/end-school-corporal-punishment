@@ -1,5 +1,7 @@
 # Experiment report, 2026-10-26
 
+Rates are over moves old enough for the window (sent at least 7, 14 or 30 days ago). A win is a document received, a status recorded, a policy flip or a certificate for that district after the move. Counts are in parentheses.
+
 ### ask_policy
 
 Does saying who we are and why up front, and asking only for a link, get more replies than the bare friend's note?

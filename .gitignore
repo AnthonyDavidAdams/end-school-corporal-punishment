@@ -21,3 +21,15 @@ data/census/
 # the game ledger: lock and temp files only, the ledgers themselves are committed
 data/game/*.lock
 data/game/.tmp-*
+
+# compiled caches
+__pycache__/
+
+# local only: a scan of a real signature, the raw first-party hit log (IPs), per-token click map,
+# board-member address harvest, the request-file lock, and the desk JSON that is rebuilt every cycle
+assets/signature/
+data/outreach/hits.jsonl
+data/outreach/clicks.json
+data/outreach/decisions.json
+data/outreach/requests.json.lock
+data/contacts/board-members.jsonl
