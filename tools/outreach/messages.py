@@ -33,6 +33,11 @@ PHONE = "(234) 516-2545"                               # the MAJIK line; the pho
 SITE = "earthpilot.org/kids"
 
 
+PARENTS = "For a school that values data-driven outcomes for students, corporal punishment has no place. A parent who asks for it is not a reason to use it; it is a chance to offer that parent some guidance on how research is replacing routine habits, which is the direction the district is moving."
+
+STANCE = 'The science on this is settled. No study has found a benefit. On average, corporal punishment increases the behavior it is meant to stop, and it raises the odds of anxiety and depression, lower grades, and of the child growing up to hit their own children. There is no research-supported reason to use it.'
+
+
 def first_name(sup, fallback="there"):
     """'Downs, David' -> 'David'; 'David Downs' -> 'David'; 'Dr. David Downs' -> 'David'."""
     s = re.sub(r"\b(dr|mr|mrs|ms|supt|superintendent|ed\.?s|ed\.?d|ph\.?d)\.?\b", " ", str(sup or ""), flags=re.I)
@@ -44,7 +49,7 @@ def first_name(sup, fallback="there"):
     else:
         part = s.split()[0]
     part = part.split()[0] if part.split() else ""
-    return part.capitalize() if len(part) > 1 else fallback
+    return "-".join(x.capitalize() for x in part.split("-")) if len(part) > 1 else fallback
 
 
 def sig(user, formal=False):
@@ -217,9 +222,7 @@ We keep a public, sourced record of what each district's own rule says — {SITE
 def nudge(r, user):
     """One soft follow-up. Never a second."""
     who = first_name(r.get("superintendent"))
-    return f"""Hi {who} — just bumping this in case it got buried. Still after {nice(r['name'])}'s corporal punishment policy and the handbook link. A URL is plenty.
-
-If it's easier to say "we don't publish that," that's a fine answer too and I'll note it.
+    return f"""Hi {who}, just bumping this in case it got buried. Still after {nice(r['name'])}'s corporal punishment policy and the handbook link. A URL is plenty, or forward it to whoever keeps the board policies and I'll take it from there.
 
 {sig(user)}
 """
@@ -313,20 +316,72 @@ Thank you for processing this.
 """
 
 
+def addressed_name(r):
+    """First name only when the mailbox looks like the superintendent's own (a token of the name is in the
+    local part, or the local part is not a person's name at all). An assistant's or records mailbox gets
+    'there', so 'Hey Gabriel' never lands in Ann's inbox."""
+    sup = r.get("superintendent"); local = (r.get("to") or "").split("@")[0].lower()
+    toks = [t for t in re.findall(r"[a-z]{3,}", re.sub(r"\b(dr|mr|mrs|ms|jr|sr|iii|ii|supt|superintendent)\b", " ", str(sup or "").lower()))]
+    if not toks: return "there"
+    if any(t in local for t in toks): return first_name(sup)
+    if not re.search(r"[a-z]{3,}", local) or re.match(r"^(info|office|admin|superintendent|supt|district|contact|records|board|mail|webmaster|central)", local): return first_name(sup)
+    return "there"
+
+
+def tidy_quote(q):
+    """A clipped sentence sometimes carries its section heading in front ("Corporal Punishment Corporal punishment
+    may..."): quote the sentence. Mirrors tidy() in tools/certificates/board-brief.mjs."""
+    q = str(q or "").strip()
+    q = re.sub(r"^(?:[A-Z]{2,5}\s+)?(?:\d+[\s\u2013\u2014:.\-]*)?CORPORAL PUNISHMENT[:.\s\-\u2013]*(?:\([^)]*\)\s*)?(?=[A-Z])", "", q)
+    q = re.sub(r"^Corporal Punishment\s+(?=(?:Corporal|The|No|Any|Principals|Employees|Using|Physical|A |An ))", "", q)
+    return q.strip()
+
+
 def align_policy(r, user, quote=None, code=None):
     """A district whose written policy still permits corporal punishment but which reported no use of it
     in the last two federal counts. The ask: make the policy say what the district already does.
     Short, friendly, and with the two things that make it easy: the model language and the certificate."""
-    who = first_name(r.get("superintendent"))
-    d = nice(r["name"])
+    who = addressed_name(r)
+    d = nice(r["name"]); quote = tidy_quote(quote)
     line = f'Right now the policy on file ({code}) still says "{quote}"' if quote and code else (f'Right now the policy on file still says "{quote}"' if quote else "Right now the written policy still permits it")
     return f"""Hey {who},
 
 I'd like to invite {d} to be recognized as a Safe School for 2026-27. In practice you're already there: in the most recent federal civil rights count (2023-24), the district reported no use of corporal punishment. {line}, so the paper lags the practice.
 
-Would the board consider adopting language that says what the district already does? That is the whole ask. A Kansas superintendent who just took his board through it told me it was easy: "a great way to harvest litigation, not to mention that zero research supports it." The attached two-page brief has the sentence most boards in your state already use, in a form the board can adopt as written. When it's adopted, the district gets the Safe School certificate and a press release it can use.
+Would the board consider adopting language that says what the district already does? That is the whole ask. The science on this is settled: no study has found a benefit, and on average the practice increases the behavior it is meant to stop, along with anxiety, depression, lower grades, and the odds a child grows up to hit their own children. A Kansas superintendent who just took his board through it told me it was easy: "a great way to harvest litigation, not to mention that zero research supports it." The attached two-page brief has the sentence most boards in your state already use, in a form the board can adopt as written. When it's adopted, the district gets the Safe School certificate and a press release it can use.
 
 Happy to talk it through with whoever handles policy.
+
+{sig(user)}
+"""
+
+
+def board_note(r, user, link):
+    """To one board member, two weeks after the superintendent's invitation: the film, one sentence, and the
+    ask that the board take it up. Tagged link so we learn which boards watched. Never attached; always short."""
+    d = nice(r["name"]); who = (r.get("member") or "").split(" ")[0] or "there"
+    code = r.get("policy_code"); quote = (tidy_quote(r.get("quote")) or "").rstrip(". ")
+    line = f'the policy on file ({code}) still says "{quote}"' if quote and code else (f'the written policy still says "{quote}"' if quote else "the written policy still permits it")
+    return f"""Hi {who},
+
+I wrote to your superintendent two weeks ago about {d}'s corporal punishment policy and wanted to send you the same thing directly, since it is the board's call. In the latest federal count the district reported no use of corporal punishment, but {line}. The paper lags the practice.
+
+Here is a four-minute film made for board members, with the one sentence boards in your state have adopted: {link}
+
+The ask is small: put the policy on an upcoming agenda and bring the language in line with what the district already does. The two-page brief, the model policy in your numbering, and a staff training are all free at earthpilot.org/kids/kit. When it is adopted, {d} is recognized as a Safe School.
+
+{sig(user)}
+"""
+
+def neighbor_ask(r, user, anchor):
+    """A friendly first note to a district that still permits it, naming the neighbor that already moved.
+    The norm message from persuasion.md: what districts like yours are already doing."""
+    who = addressed_name(r); d = nice(r["name"]); a = nice(anchor); dp = d + ("'" if d.endswith("s") else "'s")
+    return f"""Hey {who},
+
+I keep a public record of what each school district's written policy says on corporal punishment, at earthpilot.org/kids. {a}, next door to you, has ended it in policy, and I noticed {dp} policy still permits it on paper. Could you point me to the current board policy, or let me know whether the board has looked at it recently?
+
+If it is something the board might take up, the one-sentence language {a} and most districts in your state use is in a free two-page brief, and I am glad to send it.
 
 {sig(user)}
 """

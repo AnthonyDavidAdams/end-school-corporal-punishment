@@ -104,7 +104,7 @@ table{{border-collapse:collapse;width:100%;font-size:15px}}td,th{{padding:.3rem 
 details{{margin-top:10px}}summary{{cursor:pointer;color:var(--mute)}}pre{{white-space:pre-wrap;word-break:break-word;color:var(--mute);font:12px/1.4 ui-monospace,Menlo,monospace;max-height:360px;overflow:auto;margin:.5rem 0 0}}
 a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}p{{margin:.5rem 0 0}}
 </style></head><body>
-<h1>Safe Schools Project</h1><p class="meta">Status as of {esc(now.strftime('%A %B %-d, %-I:%M %p'))}. Updates itself every few minutes. <a href="/kids/live/">Watch it live</a> · <a href="/kids/">The public record</a></p>""")
+<h1>Safe Schools Project</h1><p class="meta">Status as of {esc(now.strftime('%A %B %-d, %-I:%M %p'))}. Updates itself every few minutes. <a href="/kids/ops/crm.html">CRM</a> · <a href="/kids/ops/decisions.html">Decisions</a> · <a href="/kids/live/">Watch it live</a> · <a href="/kids/">The public record</a></p>""")
 
     # 1. The one question
     H.append(f"""<div class="panel"><h2>Where we stand</h2><div class="big">

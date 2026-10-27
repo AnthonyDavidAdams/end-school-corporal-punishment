@@ -81,7 +81,11 @@ path = os.path.join(OUT, f"recap-{now:%Y-%m-%d}{'-weekly' if weekly else ''}.md"
 open(path, "w").write(f"# Recap {now:%Y-%m-%d} ({'weekly' if weekly else 'daily'})\n\nImage: {still}\n\n## LinkedIn\n\n{body_li}\n\n## Facebook\n\n{body_fb}\n")
 print(path); print(body_li)
 if "--no-text" not in sys.argv:
-    msg = f"[{health}] Safe Schools recap draft ({'weekly' if weekly else 'daily'}) is ready. LinkedIn version:\n\n{body_li}\n\nReply 'post' and Claude will put it on LinkedIn and Facebook, or paste it yourself. File: {path}"
+    try:
+        dec = json.load(open(os.path.join(ROOT, "data/outreach/decisions.json")))
+        dline = f"{dec['count']} decisions waiting for you: " + "; ".join(dec["lines"][:8]) + ". Full list with drafts: earthpilot.org/kids/ops/decisions.html. Reply with the numbers and what to do.\n\n"
+    except Exception: dline = ""
+    msg = dline + f"[{health}] Safe Schools recap draft ({'weekly' if weekly else 'daily'}) is ready. LinkedIn version:\n\n{body_li}\n\nReply 'post' and Claude will put it on LinkedIn and Facebook, or paste it yourself. File: {path}"
     cfg = {}
     for l in open(os.path.expanduser("~/.escp-outreach.env")) if os.path.exists(os.path.expanduser("~/.escp-outreach.env")) else []:
         if "=" in l: k, v = l.strip().split("=", 1); cfg[k] = v.strip().strip('"')

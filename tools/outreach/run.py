@@ -100,6 +100,8 @@ def subject_for(r):
         "research": f"Records request: what {d}'s board relied on",
         "state_doe": f"Records request: district contacts, handbooks and discipline data",
         "align":    f"An invitation: {d} as a Safe School for 2026-27",
+        "board_note": f"{d}: a four-minute film for the board",
+        "neighbor": f"{d} corporal punishment policy",
     }.get(r.get("kind", "policy"), f"Can't find {d}'s corporal punishment policy")
 
 def body_for(r):
@@ -116,6 +118,10 @@ def body_for(r):
         return messages.state_doe(r.get("state_name", r["state"]), r["state"], statute, USER, r.get("dept", "department of education"))
     if k == "align":
         return messages.align_policy(r, USER, r.get("quote"), r.get("policy_code"))
+    if k == "board_note":
+        return messages.board_note(r, USER, r.get("link") or "https://earthpilot.org/kids/board/")
+    if k == "neighbor":
+        return messages.neighbor_ask(r, USER, r.get("anchor") or "a neighboring district")
     return messages.ask_policy(r, USER, r.get("compliment"))
 
 # ---------------------------------------------------------------- send
@@ -836,6 +842,8 @@ def ops_page():
         log("ops page rebuilt")
         try: subprocess.run([sys.executable, os.path.join(ROOT, "tools/crm.py")], cwd=ROOT, capture_output=True, text=True, timeout=300)
         except Exception as ex: log("crm failed", repr(ex)[:80])
+        try: subprocess.run([sys.executable, os.path.join(ROOT, "tools/decisions.py")], cwd=ROOT, capture_output=True, text=True, timeout=120)
+        except Exception as ex: log("decisions failed", repr(ex)[:80])
     except Exception as ex:
         log("ops page failed", repr(ex)[:100])
 
@@ -967,6 +975,76 @@ def queue_align(n=25):
         added += 1
     save(reqs); log(f"queue-align: {added} queued"); return added
 
+def district_contacts():
+    """Superintendent contacts from data/contacts/*.json, keyed by NCES id and by (state, slug)."""
+    contacts = {}
+    for f in os.listdir(os.path.join(ROOT, "data/contacts")):
+        if not f.endswith(".json"): continue
+        try: d = json.load(open(os.path.join(ROOT, "data/contacts", f)))
+        except Exception: continue
+        for c in (d if isinstance(d, list) else d.get("contacts") or []):
+            if isinstance(c, dict) and (c.get("district_email") or c.get("email")):
+                if c.get("nces_id"): contacts[("id", str(c["nces_id"]))] = c
+                if c.get("state") and c.get("name"): contacts[(c["state"], re.sub(r"[^a-z0-9]", "", c["name"].lower()))] = c
+    return contacts
+
+def queue_board(n=25, days=14):
+    """Board-member notes: for every district whose superintendent got the invitation at least `days` ago and
+    has not answered, one short note per board member we have an address for, with a tagged film link.
+    Queued held: Anthony sees the first batch before anything sends."""
+    sys.path.insert(0, os.path.join(ROOT, "tools/outreach")); import links
+    reqs = load(); cutoff = datetime.datetime.now() - datetime.timedelta(days=days)
+    done = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "board_note"}
+    boards = {}
+    for l in open(os.path.join(ROOT, "data/contacts/board-members.jsonl")):
+        if l.strip(): b = json.loads(l); boards[str(b["nces_id"])] = b
+    added = 0
+    for r in [x for x in reqs if x.get("kind") == "align" and x["status"] == "sent"]:
+        if added >= n: break
+        if str(r["nces_id"]) in done or r.get("replies"): continue
+        if not r.get("sent_at") or datetime.datetime.fromisoformat(r["sent_at"][:19]) > cutoff: continue
+        b = boards.get(str(r["nces_id"]))
+        if not b: continue
+        for m in b["members"]:
+            if not m.get("email") or re.search(r"@(gmail|yahoo|hotmail|aol)\.", m["email"], re.I): continue
+            rid = hashlib.sha1(f"board|{r['state']}|{r['nces_id']}|{m['email'].lower()}".encode()).hexdigest()[:10]
+            if any(x["id"] == rid for x in reqs): continue
+            reqs.append({"id": rid, "state": r["state"], "name": r["name"], "nces_id": r["nces_id"], "kids": 0, "kind": "board_note", "to": m["email"], "member": m["name"], "role": m.get("role"),
+                         "quote": r.get("quote"), "policy_code": r.get("policy_code"), "link": links.make(r["nces_id"], m["email"], "board", m["name"]), "parent_request": r["id"],
+                         "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        done.add(str(r["nces_id"])); added += 1
+    save(reqs); log(f"queue-board: {added} boards queued (held)"); return added
+
+def queue_neighbors(n=25, quiet_days=14):
+    """Neighbor asks: permitting districts next to a district that already moved to a ban, largest first, from
+    data/game/next-targets.json. Skips any district touched in the last `quiet_days`. Queued held."""
+    T = json.load(open(os.path.join(ROOT, "data/game/next-targets.json")))
+    reqs = load(); contacts = district_contacts(); cutoff = datetime.datetime.now() - datetime.timedelta(days=quiet_days)
+    recent = {str(r.get("nces_id")) for r in reqs if r.get("sent_at") and datetime.datetime.fromisoformat(r["sent_at"][:19]) > cutoff}
+    kinds = {}
+    for r in reqs: kinds.setdefault(str(r.get("nces_id")), set()).add(r.get("kind"))
+    added = 0
+    for t in T["ranked"]:
+        if added >= n: break
+        nid = str(t["district_id"])
+        if nid in recent or "neighbor" in kinds.get(nid, set()) or not t.get("anchors"): continue
+        c = contacts.get(("id", nid)) or contacts.get((t["state"], re.sub(r"[^a-z0-9]", "", t["name"].lower()))) or {}
+        to = t.get("contact_email") or c.get("district_email") or c.get("email")
+        if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
+        anchor = sorted(t["anchors"], key=lambda a: (not a.get("same_county"), a["name"]))[0]["name"]
+        rid = hashlib.sha1(f"neighbor|{t['state']}|{nid}".encode()).hexdigest()[:10]
+        reqs.append({"id": rid, "state": t["state"], "name": t["name"], "nces_id": nid, "kids": 0, "kind": "neighbor", "to": to, "superintendent": c.get("superintendent"), "anchor": anchor,
+                     "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        added += 1
+    save(reqs); log(f"queue-neighbors: {added} queued (held)"); return added
+
+def release(kind, states=None):
+    """Flip held requests of one kind to pending (optionally only some states) once Anthony has seen the batch."""
+    reqs = load(); k = 0
+    for r in reqs:
+        if r.get("kind") == kind and r["status"] == "held" and (not states or r["state"] in states): r["status"] = "pending"; k += 1
+    save(reqs); log(f"release {kind}: {k} released"); return k
+
 # ---------------------------------------------------------------- follow-up
 def followup():
     reqs = load(); n = 0
@@ -1053,6 +1131,9 @@ if __name__ == "__main__":
             if r.get("experiment") == exp and r.get("variant") == var and r["status"] == "held": r["status"] = "pending"; k += 1
         save(reqs); log(f"release-variant: {k} released ({exp} {var}); set approved: true in data/game/experiments.yaml so the next batch is not held"); sys.exit()
     if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "queue-board": queue_board(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "queue-neighbors": queue_neighbors(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "release": release(sys.argv[2], sys.argv[3].split(",") if len(sys.argv) > 3 else None); sys.exit()
     if cmd == "queue-dry":
         import io, contextlib
         reqs0 = load(); queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); reqs1 = load()
