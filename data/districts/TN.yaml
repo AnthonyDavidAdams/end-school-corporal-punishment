@@ -137,7 +137,7 @@ districts:
     county: Bledsoe
     nces_id: "4700270"
     status: allows
-    source: 'https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TN/4700270-6314.docx'
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TN/4700270-6314.docx
     quote: The Board authorizes the Director of Schools to determine whether corporal punishment shall be administered.
     policy_code: "6.314"
     crdc_students_latest: null
@@ -342,13 +342,13 @@ districts:
   - name: Cheatham County
     county: Cheatham
     nces_id: "4700570"
-    status: silent
-    source: https://www.cheathamcountyschools.net/apps/pages/index.jsp?uREC_ID=1293750&type=d&pREC_ID=2509522
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TN/4700570-6314.docx
+    quote: 04/04/16 Corporal punishment shall not be used as a disciplinary measure in any school.1 The Director of Schools shall be responsible for developing and implementing in-service training programs for teachers and staff in the use of alternative, positive measures of discipline.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-27
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -357,8 +357,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/TN/4700570-6314.docx. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - 04/04/16 Corporal punishment shall not be used as a disciplinary measure in any school.1 The Director of Schools shall be responsible for developing and implementing in-service training programs for teachers and staff in the use of alternative, positive measures of discipline.
   - name: Chester County
     county: Chester
     nces_id: "4700600"
@@ -1942,7 +1944,7 @@ districts:
     nces_id: "4703030"
     status: bans
     source: https://www.cmcss.net/students-parents/
-    notes: "2026-27 Student Code of Conduct, introduction and Corporal Punishment section, sent as screenshots by the district 2026-10-13; the sentence cites board policy INS-A083."
+    notes: 2026-27 Student Code of Conduct, introduction and Corporal Punishment section, sent as screenshots by the district 2026-10-13; the sentence cites board policy INS-A083.
     quote: It is the policy of CMCSS that corporal punishment shall not be utilized (INS-A083).
     policy_code: INS-A083
     crdc_students_latest: null
