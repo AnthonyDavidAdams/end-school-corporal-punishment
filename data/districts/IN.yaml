@@ -253,8 +253,8 @@ districts:
     nces_id: "1800570"
     status: bans
     source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1800570-email-5b93e3ce.txt
-    quote: '"The Superintendent will designate sanctions for the infractions of rules, excluding corporal punishment." We do not use corporal punishment as discipline.'
-    policy_code: null
+    quote: The Superintendent will designate sanctions for the infractions of rules, excluding corporal punishment.
+    policy_code: C350
     crdc_students_latest: null
     last_verified: 2026-10-27
     method: records_request
@@ -275,7 +275,7 @@ districts:
     notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/IN/1800570-email-5b93e3ce.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
-      - '"The Superintendent will designate sanctions for the infractions of rules, excluding corporal punishment." We do not use corporal punishment as discipline.'
+      - The Superintendent will designate sanctions for the infractions of rules, excluding corporal punishment.
   - name: Bloomfield School District
     county: Greene
     nces_id: "1800600"
@@ -1461,7 +1461,7 @@ districts:
     status: bans
     source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1812880-link-c0c1f5.txt
     quote: Corporal punishment shall not be permitted.
-    policy_code: null
+    policy_code: "4302"
     crdc_students_latest: null
     last_verified: 2026-10-12
     method: records_request
@@ -2455,7 +2455,7 @@ districts:
     status: bans
     source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1806090-email-19031296.txt
     quote: The policy does not allow for use of corporal punishment.
-    policy_code: null
+    policy_code: C350
     crdc_students_latest: null
     last_verified: 2026-10-12
     method: records_request
@@ -2675,9 +2675,9 @@ districts:
   - name: Milan Community Schools
     county: Ripley
     nces_id: "1806630"
-    status: bans
+    status: silent
     source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1806630-email-37b20515.txt
-    quote: Anthony, If by corporal punishment you mean spanking children, as a district we do not engage in that practice, even with parent consent.
+    quote: null
     policy_code: null
     crdc_students_latest: null
     last_verified: 2026-10-27
@@ -2702,10 +2702,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/IN/1806630-email-37b20515.txt. Identity is name and state matched against the federal LEA directory.
+    notes: "No written rule on corporal punishment in the documents read. The superintendent's office wrote by email on Tue, 27 Oct 2026: \"If by corporal punishment you mean spanking children, as a district we do not engage in that practice, even with parent consent.\" That is the district's word, not a board policy; the email is kept at data/policies/inbound/IN/1806630-email-37b20515.txt. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - Anthony, If by corporal punishment you mean spanking children, as a district we do not engage in that practice, even with parent consent.
+    district_says: If by corporal punishment you mean spanking children, as a district we do not engage in that practice, even with parent consent.
+    district_says_on: Tue, 27 Oct 2026
+    district_says_source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1806630-email-37b20515.txt
   - name: Mitchell Community Schools
     county: Lawrence
     nces_id: "1806900"
