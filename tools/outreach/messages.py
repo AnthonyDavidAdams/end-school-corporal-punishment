@@ -337,6 +337,16 @@ def tidy_quote(q):
     return q.strip()
 
 
+def peers_sentence(r):
+    """What the rest of the state already does, as one sentence with a leading space, or nothing. Uses the
+    'peers' counts queue_align stores on the request."""
+    p = r.get("peers") or {}; st = state_name(r.get("state")); d = nice(r["name"])
+    if p.get("stopped_statewide") and p.get("bans"):
+        return f" The rest of {st} is already there too: no district in the state has used it since 2018, {p['bans']} of the {p['total']} boards on our record prohibit it in writing, and {d} is one of the last whose manual still says it may be done."
+    if p.get("bans", 0) >= 10:
+        return f" You'd be in good company: {p['bans']} {st} boards already prohibit it in writing."
+    return ""
+
 def align_policy(r, user, quote=None, code=None):
     """A district whose written policy still permits corporal punishment but which reported no use of it
     in the last two federal counts. The ask: make the policy say what the district already does.
@@ -344,12 +354,7 @@ def align_policy(r, user, quote=None, code=None):
     who = addressed_name(r)
     d = nice(r["name"]); quote = tidy_quote(quote)
     line = f'Right now the policy on file ({code}) still says "{quote}"' if quote and code else (f'Right now the policy on file still says "{quote}"' if quote else "Right now the written policy still permits it")
-    p = r.get("peers") or {}; st = state_name(r.get("state"))
-    if p.get("stopped_statewide") and p.get("bans"):
-        peers = f" The rest of {st} is already there too: no district in the state has used it since 2018, {p['bans']} of the {p['total']} boards on our record prohibit it in writing, and {d} is one of the last whose manual still says it may be done."
-    elif p.get("bans", 0) >= 10:
-        peers = f" You'd be in good company: {p['bans']} {st} boards already prohibit it in writing."
-    else: peers = ""
+    peers = peers_sentence(r)
     return f"""Hey {who},
 
 I'd like to invite {d} to be recognized as a Safe School for 2026-27. In practice you're already there: in the most recent federal civil rights count (2023-24), the district reported no use of corporal punishment. {line}, so the paper lags the practice.{peers}

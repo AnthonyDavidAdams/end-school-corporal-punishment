@@ -87,8 +87,8 @@ def _fields(r):
     sys.path.insert(0, os.path.join(ROOT, "tools/outreach"))
     import messages
     who = messages.addressed_name(r) if r.get("kind") == "align" else messages.first_name(r.get("superintendent"))
-    return {"who": who, "district": messages.nice(r["name"]), "sig": messages.sig(None), "state": r.get("state"),
-            "quote": messages.tidy_quote(r.get("quote")), "code": r.get("policy_code") or ""}
+    return {"who": who, "district": messages.nice(r["name"]), "sig": messages.sig(None), "state": r.get("state"), "state_name": messages.state_name(r.get("state")),
+            "quote": messages.tidy_quote(r.get("quote")), "code": r.get("policy_code") or "", "peers": messages.peers_sentence(r)}
 
 def subject(r):
     s = spec(r.get("experiment"), r.get("variant")) if r.get("experiment") else {}
