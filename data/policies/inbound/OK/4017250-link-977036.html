@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang='en' >
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="copyright" content="2015-2026. Sparq Data Solutions Inc. - All Rights Reserved.">
+    <title>Online Documents - Lawton Public Schools - Assemble Meetings</title>
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.0.4/popper.js" type="text/javascript"></script>
+<style>
+    #DisplayHeader h1 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 0;
+        font-size: 18px;
+    }
+
+    #DisplayHeader {
+        color: white;
+        text-shadow: 2px 2px rgba(51,51, 51, 0.5);
+        text-align: center;
+        font-weight: bold;
+    }
+
+    #DisplayHeader {
+        background-color: rgb(13,107,181);
+        background-image: linear-gradient(to top, rgb(27,81,143) 29%, rgb(13,107,181) 79%, rgb(25,120,208) 95%);
+        background-image: -o-linear-gradient(bottom, rgb(27,81,143) 29%, rgb(13,107,181) 79%, rgb(25,120,208) 95%);
+        background-image: -moz-linear-gradient(bottom, rgb(27,81,143) 29%, rgb(13,107,181) 79%, rgb(25,120,208) 95%);
+        background-image: -webkit-linear-gradient(bottom, rgb(27,81,143) 29%, rgb(13,107,181) 79%, rgb(25,120,208) 95%);
+        background-image: -ms-linear-gradient(bottom, rgb(27,81,143) 29%, rgb(13,107,181) 79%, rgb(25,120,208) 95%);
+    }
+</style>
+<script>
+    if (typeof window.useBackupCssUrl !== "function") {
+        window.useBackupCssUrl = function (backupUrl, anotherBackupUrl) {
+            var found = document.querySelectorAll('link[href="' + backupUrl + '"]');
+            if (found && found.length > 0) {
+                console.error('won\'t add duplicate backup css link for ' + backupUrl);
+                return;
+            }
+
+            try {
+                var linkElement = document.createElement('link');
+                linkElement.setAttribute('rel', 'stylesheet');
+                linkElement.setAttribute('type', 'text/css');
+                linkElement.setAttribute('href', backupUrl);
+
+                if (anotherBackupUrl)
+                    linkElement.setAttribute('onerror', "window.useBackupCssUrl('" + anotherBackupUrl + "')");
+
+                document.head.appendChild(linkElement)
+                console.error('added backup css link element to ' + backupUrl);
+            } catch (e) {
+                if (anotherBackupUrl)
+                    anotherBackupUrl = " onerror='window.useBackupCssUrl('" + anotherBackupUrl + "')'";
+                else
+                    anotherBackupUrl = "";
+
+                document.querySelector('head').innerHTML += '<link rel="stylesheet" href="' + backupUrl + '"' + anotherBackupUrl + ' type="text/css"/>';
+                console.error('added backup css link HTML to ' + backupUrl);
+            }
+        };
+    }
+</script>
+
+<script>
+    /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+    /* This file is meant as a standalone workflow for
+    - testing support for link[rel=preload]
+    - enabling async CSS loading in browsers that do not support rel=preload
+    - applying rel preload css once loaded, whether supported or not.
+    */
+    (function (w) {
+        "use strict";
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () { };
+        }
+        // define on the loadCSS obj
+        var rp = loadCSS.relpreload = {};
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret;
+            try {
+                ret = w.document.createElement("link").relList.supports("preload");
+            } catch (e) {
+                ret = false;
+            }
+            return function () {
+                return ret;
+            };
+        })();
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || "all";
+
+            function enableStylesheet() {
+                link.media = finalMedia;
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener("load", enableStylesheet);
+            } else if (link.attachEvent) {
+                link.attachEvent("onload", enableStylesheet);
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = "stylesheet";
+                link.media = "only x";
+            });
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000);
+        };
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return;
+            }
+            var links = w.document.getElementsByTagName("link");
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i];
+                // qualify links to those with rel=preload and as=style attrs
+                if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute("data-loadcss")) {
+                    // prevent rerunning on link
+                    link.setAttribute("data-loadcss", true);
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link);
+                }
+            }
+        };
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly();
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500);
+            if (w.addEventListener) {
+                w.addEventListener("load", function () {
+                    rp.poly();
+                    w.clearInterval(run);
+                });
+            } else if (w.attachEvent) {
+                w.attachEvent("onload", function () {
+                    rp.poly();
+                    w.clearInterval(run);
+                });
+            }
+        }
+
+
+        // commonjs
+        if (typeof exports !== "undefined") {
+            exports.loadCSS = loadCSS;
+        }
+        else {
+            w.loadCSS = loadCSS;
+        }
+    }(typeof global !== "undefined" ? global : this));
+</script>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      onerror="window.useBackupCssUrl('https://cdn1.sparqdata.com/SharedContent/styles/font-awesome.4.7.0.min.css','https://backuplogon.sparqdata.com/SharedContent/styles/font-awesome.4.7.0.min.css')"
+      rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      onerror="window.useBackupCssUrl('https://cdn1.sparqdata.com/SharedContent/styles/bootstrap.4.6.0.min.css','https://backuplogon.sparqdata.com/SharedContent/styles/bootstrap.4.6.0.min.css')"
+      rel="stylesheet" type="text/css" />
+
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css"
+      onerror="window.useBackupCssUrl('https://cdn1.sparqdata.com/SharedContent/styles/jquery-ui.1.13.2.css','https://backuplogon.sparqdata.com/SharedContent/styles/jquery-ui.1.13.2.css')"
+      as="style" onload="this.onload=null;this.rel='stylesheet'"
+      rel="preload" type="text/css" />
+
+<link href="https://cdn1.sparqdata.com/SharedContent/styles/KendoUI.2021.3.914/kendo.default-main.min.css"
+      onerror="window.useBackupCssUrl('https://backuplogon.sparqdata.com/SharedContent/styles/KendoUI.2021.3.914/kendo.default-main.min.css"
+      as="style" onload="this.onload=null;this.rel='stylesheet'"
+      rel="preload" type="text/css" />
+
+<link href="https://cdn1.sparqdata.com/SharedContent/styles/jquery.timepicker.css"
+      onerror="window.useBackupCssUrl('https://backuplogon.sparqdata.com/SharedContent/styles/jquery.timepicker.css')"
+      as="style" onload="this.onload=null;this.rel='stylesheet'"
+      rel="preload" type="text/css" />
+
+<link href="https://cdn1.sparqdata.com/SharedContent/styles/bootstrap-social.css"
+      onerror="window.useBackupCssUrl('https://backuplogon.sparqdata.com/SharedContent/styles/bootstrap-social.css')"
+      as="style" onload="this.onload=null;this.rel='stylesheet'"
+      media="all" rel="preload" type="text/css" />
+
+<link href="https://cdn1.sparqdata.com/SharedContent/styles/Sidebar.2.css"
+      onerror="window.useBackupCssUrl('https://backuplogon.sparqdata.com/SharedContent/styles/Sidebar.2.css')"
+      as="style" onload="this.onload=null;this.rel='stylesheet'"
+      rel="preload" type="text/css" />
+
+<link href="https://cdn1.sparqdata.com/SharedContent/styles/All.27.css"
+      onerror="window.useBackupCssUrl('https://backuplogon.sparqdata.com/SharedContent/styles/All.27.css')"
+      as="style" onload="this.onload=null;this.rel='stylesheet'"
+      media="all" rel="preload" type="text/css" />
+<link href="https://cdn1.sparqdata.com/SharedContent/styles/Screen.1.1.css"
+      onerror="window.useBackupCssUrl('https://backuplogon.sparqdata.com/SharedContent/styles/Screen.1.1.css')"
+      as="style" onload="this.onload=null;this.rel='stylesheet'"
+      media="screen" rel="preload" type="text/css" />
+<link href="https://cdn1.sparqdata.com/SharedContent/styles/Print.1.1.css"
+      onerror="window.useBackupCssUrl('https://backuplogon.sparqdata.com/SharedContent/styles/Print.1.1.css')"
+      media="print" rel="stylesheet" type="text/css" />
+
+<style>
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fa-2x {
+    font-size: 2em;
+}
+.fa-3x {
+    font-size: 3em;
+}
+.fa-5x {
+    font-size: 5em;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  background-color: transparent;
+}
+
+img {
+  border: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+
+.btn {
+    color: #fff;
+}
+a, .btn-link {
+  color: #0d6efd;
+  text-decoration: none;
+}
+a:focus, .btn-link:focus {
+  text-decoration: underline;
+}
+.btn-primary,.bg-primary {
+    background-color: #0d6efd;
+}
+.btn-success,.bg-success {
+    background-color: #198754;
+}
+.btn-secondary,.bg-secondary {
+    background-color: #6c757d;
+}
+.btn-danger,.bg-danger {
+    background-color: #dc3545;
+}
+.btn-warning, .bg-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+.btn-info, .bg-info {
+    background-color: #0dcaf0;
+    color: #000;
+}
+.btn-light, .bg-light {
+    color: #000;
+    background-color: #f8f9fa;
+}
+.btn-dark, .bg-dark {
+    color: #fff;
+    background-color: #212529;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.h1, h1 {
+    font-size: 2.5rem;
+}
+.h2, h2 {
+    font-size: 2rem;
+}
+.h3, h3 {
+    font-size: 1.75rem;
+}
+.h4, h4 {
+    font-size: 1.5rem;
+}
+.h5, h5 {
+    font-size: 1.25rem;
+}
+.h6, h6 {
+    font-size: 1rem;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+ul ul,
+.sparqMenu {
+  margin-bottom: 0;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width:576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.float-right {
+  float: right!important;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+.ui-state-highlight {
+  border: 1px solid #fcefa1;
+  background: #fbf9ee;
+  color: #363636;
+}
+
+.ui-state-error {
+  border: 1px solid #cd0a0a;
+  background: #fef1ec;
+  color: #cd0a0a;
+}
+
+.displaymessages .messagelist {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  min-width: 400px;
+  -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 0 1em rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 0 1em rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 0 1em rgba(0, 0, 0, 0.3);
+}
+
+#sparqUserMenuBar .sparqMenu {
+    min-height: 50px;
+}
+
+#sparqUserMenuBar {
+  font-size: 13px;
+  text-align: right;
+}
+    #sparqUserMenuBar form:not(.displayNone) {
+        display: flex;
+        max-width: calc(100vw - var(--scrollbar-width, 0px));
+        flex-wrap: wrap;
+    }
+    
+    @media (max-width:800px) {
+        #sparqUserMenuBar {
+            display: flex;
+        }
+
+        #sparqUserMenuBar .sparqMenu {
+            min-height: initial;
+        }
+    }
+
+#sparqUserMenuBar .usersImage {
+  height: 50px;
+  margin-top: 0;
+}
+
+#sparqUserMenuBar .sparqMenu li {
+  font-size: 20px;
+}
+
+#sparqUserMenuBar .sparqMenu li .usersName
+{
+    margin-right: 4px;
+}
+
+#sparqUserMenuBar .sparqMenu li.sparq-menu-item:not(.disable) {
+  min-width: 50px;
+}
+
+#sparqUserMenuBar .sparqMenu {
+  text-align: center;
+}
+
+#sparqUserMenuBar .sparqMenu {
+  background-color: transparent;
+}
+
+.sparq-menu-item.sparq-menu-item-nopadding {
+  padding: 0 !important;
+}
+
+.sparqMenuBar,
+.sparqMenuBar .sparqMenu {
+  background-color: rgb(51, 51, 51);
+  color: white;
+}
+
+.sparqMenuBar .mainLogoLink {
+  float: left;
+}
+
+.sparqMenuBar .mainLogo,
+.sparq-menu-item-nopadding .mainLogo {
+  height: 42px;
+  padding: 5px;
+  padding-right: 10px;
+  margin: 0 !important;
+}
+
+.sparqMenu .sparq-menu-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.sparqMenu .k-item.k-menu-item.k-state-hover:not(.k-state-disabled),
+.sparqMenu .k-item.k-menu-item.k-state-focused:not(.k-state-disabled) {
+    background-color: #DDD;
+}
+
+.sparqMenu > li.sparq-menu-item > ul, 
+.k-menu > .k-item.k-menu-item > ul {
+    display: none;
+}
+
+.table-striped tbody tr:nth-of-type(odd),
+ul.list-striped > li:nth-child(odd),
+ol.list-striped > li:nth-child(odd) {
+    background-color: #fff;
+    box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.05);
+}
+
+ul.list-striped > li {
+  border-top: 1px solid #ddd;
+  padding: 8px;
+}
+
+body {
+  padding-bottom: 20px;
+}
+
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.messagelist {
+  margin-top: 1em;
+}
+
+#sparqUserMenuBar .sparqMenu select#sparqMenuOrganizationSelect
+{
+    padding-left: 4px;
+    margin-left: -4px;
+}
+#sparqUserMenuBar .sparqMenu select#sparqMenuOrganizationSelect
+,#sparqUserMenuBar .sparqMenu select.sparqMenuOrganizationSelect_partner
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+    #sparqUserMenuBar .sparqMenu .usersName, #sparqUserMenuBar .sparqMenu li ul, #sparqUserMenuBar .sparqMenu li ul li, #sparqUserMenuBar .sparqMenu li .singleSchoolName, #sparqUserMenuBar .sparqMenu #sparqMenuOrganizationSelect, #sparqUserMenuBar .sparqMenu .sparqMenuOrganizationSelect_partner, #sparqUserMenuBar .sparqMenu #sparqMenuOrganizationSelect_width_tmp {
+        font-size: 16px;
+    }
+
+#sparqUserMenuBar .organizationSelectForm select, #sparqUserMenuBar .organizationSelectForm select:hover {
+    color: #DDD;
+}
+
+#sparqUserMenuBar .organizationSelectForm select {
+    border-radius: 3px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#sparqUserMenuBar #sparqUser-Menu > li.no-padding > .k-link {
+    padding: 0;
+}
+
+.sparq-menu-item.sparq-menu-item-nopadding, .sparq-menu-item.sparq-menu-item-nopadding .k-link {
+    padding: 0 !important;
+}
+
+li.k-item, 
+.k-menu:not(.k-context-menu)>.k-item,
+li.k-item.k-state-hover, 
+li.k-item:hover, 
+.k-menu:not(.k-context-menu)>.k-item.k-state-hover, 
+.k-menu:not(.k-context-menu)>.k-item:hover,
+.k-menu.sparq-menu:not(.k-context-menu) > .k-item,
+.k-menu.sparq-menu:not(.k-context-menu) > .k-item.k-state-hover,
+.k-menu.sparq-menu:not(.k-context-menu) > .k-item:hover
+{
+    color: rgb(51, 51, 51);
+}
+li.k-item .fa, li.k-item.sparq-menu-item, li.k-item.sparq-menu-item .fa, li.k-item.sparq-menu-item .usersName {
+    color: #DDD;
+}
+
+.sidebar
+{
+    position: fixed;
+    overflow: auto;
+}
+.sidebar.sidebar-right {
+    right: -100%;
+}
+
+.k-menu-item {
+    border-width: 0;
+    outline: 0;
+    display: flex;
+    flex: 0 0 auto;
+    position: relative;
+}
+.k-menu-horizontal {
+    flex-direction: row;
+}
+.k-menu {
+    border-width: 0;
+    border-style: solid;
+    box-sizing: border-box;
+    outline: 0;
+    font-size: 14px;
+    line-height: 1.4285714286;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    position: relative;
+    cursor: default;
+}
+
+.displayNone {
+  display: none;
+}
+
+.k-menu-horizontal>.k-menu-item+.k-menu-item.margin-left-auto,
+.margin-left-auto {
+    margin-left: auto;
+}
+.margin-right-auto {
+    margin-right: auto;
+}
+</style>
+
+
+
+<style>
+    @media (prefers-reduced-motion: reduce) {
+        #skiptocontent a {
+            transition-duration: 0.001ms !important;
+        }
+    }
+
+    #skiptocontent a {
+        padding: 6px;
+        position: absolute;
+        top: -40px;
+        left: 0px;
+        color: white;
+        border-right: 1px solid white;
+        border-bottom: 1px solid white;
+        border-bottom-right-radius: 8px;
+        background: #BF1722;
+        -webkit-transition: top 1s ease-out;
+        transition: top 1s ease-out;
+        z-index: 100;
+    }
+
+        #skiptocontent a:focus {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            outline-color: transparent;
+            -webkit-transition: top .1s ease-in;
+            transition: top .1s ease-in;
+        }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="https://cdn1.sparqdata.com/SharedContent/scripts/jquery.3.6.0.min.js">\x3C/script>')</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script>window.jQuery.fn.popover || document.write('<script src="https://cdn1.sparqdata.com/SharedContent/scripts/bootstrap.4.6.0.min.js">\x3C/script>')</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" type="text/javascript" defer="defer"></script>
+
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/kendo.all.min.2021.3.914.js" type="text/javascript"></script>
+
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/jquery.timepicker.min.js" type="text/javascript" defer="defer"></script>
+
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/jquery.sidebar.min.js" type="text/javascript" defer="defer"></script>
+
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/jquery.sidebarFullscreen.1.js" type="text/javascript" defer="defer"></script>
+
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/shared.header.5.js" type="text/javascript" defer="defer"></script>
+
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/autosize.min.js" type="text/javascript" defer="defer"></script>
+
+
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/kendoResponsiveMenu.2.js" type="text/javascript"></script>
+<script>window.jQuery.fn.kendoResponsiveMenu || document.write('<script src="https://backuplogon.sparqdata.com/SharedContent/scripts/kendoResponsiveMenu.2.js">\x3C/script>')</script>
+<link href="https://cdn2.sparqdata.com/Site.60.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/signalr@8.0.7.js" type='text/javascript'></script>
+
+    
+    <script src="https://cdn1.sparqdata.com/SharedContent/scripts/js.cookie.2.1.4.min.js" type="text/javascript" defer="defer"></script>
+
+<script src="https://cdn1.sparqdata.com/SharedContent/scripts/shared.footer.25.js" type="text/javascript" defer="defer"></script>
+
+    <script src="https://cdn2.sparqdata.com/Scripts/Site.3.js" type="text/javascript" defer="defer"></script>
+    
+</head>
+<body>
+    <div id="fullscreenContainer">
+        <header>
+            <div id="skiptocontent"><a href="#DisplayHeader" class="">skip to main content</a></div>
+            
+                
+            
+                
+
+<nav id="sparqUserMenuBar" class="sparqMenuBar">
+    <ul class="displayNone sparqMenu showAsFlexNotBlock" id="sparqUser-Menu" aria-label="Site features">
+
+                        <li class="sparq-menu-item  margin-left-auto" tabindex="-1">
+                            <a href="/Search/Index/328?returnurl=/Public/Book/328?docTypeId=41308&amp;file=1255246" aria-label="search" tabindex="-1">
+                                <i class="fa fa-search sparq-menu-link"></i>
+                            </a>
+                        </li>
+            <li class="sparq-menu-item " id="sparq-menu-help-item" tabindex="-1">
+                <i class="fa fa-question-circle open-menu-onclick sparq-menu-link" aria-label="help" role="button"></i>
+
+
+                <ul aria-label="Help">
+
+
+
+
+                        <li>
+                            <a href="https://sparqdata.atlassian.net/wiki/external/OGRjNmM3Y2MxMWI4NDA0ODk4YjgxYTA2ZDUzNGIzYzc"  target=_blank class="">
+                                <i class="fa fa-question-circle"></i>
+                                Search Help
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://sparqdata.atlassian.net/wiki/external/OWUzMTIxODVhMWFlNGNiYWI4NDI5ZDgwNDljZTg1NWU"  target=_blank class="">
+                                <i class="fa fa-question-circle"></i>
+                                User Account Management Help
+                            </a>
+                        </li>
+
+                    <li>
+                        <a href="/SparqMenu/HelpForMenuBar" class="showHelpInDialog">
+                            <i class="fa fa-question-circle"></i>
+                            OSSBA Menu Bar Help
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="/SparqMenu/SiteCompatibility">
+                            <i class="fa fa-question"></i>
+                            Check Your Device's Compatibility
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/SparqMenu/HelpForNightlyMaintenanceWindow" class="showHelpInDialog">
+                            <i class="fa fa-wrench"></i>
+                            Nightly Maintenance Window: Midnight to 5 AM Central Time
+                        </a>
+                    </li>
+
+
+                </ul>
+
+                <div class="displayNone" id="SparqMenu_HelpDialog" title="Help!">
+    <div id="SparqMenu_HelpDialog_Loading">
+        <i class="fa fa-spinner fa-pulse"></i>
+        Loading Help...
+    </div>
+    <div id="SparqMenu_HelpDialog_Section">
+    </div>
+</div>
+
+            </li>
+
+        <li class="sparq-menu-item sparq-menu-item-nopadding" tabindex="-1">
+                <a href="https://www.ossba.org/" target="_blank" class="mainLogoLink" tabindex="-1">
+                    <img src="https://cdn1.sparqdata.com/SharedContent/themes/assemble/Assemble-MAIN-LOGO-blue-to-white-transparent.png" class="mainLogo" alt="OSSBA Logo" />
+                </a>
+        </li>
+    </ul>
+
+
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8IpBFj5OAFVGjWZo0Wo9ugMVEOEqwyo7lYegC8hAz3kyQPXhFlq3o5pA4jYgKiBDudaU5r99yF3N-sWOA-YBAWz3b1hF44M2F_2uU3CCbzukGDHPKlBg3XrzTNiz_MlSKrB3AAVica6_taphrpgq2hU" /></nav>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173108447-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-173108447-2');
+</script>
+
+
+
+<script>
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    
+    var kmSparq = $("#sparqUser-Menu");
+    if (kmSparq && kmSparq.length > 0) {
+        kmSparq.kendoMenu({
+            openOnClick: true
+        });
+
+        kmSparq.bind("open", function () {
+            var found = kmSparq.find(".sparq-menu-item[id][aria-expanded=true]");
+            if (found)
+                kmSparq.close("#" + found.attr("id"));
+        });
+
+        var menu = kmSparq.data("kendoMenu");
+        menu.enable(".disable", false);
+
+        //kicks the spacer out of the keyboard navigation
+        kmSparq.find(".not-navigable").removeClass("k-item");
+
+        kmSparq.show().removeClass("displayNone");
+
+        var toActivate = kmSparq.find(".open-menu-onclick");
+        toActivate.keydown(function (event) {
+            if (event.key === " " || event.key === "Enter" || event.key === "Spacebar") {
+                // Prevent the default action to stop scrolling when space is pressed
+                event.preventDefault();
+
+                var menuItem = $(this).parents(".sparq-menu-item[id]");
+                if (menuItem.attr("aria-expanded") !== "true")
+                    menu.open("#" + menuItem.attr("id"));
+                else
+                    menu.close("#" + menuItem.attr("id"));
+            }
+            else if (event.keyCode === 27 || event.key === "Escape") {
+                var menuItem = $(this).parents(".sparq-menu-item[id]");
+                if (menuItem.attr("aria-expanded") === "true")
+                    menu.close("#" + menuItem.attr("id"));
+            }
+        });
+    }
+</script>
+
+
+
+
+
+                        <nav class="navbar-collapse" id="kendoMenu-Main">
+            <ul class="nav navbar-nav displayNone" id="kendoMenu-Inner" aria-label="Lawton Public Schools information">
+                <li>
+                    <a href="/Public/Organization/328" id="home-menu-link">
+                        <span class="fa fa-home"></span>
+                        Home
+                    </a>
+                </li>
+
+            </ul>
+            <script>
+                var km = $("#kendoMenu-Inner");
+                km.kendoResponsiveMenu({
+                    openOnClick: {
+                        rootMenuItems: true,
+                        subMenuItems: false
+                    }
+                });
+                km.show();
+            </script>
+        </nav>
+
+        </header>       
+
+
+        <div class="container body-content">
+            
+                    <div class="displaymessages ui-widget">
+        <div class="messagelist ui-state-error displayNone" id="messages-errors">
+        </div>
+        <div class="messagelist ui-state-highlight displayNone" id="messages-warns">
+        </div>
+        <div class="messagelist ui-state-highlight displayNone" id="messages-infos">
+        </div>
+    </div>
+
+
+        </div>
+
+        
+            <div id="DisplayHeader">
+                <div class="container body-content">
+                        <h1>Online Documents - Lawton Public Schools</h1>
+                </div>
+            </div>
+
+        
+        <div class="container body-content">
+            <main id="MainPage">
+                    
+<div class="policies_viewport row">
+    <div class="policies_treeview col-sm-3">
+<form action="/Search/Index/328" id="meetingSearchSection" method="get"><div class='form-group '>  <label class='sr-only' for='q'>search Policies</label>  <div class='input-group'>    <input type='text' class='form-control ' id='q' name='q' placeholder='search Policies' value=''  />    <span class='input-group-append'>      <button class='btn btn-secondary' type='submit'>        <i class='fa fa-search'></i>    <span class='sr-only'>submit search    </span>      </button>    </span>  </div></div>                <input type="hidden" name="i" value="sparqmeetingsdocuments" />
+                <input type="hidden" name="i" value="sparqmeetingsdocumentnotes" />
+                <input type="hidden" name="d" value="41308" />
+                <input type="hidden" name="returnUrl" value="/Public/Book/328?docTypeId=41308&amp;file=1255246" />
+</form>        <ul class="treeview list-unstyled">
+                    <li data-expanded="false">
+                        <details >
+                            <summary>
+                                <i class="fa fa-folder-open"></i>
+                                Section A - School District (1)
+                            </summary>
+                            <ul class="list-unstyled">
+                                        <li class="file" data-id="1255044">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255044' data-foragendaitem='-1' data-documentid='1255044' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>AE - PHILOSOPHY OF LAWTON PUBLIC SCHOOLS</span></a>
+                                        </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li data-expanded="false">
+                        <details >
+                            <summary>
+                                <i class="fa fa-folder-open"></i>
+                                Section B - School Board Operations (28)
+                            </summary>
+                            <ul class="list-unstyled">
+                                        <li class="file" data-id="1255046">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255046' data-foragendaitem='-1' data-documentid='1255046' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BA - BOARD OF EDUCATION LEGAL STATUS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255047">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255047' data-foragendaitem='-1' data-documentid='1255047' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BAA -BOARD OF EDUCATION POWERS AND DUTIES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255048">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255048' data-foragendaitem='-1' data-documentid='1255048' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BAAB - NEPOTISM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255049">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255049' data-foragendaitem='-1' data-documentid='1255049' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BBF - CODE OF ETHICS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255050">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255050' data-foragendaitem='-1' data-documentid='1255050' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BBH - DEVELOPMENT OPPORTUNITIES: BOARD MEMBERS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255051">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255051' data-foragendaitem='-1' data-documentid='1255051' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BBH-R1- NEW BOARD MEMBER WORKSHOP</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255052">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255052' data-foragendaitem='-1' data-documentid='1255052' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BBH-R2 - SCHOOL BOARD MEMBER CONTINUING EDUCATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255053">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255053' data-foragendaitem='-1' data-documentid='1255053' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BD - SCHOOL BOARD INTERNAL ORGANIZATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255054">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255054' data-foragendaitem='-1' data-documentid='1255054' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BD-R1- BOARD OF EDUCATION CLERK (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255055">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255055' data-foragendaitem='-1' data-documentid='1255055' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BD-R2 - BOARD OF EDUCATION MINUTES CLERK (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255056">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255056' data-foragendaitem='-1' data-documentid='1255056' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BD-R3 - BOARD OF EDUCATION ENCUMBRANCE CLERK (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255057">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255057' data-foragendaitem='-1' data-documentid='1255057' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BDAE - BOARD OF EDUCATION OFFICERS TREASURER</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255058">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255058' data-foragendaitem='-1' data-documentid='1255058' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BDAE-R - BOARD OF EDUCATION OFFICER DUTIES - TREASURER (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255059">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255059' data-foragendaitem='-1' data-documentid='1255059' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BDFD - HEALTHY AND FIT SCHOOL ADVISORY COMMITTEE/SAFE SCHOOL COMMITTEE</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255060">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255060' data-foragendaitem='-1' data-documentid='1255060' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BE - BOARD OF EDUCATION MEETINGS AND NOTIFICATION PROCEDURES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255061">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255061' data-foragendaitem='-1' data-documentid='1255061' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BE-R - BOARD OF EDUCATION MEETINGS VIDEOCONFERENCE REGULATIONS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255063">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255063' data-foragendaitem='-1' data-documentid='1255063' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BEC - EXECUTIVE SESSIONS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255064">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255064' data-foragendaitem='-1' data-documentid='1255064' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BED - BOARD OF EDUCATION MEETING PUBLIC PARTICIPATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255065">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255065' data-foragendaitem='-1' data-documentid='1255065' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BED-E - REQUEST TO ADDRESS BOARD OF EDUCATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255066">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255066' data-foragendaitem='-1' data-documentid='1255066' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BED-R - BOARD OF EDUCATION MEETINGS PUBLIC PARTICIPATION (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255067">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255067' data-foragendaitem='-1' data-documentid='1255067' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BEF - BOARD OF EDUCATION MINUTES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255068">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255068' data-foragendaitem='-1' data-documentid='1255068' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BFA - BOARD POLICIES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255070">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255070' data-foragendaitem='-1' data-documentid='1255070' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BJ Executive Officer - Superintendent</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255071">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255071' data-foragendaitem='-1' data-documentid='1255071' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BJ - BOARD OF EDUCATION EXECUTIVE OFFICER - SUPERINTENDENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255072">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255072' data-foragendaitem='-1' data-documentid='1255072' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BJCD-R - SUPERINTENDENT EVALUATION FORM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255073">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255073' data-foragendaitem='-1' data-documentid='1255073' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BKBB (new 2021) - SCHOOL SOCIAL MEDIA ACCOUNTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255074">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255074' data-foragendaitem='-1' data-documentid='1255074' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BKBC (new 2021) - SCHOOL DISTRICT APPROVED SOCIAL MEDIA ACCOUNTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489040">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489040' data-foragendaitem='-1' data-documentid='14489040' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>BEA School Board Meetings</span></a>
+                                        </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li data-expanded="false">
+                        <details >
+                            <summary>
+                                <i class="fa fa-folder-open"></i>
+                                Section C - Business and Support Services (31)
+                            </summary>
+                            <ul class="list-unstyled">
+                                        <li class="file" data-id="1255075">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255075' data-foragendaitem='-1' data-documentid='1255075' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CBBA - GRANT POLICIES AND PROCEDURES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255076">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255076' data-foragendaitem='-1' data-documentid='1255076' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CBBB - INTERNAL CONTROLS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255077">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255077' data-foragendaitem='-1' data-documentid='1255077' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CDA - MANAGEMENT AND INVESTMENT OF FUNDS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255078">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255078' data-foragendaitem='-1' data-documentid='1255078' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CDCC Equal Opportunity Education Scholarship Tax Credit</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255079">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255079' data-foragendaitem='-1' data-documentid='1255079' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CFEA- SALARY DEDUCTIONS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255080">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255080' data-foragendaitem='-1' data-documentid='1255080' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CHA</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255081">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255081' data-foragendaitem='-1' data-documentid='1255081' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'> CHC - BIDS AND QUOTATIONS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255082">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255082' data-foragendaitem='-1' data-documentid='1255082' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CHD - CREDIT CARDS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255083">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255083' data-foragendaitem='-1' data-documentid='1255083' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CI - DISPOSAL OF SURPLUS SCHOOL PROPERTY</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255084">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255084' data-foragendaitem='-1' data-documentid='1255084' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CKAD - SCHOOL SECURITY DRILLS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255085">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255085' data-foragendaitem='-1' data-documentid='1255085' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CKBB - EARLY DISMISSAL OF SCHOOL</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255086">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255086' data-foragendaitem='-1' data-documentid='1255086' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CKC - SAFETY DRILLS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255087">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255087' data-foragendaitem='-1' data-documentid='1255087' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CKC-R1 - FIRE DRILLS RULES AND PROCEDURES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255088">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255088' data-foragendaitem='-1' data-documentid='1255088' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CKC-R2 - TORNADO DRILLS RULES AND PROCEDURES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255089">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255089' data-foragendaitem='-1' data-documentid='1255089' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CKCA Emergency School Closing</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255090">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255090' data-foragendaitem='-1' data-documentid='1255090' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CKDA - TOBACCO USE PROHIBITED</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255091">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255091' data-foragendaitem='-1' data-documentid='1255091' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CL - BUILDINGS, EQUIPMENT, AND GROUNDS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255092">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255092' data-foragendaitem='-1' data-documentid='1255092' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CLB - EQUIPMENT ACCOUNTABILITY</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255093">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255093' data-foragendaitem='-1' data-documentid='1255093' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CN - SCHOOL TRANSPORTATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255094">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255094' data-foragendaitem='-1' data-documentid='1255094' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CNAB - TRANSPORTATION MANAGEMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255095">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255095' data-foragendaitem='-1' data-documentid='1255095' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CO - CHILD NUTRITION AND PHYSICAL FITNESS PROGRAM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255096">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255096' data-foragendaitem='-1' data-documentid='1255096' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CO-P - CHILD NUTRITION MEAL CHARGING POLICY</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255097">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255097' data-foragendaitem='-1' data-documentid='1255097' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CO-R - CHILD NUTRITION PROGRAMS (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255098">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255098' data-foragendaitem='-1' data-documentid='1255098' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>COA - District Wellness Policy</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255099">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255099' data-foragendaitem='-1' data-documentid='1255099' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>COB - PROCUREMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255100">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255100' data-foragendaitem='-1' data-documentid='1255100' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>COB-P - PROCUREMENT PROTEST PROCEDURES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255101">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255101' data-foragendaitem='-1' data-documentid='1255101' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>COB-R - PROCUREMENT (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255102">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255102' data-foragendaitem='-1' data-documentid='1255102' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>COF - VENDING MACHINES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255103">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255103' data-foragendaitem='-1' data-documentid='1255103' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>COFA-R - COMPETITIVE FOOD SALES (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255104">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255104' data-foragendaitem='-1' data-documentid='1255104' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CPAD - TAPE RECORDING EQUIPMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255105">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255105' data-foragendaitem='-1' data-documentid='1255105' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>CFBB-Sanctioning of Parent Organizations and Booster Clubs (1)</span></a>
+                                        </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li data-expanded="false">
+                        <details >
+                            <summary>
+                                <i class="fa fa-folder-open"></i>
+                                Section D - Personnel (63)
+                            </summary>
+                            <ul class="list-unstyled">
+                                        <li class="file" data-id="1255106">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255106' data-foragendaitem='-1' data-documentid='1255106' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DA - SEXUAL HARASSMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255107">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255107' data-foragendaitem='-1' data-documentid='1255107' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DAA-E - DISCRIMINATION COMPLAINT FORM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255108">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255108' data-foragendaitem='-1' data-documentid='1255108' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DAA-Nondiscrimination-Aug (1)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255109">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255109' data-foragendaitem='-1' data-documentid='1255109' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DAA-P - DISCRIMINATION COMPLAINTS PROCEDURES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255110">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255110' data-foragendaitem='-1' data-documentid='1255110' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DAA-R - FILING, PROCESSING AND RESOLVING COMPLAINTS ALLEGING DISCRIMINATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255111">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255111' data-foragendaitem='-1' data-documentid='1255111' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DAAC - TITLE I, ESEA COMPLAINT RESOLUTION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255112">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255112' data-foragendaitem='-1' data-documentid='1255112' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DAAC-E - INVESTIGATION REPORT ON THE ADMINISTRATION OF ESEA TITLE I PROGRAM ACTIVITIES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255114">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255114' data-foragendaitem='-1' data-documentid='1255114' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DBA - PARAPROFESSIONALS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255115">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255115' data-foragendaitem='-1' data-documentid='1255115' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DBAA - TITLE I AND SPECIAL EDUCATION PARAPROFESSIONALS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255116">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255116' data-foragendaitem='-1' data-documentid='1255116' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DBCA-Standards-of-Performance-Teachers-Aug</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255117">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255117' data-foragendaitem='-1' data-documentid='1255117' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DBD - CONFLICTS OF INTEREST</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255118">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255118' data-foragendaitem='-1' data-documentid='1255118' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DCC - DRUG-FREE WORKPLACE</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255119">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255119' data-foragendaitem='-1' data-documentid='1255119' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DCC-E1- DRUG-FREE WORKPLACE NOTICE TO EMPLOYEES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255120">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255120' data-foragendaitem='-1' data-documentid='1255120' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DCC-R - WORKPLACE DRUG AND ALCOHOL TESTING (REGULATIONS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255121">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255121' data-foragendaitem='-1' data-documentid='1255121' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DCCB - DRUG AND ALCOHOL TESTING PROGRAM BUS DRIVERS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255122">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255122' data-foragendaitem='-1' data-documentid='1255122' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DCCB-R - DRUG AND ALCOHOL TESTING PROGRAM BUS DRIVERS (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255124">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255124' data-foragendaitem='-1' data-documentid='1255124' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DDB - RELEASE FROM CONTRACT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255125">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255125' data-foragendaitem='-1' data-documentid='1255125' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DDC - EMPLOYEE RESIGNATIONS AND REFERENCE REQUESTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255126">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255126' data-foragendaitem='-1' data-documentid='1255126' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DDCA - ACCEPTANCE OF LETTERS OF RESIGNATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255127">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255127' data-foragendaitem='-1' data-documentid='1255127' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DE-R1 - SALARY SCHEDULES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255128">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255128' data-foragendaitem='-1' data-documentid='1255128' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEA - PAYMENT SCHEDULE</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255129">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255129' data-foragendaitem='-1' data-documentid='1255129' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEAF - WAGES PAID FROM THE ACTIVITY FUND</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255130">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255130' data-foragendaitem='-1' data-documentid='1255130' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEBA - Personnel Vacations</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255131">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255131' data-foragendaitem='-1' data-documentid='1255131' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEC - PERSONNEL LEAVE PROGRAM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255132">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255132' data-foragendaitem='-1' data-documentid='1255132' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEC-R1 - SICK LEAVE CERTIFIED PERSONNEL (1)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255133">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255133' data-foragendaitem='-1' data-documentid='1255133' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOCX Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEC-R2  - SICK LEAVE SUPPORT PERSONNEL (REGULATIONS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255134">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255134' data-foragendaitem='-1' data-documentid='1255134' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOCX Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEC-R3 - PERSONAL BUSINESS LEAVE (REGULATIONS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255135">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255135' data-foragendaitem='-1' data-documentid='1255135' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEC-R4 - EMERGENCY LEAVE (REGULATIONS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255136">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255136' data-foragendaitem='-1' data-documentid='1255136' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEC-R5 - JURY DUTY SERVICE AND WITNESS LEAVE (REGULATIONS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255137">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255137' data-foragendaitem='-1' data-documentid='1255137' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEC-R6 - MILITARY LEAVE (REGULATIONS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255139">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255139' data-foragendaitem='-1' data-documentid='1255139' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DECA Family Medical Leave</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255140">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255140' data-foragendaitem='-1' data-documentid='1255140' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEE - EXPENSE REIMBURSEMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255141">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255141' data-foragendaitem='-1' data-documentid='1255141' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEE-R - TRAVEL AND EXPENSES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255142">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255142' data-foragendaitem='-1' data-documentid='1255142' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEEC - STUDENT ACTIVITIES EXPENSE REIMBURSEMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255143">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255143' data-foragendaitem='-1' data-documentid='1255143' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DGA - STAFF PARTICIPATION IN POLITICAL ACTIVITIES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255144">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255144' data-foragendaitem='-1' data-documentid='1255144' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DGBA - EMPLOYEE GRIEVANCES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255145">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255145' data-foragendaitem='-1' data-documentid='1255145' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DGBA-E1 - GRIEVANCE REPORT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255146">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255146' data-foragendaitem='-1' data-documentid='1255146' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DGBA-R - EMPLOYEE GRIEVANCES (PROCEDURE)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255147">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255147' data-foragendaitem='-1' data-documentid='1255147' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DGD - CIRCULATION OF PETITIONS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255149">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255149' data-foragendaitem='-1' data-documentid='1255149' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DIAA - STAFF SAFETY ASSAULTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255150">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255150' data-foragendaitem='-1' data-documentid='1255150' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DIAF - HYGIENE AND SANITATION (BLOODBORNE PATHOGENS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255151">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255151' data-foragendaitem='-1' data-documentid='1255151' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DIAF-R - HYGIENE AND SANITATION (BLOODBORNE PATHOGENS) (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255152">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255152' data-foragendaitem='-1' data-documentid='1255152' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOCX Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DJ - DRESS AND PERSONAL GROOMING - STAFF</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255153">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255153' data-foragendaitem='-1' data-documentid='1255153' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DMB - PROFESSIONAL GROWTH AND DEVELOPMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255154">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255154' data-foragendaitem='-1' data-documentid='1255154' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DMB-R1 - PROFESSIONAL GROWTH AND DEVELOPMENT (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255155">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255155' data-foragendaitem='-1' data-documentid='1255155' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DNA - TEACHER EVALUATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255156">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255156' data-foragendaitem='-1' data-documentid='1255156' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DNAA - EVALUATION OF ADMINISTRATIVE PERSONNEL</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255157">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255157' data-foragendaitem='-1' data-documentid='1255157' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DNB - PERSONNEL FILES CERTIFIED STAFF</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255158">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255158' data-foragendaitem='-1' data-documentid='1255158' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DNC - PERSONNEL FILES SUPPORT EMPLOYEES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255159">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255159' data-foragendaitem='-1' data-documentid='1255159' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DO-R-Teacher-Termination-Procedures-Aug</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255160">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255160' data-foragendaitem='-1' data-documentid='1255160' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOCX Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DO-Termination-of-Teachers-Employment</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255161">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255161' data-foragendaitem='-1' data-documentid='1255161' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DOAC-Support-Personnel-Suspension-Termination-Aug</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255162">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255162' data-foragendaitem='-1' data-documentid='1255162' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DOBD-Suspension-of-Certified-Personnel</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255163">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255163' data-foragendaitem='-1' data-documentid='1255163' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DOCA - REDUCTION-IN-FORCE CERTIFIED PERSONNEL</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255164">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255164' data-foragendaitem='-1' data-documentid='1255164' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DOCB - REDUCTION-IN-FORCE SUPPORT PERSONNEL</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255165">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255165' data-foragendaitem='-1' data-documentid='1255165' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DPAO - DIRECTOR OF FEDERAL PROGRAMS</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489041">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489041' data-foragendaitem='-1' data-documentid='14489041' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DOBD-Suspension-of-Certified-Personnel 8.12.24</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489042">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489042' data-foragendaitem='-1' data-documentid='14489042' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DO-R-Teacher-Termination-Procedures-Aug 8.11.25</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489043">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489043' data-foragendaitem='-1' data-documentid='14489043' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DO-Termination-of-Teachers-Employment 7.28.25</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489044">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489044' data-foragendaitem='-1' data-documentid='14489044' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEE-R - TRAVEL AND EXPENSES 3.9.26</span></a>
+                                        </li>
+                                        <li class="file" data-id="14505816">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14505816' data-foragendaitem='-1' data-documentid='14505816' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DABB-RECORDS-INVESTIGATION 10.5.2026</span></a>
+                                        </li>
+                                        <li class="file" data-id="14505817">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14505817' data-foragendaitem='-1' data-documentid='14505817' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DEC-R7-MATERINITY-LEAVE-REGULATIONS 10.5.2026</span></a>
+                                        </li>
+                                        <li class="file" data-id="14505818">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14505818' data-foragendaitem='-1' data-documentid='14505818' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>DHAC-STAFF-MEMBERS-AND-ELECTRONIC-OR-DIGITAL-COMMUNICATIONS 10.5.2026</span></a>
+                                        </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li data-expanded="false">
+                        <details >
+                            <summary>
+                                <i class="fa fa-folder-open"></i>
+                                Section E - Instruction (36)
+                            </summary>
+                            <ul class="list-unstyled">
+                                        <li class="file" data-id="1255166">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255166' data-foragendaitem='-1' data-documentid='1255166' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EBA - SCHOOL HOURS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255167">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255167' data-foragendaitem='-1' data-documentid='1255167' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>ECA - SCHOOL DISTRICT SCREENING PROTOCOL</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255168">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255168' data-foragendaitem='-1' data-documentid='1255168' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EKBA Reading Sufficiency Testing</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255169">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255169' data-foragendaitem='-1' data-documentid='1255169' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EFA - SCHOOL LIBRARY MEDIA CENTER</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255170">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255170' data-foragendaitem='-1' data-documentid='1255170' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='RTF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EFA-R1 SCHOOL LIBRARY MEDIA CENTER SELECTION OF MATERIALS (REGULATIONS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255171">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255171' data-foragendaitem='-1' data-documentid='1255171' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EFBCA - INTERNET AND OTHER COMPUTER NETWORKS ACCEPTABLE USE AND INTERNET SAFETY POLICY</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255172">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255172' data-foragendaitem='-1' data-documentid='1255172' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EFBCA-E - INTERNET ACCESS CONDUCT AGREEMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255173">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255173' data-foragendaitem='-1' data-documentid='1255173' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EFBCA-R1 - CODE OF CONDUCT FOR INTERNET AND OTHER COMPUTER NETWORK ACCESS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255174">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255174' data-foragendaitem='-1' data-documentid='1255174' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EGG-Prohibition-of-Race-and-Sex-Discrimination</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255175">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255175' data-foragendaitem='-1' data-documentid='1255175' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHA - BASIC INSTRUCTIONAL PROGRAM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255176">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255176' data-foragendaitem='-1' data-documentid='1255176' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHACA - DIPLOMAS FOR VETERANS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255177">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255177' data-foragendaitem='-1' data-documentid='1255177' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHAH - SEX EDUCATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255178">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255178' data-foragendaitem='-1' data-documentid='1255178' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHAK - PHYSICAL EDUCATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255179">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255179' data-foragendaitem='-1' data-documentid='1255179' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBC - SPECIAL EDUCATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255180">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255180' data-foragendaitem='-1' data-documentid='1255180' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBC-R3 - CHILD FIND</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255181">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255181' data-foragendaitem='-1' data-documentid='1255181' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBC-R4 - SPECIAL EDUCATION SERVICES FOR CHILDREN ENROLLED IN PRIVATE SCHOOL</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255182">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255182' data-foragendaitem='-1' data-documentid='1255182' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBCA - EXTENDED SCHOOL YEAR SERVICES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255183">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255183' data-foragendaitem='-1' data-documentid='1255183' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBDB - TITLE I PARENT INVOLVEMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255184">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255184' data-foragendaitem='-1' data-documentid='1255184' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBDBA - PARENT PARTICIPATION IN THE SCHOOL DISTRICT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255185">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255185' data-foragendaitem='-1' data-documentid='1255185' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBDBA-E Pronouns</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255186">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255186' data-foragendaitem='-1' data-documentid='1255186' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBE - LIMITED ENGLISH PROFICIENCY INSTRUCTION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255187">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255187' data-foragendaitem='-1' data-documentid='1255187' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBH - ALTERNATIVE EDUCATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255190">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255190' data-foragendaitem='-1' data-documentid='1255190' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHDF -virtual-instruction</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255191">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255191' data-foragendaitem='-1' data-documentid='1255191' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EIA Promotion and Retention</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255193">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255193' data-foragendaitem='-1' data-documentid='1255193' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EJ - SCHOOL COUNSELOR</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255194">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255194' data-foragendaitem='-1' data-documentid='1255194' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EK - TESTING PROGRAM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255197">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255197' data-foragendaitem='-1' data-documentid='1255197' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EMDA - MILITARY RECOGNITION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255199">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255199' data-foragendaitem='-1' data-documentid='1255199' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EMG - ANIMALS IN SCHOOL</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255201">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255201' data-foragendaitem='-1' data-documentid='1255201' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHBCA-R - ESY Regulations</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489045">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489045' data-foragendaitem='-1' data-documentid='14489045' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHDD-R - CONCURRENT ENROLLMENT STUDENT (REGULATION) 3.11.21</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489046">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489046' data-foragendaitem='-1' data-documentid='14489046' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EK-R1 Testing Program Student Surveys Regulation 1.19.23</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489047">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489047' data-foragendaitem='-1' data-documentid='14489047' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EMDB_Flags 7.28.25</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489048">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489048' data-foragendaitem='-1' data-documentid='14489048' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EMI-Voluntary-Prayer-and-Minute-of-SIlence 8.12.24</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489058">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489058' data-foragendaitem='-1' data-documentid='14489058' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EIED-Graduation-Requirements 8.12.24</span></a>
+                                        </li>
+                                        <li class="file" data-id="14505823">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14505823' data-foragendaitem='-1' data-documentid='14505823' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EHDD-CONCURRENT-ENROLLMENT-STUDENT 10.5.2026</span></a>
+                                        </li>
+                                        <li class="file" data-id="14505824">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14505824' data-foragendaitem='-1' data-documentid='14505824' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>EKBA-STRONG-READERS-ACT 10.5.2026</span></a>
+                                        </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li data-expanded="true">
+                        <details open=&#x27;true&#x27;>
+                            <summary>
+                                <i class="fa fa-folder-open"></i>
+                                Section F - Students (48)
+                            </summary>
+                            <ul class="list-unstyled">
+                                        <li class="file" data-id="1255202">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255202' data-foragendaitem='-1' data-documentid='1255202' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FB - SEXUAL HARASSMENT OF STUDENTS </span></a>
+                                        </li>
+                                        <li class="file" data-id="1255203">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255203' data-foragendaitem='-1' data-documentid='1255203' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FB-E1 - SEXUAL HARASSMENT INCIDENT REPORT FORM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255204">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255204' data-foragendaitem='-1' data-documentid='1255204' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FB-E2 - WRITTEN NOTICE TO KNOWN PARTIES REGARDING ALLEGATIONS OF SEXUAL HARASSMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255205">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255205' data-foragendaitem='-1' data-documentid='1255205' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FB-E3 - WRITTEN REPORT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255206">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255206' data-foragendaitem='-1' data-documentid='1255206' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FD - STUDENT RESIDENCY</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255207">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255207' data-foragendaitem='-1' data-documentid='1255207' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FD-E - STUDENT RESIDENCY AFFIDAVITS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255208">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255208' data-foragendaitem='-1' data-documentid='1255208' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FD-P - STUDENT RESIDENCY DISPUTE PROCEDURES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255209">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255209' data-foragendaitem='-1' data-documentid='1255209' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FDAHA - EDUCATION OF MIGRATORY CHILDREN</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255210">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255210' data-foragendaitem='-1' data-documentid='1255210' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='RTF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FDC - STUDENT ATTENDANCE</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255211">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255211' data-foragendaitem='-1' data-documentid='1255211' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FDC-P - MEDICAL EXEMPTION REVIEW COMMITTEE PROCESS FOR ELIGIBLE EXEMPTIONS AND DOCUMENTATION FOR DECISION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255212">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255212' data-foragendaitem='-1' data-documentid='1255212' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FDC-R1 - ATTENDANCE POLICY (REGULATION) </span></a>
+                                        </li>
+                                        <li class="file" data-id="1255213">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255213' data-foragendaitem='-1' data-documentid='1255213' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FE Student Transfers</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255214">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255214' data-foragendaitem='-1' data-documentid='1255214' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FEA-Intra-District-Transfers-Sept</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255216">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255216' data-foragendaitem='-1' data-documentid='1255216' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FEF approved</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255219">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255219' data-foragendaitem='-1' data-documentid='1255219' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFA - HEALTH: STUDENTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255220">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255220' data-foragendaitem='-1' data-documentid='1255220' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFAB - IMMUNIZATIONS STUDENTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255221">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255221' data-foragendaitem='-1' data-documentid='1255221' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFACA-Medication-Administering-to-Students-Sept</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255222">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255222' data-foragendaitem='-1' data-documentid='1255222' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFACD - MEDICAL MARIJUANA</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255223">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255223' data-foragendaitem='-1' data-documentid='1255223' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFACDA - ADMINISTRATION OF OPIATE ANTAGONISTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255224">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255224' data-foragendaitem='-1' data-documentid='1255224' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFAEA - CONCUSSIONS AND HEAD INJURIES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255225">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255225' data-foragendaitem='-1' data-documentid='1255225' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFAEA-E - CONCUSSION AND HEAD INJURY ACKNOWLEDGEMENT AND INFORMATION SHEET</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255227">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255227' data-foragendaitem='-1' data-documentid='1255227' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFGB - GUIDELINES FOR OUTSIDE AGENCY REPRESENTATIVES INTERVIEWING CHILDREN AT THE SCHOOL</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255228">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255228' data-foragendaitem='-1' data-documentid='1255228' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FL - STUDENT RECORDS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255229">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255229' data-foragendaitem='-1' data-documentid='1255229' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FLE - TRANSFER AND RELEASE OF CONFIDENTIAL INFORMATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255230">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255230' data-foragendaitem='-1' data-documentid='1255230' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FLF - INFORMATION COORDINATOR</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255231">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255231' data-foragendaitem='-1' data-documentid='1255231' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FMA - EXTRACURRICULAR ACTIVITIES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255232">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255232' data-foragendaitem='-1' data-documentid='1255232' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FMAAA - EXTRACURRICULAR ACTIVITIES EMERGENCY MEDICAL SERVICES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255233">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255233' data-foragendaitem='-1' data-documentid='1255233' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FMC - STUDENT CLUBS AND ORGANIZATIONS SPONSORS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255234">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255234' data-foragendaitem='-1' data-documentid='1255234' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNC-Student-Conduct-Aug</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255235">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255235' data-foragendaitem='-1' data-documentid='1255235' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNCC - HAZING</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255237">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255237' data-foragendaitem='-1' data-documentid='1255237' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNCD-E - HARASSMENT/BULLYING INCIDENT REPORT FORM</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255238">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255238' data-foragendaitem='-1' data-documentid='1255238' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNCD-P - PROHIBITING HARASSMENT, INTIMIDATION AND BULLYING (INVESTIGATION PROCEDURES) </span></a>
+                                        </li>
+                                        <li class="file" data-id="1255239">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255239' data-foragendaitem='-1' data-documentid='1255239' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNCD-R - PROHIBITING BULLYING (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255240">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255240' data-foragendaitem='-1' data-documentid='1255240' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNCE - REPORTING STUDENTS UNDER THE INFLUENCE OF OR POSSESSING ALCOHOLIC BEVERAGES OR CONTROLLED DANGEROUS SUBSTANCES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255241">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255241' data-foragendaitem='-1' data-documentid='1255241' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNCGA - WEAPONS-FREE SCHOOLS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255242">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255242' data-foragendaitem='-1' data-documentid='1255242' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNF - SEARCH OF STUDENTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255243">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255243' data-foragendaitem='-1' data-documentid='1255243' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNF-R - SEARCH OF STUDENTS (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255244">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255244' data-foragendaitem='-1' data-documentid='1255244' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOCX Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNG-Personal-Electronic-Devices (Faraday Bags) Approved 6.9.25</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255245">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255245' data-foragendaitem='-1' data-documentid='1255245' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FO - STUDENT DISCIPLINE</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255246">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255246' data-foragendaitem='-1' data-documentid='1255246' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FOB - CORPORAL PUNISHMENT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255247">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255247' data-foragendaitem='-1' data-documentid='1255247' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FOD - SUSPENSION OF STUDENTS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255248">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255248' data-foragendaitem='-1' data-documentid='1255248' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FOD-R - SUSPENSION OF STUDENTS (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255249">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255249' data-foragendaitem='-1' data-documentid='1255249' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FP - STUDENTS: FEES, FINES, AND CHARGES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255250">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255250' data-foragendaitem='-1' data-documentid='1255250' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FP-R - STUDENTS: FEES, FINES, AND CHARGES (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="14489050">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14489050' data-foragendaitem='-1' data-documentid='14489050' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FEH-Transfer-Appeal-Students-on-IEP 8.12.24</span></a>
+                                        </li>
+                                        <li class="file" data-id="14505825">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14505825' data-foragendaitem='-1' data-documentid='14505825' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FEG-CHILDREN-OF-ACTIVE-DUTY-MILITARY-MEMBERS 10.5.2026</span></a>
+                                        </li>
+                                        <li class="file" data-id="14505826">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14505826' data-foragendaitem='-1' data-documentid='14505826' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FFG-REPORTING-SUSPECTED-CHILD-ABBUSE-AND-OR-NEGLECT 10.5.2026</span></a>
+                                        </li>
+                                        <li class="file" data-id="14505827">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14505827' data-foragendaitem='-1' data-documentid='14505827' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>FNCD 10.5.2026</span></a>
+                                        </li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li data-expanded="false">
+                        <details >
+                            <summary>
+                                <i class="fa fa-folder-open"></i>
+                                Section G - Community Relations (18)
+                            </summary>
+                            <ul class="list-unstyled">
+                                        <li class="file" data-id="1255251">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255251' data-foragendaitem='-1' data-documentid='1255251' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GBA - OPEN RECORDS ACT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255252">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255252' data-foragendaitem='-1' data-documentid='1255252' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GBA-E - PUBLIC RECORD ACCESS REQUEST OKLAHOMA OPEN RECORDS ACT</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255253">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255253' data-foragendaitem='-1' data-documentid='1255253' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GBA-R - OPEN RECORDS ACT (REGULATION)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255254">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255254' data-foragendaitem='-1' data-documentid='1255254' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GBC - NEWS MEDIA RELATIONS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255255">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255255' data-foragendaitem='-1' data-documentid='1255255' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GH - BROADCASTING/LIVESTREAMING SCHOOL EVENTS AND ACTIVITIES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255256">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255256' data-foragendaitem='-1' data-documentid='1255256' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GI - ADVERTISING ON SCHOOL PROPERTY</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255257">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255257' data-foragendaitem='-1' data-documentid='1255257' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GIA - DISTRIBUTION OF INFORMATION AND MATERIALS ON SCHOOL PREMISES</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255258">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255258' data-foragendaitem='-1' data-documentid='1255258' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GJ - SCHOOL VISITORS</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255259">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255259' data-foragendaitem='-1' data-documentid='1255259' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GJ-P - SCHOOL VISITORS (GRIEVANCE/APPEALS PROCESS)</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255260">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255260' data-foragendaitem='-1' data-documentid='1255260' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GJA - CLASSROOM VISITATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255261">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255261' data-foragendaitem='-1' data-documentid='1255261' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GJBA - STUDENT RECRUITMENT ACCESS TO STUDENTS AND DIRECTORY INFORMATION</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255262">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255262' data-foragendaitem='-1' data-documentid='1255262' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>_GK - USE OF SCHOOL PROPERTY</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255263">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255263' data-foragendaitem='-1' data-documentid='1255263' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GK-R - USE OF SCHOOL PROPERTY (REGULATIONS) change included</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255264">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255264' data-foragendaitem='-1' data-documentid='1255264' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GK-E1 - REQUEST FOR USE OF SCHOOL PROPERTY</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255265">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255265' data-foragendaitem='-1' data-documentid='1255265' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GKA - RELEASING STUDENTS TO POLICE</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255266">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255266' data-foragendaitem='-1' data-documentid='1255266' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GKA-E - FORM FOR SIGNATURE OF ARRESTING OFFICER</span></a>
+                                        </li>
+                                        <li class="file" data-id="1255267">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=1255267' data-foragendaitem='-1' data-documentid='1255267' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/doc-ms.png' alt='DOC Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GKAA (new 2021) - LAW ENFORCEMENT AND BODY CAMERAS ON SCHOOL PREMISES</span></a>
+                                        </li>
+                                        <li class="file" data-id="14570718">
+                                            <a href='https://meeting.assemblemeetings.com/Documents/FileViewerOrPublic/328?file=14570718' data-foragendaitem='-1' data-documentid='14570718' class='policylinks HideOnOffline' data-tabprefix=': '><img src='https://cdn2.sparqdata.com/images/filetypes/pdf.png' alt='PDF Icon' class='DocumentsFileExtensionIcon' title='' />&nbsp;<span class='fileNameValue'>GKF 10.5.2026</span></a>
+                                        </li>
+                            </ul>
+                        </details>
+                    </li>
+        </ul>
+
+        <input type="hidden" id="TreeViewSelectFolder" value="1255246" />
+    </div>
+
+    <div class="policies_content col-sm-9">
+        <script src="https://cdn2.sparqdata.com/WebViewer.11.10.0/lib/webviewer.min.js" type="text/javascript"></script>
+<script src="https://cdn2.sparqdata.com/Scripts/SparqWebViewer.27.min.js" type="text/javascript"></script>
+<div id="WebViewer" class="visibility-hidden"></div>
+<script>
+    //IE Polyfills
+    if (!String.prototype.endsWith) {
+        String.prototype.endsWith = function (searchString, position) {
+            var subjectString = this.toString();
+            if (typeof position !== 'number' || !isFinite(position)
+                || Math.floor(position) !== position || position > subjectString.length) {
+                position = subjectString.length;
+            }
+            position -= searchString.length;
+            var lastIndex = subjectString.indexOf(searchString, position);
+            return lastIndex !== -1 && lastIndex === position;
+        };
+    }
+    if (!String.prototype.startsWith) {
+        Object.defineProperty(String.prototype, 'startsWith', {
+            value: function (search, rawPos) {
+                var pos = rawPos > 0 ? rawPos | 0 : 0;
+                return this.substring(pos, pos + search.length) === search;
+            }
+        });
+    }
+</script>
+
+<script>
+    (function ($) {
+        SparqWebViewer.prototype.defaultoptions.webViewerPath = '/Content/WebViewer.11.10.0/lib';
+        SparqWebViewer.prototype.defaultoptions.loadUrlFormat = '/Documents/DownloadPDF/TBR_AAAA_?org=328';
+        SparqWebViewer.prototype.defaultoptions.loadAnnotationsUrlFormat = '/Documents/GetNotes/TBR_AAAA_?org=328';
+        SparqWebViewer.prototype.defaultoptions.saveAnnotationsUrlFormat = '/Documents/SaveNotes/TBR_AAAA_?org=328';
+        SparqWebViewer.prototype.defaultoptions.loadDownloadsUrlFormat = '/Documents/CanDownload/TBR_AAAA_?org=328';
+        SparqWebViewer.prototype.defaultoptions.control = document.getElementById("WebViewer");
+        SparqWebViewer.prototype.defaultoptions.allowAnnotations = false;
+        SparqWebViewer.prototype.defaultoptions.annotationsAuthor = '';
+        SparqWebViewer.prototype.defaultoptions.allowDownloads = true;
+        SparqWebViewer.prototype.defaultoptions.skipDownloadsUrl = false;
+    }(jQuery));
+</script>
+        <div class="policies_disclaimer">
+            Disclaimer of Liability: For documents available from this site, Oklahoma State School Boards Association
+            does not warrant or assume any legal liability or responsibility for the
+            accuracy, completeness, or usefulness of any information.  This online manual is the sole
+            property of Lawton Public Schools and is not an official copy of the school
+            board’s official policy/procedure manual. These documents may not contain the most recent
+            changes made by the Board of Education. For an official copy of a policy or procedure, please
+            contact the Lawton Public Schools Central Office.
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn2.sparqdata.com/Scripts/Policies.6.js" type="text/javascript" defer="defer"></script>
+<script src="https://cdn2.sparqdata.com/Scripts/ViewPDFpage.7.js" type="text/javascript" defer="defer"></script>
+
+
+            </main>
+            <hr />
+            
+            <footer id="footer">
+                    <div>
+                        <p>2801 North Lincoln Boulevard, Suite #125 &bull; Oklahoma City, Oklahoma 73105<br />
+P: 405.528.3571 &bull; T:888.528.3571 &bull; F: 405.528.5695</p>
+
+                    </div>
+                <div class="">
+                    Copyright &copy; 2015-2026. Sparq Data Solutions Inc. - All Rights Reserved.
+                </div>
+                    
+                    <div class="row legal-links">
+                            <div class="col-sm-12 col-md-6">
+                                <a href="/Home/Privacy">
+                                    Privacy Policy
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <a href="/Home/Terms">
+                                    Terms and Conditions of Use
+                                </a>
+                            </div>
+                    </div>
+                <div id="footer-logo-section">
+                    <a href="https://www.ossba.org/" target="_blank">
+                        <img alt="OSSBA footer logo" src="https://cdn1.sparqdata.com/SharedContent/themes/assemble/OSSBAlogo.png" id="footer-logo" />
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

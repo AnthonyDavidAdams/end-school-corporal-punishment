@@ -5084,12 +5084,12 @@ districts:
   - name: Lawton Public Schools
     county: Comanche
     nces_id: "4017250"
-    status: silent
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/104/District/79810f33-9f09-40c6-b0a3-506ef32fec20/26-27-Student-Handbook.pdf?disposition=inline
-    quote: null
-    last_verified: 2026-09-26
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4017250-email-7957468b.txt
+    quote: Adams, I have confirmed with staff that the district does not practice corporal punishment.
+    last_verified: 2026-10-26
     legacy_status: allows
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-26; the document is kept in the repository at data/policies/inbound/OK/4017250-email-7957468b.txt. Identity is name and state matched against the federal LEA directory.
     contact:
       district_email: neal.weaver@lawtonps.org
       superintendent: Neal Weaver
@@ -5098,7 +5098,7 @@ districts:
       as_of: 2026-09-25
     policy_code: null
     crdc_students_latest: null
-    method: searched_document
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -5119,6 +5119,9 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
+    quotes:
+      - Adams, I have confirmed with staff that the district does not practice corporal punishment.
+      - "> > Being new to the district, I will tell you that I have never heard of any > such practice, and the fact that we have a policy related to corporal > punishment does not mean that we practice corporal punishment."
   - name: LE FLORE
     county: Le Flore
     nces_id: "4017280"
