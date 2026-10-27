@@ -1034,8 +1034,54 @@ ${tables}
 <div class="bcard"><h2>What we are asking</h2><p>Put the sentence on an agenda. We will send the two-page board brief for your district, the model language in your state's policy code, and, when it is adopted, the Safe School recognition and a press release the district can use.</p></div>
 </div>
 <p><a class="cta" href="mailto:anthony@175g.com?subject=${encodeURIComponent("Board brief for our district")}&body=${encodeURIComponent("Please send the two-page board brief and the model language for our district: ")}">Request the brief for your district</a> <a class="cta alt" href="/kids/stopped/">See the districts that already did it</a> <a class="cta alt" href="/kids/">Find your district's policy</a></p>
+<p class="small">Not in Texas? The same page for your state: ${Object.values(states).filter(x => x.status === "legal" || x.status === "partial").map(x => `<a href="/kids/board/${x.code}/">${esc(x.name)}</a>`).join(" · ")}</p>
 <p class="small">Figures: U.S. Department of Education Civil Rights Data Collection 2023-24; Texas statutes read at statutes.capitol.texas.gov; the Safe Schools Project record of each district's own written policy. Not legal advice.</p>`
   }));
+  // ---------- per-state board pages: /board/<ST>/ ----------
+  // The same page with the state's own law, numbers, peers and sentence. The film is the Texas edition until a
+  // state edition is rendered, and the page says so. ?d=<nces> personalizes the page with that district's own
+  // policy line from the public record; the board-member notes link here with it.
+  const modelLang = JSON.parse(readFileSync(join(root, "data/states/model-language.json"), "utf8"));
+  const lagRows = existsSync(join(root, "data/outreach/policy-lag.json")) ? JSON.parse(readFileSync(join(root, "data/outreach/policy-lag.json"), "utf8")) : [];
+  const permitting = Object.values(states).filter(x => x.status === "legal" || x.status === "partial");
+  for (const s of permitting) {
+    const code = s.code, m = modelLang[code] || {}, ds = districts[code] || [];
+    const c24 = (crdc["2023-24"] || []).find(r => r.state === code) || {}, c17 = (crdc["2017-18"] || []).find(r => r.state === code) || {};
+    const bans = ds.filter(d => d.status === "bans").length, lag = lagRows.filter(d => d.state === code).length, onRecord = ds.filter(d => d.status && d.status !== "unknown").length;
+    const used = Number(m.used_by || 0), own = used >= 5 && m.modal_quote;
+    const sentence = own ? String(m.modal_quote).replace(/^Corporal Punishment\s+/, "").trim() : "The Board prohibits the use of corporal punishment in the District.";
+    const sentenceNote = own ? `${used} ${s.name} boards already use this sentence${m.modal_code ? `, in policy ${esc(m.modal_code)}` : ""}.` : `The sentence most Texas boards use. ${bans} ${s.name} boards prohibit the practice in their own words.`;
+    const struck = c24.students ? `${n(c24.students)} students were struck in ${s.name} public schools in 2023-24` : `${s.name} reported no corporal punishment in 2023-24`;
+    const trend = c17.students && c24.students ? ` In 2017-18 it was ${n(c17.students)}: the practice is already leaving.` : (s.status === "partial" ? " No district in the state has used it since 2018." : "");
+    const shares = c24.students ? `Of the students struck, ${Math.round(100 * (c24.boys || 0) / c24.students)} percent were boys and ${Math.round(100 * (c24.with_disabilities || 0) / c24.students)} percent had a disability.` : "";
+    const limits = Array.isArray(s.limits) ? s.limits : (s.limits ? [s.limits] : []);
+    const dir = join(site, "board", code); mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, "index.html"), shell({
+      title: `One sentence: corporal punishment and your ${s.name} school board`, path: `/board/${code}/`,
+      description: `For ${s.name} school board members: what ${s.statute || "state law"} permits, what the research finds, ${struck}, and the one sentence ${own ? used + " " + s.name + " boards" : "boards"} already adopted.`,
+      image: `${BASE}/assets/one-sentence-poster.jpg`,
+      extraHead: `<style>.film{background:#0B1F33;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:1rem 0 .4rem}.film video{display:block;width:100%;height:auto}.filmnote{margin:0 0 1.4rem}.sentence{font-family:var(--serif);font-weight:900;font-size:1.7rem;line-height:1.25;color:var(--navy-dark);border-left:6px solid var(--red);padding:.4rem 0 .4rem 1rem;margin:1.2rem 0}.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}.bcard{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--shadow)}.bcard h2{font-size:1.15rem;margin:.1rem 0 .5rem}.bcard p{margin:.3rem 0}.cta{display:inline-block;margin:.4rem .6rem .4rem 0;padding:.65rem 1rem;border-radius:8px;background:var(--navy-dark);color:#fff;text-decoration:none;font-weight:700}.cta.alt{background:var(--card);color:var(--navy-dark);border:1px solid var(--rule)}#yours{display:none;border-left:6px solid var(--navy-dark);background:var(--card);padding:.9rem 1.1rem;border-radius:var(--radius);margin:1rem 0}#yours.on{display:block}#yours h2{margin:.1rem 0 .4rem;font-size:1.2rem}</style>
+<script>
+(async function(){try{var d=new URLSearchParams(location.search).get("d");if(!d)return;var r=await fetch("/kids/data/records/${code}.json",{cache:"force-cache"});var rows=await r.json();var x=rows.find(function(y){return String(y.nces_id)===String(d)});if(!x)return;var el=document.getElementById("yours");var st={allows:"permits corporal punishment",bans:"prohibits corporal punishment",consent_required:"permits it with a parent's consent",silent:"has no written rule on it"}[x.status]||"";var q=x.quote?' It says: <q>'+x.quote.replace(/</g,"&lt;")+'</q>':"";var k=(x.crdc_students_latest===0)?" In the latest federal count the district reported no use of it.":(x.crdc_students_latest?" In the latest federal count "+x.crdc_students_latest.toLocaleString()+" students were struck.":"");el.innerHTML="<h2>"+(x.district||x.name).replace(/</g,"&lt;")+"</h2><p>The policy on file"+(x.policy_code?" ("+x.policy_code+")":"")+" "+st+"."+q+k+(x.source?' <a href=\\""+x.source+"\\" rel=\\"noopener\\">Source</a>':"")+"</p>";el.classList.add("on");}catch(e){}})();
+</script>`,
+      body: `<section class="hero"><div class="wrap"><h1>One sentence.</h1>
+<p class="lede">For ${s.name} school board members: what the law permits, what the research finds, where the protection for staff stops, and the one sentence that ends it.</p></div></section>
+<div id="yours"></div>
+<div class="film"><video controls preload="metadata" poster="/kids/assets/one-sentence-poster.jpg" playsinline><source src="/kids/media/one-sentence.mp4" type="video/mp4">Your browser cannot play this video. <a href="/kids/media/one-sentence.mp4">Download it</a>.</video></div>
+<p class="filmnote small">${code === "TX" ? "The four-minute film for board members." : `The four-minute film, Texas edition: the research and the ask are the same everywhere; the ${s.name} figures are below. A ${s.name} edition is in production.`}</p>
+<p class="sentence">&ldquo;${esc(sentence)}&rdquo;</p>
+<p>${sentenceNote} For a district that permits corporal punishment on paper and has not used it in years, adopting the sentence changes nothing on Monday morning except the exposure.${lag ? ` In ${s.name}, ${n(lag)} districts are in exactly that position.` : ""}</p>
+<div class="bgrid">
+<div class="bcard"><h2>${s.name} in numbers</h2><p>${struck}.${trend} ${shares}</p><p class="small">U.S. Department of Education Civil Rights Data Collection.</p></div>
+<div class="bcard"><h2>What the research finds</h2><p>Across 21 studies and 67,400 children, school corporal punishment is associated with more aggressive and disruptive behavior, more anxiety and depression, and lower school performance. Across 75 studies it did not even reliably stop the behavior in the moment. Every source is at <a href="/kids/resources/">Facts</a>.</p></div>
+<div class="bcard"><h2>What ${s.name} law says</h2><p>${s.statute ? `<a href="${esc(s.statute_url || "#")}" rel="noopener">${esc(s.statute)}</a> permits it${s.status === "partial" ? ", and every district has stopped" : ""}.` : "State law permits it."}${limits.length ? ` The law's own conditions: ${esc(limits.join("; "))}.` : ""} Every immunity statute runs out at the policy's edge: where the policy is not followed, the protection is gone, and whether it was followed is decided afterward, by someone else.</p></div>
+<div class="bcard"><h2>Who already did it</h2><p>${bans} of the ${onRecord} ${s.name} boards on the public record prohibit it in writing.${own ? ` ${used} of them use the sentence above.` : ""} <a href="/kids/state/${code}/">See every ${s.name} district's own policy line.</a></p></div>
+<div class="bcard"><h2>What we are asking</h2><p>Put the sentence on an agenda. The two-page board brief for your district, the model policy in your state's numbering, a staff training and the letters to staff and families are free at <a href="/kids/kit/">the kit</a>. When it is adopted, the district is recognized as a Safe School, with a certificate and a press release it can use.</p></div>
+</div>
+<p><a class="cta" href="mailto:anthony@175g.com?subject=${encodeURIComponent(`Board brief for our ${s.name} district`)}&body=${encodeURIComponent("Please send the two-page board brief and the model language for our district: ")}">Request the brief for your district</a> <a class="cta alt" href="/kids/kit/">The kit</a> <a class="cta alt" href="/kids/state/${code}/">Find your district's policy</a></p>
+<p class="small">Figures: U.S. Department of Education Civil Rights Data Collection 2023-24 and 2017-18; ${s.name} statutes at the link above; the Safe Schools Project record of each district's own written policy. Not legal advice.</p>`
+    }));
+  }
   mkdirSync(join(site, "act"), { recursive: true });
   writeFileSync(join(site, "act", "index.html"), shell({
     title: "Things you can do today to end school corporal punishment", path: "/act/",

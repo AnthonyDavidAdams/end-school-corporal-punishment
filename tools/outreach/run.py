@@ -1138,7 +1138,7 @@ def queue_board(n=25, days=14):
             rid = hashlib.sha1(f"board|{r['state']}|{r['nces_id']}|{m['email'].lower()}".encode()).hexdigest()[:10]
             if any(x["id"] == rid for x in reqs): continue
             reqs.append({"id": rid, "state": r["state"], "name": r["name"], "nces_id": r["nces_id"], "kids": 0, "kind": "board_note", "to": m["email"], "member": m["name"], "role": m.get("role"),
-                         "quote": r.get("quote"), "policy_code": r.get("policy_code"), "link": links.make(r["nces_id"], m["email"], "board", m["name"]), "parent_request": r["id"],
+                         "quote": r.get("quote"), "policy_code": r.get("policy_code"), "link": links.make(r["nces_id"], m["email"], "board", m["name"], r["state"]), "parent_request": r["id"],
                          "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
         done.add(str(r["nces_id"])); added += 1
     save(reqs); log(f"queue-board: {added} boards queued (held)"); return added

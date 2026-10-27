@@ -21,12 +21,15 @@ def load():
     if not os.path.exists(FILE): return {}
     return {json.loads(l)["token"]: json.loads(l) for l in open(FILE) if l.strip()}
 
-def make(nces, email, campaign, name=""):
+def make(nces, email, campaign, name="", state=None):
+    """The tagged link. With a state, it lands on that state's board page with the district id, so the page
+    shows the district's own policy line; without one, the Texas page."""
     tok = hmac.new(secret().encode(), f"{nces}|{email.lower()}|{campaign}".encode(), hashlib.sha256).hexdigest()[:10]
     rows = load()
     if tok not in rows:
         with open(FILE, "a") as f:
             f.write(json.dumps({"token": tok, "nces_id": str(nces), "email": email, "name": name, "campaign": campaign, "made": datetime.datetime.now().isoformat(timespec="seconds")}) + "\n")
+    if state: return f"https://earthpilot.org/kids/board/{state}/?r={tok}&d={nces}"
     return BASE + tok
 
 if __name__ == "__main__":
