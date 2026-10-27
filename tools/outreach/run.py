@@ -788,13 +788,14 @@ def catchup(send=True):
     M.logout(); log(f"catchup: {sent} sent, {held} held")
 
 
-def rehold(send=True):
+def rehold(send=True, only=None):
     """Threads held for a person: decide again with the whole thread. Sends when the writer picks a move and
     the referee passes; otherwise refreshes the draft with the suggested text. Never touches a thread
     Anthony has written in, and never re-answers a message that already got a reply from us."""
     reqs = load(); M = imap(); mine = anthony_threads(M, reqs); sent = held = 0
     for r in reqs:
         if r.get("status") != "needs_review" or r["id"] in mine or not r.get("replies"): continue
+        if only and r["id"] not in only: continue
         e = r["replies"][-1]
         if e.get("from") == "us" or e.get("our_reply") or e.get("move") not in (None, "hold"): continue
         path = os.path.join(REPLIES, r["id"], e.get("file") or "")
@@ -847,21 +848,119 @@ def rehold(send=True):
         save(reqs)
     M.logout(); log(f"rehold: {sent} sent, {held} still held")
 
+# ---------------------------------------------------------------- the decisions desk
+DECISIONS = os.path.join(ROOT, "data/outreach/decisions.json")
+DECISIONS_STATE = os.path.join(ROOT, "data/outreach/decisions-state.json")
+DECISIONS_LOG = os.path.join(ROOT, "data/outreach/decisions-log.jsonl")
+DECIDE_URL = "https://earthpilot.org/kids/ops/decide.php"
+def ops_token():
+    p = os.path.expanduser("~/.escp-deploy.env")
+    for l in open(p) if os.path.exists(p) else []:
+        if l.startswith("OPS_TOKEN="): return l.split("=", 1)[1].strip().strip('"')
+    return None
+
+def dlog(**row):
+    row["t"] = datetime.datetime.now().isoformat(timespec="seconds")
+    open(DECISIONS_LOG, "a").write(json.dumps(row) + "\n"); log("decision", row.get("by"), row.get("action"), row.get("id"), "->", row.get("outcome"))
+
+def apply_decision(did, action, note, by, state):
+    """One decision from the desk, Anthony's tap or the clock. Returns a one-line outcome for the log.
+    Anthony's approve sends the draft as it stands; the clock's approve has the referee read it again and
+    falls back to a redraft (rehold) when the referee declines."""
+    reqs = load(); st = state.setdefault(did, {})
+    kind, _, rest = did.partition(":")
+    if action == "hold":
+        st["hold"] = True; st["hold_note"] = note or ""; return "held, no clock"
+    if kind == "reply":
+        rid = rest.split(":")[0]; r = next((x for x in reqs if x["id"] == rid), None)
+        if not r or not r.get("replies"): return "request not found"
+        e = r["replies"][-1]
+        if r["status"] != "needs_review": return f"already {r['status']}"
+        if action in ("drop", "skip"):
+            r["status"] = "sent"; e["action"] = (e.get("action") or "") + f"; closed by {by}, no reply"; save(reqs); return "closed, no reply"
+        if action == "retry":
+            if note: e["redraft_note"] = note; save(reqs)
+            rehold(send=True, only={rid}); r2 = next(x for x in load() if x["id"] == rid)
+            return "redrafted and sent" if r2["status"] != "needs_review" else "redrafted, still waiting"
+        if action == "approve":
+            text = e.get("suggested")
+            if not text: return "no draft to send"
+            if by == "auto" and not writer_mod.check(text, thread_of(r), record_status(r)):
+                st["auto_tried"] = datetime.datetime.now().isoformat(timespec="minutes")
+                rehold(send=True, only={rid}); r2 = next(x for x in load() if x["id"] == rid)
+                return "referee declined the draft; redrafted and sent" if r2["status"] != "needs_review" else "referee declined the draft; redrafted, waits for Anthony"
+            subject = r.get("subject") or ""
+            path = os.path.join(REPLIES, rid, e.get("file") or "")
+            if e.get("file") and os.path.exists(path):
+                try: subject = str(make_header(decode_header(email.message_from_bytes(open(path, "rb").read()).get("Subject") or ""))) or subject
+                except Exception: pass
+            if reply_to(r, e.get("from"), e.get("message_id"), subject or (messages.nice(r["name"]) + " corporal punishment policy"), text):
+                e["our_reply"] = text; e["move"] = e.get("move") if e.get("move") not in (None, "hold") else "answer"; e["action"] = (e.get("action") or "") + f"; approved by {by}, sent"
+                r["status"] = "sent"; save(reqs); return "sent"
+            return "send failed"
+        return f"nothing to do for {action} on a reply"
+    if kind == "batch":
+        if action == "approve": return f"released {release(rest)}"
+        if action == "drop":
+            n = 0
+            for r in reqs:
+                if r.get("kind") == rest and r["status"] == "held": r["status"] = "dropped"; n += 1
+            save(reqs); return f"dropped {n}"
+        return f"nothing to do for {action} on a batch"
+    if kind == "standing":
+        if action in ("go", "approve"): st["go"] = datetime.datetime.now().isoformat(timespec="minutes"); st["go_note"] = note or ""; return "go recorded; Claude picks it up"
+        if action in ("skip", "drop"): st["skipped"] = datetime.datetime.now().isoformat(timespec="minutes"); return "skipped"
+    return f"nothing to do for {action} on {kind}"
+
+def decide():
+    """Apply what Anthony tapped on the desk since the last cycle, then whatever has waited past its clock."""
+    tok = ops_token(); state = json.load(open(DECISIONS_STATE)) if os.path.exists(DECISIONS_STATE) else {}
+    queue = []
+    if tok:
+        try:
+            req = urllib.request.Request(DECIDE_URL + "?token=" + urllib.parse.quote(tok), headers={"User-Agent": "escp-outreach"})
+            queue = json.load(urllib.request.urlopen(req, timeout=30))
+        except Exception as ex: log("decide: inbox fetch failed", repr(ex)[:80])
+    acks = []
+    for q in queue:
+        try: out = apply_decision(q["id"], q["action"], q.get("note"), "anthony", state)
+        except Exception as ex: out = f"failed: {repr(ex)[:80]}"
+        dlog(id=q["id"], action=q["action"], by="anthony", outcome=out, note=q.get("note") or ""); acks.append(q["n"])
+        json.dump(state, open(DECISIONS_STATE, "w"), indent=1)
+    if acks:
+        try:
+            req = urllib.request.Request(DECIDE_URL, data=json.dumps({"token": tok, "ack": acks}).encode(), headers={"Content-Type": "application/json", "User-Agent": "escp-outreach"})
+            urllib.request.urlopen(req, timeout=30).read()
+        except Exception as ex: log("decide: ack failed", repr(ex)[:80])
+    if os.path.exists(DECISIONS):
+        now = datetime.datetime.now().isoformat(timespec="minutes"); n = 0
+        for it in json.load(open(DECISIONS)).get("items", []):
+            st = state.get(it["id"], {})
+            if not it.get("auto_at") or it["auto_at"] > now or st.get("hold") or st.get("auto_tried") or st.get("auto_done"): continue
+            if time.time() > CYCLE_DEADLINE - 120: log("decide: out of time, the rest wait a cycle"); break
+            try: out = apply_decision(it["id"], "approve", None, "auto", state)
+            except Exception as ex: out = f"failed: {repr(ex)[:80]}"
+            state.setdefault(it["id"], {})["auto_done"] = now
+            dlog(id=it["id"], action="approve", by="auto", outcome=out); n += 1
+            json.dump(state, open(DECISIONS_STATE, "w"), indent=1); time.sleep(2)
+        if n: log(f"decide: {n} went ahead on the clock")
+    json.dump(state, open(DECISIONS_STATE, "w"), indent=1)
+
 def ops_page():
     """Rebuild the mission-control page and push just that folder, so the dashboard is never more than 15 minutes old."""
     try:
         subprocess.run([sys.executable, os.path.join(ROOT, "tools/ops-page.py")], cwd=ROOT, capture_output=True, timeout=120)
         envp = os.path.expanduser("~/.escp-deploy.env")
+        try: subprocess.run([sys.executable, os.path.join(ROOT, "tools/crm.py")], cwd=ROOT, capture_output=True, text=True, timeout=300)
+        except Exception as ex: log("crm failed", repr(ex)[:80])
+        try: subprocess.run([sys.executable, os.path.join(ROOT, "tools/decisions.py")], cwd=ROOT, capture_output=True, text=True, timeout=120)
+        except Exception as ex: log("decisions failed", repr(ex)[:80])
         if os.path.exists(envp):
             env = dict(l.strip().split("=", 1) for l in open(envp) if "=" in l and not l.startswith("#"))
             env = {k: v.strip('"') for k, v in env.items()}
             subprocess.run(["sshpass", "-p", env["DEPLOY_PASS"], "rsync", "-az", "-e", "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no",
                             os.path.join(ROOT, "site/ops/"), f"{env['DEPLOY_HOST']}:{env['DEPLOY_PATH']}/ops/"], capture_output=True, timeout=120, env={**os.environ, "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"})
         log("ops page rebuilt")
-        try: subprocess.run([sys.executable, os.path.join(ROOT, "tools/crm.py")], cwd=ROOT, capture_output=True, text=True, timeout=300)
-        except Exception as ex: log("crm failed", repr(ex)[:80])
-        try: subprocess.run([sys.executable, os.path.join(ROOT, "tools/decisions.py")], cwd=ROOT, capture_output=True, text=True, timeout=120)
-        except Exception as ex: log("decisions failed", repr(ex)[:80])
     except Exception as ex:
         log("ops page failed", repr(ex)[:100])
 
@@ -957,7 +1056,7 @@ def refile(names=None):
     save(reqs); log(f"refile: {done} records filled"); return done
 
 
-def queue_align(n=25):
+def queue_align(n=25, states=None):
     """Districts whose written policy permits corporal punishment but which reported no use of it: the
     invitation to become a Safe School by aligning the policy with the practice, with the board brief
     attached. Largest districts first; Texas and Oklahoma lead by weight of numbers."""
@@ -976,7 +1075,7 @@ def queue_align(n=25):
     added = 0
     for d in lag:
         if added >= n: break
-        if d["nces_id"] in have: continue
+        if d["nces_id"] in have or (states and d["state"] not in states): continue
         c = contacts.get(("id", d["nces_id"])) or contacts.get((d["state"], re.sub(r"[^a-z0-9]", "", d["name"].lower()))) or {}
         to = c.get("district_email") or c.get("email")
         if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
@@ -1137,8 +1236,9 @@ if __name__ == "__main__":
     if cmd == "retriage": retriage(send="--send" in sys.argv); sys.exit()
     if cmd == "tidy": tidy(); sys.exit()
     if cmd == "rehold": rehold(send="--dry" not in sys.argv); sys.exit()
+    if cmd == "decide": decide(); sys.exit()
     if cmd == "catchup": catchup(send="--dry" not in sys.argv); sys.exit()
-    if cmd == "queue-align": queue_align(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "queue-align": queue_align(int(sys.argv[2]) if len(sys.argv) > 2 else 25, sys.argv[3].split(",") if len(sys.argv) > 3 else None); sys.exit()
     if cmd == "release-align":   # Anthony has seen the held list; let the next cycle send it
         reqs = load(); k = 0; skip = set(sys.argv[sys.argv.index("--not") + 1].split(",")) if "--not" in sys.argv else set()
         for r in reqs:
@@ -1176,6 +1276,8 @@ if __name__ == "__main__":
             if out: log("certificates (momentum):", out[-1][:100])
         except Exception as ex:
             log("momentum certificates failed", repr(ex)[:100])
+        try: decide()
+        except Exception as ex: log("decide failed", repr(ex)[:100])
         ops_page()
         inbox()
     elif cmd == "compliments":

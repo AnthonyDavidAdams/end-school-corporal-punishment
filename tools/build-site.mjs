@@ -161,7 +161,7 @@ const q=document.getElementById("dsearch");if(q){q.addEventListener("input",()=>
 }
 const esc = s => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const n = v => v == null || v === "" ? "" : Number(v).toLocaleString("en-US");
-const LABEL = { banned: "Prohibited in public schools", partial: "Legal, but every district has stopped", legal: "Legal in public schools" };
+const LABEL = { banned: "Prohibited in public schools", partial: "Legal, but no district uses it", legal: "Legal in public schools" };
 const COLOR = { banned: "#2D6A4F", partial: "#C05621", legal: "#9B2C2C" };
 const claim = id => claims.find(c => c.id === id);
 const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`(.+?)`/g, "<code>$1</code>");
@@ -506,7 +506,7 @@ writeFileSync(join(site, "index.html"), shell({
   description: "The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.",
   extraHead: `<script defer src="/kids/map.js?v=${ver("map.js")}"></script>`,
   body: `<section class="hero"><div class="wrap"><h1>Where a teacher may still legally hit a student</h1>
-<p class="lede">In ${legalStates.length} states a public school employee may paddle a child as punishment, and does. In ${partialStates.length} more it is legal but every district has stopped. Hover or tap a state. Every status links to its statute and every number to its source.</p></div></section>
+<p class="lede">In ${legalStates.length} states a public school employee may paddle a child as punishment, and does. In ${partialStates.length} more it is legal but no district uses it, though a few boards never took it off paper. Hover or tap a state. Every status links to its statute and every number to its source.</p></div></section>
 <div class="mapbox"><div class="mapctl"><select id="jump" aria-label="Go to a state"><option value="">Go to a state…</option>${Object.values(states).sort((a, b) => a.name.localeCompare(b.name)).map(s => `<option value="${s.code}">${esc(s.name)}</option>`).join("")}</select><span class="meta">Hover a state for its status and numbers; click to open it. County lines show where district policies differ.</span></div>
 <div id="map" aria-live="polite"></div><div class="tip" id="stip"></div><div class="legend" id="legend"></div></div>
 <section class="live">
@@ -528,7 +528,7 @@ writeFileSync(join(site, "index.html"), shell({
 <p class="meta">Sources: US Department of Education Civil Rights Data Collection; Global Initiative to End All Corporal Punishment of Children (March 2025). Counts are students, not incidents, self-reported by districts the Department says likely underreport. <a href="/kids/resources/#facts">All claims with sources.</a></p>
 <h2>Still legal and in use</h2>
 <p class="states-list">${legalStates.map(stateLink).join("<br>")}</p>
-<h2>Legal, but every district has stopped</h2>
+<h2>Legal, but no district uses it</h2>
 <p>${partialStates.map(stateLink).join(", ")}. Kentucky reached zero through a 2022 state board regulation; North Carolina through twenty years of district-by-district work.</p>
 <h2>How it ends</h2>
 <div class="grid">

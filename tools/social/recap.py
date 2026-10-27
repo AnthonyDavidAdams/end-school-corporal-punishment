@@ -83,7 +83,17 @@ print(path); print(body_li)
 if "--no-text" not in sys.argv:
     try:
         dec = json.load(open(os.path.join(ROOT, "data/outreach/decisions.json")))
-        dline = f"{dec['count']} decisions waiting for you: " + "; ".join(dec["lines"][:8]) + ". Full list with drafts: earthpilot.org/kids/ops/decisions.html. Reply with the numbers and what to do.\n\n"
+        tok = next((l.split("=", 1)[1].strip().strip('"') for l in open(os.path.expanduser("~/.escp-deploy.env")) if l.startswith("OPS_TOKEN=")), "") if os.path.exists(os.path.expanduser("~/.escp-deploy.env")) else ""
+        link = "earthpilot.org/kids/ops/decisions.html" + (f"#k={tok}" if tok else "")
+        cut = (now - datetime.timedelta(hours=24)).isoformat(); done = collections.Counter()
+        lp = os.path.join(ROOT, "data/outreach/decisions-log.jsonl")
+        for l in (open(lp) if os.path.exists(lp) else []):
+            try:
+                j = json.loads(l)
+                if j.get("t", "") >= cut: done[j.get("by")] += 1
+            except Exception: pass
+        dline = (f"{dec['count']} decisions waiting: " + "; ".join(dec["lines"][:8]) + f". Tap to approve, hold or redraft: {link} (anything with a clock goes ahead by itself after {dec.get('auto_hours', 24)}h). "
+                 + f"Since yesterday: {done['anthony']} you approved, {done['auto']} went ahead on the clock.\n\n")
     except Exception: dline = ""
     msg = dline + f"[{health}] Safe Schools recap draft ({'weekly' if weekly else 'daily'}) is ready. LinkedIn version:\n\n{body_li}\n\nReply 'post' and Claude will put it on LinkedIn and Facebook, or paste it yourself. File: {path}"
     cfg = {}
