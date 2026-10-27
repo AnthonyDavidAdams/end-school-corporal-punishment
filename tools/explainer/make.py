@@ -35,6 +35,16 @@ def words(n):
     if n < 1000000: return words(n // 1000) + " thousand" + ("" if n % 1000 == 0 else (", " if n % 1000 >= 100 else " and ") + words(n % 1000))
     return words(n // 1000000) + " million" + ("" if n % 1000000 == 0 else ", " + words(n % 1000000))
 
+# ------------------------------------------------------------------ real first-hand accounts, verified at the page (facts/claims/testimony-first-hand-accounts.md)
+WITNESS = {
+    "NC": {"name": "Allison", "voice": "witness", "quote": "That's like my first time ever being in trouble! And my dad was like, 'Just paddle her.' Because down here in the mountains, we do it the old-school way.",
+           "card": "Allison Collins, paddled as a sophomore at Robbinsville High, Graham County. WUNC, 2017."},
+    "MS": {"name": "Sherrell", "voice": "witness", "quote": "I was paddled with a dress on. A dress. Having to bend over, touch the desk, with a dress on. No.",
+           "card": "Sherrell McGee, former student and parent, Collins, Mississippi. The Hechinger Report, 2022."},
+    "TX": {"name": "Greg", "voice": "witness_m", "quote": "He asked me to essentially bend over his desk, and he hit me three times. It was three full swing hits, and each one hurt more than the last.",
+           "card": "Greg Hooper, paddled at 16 at Alvarado High School. KERA News, 2026."},
+}
+
 # ------------------------------------------------------------------ the state's numbers, the same sources as the board page
 def crdc(year, code):
     p = os.path.join(ROOT, "data/crdc", year, "states.csv")
@@ -72,6 +82,12 @@ def fill(code):
                           "and that the secretary kept typing. Three licks. Then I walked back to class, and everybody knew, and I sat down very carefully. "
                           "I did not shove anyone again. I also did not raise my hand again that year.")
     f["witness_attr"] = "Ava, remembering. A composite of published accounts."
+    f["after_witness"] = "That is what being hit at school is like."
+    f["witness_voice"] = "witness"
+    # Where a state has a verified first-hand account on file, it opens instead, read aloud and attributed on the card.
+    real = WITNESS.get(code)
+    if real:
+        f["witness_quote"], f["witness_attr"], f["after_witness"], f["witness_voice"] = real["quote"], real["card"], f"That was {real['name']}, remembering.", real["voice"]
     f["who_card"] = (f"{round(100 * (c24.get('boys') or 0) / struck)} of every 100 are boys. {round(100 * (c24.get('with_disabilities') or 0) / struck)} have a disability." if struck else "")
     f["lag_card"] = f"{lag:,} {st} districts: zero use, policy still permits" if lag else ""
     f["sentence_card"] = (f"{used} {st} boards use this sentence" if own else f"{bans} {st} boards prohibit it in writing")
@@ -84,6 +100,7 @@ def fill(code):
         if s.get("skip_if") in skip: continue
         s = dict(s); s["vo"] = s["vo"].format(**f); s["highlight"] = [h.format(**f) for h in s.get("highlight", [])]
         if s.get("card"): s["card"] = s["card"].format(**f)
+        if s.get("voice") == "witness": s["voice"] = f["witness_voice"]
         scenes.append(s)
     out = {"state": code, "state_name": st, "title": base["title"], "voice": base["voice"], "voice_witness": base.get("voice_witness"), "style": base["style"], "motion": base["motion"], "scenes": scenes, "facts": f}
     d = os.path.join(OUT, code); os.makedirs(d, exist_ok=True)
@@ -156,7 +173,7 @@ def voice(code, voice_dir=None):
             if os.path.exists(src) and not os.path.exists(p): shutil.copy(src, p); n += 1
             continue
         if os.path.exists(p): continue
-        v = sc.get("voice_witness") if s.get("voice") == "witness" and sc.get("voice_witness") else sc["voice"]
+        v = {"witness": sc.get("voice_witness"), "witness_m": {"model": sc["voice"]["model"], "voice": "Daniel", "speed": 0.93}}.get(s.get("voice")) or sc["voice"]
         r = fal(v["model"], {"text": s["vo"], "voice": v["voice"], "speed": v["speed"], "stability": 0.5, "similarity_boost": 0.75})
         fetch(r["audio"]["url"], p); n += 1; print("voice", s["id"])
     print(f"voice: {n} new")
