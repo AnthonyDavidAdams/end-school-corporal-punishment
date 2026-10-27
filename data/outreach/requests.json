@@ -30080,7 +30080,7 @@
   "to": "stacy.brown@ccstn.org",
   "superintendent": "Stacy Brown",
   "statute": null,
-  "status": "sent",
+  "status": "answered",
   "sent_at": "2026-10-10T17:37:58",
   "message_id": "<escp-371ce04ae4@earthpilot.org>",
   "replies": [
@@ -30114,6 +30114,30 @@
     "action": "; logged, no reply needed: Stacy's message is an internal handoff asking Angela to attach policy 6.314; nothing to answer until the attachment arrives, so no reply sent.",
     "move": "hold",
     "why": "Stacy's message is an internal handoff asking Angela to attach policy 6.314; nothing to answer until the attachment arrives, so no reply sent."
+   },
+   {
+    "message_id": "<MN2PR12MB3694FB7EB3BE8863EDCE55399D602@MN2PR12MB3694.namprd12.prod.outlook.com>",
+    "from": "Angela.Patterson@ccstn.org",
+    "date": "Tue, 27 Oct 2026 13:44:14 +0000",
+    "kind": "document_attached",
+    "confidence": 0.95,
+    "facts": {
+     "document_attachments": [
+      "6314.docx"
+     ]
+    },
+    "attachments": [
+     "image.png",
+     "6314.docx"
+    ],
+    "links": [
+     "https://tsbanet.sharepoint.com/:w:/g/IQDZTKNN0LbDQaKnnNVqfVFDAQkckRjhvhpOQ_e20IrsaVE?rtime=gPCBry4030g"
+    ],
+    "file": "86574e17.eml",
+    "action": "recorded bans; replied (thank_recorded)",
+    "move": "thank_recorded",
+    "why": "Angela sent policy 6.314 and the link; record now says the board prohibits it, so thank them and confirm.",
+    "our_reply": "Hi Angela,\n\nGot it, thank you, the attachment and the link both came through this time. Our record for Cheatham County now says the board prohibits it, quoting 6.314 word for word with that link as the source. Please thank Stacy for me too, and if anything about that ever changes just let me know and I'll update it.\n\nAnthony\n\nSent from my iPhone"
    }
   ],
   "followup_sent_at": null,
@@ -30128,19 +30152,26 @@
    "made": "2026-10-10"
   },
   "body": "Hey Stacy,\n\nI'm having trouble finding the policy on corporal punishment. Can you point me to the link or send it over?\n\nAnthony\n\nSent from my iPhone\n",
-  "answered_from": "Stacy.Brown@ccstn.org",
-  "last_reply_at": "2026-10-27T07:51:26",
+  "answered_from": "Angela.Patterson@ccstn.org",
+  "last_reply_at": "2026-10-27T08:46:18",
   "answered_message_ids": [
    "<LV8PR12MB92290508177F47668DA61D19F3982@LV8PR12MB9229.namprd12.prod.outlook.com>",
-   "<29A7D992-A9E3-4C2B-8FA7-22A356C1D5AC@ccstn.org>"
+   "<29A7D992-A9E3-4C2B-8FA7-22A356C1D5AC@ccstn.org>",
+   "<MN2PR12MB3694FB7EB3BE8863EDCE55399D602@MN2PR12MB3694.namprd12.prod.outlook.com>"
   ],
   "our_messages": [
    {
     "at": "2026-10-26T21:47:16",
     "to": "Stacy.Brown@ccstn.org",
     "text": "Hey Stacy,\n\nThanks, that's a big help. The attachment didn't come through on my end, just a blank spot where the image should be. Could you send me the direct link to 6.314 on the district's site, or paste the text into an email? I'd looked through the policy pages online and hadn't spotted it, so the link would be great.\n\nAnthony\n\nSent from my iPhone"
+   },
+   {
+    "at": "2026-10-27T08:46:44",
+    "to": "Angela.Patterson@ccstn.org",
+    "text": "Hi Angela,\n\nGot it, thank you, the attachment and the link both came through this time. Our record for Cheatham County now says the board prohibits it, quoting 6.314 word for word with that link as the source. Please thank Stacy for me too, and if anything about that ever changes just let me know and I'll update it.\n\nAnthony\n\nSent from my iPhone"
    }
-  ]
+  ],
+  "recorded_status": "bans"
  },
  {
   "id": "80b23b0fe5",
