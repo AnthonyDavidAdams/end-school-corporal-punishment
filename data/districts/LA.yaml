@@ -899,15 +899,15 @@ districts:
   - name: Lafayette Parish Schools
     county: Lafayette
     nces_id: "2200870"
-    status: silent
-    source: https://go.boarddocs.com/la/lpss/Board.nsf/files/CG8TUV791EA1/$file/22-23SY%20Handbook%20-%20Final%20BOARD.pdf
-    quote: null
-    last_verified: 2026-09-26
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/LA/2200870-JDA__Corporal_Punishment__1_.pdf
+    quote: JDA, Corporal Punishment The Lafayette Parish School Board does not authorize or condone the use of corporal punishment as a means of administering disciplinary measures in the schools.
+    last_verified: 2026-10-27
     legacy_status: allows
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/LA/2200870-JDA__Corporal_Punishment__1_.pdf. Identity is name and state matched against the federal LEA directory.
     policy_code: null
     crdc_students_latest: null
-    method: searched_document
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -934,6 +934,9 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
+    quotes:
+      - JDA, Corporal Punishment The Lafayette Parish School Board does not authorize or condone the use of corporal punishment as a means of administering disciplinary measures in the schools.
+      - IMPERMISSIBLE CORPORAL PUNISHMENT Any corporal punishment administered to a student shall be deemed and defined to be impermissible corporal punishment.
   - name: Lafourche Parish
     county: Lafourche Parish
     nces_id: "2200900"
