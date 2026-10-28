@@ -11,7 +11,7 @@ import { MOTION } from "./scenes";
 export function layout(data) {
   const { fps, lead, tail, xf } = data; let t = 0; const out = [];
   for (const s of data.scenes) {
-    const T = s.vo_dur + lead + tail; if (out.length) t -= xf;
+    const T = s.vo_dur + lead + (s.tail ?? tail); if (out.length) t -= xf;   // a scene may ask for a longer hold
     out.push({ ...s, T, start: t, frames: Math.round(T * fps) }); t += T;
   }
   return { scenes: out, total: t };

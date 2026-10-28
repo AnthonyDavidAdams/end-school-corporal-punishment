@@ -1,36 +1,41 @@
 {
  "title": "One Sentence",
- "edition": "national",
+ "edition": "national v5",
  "voice": "Brian",
- "notes": "National edition of script-v3.json: the same fourteen scenes, the Texas facts replaced with national ones. Every figure spelled out for the voice; digits on screen. Sources: facts/claims/law-states-permitting-count (17 states), crdc-national-total-2023-24-computed (19,851 students, 28,310 instances, 832 districts), data/crdc/2023-24/SOURCE.md (boys 81.3 percent, 3,385 of 19,851 with a disability = 17 percent), data/crdc/national.csv (69,492 in 2017-18, 24,534 in 2021-22; down 71 percent), law-cardona-letter-2023, law-ingraham-v-wright-1977, OCR Part 4 factsheet for the CRDC definition, data/districts/*.yaml (1,190 boards in the 17 states prohibit in writing, 2026-10-28), data/outreach/policy-lag.json (827 districts permit on paper and reported none in 2023-24). Scenes whose narration is unchanged from v3 (s05, s06, s07, s12, s14) reuse the v3 voice files. 'fig'/'cues'/'rows' fields are read by tools/film-remotion/src/scenes.tsx; a scene without them renders the Texas defaults. The boardroom and sunrise shots are re-made (boardroom_us, sunrise_us) because the Texas edition's carried a Texas flag; every other clip and still is the Texas edition's.",
+ "notes": "National edition v5 (2026-10-28): the two-girls spine with the professional consensus and the three board questions added; Texas close replaced by a single example policy; every line voiced on ElevenLabs v3 (fal-ai/elevenlabs/tts/eleven-v3). Numbers spelled out for the voice with no internal commas or 'and' (v2 read the comma-separated form as a list). Sources: facts/claims/law-states-permitting-count (17 states), crdc-national-total-2023-24-computed (19,851 / 28,310 / 832), data/crdc/2023-24/SOURCE.md (81 percent boys, 17 percent disability), data/crdc/national.csv (69,492 in 2017-18, 24,534 in 2021-22, down 71 percent), law-cardona-letter-2023, law-ingraham-v-wright-1977, org-nwlc-open-letter-2016 (79 signers on the NWLC page), org-aap-2023-school-statement, org-nasp-position, org-aacap-2012, org-national-pta, study-visser-2022, study-gershoff-grogan-kaylor-2016, study-gershoff-sattler-holden-2019, alt-classroom-management-korpershoek-2016, data/districts/*.yaml (1,190 boards in the 17 states prohibit in writing), data/outreach/policy-lag.json (827 districts in 16 states permit on paper and reported none in 2023-24; a floor, from the districts on record). 'fig'/'cues' are read by tools/film-remotion/src/scenes.tsx; 'tail' overrides the scene's hold after the narration.",
  "scenes": [
   {
    "id": "s01_paddle",
    "kind": "clip",
-   "clip": "paddle",
+   "clip": "paddle_v5",
    "look": "photo",
-   "vo": "This is a school paddle. In seventeen states, it is still legal.",
+   "vo": "This is a school paddle. In seventeen states, it is still legal. Whether it stays legal in your district is not decided in a state capitol. It is decided by a local school board. This film is for them.",
    "highlight": [
-    "still legal"
-   ]
+    "still legal",
+    "a local school board"
+   ],
+   "screen": {
+    "a local school board": "Decided by the local school board."
+   },
+   "note": "paddle_v5: Kling clip from the still paddle-c1.jpg (a real paddle by a window); the Texas edition's paddle clip was malformed."
   },
   {
    "id": "s02_hallway",
    "kind": "clip",
    "clip": "hallway",
    "look": "photo",
-   "vo": "The school year was twenty twenty-three to twenty twenty-four. American public schools reported corporal punishment of nineteen thousand, eight hundred and fifty-one students. That is not a count of incidents. It is a count of children. Not in nineteen seventy-four. Last year.",
+   "vo": "Last school year, American public schools reported corporal punishment of nineteen thousand eight hundred fifty-one students. That is not a count of incidents. It is a count of children. Not in nineteen seventy-four. Last year.",
    "highlight": [
-    "twenty twenty-three to twenty twenty-four",
-    "nineteen thousand, eight hundred and fifty-one",
+    "Last school year",
+    "nineteen thousand eight hundred fifty-one",
     "not a count of incidents",
     "a count of children",
     "nineteen seventy-four",
     "Last year"
    ],
    "screen": {
-    "twenty twenty-three to twenty twenty-four": "2023-24 school year",
-    "nineteen thousand, eight hundred and fifty-one": "19,851 students",
+    "Last school year": "2023-24 school year",
+    "nineteen thousand eight hundred fifty-one": "19,851 students",
     "not a count of incidents": "Not a count of incidents.",
     "a count of children": "A count of children.",
     "nineteen seventy-four": "Not in 1974."
@@ -40,7 +45,7 @@
    "id": "s03_counter",
    "kind": "motion",
    "scene": "counter",
-   "vo": "Nineteen thousand, eight hundred and fifty-one students. Twenty-eight thousand, three hundred and ten separate instances, so many of them were struck more than once. In eight hundred and thirty-two districts.",
+   "vo": "Nineteen thousand eight hundred fifty-one students. Twenty-eight thousand three hundred ten separate instances, which means many of them were struck more than once. In eight hundred thirty-two districts.",
    "fig": {
     "eyebrow": "United States public schools · 2023-24",
     "students": 19851,
@@ -50,14 +55,14 @@
    "cues": {
     "students": "Nineteen thousand",
     "instances": "Twenty-eight thousand",
-    "districts": "eight hundred and thirty-two"
+    "districts": "eight hundred thirty-two"
    }
   },
   {
    "id": "s04_statute",
    "kind": "motion",
    "scene": "statute",
-   "vo": "The federal government defines it plainly. Quote: paddling, spanking, or other forms of physical punishment imposed on a child. In the seventeen states that allow it, the law does not require it. It does not recommend it. It permits it, if a local school board says so. And the same board can say no.",
+   "vo": "The federal government defines it in plain words. Paddling, spanking, or other forms of physical punishment imposed on a child. In the seventeen states that allow it, the law does not require it. It does not recommend it. It permits it, if a local school board says so. And the same board can say no.",
    "fig": {
     "eyebrow": "U.S. Department of Education · Civil Rights Data Collection",
     "quote": "paddling, spanking, or other forms of physical punishment imposed on a child.",
@@ -77,7 +82,7 @@
    "kind": "clip",
    "clip": "two_desks",
    "look": "paint",
-   "vo": "Take two girls. Same town, same grade, same kind of family, same desk by the window. Call them Ava and Emma. On a Tuesday in October, each of them does the same thing. She shoves a classmate who took her seat. Two schools. Two policies.",
+   "vo": "Take two girls. Same town, same grade, same kind of family, same desk by the window. Call them Ava and Emma. On a Friday in September, each of them does the same thing. She shoves a classmate who took her seat. Two schools. Two policies.",
    "highlight": [
     "Same town, same grade",
     "the same thing",
@@ -111,7 +116,7 @@
    "left": "ava_desk",
    "right": "emma_desk",
    "look": "paint",
-   "vo": "Here is what the research says happens next. Across twenty-one studies in sixty-seven thousand children, girls like Ava are more likely to hit someone again, more likely to be anxious or depressed, and more likely to fall behind in school. Followed into their twenties, they had lower grades, more symptoms of depression, and were more likely to say they would hit their own children one day. And the one thing the paddle was for? Across seventy-five studies, it did not even reliably stop the behavior in the moment. Emma's school used the approach the research does support. Taught expectations. A consequence that fits. Practice. Across fifty-four controlled studies, that is what improved behavior in grades.",
+   "vo": "Here is what the research says happens next. Across twenty-one studies of sixty-seven thousand children, girls like Ava are more likely to hit someone again, more likely to be anxious or depressed, and more likely to fall behind in school. Followed into their twenties, they had lower grades, more symptoms of depression, and were more likely to say they would hit their own children one day. And the one thing the paddle was for? Across seventy-five studies, it did not even reliably stop the behavior in the moment. Emma's school used the approach the research does support. Taught expectations. A consequence that fits. Practice. Across fifty-four controlled studies, that is what improved behavior and grades. This is why the people who study children for a living have all said the same thing.",
    "cards": {
     "left": [
      "More aggression",
@@ -141,15 +146,13 @@
      "improved behavior"
     ]
    },
-   "switch": "Emma's school",
-   "reuse_voice": true,
-   "note": "Voice reused from the Texas edition (v3/tts/s07_outcomes.mp3), whose recording reads this wording, not the longer text in script-v3.json; the cards and cues here follow the recording."
+   "switch": "Emma's school"
   },
   {
    "id": "s08_bars",
    "kind": "motion",
    "scene": "bars",
-   "vo": "And here is the thing. It is already leaving. In twenty seventeen, American districts reported sixty-nine thousand, four hundred and ninety-two students paddled. Four years later, twenty-four thousand, five hundred and thirty-four. Last year, nineteen thousand, eight hundred and fifty-one. Down seventy-one percent in six years, mostly with no change in the law. Principals and boards are quietly stopping on their own.",
+   "vo": "And it is already leaving. In twenty seventeen, American districts reported sixty-nine thousand four hundred ninety-two students paddled. Four years later, twenty-four thousand five hundred thirty-four. Last year, nineteen thousand eight hundred fifty-one. Down seventy-one percent in six years, mostly with no change in the law. Principals and boards are stopping on their own, one building at a time.",
    "fig": {
     "eyebrow": "U.S. students paddled, as reported by districts",
     "rows": [
@@ -182,7 +185,8 @@
    "id": "s09_pictogram",
    "kind": "motion",
    "scene": "pictogram",
-   "vo": "Who is it landing on? Of every one hundred students paddled in America, eighty-one are boys. Seventeen have a disability. And the United States Secretary of Education told every governor that Black students are more than twice as likely to be paddled as white students, and Black girls four times as likely as white girls.",
+   "tail": 2.6,
+   "vo": "Who is it still landing on? Of every hundred students paddled in America, eighty-one are boys. Seventeen have a disability. The United States Secretary of Education told every governor that Black students are more than twice as likely to be paddled as white students, and Black girls four times as likely as white girls.",
    "fig": {
     "eyebrow": "Who it lands on · United States, 2023-24",
     "boys": 81,
@@ -194,42 +198,190 @@
     "national": "United States Secretary",
     "black": "Black students",
     "girls": "Black girls"
-   }
+   },
+   "note": "tail 2.6 s so the Black girls comparison finishes and holds before the crossfade."
   },
   {
    "id": "s10_words",
    "kind": "motion",
    "scene": "words",
-   "vo": "For the adult holding it, the law offers protection, right up to three words. Excessive. Reasonable. Necessary. Every state that permits it shields staff only for force that follows the board's policy, and that a court later agrees was reasonable. Where the policy is not followed, the protection is gone. Those words are decided afterward, by someone else, who will be shown the research.",
+   "vo": "For the adult holding the paddle, the law offers one shield. The force has to be reasonable. Not excessive. Necessary. Those words are decided afterward, by someone else. And reasonable is no longer measured against what a town is used to. It is measured against the evidence. In twenty sixteen, seventy-nine organizations signed one letter asking every school in America to stop. The American Academy of Pediatrics. The American Psychological Association. The National Education Association. The American Federation of Teachers. The national association of school principals. The school psychologists. The National PTA. The NAACP. The ACLU. In twenty twenty-three the pediatricians said it again, on their own. And the Secretary of Education asked every state to end it.",
    "fig": {
     "rows": [
-     [
-      "Excessive",
-      "No state's protection reaches excessive force: \"reasonable but not excessive force\" is the common-law rule in every state"
-     ],
      [
       "Reasonable",
       "Protection runs only to force a court later agrees was reasonable, and only where the board's own policy was followed"
      ],
      [
+      "Excessive",
+      "No state's protection reaches excessive force: \"reasonable but not excessive force\" is the common-law rule in every state"
+     ],
+     [
       "Necessary",
       "Only the force an adult \"reasonably believes to be necessary.\" Restatement (Second) of Torts §147(2); Ingraham v. Wright, 1977"
      ]
+    ],
+    "names": [
+     "Academy on Violence and Abuse",
+     "ACLU",
+     "American Academy of Pediatrics",
+     "American Association of Child & Adolescent Psychiatry",
+     "American Association of University Women",
+     "American Federation of Teachers",
+     "American Humanist Association",
+     "American Professional Society on the Abuse of Children",
+     "American Psychological Association",
+     "American-Arab Anti-Discrimination Committee",
+     "Americans Against Corporal Punishment in Public School",
+     "Association of University Centers on Disabilities",
+     "Attachment Parenting International, Atlanta",
+     "Barton Child Law and Policy Center, Emory Law",
+     "Center for Civil Rights Remedies, UCLA",
+     "Center for Effective Discipline",
+     "Champion Women",
+     "Child Safe of Central Missouri",
+     "Children's Advocacy Institute",
+     "Children's Defense Fund",
+     "Clearinghouse on Women's Issues",
+     "Coleman Advocates for Children & Youth",
+     "Colorado Organization for Latina Opportunity and Reproductive Rights",
+     "Council of Parent Attorneys and Advocates",
+     "Dane County Deferred Prosecution Program",
+     "Dignity in Schools Campaign",
+     "APA Division 7: Developmental Psychology",
+     "Education Law Center, PA",
+     "Family Services Network",
+     "Futures Without Violence",
+     "Girls Inc.",
+     "GLSEN",
+     "Gundersen Health System",
+     "Gundersen National Child Protection Training Center",
+     "Gwinnett Parent Coalition (Gwinnett SToPP)",
+     "Integrated Clinical & Correctional Services",
+     "Judge David L. Bazelon Center for Mental Health Law",
+     "Lives in the Balance",
+     "Massachusetts Citizens for Children",
+     "Minnesota Communities Caring for Children",
+     "NAACP",
+     "National Alliance for Partnerships in Equity",
+     "National Association of School Psychologists",
+     "National Association of Secondary School Principals",
+     "National Autism Association",
+     "National Center for Special Education in Charter Schools",
+     "National Disability Rights Network",
+     "National Down Syndrome Congress",
+     "National Economic and Social Rights Initiative",
+     "National Education Association",
+     "National Organization for Women",
+     "National PTA",
+     "NC Child",
+     "National Council of La Raza",
+     "Nollie Jenkins Family Center",
+     "Otto Bremer Trust Center for Safe and Healthy Children",
+     "Parent Trust for Washington Children",
+     "Partnership for Violence Free Families",
+     "Prevent Child Abuse Illinois",
+     "Project KnuckleHead",
+     "PsycHealth, Ltd.",
+     "Rights4Girls",
+     "Sargent Shriver National Center on Poverty Law",
+     "SelfWorks",
+     "SisterReach",
+     "SisterSong",
+     "Southeast Asia Resource Action Center",
+     "Southern Poverty Law Center",
+     "StopSpanking.org",
+     "TASH",
+     "Tennesseans for Non Violent School Discipline",
+     "National Partnership to End Interpersonal Violence",
+     "The Parenting Network",
+     "TNTP",
+     "U.S. Alliance to End the Hitting of Children",
+     "UDC David A. Clarke School of Law, Juvenile and Special Education Law Clinic",
+     "Upbring",
+     "Women's Law Project",
+     "Youth Service, Inc.",
+     "National Women's Law Center"
+    ],
+    "letter_eyebrow": "Open letter to every school in America · November 2016 · 79 organizations",
+    "stage": [
+     [
+      "American Academy of Pediatrics",
+      "American Academy of Pediatrics"
+     ],
+     [
+      "American Psychological Association",
+      "American Psychological Association"
+     ],
+     [
+      "National Education Association",
+      "National Education Association"
+     ],
+     [
+      "American Federation of Teachers",
+      "American Federation of Teachers"
+     ],
+     [
+      "school principals",
+      "National Association of Secondary School Principals"
+     ],
+     [
+      "school psychologists",
+      "National Association of School Psychologists"
+     ],
+     [
+      "National PTA",
+      "National PTA"
+     ],
+     [
+      "NAACP",
+      "NAACP"
+     ],
+     [
+      "ACLU",
+      "ACLU"
+     ],
+     [
+      "twenty twenty-three",
+      "American Academy of Pediatrics, 2023: end it in every school, in every state, by law"
+     ],
+     [
+      "Secretary of Education",
+      "U.S. Secretary of Education, 2023: asked every state to end it"
+     ]
     ]
-   }
+   },
+   "cues": {
+    "words": [
+     "reasonable",
+     "excessive",
+     "Necessary"
+    ],
+    "afterward": "decided afterward",
+    "evidence": "against the evidence",
+    "names": "seventy-nine organizations"
+   },
+   "note": "Signatories from nwlc.org/resource/open-letter-calling-for-end-to-corporal-punishment-in-schools/ (79 listed under the letter, plus NWLC as organizer); a few long names shortened for the grid."
   },
   {
    "id": "s11_board",
    "kind": "clip",
    "clip": "boardroom_us",
    "look": "photo",
-   "vo": "More than eleven hundred school boards in those seventeen states already prohibit corporal punishment in board policy. In Texas alone, two hundred and ninety-one of them use exactly the same sentence.",
+   "vo": "So the questions a board should be ready for are simple ones. If it does not work, and it makes the behavior worse, how do we justify it? Why are we doing something we know to be harmful? And if we are not using it anyway, why would we object to saying so in writing? More than eleven hundred school boards in those seventeen states have already answered. They did not wait for the legislature. They looked at the evidence, and they changed a line.",
    "highlight": [
+    "how do we justify it",
+    "know to be harmful",
+    "saying so in writing",
     "More than eleven hundred",
-    "exactly the same sentence"
+    "changed a line"
    ],
    "screen": {
-    "More than eleven hundred": "1,100+ boards"
+    "how do we justify it": "How do we justify it?",
+    "know to be harmful": "Why do something we know is harmful?",
+    "saying so in writing": "Why object to saying so in writing?",
+    "More than eleven hundred": "1,100+ boards already prohibit it",
+    "changed a line": "They changed a line."
    },
    "note": "Kling clip re-made from the Texas still after a Flux Kontext edit that replaced the Texas flag with a plain navy flag (tools/film/national.py shots)."
   },
@@ -237,9 +389,9 @@
    "id": "s12_sentence",
    "kind": "motion",
    "scene": "sentence",
-   "vo": "The Board prohibits the use of corporal punishment in the District. That is the whole policy. One sentence, in a policy code every board already has.",
+   "vo": "Here is one of those policies, in full. The Board prohibits the use of corporal punishment in the District. That is the whole policy. One sentence, in a policy code every board already has.",
    "fig": {
-    "eyebrow": "The sentence 291 Texas boards adopted, word for word"
+    "eyebrow": "One board's policy, word for word"
    }
   },
   {
@@ -247,14 +399,18 @@
    "kind": "clip",
    "clip": "sunrise_us",
    "look": "photo",
-   "vo": "More than eight hundred districts still permit it on paper, and did not use it once last year. For those boards, nothing changes on Monday morning except the risk. One sentence. One meeting. And every Ava gets Emma's Tuesday.",
+   "vo": "Across those states, more than eight hundred districts we have checked still allow it on paper, and did not use it once last year. Their principals have already decided. The policy has not caught up. For those boards, nothing changes on Monday morning except the risk. Leadership on a school board is not a poll of what some parents prefer. It is looking at the outcomes, and acting on them.",
    "highlight": [
-    "More than eight hundred",
-    "One sentence. One meeting.",
-    "Emma's Tuesday"
+    "more than eight hundred",
+    "has not caught up",
+    "except the risk",
+    "acting on them"
    ],
    "screen": {
-    "More than eight hundred": "800+ districts"
+    "more than eight hundred": "800+ districts allow it and used it zero times",
+    "has not caught up": "The policy has not caught up.",
+    "except the risk": "Nothing changes Monday except the risk.",
+    "acting on them": "Look at the outcomes. Act on them."
    },
    "note": "Kling clip re-made from the Texas still after a Flux Kontext edit that replaced the Texas flag with an American flag (tools/film/national.py shots)."
   },
@@ -262,9 +418,10 @@
    "id": "s14_close",
    "kind": "motion",
    "scene": "close",
-   "vo": "Find your district's policy, in its own words, at earthpilot dot org, slash kids. Bring the sentence to your board. The Safe Schools Project.",
+   "vo": "School is where we ask students to do their best, and where we show them what leadership looks like: look at the facts, and change course when the facts say to. Find your district's policy, in its own words, at earthpilot dot org slash kids. Bring the sentence to your board. The Safe Schools Project.",
    "fig": {
-    "url": "earthpilot.org/kids"
+    "url": "earthpilot.org/kids",
+    "lede": "Look at the facts. Change course when they say to."
    }
   }
  ]

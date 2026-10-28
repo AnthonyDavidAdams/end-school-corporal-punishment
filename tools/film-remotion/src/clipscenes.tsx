@@ -5,9 +5,9 @@ import { C, FONT, FONT_B, fade, easeOut } from "./theme";
 import { KineticCaptions, phraseTimes } from "./captions";
 
 // How long each Kling clip is (seconds) so it can be slowed to fit the narration.
-const CLIP_LEN = { paddle: 5.04, hallway: 10.04, classroom: 10.04, boardroom: 5.04, sunrise: 10.04, two_desks: 10.04, ava_hall: 10.04, emma_hall: 10.04, ava_desk: 5.04, emma_desk: 5.04, boardroom_us: 5.04, sunrise_us: 10.04 };   // *_us: the national edition's re-made shots
+const CLIP_LEN = { paddle: 5.04, hallway: 10.04, classroom: 10.04, boardroom: 5.04, sunrise: 10.04, two_desks: 10.04, ava_hall: 10.04, emma_hall: 10.04, ava_desk: 5.04, emma_desk: 5.04, boardroom_us: 5.04, sunrise_us: 10.04, paddle_v5: 5.04 };   // *_us: the national edition's re-made shots
 // clips whose source still carried thin black letterbox bars: start zoomed enough to crop them off
-const BASE = { hallway: 1.08, boardroom: 1.08, sunrise: 1.08, classroom: 1.0, paddle: 1.0, boardroom_us: 1.0, sunrise_us: 1.0 };
+const BASE = { hallway: 1.08, boardroom: 1.08, sunrise: 1.08, classroom: 1.0, paddle: 1.0, boardroom_us: 1.0, sunrise_us: 1.0, paddle_v5: 1.0 };
 
 const SlowClip: React.FC<{ name: string; T: number; style?: any; drift?: number }> = ({ name, T, style, drift = 0 }) => {
   const frame = useCurrentFrame(); const { fps } = useVideoConfig(); const t = frame / fps;
@@ -74,6 +74,8 @@ export const SplitScene: React.FC<{ scene: any; T: number; lead: number }> = ({ 
 // The outcomes: two dimmed stills, cards stacking on each side as the narrator reaches each finding.
 const CUES_L = ["hit someone again", "anxious or depressed", "fall behind", "own children"];
 const CUES_R = ["Taught expectations", "consequence that fits", "Practice", "improved behavior"];
+// Ava sits at the far right of her still; a centred cover crop of the half-width column loses her behind the split line.
+const OBJ_POS = { ava_desk: "100% 50%" };
 
 export const OutcomesScene: React.FC<{ scene: any; T: number; lead: number }> = ({ scene, T, lead }) => {
   const frame = useCurrentFrame(); const { fps } = useVideoConfig(); const t = frame / fps;
@@ -83,7 +85,7 @@ export const OutcomesScene: React.FC<{ scene: any; T: number; lead: number }> = 
     const lit = side === "left" ? interpolate(t, [switchAt, switchAt + 1], [1, 0.55], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : interpolate(t, [switchAt, switchAt + 1], [0.55, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     return (
       <div style={{ position: "absolute", left: x, top: 0, width: 956, height: 1080, overflow: "hidden" }}>
-        <Img src={staticFile(`img/${name}.jpg`)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: `brightness(${0.45 * lit + 0.2})`, transform: `scale(${1 + 0.03 * easeOut(t / T)})` }} />
+        <Img src={staticFile(`img/${name}.jpg`)} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: OBJ_POS[name] || "50% 50%", filter: `brightness(${0.45 * lit + 0.2})`, transform: `scale(${1 + 0.03 * easeOut(t / T)})`, transformOrigin: OBJ_POS[name] || "50% 50%" }} />
         <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(11,31,51,0.1) 0%, rgba(11,31,51,0.75) 100%)" }} />
         <div style={{ position: "absolute", top: 72, left: 72, fontFamily: FONT_B, fontSize: 52, color: C.ink, letterSpacing: 4, textTransform: "uppercase" }}>{side === "left" ? "Ava" : "Emma"}</div>
         {cards.map((c, i) => {

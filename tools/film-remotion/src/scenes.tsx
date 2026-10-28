@@ -158,24 +158,53 @@ export const PictogramScene = ({ scene, lead, T }) => {
 };
 
 const WORDS_TX = [["Excessive", "§22.0511: no personal immunity for excessive force"], ["Reasonable", "§22.0512, Penal Code §9.62: job and certificate protected only for reasonable force"], ["Necessary", "§9.62: force justified only to the degree reasonably believed necessary"]];
-export const WordsScene = ({ scene, lead }) => {
+export const WordsScene = ({ scene, lead, T }) => {
   const w = scene.words; const { t, frame, fps } = useT();
   const dflt = [4.2, 5.6, 7.0];
-  const rows = fig(scene, "rows", WORDS_TX).map(([x, c], i) => [x, at(w, x, lead, dflt[i]), c]);
-  const aEnd = at(w, "decided afterward", lead, 18);
+  const wcues = cue(scene, "words", null);
+  const rows = fig(scene, "rows", WORDS_TX).map(([x, c], i) => [x, at(w, wcues ? wcues[i] : x, lead, dflt[i]), c]);
+  const aEnd = at(w, cue(scene, "afterward", "decided afterward"), lead, 18);
+  const aEv = scene.cues && scene.cues.evidence ? at(w, scene.cues.evidence, lead, 24) : null;
+  // national edition: after the three words, the open letter's signatories fill the frame and the named ones take the stage
+  const names = fig(scene, "names", null);
+  const aNames = names ? at(w, cue(scene, "names", "seventy-nine organizations"), lead, 30) : Infinity;
+  const wordsOut = names ? 1 - fade(t, aNames - 0.6, aNames) : 1;
+  const stage = (fig(scene, "stage", []) as any[]).map(([phrase, label]) => [label, at(w, phrase, lead, Infinity)]).filter(([, t0]) => t0 < Infinity);
+  let cur = -1; for (let i = 0; i < stage.length; i++) if (t >= stage[i][1] - 0.15) cur = i;
+  const onStage = cur >= 0 ? stage[cur] : null;
+  const sStage = onStage ? spring({ frame: frame - Math.round((onStage[1] - 0.15) * fps), fps, config: { damping: 200, stiffness: 140, mass: 0.8 } }) : 0;
+  const gridDim = onStage ? 0.28 : 1;
+  const nameAt = (i) => aNames + 0.15 + i * (3.2 / Math.max(1, (names || []).length));   // the whole grid is in within 3.2 s
   return (
     <Bg>
-      <div style={{ position: "absolute", left: 160, top: 120, opacity: fade(t, 0, 0.8) }}><Eyebrow>Where the protection for staff stops</Eyebrow></div>
+      <div style={{ position: "absolute", left: 160, top: 120, opacity: fade(t, 0, 0.8) * wordsOut }}><Eyebrow>Where the protection for staff stops</Eyebrow></div>
       {rows.map(([x, t0, c], i) => {
         const s = spring({ frame: frame - Math.round(t0 * fps), fps, config: { damping: 18, stiffness: 160, mass: 0.7 } });
         return (
           <React.Fragment key={i}>
-            <div style={{ position: "absolute", left: 160, top: 250 + i * 230, fontFamily: FONT_B, fontSize: 170, lineHeight: 1, opacity: s, transform: `scale(${0.96 + 0.04 * s})`, transformOrigin: "left center" }}>{x}<span style={{ color: C.orange }}>.</span></div>
-            <div style={{ position: "absolute", left: 1040, top: 300 + i * 230, width: 760, fontSize: 34, lineHeight: 1.3, color: C.dim, opacity: fade(t, t0 + 1.0, t0 + 1.6) }}>{c}</div>
+            <div style={{ position: "absolute", left: 160, top: 250 + i * 230, fontFamily: FONT_B, fontSize: 170, lineHeight: 1, opacity: s * wordsOut, transform: `scale(${0.96 + 0.04 * s})`, transformOrigin: "left center" }}>{x}<span style={{ color: C.orange }}>.</span></div>
+            <div style={{ position: "absolute", left: 1040, top: 300 + i * 230, width: 760, fontSize: 34, lineHeight: 1.3, color: C.dim, opacity: fade(t, t0 + 1.0, t0 + 1.6) * wordsOut }}>{c}</div>
           </React.Fragment>
         );
       })}
-      <div style={{ position: "absolute", left: 160, top: 950, fontSize: 56, opacity: fade(t, aEnd - 0.2, aEnd + 0.6) }}>Decided afterward. By someone else. Who will be shown the research.</div>
+      <div style={{ position: "absolute", left: 160, top: 950, fontSize: 56, opacity: fade(t, aEnd - 0.2, aEnd + 0.6) * (aEv ? 1 - fade(t, aEv - 0.5, aEv - 0.1) : 1) * wordsOut }}>Decided afterward. By someone else.</div>
+      {aEv !== null && <div style={{ position: "absolute", left: 160, top: 950, fontSize: 56, opacity: fade(t, aEv - 0.1, aEv + 0.5) * wordsOut }}>Measured against <span style={{ fontFamily: FONT_B, color: C.orange }}>the evidence.</span></div>}
+      {names && t >= aNames - 0.2 && (
+        <>
+          <div style={{ position: "absolute", left: 160, top: 110, opacity: fade(t, aNames - 0.2, aNames + 0.5) }}><Eyebrow>{fig(scene, "letter_eyebrow", "Open letter · November 2016")}</Eyebrow></div>
+          <div style={{ position: "absolute", left: 160, top: 190, width: 1640, display: "flex", flexWrap: "wrap", gap: "6px 8px", opacity: gridDim }}>
+            {names.map((n, i) => {
+              const s = spring({ frame: frame - Math.round(nameAt(i) * fps), fps, config: { damping: 200, stiffness: 150, mass: 0.7 } });
+              return <div key={i} style={{ fontSize: 21, lineHeight: 1.15, color: C.ink, padding: "4px 10px", background: "rgba(255,255,255,0.05)", borderLeft: `2px solid ${C.blue}`, opacity: s, transform: `translateY(${(1 - s) * 14}px)`, whiteSpace: "nowrap" }}>{n}</div>;
+            })}
+          </div>
+          {onStage && (
+            <div style={{ position: "absolute", left: 160, right: 160, top: 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center", opacity: sStage, transform: `scale(${0.94 + 0.06 * sStage})` }}>
+              <div style={{ background: "rgba(11,31,51,0.94)", borderLeft: `10px solid ${C.orange}`, padding: "36px 64px 40px 52px", maxWidth: 1500, fontFamily: FONT_B, fontSize: onStage[0].length > 40 ? 64 : 92, lineHeight: 1.1, color: C.ink, textAlign: "left" }}>{onStage[0]}</div>
+            </div>
+          )}
+        </>
+      )}
     </Bg>
   );
 };
@@ -201,6 +230,7 @@ export const CloseScene = ({ scene, lead, T }) => {
   return (
     <Bg>
       <div style={{ position: "absolute", left: "50%", top: 360, transform: "translateX(-50%)", width: 380 * easeOut(fade(t, 0, 1.2)), height: 6, background: C.orange, borderRadius: 3 }} />
+      {fig(scene, "lede", null) && <div style={{ position: "absolute", top: 420, left: 160, right: 160, textAlign: "center", fontFamily: FONT_B, fontSize: 84, lineHeight: 1.2, opacity: fade(t, 0.6, 1.4) * (1 - fade(t, a1 - 0.9, a1 - 0.3)) }}>{fig(scene, "lede", "")}</div>}
       <div style={{ position: "absolute", top: 400, left: 0, right: 0, textAlign: "center", fontFamily: FONT_B, fontSize: 120, opacity: fade(t, a1, a1 + 0.8) }}>Find your district.</div>
       <div style={{ position: "absolute", top: 560, left: 0, right: 0, textAlign: "center", fontSize: 64, color: C.blue, opacity: fade(t, a2, a2 + 0.8) }}>{fig(scene, "url", "earthpilot.org/kids/state/TX")}</div>
       <div style={{ position: "absolute", top: 700, left: 0, right: 0, textAlign: "center", fontSize: 36, color: C.dim, opacity: fade(t, a2 + 1.2, a2 + 2) }}>Every district's own policy, in its own words, with its source.</div>

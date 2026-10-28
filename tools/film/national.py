@@ -4,8 +4,8 @@ edition (script-v3.json, rendered with tools/film-remotion) already paid for: ev
 still, the music bed, and the voice of every scene whose narration did not change.
 
   national.py estimate            which lines changed, how many characters, what the fal calls will cost
-  national.py voice --yes         ElevenLabs (fal-ai/elevenlabs/tts/multilingual-v2, Brian, speed 0.95) for the
-                                  changed lines only; unchanged lines are copied from out/video/one-sentence/v3/tts
+  national.py voice --yes [--all]  ElevenLabs v3 (fal-ai/elevenlabs/tts/eleven-v3, Brian) for the changed lines, or every
+                                  line with --all; otherwise unchanged lines are copied from out/video/one-sentence/v3/tts
   national.py words               Whisper word timestamps (fal-ai/whisper) for the new lines, aligned back onto
                                   the script's own words so digits become the spelled-out numbers the cues use
   national.py stage               media + fonts into tools/film-remotion/public/, data-national.json from the script
@@ -15,14 +15,14 @@ still, the music bed, and the voice of every scene whose narration did not chang
 
 Nothing here spends money without --yes on `voice` (the only step that bills more than pennies). Every output is
 cached by name; delete a file to regenerate it. No em dashes in copy; numbers in narration spelled out."""
-import argparse, difflib, json, os, re, shutil, subprocess, sys
+import argparse, difflib, filecmp, json, os, re, shutil, subprocess, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 FILM = os.path.join(ROOT, "tools/film"); REM = os.path.join(ROOT, "tools/film-remotion")
 OUT = os.path.join(ROOT, "out/video/one-sentence"); NAT = os.path.join(OUT, "national"); V3TTS = os.path.join(OUT, "v3/tts")
 PY = os.path.expanduser("~/.fal-venv/bin/python")
 FPS, LEAD, TAIL, XF = 30, 0.5, 0.9, 0.6
-TTS_MODEL = "fal-ai/elevenlabs/tts/multilingual-v2"; TTS_PRICE_PER_1K_CHARS = 0.10   # fal.ai model page, 2026-10-28
+TTS_MODEL = "fal-ai/elevenlabs/tts/eleven-v3"; TTS_PRICE_PER_1K_CHARS = 0.10   # v3 reads punctuation and emphasis far better than multilingual-v2 (switched 2026-10-28 after v2 ran sentence stops together)
 WHISPER_MODEL = "fal-ai/whisper"
 
 def load(name): return json.load(open(os.path.join(FILM, name)))
@@ -64,16 +64,17 @@ def estimate():
     return ch
 
 # ------------------------------------------------------------------ voice
-def voice(yes):
+def voice(yes, all_lines=False):
+    """--all voices every line fresh (used for the v3 re-voice); otherwise unchanged lines are copied from the Texas edition."""
     os.makedirs(os.path.join(NAT, "tts"), exist_ok=True)
     ch = {s["id"] for s in changed()}; n = 0
     for s in load("script-national.json")["scenes"]:
         p = os.path.join(NAT, "tts", s["id"] + ".mp3")
         if os.path.exists(p): continue
-        if s["id"] not in ch:
+        if s["id"] not in ch and not all_lines:
             shutil.copy(os.path.join(V3TTS, s["id"] + ".mp3"), p); print("reuse", s["id"]); continue
         if not yes: print("skip (needs --yes)", s["id"]); continue
-        r = fal(TTS_MODEL, {"text": s["vo"], "voice": "Brian", "speed": 0.95, "stability": 0.5, "similarity_boost": 0.75})
+        r = fal(TTS_MODEL, {"text": s["vo"], "voice": "Brian", "stability": 0.5, "similarity_boost": 0.75})
         fetch(r["audio"]["url"], p); n += 1; print("voice", s["id"], f"{dur(p):.1f}s", f"{len(s['vo'])} chars")
     print(f"voice: {n} new lines")
 
@@ -140,8 +141,9 @@ def words_():
     for s in sc["scenes"]:
         mp3 = os.path.join(NAT, "tts", s["id"] + ".mp3"); p = os.path.join(NAT, "tts", s["id"] + ".words.json")
         if os.path.exists(p) or not os.path.exists(mp3): continue
-        v3w = os.path.join(V3TTS, s["id"] + ".words.json")
-        if s["id"] not in ch and os.path.exists(v3w):   # reused line: realign the Texas edition's Whisper words, no fal call
+        v3w = os.path.join(V3TTS, s["id"] + ".words.json"); v3mp3 = os.path.join(V3TTS, s["id"] + ".mp3")
+        reused = os.path.exists(v3mp3) and filecmp.cmp(mp3, v3mp3, shallow=False)
+        if reused and os.path.exists(v3w):   # reused line: realign the Texas edition's Whisper words, no fal call
             ws = align(s["vo"], [(x["w"], x["s"], x["e"]) for x in json.load(open(v3w))], dur(mp3)); json.dump(ws, open(p, "w")); print("words", s["id"], len(ws), "| realigned from v3"); continue
         r = fal(WHISPER_MODEL, {"audio_url": upload(mp3), "task": "transcribe", "language": "en", "chunk_level": "word"})
         chunks = [(c["text"], float(c["timestamp"][0]), float(c["timestamp"][1])) for c in r.get("chunks", []) if c.get("text", "").strip()]
@@ -199,11 +201,14 @@ SHOTS = {
     "sunrise_us": {"src": "sunrise", "dur": "10",
         "edit": "Replace the Texas flag on the flagpole with an American flag, the same size, lit the same way by the low sun. Change nothing else: same school, same children, same shadows, same sky.",
         "move": "Locked-off camera, no camera movement. Children with backpacks walk slowly away from the camera toward the school's front doors at sunrise, long shadows moving with them, the American flag on the pole stirring gently in a light breeze. No faces, no text, photoreal, warm light."},
+    "paddle_v5": {"still": "paddle-c1", "dur": "5",   # the Texas edition's paddle clip was malformed; this still (a real paddle by a window) was already on disk
+        "move": "Locked-off camera, no camera movement. A wooden school paddle hangs from a hook on a plain wall beside a window. Morning light through the window creeps almost imperceptibly across the wall; the paddle sways a fraction on its hook and settles. No people, no text, photoreal, quiet."},
 }
 def shots(stills=True, clips=False):
     os.makedirs(os.path.join(NAT, "img"), exist_ok=True); os.makedirs(os.path.join(NAT, "clips"), exist_ok=True)
     for name, sh in SHOTS.items():
         still = os.path.join(NAT, "img", name + ".jpg"); clip = os.path.join(NAT, "clips", name + ".mp4")
+        if sh.get("still") and not os.path.exists(still): shutil.copy(os.path.join(OUT, "img", sh["still"] + ".jpg"), still)
         if stills and not os.path.exists(still):
             r = fal(KONTEXT_MODEL, {"prompt": sh["edit"], "image_url": upload(os.path.join(OUT, "img", sh["src"] + ".jpg")), "guidance_scale": 3.5, "output_format": "jpeg", "safety_tolerance": "5"})
             fetch(r["images"][0]["url"], still); print("still", name, r["images"][0].get("width"), "x", r["images"][0].get("height"))
@@ -224,11 +229,11 @@ def check():
         for t in texts:
             if "—" in t: print("EM DASH", s["id"], t[:80]); bad += 1
             if re.search(r"\d", s["vo"]): print("DIGIT IN NARRATION", s["id"]); bad += 1
-            if re.search(r"\bTexas\b", t) and s["id"] not in ("s11_board", "s12_sentence"): print("TEXAS", s["id"], t[:100]); bad += 1
+            if re.search(r"\bTexas\b", t): print("TEXAS", s["id"], t[:100]); bad += 1
     print("check:", "clean" if not bad else f"{bad} problems")
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("cmd"); ap.add_argument("--yes", action="store_true"); ap.add_argument("--draft", action="store_true"); ap.add_argument("--frames"); ap.add_argument("--clips", action="store_true")
+    ap = argparse.ArgumentParser(); ap.add_argument("cmd"); ap.add_argument("--yes", action="store_true"); ap.add_argument("--all", action="store_true"); ap.add_argument("--draft", action="store_true"); ap.add_argument("--frames"); ap.add_argument("--clips", action="store_true")
     a = ap.parse_args()
-    {"estimate": lambda: estimate(), "voice": lambda: voice(a.yes), "words": words_, "stage": stage, "render": lambda: render(a.draft, a.frames), "check": check,
+    {"estimate": lambda: estimate(), "voice": lambda: voice(a.yes, a.all), "words": words_, "stage": stage, "render": lambda: render(a.draft, a.frames), "check": check,
      "poster": lambda: poster(os.path.join(OUT, "one-sentence-national.mp4")), "shots": lambda: shots(True, a.clips)}.get(a.cmd, lambda: print(__doc__))()
