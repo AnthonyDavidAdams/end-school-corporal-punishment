@@ -689,6 +689,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     thread = thread_of(r, reqs) + [{"who": "them", "date": msg.get("Date"), "text": triage_mod.strip_quoted(body), "links": links[:10], "attachments": [a[0] for a in atts], "kind": kind}]
     filed_desc = [{"what": x, "says": y} for x, y in zip((facts.get("document_links") or []) + [a[0] for a in atts], filed)] or ([{"says": f} for f in filed] if filed else [])
     decision = writer_mod.decide(r, thread, record, filed_desc, facts, recheck, quiet)
+    decision = writer_mod.unstock(decision, r, thread, record, filed_desc, facts, recheck, quiet)   # one redraft if it opened with a stock line
     move = decision["move"] if decision else "hold"
     text = decision["reply"] if decision else None
     why = decision["why"] if decision else f"the writer returned nothing usable ({writer_mod.LAST_ERROR[0]})"
