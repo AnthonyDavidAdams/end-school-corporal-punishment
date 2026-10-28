@@ -304,6 +304,31 @@ def scrub(path):
         if t2 != t: open(path, "w").write(t2)
     except Exception: pass
 
+CODE_RE = re.compile(r"(?:\b(?:Board\s+)?Policy\s*(?:No\.?|Number|#)?\s*:?\s*|\bP\s+(?=\d{4}\b))([A-Z]{1,5}(?:-\d{1,4})?(?:\([A-Z]+\))?|\d{2,4}(?:\.\d{1,4})?)\b(?![A-Za-z])")
+def policy_code_in(text):
+    """The policy's own code when the document names it ('Policy JGA-2', 'Board Policy 09.433', 'P 2670',
+    'Policy FO(LOCAL)'), so a pasted policy is recorded with its number. Without it a bans record built
+    from an email is unpublishable by design (Pleasant Hill R-III, 2026-10-27)."""
+    for m in CODE_RE.finditer((text or "")[:4000]):
+        c = m.group(1)
+        if c.isdigit() and len(c) == 4 and 1900 <= int(c) <= 2100: continue   # a year, not a code
+        if c.isalpha() and len(c) == 1: continue
+        return c
+    # A heading form: the code on the line of, or just above, the title ('JDA Corporal Punishment JDA',
+    # 'STUDENTS 09.433' two lines above 'Corporal Punishment').
+    lines = [re.sub(r"[\u200b\u00a0\ufeff]", " ", l) for l in (text or "")[:4000].splitlines()[:60]]
+    for i, l in enumerate(lines):
+        if l.startswith("Policy text as sent by email"): continue   # the filing header carries a timezone like -0500
+        if not any(re.search(r"corporal punishment", x, re.I) for x in lines[i:i + 3]): continue
+        for m in re.finditer(r"(?<![A-Za-z0-9+-])([A-Z]{2,5}(?:-\d{1,4})?|\d{2,4}\.\d{1,4}|\d{4})(?![A-Za-z0-9])", l):
+            c = m.group(1)
+            if c in HEADING_NOISE or (c.isdigit() and len(c) == 4 and 1900 <= int(c) <= 2100): continue
+            if c.isalpha() and (len(c) > 4 or not re.search(r"corporal punishment", l, re.I)): continue   # a bare acronym counts only on the title line itself ('JDA Corporal Punishment'), and letter codes run two to four letters
+            return c
+    return None
+STATES_2 = {"AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC"}
+HEADING_NOISE = STATES_2 | {"URL", "BOE", "BOEP", "DESE", "SY", "JV", "CEO", "CFO", "COO", "HR", "IT", "FYI", "ASAP", "LLC", "INC", "ADA", "IEP", "FERPA", "FOIA", "DOE", "SB", "HB", "RSMO", "KSA", "AND", "THE", "FOR", "OUR", "NOT", "OF", "TO", "IN", "BY", "ON", "ANY", "ALL", "NO", "IS", "BE", "OR", "AS", "AT", "WILL", "SHALL", "MAY", "MUST", "USE", "USD", "ISD", "CPS", "PDF", "FAX", "EXT", "RE", "FW", "FWD", "AM", "PM", "EDT", "CDT", "EST", "CST", "MST", "PST", "MDT", "PDT", "II", "III", "IV", "VI", "VII", "VIII", "USA", "FROM", "SENT", "DATE", "EMAIL"}
+
 RULE_RE = re.compile(r"\b(shall|must|may not|will not|prohibit(s|ed)?|permitted|authoriz(es|ed)|the policy (does not|prohibits|allows|permits|states)|policy\s+[A-Z]{0,4}-?\d+)\b", re.I)
 FIRST_PERSON_RE = re.compile(r"\b(we|our|us|I|I'm|I've|my|me)\b")
 def policy_like(text):
@@ -329,7 +354,7 @@ def file_document(r, path, how):
     rel = os.path.relpath(path, ROOT); url = RAW + rel
     if not cands:
         log("document silent on corporal punishment:", rel); return None
-    row = {"site": None, "district": r["name"], "_state": r["state"], "verdict": "rule", "policies": [{"code": None, "title": f"document received by records request ({how})", "url": url, "candidates": cands[:40], "last_revised": None}]}
+    row = {"site": None, "district": r["name"], "_state": r["state"], "verdict": "rule", "policies": [{"code": policy_code_in(text), "title": f"document received by records request ({how})", "url": url, "candidates": cands[:40], "last_revised": None}]}
     tmp = os.path.join(LOGDIR, f"inbound-{r['id']}.jsonl"); open(tmp, "w").write(json.dumps(row) + "\n")
     cls = os.path.join(LOGDIR, f"inbound-{r['id']}-classified.json"); rec = os.path.join(LOGDIR, f"inbound-{r['id']}-records.json")
     env = dict(os.environ, OPENROUTER_API_KEY=jev_key())
