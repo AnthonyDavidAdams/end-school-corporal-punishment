@@ -5,9 +5,9 @@ import { C, FONT, FONT_B, fade, easeOut } from "./theme";
 import { KineticCaptions, phraseTimes } from "./captions";
 
 // How long each Kling clip is (seconds) so it can be slowed to fit the narration.
-const CLIP_LEN = { paddle: 5.04, hallway: 10.04, classroom: 10.04, boardroom: 5.04, sunrise: 10.04, two_desks: 10.04, ava_hall: 10.04, emma_hall: 10.04, ava_desk: 5.04, emma_desk: 5.04 };
+const CLIP_LEN = { paddle: 5.04, hallway: 10.04, classroom: 10.04, boardroom: 5.04, sunrise: 10.04, two_desks: 10.04, ava_hall: 10.04, emma_hall: 10.04, ava_desk: 5.04, emma_desk: 5.04, boardroom_us: 5.04, sunrise_us: 10.04 };   // *_us: the national edition's re-made shots
 // clips whose source still carried thin black letterbox bars: start zoomed enough to crop them off
-const BASE = { hallway: 1.08, boardroom: 1.08, sunrise: 1.08, classroom: 1.0, paddle: 1.0 };
+const BASE = { hallway: 1.08, boardroom: 1.08, sunrise: 1.08, classroom: 1.0, paddle: 1.0, boardroom_us: 1.0, sunrise_us: 1.0 };
 
 const SlowClip: React.FC<{ name: string; T: number; style?: any; drift?: number }> = ({ name, T, style, drift = 0 }) => {
   const frame = useCurrentFrame(); const { fps } = useVideoConfig(); const t = frame / fps;

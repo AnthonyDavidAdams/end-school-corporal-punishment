@@ -2,7 +2,7 @@
  "title": "One Sentence",
  "edition": "national",
  "voice": "Brian",
- "notes": "National edition of script-v3.json: the same fourteen scenes, the Texas facts replaced with national ones. Every figure spelled out for the voice; digits on screen. Sources: facts/claims/law-states-permitting-count (17 states), crdc-national-total-2023-24-computed (19,851 students, 28,310 instances, 832 districts), data/crdc/2023-24/SOURCE.md (boys 81.3 percent, 3,385 of 19,851 with a disability = 17 percent), data/crdc/national.csv (69,492 in 2017-18, 24,534 in 2021-22; down 71 percent), law-cardona-letter-2023, law-ingraham-v-wright-1977, OCR Part 4 factsheet for the CRDC definition, data/districts/*.yaml (1,190 boards in the 17 states prohibit in writing, 2026-10-28), data/outreach/policy-lag.json (827 districts permit on paper and reported none in 2023-24). Scenes whose narration is unchanged from v3 (s05, s06, s07, s12, s14) reuse the v3 voice files. 'fig'/'cues'/'rows' fields are read by tools/film-remotion/src/scenes.tsx; a scene without them renders the Texas defaults.",
+ "notes": "National edition of script-v3.json: the same fourteen scenes, the Texas facts replaced with national ones. Every figure spelled out for the voice; digits on screen. Sources: facts/claims/law-states-permitting-count (17 states), crdc-national-total-2023-24-computed (19,851 students, 28,310 instances, 832 districts), data/crdc/2023-24/SOURCE.md (boys 81.3 percent, 3,385 of 19,851 with a disability = 17 percent), data/crdc/national.csv (69,492 in 2017-18, 24,534 in 2021-22; down 71 percent), law-cardona-letter-2023, law-ingraham-v-wright-1977, OCR Part 4 factsheet for the CRDC definition, data/districts/*.yaml (1,190 boards in the 17 states prohibit in writing, 2026-10-28), data/outreach/policy-lag.json (827 districts permit on paper and reported none in 2023-24). Scenes whose narration is unchanged from v3 (s05, s06, s07, s12, s14) reuse the v3 voice files. 'fig'/'cues'/'rows' fields are read by tools/film-remotion/src/scenes.tsx; a scene without them renders the Texas defaults. The boardroom and sunrise shots are re-made (boardroom_us, sunrise_us) because the Texas edition's carried a Texas flag; every other clip and still is the Texas edition's.",
  "scenes": [
   {
    "id": "s01_paddle",
@@ -221,7 +221,7 @@
   {
    "id": "s11_board",
    "kind": "clip",
-   "clip": "boardroom",
+   "clip": "boardroom_us",
    "look": "photo",
    "vo": "More than eleven hundred school boards in those seventeen states already prohibit corporal punishment in board policy. In Texas alone, two hundred and ninety-one of them use exactly the same sentence.",
    "highlight": [
@@ -230,7 +230,8 @@
    ],
    "screen": {
     "More than eleven hundred": "1,100+ boards"
-   }
+   },
+   "note": "Kling clip re-made from the Texas still after a Flux Kontext edit that replaced the Texas flag with a plain navy flag (tools/film/national.py shots)."
   },
   {
    "id": "s12_sentence",
@@ -244,7 +245,7 @@
   {
    "id": "s13_sunrise",
    "kind": "clip",
-   "clip": "sunrise",
+   "clip": "sunrise_us",
    "look": "photo",
    "vo": "More than eight hundred districts still permit it on paper, and did not use it once last year. For those boards, nothing changes on Monday morning except the risk. One sentence. One meeting. And every Ava gets Emma's Tuesday.",
    "highlight": [
@@ -254,7 +255,8 @@
    ],
    "screen": {
     "More than eight hundred": "800+ districts"
-   }
+   },
+   "note": "Kling clip re-made from the Texas still after a Flux Kontext edit that replaced the Texas flag with an American flag (tools/film/national.py shots)."
   },
   {
    "id": "s14_close",

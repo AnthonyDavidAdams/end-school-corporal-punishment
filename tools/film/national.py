@@ -11,6 +11,7 @@ still, the music bed, and the voice of every scene whose narration did not chang
   national.py stage               media + fonts into tools/film-remotion/public/, data-national.json from the script
   national.py render [--draft]    Remotion -> out/video/one-sentence/one-sentence-national.mp4, plus the poster
   national.py check               every narration line and on-screen label, grepped for Texas-only claims
+  national.py shots [--clips]     Kontext-edit the two stills that carried a Texas flag; with --clips, Kling them again
 
 Nothing here spends money without --yes on `voice` (the only step that bills more than pennies). Every output is
 cached by name; delete a file to regenerate it. No em dashes in copy; numbers in narration spelled out."""
@@ -188,6 +189,31 @@ def poster(mp4):
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", "2.4", "-i", mp4, "-frames:v", "1", "-vf", "scale=1280:720", "-q:v", "4", p], check=True)
     print("poster", p, os.path.getsize(p) // 1000, "KB")
 
+# ------------------------------------------------------------------ the two hero shots that carried a Texas flag
+# Flux Kontext edits the Texas edition's still (same room, same light), then Kling animates it again; the Texas clips stay.
+KONTEXT_MODEL = "fal-ai/flux-pro/kontext"; KLING_MODEL = "fal-ai/kling-video/v2.5-turbo/pro/image-to-video"
+SHOTS = {
+    "boardroom_us": {"src": "boardroom", "dur": "5",
+        "edit": "Replace the Texas state flag on the right with a plain dark navy blue flag with no emblem, star or lettering, hanging the same way on the same pole with the same gold finial. Change nothing else: same room, same dais, same chairs, same American flag on the left, same light.",
+        "move": "Locked-off camera, no camera movement. An empty school board meeting room; nothing moves except an almost imperceptible slow push-in. The flags hang perfectly still. No people, no text, photoreal, quiet evening light."},
+    "sunrise_us": {"src": "sunrise", "dur": "10",
+        "edit": "Replace the Texas flag on the flagpole with an American flag, the same size, lit the same way by the low sun. Change nothing else: same school, same children, same shadows, same sky.",
+        "move": "Locked-off camera, no camera movement. Children with backpacks walk slowly away from the camera toward the school's front doors at sunrise, long shadows moving with them, the American flag on the pole stirring gently in a light breeze. No faces, no text, photoreal, warm light."},
+}
+def shots(stills=True, clips=False):
+    os.makedirs(os.path.join(NAT, "img"), exist_ok=True); os.makedirs(os.path.join(NAT, "clips"), exist_ok=True)
+    for name, sh in SHOTS.items():
+        still = os.path.join(NAT, "img", name + ".jpg"); clip = os.path.join(NAT, "clips", name + ".mp4")
+        if stills and not os.path.exists(still):
+            r = fal(KONTEXT_MODEL, {"prompt": sh["edit"], "image_url": upload(os.path.join(OUT, "img", sh["src"] + ".jpg")), "guidance_scale": 3.5, "output_format": "jpeg", "safety_tolerance": "5"})
+            fetch(r["images"][0]["url"], still); print("still", name, r["images"][0].get("width"), "x", r["images"][0].get("height"))
+        if clips and os.path.exists(still) and not os.path.exists(clip):
+            r = fal(KLING_MODEL, {"prompt": sh["move"], "image_url": upload(still), "duration": sh["dur"], "cfg_scale": 0.5, "negative_prompt": "camera movement, zoom, pan, text, lettering, blur, distortion, extra limbs, morphing"})
+            fetch(r["video"]["url"], clip); print("clip", name, f"{dur(clip):.2f}s")
+    for name in SHOTS:   # staged next to the Texas clips under their own names
+        c = os.path.join(NAT, "clips", name + ".mp4"); dst = os.path.join(REM, "public/clips", name + ".mp4")
+        if os.path.exists(c) and os.path.isdir(os.path.dirname(dst)): shutil.copy(c, dst)
+
 # ------------------------------------------------------------------ check: no Texas-only claim survives
 def check():
     sc = load("script-national.json"); bad = 0
@@ -202,7 +228,7 @@ def check():
     print("check:", "clean" if not bad else f"{bad} problems")
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("cmd"); ap.add_argument("--yes", action="store_true"); ap.add_argument("--draft", action="store_true"); ap.add_argument("--frames")
+    ap = argparse.ArgumentParser(); ap.add_argument("cmd"); ap.add_argument("--yes", action="store_true"); ap.add_argument("--draft", action="store_true"); ap.add_argument("--frames"); ap.add_argument("--clips", action="store_true")
     a = ap.parse_args()
     {"estimate": lambda: estimate(), "voice": lambda: voice(a.yes), "words": words_, "stage": stage, "render": lambda: render(a.draft, a.frames), "check": check,
-     "poster": lambda: poster(os.path.join(OUT, "one-sentence-national.mp4"))}.get(a.cmd, lambda: print(__doc__))()
+     "poster": lambda: poster(os.path.join(OUT, "one-sentence-national.mp4")), "shots": lambda: shots(True, a.clips)}.get(a.cmd, lambda: print(__doc__))()
