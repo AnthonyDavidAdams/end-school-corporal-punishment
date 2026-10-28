@@ -346,28 +346,48 @@ def file_document(r, path, how):
     return recs[0]["status"]
 def publish(message):
     r = subprocess.run(["bash", "tools/publish.sh", message], cwd=ROOT, capture_output=True, text=True); log(r.stdout.strip()[-300:])
+SENT_SCANNED = os.path.join(ROOT, "data/outreach/sent-scanned.json")
 def anthony_threads(M, reqs):
     """Anthony's own replies from Sent Mail, folded into each request's our_messages (by: anthony) so the
     writer reads them as part of the thread. Returns the request ids he has written in. Since 2026-10-09
-    his presence is context, not a lock: the job keeps answering unless hold_replies is set on the request."""
-    done = set()
+    his presence is context, not a lock: the job keeps answering unless hold_replies is set on the request.
+
+    Incremental since 2026-10-27: the search matches every sent message in 120 days (2,136 that night) and
+    fetching each in full took the inbox step past the 13-minute watchdog twice in a row. Now the headers
+    come down in one round trip and only messages never seen before are fetched whole."""
+    done = {r["id"] for r in reqs if any(o.get("by") == "anthony" for o in r.get("our_messages") or [])}
+    try:
+        scanned = set(json.load(open(SENT_SCANNED))) if os.path.exists(SENT_SCANNED) else set()
+    except Exception:
+        scanned = set()
+    known = scanned | {o.get("message_id") for r in reqs for o in r.get("our_messages") or [] if o.get("message_id")}
     try:
         M.select('"[Gmail]/Sent Mail"')
         typ, data = M.search(None, "X-GM-RAW", '"newer_than:120d subject:(corporal OR handbook OR records OR schools)"')
-        for num in (data[0].split() if data and data[0] else []):
+        nums = data[0].split() if data and data[0] else []
+        want = []
+        for i in range(0, len(nums), 500):   # headers only, a few hundred per round trip
+            typ, hdrs = M.fetch(b",".join(nums[i:i + 500]), "(BODY.PEEK[HEADER.FIELDS (MESSAGE-ID IN-REPLY-TO)])")
+            for item in hdrs or []:
+                if not isinstance(item, tuple): continue
+                num = item[0].split()[0]; h = email.message_from_bytes(item[1]); mid = (h.get("Message-ID") or "").strip()
+                if not h.get("In-Reply-To"): continue          # our own outbound requests are not replies
+                if not mid or "escp-" in mid or mid in known: continue   # the job's own replies, or already folded in
+                want.append((num, mid))
+        for num, mid in want:
+            if time.time() > CYCLE_DEADLINE - 120: log("sent-mail scan: out of time, the rest next cycle"); break
             typ, raw = M.fetch(num, "(RFC822)"); h = email.message_from_bytes(raw[0][1])
-            if not h.get("In-Reply-To"): continue          # our own outbound requests are not replies
-            mid = h.get("Message-ID") or ""
-            if "escp-" in mid: continue                     # the job's own automated replies and hand-sent ones logged elsewhere
+            scanned.add(mid)
             r = find_request(h, reqs)
             if not r:
                 to = email.utils.parseaddr(h.get("To", ""))[1].lower(); r = next((x for x in reqs if (x.get("to") or "").lower() == to), None)
             if not r: continue
             done.add(r["id"])
-            if not any(o.get("message_id") == mid for o in r.get("our_messages") or []):
-                text, _ = part_text(h)
-                r.setdefault("our_messages", []).append({"at": h.get("Date"), "to": email.utils.parseaddr(h.get("To", ""))[1], "text": text, "message_id": mid, "by": "anthony"})
-    except Exception as e: log("sent-mail scan failed", e)
+            text, _ = part_text(h)
+            r.setdefault("our_messages", []).append({"at": h.get("Date"), "to": email.utils.parseaddr(h.get("To", ""))[1], "text": text, "message_id": mid, "by": "anthony"})
+        if want: log(f"sent-mail scan: {len(want)} new messages of Anthony's read")
+        json.dump(sorted(scanned), open(SENT_SCANNED, "w"))
+    except Exception as e: log("sent-mail scan failed", repr(e)[:120])
     return done
 def inbox():
     reqs = load(); M = imap(); ensure_label(M); mine = anthony_threads(M, reqs)

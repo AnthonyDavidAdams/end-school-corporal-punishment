@@ -185,14 +185,35 @@ def press_release_docx(d, path):
 ago = messages.ago
 
 
+def in_thread_cover(d, p):
+    """The certificate as the next message in a conversation the district is already having with us: three
+    short paragraphs in Anthony's phone voice, no research bullets, no 'Dear Superintendent'. Sixty-three
+    districts got a one-line iPhone reply and then, hours later in the same thread, a four-hundred-word
+    letter with four bullets; this is the fix. The formal cover stays for cold sends."""
+    name = clean_name(d["name"]); yr = YEAR.replace("–", "-"); who = p.get("who") or "there"
+    if who.lower() in ("superintendent",): who = "there"
+    code = d["code"]; cited = f"policy {code}" if code and code != "as sent by the district" else "the board's own policy"
+    paras = [
+        f"Hey {who}, thanks for {p['did']} {ago(p.get('when'))}. With {cited} in writing, {name} goes on the Safe Schools list, and the certificate for the {yr} school year is attached, print-ready, with the policy's own sentence on it and a QR code to the district's entry at earthpilot.org/kids. Hang it if you like.",
+        "There's also a short press release attached as a Word file, written so your office can send it to the local paper with one edit, in case you want the good version of the story out first.",
+        "One ask, only if you're willing: a thirty-second phone video from you or a principal on what the district does instead. No script. earthpilot.org/kids/video",
+        messages.sig(run.USER),
+    ]
+    import html as H
+    plain = "\n\n".join(paras) + "\n"
+    html_doc = "<html><body style=\"font-family:-apple-system,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.45;color:#111\">" + "".join(f"<p>{H.escape(t).replace(chr(10), '<br>')}</p>" for t in paras) + "</body></html>"
+    return plain, html_doc
+
+
 def cover(d, reqs=None):
     """The cover email, as (plain text, html). Bold in the html marks the sentence fragments and figures
     a busy reader should catch; the plain part reads the same without it."""
     name = clean_name(d["name"]); st = STATE_NAMES.get(d["state"], d["state"]); last = sup_last(d.get("superintendent")); yr = YEAR.replace("–", "-")
     p = prior(d, reqs or [])
-    if p and p.get("who") and p["who"].lower() not in ("there", "superintendent"):
-        greet = f"Hi {p['who']},"
-        lead = f"Congratulations, and thanks for {p['did']} {ago(p.get('when'))}. "
+    if p:
+        return in_thread_cover(d, p)
+    if False:
+        pass
     else:
         greet = f"Dear Superintendent {last}," if last else "Dear Superintendent,"
         lead = "Congratulations. "

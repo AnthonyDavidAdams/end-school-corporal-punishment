@@ -8,7 +8,7 @@ district only.
 
     python3 tools/ops-page.py          -> site/ops/index.html
 """
-import collections, datetime, html, json, os, re, subprocess, sys
+import sys, collections, datetime, html, json, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "tools/outreach"))
@@ -141,6 +141,13 @@ a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}p
         if v["total"] == 0: continue
         H.append(f'<tr><td><a href="/kids/state/{esc(st)}/">{esc(st)}</a></td><td class="n r">{v["allows"]+v["consent"] or ""}</td><td class="n g">{v["bans"] or ""}</td><td class="n a">{(v["total"]-v["quoted"]) or ""}</td><td class="n">{v["today"] or ""}</td></tr>')
     H.append('</table></div>')
+
+    # 5b. The rules the email job must never break, checked against the ledger every cycle
+    try:
+        sys.path.insert(0, os.path.join(ROOT, "tools/outreach")); import invariants
+        H.append(invariants.html(reqs))
+    except Exception as ex:
+        H.append(f'<div class="panel bad"><h2>Invariants</h2><p class="m">check failed: {esc(repr(ex)[:120])}</p></div>')
 
     # 6. Everything else, folded away
     H.append('<div class="panel"><h2>Under the hood</h2>')
