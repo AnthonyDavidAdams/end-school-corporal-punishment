@@ -377,7 +377,7 @@ def inbox():
     # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
     # Every subject we have ever sent, not just the ones with "corporal" in them: the research and
     # agency requests would otherwise never have their replies read.
-    typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r["replies"]]}
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r.get("replies") or []]}
     handled = 0; nums = data[0].split() if data and data[0] else []; t0 = time.time()
     log(f"inbox: {len(nums)} candidate messages in the last 60 days")
     # Gather first, answer second: a district that sent three emails in twenty minutes (Milan IN, 2026-10-27:
@@ -1164,7 +1164,7 @@ def queue_corrections():
             rid = hashlib.sha1(f"certificate_correction|{st}|{x['nces_id']}".encode()).hexdigest()[:10]
             reqs.append({"id": rid, "state": st, "state_name": names.get(st, st), "name": x["name"], "nces_id": str(x["nces_id"]), "kids": 0, "kind": "certificate_correction", "to": cert["to"],
                          "superintendent": cert.get("superintendent"), "parent_request": cert["id"], "district_says": x["district_says"], "peers": peers_for(st),
-                         "status": "held", "queued_at": datetime.datetime.now().isoformat(timespec="seconds"), "notes": f"Certificate {cert['id']} sent {cert.get('sent_at','')[:16]} quoted the superintendent's email as policy; record reclassified silent 2026-10-27."})
+                         "status": "held", "replies": [], "followup_sent_at": "n/a", "queued_at": datetime.datetime.now().isoformat(timespec="seconds"), "notes": f"Certificate {cert['id']} sent {cert.get('sent_at','')[:16]} quoted the superintendent's email as policy; record reclassified silent 2026-10-27."})
             cert["retracted_at"] = datetime.date.today().isoformat(); cert["notes"] = (cert.get("notes") or "") + " RETRACTED 2026-10-27: quoted the superintendent's email, not a board policy; correction queued."
             pol = next((r for r in reqs if r.get("kind") == "policy" and str(r.get("nces_id")) == str(x["nces_id"])), None)
             if pol:
