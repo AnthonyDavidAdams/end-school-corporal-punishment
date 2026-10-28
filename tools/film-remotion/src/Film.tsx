@@ -28,7 +28,7 @@ const Fonts: React.FC = () => {
   return null;
 };
 
-const Scene: React.FC<{ s: any; lead: number }> = ({ s, lead }) => {
+const Scene: React.FC<{ s: any; lead: number; tts: string }> = ({ s, lead, tts }) => {
   let body = null;
   if (s.kind === "clip") body = <ClipScene scene={s} T={s.T} lead={lead} />;
   else if (s.kind === "split") body = <SplitScene scene={s} T={s.T} lead={lead} />;
@@ -37,7 +37,7 @@ const Scene: React.FC<{ s: any; lead: number }> = ({ s, lead }) => {
   return (
     <AbsoluteFill>
       {body}
-      <Sequence from={Math.round(lead * 30)} premountFor={30}><Audio src={staticFile(`tts/${s.id}.mp3`)} /></Sequence>
+      <Sequence from={Math.round(lead * 30)} premountFor={30}><Audio src={staticFile(`${tts}/${s.id}.mp3`)} /></Sequence>
     </AbsoluteFill>
   );
 };
@@ -63,7 +63,7 @@ export const Film: React.FC<{ data: any }> = ({ data }) => {
           {scenes.map((s, i) => (
             <React.Fragment key={s.id}>
               {i > 0 && <TransitionSeries.Transition presentation={fadeT()} timing={linearTiming({ durationInFrames: Math.round(data.xf * fps) })} />}
-              <TransitionSeries.Sequence durationInFrames={s.frames}><Scene s={s} lead={data.lead} /></TransitionSeries.Sequence>
+              <TransitionSeries.Sequence durationInFrames={s.frames}><Scene s={s} lead={data.lead} tts={data.tts || "tts"} /></TransitionSeries.Sequence>
             </React.Fragment>
           ))}
         </TransitionSeries>

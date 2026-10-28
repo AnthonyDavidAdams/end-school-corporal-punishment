@@ -3,6 +3,7 @@ import React from "react";
 import { Composition } from "remotion";
 import { Film, totalFrames } from "./Film";
 import data from "../public/data.json";
+import national from "../public/data-national.json";
 import { Explainer, totalFrames as explainerFrames } from "./Explainer";
 import edata from "../public/explainer/data.json";
 
@@ -18,6 +19,16 @@ export const Root: React.FC = () => (
     width={1920}
     height={1080}
     defaultProps={{ data }}
+  />
+  {/* The national edition: tools/film/script-national.json staged by tools/film/national.py into public/data-national.json */}
+  <Composition
+    id="OneSentenceNational"
+    component={Film}
+    durationInFrames={totalFrames(national)}
+    fps={national.fps}
+    width={1920}
+    height={1080}
+    defaultProps={{ data: national }}
   />
 
   </>

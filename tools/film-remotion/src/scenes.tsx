@@ -1,5 +1,7 @@
 // @ts-nocheck
 // Motion-graphic scenes, timed to the narration's word timestamps where it matters.
+// Each scene reads its figures and labels from the script (`scene.fig`) and its timing phrases from `scene.cues`;
+// a scene without them renders the Texas edition's defaults, so public/data.json (the v3 film) is unchanged.
 import React from "react";
 import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
 import { C, FONT, FONT_B, fade, easeOut, fmt } from "./theme";
@@ -12,6 +14,8 @@ const Bg: React.FC<{ children: any }> = ({ children }) => (
 );
 const useT = () => { const f = useCurrentFrame(); const { fps } = useVideoConfig(); return { t: f / fps, frame: f, fps }; };
 const at = (words, phrase, lead, fallback) => { const p = phraseTimes(words, phrase); return lead + (p ? p.s : fallback); };
+const cue = (scene, key, dflt) => (scene.cues && scene.cues[key]) || dflt;
+const fig = (scene, key, dflt) => (scene.fig && scene.fig[key] !== undefined ? scene.fig[key] : dflt);
 // a number that counts up from the moment the narrator starts saying it
 const Count: React.FC<{ to: number; start: number; dur?: number; style: any }> = ({ to, start, dur = 2.2, style }) => {
   const { t } = useT(); const p = easeOut(fade(t, start, start + dur)); const o = fade(t, start - 0.2, start + 0.5);
@@ -20,17 +24,19 @@ const Count: React.FC<{ to: number; start: number; dur?: number; style: any }> =
 
 export const CounterScene = ({ scene, lead }) => {
   const w = scene.words; const { t } = useT();
-  const a1 = at(w, "five thousand", lead, 0.3), a2 = at(w, "eight thousand", lead, 4.4), a3 = at(w, "two hundred", lead, 8.2);
+  const students = fig(scene, "students", 5359), instances = fig(scene, "instances", 8528), districts = fig(scene, "districts", 284);
+  const a1 = at(w, cue(scene, "students", "five thousand"), lead, 0.3), a2 = at(w, cue(scene, "instances", "eight thousand"), lead, 4.4), a3 = at(w, cue(scene, "districts", "two hundred"), lead, 8.2);
+  const big = students >= 10000 ? 300 : 340;
   return (
     <Bg>
-      <div style={{ position: "absolute", top: 150, left: 0, right: 0, textAlign: "center", opacity: fade(t, a1 - 0.3, a1 + 0.3) }}><Eyebrow>Texas public schools · 2023-24</Eyebrow></div>
-      <Count to={5359} start={a1} dur={2.6} style={{ position: "absolute", top: 230, left: 0, right: 0, textAlign: "center", fontFamily: FONT_B, fontSize: 340, lineHeight: 1, letterSpacing: -8 }} />
+      <div style={{ position: "absolute", top: 150, left: 0, right: 0, textAlign: "center", opacity: fade(t, a1 - 0.3, a1 + 0.3) }}><Eyebrow>{fig(scene, "eyebrow", "Texas public schools · 2023-24")}</Eyebrow></div>
+      <Count to={students} start={a1} dur={2.6} style={{ position: "absolute", top: 230, left: 0, right: 0, textAlign: "center", fontFamily: FONT_B, fontSize: big, lineHeight: 1, letterSpacing: -8 }} />
       <div style={{ position: "absolute", top: 600, left: 0, right: 0, textAlign: "center", fontSize: 56, opacity: fade(t, a1 + 0.4, a1 + 1.0) }}>students struck as punishment</div>
       <div style={{ position: "absolute", top: 760, left: 0, right: 0, textAlign: "center", opacity: fade(t, a2 - 0.2, a2 + 0.5) }}>
-        <span style={{ fontFamily: FONT_B, fontSize: 120, color: C.orange }}>{fmt(8528 * easeOut(fade(t, a2, a2 + 2.2)))}</span><span style={{ fontSize: 56, marginLeft: 28 }}>separate instances</span>
+        <span style={{ fontFamily: FONT_B, fontSize: 120, color: C.orange }}>{fmt(instances * easeOut(fade(t, a2, a2 + 2.2)))}</span><span style={{ fontSize: 56, marginLeft: 28 }}>separate instances</span>
       </div>
       <div style={{ position: "absolute", top: 900, left: 0, right: 0, textAlign: "center", opacity: fade(t, a3 - 0.2, a3 + 0.5) }}>
-        <span style={{ fontFamily: FONT_B, fontSize: 120, color: C.blue }}>{fmt(284 * easeOut(fade(t, a3, a3 + 1.4)))}</span><span style={{ fontSize: 56, marginLeft: 28 }}>districts</span>
+        <span style={{ fontFamily: FONT_B, fontSize: 120, color: C.blue }}>{fmt(districts * easeOut(fade(t, a3, a3 + 1.4)))}</span><span style={{ fontSize: 56, marginLeft: 28 }}>districts</span>
       </div>
     </Bg>
   );
@@ -39,43 +45,51 @@ export const CounterScene = ({ scene, lead }) => {
 const QUOTE = "the deliberate infliction of physical pain by hitting, paddling, spanking, slapping, or any other physical force used as a means of discipline.";
 export const StatuteScene = ({ scene, lead }) => {
   const w = scene.words; const { t } = useT();
-  const qs = at(w, "the deliberate", lead, 1.2), qe = lead + (phraseTimes(w, "means of discipline")?.e ?? 9.5);
-  const words = QUOTE.split(" "); const shown = Math.floor(fade(t, qs, qe) * words.length);
-  const n1 = at(w, "does not require", lead, 12.5), n2 = at(w, "does not recommend", lead, 16), n3 = at(w, "It permits", lead, 19), n4 = at(w, "Every year", lead, 21);
+  const quote = fig(scene, "quote", QUOTE);
+  const qs = at(w, cue(scene, "quote_start", "the deliberate"), lead, 1.2), qe = lead + (phraseTimes(w, cue(scene, "quote_end", "means of discipline"))?.e ?? 9.5);
+  const words = quote.split(" "); const shown = Math.floor(fade(t, qs, qe) * words.length);
+  const n1 = at(w, cue(scene, "n1", "does not require"), lead, 12.5), n2 = at(w, cue(scene, "n2", "does not recommend"), lead, 16), n3 = at(w, cue(scene, "n3", "It permits"), lead, 19);
+  const n4 = scene.cues && scene.cues.sub ? at(w, scene.cues.sub, lead, 21) + 1.5 : at(w, "Every year", lead, 21);
+  const size = words.length > 16 ? 84 : 96;
   return (
     <Bg>
-      <div style={{ position: "absolute", left: 160, top: 140, opacity: fade(t, 0, 0.8) }}><Eyebrow>Texas Education Code · §37.0011(a)</Eyebrow></div>
-      <div style={{ position: "absolute", left: 160, top: 230, width: 1600, fontSize: 84, lineHeight: 1.25, fontFamily: FONT_B }}>
-        &ldquo;{words.map((x, i) => <span key={i} style={{ opacity: i < shown ? 1 : 0.08 }}>{x} </span>)}&rdquo;
+      <div style={{ position: "absolute", left: 160, top: 140, opacity: fade(t, 0, 0.8) }}><Eyebrow>{fig(scene, "eyebrow", "Texas Education Code · §37.0011(a)")}</Eyebrow></div>
+      <div style={{ position: "absolute", left: 160, top: 230, width: 1600, fontSize: size, lineHeight: 1.25, fontFamily: FONT_B }}>
+        &ldquo;{words.map((x, i) => <span key={i} style={{ opacity: i < shown ? 1 : 0.08 }}>{x}{i < words.length - 1 ? " " : ""}</span>)}&rdquo;
       </div>
       <div style={{ position: "absolute", left: 160, top: 760, fontSize: 56, fontFamily: FONT_B, color: C.orange, opacity: fade(t, n1, n1 + 0.5) }}>Not required.</div>
       <div style={{ position: "absolute", left: 640, top: 760, fontSize: 56, fontFamily: FONT_B, color: C.orange, opacity: fade(t, n2, n2 + 0.5) }}>Not recommended.</div>
       <div style={{ position: "absolute", left: 1250, top: 760, fontSize: 56, fontFamily: FONT_B, color: C.blue, opacity: fade(t, n3, n3 + 0.5) }}>Permitted.</div>
-      <div style={{ position: "absolute", left: 160, top: 900, fontSize: 30, color: C.dim, opacity: fade(t, n4 - 1.5, n4 - 0.8) }}>Unless a parent files a signed statement with the board. Every school year.</div>
+      <div style={{ position: "absolute", left: 160, top: 900, fontSize: 30, color: C.dim, opacity: fade(t, n4 - 1.5, n4 - 0.8) }}>{fig(scene, "sub", "Unless a parent files a signed statement with the board. Every school year.")}</div>
     </Bg>
   );
 };
 
 export const BarsScene = ({ scene, lead }) => {
   const w = scene.words; const { t } = useT();
-  const data = [["2017-18", 13892, at(w, "thirteen thousand", lead, 4)], ["2021-22", 7324, at(w, "seven thousand", lead, 9.5)], ["2023-24", 5359, at(w, "five thousand", lead, 12.5)]];
-  const max = 13892, H = 520; const o = fade(t, at(w, "sixty-one", lead, 16.5) - 0.2, at(w, "sixty-one", lead, 16.5) + 0.6);
+  const rows = fig(scene, "rows", [["2017-18", 13892], ["2021-22", 7324], ["2023-24", 5359]]);
+  const cues = cue(scene, "rows", ["thirteen thousand", "seven thousand", "five thousand"]);
+  const dflt = [4, 9.5, 12.5];
+  const data = rows.map(([y, v], i) => [y, v, at(w, cues[i], lead, dflt[i])]);
+  const max = Math.max(...rows.map((r) => r[1])), H = 520; const pctAt = at(w, cue(scene, "pct", "sixty-one"), lead, 16.5); const o = fade(t, pctAt - 0.2, pctAt + 0.6);
+  const note = String(fig(scene, "note", "in six years.|No change in the law.")).split("|");
+  const big = max >= 10000 ? 84 : 96, bigLast = max >= 10000 ? 104 : 118;
   return (
     <Bg>
-      <div style={{ position: "absolute", left: 160, top: 120, opacity: fade(t, 0, 0.8) }}><Eyebrow>Texas students paddled, as reported by districts</Eyebrow></div>
+      <div style={{ position: "absolute", left: 160, top: 120, opacity: fade(t, 0, 0.8) }}><Eyebrow>{fig(scene, "eyebrow", "Texas students paddled, as reported by districts")}</Eyebrow></div>
       {data.map(([y, v, t0], i) => {
         const p = easeOut(fade(t, t0, t0 + 1.6)); const h = H * v / max * p; const x = 260 + i * 400; const last = i === 2;
         return (
           <React.Fragment key={i}>
             <div style={{ position: "absolute", bottom: 260, left: x, width: 300, height: h, background: last ? C.orange : C.blue, borderRadius: "6px 6px 0 0" }} />
-            <div style={{ position: "absolute", left: x - 60, width: 420, textAlign: "center", bottom: 280 + h, fontFamily: FONT_B, fontSize: last ? 118 : 96, opacity: p }}>{fmt(v * p)}</div>
+            <div style={{ position: "absolute", left: x - 60, width: 420, textAlign: "center", bottom: 280 + h, fontFamily: FONT_B, fontSize: last ? bigLast : big, opacity: p }}>{fmt(v * p)}</div>
             <div style={{ position: "absolute", left: x - 60, width: 420, textAlign: "center", bottom: 200, fontSize: 40, opacity: p }}>{y}</div>
           </React.Fragment>
         );
       })}
-      <div style={{ position: "absolute", left: 1420, top: 380, width: 420, opacity: o }}>
-        <div style={{ fontFamily: FONT_B, fontSize: 150, lineHeight: 1, color: C.orange }}>−61%</div>
-        <div style={{ fontSize: 56, lineHeight: 1.25, marginTop: 16 }}>in six years.<br />No change in the law.</div>
+      <div style={{ position: "absolute", left: 1420, top: 380, width: 440, opacity: o }}>
+        <div style={{ fontFamily: FONT_B, fontSize: 150, lineHeight: 1, color: C.orange }}>{fig(scene, "pct", "−61%")}</div>
+        <div style={{ fontSize: 56, lineHeight: 1.25, marginTop: 16 }}>{note.map((x, i) => <React.Fragment key={i}>{i > 0 && <br />}{x}</React.Fragment>)}</div>
       </div>
     </Bg>
   );
@@ -97,15 +111,16 @@ const Fig = ({ kind, color, w = 52, style }) => {
 
 export const PictogramScene = ({ scene, lead, T }) => {
   const w = scene.words; const { t } = useT();
-  const aB = at(w, "eighty-three", lead, 2.2), aD = at(w, "Twenty-two", lead, 8.2), aN = at(w, "nationally", lead, 12.5);
-  const aBlack = at(w, "Black students", lead, 14.5), aGirls = at(w, "Black girls", lead, 18.5);
+  const BOYS = fig(scene, "boys", 83), DIS = fig(scene, "disability", 22);
+  const aB = at(w, cue(scene, "boys", "eighty-three"), lead, 2.2), aD = at(w, cue(scene, "disability", "Twenty-two"), lead, 8.2), aN = at(w, cue(scene, "national", "nationally"), lead, 12.5);
+  const aBlack = at(w, cue(scene, "black", "Black students"), lead, 14.5), aGirls = at(w, cue(scene, "girls", "Black girls"), lead, 18.5);
   const gridOut = 1 - fade(t, aN - 0.1, aN + 0.5);
-  // phase A/B: 100 silhouettes, 83 boys then 17 girls; lit count follows the narration
-  const nB = Math.floor(easeOut(fade(t, aB, aB + 2.6)) * 83), nD = Math.floor(easeOut(fade(t, aD, aD + 2.0)) * 22);
+  // phase A/B: 100 silhouettes, the boys then the girls; lit count follows the narration
+  const nB = Math.floor(easeOut(fade(t, aB, aB + 2.6)) * BOYS), nD = Math.floor(easeOut(fade(t, aD, aD + 2.0)) * DIS);
   const phaseD = t >= aD - 0.3;
   const figs = [];
   for (let i = 0; i < 100; i++) {
-    const kind = i < 83 ? "boy" : "girl";
+    const kind = i < BOYS ? "boy" : "girl";
     const lit = phaseD ? i < nD : i < nB;
     figs.push(<Fig key={i} kind={kind} color={lit ? (phaseD ? C.blue : C.orange) : C.figOff} w={46} style={{ margin: "8px 14px" }} />);
   }
@@ -125,12 +140,12 @@ export const PictogramScene = ({ scene, lead, T }) => {
   const headline = girls ? "Black girls: 4× as likely as white girls" : "Black students: 2.3× as likely as white students";
   return (
     <Bg>
-      <div style={{ position: "absolute", left: 160, top: 110, opacity: fade(t, 0, 0.8) }}><Eyebrow>{t < aN ? "Who it lands on · Texas, 2023-24" : "Who it lands on · United States, federal data"}</Eyebrow></div>
+      <div style={{ position: "absolute", left: 160, top: 110, opacity: fade(t, 0, 0.8) }}><Eyebrow>{t < aN ? fig(scene, "eyebrow", "Who it lands on · Texas, 2023-24") : "Who it lands on · United States, federal data"}</Eyebrow></div>
       <div style={{ position: "absolute", left: 160, top: 190, width: 1640, lineHeight: 0, opacity: gridOut }}>{figs}</div>
       <div style={{ position: "absolute", left: 160, top: 790, opacity: Math.min(fade(t, aB - 0.2, aB + 0.4), gridOut) }}>
         {phaseD
           ? <><span style={{ fontFamily: FONT_B, fontSize: 150, color: C.blue }}>{nD}</span><span style={{ fontSize: 56, marginLeft: 28 }}>of every 100 have a disability</span></>
-          : <><span style={{ fontFamily: FONT_B, fontSize: 150, color: C.orange }}>{nB}</span><span style={{ fontSize: 56, marginLeft: 28 }}>of every 100 are boys</span><span style={{ fontSize: 56, marginLeft: 48, color: C.dim }}>17 are girls</span></>}
+          : <><span style={{ fontFamily: FONT_B, fontSize: 150, color: C.orange }}>{nB}</span><span style={{ fontSize: 56, marginLeft: 28 }}>of every 100 are boys</span><span style={{ fontSize: 56, marginLeft: 48, color: C.dim }}>{100 - BOYS} are girls</span></>}
       </div>
       <div style={{ opacity: rowIn }}>
         {row(girls ? "For every 10 white girls paddled" : "For every 10 white students paddled", nTop, C.blue, kind, 300)}
@@ -142,9 +157,11 @@ export const PictogramScene = ({ scene, lead, T }) => {
   );
 };
 
+const WORDS_TX = [["Excessive", "§22.0511: no personal immunity for excessive force"], ["Reasonable", "§22.0512, Penal Code §9.62: job and certificate protected only for reasonable force"], ["Necessary", "§9.62: force justified only to the degree reasonably believed necessary"]];
 export const WordsScene = ({ scene, lead }) => {
   const w = scene.words; const { t, frame, fps } = useT();
-  const rows = [["Excessive", at(w, "Excessive", lead, 4.2), "§22.0511: no personal immunity for excessive force"], ["Reasonable", at(w, "Reasonable", lead, 5.6), "§22.0512, Penal Code §9.62: job and certificate protected only for reasonable force"], ["Necessary", at(w, "Necessary", lead, 7.0), "§9.62: force justified only to the degree reasonably believed necessary"]];
+  const dflt = [4.2, 5.6, 7.0];
+  const rows = fig(scene, "rows", WORDS_TX).map(([x, c], i) => [x, at(w, x, lead, dflt[i]), c]);
   const aEnd = at(w, "decided afterward", lead, 18);
   return (
     <Bg>
@@ -171,7 +188,7 @@ export const SentenceScene = ({ scene, lead, T }) => {
   const a2 = at(w, "whole policy", lead, 5.6);
   return (
     <Bg>
-      <div style={{ position: "absolute", left: 160, top: 200, opacity: fade(t, 0, 0.6) }}><Eyebrow>Policy FO(LOCAL) · adopted by 291 Texas boards</Eyebrow></div>
+      <div style={{ position: "absolute", left: 160, top: 200, opacity: fade(t, 0, 0.6) }}><Eyebrow>{fig(scene, "eyebrow", "Policy FO(LOCAL) · adopted by 291 Texas boards")}</Eyebrow></div>
       <div style={{ position: "absolute", left: 160, top: 300, width: 1620, fontFamily: FONT_B, fontSize: 110, lineHeight: 1.15 }}>&ldquo;{s.slice(0, n)}<span style={{ color: C.orange }}>{caret}</span>{n >= s.length ? "”" : ""}</div>
       <div style={{ position: "absolute", left: 160, top: 860, fontSize: 56, opacity: fade(t, a2 - 0.3, a2 + 0.4) }}>One sentence. <span style={{ fontFamily: FONT_B, color: C.orange }}>That is the whole policy.</span></div>
     </Bg>
@@ -185,7 +202,7 @@ export const CloseScene = ({ scene, lead, T }) => {
     <Bg>
       <div style={{ position: "absolute", left: "50%", top: 360, transform: "translateX(-50%)", width: 380 * easeOut(fade(t, 0, 1.2)), height: 6, background: C.orange, borderRadius: 3 }} />
       <div style={{ position: "absolute", top: 400, left: 0, right: 0, textAlign: "center", fontFamily: FONT_B, fontSize: 120, opacity: fade(t, a1, a1 + 0.8) }}>Find your district.</div>
-      <div style={{ position: "absolute", top: 560, left: 0, right: 0, textAlign: "center", fontSize: 64, color: C.blue, opacity: fade(t, a2, a2 + 0.8) }}>earthpilot.org/kids/state/TX</div>
+      <div style={{ position: "absolute", top: 560, left: 0, right: 0, textAlign: "center", fontSize: 64, color: C.blue, opacity: fade(t, a2, a2 + 0.8) }}>{fig(scene, "url", "earthpilot.org/kids/state/TX")}</div>
       <div style={{ position: "absolute", top: 700, left: 0, right: 0, textAlign: "center", fontSize: 36, color: C.dim, opacity: fade(t, a2 + 1.2, a2 + 2) }}>Every district's own policy, in its own words, with its source.</div>
       <div style={{ position: "absolute", top: 900, left: 0, right: 0, textAlign: "center", opacity: fade(t, a3, a3 + 0.8) }}><Eyebrow>Safe Schools Project · a project of EarthPilot</Eyebrow></div>
     </Bg>

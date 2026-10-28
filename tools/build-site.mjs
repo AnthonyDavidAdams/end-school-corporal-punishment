@@ -1025,7 +1025,7 @@ ${tables}
   // ---------- the board page: /board/ is the national page; each state's page is /board/<ST>/ ----------
   // A bare link (the first batch of board-member notes went out with one) lands here. A tagged link whose token is
   // known is forwarded to the recipient's own state page by r.json: token -> [state, nces], no names, no emails.
-  // The film is the Texas edition, the only one rendered so far, and the page says so. Texas itself is /board/TX/.
+  // The film is the national edition (tools/film/script-national.json); Texas itself is /board/TX/ with the Texas edition.
   mkdirSync(join(site, "board"), { recursive: true });
   const permittingStates = Object.values(states).filter(x => x.status === "legal" || x.status === "partial");
   try {
@@ -1039,7 +1039,7 @@ ${tables}
   writeFileSync(join(site, "board", "index.html"), shell({
     title: "One sentence: corporal punishment and your school board", path: "/board/",
     description: "A four-minute film for school board members on corporal punishment: what the law permits, what the research finds, where the protection for staff stops, and the one sentence that ends it. Your state's numbers, law and peers on your state's page.",
-    image: `${BASE}/assets/one-sentence-poster.jpg`,
+    image: `${BASE}/assets/one-sentence-national-poster.jpg`,
     extraHead: `<style>.film{background:#0B1F33;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:1rem 0 .4rem}.film video{display:block;width:100%;height:auto}.filmnote{margin:0 0 1.4rem}.sentence{font-family:var(--serif);font-weight:900;font-size:1.7rem;line-height:1.25;color:var(--navy-dark);border-left:6px solid var(--red);padding:.4rem 0 .4rem 1rem;margin:1.2rem 0}.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}.bcard{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--shadow)}.bcard h2{font-size:1.15rem;margin:.1rem 0 .5rem}.bcard p{margin:.3rem 0}.cta{display:inline-block;margin:.4rem .6rem .4rem 0;padding:.65rem 1rem;border-radius:8px;background:var(--navy-dark);color:#fff;text-decoration:none;font-weight:700}.cta.alt{background:var(--card);color:var(--navy-dark);border:1px solid var(--rule)}.states{display:flex;flex-wrap:wrap;gap:.4rem .5rem;margin:.6rem 0 1rem}.states a{display:inline-block;padding:.35rem .7rem;border:1px solid var(--rule);border-radius:999px;background:var(--card);text-decoration:none;font-weight:600}</style>
 <script>
 (async function(){try{var q=new URLSearchParams(location.search),r=q.get("r");if(!r)return;var res=await fetch("/kids/board/r.json",{cache:"no-store"});var m=await res.json();var v=m[r];if(v&&v[0]){location.replace("/kids/board/"+v[0]+"/?r="+encodeURIComponent(r)+"&d="+encodeURIComponent(v[1]))}}catch(e){}})();
@@ -1048,8 +1048,8 @@ ${tables}
 <p class="lede">A four-minute film for school board members: what the law permits, what the research finds, where the protection for staff stops, and the one sentence that ends it.</p></div></section>
 <p><b>Your state's page</b>, with its own law, numbers, peers and sentence:</p>
 <div class="states" id="states">${permittingStates.map(x => `<a href="/kids/board/${x.code}/">${esc(x.name)}</a>`).join("")}</div>
-<div class="film"><video controls preload="metadata" poster="/kids/assets/one-sentence-poster.jpg" playsinline><source src="/kids/media/one-sentence.mp4" type="video/mp4">Your browser cannot play this video. <a href="/kids/media/one-sentence.mp4">Download it</a>.</video></div>
-<p class="filmnote small">The four-minute film, Texas edition: the research and the ask are the same in every state; the Texas law and figures in it are Texas's. Your state's law and figures are on <a href="#states">your state's page</a>.</p>
+<div class="film"><video controls preload="metadata" poster="/kids/assets/one-sentence-national-poster.jpg" playsinline><source src="/kids/media/one-sentence-national.mp4" type="video/mp4">Your browser cannot play this video. <a href="/kids/media/one-sentence-national.mp4">Download it</a>.</video></div>
+<p class="filmnote small">The four-minute film for board members, with the national figures. Your state's law and figures are on <a href="#states">your state's page</a>.</p>
 <p class="sentence">&ldquo;The Board prohibits the use of corporal punishment in the District.&rdquo;</p>
 <p>That is the whole policy. For a district that permits corporal punishment on paper and has not used it in years, adopting the sentence changes nothing on Monday morning except the exposure. Hundreds of boards in permitting states have already put it in writing; your state's page shows which ones, in their own words.</p>
 <div class="bgrid">
@@ -1061,8 +1061,8 @@ ${tables}
 <p class="small">Figures: U.S. Department of Education Civil Rights Data Collection 2023-24; each state's statutes at the links on its page; the Safe Schools Project record of each district's own written policy. Not legal advice.</p>`
   }));
   // ---------- per-state board pages: /board/<ST>/ ----------
-  // The same page with the state's own law, numbers, peers and sentence. The film is the Texas edition until a
-  // state edition is rendered, and the page says so. ?d=<nces> personalizes the page with that district's own
+  // The same page with the state's own law, numbers, peers and sentence. Texas gets the Texas edition of the film,
+  // every other state the national edition. ?d=<nces> personalizes the page with that district's own
   // policy line from the public record; the board-member notes link here with it.
   const modelLang = JSON.parse(readFileSync(join(root, "data/states/model-language.json"), "utf8"));
   const lagRows = existsSync(join(root, "data/outreach/policy-lag.json")) ? JSON.parse(readFileSync(join(root, "data/outreach/policy-lag.json"), "utf8")) : [];
@@ -1078,11 +1078,12 @@ ${tables}
     const trend = c17.students && c24.students ? ` In 2017-18 it was ${n(c17.students)}: the practice is already leaving.` : (s.status === "partial" ? " No district in the state has used it since 2018." : "");
     const shares = c24.students ? `Of the students struck, ${Math.round(100 * (c24.boys || 0) / c24.students)} percent were boys and ${Math.round(100 * (c24.with_disabilities || 0) / c24.students)} percent had a disability.` : "";
     const limits = Array.isArray(s.limits) ? s.limits : (s.limits ? [s.limits] : []);
+    const film = code === "TX" ? "one-sentence" : "one-sentence-national", poster = code === "TX" ? "one-sentence-poster.jpg" : "one-sentence-national-poster.jpg";
     const dir = join(site, "board", code); mkdirSync(dir, { recursive: true });
     writeFileSync(join(dir, "index.html"), shell({
       title: `One sentence: corporal punishment and your ${s.name} school board`, path: `/board/${code}/`,
       description: `For ${s.name} school board members: what ${s.statute || "state law"} permits, what the research finds, ${struck}, and the one sentence ${own ? used + " " + s.name + " boards" : "boards"} already adopted.`,
-      image: `${BASE}/assets/one-sentence-poster.jpg`,
+      image: `${BASE}/assets/${poster}`,
       extraHead: `<style>.film{background:#0B1F33;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:1rem 0 .4rem}.film video{display:block;width:100%;height:auto}.filmnote{margin:0 0 1.4rem}.sentence{font-family:var(--serif);font-weight:900;font-size:1.7rem;line-height:1.25;color:var(--navy-dark);border-left:6px solid var(--red);padding:.4rem 0 .4rem 1rem;margin:1.2rem 0}.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}.bcard{background:var(--card);border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--shadow)}.bcard h2{font-size:1.15rem;margin:.1rem 0 .5rem}.bcard p{margin:.3rem 0}.cta{display:inline-block;margin:.4rem .6rem .4rem 0;padding:.65rem 1rem;border-radius:8px;background:var(--navy-dark);color:#fff;text-decoration:none;font-weight:700}.cta.alt{background:var(--card);color:var(--navy-dark);border:1px solid var(--rule)}#yours{display:none;border-left:6px solid var(--navy-dark);background:var(--card);padding:.9rem 1.1rem;border-radius:var(--radius);margin:1rem 0}#yours.on{display:block}#yours h2{margin:.1rem 0 .4rem;font-size:1.2rem}</style>
 <script>
 (async function(){try{var d=new URLSearchParams(location.search).get("d");if(!d)return;var r=await fetch("/kids/data/records/${code}.json",{cache:"force-cache"});var rows=await r.json();var x=rows.find(function(y){return String(y.nces_id)===String(d)});if(!x)return;var el=document.getElementById("yours");var st={allows:"permits corporal punishment",bans:"prohibits corporal punishment",consent_required:"permits it with a parent's consent",silent:"has no written rule on it"}[x.status]||"";var q=x.quote?' It says: <q>'+x.quote.replace(/</g,"&lt;")+'</q>':"";var k=(x.crdc_students_latest===0)?" In the latest federal count the district reported no use of it.":(x.crdc_students_latest?" In the latest federal count "+x.crdc_students_latest.toLocaleString()+" students were struck.":"");el.innerHTML="<h2>"+(x.district||x.name).replace(/</g,"&lt;")+"</h2><p>The policy on file"+(x.policy_code?" ("+x.policy_code+")":"")+" "+st+"."+q+k+(x.source?' <a href=\\""+x.source+"\\" rel=\\"noopener\\">Source</a>':"")+"</p>";el.classList.add("on");}catch(e){}})();
@@ -1090,8 +1091,8 @@ ${tables}
       body: `<section class="hero"><div class="wrap"><h1>One sentence.</h1>
 <p class="lede">For ${s.name} school board members: what the law permits, what the research finds, where the protection for staff stops, and the one sentence that ends it.</p></div></section>
 <div id="yours"></div>
-<div class="film"><video controls preload="metadata" poster="/kids/assets/one-sentence-poster.jpg" playsinline><source src="/kids/media/one-sentence.mp4" type="video/mp4">Your browser cannot play this video. <a href="/kids/media/one-sentence.mp4">Download it</a>.</video></div>
-<p class="filmnote small">${code === "TX" ? "The four-minute film for board members." : `The four-minute film, Texas edition: the research and the ask are the same everywhere; the ${s.name} figures are below. A ${s.name} edition is in production.`}</p>
+<div class="film"><video controls preload="metadata" poster="/kids/assets/${poster}" playsinline><source src="/kids/media/${film}.mp4" type="video/mp4">Your browser cannot play this video. <a href="/kids/media/${film}.mp4">Download it</a>.</video></div>
+<p class="filmnote small">${code === "TX" ? "The four-minute film for board members, Texas edition." : `The four-minute film for board members, with the national figures. The ${s.name} figures are below.`}</p>
 <p class="sentence">&ldquo;${esc(sentence)}&rdquo;</p>
 <p>${sentenceNote}${code === "TX" ? " In Texas it is one word in FO(LOCAL), the policy code every board already has." : ""} For a district that permits corporal punishment on paper and has not used it in years, adopting the sentence changes nothing on Monday morning except the exposure.${lag ? ` In ${s.name}, ${n(lag)} districts are in exactly that position.` : ""}</p>
 <div class="bgrid">
