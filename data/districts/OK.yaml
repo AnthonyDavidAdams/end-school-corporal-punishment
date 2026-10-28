@@ -9373,14 +9373,14 @@ districts:
   - name: Warner
     county: Muskogee
     nces_id: "4031650"
-    status: silent
-    source: https://www.warner.k12.ok.us/vimages/shared/vnews/stories/5f4fd0aaed93f/20%20-%2021%20Student%20Handbook.pdf
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4031650-link-058fdd.pdf
+    quote: Section 10 – Page 28  Corporal Punishment Corporal punishment may be administered at the discretion of the school administration.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-28
+    method: records_request
+    parent_control: opt_out
     documents:
       - kind: handbook
         url: https://www.warner.k12.ok.us/vimages/shared/vnews/stories/5f4fd0aaed93f/20%20-%2021%20Student%20Handbook.pdf
@@ -9406,8 +9406,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-28; the document is kept in the repository at data/policies/inbound/OK/4031650-link-058fdd.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Section 10 – Page 28  Corporal Punishment Corporal punishment may be administered at the discretion of the school administration.
+      - As to any special education student, the person administering the corporal punishment must first determine that such punishment is not prohibited by the student’s IEP or 504 plan.
+      - Corporal punishment will not be administered to any student identified with a disability in accordance with the federal Individuals with Disabilities Education Act (IDEA).
+      - Parents who object to the use of corporal punishment for their student must notify the school principal, in writing, at the beginning of each school year.
   - name: Washington
     county: McClain
     nces_id: "4031710"
