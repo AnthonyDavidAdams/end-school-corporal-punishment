@@ -319,6 +319,7 @@ def policy_code_in(text):
     lines = [re.sub(r"[\u200b\u00a0\ufeff]", " ", l) for l in (text or "")[:4000].splitlines()[:60]]
     for i, l in enumerate(lines):
         if l.startswith("Policy text as sent by email"): continue   # the filing header carries a timezone like -0500
+        if re.search(r"RSMo|§|K\.S\.A|Ark\. Code|Code Ann|Stat\.|Section \d|U\.S\.C", l): continue   # a statute citation is not a policy code
         if not any(re.search(r"corporal punishment", x, re.I) for x in lines[i:i + 3]): continue
         for m in re.finditer(r"(?<![A-Za-z0-9+-])([A-Z]{2,5}(?:-\d{1,4})?|\d{2,4}\.\d{1,4}|\d{4})(?![A-Za-z0-9])", l):
             c = m.group(1)
