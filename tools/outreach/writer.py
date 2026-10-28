@@ -21,16 +21,30 @@ SIGNOFF_RE = re.compile(r"^([A-Z][a-z]{1,11})( [A-Z][A-Za-z'.-]+){0,2}$")
 STOCK = ["that's a straight answer", "exactly what I needed", "that settles it", "I appreciate it", "I really appreciate you", "thanks for the quick", "just bumping this"]
 
 
-def signed_as(thread, superintendent):
-    """The name they sign with ('Pat' under a superintendent listed as Patrick Murphy), read off their own
-    messages, latest first. None when no sign-off line matches the listed first name."""
-    first = messages.first_name(superintendent or "", fallback="")
+CLOSINGS = {"thanks", "thank", "regards", "best", "sincerely", "respectfully", "cheers", "superintendent", "principal", "director", "secretary", "assistant", "office", "district", "schools", "school", "board", "policy", "attached", "hello", "hi", "hey", "good", "please", "sent", "dear", "elementary", "secondary", "preschool", "high", "middle"}
+
+
+def signed_as(thread, superintendent, from_address=None):
+    """The first name the person signs with, read off the end of their own latest message: 'Pat' under a
+    superintendent listed as Patrick Murphy, or 'Jason' when an assistant principal answers from his own
+    mailbox. A sign-off counts when it matches the listed superintendent's first name, or a token of it is
+    in the sender's address (porterj@ signs 'Jason Porter'); failing both, the last name-shaped line of the
+    message is taken unless it is a closing word. None when nothing name-shaped is there."""
+    first = messages.first_name(superintendent or "", fallback="").lower()
+    local = (from_address or "").split("@")[0].lower()
     for m in reversed([m for m in thread if m.get("who") == "them"]):
-        for line in (m.get("text") or "").splitlines():
-            w = line.strip().rstrip(",").split(",")[0]
+        lines = [l.strip().rstrip(",").split(",")[0] for l in (m.get("text") or "").splitlines() if l.strip()]
+        weak = None
+        for w in lines[-25:]:   # a long signature block can push the sign-off far from the end (Milan: 'Pat' then eleven lines of links)
             g = SIGNOFF_RE.match(w)
-            if g and first and (first.lower().startswith(g.group(1).lower()) or g.group(1).lower().startswith(first.lower()[:3])):
-                return g.group(1)
+            if not g: continue
+            name = g.group(1); toks = [t.lower() for t in w.split()]
+            if any(t in CLOSINGS or t in ("anthony", "adams") for t in toks): continue
+            if first and (first.startswith(name.lower()) or name.lower().startswith(first[:3])): return name
+            if local and any(len(t) >= 3 and t in local for t in toks): return name
+            if len(toks) <= 2: weak = name   # the last name-shaped line before the signature block
+        if weak: return weak
+        if lines: return None   # their latest message carries no name; do not reach back to an older one
     return None
 
 
@@ -56,7 +70,7 @@ def thread_context(r, thread):
             "their_last_at": messages.ago(theirs[-1].get("date")) if theirs else None,
             "their_last_said": (theirs[-1].get("text") or "")[:600] if theirs else None,
             "their_last_carried": " and ".join(carried) or "words only",
-            "signed_as": signed_as(thread, sup),
+            "signed_as": signed_as(thread, sup, frm),
             "from_address": frm or None,
             "from_the_superintendents_own_mailbox": own_mailbox if frm else None,
             "our_last_at": messages.ago(ours[-1].get("date")) if ours else None,
@@ -147,7 +161,7 @@ def situation(r, thread, record, filed, facts, recheck, quiet):
             f"EXTRACTED FACTS: {json.dumps(facts)}\n"
             f"ANTHONY HAS WRITTEN IN THIS THREAD HIMSELF: {'yes, so nothing will be sent automatically' if quiet else 'no'}\n"
             f"THREAD CONTEXT (use it; do not invent timing or thanks): {json.dumps(ctx, default=str)}\n"
-            f"GREET THEM AS: {greet or 'there'} (the name they sign with, or the mailbox the reply came from; never a name that is not in the thread)\n"
+            f"GREET THEM AS: {greet or 'no name confirmed: if their message is signed with a person''s name use that first name, otherwise open with no name at all (the thanks first), never a name that is not in the thread'}\n"
             f"THEIR REPLIES SO FAR: {ctx['their_replies']}; OURS AFTER THE FIRST: {ctx['ours_after_the_first']}\n\n"
             f"THE THREAD, OLDEST FIRST:\n\n{convo}\n\nChoose the move and write the reply.")
 

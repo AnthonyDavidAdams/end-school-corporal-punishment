@@ -542,9 +542,16 @@ def asks_us_back(body):
     t = triage_mod.strip_quoted(body)
     return bool(re.search(r"\?\s*$", t.strip()) or re.search(r"\b(are you saying|what do you mean|why (do|did|are) you|can you (explain|clarify)|please (explain|clarify)|contradict)", t, re.I))
 
-def thread_of(r):
-    """Every message in this thread, ours and theirs, oldest first: what the model reads before it writes."""
+def thread_of(r, reqs=None):
+    """Every message in this thread, ours and theirs, oldest first: what the model reads before it writes.
+    Includes what we sent the same district on sibling requests (a certificate, a correction, an apology),
+    because the superintendent sees one conversation; the writer answered Pat's "why do you want this" on
+    2026-10-27 by re-correcting a mistake the correction email had already owned up to, two hours earlier."""
     msgs = []
+    for s in (reqs if reqs is not None else load()):
+        if s is r or s.get("id") == r.get("id") or not s.get("sent_at") or s.get("kind") not in ("certificate", "certificate_correction", "apology"): continue
+        if (r.get("nces_id") and str(s.get("nces_id")) == str(r["nces_id"])) or ((s.get("to") or "").lower() == (r.get("to") or "").lower() and r.get("to")):
+            msgs.append({"who": "us", "date": s["sent_at"], "text": f"[{s['kind'].replace('_', ' ')}, sent on its own thread]\n" + (s.get("body") or f"(the {s['kind']} email)"), "links": []})
     first = r.get("body") or body_for(r)   # older requests did not keep their text; the template is what was sent
     msgs.append({"who": "us", "date": r.get("sent_at"), "text": first, "links": []})
     for e in r.get("replies") or []:
@@ -679,7 +686,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         log("folded", r["state"], r["name"], mid[:40]); finish(); return
 
     # 3. The whole thread, read by the writer. Then one move.
-    thread = thread_of(r) + [{"who": "them", "date": msg.get("Date"), "text": triage_mod.strip_quoted(body), "links": links[:10], "attachments": [a[0] for a in atts], "kind": kind}]
+    thread = thread_of(r, reqs) + [{"who": "them", "date": msg.get("Date"), "text": triage_mod.strip_quoted(body), "links": links[:10], "attachments": [a[0] for a in atts], "kind": kind}]
     filed_desc = [{"what": x, "says": y} for x, y in zip((facts.get("document_links") or []) + [a[0] for a in atts], filed)] or ([{"says": f} for f in filed] if filed else [])
     decision = writer_mod.decide(r, thread, record, filed_desc, facts, recheck, quiet)
     move = decision["move"] if decision else "hold"
@@ -847,7 +854,7 @@ def catchup(send=True):
             try: filed = [g for g in save_docs(r, atts, e.get("links") or [], e.get("facts") or {}) if g]
             except Exception as ex: log("catchup save_docs failed", r["name"], repr(ex)[:100])
             e["filed"] = filed or ["nothing"]
-        thread = thread_of(r); record = record_status(r)
+        thread = thread_of(r, reqs); record = record_status(r)
         recorded = [f for f in filed if f != "held"]
         if recorded: r["recorded_status"] = record.get("status") or recorded[0]
         d = writer_mod.decide(r, thread, record, [{"says": f} for f in recorded], e.get("facts") or {}, {"found": None, "looked_at": r.get("recheck_tried") or []} if r.get("rechecked_at") else None, False)
@@ -915,7 +922,7 @@ def rehold(send=True, only=None):
             except Exception as ex:
                 log("rehold save_docs failed", r["name"], repr(ex)[:100])
             e["filed"] = filed or ["nothing"]
-        thread = thread_of(r); record = record_status(r)
+        thread = thread_of(r, reqs); record = record_status(r)
         filed_desc = [{"says": f} for f in filed if f != "held"]
         d = writer_mod.decide(r, thread, record, filed_desc, e.get("facts") or {}, {"found": None, "looked_at": r.get("recheck_tried") or []} if r.get("rechecked_at") else None, False)
         move = d["move"] if d else "hold"; text = d["reply"] if d else None; why = d["why"] if d else f"writer: {writer_mod.LAST_ERROR[0]}"
@@ -978,7 +985,7 @@ def apply_decision(did, action, note, by, state):
         if action == "approve":
             text = e.get("suggested")
             if not text: return "no draft to send"
-            if by == "auto" and not writer_mod.check(text, thread_of(r), record_status(r)):
+            if by == "auto" and not writer_mod.check(text, thread_of(r, reqs), record_status(r)):
                 st["auto_tried"] = datetime.datetime.now().isoformat(timespec="minutes")
                 rehold(send=True, only={rid}); r2 = next(x for x in load() if x["id"] == rid)
                 return "referee declined the draft; redrafted and sent" if r2["status"] != "needs_review" else "referee declined the draft; redrafted, waits for Anthony"

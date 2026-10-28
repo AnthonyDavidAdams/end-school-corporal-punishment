@@ -51,7 +51,8 @@ def jev(state, questions, timeout=60):
 
 def strip_quoted(body):
     """Only what they wrote, not our own request quoted back at us."""
-    t = re.split(r"\n\s*(On .{5,90}wrote:|From: .{0,80}Anthony|-{3,}\s*Original Message|_{10,})", str(body or ""))[0]
+    t = re.split(r"\n[>\s]*(On .{5,90}wrote:|From: .{0,80}Anthony|-{3,}\s*Original Message|_{10,})", str(body or ""))[0]
+    t = "\n".join(l for l in t.splitlines() if not l.lstrip().startswith(">"))   # Apple Mail quotes every line with '>' (Strong-Huttig, 2026-10-27)
     return re.sub(r"\n{3,}", "\n\n", t).strip()
 
 
