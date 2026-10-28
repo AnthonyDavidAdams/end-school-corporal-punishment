@@ -1689,13 +1689,13 @@ districts:
   - name: Manchester
     county: Coffee
     nces_id: "4702610"
-    status: silent
-    source: https://mhs.mpspride.org/families/student-parent-handbook/code-of-conduct
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TN/4702610-email-69c24fde.txt
+    quote: Best, JV Corporal Punishment Any principal, assistant principal or teacher of the Manchester City School District may use corporal punishment in a reasonable manner against any student for good cause in order to maintain discipline and order within the public schools in accordance with the following guidelines:1 - Corporal punishment shall be administered only after other less stringent measures have failed, or if the conduct of a student is of such nature that corporal punishment is the only reasonable form of punishment under the circumstances;
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-27
+    method: records_request
     parent_control: unknown
     documents:
       - kind: code_of_conduct
@@ -1704,8 +1704,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-27; the document is kept in the repository at data/policies/inbound/TN/4702610-email-69c24fde.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Best, JV Corporal Punishment Any principal, assistant principal or teacher of the Manchester City School District may use corporal punishment in a reasonable manner against any student for good cause in order to maintain discipline and order within the public schools in accordance with the following guidelines:1 - Corporal punishment shall be administered only after other less stringent measures have failed, or if the conduct of a student is of such nature that corporal punishment is the only reasonable form of punishment under the circumstances;
+      - "- Corporal punishment shall be reasonable;"
   - name: Marion County
     county: Marion
     nces_id: "4702640"
