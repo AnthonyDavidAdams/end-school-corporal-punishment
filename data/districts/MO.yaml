@@ -5167,13 +5167,13 @@ districts:
   - name: Rolla 31
     county: Phelps
     nces_id: "2926890"
-    status: silent
-    source: https://rhs.rolla31.org/62619_2
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2926890-Policy_JGA-2_CORPORAL_PUNISHMENT___Rolla_31.pdf
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-2
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-28
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -5188,8 +5188,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-28; the document is kept in the repository at data/policies/inbound/MO/2926890-Policy_JGA-2_CORPORAL_PUNISHMENT___Rolla_31.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
   - name: Roscoe C-1 School District
     county: St. Clair
     nces_id: "2926940"

@@ -1,0 +1,1446 @@
+
+
+<!DOCTYPE html lang="en">
+<html lang="en">
+    <head id="header"><title>
+	Student Enrollment
+</title><meta http-equiv="content-type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="smartbanner:title" content="Dickson County School District" /><meta name="smartbanner:author" content="eSV2Go" /><meta name="smartbanner:price" content="FREE" /><meta name="smartbanner:price-suffix-apple" content=" - On the App Store" /><meta name="smartbanner:price-suffix-google" content=" - In Google Play" /><meta name="smartbanner:icon-apple" content="https://siaus-cdn.azureedge.net/eschoolview-files/53c64eb9-eefb-4388-942a-cd446cf05297" /><meta name="smartbanner:icon-google" content="https://siaus-cdn.azureedge.net/eschoolview-files/53c64eb9-eefb-4388-942a-cd446cf05297" /><meta name="smartbanner:button" content="VIEW" /><meta name="smartbanner:button-url-apple" content="https://itunes.apple.com/app/id1385212321" /><meta name="smartbanner:button-url-google" content="https://play.google.com/store/apps/details?id=com.esv2go.dicksoncounty" /><meta name="smartbanner:enabled-platforms" content="android,ios" /><link rel="shortcut icon" href="../sysimages/favicon.png" />
+
+ 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/theme.min.css" integrity="sha512-Q2qvb9omuMvaoo6ofA3xaiD3b1aA7BlQGYxEOTij6i4HRsDNB7K2uEUHbbymUqqFDduToacMzKNYYVRwe4H2yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.min.js" integrity="sha256-iMTCex8BQ+iVxpZO83MoRkKBaoh9Dz9h3tEVrM5Rxqo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle2/2.1.6/jquery.cycle2.caption2.min.js" integrity="sha256-QL45p1QesHW/6G8Pu39Bobopen7d1hVU7cwi10OxqQ4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="jquery/js/jquery-accessibleMegaMenu.js"></script>
+<script type="text/javascript" src="jquery/js/toggleEmbed.js"></script>
+<script type="text/javascript" src="jquery/js/app.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.4.1/video-js.min.css" integrity="sha256-mBVhyezbCXnwC4evRxlWVi2ZBvAYKgXgeHznrnO3Jbk=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.4.1/video.min.js" integrity="sha256-Oa0CFG9LEJQqXrK/dnI1lTW0QZfBk0uVN4wNahQ1u48=" crossorigin="anonymous" defer></script>
+<script id="Script2" type="text/javascript" src="jquery/js/video-js/videojs.ga.min.js" defer></script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.7/slick.min.css" integrity="sha256-HYPCMwwUt0T9ollsiFOJffSJ81GWrL1OBhDoyyhK9kI=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.7/slick-theme.min.css" integrity="sha256-t2ZpsPcjScX5u0Q2FOSCqKw23PrZb5PGMjbtzCWOwmw=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.7/slick.min.js" integrity="sha256-4TRrqFVwLVZLjbrnHH2OnEZdZle7v/bz6qAM7fT0qlM=" crossorigin="anonymous"></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/slicknav.min.css" integrity="sha256-LEgFChKAs47ma0Ei3DD3uNDYl3bID3byE9ypWOcB9F0=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SlickNav/1.0.10/jquery.slicknav.min.js" integrity="sha256-h/TwuBQqRBiExw0sK/HdwzJI7uYFBrJ2Ebo7gn9AGz4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha256-0rguYS0qgS6L4qVzANq4kjxPLtvnp5nn2nB5G1lWRv4=" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js" integrity="sha256-4F7e4JsAJyLUdpP7Q8Sah866jCOhv72zU5E8lIRER4w=" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" defer>
+    $(function () {
+        if ($(".collapsible").find("h3.component_title").length > 0) {
+            $(".collapsible").accordion({
+                header: "h3",
+                collapsible: true,
+                heightStyle: "content",
+                autoHeight: true,
+                clearStyle: true,
+                active: false
+            });
+        }
+        else {
+            $(".collapsible").accordion({
+                header: "h2",
+                collapsible: true,
+                heightStyle: "content",
+                autoHeight: true,
+                clearStyle: true,
+                active: false
+            });
+        }
+    });
+</script>
+
+<script type="text/javascript" defer src="https://liquid.esvbeta.com/jquery/js/font-awesome/fontawesome-pro-6.4.2/all.min.js"></script>
+<script type="text/javascript" defer src="https://liquid.esvbeta.com/jquery/js/font-awesome/fontawesome-pro-6.4.2/sharp-solid.min.js"></script>
+<script type="text/javascript" defer src="https://liquid.esvbeta.com/jquery/js/font-awesome/fontawesome-pro-6.4.2/fontawesome.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+
+
+<link rel="stylesheet" href="/StylesFroala.css?v=2" />
+
+        
+        <script src="/resources/javascript/elementQueries/ResizeSensor.js" type="text/javascript"></script>
+        <script src="/resources/javascript/elementQueries/ElementQueries.js" type="text/javascript"></script>
+
+        
+	    <script type="text/javascript" defer="defer">
+	        function waitForElement() {
+	            if (typeof videojs !== "undefined") {
+	                videojs.options.flash.swf = "//vjs.zencdn.net/5.8.0/video-js.swf";
+	                videojs('video', {}, function () {
+	                    videojs.ga();
+	                });
+	            }
+	            else {
+	                setTimeout(function () {
+	                    waitForElement();
+	                }, 1);
+	            }
+	        }     
+        </script>
+
+        
+        <script type="text/javascript" src="jquery/slick/slick.js?v=1"></script>
+
+        
+        <script src="jquery/slicknav/jquery.slicknav.js" type="text/javascript"></script>
+
+        
+        <link rel="Stylesheet" href="/resources/styles/bootstrap-3.3.7-dist/css/bootstrap.css" /><link id="styles1" rel="Stylesheet" href="Styles/Styles.css?v=156" /><link rel="stylesheet" media="screen, projection" href="https://cdn.jsdelivr.net/npm/smartbanner.js@1.13.0/dist/smartbanner.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/smartbanner.js@1.13.0/dist/smartbanner.min.js"></script>
+
+        
+        <link rel="stylesheet" href="https://use.typekit.net/hrr3jov.css" />
+
+        <style>.wf-loading, .wf-loading h1, .wf-loading h2, .wf-loading p { visibility: hidden;}</style>
+        
+        <!-- UserWay script - to use, uncomment the lines at the bottom of this script, and change the email address to client's email, change url to site url -->
+        <script type="text/javascript">
+            var uwJson = {
+                email: "tspicer@dcstn.org",
+                url: "http://www.dcstn.org/"
+            }
+            var _userway_custom_styles = {
+                /* uncomment the following line to override default position*/
+                 position: '3', 
+                /* uncomment the following line to override default size (values: small, large)*/
+                 size: 'large', 
+                /* uncomment the following line to override default language (e.g., fr, de, es, he, nl, etc.)*/
+                /* language: 'en-US', */
+                /* uncomment the following line to override color set via widget (e.g., #053f67)*/
+                 color: '#0097FF',
+                /* uncomment the following line to override type set via widget(1=person, 2=chair, 3=eye)*/
+                 type: '3', 
+                /* uncomment the following line to override support on mobile devices*/
+                /* mobile: true, */
+            }
+            var _userway_config = {
+                account: '0000'
+            }
+            var uwString = "email=" + uwJson["email"] + "&url=" + uwJson["url"];
+            var uwKey = "mseQUvdejI2BpzfyqYo8BvBGv2ALnCdo";
+            function reqListener() {
+                if (JSON.parse(this.responseText)["code"] == 200) {
+                    var str = JSON.parse(this.responseText)["data"]["widget"]["html"];
+                    var res = str.replace(/<script .*?>var /, "").replace(/;<\/script.*?<\/script>/, "");
+                    eval(res);
+                    for (var key in _userway_custom_styles) {
+                        _userway_config[key] = _userway_custom_styles[key];
+                    }
+                    var matchStr = /<script .*? src='(.*?)'>/i;
+                    var res2 = str.match(matchStr);
+                    var __script = document.createElement("script");
+                    __script.src = res2[1];
+                    $(__script).appendTo("head");
+                }
+            }
+            var oReq = new XMLHttpRequest();
+            oReq.addEventListener("load", reqListener);
+            oReq.open("POST", "https://userway.org/api/widget?key=" + uwKey);
+            oReq.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            oReq.send(uwString);
+        </script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121795699-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-121795699-1');
+        </script>
+        </head>
+    <body>
+        <form name="form1" method="post" action="./Content.aspx?id=29884" id="form1" class="flex_form">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNjE5MTY1NDM1D2QWBAIBD2QWBAITDxYCHgRocmVmBRl+L1N0eWxlcy9TdHlsZXMuY3NzP3Y9MTU2ZAIYDxYCHgRUZXh0ZWQCAw9kFhICBQ9kFgRmDxYCHgVjbGFzcwUcSGVhZGVyVG9wIGhlYWRlcnRvcF9kaXN0cmljdBYGAgEPDxYCHgdWaXNpYmxlaGRkAgMPDxYCHgtOYXZpZ2F0ZVVybAU0aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2dyb3Vwcy9kaWNrc29uY291bnR5c2Nob29sc2RkAgUPDxYEHwQFGmh0dHBzOi8vdHdpdHRlci5jb20vRENTX1ROHwNnZGQCAg8WAh8CBQ9oZWFkZXJfZGlzdHJpY3RkAgcPZBYCZg8WAh8CBQ90b3BuYXZfZGlzdHJpY3QWAgIDDxYCHgtfIUl0ZW1Db3VudAIGFgxmD2QWBAIBDw8WBB8BBRJQYXJlbnRzICYgU3R1ZGVudHMfBAUZfi9QYXJlbnRzQW5kU3R1ZGVudHMuYXNweGRkAgMPFgIfBQIcFjgCAQ9kFgICAQ8PFggfAQUaUmVnaXN0cmF0aW9uICYgSW5zdHJ1Y3Rpb24eCENzc0NsYXNzBQluYXZfdGl0bGUeB0VuYWJsZWRoHgRfIVNCAgJkZAICD2QWAgIBDw8WBB8BBRJTdHVkZW50IEVucm9sbG1lbnQfBAUYfi9TdHVkZW50RW5yb2xsbWVudC5hc3B4ZGQCAw9kFgICAQ8PFgQfAQUNRXh0ZW5kZWQgQ2FyZR8EBRN+L0V4dGVuZGVkQ2FyZS5hc3B4ZGQCBA9kFgICAQ8PFgQfAQUaQnVzIGFuZCBab25pbmcgSW5mb3JtYXRpb24fBAUVfi9UcmFuc3BvcnRhdGlvbi5hc3B4ZGQCBQ9kFgICAQ8PFgQfAQUnUGFyZW50IE5vdGlmaWNhdGlvbnMgYW5kIENvbW11bmljYXRpb25zHwQFKH4vUGFyZW50Tm90aWZpY2F0aW9uc0NvbW11bmljYXRpb25zLmFzcHhkZAIGD2QWAgIBDw8WBh8BBQxQREYgQ2FsZW5kYXIfBAUpfi9Eb3dubG9hZHMvY3VycmVudF95ZWFyX2NhbGVuZGFyLnBkZj92PTQeBlRhcmdldAUGX2JsYW5rZGQCBw9kFgICAQ8PFgQfAQUIQ2FsZW5kYXIfBAVMaHR0cDovL3d3dy5kY3N0bi5vcmcvcHJvdGVjdGVkL01hc3RlckNhbGVuZGFyLmFzcHg/ZGFzaT0zQUkwJmU9Jmc9JnZzPTEzJmQ9JmRkAggPZBYCAgEPDxYGHwEFGVN0dWRlbnQgRGlzdHJpY3QgSGFuZGJvb2sfBAV/aHR0cHM6Ly9kb2NzLmdvb2dsZS5jb20vZG9jdW1lbnQvZC9lLzJQQUNYLTF2VDNqSU1NV1FET1lRamZXWTNrN25URjZHNENkRHQ5WlNvWUg5ZWRMVExfOTcxTXhINzFVSXR5MndqQUpFRjBXblREQndYN1JJR25sYXpaL3B1Yh8JBQZfYmxhbmtkZAIJD2QWAgIBDw8WBB8BBRhTdHVkZW50IFNjaG9vbCBIYW5kYm9va3MfBAUxaHR0cHM6Ly93d3cuZGNzdG4ub3JnL1N0dWRlbnRTY2hvb2xIYW5kYm9va3MuYXNweGRkAgoPZBYCAgEPDxYEHwEFGURpZ2l0YWwgJiBPbmxpbmUgTGVhcm5pbmcfBAUyaHR0cDovL3d3dy5kY3N0bi5vcmcvRGlnaXRhbGFuZE9ubGluZUxlYXJuaW5nLmFzcHhkZAILD2QWAgIBDw8WBB8BBRtTa3l3YXJkIEZhbWlseSBBY2Nlc3MgR3VpZGUfBAU8aHR0cHM6Ly93d3cuZGNzdG4ub3JnL0Rvd25sb2Fkcy9GYW1pbHlfQWNjZXNzX1VzZXJfR3VpZGUucGRmZGQCDA9kFgICAQ8PFgQfAQUNU2t5d2FyZCBMb2dpbh8EBUxodHRwczovL3Npcy1kaWNrc29uLnRuazEyLmdvdi9zY3JpcHRzL3dzaXNhLmRsbC9XU2VydmljZT13c0RJQ1N0dS9zZXBsb2cwMS53ZGQCDQ9kFgICAQ8PFgYfAQUPQ2xhc3NMaW5rIExvZ2luHwQFJ2h0dHBzOi8vbGF1bmNocGFkLmNsYXNzbGluay5jb20vZGlja3Nvbh8JBQZfYmxhbmtkZAIOD2QWAgIBDw8WBh8BBRRTdHVkZW50IEVtYWlsICYgQXBwcx8EBSdodHRwczovL21haWwuZ29vZ2xlLmNvbS9tYWlsL3UvMC8jaW5ib3gfCQUGX2JsYW5rZGQCDw9kFgICAQ8PFggfAQUaU3R1ZGVudCBIZWFsdGggJiBOdXRyaXRpb24fBgUJbmF2X3RpdGxlHwdoHwgCAmRkAhAPZBYCAgEPDxYEHwEFDVNjaG9vbCBIZWFsdGgfBAUwaHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2Rjc3RuLm9yZy9zY2hvb2xoZWFsdGgvZGQCEQ9kFgICAQ8PFgQfAQUQU2Nob29sIE51dHJpdGlvbh8EBSpodHRwczovL3d3dy5kY3N0bi5vcmcvU2Nob29sTnV0cml0aW9uLmFzcHhkZAISD2QWAgIBDw8WBB8BBQpNZWFsIE1lbnVzHwQFWmh0dHBzOi8vbGlucWNvbm5lY3QuY29tL3B1YmxpYy9tZW51L1JTNlVZND9idWlsZGluZ0lkPTJmMDYzMDMyLTA4YTMtZWQxMS04ZTZhLWM0NzY2YTM1NzE0M2RkAhMPZBYCAgEPDxYGHwEFIUxJTlEgQ29ubmVjdCBTdHVkZW50IE1lYWxzIFBvcnRhbB8EBRhodHRwczovL2xpbnFjb25uZWN0LmNvbS8fCQUGX2JsYW5rZGQCFA9kFgICAQ8PFggfAQUfVGVzdGluZyBhbmQgR3JhZGluZyBJbmZvcm1hdGlvbh8GBQluYXZfdGl0bGUfB2gfCAICZGQCFQ9kFgICAQ8PFgQfAQUZU3RhdGUgVGVzdGluZyBJbmZvcm1hdGlvbh8EBR5+L1N0YXRlVGVzdGluZ0luZm9ybWF0aW9uLmFzcHhkZAIWD2QWAgIBDw8WBB8BBRZEaXN0cmljdCBHcmFkaW5nIFNjYWxlHwQFE34vR3JhZGluZ1NjYWxlLmFzcHhkZAIXD2QWAgIBDw8WBh8BBQ1Ib21ld29yayBIZWxwHwQFJ2h0dHBzOi8vd3d3LmRjc3RuLm9yZy9Ib21ld29ya0hlbHAuYXNweB8JBQZfYmxhbmtkZAIYD2QWAgIBDw8WCB8BBSdGb3JtcywgRG9jdW1lbnRzIGFuZCBQb2xpY3kgSW5mb3JtYXRpb24fBgUJbmF2X3RpdGxlHwdoHwgCAmRkAhkPZBYCAgEPDxYEHwEFHUZvcm1zLCBEb2N1bWVudHMgYW5kIFBvbGljaWVzHwQFJn4vRm9ybXNEb2N1bWVudHNQb2xpY3lJbmZvcm1hdGlvbi5hc3B4ZGQCGg9kFgICAQ8PFgQfAQUkWW91dGggU3VpY2lkZSBhbmQgQnVsbHlpbmcgUmVzb3VyY2VzHwQFJH4vWW91dGhTdWljaWRlQnVsbHlpbmdSZXNvdXJjZXMuYXNweGRkAhsPZBYCAgEPDxYEHwEFHEludGVybmV0ICYgVGVjaG5vbG9neSBTYWZldHkfBAUffi9JbnRlcm5ldFRlY2hub2xvZ3lTYWZldHkuYXNweGRkAhwPZBYCAgEPDxYEHwEFJFBvc3QtU2Vjb25kYXJ5IEVkdWNhdGlvbmFsIFJlc291cmNlcx8EBTpodHRwczovL3d3dy5kY3N0bi5vcmcvUG9zdFNlY29uZGFyeUVkdWNhdGlvblJlc291cmNlcy5hc3B4ZGQCAQ9kFgQCAQ8PFgQfAQUHU2Nob29scx8EBQ5+L1NjaG9vbHMuYXNweGRkAgMPFgIfBQIUFigCAQ9kFgICAQ8PFggfAQUSRWxlbWVudGFyeSBTY2hvb2xzHwYFCW5hdl90aXRsZR8HaB8IAgJkZAICD2QWAgIBDw8WBB8BBRxDZW50ZW5uaWFsIEVsZW1lbnRhcnkgU2Nob29sHwQFC34vY2VudC5hc3B4ZGQCAw9kFgICAQ8PFgQfAQUbQ2hhcmxvdHRlIEVsZW1lbnRhcnkgU2Nob29sHwQFCn4vY2VzLmFzcHhkZAIED2QWAgIBDw8WBB8BBRlEaWNrc29uIEVsZW1lbnRhcnkgU2Nob29sHwQFCn4vZGVzLmFzcHhkZAIFD2QWAgIBDw8WBB8BBRlPYWttb250IEVsZW1lbnRhcnkgU2Nob29sHwQFCn4vb2VzLmFzcHhkZAIGD2QWAgIBDw8WBB8BBRRUaGUgRGlzY292ZXJ5IFNjaG9vbB8EBQp+L3Rkcy5hc3B4ZGQCBw9kFgICAQ8PFgQfAQUeU3R1YXJ0LUJ1cm5zIEVsZW1lbnRhcnkgU2Nob29sHwQFC34vc2Jlcy5hc3B4ZGQCCA9kFgICAQ8PFgQfAQUZVmFubGVlciBFbGVtZW50YXJ5IFNjaG9vbB8EBQp+L3Zlcy5hc3B4ZGQCCQ9kFgICAQ8PFgQfAQUeV2hpdGUgQmx1ZmYgRWxlbWVudGFyeSBTY2hvb2wgHwQFC34vd2Jlcy5hc3B4ZGQCCg9kFgICAQ8PFggfAQUOTWlkZGxlIFNjaG9vbHMfBgUJbmF2X3RpdGxlHwdoHwgCAmRkAgsPZBYCAgEPDxYEHwEFE0J1cm5zIE1pZGRsZSBTY2hvb2wfBAUKfi9ibXMuYXNweGRkAgwPZBYCAgEPDxYEHwEFF0NoYXJsb3R0ZSBNaWRkbGUgU2Nob29sHwQFCn4vY21zLmFzcHhkZAIND2QWAgIBDw8WBB8BBRVEaWNrc29uIE1pZGRsZSBTY2hvb2wfBAUKfi9kbXMuYXNweGRkAg4PZBYCAgEPDxYEHwEFG1dpbGxpYW0gSmFtZXMgTWlkZGxlIFNjaG9vbB8EBQt+L3dqbXMuYXNweGRkAg8PZBYCAgEPDxYIHwEFDEhpZ2ggU2Nob29scx8GBQluYXZfdGl0bGUfB2gfCAICZGQCEA9kFgICAQ8PFgQfAQUWQ3JlZWsgV29vZCBIaWdoIFNjaG9vbB8EBQt+L2N3aHMuYXNweGRkAhEPZBYCAgEPDxYEHwEFGkRpY2tzb24gQ291bnR5IEhpZ2ggU2Nob29sHwQFC34vZGNocy5hc3B4ZGQCEg9kFgICAQ8PFggfAQUdQWx0ZXJuYXRpdmUgTGVhcm5pbmcgRmFjaWxpdHkfBgUJbmF2X3RpdGxlHwdoHwgCAmRkAhMPZBYCAgEPDxYEHwEFFk5ldyBEaXJlY3Rpb25zIEFjYWRlbXkfBAUKfi9uZGEuYXNweGRkAhQPZBYCAgEPDxYEHwEFGURpc3RhbmNlIExlYXJuaW5nIEFjYWRlbXkfBAUMfi9kY2RsYS5hc3B4ZGQCAg9kFgQCAQ8PFgQfAQULRGVwYXJ0bWVudHMfBAUSfi9EZXBhcnRtZW50cy5hc3B4ZGQCAw8WAh8FAg8WHgIBD2QWAgIBDw8WBB8BBQ5BZG1pbmlzdHJhdGlvbh8EBSlodHRwczovL3d3dy5kY3N0bi5vcmcvQWRtaW5pc3RyYXRpb24uYXNweGRkAgIPZBYCAgEPDxYEHwEFGEN1cnJpY3VsdW0gJiBJbnN0cnVjdGlvbh8EBTBodHRwczovL3d3dy5kY3N0bi5vcmcvQ3VycmljdWx1bUluc3RydWN0aW9uLmFzcHhkZAIDD2QWAgIBDw8WBB8BBRRFbGVtZW50YXJ5IEVkdWNhdGlvbh8EBRp+L0VsZW1lbnRhcnlFZHVjYXRpb24uYXNweGRkAgQPZBYCAgEPDxYEHwEFE1NlY29uZGFyeSBFZHVjYXRpb24fBAUZfi9TZWNvbmRhcnlFZHVjYXRpb24uYXNweGRkAgUPZBYCAgEPDxYEHwEFEVNwZWNpYWwgRWR1Y2F0aW9uHwQFK2h0dHBzOi8vd3d3LmRjc3RuLm9yZy9TcGVjaWFsRWR1Y2F0aW9uLmFzcHhkZAIGD2QWAgIBDw8WBB8BBRxDYXJlZXIgJiBUZWNobmljYWwgRWR1Y2F0aW9uHwQFH34vQ2FyZWVyVGVjaG5pY2FsRWR1Y2F0aW9uLmFzcHhkZAIHD2QWAgIBDw8WBB8BBRBTdHVkZW50IFNlcnZpY2VzHwQFFn4vU3R1ZGVudFNlcnZpY2VzLmFzcHhkZAIID2QWAgIBDw8WBB8BBRBTY2hvb2wgTnV0cml0aW9uHwQFFn4vU2Nob29sTnV0cml0aW9uLmFzcHhkZAIJD2QWAgIBDw8WBB8BBQ1TY2hvb2wgSGVhbHRoHwQFMGh0dHBzOi8vc2l0ZXMuZ29vZ2xlLmNvbS9kY3N0bi5vcmcvc2Nob29saGVhbHRoL2RkAgoPZBYCAgEPDxYEHwEFEEZlZGVyYWwgUHJvZ3JhbXMfBAUWfi9GZWRlcmFsUHJvZ3JhbXMuYXNweGRkAgsPZBYCAgEPDxYEHwEFClRlY2hub2xvZ3kfBAURfi9UZWNobm9sb2d5LmFzcHhkZAIMD2QWAgIBDw8WBB8BBQhCdXNpbmVzcx8EBQ9+L0J1c2luZXNzLmFzcHhkZAIND2QWAgIBDw8WBB8BBQ9IdW1hbiBSZXNvdXJjZXMfBAUVfi9IdW1hblJlc291cmNlcy5hc3B4ZGQCDg9kFgICAQ8PFgQfAQUOVHJhbnNwb3J0YXRpb24fBAUVfi9UcmFuc3BvcnRhdGlvbi5hc3B4ZGQCDw9kFgICAQ8PFgQfAQUWRmFjaWxpdGllcyBNYWludGVuYW5jZR8EBRJ+L01haW50ZW5hbmNlLmFzcHhkZAIDD2QWBAIBDw8WBB8BBQ9GYWN1bHR5ICYgU3RhZmYfBAUPfi9Gb3JTdGFmZi5hc3B4ZGQCAw8WAh8FAhwWOAIBD2QWAgIBDw8WCB8BBRVGcmVxdWVudGx5IFVzZWQgTGlua3MfBgUJbmF2X3RpdGxlHwdoHwgCAmRkAgIPZBYCAgEPDxYEHwEFFUZyZXF1ZW50bHkgVXNlZCBGb3Jtcx8EBRp+L0ZyZXF1ZW50bHlVc2VkRm9ybXMuYXNweGRkAgMPZBYCAgEPDxYGHwEFCEhlbHBEZXNrHwQFJmh0dHBzOi8vZGNzdG4uZ3JvdXBsaW5rLmNvbS9sb2dpbi5nbG1sHwkFBl9ibGFua2RkAgQPZBYCAgEPDxYGHwEFC0VtYWlsIExvZ2luHwQFIWh0dHBzOi8vbWFpbC5nb29nbGUuY29tL21haWwvdS8wLx8JBQZfYmxhbmtkZAIFD2QWAgIBDw8WBB8BBQ1Ta3l3YXJkIExvZ2luHwQFTGh0dHBzOi8vc2lzLWRpY2tzb24udG5rMTIuZ292L3NjcmlwdHMvd3Npc2EuZGxsL1dTZXJ2aWNlPXdzRElDU3R1L3NlcGxvZzAxLndkZAIGD2QWAgIBDw8WCB8BBRRCZW5lZml0cyAmIExpY2Vuc3VyZR8GBQluYXZfdGl0bGUfB2gfCAICZGQCBw9kFgICAQ8PFgYfAQUTTXkgQmVuZWZpdHMgQ2hhbm5lbB8EBStodHRwOi8vd3d3LmRjc3RuLm9yZy9teWJlbmVmaXRzY2hhbm5lbC5hc3B4HwkFBl9ibGFua2RkAggPZBYCAgEPDxYGHwEFHEZyb250bGluZSBTdWJzdGl0dXRlIFJlcXVlc3QfBAUjaHR0cHM6Ly9hcHAuZnJvbnRsaW5lZWR1Y2F0aW9uLmNvbS8fCQUGX2JsYW5rZGQCCQ9kFgICAQ8PFgYfAQUKVE4gQ29tcGFzcx8EBTFodHRwczovL3RuY29tcGFzcy5vcmcvQWNjb3VudC9Mb2dpbj9SZXR1cm5Vcmw9JTJmHwkFBl9ibGFua2RkAgoPZBYCAgEPDxYEHwEFDkxlYXZlIFJlcXVlc3RzHwQFLGh0dHBzOi8vd3d3LmRjc3RuLm9yZy9MZWF2ZVJlcXVlc3RzRkFRcy5hc3B4ZGQCCw9kFgICAQ8PFgQfAQUMU3RhZmYgQ2xpbmljHwQFEn4vU3RhZmZDbGluaWMuYXNweGRkAgwPZBYCAgEPDxYIHwEFGFByb2Zlc3Npb25hbCBEZXZlbG9wbWVudB8GBQluYXZfdGl0bGUfB2gfCAICZGQCDQ9kFgICAQ8PFgYfAQUnRGlja3NvbiBDb3VudHkgU2Nob29scyBUZWFjaGVyIFRlY2ggSHViHwQFGmh0dHBzOi8vdGVjaGh1Yi5kY3N0bi5vcmcvHwkFBl9ibGFua2RkAg4PZBYCAgEPDxYGHwEFFk9ubGluZSBUcmFpbmluZyBQb3J0YWwfBAU9aHR0cHM6Ly9kY3NvbmxpbmV0cmFpbmluZ3BvcnRhbC50cmFpbmVyY2VudHJhbHNpdGUuY29tLyMvaG9tZR8JBQZfYmxhbmtkZAIPD2QWAgIBDw8WBB8BBSRQcm9mZXNzaW9uYWwgRGV2ZWxvcG1lbnQgSW5mb3JtYXRpb24fBAUNfi9wZGluZm8uYXNweGRkAhAPZBYCAgEPDxYIHwEFClRlY2hub2xvZ3kfBgUJbmF2X3RpdGxlHwdoHwgCAmRkAhEPZBYCAgEPDxYGHwEFH0xvZ2luIEF1dGhlbnRpY2F0aW9uIFNldHVwIEhlbHAfBAVIaHR0cHM6Ly90ZWNoaHViLmRjc3RuLm9yZy9nZW5lcmFsLWhpZGRlbi1wYWdlcy90d28tZmFjdG9yLWF1dGhlbnRpY2F0aW9uHwkFBl9ibGFua2RkAhIPZBYCAgEPDxYEHwEFE0VtcGxveWVlIEVtYWlsIEluZm8fBAUsaHR0cHM6Ly93d3cuZGNzdG4ub3JnL0VtcGxveWVlRW1haWxJbmZvLmFzcHhkZAITD2QWAgIBDw8WBB8BBRFQaG9uZSBTeXN0ZW0gSW5mbx8EBSpodHRwczovL3d3dy5kY3N0bi5vcmcvUGhvbmVTeXN0ZW1JbmZvLmFzcHhkZAIUD2QWAgIBDw8WCB8BBRxFZHVjYXRpb25hbCAmIEFkbWluaXN0cmF0aXZlHwYFCW5hdl90aXRsZR8HaB8IAgJkZAIVD2QWAgIBDw8WBh8BBREgVE4gfCBQVUxTRSBMb2dpbh8EBS1odHRwczovL3RucHVsc2UucGNnZWR1Y2F0aW9uLmNvbS90bmRpY2tzb25pZXAfCQUGX2JsYW5rZGQCFg9kFgICAQ8PFgYfAQUSU3BlY2lhbCBFRCBDb25uZWN0HwQFPWh0dHBzOi8vd3d3LnNwZWNpYWxlZGNvbm5lY3Rpb24uY29tL0xycFNlY1N0b3J5VG9vbC9sb2dpbi5qc3AfCQUGX2JsYW5rZGQCFw9kFgICAQ8PFgYfAQUPQ2xhc3NMaW5rIExvZ2luHwQFJ2h0dHBzOi8vbGF1bmNocGFkLmNsYXNzbGluay5jb20vZGlja3Nvbh8JBQZfYmxhbmtkZAIYD2QWAgIBDw8WBh8BBRVBZG1pbmlzdHJhdG9yIENlbnRyYWwfBAUxaHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2Rjc3RuLm9yZy9hZGNlbnRyYWwvaG9tZR8JBQZfYmxhbmtkZAIZD2QWAgIBDw8WBh8BBRlIUiBBZHZlcnRpc2UgJiBIaXJlIExvZ2luHwQFS2h0dHBzOi8vYXRzNC5hdGVudGVycHJpc2UucG93ZXJzY2hvb2wuY29tL2F0cy9lbXBfbG9naW4/Q09NUEFOWV9JRD1NQTAwMDYwOR8JBQZfYmxhbmtkZAIaD2QWAgIBDw8WBB8BBR9TdHVkZW50IERhdGEgU3lzdGVtIEluZm9ybWF0aW9uHwQFJmh0dHBzOi8vd3d3LmRjc3RuLm9yZy9TdHVkZW50RGF0YS5hc3B4ZGQCGw9kFgICAQ8PFgYfAQUcVGVjaG5vbG9neSBNYW5hZ2VtZW50IFN5c3RlbR8EBTVodHRwczovL2RpY2tzb25jc2QudGlwd2ViaHNzLmNvbS9USVBJRENvcmUvTG9nb24uYXNweB8JBQZfYmxhbmtkZAIcD2QWAgIBDw8WBh8BBSNDb21wcmVoZW5zaXZlIEVkdWNhdGlvbmFsIFJlc291cmNlcx8EBTJodHRwczovL3d3dy5jb21wcmVoZW5zaXZlZWR1Y2F0aW9uYWxyZXNvdXJjZXMub3JnLx8JBQZfYmxhbmtkZAIED2QWBAIBDw8WBB8BBQxTY2hvb2wgQm9hcmQfBAUSfi9TY2hvb2xCb2FyZC5hc3B4ZGQCAw8WAh8FAgQWCAIBD2QWAgIBDw8WBB8BBRRTY2hvb2wgQm9hcmQgTWVtYmVycx8EBRN+L0JvYXJkTWVtYmVycy5hc3B4ZGQCAg9kFgICAQ8PFgQfAQUVU2Nob29sIEJvYXJkIE1lZXRpbmdzHwQFHn4vQm9hcmRNZWV0aW5nSW5mb3JtYXRpb24uYXNweGRkAgMPZBYCAgEPDxYEHwEFFlNjaG9vbCBCb2FyZCBEaXN0cmljdHMfBAUvaHR0cHM6Ly93d3cuZGNzdG4ub3JnL1NjaG9vbEJvYXJkRGlzdHJpY3RzLmFzcHhkZAIED2QWAgIBDw8WBB8BBRVTY2hvb2wgQm9hcmQgUG9saWNpZXMfBAUafi9TY2hvb2xCb2FyZFBvbGljaWVzLmFzcHhkZAIFD2QWBAIBDw8WBB8BBQxPdXIgRGlzdHJpY3QfBAUSfi9PdXJEaXN0cmljdC5hc3B4ZGQCAw8WAh8FAgkWEgIBD2QWAgIBDw8WBB8BBRNEaXJlY3RvciBvZiBTY2hvb2xzHwQFD34vZGlyZWN0b3IuYXNweGRkAgIPZBYCAgEPDxYEHwEFCENhbGVuZGFyHwQFTGh0dHA6Ly93d3cuZGNzdG4ub3JnL3Byb3RlY3RlZC9NYXN0ZXJDYWxlbmRhci5hc3B4P2Rhc2k9M0FJMCZlPSZnPSZ2cz0xMyZkPSZkZAIDD2QWAgIBDw8WBB8BBQpFbXBsb3ltZW50HwQFEX4vRW1wbG95bWVudC5hc3B4ZGQCBA9kFgICAQ8PFgQfAQUoR3JvdyBZb3VyIE93biBUZWFjaGVyIFJlY3J1aXRpbmcgUHJvZ3JhbR8EBTtodHRwczovL3d3dy5kY3N0bi5vcmcvR3Jvd1lvdXJPd25BcHByZW50aWNlc2hpcFByb2dyYW0uYXNweGRkAgUPZBYCAgEPDxYEHwEFHkNlbnRyYWwgT2ZmaWNlIFN0YWZmIERpcmVjdG9yeR8EBRl+L2NlbnRyYWxvZmZpY2VzdGFmZi5hc3B4ZGQCBg9kFgICAQ8PFgQfAQUOU3RyYXRlZ2ljIFBsYW4fBAUoaHR0cHM6Ly93d3cuZGNzdG4ub3JnL1N0cmF0ZWdpY1BsYW4uYXNweGRkAgcPZBYCAgEPDxYEHwEFFUluZm9ybWF0aW9uICYgTm90aWNlcx8EBQ5+L05vdGljZXMuYXNweGRkAggPZBYCAgEPDxYEHwEFBUxlZ2FsHwQFIGh0dHBzOi8vd3d3LmRjc3RuLm9yZy9sZWdhbC5hc3B4ZGQCCQ9kFgICAQ8PFgQfAQUKQ29udGFjdCBVcx8EBSRodHRwczovL3d3dy5kY3N0bi5vcmcvQ29udGFjdFVzLmFzcHhkZAIJD2QWCGYPZBYUAgMPFgIfBQILFhYCAQ9kFgQCAQ8PFgQeCEltYWdlVXJsBTxodHRwczovL3d3dy5kY3N0bi5vcmcvR2FsbGVyeUltYWdlcy8yMDI1NTEyOTEzMTgyOF9pbWFnZS5wbmceDUFsdGVybmF0ZVRleHQFEkxhc3QgRGF5IG9mIFNjaG9vbGRkAgMPDxYCHwNoZBYGAgEPFgIfA2hkAgMPDxYCHwNoZGQCBQ8PFgIfA2hkZAICD2QWBAIBDw8WBB8KBT1odHRwczovL3d3dy5kY3N0bi5vcmcvR2FsbGVyeUltYWdlcy8yMDI1NTIwMTM3NDA2OTFfaW1hZ2UucG5nHwsFEVROIFJld2FyZCBTY2hvb2xzZGQCAw8PFgIfA2hkFgYCAQ8WAh8DaGQCAw8PFgIfA2hkZAIFDw8WAh8DaGRkAgMPZBYEAgEPDxYEHwoFPWh0dHBzOi8vd3d3LmRjc3RuLm9yZy9HYWxsZXJ5SW1hZ2VzLzIwMjU1MjAxMzYzOTgyN19pbWFnZS5wbmcfCwUSR3JlZW4gQXBwbGUgQXdhcmRzZGQCAw8PFgIfA2hkFgYCAQ8WAh8DaGQCAw8PFgIfA2hkZAIFDw8WAh8DaGRkAgQPZBYEAgEPDxYEHwoFPmh0dHBzOi8vd3d3LmRjc3RuLm9yZy9HYWxsZXJ5SW1hZ2VzLzIwMjU1MjExMDIwNDc3MTNfaW1hZ2UucG5nHwsFFlNwZWNpYWwgQ2FsbGVkIE1lZXRpbmdkZAIDDw8WAh8DaGQWBgIBDxYCHwNoZAIDDw8WAh8DaGRkAgUPDxYCHwNoZGQCBQ9kFgQCAQ8PFgQfCgU+aHR0cHM6Ly93d3cuZGNzdG4ub3JnL0dhbGxlcnlJbWFnZXMvMjAyNTUyMTEwMTcyODUxNF9pbWFnZS5wbmcfCwUTTGFtZWtpYSBQcmltbSwgRENIU2RkAgMPZBYGAgEPFgIfA2hkAgMPDxYCHwNoZGQCBQ8PFgQfBAVLaHR0cHM6Ly9ncml0ZGFpbHkuY29tL2xhbWVraWEtbC1wcmltbS1idXNpbmVzcy1lZHVjYXRpb24tYW5kLWxpZmUtY29hY2hpbmcvHwkFBl9ibGFua2RkAgYPZBYEAgEPDxYEHwoFPWh0dHBzOi8vd3d3LmRjc3RuLm9yZy9HYWxsZXJ5SW1hZ2VzLzIwMjU0MTYxNTUxMTM4Nl9pbWFnZS5wbmcfCwUQV2UmIzM5O3JlIGhpcmluZ2RkAgMPZBYGAgEPFgIfA2hkAgMPDxYCHwNoZGQCBQ8PFgQfBAUlaHR0cHM6Ly93d3cuZGNzdG4ub3JnL0VtcGxveW1lbnQuYXNweB8JBQZfYmxhbmtkZAIHD2QWBAIBDw8WBB8KBTxodHRwczovL3d3dy5kY3N0bi5vcmcvR2FsbGVyeUltYWdlcy8yMDI1MTgxMzMwOTk3MV9pbWFnZS5wbmcfCwUVR3JvdyBZb3VyIE93biBQcm9ncmFtZGQCAw9kFgYCAQ8WAh8DaGQCAw8PFgIfA2hkZAIFDw8WBB8EBSNodHRwczovL2Zvcm1zLmdsZS82SlVISjRQeGpiZVBXQ05UOB8JBQZfYmxhbmtkZAIID2QWBAIBDw8WBB8KBT5odHRwczovL3d3dy5kY3N0bi5vcmcvR2FsbGVyeUltYWdlcy8yMDI1MTIzMTIxNTQwOTI3X2ltYWdlLnBuZx8LBSVQb3NpdGl2ZSBTb2x1dGlvbnMgZm9yIEZhbWlsaWVzIEZseWVyZGQCAw9kFgYCAQ8WAh8DaGQCAw8PFgIfAQUMU2lnbiB1cCBOb3chZGQCBQ8PFgQfBAViaHR0cHM6Ly9yZWFkeXNldGdyb3cuc29jaWFsc29sdXRpb25zcG9ydGFsLmNvbS9hcHJpY290LWludGFrZS9kODk4NGEyNC00OTA4LTQ2ODctOTBmYi1lMTE4YWU3M2Y4MDYfCQUGX2JsYW5rZGQCCQ9kFgQCAQ8PFgQfCgU+aHR0cHM6Ly93d3cuZGNzdG4ub3JnL0dhbGxlcnlJbWFnZXMvMjAyNTExNDEwMzkyNTg2NV9pbWFnZS5wbmcfCwUoVE4gQWNoaWV2ZXMgKiBUTiBQcm9taXNlIFBhcmVudCBIYW5kYm9va2RkAgMPZBYGAgEPFgIfA2hkAgMPDxYCHwNoZGQCBQ8PFgQfBAVAaHR0cHM6Ly93d3cuZGNzdG4ub3JnL0Rvd25sb2Fkcy8yMDI1dG5BY2hpZXZlc1BhcmVudEhhbmRib29rLnBkZh8JBQZfYmxhbmtkZAIKD2QWBAIBDw8WBB8KBT9odHRwczovL3d3dy5kY3N0bi5vcmcvR2FsbGVyeUltYWdlcy8yMDI0MTIxODExMTAyOTEzNV9pbWFnZS5wbmcfCwUOUmV3YXJkIFNjaG9vbHNkZAIDDw8WAh8DaGQWBgIBDxYCHwNoZAIDDw8WAh8DaGRkAgUPDxYCHwNoZGQCCw9kFgQCAQ8PFgQfCgU8aHR0cHM6Ly93d3cuZGNzdG4ub3JnL0dhbGxlcnlJbWFnZXMvMjAyNTE5MTA0MTIzMTlfaW1hZ2UucG5nHwsFLVN1YnN0aXR1dGUgVGVhY2hpbmcgaW4gRGlja3NvbiBDb3VudHkgU2Nob29sc2RkAgMPZBYGAgEPFgIfA2hkAgMPDxYCHwNoZGQCBQ8PFgQfBAUtaHR0cHM6Ly93d3cuZGNzdG4ub3JnL1N1YnN0aXR1dGVUZWFjaGVycy5hc3B4HwkFBl9ibGFua2RkAgUPFgIfBWZkAgcPDxYCHwQFOX4vcHJvdGVjdGVkL01hc3RlckNhbGVuZGFyLmFzcHg/ZGFzaT0zQUkwJmU9Jmc9JnZzPTEzJmQ9JmRkAh8PDxYCHwNnZBYCAgEPDxYEHwQFUH4vcHJvdGVjdGVkL0FydGljbGVBcmNoaXZlLmFzcHg/ZGFzaT0zQUkwJm49JnZzPTFHJnNkPSZlZD0mcD01WVVJUFkmYT0mcT0mY3A9MVomHwNoZGQCIQ8WAh4JaW5uZXJodG1sBQdXZWxjb21lZAIjDw8WBh8KBTxodHRwczovL3d3dy5kY3N0bi5vcmcvV2luZG93SW1hZ2VzLzIwMjQ1ODE0NDA0NTMzOV9pbWFnZS5qcGcfCwUuRHIuIENocmlzdGllIFNvdXRoZXJsYW5kIC0gRGlyZWN0b3Igb2YgU2Nob29scx8DZ2RkAiUPDxYCHwEFLkRyLiBDaHJpc3RpZSBTb3V0aGVybGFuZCAtIERpcmVjdG9yIG9mIFNjaG9vbHNkZAInDw8WAh8BBQw8ZGl2PiA8L2Rpdj5kZAIxDw8WAh8BBZ8BPGlmcmFtZSBzcmM9J2h0dHBzOi8vd3d3Lmp1aWNlci5pby9hcGkvZmVlZHMvZGlja3Nvbi1jb3VudHktYmUvaWZyYW1lJyBmcmFtZWJvcmRlcj0nMCcgd2lkdGg9JzEwMCUnIGhlaWdodD0nODAwJyBzdHlsZT0nZGlzcGxheTpibG9jazttYXJnaW46MCBhdXRvOyc+PC9pZnJhbWU+ZGQCMw8PFgIfAQUjPHNjcmlwdD52YXIgbmV3c0NvdW50ID0gMDs8L3NjcmlwdD5kZAICDw8WAh8DaGRkAgQPDxYCHwNoZGQCBg8PFgIfA2hkZAILDxYCHwNoFgICAQ8WAh8MBRJTdHVkZW50IEVucm9sbG1lbnRkAg0PFgIfA2cWAgIBDw8WAh8KBTdodHRwczovL3d3dy5kY3N0bi5vcmcvUGFnZUltYWdlcy9lbnJvbGxtZW50X2hlYWRlcjMucG5nZGQCDw8PFgIfA2dkZAIRD2QWAmYPD2QWAh4Fc3R5bGVlFgJmD2QWBAIBDw8WBB8BBRRQYXJlbnRzIGFuZCBTdHVkZW50cx8EBRl+L1BhcmVudHNhbmRzdHVkZW50cy5hc3B4ZGQCAg8WAh8FAhcWLmYPZBYCAgEPZBYEAgEPDxYIHwEFElN0dWRlbnQgRW5yb2xsbWVudB8EBRh+L1N0dWRlbnRFbnJvbGxtZW50LmFzcHgfBgUMY3VycmVudF9wYWdlHwgCAmRkAgMPFgIfBQIFFgoCAQ9kFgICAQ9kFgQCAQ8PFgQfAQUbSy0xMiBFbnJvbGxtZW50IEluZm9ybWF0aW9uHwQFIH4vSy0xMkVucm9sbG1lbnRJbmZvcm1hdGlvbi5hc3B4ZGQCAw8WAh8FAv////8PZAICD2QWAgIBD2QWBAIBDw8WBB8BBRxQcmUtSyBFbnJvbGxtZW50IEluZm9ybWF0aW9uHwQFIX4vUHJlLUtFbnJvbGxtZW50SW5mb3JtYXRpb24uYXNweGRkAgMPFgIfBQICFgQCAQ9kFgICAQ9kFgQCAQ8PFgQfAQUXVm9sdW50YXJ5IFByZS1LIFByb2dyYW0fBAUcfi9Wb2x1bnRhcnlQcmUtS1Byb2dyYW0uYXNweGRkAgMPFgIfBQL/////D2QCAg9kFgICAQ9kFgQCAQ8PFgQfAQUSUHJlLUsgUGVlciBQcm9ncmFtHwQFIH4vSW5jbHVzaXZlUHJlc2Nob29sUHJvZ3JhbS5hc3B4ZGQCAw8WAh8FAv////8PZAIDD2QWAgIBD2QWBAIBDw8WBB8BBTBQcmVLIGFuZCBLaW5kZXJnYXJ0ZW4gT25saW5lIEVucm9sbG1lbnQgUGxheWJvb2sfBAUZfi9FbnJvbGxtZW50UGxheWJvb2suYXNweGRkAgMPFgIfBQL/////D2QCBA9kFgICAQ9kFgQCAQ8PFgQfAQUiT3V0LW9mLVpvbmUgRW5yb2xsbWVudCBJbmZvcm1hdGlvbh8EBRZ+L091dC1vZi1ab25lSW5mby5hc3B4ZGQCAw8WAh8FAv////8PZAIFD2QWAgIBD2QWBAIBDw8WBB8BBRhJbW11bml6YXRpb24gSW5mb3JtYXRpb24fBAUefi9JbW11bml6YXRpb25JbmZvcm1hdGlvbi5hc3B4ZGQCAw8WAh8FAv////8PZAIBD2QWAgIBD2QWBAIBDw8WBB8BBQ1FeHRlbmRlZCBDYXJlHwQFE34vRXh0ZW5kZWRDYXJlLmFzcHhkZAIDDxYCHwUC/////w9kAgIPZBYCAgEPZBYEAgEPDxYEHwEFGkJ1cyBhbmQgWm9uaW5nIEluZm9ybWF0aW9uHwQFFn4vL1RyYW5zcG9ydGF0aW9uLmFzcHhkZAIDDxYCHwUC/////w9kAgMPZBYCAgEPZBYEAgEPDxYEHwEFJVBhcmVudCBOb3RpZmljYXRpb25zICYgQ29tbXVuaWNhdGlvbnMfBAUofi9QYXJlbnROb3RpZmljYXRpb25zQ29tbXVuaWNhdGlvbnMuYXNweGRkAgMPFgIfBQIDFgYCAQ9kFgICAQ9kFgQCAQ8PFgQfAQUkUGhvbmUgTm90aWZpY2F0aW9uIFNlbGYtU3Vic2NyaXB0aW9uHwQFJH4vTm90aWZpY2F0aW9uU2VsZi1TdWJzY3JpcHRpb24uYXNweGRkAgMPFgIfBQL/////D2QCAg9kFgICAQ9kFgQCAQ8PFgQfAQUaU2t5d2FyZCBGYW1pbHkgQWNjZXNzIEluZm8fBAUefi9Ta3l3YXJkRmFtaWx5QWNjZXNzSW5mby5hc3B4ZGQCAw8WAh8FAv////8PZAIDD2QWAgIBD2QWBAIBDw8WBB8BBQ9TY2hvb2wgQ2xvc2luZ3MfBAUVfi9TY2hvb2xDbG9zaW5ncy5hc3B4ZGQCAw8WAh8FAv////8PZAIED2QWAgIBD2QWBAIBDw8WBh8BBQhDYWxlbmRhch8EBUxodHRwOi8vd3d3LmRjc3RuLm9yZy9wcm90ZWN0ZWQvTWFzdGVyQ2FsZW5kYXIuYXNweD9kYXNpPTNBSTAmZT0mZz0mdnM9MTMmZD0mHwkFD19uZXdXaW5kb3c0MjI4MGRkAgMPFgIfBQL/////D2QCBQ9kFgICAQ9kFgQCAQ8PFgYfAQUQU3R1ZGVudCBIYW5kYm9vax8EBX9odHRwczovL2RvY3MuZ29vZ2xlLmNvbS9kb2N1bWVudC9kL2UvMlBBQ1gtMXZUM2pJTU1XUURPWVFqZldZM2s3blRGNkc0Q2REdDlaU29ZSDllZExUTF85NzFNeEg3MVVJdHkyd2pBSkVGMFduVERCd1g3UklHbmxhelovcHViHwkFD19uZXdXaW5kb3c0MjgwOGRkAgMPFgIfBQL/////D2QCBg9kFgICAQ9kFgQCAQ8PFgQfAQUYU3R1ZGVudCBTY2hvb2wgSGFuZGJvb2tzHwQFHX4vU3R1ZGVudFNjaG9vbEhhbmRib29rcy5hc3B4ZGQCAw8WAh8FAv////8PZAIHD2QWAgIBD2QWBAIBDw8WBB8BBRNTY2hvb2wgU3VwcGx5IExpc3RzHwQFGH4vU2Nob29sU3VwcGx5TGlzdHMuYXNweGRkAgMPFgIfBQL/////D2QCCA9kFgICAQ9kFgQCAQ8PFgQfAQUbRGlnaXRhbCBhbmQgT25saW5lIExlYXJuaW5nHwQFH34vRGlnaXRhbGFuZE9ubGluZUxlYXJuaW5nLmFzcHhkZAIDDxYCHwUCBhYMAgEPZBYCAgEPZBYEAgEPDxYGHwEFL0RpY2tzb24gQ291bnR5IFNjaG9vbHMgQWNjZXB0YWJsZSBVc2UgQWdyZWVtZW50HwQFRmh0dHBzOi8vZHJpdmUuZ29vZ2xlLmNvbS9maWxlL2QvMVZCU3R1TkVfSENCU3B0OG9wYThJS09yd1p1VUZzNjlYL3ZpZXcfCQUPX25ld1dpbmRvdzg3MzEyZGQCAw8WAh8FAv////8PZAICD2QWAgIBD2QWBAIBDw8WBh8BBSxEaWNrc29uIENvdW50eSBTY2hvb2xzIENocm9tZWJvb2sgVXNlciBHdWlkZR8EBTlodHRwczovL3d3dy5kY3N0bi5vcmcvRG93bmxvYWRzL2Nocm9tZWJvb2tfdXNlcl9ndWlkZS5wZGYfCQUPX25ld1dpbmRvdzg3MzE0ZGQCAw8WAh8FAv////8PZAIDD2QWAgIBD2QWBAIBDw8WBB8BBThEaWNrc29uIENvdW50eSBTY2hvb2xzIFN0dWRlbnQgUG9ydGFibGUgRGV2aWNlIEFncmVlbWVudB8EBR5+L1BvcnRhYmxlRGV2aWNlQWdyZWVtZW50LmFzcHhkZAIDDxYCHwUC/////w9kAgQPZBYCAgEPZBYEAgEPDxYEHwEFJ1BvcnRhYmxlIERldmljZSBQcm90ZWN0aW9uIFBsYW4gUGF5bWVudB8EBRx+L1Byb3RlY3Rpb25QbGFuUGF5bWVudC5hc3B4ZGQCAw8WAh8FAv////8PZAIFD2QWAgIBD2QWBAIBDw8WBB8BBRlEaWdpdGFsIEFwcGxpY2F0aW9ucyBMaXN0HwQFHn4vRGlnaXRhbEFwcGxpY2F0aW9uc0xpc3QuYXNweGRkAgMPFgIfBQL/////D2QCBg9kFgICAQ9kFgQCAQ8PFgYfAQUXRENETEEgTW9uaXRvcmluZyBSZXBvcnQfCQUPX25ld1dpbmRvdzg5NjE4HwQFfGh0dHBzOi8vd3d3LmRjc3RuLm9yZy9Eb3dubG9hZHMvMjQtMjUgRGlja3NvbiBDb3VudHkgRGlzdGFuY2UgTGVhcm5pbmcgQWNhZGVteSBWaXJ0dWFsX1NjaG9vbF9Nb25pdG9yaW5nX1JlcG9ydCAoMikgKDEpMi5wZGZkZAIDDxYCHwUC/////w9kAgkPZBYCAgEPZBYEAgEPDxYGHwEFG1NreXdhcmQgRmFtaWx5IEFjY2VzcyBHdWlkZR8EBTxodHRwczovL3d3dy5kY3N0bi5vcmcvRG93bmxvYWRzL0ZhbWlseV9BY2Nlc3NfVXNlcl9HdWlkZS5wZGYfCQUPX25ld1dpbmRvdzc5MDgwZGQCAw8WAh8FAv////8PZAIKD2QWAgIBD2QWBAIBDw8WBh8BBQ1Ta3l3YXJkIExvZ2luHwQFTGh0dHBzOi8vc2lzLWRpY2tzb24udG5rMTIuZ292L3NjcmlwdHMvd3Npc2EuZGxsL1dTZXJ2aWNlPXdzRElDU3R1L3NlcGxvZzAxLncfCQUPX25ld1dpbmRvdzg4NzYyZGQCAw8WAh8FAv////8PZAILD2QWAgIBD2QWBAIBDw8WBh8BBQ9DbGFzc2xpbmsgTG9naW4fBAUnaHR0cHM6Ly9sYXVuY2hwYWQuY2xhc3NsaW5rLmNvbS9kaWNrc29uHwkFD19uZXdXaW5kb3c4NzI0OGRkAgMPFgIfBQL/////D2QCDA9kFgICAQ9kFgQCAQ8PFgYfAQUhU3R1ZGVudCBFbWFpbCAmIEdvb2dsZSBBcHBzIExvZ2luHwQFJ2h0dHBzOi8vbWFpbC5nb29nbGUuY29tL21haWwvdS8wLyNpbmJveB8JBQ9fbmV3V2luZG93ODcyNTBkZAIDDxYCHwUC/////w9kAg0PZBYCAgEPZBYEAgEPDxYGHwEFDVNjaG9vbCBIZWFsdGgfBAUwaHR0cHM6Ly9zaXRlcy5nb29nbGUuY29tL2Rjc3RuLm9yZy9zY2hvb2xoZWFsdGgvHwkFD19uZXdXaW5kb3czMzI4MGRkAgMPFgIfBQL/////D2QCDg9kFgICAQ9kFgQCAQ8PFgYfAQUQU2Nob29sIE51dHJpdGlvbh8EBSpodHRwczovL3d3dy5kY3N0bi5vcmcvU2Nob29sTnV0cml0aW9uLmFzcHgfCQUPX25ld1dpbmRvdzg3MjM4ZGQCAw8WAh8FAv////8PZAIPD2QWAgIBD2QWBAIBDw8WBh8BBQpNZWFsIE1lbnVzHwQFWmh0dHBzOi8vbGlucWNvbm5lY3QuY29tL3B1YmxpYy9tZW51L1JTNlVZND9idWlsZGluZ0lkPTJmMDYzMDMyLTA4YTMtZWQxMS04ZTZhLWM0NzY2YTM1NzE0Mx8JBQ9fbmV3V2luZG93ODcyNDBkZAIDDxYCHwUC/////w9kAhAPZBYCAgEPZBYEAgEPDxYEHwEFJ0Rpc3RyaWN0ICYgU3RhdGUgQXNzZXNzbWVudCBJbmZvcm1hdGlvbh8EBR5+L1N0YXRlVGVzdGluZ0luZm9ybWF0aW9uLmFzcHhkZAIDDxYCHwUCAxYGAgEPZBYCAgEPZBYEAgEPDxYGHwEFHERpY2tzb24gQ291bnR5IFRlc3RpbmcgRGF0ZXMfBAUxaHR0cHM6Ly93d3cuZGNzdG4ub3JnL0Rvd25sb2Fkcy90ZXN0aW5nX2RhdGVzLnBkZh8JBQ9fbmV3V2luZG93MzM2MTBkZAIDDxYCHwUC/////w9kAgIPZBYCAgEPZBYEAgEPDxYEHwEFJERpY2tzb24gQ291bnR5IFNjaG9vbHMgR3JhZGluZyBTY2FsZR8EBRN+L0dyYWRpbmdTY2FsZS5hc3B4ZGQCAw8WAh8FAv////8PZAIDD2QWAgIBD2QWBAIBDw8WBh8BBRpEaXN0cmljdCBEYXRhICYgQXNzZXNzbWVudB8EBTFodHRwczovL3d3dy5kY3N0bi5vcmcvRGlzdHJpY3REYXRhQXNzZXNzbWVudC5hc3B4HwkFD19uZXdXaW5kb3c4NzM4MmRkAgMPFgIfBQL/////D2QCEQ9kFgICAQ9kFgQCAQ8PFgQfAQUNSG9tZXdvcmsgSGVscB8EBRN+L0hvbWV3b3JrSGVscC5hc3B4ZGQCAw8WAh8FAv////8PZAISD2QWAgIBD2QWBAIBDw8WBB8BBSVGb3JtcywgRG9jdW1lbnRzICYgUG9saWN5IEluZm9ybWF0aW9uHwQFJn4vRm9ybXNEb2N1bWVudHNQb2xpY3lJbmZvcm1hdGlvbi5hc3B4ZGQCAw8WAh8FAv////8PZAITD2QWAgIBD2QWBAIBDw8WBB8BBSJZb3V0aCBTdWljaWRlICYgQnVsbHlpbmcgUmVzb3VyY2VzHwQFJH4vWW91dGhTdWljaWRlQnVsbHlpbmdSZXNvdXJjZXMuYXNweGRkAgMPFgIfBQL/////D2QCFA9kFgICAQ9kFgQCAQ8PFgYfAQUhTElOUSBDb25uZWN0IFN0dWRlbnQgTWVhbHMgUG9ydGFsHwQFHGh0dHBzOi8vbGlucWNvbm5lY3QuY29tL21haW4fCQUPX25ld1dpbmRvdzg3MjQyZGQCAw8WAh8FAv////8PZAIVD2QWAgIBD2QWBAIBDw8WBB8BBRxJbnRlcm5ldCAmIFRlY2hub2xvZ3kgU2FmZXR5HwQFH34vSW50ZXJuZXRUZWNobm9sb2d5U2FmZXR5LmFzcHhkZAIDDxYCHwUC/////w9kAhYPZBYCAgEPZBYEAgEPDxYEHwEFIlBvc3QgU2Vjb25kYXJ5IEVkdWNhdGlvbiBSZXNvdXJjZXMfBAUmfi9Qb3N0U2Vjb25kYXJ5RWR1Y2F0aW9uUmVzb3VyY2VzLmFzcHhkZAIDDxYCHwUC/////w9kAhMPZBYGAgEPZBYCAgEPZBYCZg9kFgYCAw9kFgJmDw8WBB8GBWFjb21wb25lbnRfY29udGFpbmVyIGNsZWFyZml4IGNvbXBvbmVudF9jb250YWluZXJfdGV4dHdpbmRvdyBjb2wteHMtMTIgY29sLXNtLTEyIGNvbC1tZC05IGNvbC1sZy05HwgCAhYCHgRuYW1lBQU0MDc1MBYEAgEPZBYCAgYPFgQfDAUhV2VsY29tZSB0byBEaWNrc29uIENvdW50eSBTY2hvb2xzHwNnZAIFDw8WBB8BBdV+PGRpdiBzdHlsZT0idGV4dC1hbGlnbjogY2VudGVyOyI+PHN0cm9uZz48c3BhbiBzdHlsZT0iY29sb3I6IHJnYigxODQsIDQ5LCA0Nyk7Ij5LaW5kZXJnYXJ0ZW4gT25saW5lIFJlZ2lzdHJhdGlvbiB3aWxsIGJlZ2luIEFwcmlsIDIxLCAyMDI1DQoNCjxicj5QcmVLIE9ubGluZSBSZWdpc3RyYXRpb24gd2lsbCBiZWdpbiBBcHJpbCAxLCAyMDI1PC9zcGFuPjwvc3Ryb25nPjxicj4NCjwvZGl2Pg0KPGRpdj4NCjxicj4NCjwvZGl2Pg0KPGRpdiBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTZweDsiIHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTRweDsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPldlIHdvdWxkIGxpa2UgdG8gd2VsY29tZSB5b3UgYW5kIHlvdXIgc3R1ZGVudCB0byB0aGUgRGlja3NvbiBDb3VudHkgc2Nob29sIHN5c3RlbS4gRW5yb2xsbWVudCBmb3JtcyBhbmQgaW5mb3JtYXRpb24gY2FuIGJlIGZvdW5kIHVzaW5nIHRoZSBsaW5rcyB0byB0aGUgbGVmdCBvciByaWdodC4gSW4gdGhlIGV2ZW50IHlvdSBoYXZlIHF1ZXN0aW9ucyBvciBuZWVkIG1vcmUgaW5mb3JtYXRpb24sIHBsZWFzZSBmZWVsIGZyZWUgdG8gdXNlIHRoZSBjb250YWN0IGluZm9ybWF0aW9uIGJlbG93Ljwvc3Bhbj48L2Rpdj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyI+DQo8L3NwYW4+DQo8ZGl2IHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtc2l6ZTogDQogICAgICAxNnB4OyIgc3R5bGU9ImZvbnQtc2l6ZTogMTRweDsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LWZhbWlseTogDQogICAgICAgIEFyaWFsLHNhbnMtc2VyaWY7IiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PGJyIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PC9zcGFuPjwvc3Bhbj48L2Rpdj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyI+DQo8L3NwYW4+DQo8ZGl2IHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtc2l6ZTogDQogICAgICAxNnB4OyIgc3R5bGU9ImZvbnQtc2l6ZTogMTRweDsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LWZhbWlseTogDQogICAgICAgIEFyaWFsLHNhbnMtc2VyaWY7IiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PGEgZnItb3JpZ2luYWwtc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyAgdGV4dC1kZWNvcmF0aW9uOiBub25lOyIgaHJlZj0iL1NjaG9vbHMuYXNweCIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyAgdGV4dC1kZWNvcmF0aW9uOiBub25lOyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMjU1KTsiIHN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDI1NSk7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij5JbmRpdmlkdWFsIFNjaG9vbCBDb250YWN0IEluZm9ybWF0aW9uPC9zcGFuPjwvYT48L3NwYW4+PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1zaXplOiANCiAgICAgIDE2cHg7IiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtZmFtaWx5OiANCiAgICAgICAgQXJpYWwsc2Fucy1zZXJpZjsiIHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48YnI+PC9zcGFuPjwvc3Bhbj48L2Rpdj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyI+DQo8L3NwYW4+DQo8ZGl2IHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtc2l6ZTogDQogICAgICAxNnB4OyIgc3R5bGU9ImZvbnQtc2l6ZTogMTRweDsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LWZhbWlseTogDQogICAgICAgIEFyaWFsLHNhbnMtc2VyaWY7IiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+Rm9yIGF0dGVuZGFuY2UsIGNhbGVuZGFyLCBzY2hvb2wgcG9saWN5IHF1ZXN0aW9ucyBzZW5kIGFuIGVtYWlsIHRvOiA8YSBmci1vcmlnaW5hbC1zdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7ICB0ZXh0LWRlY29yYXRpb246IG5vbmU7IiBocmVmPSJtYWlsdG86YXR0ZW5kYW5jZUBkY3N0bi5vcmciIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsiIHRpdGxlPSJhdHRlbmRhbmNlQGRjc3RuLm9yZyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMjU1KTsiIHN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDI1NSk7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij5hdHRlbmRhbmNlQGRjc3RuLm9yZzwvc3Bhbj48L2E+DQo8YnI+DQo8YnI+DQo8L3NwYW4+PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1zaXplOiANCiAgICAgIDE2cHg7IiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtZmFtaWx5OiANCiAgICAgICAgQXJpYWwsc2Fucy1zZXJpZjsiIHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij5Gb3IgcXVlc3Rpb25zIHJlZ2FyZGluZyBzZWNvbmRhcnkgZWR1Y2F0aW9uIHNlbmQgYW4gZW1haWwgdG86IDxhIGZyLW9yaWdpbmFsLXN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsiIGhyZWY9Im1haWx0bzpzZWNvbmRhcnlAZGNzdG4ub3JnIiBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7ICB0ZXh0LWRlY29yYXRpb246IG5vbmU7IiB0aXRsZT0ic2Vjb25kYXJ5QGRjc3RuLm9yZyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMjU1KTsiIHN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDI1NSk7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij5zZWNvbmRhcnlAZGNzdG4ub3JnPC9zcGFuPjwvYT48L3NwYW4+PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1zaXplOiANCiAgICAgIDE2cHg7IiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtZmFtaWx5OiANCiAgICAgICAgQXJpYWwsc2Fucy1zZXJpZjsiIHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48YnI+PC9zcGFuPjwvc3Bhbj48L2Rpdj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyI+DQo8L3NwYW4+DQo8ZGl2IGZyLW9yaWdpbmFsLXN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBjb2xvcjogcmdiKDY1LCA2NSwgNjUpOyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNHB4OyBmb250LXN0eWxlOiBub3JtYWw7IGZvbnQtdmFyaWFudC1saWdhdHVyZXM6IG5vcm1hbDsgZm9udC12YXJpYW50LWNhcHM6IG5vcm1hbDsgZm9udC13ZWlnaHQ6IDQwMDsgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDsgb3JwaGFuczogMjsgdGV4dC1hbGlnbjogbGVmdDsgdGV4dC1pbmRlbnQ6IDBweDsgdGV4dC10cmFuc2Zvcm06IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IHdpZG93czogMjsgd29yZC1zcGFjaW5nOiAwcHg7IC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDBweDsgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyB0ZXh0LWRlY29yYXRpb24tdGhpY2tuZXNzOiBpbml0aWFsOyB0ZXh0LWRlY29yYXRpb24tc3R5bGU6IGluaXRpYWw7IHRleHQtZGVjb3JhdGlvbi1jb2xvcjogaW5pdGlhbDsiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBjb2xvcjogcmdiKDY1LCA2NSwgNjUpOyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNHB4OyBmb250LXN0eWxlOiBub3JtYWw7IGZvbnQtdmFyaWFudC1saWdhdHVyZXM6IG5vcm1hbDsgZm9udC12YXJpYW50LWNhcHM6IG5vcm1hbDsgZm9udC13ZWlnaHQ6IDQwMDsgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDsgb3JwaGFuczogMjsgdGV4dC1hbGlnbjogbGVmdDsgdGV4dC1pbmRlbnQ6IDBweDsgdGV4dC10cmFuc2Zvcm06IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IHdpZG93czogMjsgd29yZC1zcGFjaW5nOiAwcHg7IC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDBweDsgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyB0ZXh0LWRlY29yYXRpb24tdGhpY2tuZXNzOiBpbml0aWFsOyB0ZXh0LWRlY29yYXRpb24tc3R5bGU6IGluaXRpYWw7IHRleHQtZGVjb3JhdGlvbi1jb2xvcjogaW5pdGlhbDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LXNpemU6IA0KICAgICAgMTZweDsiIHN0eWxlPSJmb250LXNpemU6IDE0cHg7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1mYW1pbHk6IA0KICAgICAgICBBcmlhbCxzYW5zLXNlcmlmOyIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPkZvciBxdWVzdGlvbnMgcmVnYXJkaW5nIHNwZWNpZmljIHN0dWRlbnQtcmVsYXRlZCBlbGVtZW50YXJ5IGVkdWNhdGlvbiwgc3VjaCBhcyBzY2hlZHVsZXMsIGF0dGVuZGFuY2UsIHN1cHBseSBpbmZvcm1hdGlvbiw8L3NwYW4+PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgZnItb3JpZ2luYWwtc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGNvbG9yOiByZ2IoNjUsIDY1LCA2NSk7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOyBmb250LXNpemU6IDE0cHg7IGZvbnQtc3R5bGU6IG5vcm1hbDsgZm9udC12YXJpYW50LWxpZ2F0dXJlczogbm9ybWFsOyBmb250LXZhcmlhbnQtY2Fwczogbm9ybWFsOyBmb250LXdlaWdodDogNDAwOyBsZXR0ZXItc3BhY2luZzogbm9ybWFsOyBvcnBoYW5zOiAyOyB0ZXh0LWFsaWduOiBsZWZ0OyB0ZXh0LWluZGVudDogMHB4OyB0ZXh0LXRyYW5zZm9ybTogbm9uZTsgd2hpdGUtc3BhY2U6IG5vcm1hbDsgd2lkb3dzOiAyOyB3b3JkLXNwYWNpbmc6IDBweDsgLXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMHB4OyBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7IHRleHQtZGVjb3JhdGlvbi10aGlja25lc3M6IGluaXRpYWw7IHRleHQtZGVjb3JhdGlvbi1zdHlsZTogaW5pdGlhbDsgdGV4dC1kZWNvcmF0aW9uLWNvbG9yOiBpbml0aWFsOyIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGNvbG9yOiByZ2IoNjUsIDY1LCA2NSk7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOyBmb250LXNpemU6IDE0cHg7IGZvbnQtc3R5bGU6IG5vcm1hbDsgZm9udC12YXJpYW50LWxpZ2F0dXJlczogbm9ybWFsOyBmb250LXZhcmlhbnQtY2Fwczogbm9ybWFsOyBmb250LXdlaWdodDogNDAwOyBsZXR0ZXItc3BhY2luZzogbm9ybWFsOyBvcnBoYW5zOiAyOyB0ZXh0LWFsaWduOiBsZWZ0OyB0ZXh0LWluZGVudDogMHB4OyB0ZXh0LXRyYW5zZm9ybTogbm9uZTsgd2hpdGUtc3BhY2U6IG5vcm1hbDsgd2lkb3dzOiAyOyB3b3JkLXNwYWNpbmc6IDBweDsgLXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMHB4OyBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7IHRleHQtZGVjb3JhdGlvbi10aGlja25lc3M6IGluaXRpYWw7IHRleHQtZGVjb3JhdGlvbi1zdHlsZTogaW5pdGlhbDsgdGV4dC1kZWNvcmF0aW9uLWNvbG9yOiBpbml0aWFsOyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtc2l6ZTogDQogICAgICAxNnB4OyIgc3R5bGU9ImZvbnQtc2l6ZTogMTRweDsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LWZhbWlseTogDQogICAgICAgIEFyaWFsLHNhbnMtc2VyaWY7IiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+Y29udGFjdCB5b3VyIGNoaWxkJ3Mgc2Nob29sIHVzaW5nIHRoZSBjb250YWN0IGluZm9ybWF0aW9uIHByb3ZpZGVkIG9uIHRoZSA8YSBmci1vcmlnaW5hbC1zdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7ICB0ZXh0LWRlY29yYXRpb246IG5vbmU7IHVzZXItc2VsZWN0OiBhdXRvOyIgaHJlZj0iL3NjaG9vbHMuYXNweCIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyAgdGV4dC1kZWNvcmF0aW9uOiBub25lOyB1c2VyLXNlbGVjdDogYXV0bzsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDI1NSk7IiBzdHlsZT0iY29sb3I6IHJnYigwLCAwLCAyNTUpOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+c2Nob29sIGluZm9ybWF0aW9uIHBhZ2U8L3NwYW4+PC9hPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDI1NSk7IiBzdHlsZT0iY29sb3I6IHJnYigwLCAwLCAyNTUpOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+Ljwvc3Bhbj48L3NwYW4+PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgZnItb3JpZ2luYWwtc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGNvbG9yOiByZ2IoNjUsIDY1LCA2NSk7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOyBmb250LXNpemU6IDE0cHg7IGZvbnQtc3R5bGU6IG5vcm1hbDsgZm9udC12YXJpYW50LWxpZ2F0dXJlczogbm9ybWFsOyBmb250LXZhcmlhbnQtY2Fwczogbm9ybWFsOyBmb250LXdlaWdodDogNDAwOyBsZXR0ZXItc3BhY2luZzogbm9ybWFsOyBvcnBoYW5zOiAyOyB0ZXh0LWFsaWduOiBsZWZ0OyB0ZXh0LWluZGVudDogMHB4OyB0ZXh0LXRyYW5zZm9ybTogbm9uZTsgd2hpdGUtc3BhY2U6IG5vcm1hbDsgd2lkb3dzOiAyOyB3b3JkLXNwYWNpbmc6IDBweDsgLXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMHB4OyBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7IHRleHQtZGVjb3JhdGlvbi10aGlja25lc3M6IGluaXRpYWw7IHRleHQtZGVjb3JhdGlvbi1zdHlsZTogaW5pdGlhbDsgdGV4dC1kZWNvcmF0aW9uLWNvbG9yOiBpbml0aWFsOyIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGNvbG9yOiByZ2IoNjUsIDY1LCA2NSk7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOyBmb250LXNpemU6IDE0cHg7IGZvbnQtc3R5bGU6IG5vcm1hbDsgZm9udC12YXJpYW50LWxpZ2F0dXJlczogbm9ybWFsOyBmb250LXZhcmlhbnQtY2Fwczogbm9ybWFsOyBmb250LXdlaWdodDogNDAwOyBsZXR0ZXItc3BhY2luZzogbm9ybWFsOyBvcnBoYW5zOiAyOyB0ZXh0LWFsaWduOiBsZWZ0OyB0ZXh0LWluZGVudDogMHB4OyB0ZXh0LXRyYW5zZm9ybTogbm9uZTsgd2hpdGUtc3BhY2U6IG5vcm1hbDsgd2lkb3dzOiAyOyB3b3JkLXNwYWNpbmc6IDBweDsgLXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMHB4OyBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7IHRleHQtZGVjb3JhdGlvbi10aGlja25lc3M6IGluaXRpYWw7IHRleHQtZGVjb3JhdGlvbi1zdHlsZTogaW5pdGlhbDsgdGV4dC1kZWNvcmF0aW9uLWNvbG9yOiBpbml0aWFsOyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtc2l6ZTogDQogICAgICAxNnB4OyIgc3R5bGU9ImZvbnQtc2l6ZTogMTRweDsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LWZhbWlseTogDQogICAgICAgIEFyaWFsLHNhbnMtc2VyaWY7IiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PGJyIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PC9zcGFuPjwvc3Bhbj48L2Rpdj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyI+DQo8L3NwYW4+DQo8ZGl2IGZyLW9yaWdpbmFsLXN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBjb2xvcjogcmdiKDY1LCA2NSwgNjUpOyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNHB4OyBmb250LXN0eWxlOiBub3JtYWw7IGZvbnQtdmFyaWFudC1saWdhdHVyZXM6IG5vcm1hbDsgZm9udC12YXJpYW50LWNhcHM6IG5vcm1hbDsgZm9udC13ZWlnaHQ6IDQwMDsgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDsgb3JwaGFuczogMjsgdGV4dC1hbGlnbjogbGVmdDsgdGV4dC1pbmRlbnQ6IDBweDsgdGV4dC10cmFuc2Zvcm06IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IHdpZG93czogMjsgd29yZC1zcGFjaW5nOiAwcHg7IC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDBweDsgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyB0ZXh0LWRlY29yYXRpb24tdGhpY2tuZXNzOiBpbml0aWFsOyB0ZXh0LWRlY29yYXRpb24tc3R5bGU6IGluaXRpYWw7IHRleHQtZGVjb3JhdGlvbi1jb2xvcjogaW5pdGlhbDsiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBjb2xvcjogcmdiKDY1LCA2NSwgNjUpOyBmb250LWZhbWlseTogc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNHB4OyBmb250LXN0eWxlOiBub3JtYWw7IGZvbnQtdmFyaWFudC1saWdhdHVyZXM6IG5vcm1hbDsgZm9udC12YXJpYW50LWNhcHM6IG5vcm1hbDsgZm9udC13ZWlnaHQ6IDQwMDsgbGV0dGVyLXNwYWNpbmc6IG5vcm1hbDsgb3JwaGFuczogMjsgdGV4dC1hbGlnbjogbGVmdDsgdGV4dC1pbmRlbnQ6IDBweDsgdGV4dC10cmFuc2Zvcm06IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IHdpZG93czogMjsgd29yZC1zcGFjaW5nOiAwcHg7IC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDBweDsgYmFja2dyb3VuZC1jb2xvcjogcmdiKDI1NSwgMjU1LCAyNTUpOyB0ZXh0LWRlY29yYXRpb24tdGhpY2tuZXNzOiBpbml0aWFsOyB0ZXh0LWRlY29yYXRpb24tc3R5bGU6IGluaXRpYWw7IHRleHQtZGVjb3JhdGlvbi1jb2xvcjogaW5pdGlhbDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LXNpemU6IA0KICAgICAgMTZweDsiIHN0eWxlPSJmb250LXNpemU6IDE0cHg7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1mYW1pbHk6IA0KICAgICAgICBBcmlhbCxzYW5zLXNlcmlmOyIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPkZvciBxdWVzdGlvbnMgcmVnYXJkaW5nIGRpc3RyaWN0LWxldmVsIGVsZW1lbnRhcnkgZWR1Y2F0aW9uLCBzdWNoIGFzIGRpc3RyaWN0IHNlbGVjdGVkIGN1cnJpY3VsdW0sIHRlc3Rpbmcgb3IgYXNzZXNzbWVudCBkYXRhLDxiciBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsiPnNlbmQgYW4gZW1haWwgdG86IDxhIGZyLW9yaWdpbmFsLXN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsgdXNlci1zZWxlY3Q6IGF1dG87IiBocmVmPSJtYWlsdG86ZWxlbWVudGFyeUBkY3N0bi5vcmciIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsgdXNlci1zZWxlY3Q6IGF1dG87Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iY29sb3I6IHJnYigwLCAwLCAyNTUpOyIgc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMjU1KTsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPmVsZW1lbnRhcnlAZGNzdG4ub3JnPC9zcGFuPjwvYT48L3NwYW4+PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1zaXplOiANCiAgICAgIDE2cHg7IiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtZmFtaWx5OiANCiAgICAgICAgQXJpYWwsc2Fucy1zZXJpZjsiIHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48YnI+PC9zcGFuPjwvc3Bhbj48L2Rpdj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyI+DQo8L3NwYW4+DQo8ZGl2IHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNnB4OyIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgZm9udC1zaXplOiAxNHB4OyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PGEgZnItb3JpZ2luYWwtc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyAgdGV4dC1kZWNvcmF0aW9uOiBub25lOyIgaHJlZj0iaHR0cHM6Ly93d3cuZGNzdG4ub3JnL1pvbmluZ0luZm9ybWF0aW9uLmFzcHgiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDI1NSk7IiBzdHlsZT0iY29sb3I6IHJnYigwLCAwLCAyNTUpOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyI+U2Nob29sIFpvbmluZyBJbmZvcm1hdGlvbjwvc3Bhbj48L2E+IG9yIFRyYW5zcG9ydGF0aW9uIERlcGFydG1lbnQgUGg6ICg2MTUpIDc0MC01OTcwPC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjxicj4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC1zaXplOiAxNHB4OyI+RGV0YWlsZWQgZ3VpZGUgZm9yIFByZUsgYW5kIEtpbmRlcmdhcnRlbiBlbnJvbGxtZW50IGNhbiBiZSBmb3VuZCBoZXJlOiA8YSBmci1vcmlnaW5hbC1zdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7ICB0ZXh0LWRlY29yYXRpb246IG5vbmU7IiBocmVmPSJodHRwczovL3d3dy5kY3N0bi5vcmcvRW5yb2xsbWVudFBsYXlib29rLmFzcHgiIHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDsgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsiIHRpdGxlPSJQcmUtSyAmIEtpbmRlcmdhcnRlbiBFbnJvbGxtZW50IFBsYXlib29rIj48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iY29sb3I6IzAwMDBmZjsiIHN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDI1NSk7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij5QcmUtSyAmYW1wOyBLaW5kZXJnYXJ0ZW4gRW5yb2xsbWVudCBQbGF5Ym9vayZuYnNwOzwvc3Bhbj48L2E+PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1mYW1pbHk6IA0KICAgICAgICBBcmlhbCxzYW5zLXNlcmlmOyIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC1zaXplOiAxNHB4OyI+Jm5ic3A7PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1mYW1pbHk6IA0KICAgICAgICBBcmlhbCxzYW5zLXNlcmlmOyIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij5GaXJzdCB0aW1lIGV2ZXIgZW5yb2xsaW5nIGEgc3R1ZGVudCBpbiBEaWNrc29uIENvdW50eSBTY2hvb2xzPyA8YSBmci1vcmlnaW5hbC1zdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7ICB0ZXh0LWRlY29yYXRpb246IG5vbmU7IiBocmVmPSJodHRwczovL3Npcy1kaWNrc29uLnRuazEyLmdvdi9zY3JpcHRzL3dzaXNhLmRsbC9XU2VydmljZT13c0RJQ1N0dS9za3llbnJvbGwudyIgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyAgdGV4dC1kZWNvcmF0aW9uOiBub25lOyIgdGFyZ2V0PSJfYmxhbmsiIHRpdGxlPSJTa3l3YXJkIEFjY291bnQgQ3JlYXRpb24iPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJjb2xvcjojMDAwMGZmOyIgc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMjU1KTsgYm94LXNpemluZzogYm9yZGVyLWJveDsiPlNreXdhcmQgQWNjb3VudCBDcmVhdGlvbjwvc3Bhbj48L2E+PC9zcGFuPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJjb2xvcjojMDAwMGZmOyIgc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMjU1KTsgYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC1zaXplOiAxNHB4OyI+Jm5ic3A7PC9zcGFuPjwvc3Bhbj48L2Rpdj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyI+DQo8L3NwYW4+DQo8ZGl2IHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtZmFtaWx5OiANCiAgICAgICAgQXJpYWwsc2Fucy1zZXJpZjsiIHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMTRweDsiPiZuYnNwOzwvc3Bhbj48L2Rpdj48c3BhbiBzdHlsZT0iZm9udC1zaXplOiAxNHB4OyI+DQo8L3NwYW4+DQo8ZGl2IHN0eWxlPSJib3gtc2l6aW5nOiBib3JkZXItYm94OyI+PHNwYW4gZnItb3JpZ2luYWwtc3R5bGU9ImZvbnQtZmFtaWx5OiANCiAgICAgICAgQXJpYWwsc2Fucy1zZXJpZjsiIHN0eWxlPSJmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtc2l6ZTogMTRweDsiPkhhdmUgeW91IGJlZm9yZSBvciBkbyB5b3UgY3VycmVudGx5IGhhdmUgYSBEaWNrc29uIENvdW50eSBTY2hvb2wgc3R1ZGVudD8gWW91IG1heSBhY2Nlc3MgeW91ciBGYW1pbHkgQWNjZXNzIHBvcnRhbCBmb3IgYSBkaXJlY3QgbGluayB0byBlbnJvbGwgeW91ciBjaGlsZCBvciA8YSBmci1vcmlnaW5hbC1zdHlsZT0iY29sb3I6IzAwMDBmZjsiIGhyZWY9Imh0dHBzOi8vc2lzLWRpY2tzb24udG5rMTIuZ292L3NjcmlwdHMvd3Npc2EuZGxsL1dTZXJ2aWNlPXdzRElDU3R1L3NlcGxvZzAxLnciIHN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDI1NSk7IGJveC1zaXppbmc6IGJvcmRlci1ib3g7IGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50OyB0ZXh0LWRlY29yYXRpb246IG5vbmU7IiB0aXRsZT0iRGlja3NvbiBDb3VudHkgU2Nob29scyBTa3l3YXJkIj5EaWNrc29uIENvdW50eSBTY2hvb2xzIFNreXdhcmQ8L2E+IHVuZGVyIEZhbWlseS9TdHVkZW50IEFjY2Vzcy4mbmJzcDs8L3NwYW4+PC9kaXY+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTRweDsiPg0KPC9zcGFuPg0KPGRpdiBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LWZhbWlseTogDQogICAgICAgIEFyaWFsLHNhbnMtc2VyaWY7IiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyBmb250LXNpemU6IDE0cHg7Ij4mbmJzcDs8L3NwYW4+PC9kaXY+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZTogMTRweDsiPg0KPC9zcGFuPg0KPGRpdiBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsiPjxzcGFuIGZyLW9yaWdpbmFsLXN0eWxlPSJmb250LWZhbWlseTogDQogICAgICAgIEFyaWFsLHNhbnMtc2VyaWY7IiBzdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyBib3gtc2l6aW5nOiBib3JkZXItYm94OyBmb250LXNpemU6IDE0cHg7Ij5JZiB5b3UgZG8gbm90IGhhdmUgeW91ciBsb2dpbiBpbmZvcm1hdGlvbiBmb3IgRmFtaWx5IEFjY2VzcywgeW91IG1heSBjbGljayB0aGUgRm9yZ290IHlvdXIgTG9naW4vUGFzc3dvcmQ/IGxpbmssIGNoZWNrIHlvdXIgZS1tYWlsIGZvciBhIHJlc2V0IGxpbmsgc2VudCB5ZXN0ZXJkYXksIG9yIHlvdSBtYXkgY29udGFjdCB5b3VyIGNoaWxkJ3MmbmJzcDs8YSBmci1vcmlnaW5hbC1zdHlsZT0iY29sb3I6IzAwMDBmZjsiIGhyZWY9Imh0dHA6Ly93d3cuZGNzdG4ub3JnL3NjaG9vbHMuYXNweCIgc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMjU1KTsgYm94LXNpemluZzogYm9yZGVyLWJveDsgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7IHRleHQtZGVjb3JhdGlvbjogbm9uZTsiIHRpdGxlPSJzY2hvb2wgc3RhZmYiPnNjaG9vbCBzdGFmZjwvYT4uPC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1mYW1pbHk6IA0KICAgICAgICBBcmlhbCxzYW5zLXNlcmlmOyIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC1zaXplOiAxNHB4OyI+Jm5ic3A7PC9zcGFuPjwvZGl2PjxzcGFuIHN0eWxlPSJmb250LXNpemU6IDE0cHg7Ij4NCjwvc3Bhbj4NCjxkaXYgc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7Ij48c3BhbiBmci1vcmlnaW5hbC1zdHlsZT0iZm9udC1mYW1pbHk6IEFyaWFsLCBzYW5zLXNlcmlmOyIgc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCwgc2Fucy1zZXJpZjsgYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC1zaXplOiAxNHB4OyI+VGhlIGFiaWxpdHkgdG8gY29tcGxldGUgYW4gYXBwbGljYXRpb24gaXMgdHVybmVkIG9uIGZvciBhbGwgZ3VhcmRpYW5zIGluIEZhbWlseSBBY2Nlc3Mgc28gcGxlYXNlIHN1Ym1pdCBvbmx5IDxzdHJvbmcgZnItb3JpZ2luYWwtc3R5bGU9ImJveC1zaXppbmc6IGJvcmRlci1ib3g7IGZvbnQtd2VpZ2h0OiA3MDA7IiBzdHlsZT0iYm94LXNpemluZzogYm9yZGVyLWJveDsgZm9udC13ZWlnaHQ6IDcwMDsiPm9uZSBhcHBsaWNhdGlvbiBwZXIgY2hpbGQ8L3N0cm9uZz4uPC9zcGFuPjwvZGl2Ph8DZ2RkAgQPZBYCAgEPDxYEHwYFWWNvbXBvbmVudF9jb250YWluZXIgY29tcG9uZW50X2NvbnRhaW5lcl9maWxlcyZsaW5rcyBjb2wteHMtMTIgY29sLXNtLTEyIGNvbC1tZC0zIGNvbC1sZy0zHwgCAhYCHw4FATAWBAIBD2QWBAIBD2QWAgICDxYEHwwFGUltcG9ydGFudCBGb3JtcyBhbmQgTGlua3MfA2dkAgMPFgIfBQIIFhACAQ9kFgICAQ9kFgYCAQ8PFgIfA2hkZAIDDxYCHwEFvgI8YSBjbGFzcz0ibGlua2NvbXBvbmVudF9saW5rdGV4dCIgdGFyZ2V0PSJfYmxhbmsiIGhyZWY9Imh0dHBzOi8vc2lzLWRpY2tzb24udG5rMTIuZ292L3NjcmlwdHMvd3Npc2EuZGxsL1dTZXJ2aWNlPXdzRElDU3R1L3NlcGxvZzAxLnciIG9uY2xpY2s9ImdhKCdzZW5kJywgJ2V2ZW50JywgJ1BERicsICdEb3dubG9hZCcsICdPbmxpbmUgRW5yb2xsbWVudCBmb3IgUmV0dXJuaW5nIG9yIFByZXZpb3VzbHktQXR0ZW5kZWQgU3R1ZGVudHMnKTsiPk9ubGluZSBFbnJvbGxtZW50IGZvciBSZXR1cm5pbmcgb3IgUHJldmlvdXNseS1BdHRlbmRlZCBTdHVkZW50czwvYT5kAgUPDxYCHwNoZGQCAw9kFgICAQ9kFgYCAQ8PFgIfA2hkZAIDDxYCHwEFqQI8YSBjbGFzcz0ibGlua2NvbXBvbmVudF9saW5rdGV4dCIgdGFyZ2V0PSJfYmxhbmsiIGhyZWY9Imh0dHBzOi8vc2lzLWRpY2tzb24udG5rMTIuZ292L3NjcmlwdHMvd3Npc2EuZGxsL1dTZXJ2aWNlPXdzRElDU3R1L3NreWVucm9sbC53IiBvbmNsaWNrPSJnYSgnc2VuZCcsICdldmVudCcsICdQREYnLCAnRG93bmxvYWQnLCAnT25saW5lIEVucm9sbG1lbnQgZm9yIE5ldy10by1EaWNrc29uLUNvdW50eSBTdHVkZW50cycpOyI+T25saW5lIEVucm9sbG1lbnQgZm9yIE5ldy10by1EaWNrc29uLUNvdW50eSBTdHVkZW50czwvYT5kAgUPDxYCHwNoZGQCBQ9kFgICAQ9kFgYCAQ8PFgIfA2hkZAIDDxYCHwEF3wE8YSBjbGFzcz0ibGlua2NvbXBvbmVudF9saW5rdGV4dCIgaHJlZj0iaHR0cHM6Ly93d3cuZGNzdG4ub3JnL0Vucm9sbG1lbnRQbGF5Ym9vay5hc3B4IiBvbmNsaWNrPSJnYSgnc2VuZCcsICdldmVudCcsICdQREYnLCAnRG93bmxvYWQnLCAnS2luZGVyZ2FydGVuICYgUHJlSyBFbnJvbGxtZW50IFBsYXlib29rJyk7Ij5LaW5kZXJnYXJ0ZW4gJiBQcmVLIEVucm9sbG1lbnQgUGxheWJvb2s8L2E+ZAIFDw8WAh8DaGRkAgcPZBYCAgEPZBYGAgEPDxYCHwNoZGQCAw8WAh8BBf0BPGEgY2xhc3M9Imxpbmtjb21wb25lbnRfbGlua3RleHQiIHRhcmdldD0iX2JsYW5rIiBocmVmPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWNsT2lzbWJWbFRRIiBvbmNsaWNrPSJnYSgnc2VuZCcsICdldmVudCcsICdQREYnLCAnRG93bmxvYWQnLCAnT25saW5lIFJlZ2lzdHJhdGlvbiBUdXRvcmlhbCAoQ29tcHV0ZXIgVmVyc2lvbiknKTsiPk9ubGluZSBSZWdpc3RyYXRpb24gVHV0b3JpYWwgKENvbXB1dGVyIFZlcnNpb24pPC9hPmQCBQ8PFgIfA2hkZAIJD2QWAgIBD2QWBgIBDw8WAh8DaGRkAgMPFgIfAQX3ATxhIGNsYXNzPSJsaW5rY29tcG9uZW50X2xpbmt0ZXh0IiB0YXJnZXQ9Il9ibGFuayIgaHJlZj0iaHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ldGowZVFkVmt3byIgb25jbGljaz0iZ2EoJ3NlbmQnLCAnZXZlbnQnLCAnUERGJywgJ0Rvd25sb2FkJywgJ09ubGluZSBSZWdpc3RyYXRpb24gVHV0b3JpYWwgKFBob25lIFZlcnNpb24pJyk7Ij5PbmxpbmUgUmVnaXN0cmF0aW9uIFR1dG9yaWFsIChQaG9uZSBWZXJzaW9uKTwvYT5kAgUPDxYCHwNoZGQCCw9kFgICAQ9kFgYCAQ8PFgIfA2hkZAIDDxYCHwEF8QE8YSBjbGFzcz0ibGlua2NvbXBvbmVudF9saW5rdGV4dCIgdGFyZ2V0PSJfYmxhbmsiIGhyZWY9Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9ZUk1LUFvQ3pfbEUiIG9uY2xpY2s9ImdhKCdzZW5kJywgJ2V2ZW50JywgJ1BERicsICdEb3dubG9hZCcsICdPbmxpbmUgS2luZGVyZ2FydGVuIFJlZ2lzdHJhdGlvbiBUdXRvcmlhbCcpOyI+T25saW5lIEtpbmRlcmdhcnRlbiBSZWdpc3RyYXRpb24gVHV0b3JpYWw8L2E+ZAIFDw8WAh8DaGRkAg0PZBYCAgEPZBYGAgEPDxYCHwNoZGQCAw8WAh8BBeUBPGEgY2xhc3M9Imxpbmtjb21wb25lbnRfbGlua3RleHQiIHRhcmdldD0iX2JsYW5rIiBocmVmPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PUdONTRvdHp1N1Z3IiBvbmNsaWNrPSJnYSgnc2VuZCcsICdldmVudCcsICdQREYnLCAnRG93bmxvYWQnLCAnVm9sdW50YXJ5IFByZS1LIEVucm9sbG1lbnQgVHV0b3JpYWwnKTsiPlZvbHVudGFyeSBQcmUtSyBFbnJvbGxtZW50IFR1dG9yaWFsPC9hPmQCBQ8PFgIfA2hkZAIPD2QWAgIBD2QWBgIBDw8WAh8DaGRkAgMPFgIfAQXpATxhIGNsYXNzPSJsaW5rY29tcG9uZW50X2xpbmt0ZXh0IiB0YXJnZXQ9Il9ibGFuayIgaHJlZj0iaHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1Oc0JxOVJxUTgydyIgb25jbGljaz0iZ2EoJ3NlbmQnLCAnZXZlbnQnLCAnUERGJywgJ0Rvd25sb2FkJywgJ1ByZS1LIEVsaWdpYmlsaXR5IGFuZCBTZWxlY3Rpb24gVmlkZW8nKTsiPlByZS1LIEVsaWdpYmlsaXR5IGFuZCBTZWxlY3Rpb24gVmlkZW88L2E+ZAIFDw8WAh8DaGRkAgMPZBYCZg8PZBYCHw0FQmZsb2F0OmxlZnQ7d2lkdGg6MTAwJTtoZWlnaHQ6MHB4O21hcmdpbi10b3A6MHB4O21hcmdpbi1ib3R0b206MHB4O2QCBQ9kFgICAQ8PFgQfBgVZY29tcG9uZW50X2NvbnRhaW5lciBjb21wb25lbnRfY29udGFpbmVyX2ZpbGVzJmxpbmtzIGNvbC14cy0xMiBjb2wtc20tMTIgY29sLW1kLTMgY29sLWxnLTMfCAICFgIfDgUBMBYEAgEPZBYEAgEPZBYCAgIPFgQfDAUVSGFuZGJvb2tzICZhbXA7IEZvcm1zHwNnZAIDDxYCHwUCBBYIAgEPZBYCAgEPZBYGAgEPDxYCHwNoZGQCAw8WAh8BBZ0CPGEgY2xhc3M9Imxpbmtjb21wb25lbnRfbGlua3RleHQiIHRhcmdldD0iX2JsYW5rIiBocmVmPSJodHRwczovL2RvY3MuZ29vZ2xlLmNvbS9kb2N1bWVudC9kL2UvMlBBQ1gtMXZUM2pJTU1XUURPWVFqZldZM2s3blRGNkc0Q2REdDlaU29ZSDllZExUTF85NzFNeEg3MVVJdHkyd2pBSkVGMFduVERCd1g3UklHbmxhelovcHViIiBvbmNsaWNrPSJnYSgnc2VuZCcsICdldmVudCcsICdQREYnLCAnRG93bmxvYWQnLCAnSy0xMiBTdHVkZW50IEhhbmRib29rJyk7Ij5LLTEyIFN0dWRlbnQgSGFuZGJvb2s8L2E+ZAIFDw8WAh8DaGRkAgMPZBYCAgEPZBYGAgEPDxYCHwNoZGQCAw8WAh8BBbUCPGEgY2xhc3M9Imxpbmtjb21wb25lbnRfbGlua3RleHQiIHRhcmdldD0iX2JsYW5rIiBocmVmPSJodHRwczovL2RvY3MuZ29vZ2xlLmNvbS9kb2N1bWVudC9kL2UvMlBBQ1gtMXZSMDFOZjF4S0R0V01OMTI4LThoMVdZWGs3VHl0cEtoREVRMHFTNXEyb3hHNVFUbHFIWHkwUGpGdEszSFFFdGRFR2lXdGUzenFSajUxMmcvcHViIiBvbmNsaWNrPSJnYSgnc2VuZCcsICdldmVudCcsICdQREYnLCAnRG93bmxvYWQnLCAnSy0xMiBTdHVkZW50IEhhbmRib29rIEVuIEVzcGHDsW9sJyk7Ij5LLTEyIFN0dWRlbnQgSGFuZGJvb2sgRW4gRXNwYcOxb2w8L2E+ZAIFDw8WAh8DaGRkAgUPZBYCAgEPZBYGAgEPDxYCHwNoZGQCAw8WAh8BBbQBPGEgY2xhc3M9Imxpbmtjb21wb25lbnRfbGlua3RleHQiIGhyZWY9Imh0dHBzOi8vd3d3LmRjc3RuLm9yZy9PdXQtb2YtWm9uZUluZm8uYXNweCIgb25jbGljaz0iZ2EoJ3NlbmQnLCAnZXZlbnQnLCAnUERGJywgJ0Rvd25sb2FkJywgJ091dC1vZi1ab25lIFJlcXVlc3QnKTsiPk91dC1vZi1ab25lIFJlcXVlc3Q8L2E+ZAIFDw8WAh8DaGRkAgcPZBYCAgEPZBYGAgEPDxYCHwNoZGQCAw8WAh8BBdMBPGEgY2xhc3M9Imxpbmtjb21wb25lbnRfbGlua3RleHQiIHRhcmdldD0iX2JsYW5rIiBocmVmPSJodHRwczovL3d3dy5kY3N0bi5vcmcvRG93bmxvYWRzL291dF9vZl9jb3VudHkucGRmP3Y9MCIgb25jbGljaz0iZ2EoJ3NlbmQnLCAnZXZlbnQnLCAnUERGJywgJ0Rvd25sb2FkJywgJ091dC1vZi1Db3VudHkgUmVxdWVzdCcpOyI+T3V0LW9mLUNvdW50eSBSZXF1ZXN0PC9hPmQCBQ8PFgIfA2hkZAIDD2QWAmYPD2QWAh8NBUJmbG9hdDpsZWZ0O3dpZHRoOjEwMCU7aGVpZ2h0OjBweDttYXJnaW4tdG9wOjBweDttYXJnaW4tYm90dG9tOjBweDtkAgMPDxYCHwNoZGQCBQ8PFgIfA2hkZAIVD2QWBmYPFgIfAgUPZm9vdGVyX2Rpc3RyaWN0FhACAw8PFgIfAQUWRGlja3NvbiBDb3VudHkgU2Nob29sc2RkAgUPDxYCHwEFVjgxNyBOLiBDaGFybG90dGUgU3QgRGlja3NvbiwgVE4gMzcwNTU8YnIgLz5QaG9uZTogKDYxNSkgNDQ2LTc1NzEgfCBGYXg6ICg2MTUpIDQ0MS0xMzc1ZGQCBw8PFgQfBAU0aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2dyb3Vwcy9kaWNrc29uY291bnR5c2Nob29scx8DZ2RkAgkPDxYEHwQFGmh0dHBzOi8vdHdpdHRlci5jb20vRENTX1ROHwNnZGQCDQ8PFgIfAQUvODE3IE4uIENoYXJsb3R0ZSBTdCA8YnI+RGlja3NvbiwgVE4gMzcwNTU8YnIgLz5kZAIPDw8WAh8BBV9FOiA8YSBocmVmPSdtYWlsdG86aW5mb0BkY3N0bi5vcmcnPmluZm9AZGNzdG4ub3JnPC9hPjxicj5QOiAoNjE1KSA0NDYtNzU3MTxicj5GOiAoNjE1KSA0NDEtMTM3NWRkAhEPFgIfDAUbTm9uZGlzY3JpbWluYXRvcnkgU3RhdGVtZW50ZAITDw8WAh8BBYkGPGRpdiBzdHlsZT0idGV4dC1hbGlnbjpqdXN0aWZ5Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHgiPklmIGFueSBvZiB0aGUgbWF0ZXJpYWwgb24gdGhpcyBwYWdlIGlzIG5vdCBhY2Nlc3NpYmxlIHRvIHlvdSBvciB5b3UgaGF2ZSBxdWVzdGlvbnMsIHBsZWFzZSBzZW5kIHVzIGFuIGVtYWlsIG9yIGNhbGwgdXMgYW5kIHdlIHdpbGwgcHJvdmlkZSBhbHRlcm5hdGl2ZXMuPC9zcGFuPjwvZGl2PjxkaXYgc3R5bGU9InRleHQtYWxpZ246anVzdGlmeSI+PHNwYW4gc3R5bGU9ImZvbnQtc2l6ZToxMHB4Ij4mbmJzcDs8L3NwYW4+PC9kaXY+PGRpdiBzdHlsZT0idGV4dC1hbGlnbjpqdXN0aWZ5Ij48c3BhbiBzdHlsZT0iZm9udC1zaXplOjEwcHgiPkl0IGlzIHRoZSBwb2xpY3kgb2YgdGhlIERpY2tzb24gQ291bnR5IEJvYXJkIG9mIEVkdWNhdGlvbiBub3QgdG8gZGlzY3JpbWluYXRlIG9uIHRoZSBiYXNpcyBvZiBzZXgsIHJhY2UsIG5hdGlvbmFsIG9yaWdpbiwgY3JlZWQsIGFnZSwgbWFyaXRhbCBzdGF0dXMsIG9yIGRpc2FiaWxpdHkgaW4gaXRzIGVkdWNhdGlvbmFsIHByb2dyYW1zLCBhY3Rpdml0aWVzLCBvciBlbXBsb3ltZW50IHBvbGljaWVzIGFzIHJlcXVpcmVkIGJ5IFRpdGxlIFZJIGFuZCBWSUkgb2YgdGhlIDE5NjQgQ2l2aWwgUmlnaHRzIEFjdCwgVGl0bGUgSVggb2YgdGhlIDE5NzIgRWR1Y2F0aW9uIEFtZW5kbWVudHMsIGFuZCBTZWN0aW9uIDUwNCBvZiB0aGUgRmVkZXJhbCBSZWhhYmlsaXRhdGlvbiBBY3Qgb2YgMTk3My4mbmJzcDs8L3NwYW4+PC9kaXY+ZGQCAg8WAh8CBSBhcHBCYWRnZXMgZm9vdGVyX2JhZGdlc19kaXN0cmljdGQCBA8WAh8CBRxzdWJmb290ZXIgc3ViZm9vdGVyX2Rpc3RyaWN0FgICAQ8PFgIfAQVBJmNvcHk7IDIwMjYuIERpY2tzb24gQ291bnR5IFNjaG9vbCBEaXN0cmljdC4gQWxsIFJpZ2h0cyBSZXNlcnZlZC5kZGTFfawij3XhgIL0uJo7WXHedT9sgDqYcCnC1h+AcrKc6g==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=nZdu06Xh8zCFPaCRWUdUH27_Lb9HBQoJTbc5fiwqAgWCfEqEQyKYvOe0z7kMpnBpx7CI2HzxS2-_1IqTIzVNA22YFsDC8X_TvGX7Gygr_ZE1&amp;t=639191752340000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=v1c7GBFIF45lfv95sl5ZV0duQDTniPn_5K7vp-CmLN8ZmhOb3PDXTLrrCHJeIbs5Y4T_taqGM31hmqoUGDPg66n8Z-aJcpEShu15dqoawXHLBhoAd3nNYhcaOBRgiZmNotv1Cx2GS3y_nj4eiWXOV0z6tHmrJ4H2KV6pj9OyIjU1&amp;t=fffffffff7f39b88" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=6wPUbKtA8IYOU4atwOsSZfVGe7C3R19TF-zzWXuAkeIsxMOxYelJdJdL5Jcu9nk4NrMdl5GP50NhqnExpfDAoRjrJ5CQEGnaS2lWCB0xyI8Oq3RDykOaUIbZsSLuz_v4JlQ1pX_XCw_tKRy5d76AiIDQCRZjV3PZMX0Oekd2P5yZ2MsRZxYwvJZ_MdjgEniV0&amp;t=fffffffff7f39b88" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="65E7F3AF" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAANmz0VWA1LhN4FfOo29q4NeQ9ycDlF2O5829QohFCvKGSiVlsowraTGfEWiQDcfDvYoIOCDyUOh53N0xykDRRL+NJM/XgQ2GbfCtgp24xPbGw==" />
+</div>
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', [], [], [], 90, '');
+//]]>
+</script>
+
+            <div class="content">
+                <div id="mobile_top_nav"></div>
+                
+<link href='//fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css' />
+<style type="text/css">
+    .divAlertBannerTitle
+    {
+        font-size: 20px;
+        font-weight: 500;
+        color: White;
+        text-shadow: 1px 1px 1px black;
+    }
+    .divAlertBannerText
+    {
+        font-size: 14px;
+        font-weight: 400;
+        color: White;
+        line-height: 140%;
+    }
+    .divAlertBannerText a 
+    {
+        font-size: 14px;
+        font-weight: 400;
+        color: White !important;
+    }
+    .divAlertBannerText a:hover
+    {
+        text-shadow: 1px 1px 1px black;
+    }
+    .hideBanner
+    {
+        font-family: Sans-Serif;
+        font-size: 12px;
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .hideBanner:hover
+    {
+        text-decoration: none;
+        color: #c4c4c4;
+    }
+    
+</style>
+<script type="text/javascript" src="https://www.eschoolview.com/GlobalScripts/fontawesome-pro/fontawesome-all.min.js "></script>
+
+
+
+
+
+
+
+    
+
+
+
+                <div id="ucHeader_headertop" class="HeaderTop headertop_district">
+    <div class="container-fluid header_top_container">
+        <div class="GoogleTranslate">
+            <div id="google_translate_element"></div>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'en',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
+            </script>
+            <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </div>
+        <div class="HeaderTranslateButton">
+            <!-- This customizable button has javascript below that will click on Google Translate to open -->
+           <i class="far fa-globe-americas"></i>&nbsp;<i class="fas fa-chevron-down"></i>
+        </div>
+        
+        <a id="ucHeader_lnkFB" class="header_socialbutton FacebookButton" href="https://www.facebook.com/groups/dicksoncountyschools" target="_blank">
+            <div style="display:none;">Facebook</div>
+            <span class="SchoolFB"><i class="fab fa-facebook-f social_button_icon"></i></span>
+            <span class="DistrictFB"><i class="fab fa-facebook social_button_icon"></i></span>
+        </a>
+        <a id="ucHeader_lnkTW" class="header_socialbutton TwitterButton" href="https://twitter.com/DCS_TN" target="_blank">
+            <div style="display:none;">Twitter</div>
+            <span class="SchoolTW"><i class="fab fa-twitter social_button_icon"></i></span>
+            <span class="DistrictTW"><i class="fab fa-twitter social_button_icon"></i></span>
+        </a>
+        
+        <div class="GoogleSearch">
+            <script>
+                (function () {
+                    var cx = '004709911097074647428:-4awiusrll8';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                })();
+            </script>
+            <gcse:searchbox-only></gcse:searchbox-only>
+        </div>
+    </div>
+</div>
+
+
+<header id="ucHeader_header" class="header_district">
+    <div class="container-fluid header_container">
+        <a id="ucHeader_hlImageLink" class="header_logo" href="Default.aspx"><img id="ucHeader_imgSchoolLogo" class="header_image" src="sysimages/header_logo.svg" alt="School Header Logo" style="border-width:0px;" /></a>
+        <div class="header_titlebox">
+            <h1>
+                <a id="ucHeader_hlSchoolTitle" href="Default.aspx">
+                    Dickson County Schools
+                </a>
+            </h1>
+            <h2 id="ucHeader_h2Slogan">Every Student Every Day</h2>
+        </div>
+     </div>
+</header>
+
+<script type="text/javascript">
+    function translateMover() {
+        if (window.innerWidth < 991)
+            $(".SearchLi").appendTo(".slicknav_nav");
+        else
+            $(".SearchLi").appendTo(".GoogleSearch");
+    }
+    $(document).ready(function () {
+        translateMover();
+        $(".HeaderTranslateButton").click(function () {
+            $(".goog-te-menu-value span").click();
+        });
+    });
+    $(window).resize(function () {
+        translateMover();
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("[aria-describedby]").removeAttr("aria-describedby");
+            $("[aria-labelledby]").attr("aria-label", "video options");
+            $("[aria-labelledby]").removeAttr("aria-labelledby");
+            $(".slicknav_hidden").attr("role", "menuitem");
+            $(".vjs-menu-content").attr("role", "menuitem");
+            $(".lb-outerContainer .lb-image").attr("alt", "lightbox image");
+            $(".lb-outerContainer .lb-prev").html("<span style='display:none;'>Previous</span>");
+            $(".lb-outerContainer .lb-next").html("<span style='display:none;'>Next</span>");
+        }, 1000);
+    });
+    $(window).resize(function () {
+        $("[aria-describedby]").removeAttr("aria-describedby");
+        $("[aria-labelledby]").attr("aria-label", "video options");
+        $("[aria-labelledby]").removeAttr("aria-labelledby");
+        $(".slicknav_hidden").attr("role", "menuitem");
+        $(".vjs-menu-content").attr("role", "menuitem");
+        $(".lb-outerContainer .lb-image").attr("alt", "lightbox image");
+        $(".lb-outerContainer .lb-prev").html("<span style='display:none;'>Previous</span>");
+        $(".lb-outerContainer .lb-next").html("<span style='display:none;'>Next</span>");
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#goog-gt-votingInputSrcLang").attr("aria-label", "Source Language");
+            $("#goog-gt-votingInputTrgLang").attr("aria-label", "Translated Language");
+            $("#goog-gt-votingInputSrcText").attr("aria-label", "Source Text");
+            $("#goog-gt-votingInputTrgText").attr("aria-label", "Translated Text");
+            $("#goog-gt-votingInputVote").attr("aria-label", "Input Vote");
+        }, 2000);
+    });
+</script>
+                <nav id="ucTopNav_topNav" class="topnav_district">
+    <div class="topnav_flex topnav_preflex"></div>
+    <div class="container-fluid">
+        <ul id="navigation">
+
+            
+
+            
+                    <li class="nav-item">
+                        <a id="ucTopNav_rptDropdownGroups_ctl00_lnkGroupTitle" class="dropdown-toggle" role="button" aria-expanded="false" href="ParentsAndStudents.aspx">Parents & Students</a>
+                        <ul class="sub-nav-group">
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl01_lnkGroupItem" disabled="disabled" class="nav_title">Registration & Instruction</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl02_lnkGroupItem" href="StudentEnrollment.aspx">Student Enrollment</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl03_lnkGroupItem" href="ExtendedCare.aspx">Extended Care</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl04_lnkGroupItem" href="Transportation.aspx">Bus and Zoning Information</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl05_lnkGroupItem" href="ParentNotificationsCommunications.aspx">Parent Notifications and Communications</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl06_lnkGroupItem" href="Downloads/current_year_calendar.pdf?v=4" target="_blank">PDF Calendar</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl07_lnkGroupItem" href="http://www.dcstn.org/protected/MasterCalendar.aspx?dasi=3AI0&amp;e=&amp;g=&amp;vs=13&amp;d=&amp;">Calendar</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl08_lnkGroupItem" href="https://docs.google.com/document/d/e/2PACX-1vT3jIMMWQDOYQjfWY3k7nTF6G4CdDt9ZSoYH9edLTL_971MxH71UIty2wjAJEF0WnTDBwX7RIGnlazZ/pub" target="_blank">Student District Handbook</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl09_lnkGroupItem" href="https://www.dcstn.org/StudentSchoolHandbooks.aspx">Student School Handbooks</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl10_lnkGroupItem" href="http://www.dcstn.org/DigitalandOnlineLearning.aspx">Digital & Online Learning</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl11_lnkGroupItem" href="https://www.dcstn.org/Downloads/Family_Access_User_Guide.pdf">Skyward Family Access Guide</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl12_lnkGroupItem" href="https://sis-dickson.tnk12.gov/scripts/wsisa.dll/WService=wsDICStu/seplog01.w">Skyward Login</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl13_lnkGroupItem" href="https://launchpad.classlink.com/dickson" target="_blank">ClassLink Login</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl14_lnkGroupItem" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Student Email & Apps</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl15_lnkGroupItem" disabled="disabled" class="nav_title">Student Health & Nutrition</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl16_lnkGroupItem" href="https://sites.google.com/dcstn.org/schoolhealth/">School Health</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl17_lnkGroupItem" href="https://www.dcstn.org/SchoolNutrition.aspx">School Nutrition</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl18_lnkGroupItem" href="https://linqconnect.com/public/menu/RS6UY4?buildingId=2f063032-08a3-ed11-8e6a-c4766a357143">Meal Menus</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl19_lnkGroupItem" href="https://linqconnect.com/" target="_blank">LINQ Connect Student Meals Portal</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl20_lnkGroupItem" disabled="disabled" class="nav_title">Testing and Grading Information</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl21_lnkGroupItem" href="StateTestingInformation.aspx">State Testing Information</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl22_lnkGroupItem" href="GradingScale.aspx">District Grading Scale</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl23_lnkGroupItem" href="https://www.dcstn.org/HomeworkHelp.aspx" target="_blank">Homework Help</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl24_lnkGroupItem" disabled="disabled" class="nav_title">Forms, Documents and Policy Information</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl25_lnkGroupItem" href="FormsDocumentsPolicyInformation.aspx">Forms, Documents and Policies</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl26_lnkGroupItem" href="YouthSuicideBullyingResources.aspx">Youth Suicide and Bullying Resources</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl27_lnkGroupItem" href="InternetTechnologySafety.aspx">Internet & Technology Safety</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl00_rptDropdownItems_ctl28_lnkGroupItem" href="https://www.dcstn.org/PostSecondaryEducationResources.aspx">Post-Secondary Educational Resources</a></li>
+                            </ul>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a id="ucTopNav_rptDropdownGroups_ctl01_lnkGroupTitle" class="dropdown-toggle" role="button" aria-expanded="false" href="Schools.aspx">Schools</a>
+                        <ul class="sub-nav-group">
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl01_lnkGroupItem" disabled="disabled" class="nav_title">Elementary Schools</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl02_lnkGroupItem" href="cent.aspx">Centennial Elementary School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl03_lnkGroupItem" href="ces.aspx">Charlotte Elementary School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl04_lnkGroupItem" href="des.aspx">Dickson Elementary School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl05_lnkGroupItem" href="oes.aspx">Oakmont Elementary School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl06_lnkGroupItem" href="tds.aspx">The Discovery School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl07_lnkGroupItem" href="sbes.aspx">Stuart-Burns Elementary School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl08_lnkGroupItem" href="ves.aspx">Vanleer Elementary School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl09_lnkGroupItem" href="wbes.aspx">White Bluff Elementary School </a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl10_lnkGroupItem" disabled="disabled" class="nav_title">Middle Schools</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl11_lnkGroupItem" href="bms.aspx">Burns Middle School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl12_lnkGroupItem" href="cms.aspx">Charlotte Middle School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl13_lnkGroupItem" href="dms.aspx">Dickson Middle School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl14_lnkGroupItem" href="wjms.aspx">William James Middle School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl15_lnkGroupItem" disabled="disabled" class="nav_title">High Schools</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl16_lnkGroupItem" href="cwhs.aspx">Creek Wood High School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl17_lnkGroupItem" href="dchs.aspx">Dickson County High School</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl18_lnkGroupItem" disabled="disabled" class="nav_title">Alternative Learning Facility</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl19_lnkGroupItem" href="nda.aspx">New Directions Academy</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl01_rptDropdownItems_ctl20_lnkGroupItem" href="dcdla.aspx">Distance Learning Academy</a></li>
+                            </ul>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a id="ucTopNav_rptDropdownGroups_ctl02_lnkGroupTitle" class="dropdown-toggle" role="button" aria-expanded="false" href="Departments.aspx">Departments</a>
+                        <ul class="sub-nav-group">
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl01_lnkGroupItem" href="https://www.dcstn.org/Administration.aspx">Administration</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl02_lnkGroupItem" href="https://www.dcstn.org/CurriculumInstruction.aspx">Curriculum & Instruction</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl03_lnkGroupItem" href="ElementaryEducation.aspx">Elementary Education</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl04_lnkGroupItem" href="SecondaryEducation.aspx">Secondary Education</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl05_lnkGroupItem" href="https://www.dcstn.org/SpecialEducation.aspx">Special Education</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl06_lnkGroupItem" href="CareerTechnicalEducation.aspx">Career & Technical Education</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl07_lnkGroupItem" href="StudentServices.aspx">Student Services</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl08_lnkGroupItem" href="SchoolNutrition.aspx">School Nutrition</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl09_lnkGroupItem" href="https://sites.google.com/dcstn.org/schoolhealth/">School Health</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl10_lnkGroupItem" href="FederalPrograms.aspx">Federal Programs</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl11_lnkGroupItem" href="Technology.aspx">Technology</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl12_lnkGroupItem" href="Business.aspx">Business</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl13_lnkGroupItem" href="HumanResources.aspx">Human Resources</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl14_lnkGroupItem" href="Transportation.aspx">Transportation</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl02_rptDropdownItems_ctl15_lnkGroupItem" href="Maintenance.aspx">Facilities Maintenance</a></li>
+                            </ul>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a id="ucTopNav_rptDropdownGroups_ctl03_lnkGroupTitle" class="dropdown-toggle" role="button" aria-expanded="false" href="ForStaff.aspx">Faculty & Staff</a>
+                        <ul class="sub-nav-group">
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl01_lnkGroupItem" disabled="disabled" class="nav_title">Frequently Used Links</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl02_lnkGroupItem" href="FrequentlyUsedForms.aspx">Frequently Used Forms</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl03_lnkGroupItem" href="https://dcstn.grouplink.com/login.glml" target="_blank">HelpDesk</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl04_lnkGroupItem" href="https://mail.google.com/mail/u/0/" target="_blank">Email Login</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl05_lnkGroupItem" href="https://sis-dickson.tnk12.gov/scripts/wsisa.dll/WService=wsDICStu/seplog01.w">Skyward Login</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl06_lnkGroupItem" disabled="disabled" class="nav_title">Benefits & Licensure</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl07_lnkGroupItem" href="http://www.dcstn.org/mybenefitschannel.aspx" target="_blank">My Benefits Channel</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl08_lnkGroupItem" href="https://app.frontlineeducation.com/" target="_blank">Frontline Substitute Request</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl09_lnkGroupItem" href="https://tncompass.org/Account/Login?ReturnUrl=%2f" target="_blank">TN Compass</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl10_lnkGroupItem" href="https://www.dcstn.org/LeaveRequestsFAQs.aspx">Leave Requests</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl11_lnkGroupItem" href="StaffClinic.aspx">Staff Clinic</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl12_lnkGroupItem" disabled="disabled" class="nav_title">Professional Development</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl13_lnkGroupItem" href="https://techhub.dcstn.org/" target="_blank">Dickson County Schools Teacher Tech Hub</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl14_lnkGroupItem" href="https://dcsonlinetrainingportal.trainercentralsite.com/#/home" target="_blank">Online Training Portal</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl15_lnkGroupItem" href="pdinfo.aspx">Professional Development Information</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl16_lnkGroupItem" disabled="disabled" class="nav_title">Technology</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl17_lnkGroupItem" href="https://techhub.dcstn.org/general-hidden-pages/two-factor-authentication" target="_blank">Login Authentication Setup Help</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl18_lnkGroupItem" href="https://www.dcstn.org/EmployeeEmailInfo.aspx">Employee Email Info</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl19_lnkGroupItem" href="https://www.dcstn.org/PhoneSystemInfo.aspx">Phone System Info</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl20_lnkGroupItem" disabled="disabled" class="nav_title">Educational & Administrative</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl21_lnkGroupItem" href="https://tnpulse.pcgeducation.com/tndicksoniep" target="_blank"> TN | PULSE Login</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl22_lnkGroupItem" href="https://www.specialedconnection.com/LrpSecStoryTool/login.jsp" target="_blank">Special ED Connect</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl23_lnkGroupItem" href="https://launchpad.classlink.com/dickson" target="_blank">ClassLink Login</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl24_lnkGroupItem" href="https://sites.google.com/dcstn.org/adcentral/home" target="_blank">Administrator Central</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl25_lnkGroupItem" href="https://ats4.atenterprise.powerschool.com/ats/emp_login?COMPANY_ID=MA000609" target="_blank">HR Advertise & Hire Login</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl26_lnkGroupItem" href="https://www.dcstn.org/StudentData.aspx">Student Data System Information</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl27_lnkGroupItem" href="https://dicksoncsd.tipwebhss.com/TIPIDCore/Logon.aspx" target="_blank">Technology Management System</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl03_rptDropdownItems_ctl28_lnkGroupItem" href="https://www.comprehensiveeducationalresources.org/" target="_blank">Comprehensive Educational Resources</a></li>
+                            </ul>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a id="ucTopNav_rptDropdownGroups_ctl04_lnkGroupTitle" class="dropdown-toggle" role="button" aria-expanded="false" href="SchoolBoard.aspx">School Board</a>
+                        <ul class="sub-nav-group">
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl04_rptDropdownItems_ctl01_lnkGroupItem" href="BoardMembers.aspx">School Board Members</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl04_rptDropdownItems_ctl02_lnkGroupItem" href="BoardMeetingInformation.aspx">School Board Meetings</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl04_rptDropdownItems_ctl03_lnkGroupItem" href="https://www.dcstn.org/SchoolBoardDistricts.aspx">School Board Districts</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl04_rptDropdownItems_ctl04_lnkGroupItem" href="SchoolBoardPolicies.aspx">School Board Policies</a></li>
+                            </ul>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a id="ucTopNav_rptDropdownGroups_ctl05_lnkGroupTitle" class="dropdown-toggle" role="button" aria-expanded="false" href="OurDistrict.aspx">Our District</a>
+                        <ul class="sub-nav-group">
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl01_lnkGroupItem" href="director.aspx">Director of Schools</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl02_lnkGroupItem" href="http://www.dcstn.org/protected/MasterCalendar.aspx?dasi=3AI0&amp;e=&amp;g=&amp;vs=13&amp;d=&amp;">Calendar</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl03_lnkGroupItem" href="Employment.aspx">Employment</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl04_lnkGroupItem" href="https://www.dcstn.org/GrowYourOwnApprenticeshipProgram.aspx">Grow Your Own Teacher Recruiting Program</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl05_lnkGroupItem" href="centralofficestaff.aspx">Central Office Staff Directory</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl06_lnkGroupItem" href="https://www.dcstn.org/StrategicPlan.aspx">Strategic Plan</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl07_lnkGroupItem" href="Notices.aspx">Information & Notices</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl08_lnkGroupItem" href="https://www.dcstn.org/legal.aspx">Legal</a></li>
+                            
+                                <li><a id="ucTopNav_rptDropdownGroups_ctl05_rptDropdownItems_ctl09_lnkGroupItem" href="https://www.dcstn.org/ContactUs.aspx">Contact Us</a></li>
+                            </ul>
+                    </li>
+                
+        </ul>
+    </div>
+    <div class="topnav_flex"></div>
+</nav>
+<div>
+
+<script language="JavaScript" type="text/javascript">
+function popUp(URL) {
+        day = new Date();
+        id = day.getTime();
+        eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=1,location=0,statusbar=1,menubar=0,resizable=1,width=700,height=600,left = 440,top = 212');");
+    }
+</script></div>
+<script type="text/javascript">
+    // Mobile Nav
+    $('#navigation').slicknav({
+        label: 'Menu',
+        prependTo: '#mobile_top_nav',
+        allowParentLinks: true,
+    });
+</script>
+                
+                
+                <div id="HeaderImageContainer" class="HeaderImageContainer">
+                    <style type="text/css">.CrumbtrailContainer{margin-top:0;}</style>
+                    <img id="imgContentTop1" class="SchoolHeaderImage" src="https://www.dcstn.org/PageImages/enrollment_header3.png" alt="page banner image" style="border-width:0px;" />
+                </div>
+                <div class="container-fluid">
+                    
+<div class="smalltext CrumbtrailContainer">
+    
+    <a class="smalllink" href='dicksoncountyschooldistrict_home.aspx'>
+        Home
+    </a>&nbsp;>&nbsp;
+    
+    <a class="smalllink" href='Parentsandstudents.aspx'>
+        Parents and Students...
+    </a>&nbsp;>&nbsp;
+    
+    <span class="smallltext">
+        Student Enrollment
+    </span>
+    
+</div>
+
+                    <div id="ucLeftNav_pnlLeftSide" class="col-md-3 col-xs-12" style="">
+	<input type="hidden" name="ucLeftNav$ctl00$hfParentId" id="ucLeftNav_ctl00_hfParentId" />
+<div id="dynamic_nav"></div>
+<ul id="ul_dynamic_nav">
+    <li><a id="ucLeftNav_ctl00_lnkTopHome" href="Parentsandstudents.aspx">Parents and Students</a></li>
+    
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_lnkNavItem" class="current_page" href="StudentEnrollment.aspx">Student Enrollment</a>
+                <ul>
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl01_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl01_lnkNavItem" href="K-12EnrollmentInformation.aspx">K-12 Enrollment Information</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl02_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl02_lnkNavItem" href="Pre-KEnrollmentInformation.aspx">Pre-K Enrollment Information</a>
+                            <ul>
+                                    <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl02_rptNavOptions_GrandchildPage_ctl01_liNavItem">
+                                        <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl02_rptNavOptions_GrandchildPage_ctl01_lnkNavItem" href="VoluntaryPre-KProgram.aspx">Voluntary Pre-K Program</a>
+                                        
+                                    </li>
+                                
+                                    <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl02_rptNavOptions_GrandchildPage_ctl02_liNavItem">
+                                        <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl02_rptNavOptions_GrandchildPage_ctl02_lnkNavItem" href="InclusivePreschoolProgram.aspx">Pre-K Peer Program</a>
+                                        
+                                    </li>
+                                </ul>
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl03_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl03_lnkNavItem" href="EnrollmentPlaybook.aspx">PreK and Kindergarten Online Enrollment Playbook</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl04_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl04_lnkNavItem" href="Out-of-ZoneInfo.aspx">Out-of-Zone Enrollment Information</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl05_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl00_rptNavOptions_GrandchildPage_ctl05_lnkNavItem" href="ImmunizationInformation.aspx">Immunization Information</a>
+                            
+                        </li>
+                    </ul>
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl01_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl01_lnkNavItem" href="ExtendedCare.aspx">Extended Care</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl02_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl02_lnkNavItem" href="Transportation.aspx">Bus and Zoning Information</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl03_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl03_lnkNavItem" href="ParentNotificationsCommunications.aspx">Parent Notifications & Communications</a>
+                <ul>
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl03_rptNavOptions_GrandchildPage_ctl01_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl03_rptNavOptions_GrandchildPage_ctl01_lnkNavItem" href="NotificationSelf-Subscription.aspx">Phone Notification Self-Subscription</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl03_rptNavOptions_GrandchildPage_ctl02_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl03_rptNavOptions_GrandchildPage_ctl02_lnkNavItem" href="SkywardFamilyAccessInfo.aspx">Skyward Family Access Info</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl03_rptNavOptions_GrandchildPage_ctl03_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl03_rptNavOptions_GrandchildPage_ctl03_lnkNavItem" href="SchoolClosings.aspx">School Closings</a>
+                            
+                        </li>
+                    </ul>
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl04_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl04_lnkNavItem" href="http://www.dcstn.org/protected/MasterCalendar.aspx?dasi=3AI0&amp;e=&amp;g=&amp;vs=13&amp;d=&amp;" target="_newWindow42280">Calendar</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl05_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl05_lnkNavItem" href="https://docs.google.com/document/d/e/2PACX-1vT3jIMMWQDOYQjfWY3k7nTF6G4CdDt9ZSoYH9edLTL_971MxH71UIty2wjAJEF0WnTDBwX7RIGnlazZ/pub" target="_newWindow42808">Student Handbook</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl06_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl06_lnkNavItem" href="StudentSchoolHandbooks.aspx">Student School Handbooks</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl07_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl07_lnkNavItem" href="SchoolSupplyLists.aspx">School Supply Lists</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_lnkNavItem" href="DigitalandOnlineLearning.aspx">Digital and Online Learning</a>
+                <ul>
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl01_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl01_lnkNavItem" href="https://drive.google.com/file/d/1VBStuNE_HCBSpt8opa8IKOrwZuUFs69X/view" target="_newWindow87312">Dickson County Schools Acceptable Use Agreement</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl02_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl02_lnkNavItem" href="https://www.dcstn.org/Downloads/chromebook_user_guide.pdf" target="_newWindow87314">Dickson County Schools Chromebook User Guide</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl03_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl03_lnkNavItem" href="PortableDeviceAgreement.aspx">Dickson County Schools Student Portable Device Agreement</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl04_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl04_lnkNavItem" href="ProtectionPlanPayment.aspx">Portable Device Protection Plan Payment</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl05_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl05_lnkNavItem" href="DigitalApplicationsList.aspx">Digital Applications List</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl06_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl08_rptNavOptions_GrandchildPage_ctl06_lnkNavItem" href="https://www.dcstn.org/Downloads/24-25%20Dickson%20County%20Distance%20Learning%20Academy%20Virtual_School_Monitoring_Report%20(2)%20(1)2.pdf" target="_newWindow89618">DCDLA Monitoring Report</a>
+                            
+                        </li>
+                    </ul>
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl09_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl09_lnkNavItem" href="https://www.dcstn.org/Downloads/Family_Access_User_Guide.pdf" target="_newWindow79080">Skyward Family Access Guide</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl10_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl10_lnkNavItem" href="https://sis-dickson.tnk12.gov/scripts/wsisa.dll/WService=wsDICStu/seplog01.w" target="_newWindow88762">Skyward Login</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl11_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl11_lnkNavItem" href="https://launchpad.classlink.com/dickson" target="_newWindow87248">Classlink Login</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl12_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl12_lnkNavItem" href="https://mail.google.com/mail/u/0/#inbox" target="_newWindow87250">Student Email & Google Apps Login</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl13_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl13_lnkNavItem" href="https://sites.google.com/dcstn.org/schoolhealth/" target="_newWindow33280">School Health</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl14_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl14_lnkNavItem" href="https://www.dcstn.org/SchoolNutrition.aspx" target="_newWindow87238">School Nutrition</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl15_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl15_lnkNavItem" href="https://linqconnect.com/public/menu/RS6UY4?buildingId=2f063032-08a3-ed11-8e6a-c4766a357143" target="_newWindow87240">Meal Menus</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl16_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl16_lnkNavItem" href="StateTestingInformation.aspx">District & State Assessment Information</a>
+                <ul>
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl16_rptNavOptions_GrandchildPage_ctl01_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl16_rptNavOptions_GrandchildPage_ctl01_lnkNavItem" href="https://www.dcstn.org/Downloads/testing_dates.pdf" target="_newWindow33610">Dickson County Testing Dates</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl16_rptNavOptions_GrandchildPage_ctl02_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl16_rptNavOptions_GrandchildPage_ctl02_lnkNavItem" href="GradingScale.aspx">Dickson County Schools Grading Scale</a>
+                            
+                        </li>
+                    
+                        <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl16_rptNavOptions_GrandchildPage_ctl03_liNavItem">
+                            <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl16_rptNavOptions_GrandchildPage_ctl03_lnkNavItem" href="https://www.dcstn.org/DistrictDataAssessment.aspx" target="_newWindow87382">District Data & Assessment</a>
+                            
+                        </li>
+                    </ul>
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl17_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl17_lnkNavItem" href="HomeworkHelp.aspx">Homework Help</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl18_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl18_lnkNavItem" href="FormsDocumentsPolicyInformation.aspx">Forms, Documents & Policy Information</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl19_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl19_lnkNavItem" href="YouthSuicideBullyingResources.aspx">Youth Suicide & Bullying Resources</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl20_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl20_lnkNavItem" href="https://linqconnect.com/main" target="_newWindow87242">LINQ Connect Student Meals Portal</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl21_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl21_lnkNavItem" href="InternetTechnologySafety.aspx">Internet & Technology Safety</a>
+                
+            </li>
+        
+            <li id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl22_liNavItem" class="clearfix">
+                <a id="ucLeftNav_ctl00_rptNavOptions_ChildPage_ctl22_lnkNavItem" href="PostSecondaryEducationResources.aspx">Post Secondary Education Resources</a>
+                
+            </li>
+        
+</ul>
+<style>
+    .current_page
+    {
+        font-weight: bold;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var obj = $(".current_page");
+        var currentLi = $(obj).closest('li');
+        currentLi.addClass("current_li");
+        var searching = true;
+        if (obj.length > 0) {
+            while (searching) {
+                obj = $(obj).parent();
+                var arrow = $(obj).find("> a > .slicknav_arrow");
+                if (arrow.length > 0) {
+                    $(arrow).click();
+                }
+                if ($(obj).attr("class") == "slicknav_menu") {
+                    searching = false;
+                }
+            }
+        }
+    });
+    var hometext = $("#ucLeftNav_ctl00_lnkTopHome").text();
+
+    //Slicknav
+    $('#ul_dynamic_nav').slicknav({
+        label: hometext,
+        allowParentLinks: true,
+        prependTo: "#dynamic_nav",
+        removeIds: true,
+        removeClasses: false,
+        duplicate: false,
+        closedSymbol: "<i class='fas fa-chevron-right'></i>",
+        openedSymbol: "<i class='fas fa-chevron-down'></i>"
+    });
+</script>
+</div>
+                    
+
+<!--LiquidS Grid-->
+<style type="text/css">
+    div.container-fluid > .component_container
+    {
+        visibility: hidden;
+    }
+    
+    div .grid-stack-item-content
+    {
+        margin-bottom: -3px !important;
+        /*margin-top: 0 !important;
+        margin-bottom: auto !important;*/
+    }
+    
+    .component_container span
+    {
+        background-color: transparent !important;
+    }
+            
+    /*.component_container,*/
+    .component_container_tray {
+        /*z-index: 85;*/
+        /*position: absolute;*/
+        /*top: 5px;*/
+        /*right:-40px;*/
+		/*left: 50%;*/
+        /*-webkit-transform: translateX(-50%);
+        transform: translateX(-50%);*/
+        font-size: 12pt;
+        /*text-align: center;*/
+        color: #FFFFFF;
+        background: #000000;
+        width: 100%;
+        height: auto;
+        line-height: 1em;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        /*opacity:.6;*/
+    }                        
+    .modal-body, .bootbox-body 
+    {
+        bottom: 0;
+        height: auto !important;
+        overflow:hidden;
+    }
+    .bootbox-body .component_container_tray 
+    {
+        display: none;    
+    }
+</style>
+
+<!--Sortable Grid-->
+<style type="text/css">
+    div.container-fluid > .component_container
+    {
+        visibility: hidden;
+    }
+    
+    div .grid-stack-item-content
+    {
+        margin-bottom: -3px !important;
+        /*margin-top: 0 !important;
+        margin-bottom: auto !important;*/
+    }
+    
+    .component_container span,
+    {
+        background-color: transparent !important;
+    }
+            
+    /*.component_container,*/
+    .component_container_tray {
+        /*z-index: 85;*/
+        /*position: absolute;*/
+        /*top: 5px;*/
+        /*right:-40px;*/
+		/*left: 50%;*/
+        /*-webkit-transform: translateX(-50%);
+        transform: translateX(-50%);*/
+        font-size: 12pt;
+        /*text-align: center;*/
+        color: #FFFFFF;
+        background: #000000;
+        width: 100%;
+        height: auto;
+        line-height: 1em;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        /*opacity:.6;*/
+    }
+    
+    .grid-edit .component_container .component_container_tray {
+        width: calc(100% + 30px);
+        margin-left: -15px;
+        margin-right: -5px;
+    }
+    
+    .expired .component_container_tray {
+        background: red;
+    }
+                            
+    .modal-body, .bootbox-body 
+    {
+        bottom: 0;
+        height: auto !important;
+        overflow:hidden;
+    }
+    .bootbox-body .component_container_tray 
+    {
+        display: none;    
+    }
+</style>
+
+
+<div id="ucContentPage_pnlControls" class="col-md-9 col-sm-12 col-xs-12 singlewindow">
+	
+	<div id="ucContentPage_ucSingleWindow_pnlContentWindow">
+		
+
+<div id="ucContentPage_ucSingleWindow_jsonData" class="JsonData" aria-label="Active Components" style="display: none;"></div>
+<div id="ucContentPage_ucSingleWindow_ctl00_pnlContainer" class="component_container clearfix component_container_textwindow col-xs-12 col-sm-12 col-md-9 col-lg-9" name="40750">
+			
+	
+
+
+<h3 id="ucContentPage_ucSingleWindow_ctl00_header_WindowTitle" class="component_title textwindow_maintext" style="padding-bottom: 10px;">Welcome to Dickson County Schools</h3>
+
+	<div>
+		
+		<span id="ucContentPage_ucSingleWindow_ctl00_lblText" class="textwindow_text"><div style="text-align: center;"><strong><span style="color: rgb(184, 49, 47);">Kindergarten Online Registration will begin April 21, 2025
+
+<br>PreK Online Registration will begin April 1, 2025</span></strong><br>
+</div>
+<div>
+<br>
+</div>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: Arial, sans-serif; font-size: 16px;" style="font-family: Arial, sans-serif; font-size: 14px; box-sizing: border-box;">We would like to welcome you and your student to the Dickson County school system. Enrollment forms and information can be found using the links to the left or right. In the event you have questions or need more information, please feel free to use the contact information below.</span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;"><br style="box-sizing: border-box;"></span></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;"><a fr-original-style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" href="/Schools.aspx" style="box-sizing: border-box; background-color: transparent;  text-decoration: none;"><span fr-original-style="color: rgb(0, 0, 255);" style="color: rgb(0, 0, 255); box-sizing: border-box;">Individual School Contact Information</span></a></span></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;"><br></span></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;">For attendance, calendar, school policy questions send an email to: <a fr-original-style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" href="/cdn-cgi/l/email-protection#8cedf8f8e9e2e8ede2efe9cce8effff8e2a2e3feeb" style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" title="attendance@dcstn.org"><span fr-original-style="color: rgb(0, 0, 255);" style="color: rgb(0, 0, 255); box-sizing: border-box;"><span class="__cf_email__" data-cfemail="01607575646f65606f626441656272756f2f6e7366">[email&#160;protected]</span></span></a>
+<br>
+<br>
+</span></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;">For questions regarding secondary education send an email to: <a fr-original-style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" href="/cdn-cgi/l/email-protection#f88b9d9b97969c998a81b89c9b8b8c96d6978a9f" style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" title="secondary@dcstn.org"><span fr-original-style="color: rgb(0, 0, 255);" style="color: rgb(0, 0, 255); box-sizing: border-box;"><span class="__cf_email__" data-cfemail="394a5c5a56575d584b40795d5a4a4d5717564b5e">[email&#160;protected]</span></span></a></span></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;"><br></span></span></div><span style="font-size: 14px;">
+</span>
+<div fr-original-style="box-sizing: border-box; color: rgb(65, 65, 65); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" style="box-sizing: border-box; color: rgb(65, 65, 65); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;">For questions regarding specific student-related elementary education, such as schedules, attendance, supply information,</span></span></div><span style="font-size: 14px;">
+</span>
+<div fr-original-style="box-sizing: border-box; color: rgb(65, 65, 65); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" style="box-sizing: border-box; color: rgb(65, 65, 65); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;">contact your child's school using the contact information provided on the <a fr-original-style="box-sizing: border-box; background-color: transparent;  text-decoration: none; user-select: auto;" href="/schools.aspx" style="box-sizing: border-box; background-color: transparent;  text-decoration: none; user-select: auto;"><span fr-original-style="color: rgb(0, 0, 255);" style="color: rgb(0, 0, 255); box-sizing: border-box;">school information page</span></a><span fr-original-style="color: rgb(0, 0, 255);" style="color: rgb(0, 0, 255); box-sizing: border-box;">.</span></span></span></div><span style="font-size: 14px;">
+</span>
+<div fr-original-style="box-sizing: border-box; color: rgb(65, 65, 65); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" style="box-sizing: border-box; color: rgb(65, 65, 65); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;"><br style="box-sizing: border-box;"></span></span></div><span style="font-size: 14px;">
+</span>
+<div fr-original-style="box-sizing: border-box; color: rgb(65, 65, 65); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" style="box-sizing: border-box; color: rgb(65, 65, 65); font-family: sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;">For questions regarding district-level elementary education, such as district selected curriculum, testing or assessment data,<br style="box-sizing: border-box;">send an email to: <a fr-original-style="box-sizing: border-box; background-color: transparent;  text-decoration: none; user-select: auto;" href="/cdn-cgi/l/email-protection#32575e575f575c4653404b72565141465c1c5d4055" style="box-sizing: border-box; background-color: transparent;  text-decoration: none; user-select: auto;"><span fr-original-style="color: rgb(0, 0, 255);" style="color: rgb(0, 0, 255); box-sizing: border-box;"><span class="__cf_email__" data-cfemail="4f2a232a222a213b2e3d360f2b2c3c3b2161203d28">[email&#160;protected]</span></span></a></span></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-size: 
+      16px;" style="font-size: 14px; box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;"><br></span></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: Arial, sans-serif; font-size: 16px;" style="font-family: Arial, sans-serif; font-size: 14px; box-sizing: border-box;"><a fr-original-style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" href="https://www.dcstn.org/ZoningInformation.aspx" style="box-sizing: border-box; background-color: transparent;  text-decoration: none;"><span fr-original-style="color: rgb(0, 0, 255);" style="color: rgb(0, 0, 255); box-sizing: border-box;">School Zoning Information</span></a> or Transportation Department Ph: (615) 740-5970</span></div><span style="font-size: 14px;">
+<br>
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: Arial, sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box; font-size: 14px;">Detailed guide for PreK and Kindergarten enrollment can be found here: <a fr-original-style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" href="https://www.dcstn.org/EnrollmentPlaybook.aspx" style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" title="Pre-K & Kindergarten Enrollment Playbook"><span fr-original-style="color:#0000ff;" style="color: rgb(0, 0, 255); box-sizing: border-box;">Pre-K &amp; Kindergarten Enrollment Playbook&nbsp;</span></a></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box; font-size: 14px;">&nbsp;</span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box;"><span style="font-size: 14px;">First time ever enrolling a student in Dickson County Schools? <a fr-original-style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" href="https://sis-dickson.tnk12.gov/scripts/wsisa.dll/WService=wsDICStu/skyenroll.w" style="box-sizing: border-box; background-color: transparent;  text-decoration: none;" target="_blank" title="Skyward Account Creation"><span fr-original-style="color:#0000ff;" style="color: rgb(0, 0, 255); box-sizing: border-box;">Skyward Account Creation</span></a></span><span fr-original-style="color:#0000ff;" style="color: rgb(0, 0, 255); box-sizing: border-box; font-size: 14px;">&nbsp;</span></span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box; font-size: 14px;">&nbsp;</span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box; font-size: 14px;">Have you before or do you currently have a Dickson County School student? You may access your Family Access portal for a direct link to enroll your child or <a fr-original-style="color:#0000ff;" href="https://sis-dickson.tnk12.gov/scripts/wsisa.dll/WService=wsDICStu/seplog01.w" style="color: rgb(0, 0, 255); box-sizing: border-box; background-color: transparent; text-decoration: none;" title="Dickson County Schools Skyward">Dickson County Schools Skyward</a> under Family/Student Access.&nbsp;</span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box; font-size: 14px;">&nbsp;</span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box; font-size: 14px;">If you do not have your login information for Family Access, you may click the Forgot your Login/Password? link, check your e-mail for a reset link sent yesterday, or you may contact your child's&nbsp;<a fr-original-style="color:#0000ff;" href="http://www.dcstn.org/schools.aspx" style="color: rgb(0, 0, 255); box-sizing: border-box; background-color: transparent; text-decoration: none;" title="school staff">school staff</a>.</span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: 
+        Arial,sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box; font-size: 14px;">&nbsp;</span></div><span style="font-size: 14px;">
+</span>
+<div style="box-sizing: border-box;"><span fr-original-style="font-family: Arial, sans-serif;" style="font-family: Arial, sans-serif; box-sizing: border-box; font-size: 14px;">The ability to complete an application is turned on for all guardians in Family Access so please submit only <strong fr-original-style="box-sizing: border-box; font-weight: 700;" style="box-sizing: border-box; font-weight: 700;">one application per child</strong>.</span></div></span>
+		<div id="ucContentPage_ucSingleWindow_ctl00_footer_pnlFooter">
+
+			</div>
+
+	</div>
+
+		</div>
+
+<style type="text/css">
+    h3{font-size:1.142em;margin:0px;padding:0px;}
+    .linksList
+    {
+        list-style:none;
+        margin:0;
+        padding:0;
+    }
+    .component_container
+    { 
+    }
+    .component_container:after
+    {
+        content:"";
+        display:table;
+        clear:both;
+    }
+</style>
+
+<div id="ucContentPage_ucSingleWindow_ctl01_pnlContainer" class="component_container component_container_files&amp;links col-xs-12 col-sm-12 col-md-3 col-lg-3" name="0">
+			
+    <div id="ucContentPage_ucSingleWindow_ctl01_pnlStyle" style="width:100%;">
+				
+        
+<h2 id="ucContentPage_ucSingleWindow_ctl01_header1_PCHeader" class="component_header header" style="padding-bottom: 10px;">Important Forms and Links</h2>
+
+
+
+        <ul class="linksList">
+                <li id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl01_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://sis-dickson.tnk12.gov/scripts/wsisa.dll/WService=wsDICStu/seplog01.w" onclick="ga('send', 'event', 'PDF', 'Download', 'Online Enrollment for Returning or Previously-Attended Students');">Online Enrollment for Returning or Previously-Attended Students</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl02_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl03_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://sis-dickson.tnk12.gov/scripts/wsisa.dll/WService=wsDICStu/skyenroll.w" onclick="ga('send', 'event', 'PDF', 'Download', 'Online Enrollment for New-to-Dickson-County Students');">Online Enrollment for New-to-Dickson-County Students</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl04_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl05_liLink">
+                    
+                    <a class="linkcomponent_linktext" href="https://www.dcstn.org/EnrollmentPlaybook.aspx" onclick="ga('send', 'event', 'PDF', 'Download', 'Kindergarten & PreK Enrollment Playbook');">Kindergarten & PreK Enrollment Playbook</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl06_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl07_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://www.youtube.com/watch?v=clOismbVlTQ" onclick="ga('send', 'event', 'PDF', 'Download', 'Online Registration Tutorial (Computer Version)');">Online Registration Tutorial (Computer Version)</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl08_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl09_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://www.youtube.com/watch?v=etj0eQdVkwo" onclick="ga('send', 'event', 'PDF', 'Download', 'Online Registration Tutorial (Phone Version)');">Online Registration Tutorial (Phone Version)</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl10_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl11_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://www.youtube.com/watch?v=eI5-AoCz_lE" onclick="ga('send', 'event', 'PDF', 'Download', 'Online Kindergarten Registration Tutorial');">Online Kindergarten Registration Tutorial</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl12_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl13_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://www.youtube.com/watch?v=GN54otzu7Vw" onclick="ga('send', 'event', 'PDF', 'Download', 'Voluntary Pre-K Enrollment Tutorial');">Voluntary Pre-K Enrollment Tutorial</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl14_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl01_rptItems_ctl15_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://www.youtube.com/watch?v=NsBq9RqQ82w" onclick="ga('send', 'event', 'PDF', 'Download', 'Pre-K Eligibility and Selection Video');">Pre-K Eligibility and Selection Video</a>
+                    
+                </li>
+            </ul>
+    
+			</div>
+    <div id="ucContentPage_ucSingleWindow_ctl01_footer1_pnlFooter" style="float:left;width:100%;height:0px;margin-top:0px;margin-bottom:0px;">
+
+			</div>
+
+
+		</div>
+
+
+
+<style type="text/css">
+    h3{font-size:1.142em;margin:0px;padding:0px;}
+    .linksList
+    {
+        list-style:none;
+        margin:0;
+        padding:0;
+    }
+    .component_container
+    { 
+    }
+    .component_container:after
+    {
+        content:"";
+        display:table;
+        clear:both;
+    }
+</style>
+
+<div id="ucContentPage_ucSingleWindow_ctl02_pnlContainer" class="component_container component_container_files&amp;links col-xs-12 col-sm-12 col-md-3 col-lg-3" name="0">
+			
+    <div id="ucContentPage_ucSingleWindow_ctl02_pnlStyle" style="width:100%;">
+				
+        
+<h2 id="ucContentPage_ucSingleWindow_ctl02_header1_PCHeader" class="component_header header" style="padding-bottom: 10px;">Handbooks &amp; Forms</h2>
+
+
+
+        <ul class="linksList">
+                <li id="ucContentPage_ucSingleWindow_ctl02_rptItems_ctl01_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://docs.google.com/document/d/e/2PACX-1vT3jIMMWQDOYQjfWY3k7nTF6G4CdDt9ZSoYH9edLTL_971MxH71UIty2wjAJEF0WnTDBwX7RIGnlazZ/pub" onclick="ga('send', 'event', 'PDF', 'Download', 'K-12 Student Handbook');">K-12 Student Handbook</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl02_rptItems_ctl02_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl02_rptItems_ctl03_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://docs.google.com/document/d/e/2PACX-1vR01Nf1xKDtWMN128-8h1WYXk7TytpKhDEQ0qS5q2oxG5QTlqHXy0PjFtK3HQEtdEGiWte3zqRj512g/pub" onclick="ga('send', 'event', 'PDF', 'Download', 'K-12 Student Handbook En Español');">K-12 Student Handbook En Español</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl02_rptItems_ctl04_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl02_rptItems_ctl05_liLink">
+                    
+                    <a class="linkcomponent_linktext" href="https://www.dcstn.org/Out-of-ZoneInfo.aspx" onclick="ga('send', 'event', 'PDF', 'Download', 'Out-of-Zone Request');">Out-of-Zone Request</a>
+                    
+                </li>
+            
+                <div id="ucContentPage_ucSingleWindow_ctl02_rptItems_ctl06_pnlSpacer" style="width:100%;">
+
+				</div>
+            
+                <li id="ucContentPage_ucSingleWindow_ctl02_rptItems_ctl07_liLink">
+                    
+                    <a class="linkcomponent_linktext" target="_blank" href="https://www.dcstn.org/Downloads/out_of_county.pdf?v=0" onclick="ga('send', 'event', 'PDF', 'Download', 'Out-of-County Request');">Out-of-County Request</a>
+                    
+                </li>
+            </ul>
+    
+			</div>
+    <div id="ucContentPage_ucSingleWindow_ctl02_footer1_pnlFooter" style="float:left;width:100%;height:0px;margin-top:0px;margin-bottom:0px;">
+
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+    
+    
+
+</div>
+
+
+
+
+
+
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" defer>
+            $(function () {
+                if ($('.singlewindow .component_container').length > 0) {
+                    $('.singlewindow .component_container').matchHeight({ remove: true, property: 'min-height' });
+                    $('.singlewindow .component_container').matchHeight();
+                }
+                if ($('.dualwindow_left .component_container').length > 0) {
+                    $('.dualwindow_left .component_container').matchHeight({ remove: true, property: 'min-height' });
+                    $('.dualwindow_left .component_container').matchHeight();
+                }
+                if ($('.dualwindow_right .component_container').length > 0) {
+                    $('.dualwindow_right .component_container').matchHeight({ remove: true, property: 'min-height' });
+                    $('.dualwindow_right .component_container').matchHeight();
+                }
+            });
+</script>
+                </div>
+            </div>
+            <footer id="ucFooter_footer" class="footer_district">
+    <div class="container-fluid footer_container">
+
+        <a class="footer_logo" href="Default.aspx"><img id="ucFooter_imgSchoolLogo" src="/sysimages/header_logo.svg" alt="School Footer Logo" style="border-width:0px;" /></a>
+
+        <div class="footer_info">
+            <h1><span id="ucFooter_lblSchoolTitle">Dickson County Schools</span></h1>
+            <span id="ucFooter_lblAddressPhoneInfo" class="footertext">817 N. Charlotte St Dickson, TN 37055<br />Phone: (615) 446-7571 | Fax: (615) 441-1375</span>
+            <div class="footer_socialbox">
+                <a id="ucFooter_lnkFB" class="footer_socialbutton" href="https://www.facebook.com/groups/dicksoncountyschools" target="_blank">
+                    <div style="display:none;">Facebook</div>
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a id="ucFooter_lnkTW" class="footer_socialbutton" href="https://twitter.com/DCS_TN" target="_blank">
+                    <div style="display:none;">Twitter</div>
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a id="ucFooter_lnkEmail" class="footer_socialbutton" href="ContactUs.aspx">
+                    <div style="display:none;">Email</div>
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer_address">
+            <span id="ucFooter_lblAddressInfo" class="footertext">817 N. Charlotte St <br>Dickson, TN 37055<br /></span>
+        </div>
+        <div class="footer_phone">
+            <span id="ucFooter_lblPhoneInfo" class="footertext">E: <a href="/cdn-cgi/l/email-protection#d8b1b6beb798bcbbabacb6f6b7aabf"><span class="__cf_email__" data-cfemail="4821262e27082c2b3b3c2666273a2f">[email&#160;protected]</span></a><br>P: (615) 446-7571<br>F: (615) 441-1375</span>
+        </div>
+        <div class="footer_textwindow">
+            <h2 id="ucFooter_h2Title" class="footer_textwindow_title">Nondiscriminatory Statement</h2>
+            <span id="ucFooter_lblText" class="footer_textwindow_text"><div style="text-align:justify"><span style="font-size:10px">If any of the material on this page is not accessible to you or you have questions, please send us an email or call us and we will provide alternatives.</span></div><div style="text-align:justify"><span style="font-size:10px">&nbsp;</span></div><div style="text-align:justify"><span style="font-size:10px">It is the policy of the Dickson County Board of Education not to discriminate on the basis of sex, race, national origin, creed, age, marital status, or disability in its educational programs, activities, or employment policies as required by Title VI and VII of the 1964 Civil Rights Act, Title IX of the 1972 Education Amendments, and Section 504 of the Federal Rehabilitation Act of 1973.&nbsp;</span></div></span>
+        </div>
+        <div class="footer_links">
+            <ul>
+                <li><a id="ucFooter_lnk1">Home</a></li>
+                <li> | </li>
+                <li><a id="ucFooter_HyperLink1" href="Employment.aspx">Careers</a></li>
+                <li> | </li>
+                <li><a id="ucFooter_HyperLink2" href="legal.aspx">Legal</a></li>
+            </ul>
+        </div>
+        <div id="ucFooter_appBadgesDistrict" class="appBadges appBadgesDistrict">
+            <a target="_blank" href="https://itunes.apple.com/app/id1385212321" style=""><img width="150" src="https://www.schoolinfoapp.com/public/badge_appstore.png" alt="App Store"/></a>
+            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.esv2go.dicksoncounty" style="p"><img width="150" src="https://www.schoolinfoapp.com/public/badge_googleplay.png" alt="Google Play"/></a>
+        </div>
+    </div>
+</footer>
+<div id="ucFooter_appBadges" class="appBadges footer_badges_district">
+    <a target="_blank" href="https://itunes.apple.com/app/id1385212321" style="padding-top:5px;"><img width="150" src="https://www.schoolinfoapp.com/public/badge_appstore.png" alt="App Store"/></a>
+    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.esv2go.dicksoncounty" style="padding-top:5px;"><img width="150" src="https://www.schoolinfoapp.com/public/badge_googleplay.png" alt="Google Play"/></a>
+</div>
+<div id="ucFooter_subfooter" class="subfooter subfooter_district">
+    <div class="container-fluid subfooter_container">
+        <div class="subfooter_ownership">
+            <span id="ucFooter_lblOwnershipInfo">&copy; 2026. Dickson County School District. All Rights Reserved.</span>
+        </div>
+        <div class="subfooter_compliance">
+            <a id="ucFooter_lbCompliantView" href="javascript:__doPostBack(&#39;ucFooter$lbCompliantView&#39;,&#39;&#39;)">View text-based website.</a>
+            
+        </div>
+        <div class="subfooter_esvlink">
+            <a id="ucFooter_esvLink" href="http://eschoolview.com" target="_blank">Website by eSchoolView.</a>
+        </div>
+    </div>
+</div>
+        </form>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
