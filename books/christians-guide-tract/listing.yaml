@@ -1,0 +1,46 @@
+# KDP listing for the paperback (Kindle later, at or under $9.99 and at least 20 percent below print).
+# Read by kdp_upload.py (kdp-publish) and lccn_request.py (lccn). `kdp.yaml` is a link to this file.
+title: A Christian's Guide to Corporal Punishment
+subtitle: The rod, the fruit, and the school board
+author: Anthony Adams
+series: Safe Schools Guides          # KDP series name; this is the first; the Parent's, Superintendent's, School Board's and Student's guides follow
+
+# Print cost: 32 pages, 4 x 6, black ink, cream, US = $0.85 + 32 x $0.012 = $1.23.
+# At $4.99 the 60 percent royalty nets about $1.76 a copy; at $5.99 about $2.36. Priced to be
+# bought by the box and handed out, the way tracts are.
+price_usd: 4.99
+price_usd_ebook: 2.99
+pages: 32
+paper: cream
+trim: 4x6
+publication_date: 2026-12
+
+# KDP's taxonomy. The upload script reports the options it was offered when a level is missing.
+categories:
+  - Religion & Spirituality > Christian Books & Bibles > Christian Living > Social Issues
+  - Politics & Social Sciences > Social Sciences > Children's Studies
+
+keywords:
+  - corporal punishment in schools
+  - spare the rod bible verses
+  - christian discipline of children
+  - school board policy paddling
+  - biblical guide for pastors
+  - proverbs 13:24 explained
+  - safe schools tract
+
+description_html: |
+  <p><b>A former minister reads the rod verses honestly, then asks what the same Bible says about judging any discipline: by its fruit.</b></p>
+  <p>In seventeen states a public school employee may still paddle a child, and the people who decide whether that continues are, in most of those districts, people who pray before the meeting. This tract was written for them: pastors, Sunday school teachers, church members, and the believer who sits on a school board.</p>
+  <p>It quotes every rod verse in Proverbs, in the King James, and does not pretend they say something else. Then it does what scripture itself asks. Hebrews 12:11 says chastening is judged by the fruit it yields afterward. Matthew 7 says ye shall know them by their fruits. First Thessalonians says prove all things. So the book looks at the fruit: seventy-five studies of more than one hundred and sixty thousand children, the school studies, the children who were paddled and grew up. Every figure is tied to a verified source. Every church position was read at the church's own site, including the Presbyterian vote of three hundred thirty-four to three hundred six.</p>
+  <p>Thirty-two pages, pocket sized, a drawn scene facing every idea, and a page at the end written to be read aloud in under three minutes. It closes on the one sentence more than eleven hundred school boards in the permitting states have already adopted.</p>
+  <p>The first of the Safe Schools Guides. Text released under Creative Commons Attribution 4.0: copy it, print it, hand it out.</p>
+
+# The AI-content disclosure, answered the way the Imprint suite answers it. Anthony confirms it on the form.
+ai_disclosure:
+  texts: Entire work, with extensive editing
+  texts_tool: Claude
+  images: Many AI-generated images, with minimal or no editing
+  images_tool: GPT Image 2
+
+isbn: ""              # KDP-assigned at upload; the lccn skill lists it on the request if known

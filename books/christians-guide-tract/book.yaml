@@ -1,0 +1,77 @@
+## A Christian's Guide to Corporal Punishment: the tract-sized paperback edition.
+## Source: kit/a-christians-guide.md in this repo (the eleven-page booklet).
+title: "A Christian's Guide to Corporal Punishment"
+subtitle: "The rod, the fruit, and the school board"
+author: "Anthony Adams"
+output_name: a-christians-guide-tract
+
+## 4 x 6 in is a KDP custom trim (width 4 to 8.5, height 6 to 11.69) and the smallest it prints.
+## Black ink, cream paper: 24 to 776 pages. KDP margins for 24 to 150 pages: inside 0.375, outside 0.25.
+trim:
+  width_in: 4.0
+  height_in: 6.0
+margins:
+  inside_in: 0.5
+  outside_in: 0.375
+  top_in: 0.45
+  bottom_in: 0.5
+indent_in: 0.0
+openright: true
+chapters_open: left        # every spread file opens on a verso: cartoon left, words right
+justified: false
+hyphenation: true
+layout_priority: balanced
+
+body:
+  font: "EB Garamond"
+  size_pt: 10
+  line_spacing: 1.2
+  paragraph_style: spaced
+heading_font: "EB Garamond"
+
+chapter_number: { show: false, format: numeral, font: "EB Garamond", size_pt: 12 }
+chapter_title: { font: "EB Garamond", size_pt: 13, align: left, bold: true }
+running_head: { layout: none, font: "EB Garamond", size_pt: 8 }
+
+drop_caps: false
+scene_break: asterism
+footnotes: { location: page, size_multiplier: 1.0 }
+toc: false
+emblem: none
+galley: false              # no reader coach for a tract; the kit URL is on the last page instead
+
+copyright_year: 2026
+copyright_holder: "Anthony Adams"
+publisher: "EarthPilot"
+publication_place: "Kansas City, Missouri"
+publication_date: 2026-12
+paper: cream
+rights_notice:
+  - "The text is released under the Creative Commons Attribution 4.0 International License (CC BY 4.0), the same license as the Safe Schools Project kit it is drawn from. Copy it, print it, hand it out, and say where it came from."
+  - "Scripture quotations are from the King James Version, which is in the public domain."
+  - "Illustrations generated with GPT Image 2 on fal.ai from the author's shot list; typeset in EB Garamond."
+  - "Every study and church position cited is a verified claim in the Safe Schools facts registry, earthpilot.org/kids/resources/, with its primary source."
+## Library of Congress Control Number: "" until requested (imprint:lccn), then pending, then the number.
+lccn: ""
+language: English
+
+## One markdown file per spread; each opens on a left-hand page with the cartoon and
+## carries its words on the facing right-hand page. Front matter and the closing pages
+## are plain files in the same list so nothing is numbered as a chapter.
+chapters:
+  - 02-chapters/00-who-this-is-for.md
+  - 02-chapters/s01-why-a-minister.md
+  - 02-chapters/s02-teaching.md
+  - 02-chapters/s03-provoke-not.md
+  - 02-chapters/s04-the-fruit-test.md
+  - 02-chapters/s05-the-rod-passages.md
+  - 02-chapters/s06-his-son.md
+  - 02-chapters/s07-by-their-fruits.md
+  - 02-chapters/s08-in-schools.md
+  - 02-chapters/s09-grown-up.md
+  - 02-chapters/s10-prove-all-things.md
+  - 02-chapters/s11-the-teachers-work.md
+  - 02-chapters/s12-the-churches.md
+  - 02-chapters/s13-the-board.md
+  - 02-chapters/90-a-page-to-read-aloud.md
+  - 02-chapters/99-passages-cited.md

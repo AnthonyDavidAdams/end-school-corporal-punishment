@@ -1,0 +1,408 @@
+% !TEX TS-program = xelatex
+\documentclass[<<body.size_pt>>pt,<% if openright %>openright,<% else %>openany,<% endif %>twoside,letterpaper]{memoir}
+
+% --- Page geometry: trim size + mirror margins ---
+\setstocksize{<<trim.height_in>>in}{<<trim.width_in>>in}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\setlength{\trimtop}{0pt}
+\setlength{\trimedge}{0pt}
+\setlrmarginsandblock{<<margins.inside_in>>in}{<<margins.outside_in>>in}{*}
+\setulmarginsandblock{<<margins.top_in>>in}{<<margins.bottom_in>>in}{*}
+\setheadfoot{14pt}{2\onelineskip}
+\setheaderspaces{*}{1\onelineskip}{*}
+\checkandfixthelayout
+
+% --- Fonts ---
+\usepackage{fontspec}
+\setmainfont{<<body.font>>}[Numbers={OldStyle,Proportional}]
+% Lining figures (digit-style) for chapter numbers and page numbers
+\newfontfamily\liningfont{<<body.font>>}[Numbers={Lining,Proportional}]
+% Heading font (defaults to body font if heading_font not set in book.yaml)
+\newfontfamily\headingfont{<<heading_font|default(body.font)>>}
+\usepackage{microtype}
+<% if cjk %>
+% --- Chinese / Japanese / Korean text (book.yaml `cjk:`) ---
+% xeCJK sets CJK runs in their own font and handles line breaking and
+% punctuation; Latin letters, digits and URLs stay in the main font above.
+% Chinese books indent every paragraph, including the first after a heading,
+% by two characters, so `indentfirst` and a 2em indent replace the Latin
+% conventions whatever `indent_in` says.
+\usepackage{xeCJK}
+\setCJKmainfont{<<cjk.main>>}[BoldFont={<<cjk.bold|default(cjk.main)>>}<% if cjk.italic %>, ItalicFont={<<cjk.italic>>}<% endif %>]
+\setCJKsansfont{<<cjk.sans|default(cjk.main)>>}
+\xeCJKsetup{PunctStyle=<<cjk.punct|default("quanjiao")>>, CJKmath=false}
+\usepackage{indentfirst}
+\usepackage{zhnumber}
+\renewcommand{\thepart}{\zhnum{part}}
+\renewcommand{\contentsname}{<<toc_title|default("目录")>>}
+\renewcommand{\partname}{}
+<% endif %>
+
+% --- Body paragraph rules ---
+<% if body.paragraph_style == "spaced" %>
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em plus 1pt minus 1pt}
+<% else %>
+<% if cjk %>\setlength{\parindent}{2em}<% else %>\setlength{\parindent}{<<indent_in>>in}<% endif %>
+% A hair of stretch per paragraph. Invisible at reading size, but it gives
+% \flushbottom somewhere to absorb slack instead of forcing loose pages.
+\setlength{\parskip}{0pt plus 1.2pt}
+<% endif %>
+\linespread{<<body.line_spacing>>}
+<% if not hyphenation %>\hyphenpenalty=10000\exhyphenpenalty=10000<% endif %>
+
+% --- Layout priority (widows/orphans/balanced) ---
+% NOTE: \raggedbottom and \needspace are incompatible. \needspace works by
+% inserting a cheap breakpoint (\penalty -100) ahead of the heading; under
+% \raggedbottom a short page carries no badness, so that -100 is cheaper than
+% any later break and TeX takes it at EVERY heading — starting each section on
+% a fresh page and stranding 6-13 blank lines on the page before, whether or
+% not space was actually tight. \headNeedspace therefore expands to nothing
+% whenever \raggedbottom is in force.
+%
+% Under \flushbottom the heading rule is memoir's EXACT \Needspace, not the
+% approximate \needspace. \needspace carries `plus N\baselineskip` of stretch
+% into its own breakpoint, so on a page of short items (a list under each of
+% twelve headings) the page looks stretchable enough to end at every heading:
+% a 108-entry summary list ran 12 pages instead of 8. \Needspace measures the
+% room actually left and breaks only when the heading would be stranded.
+<% if layout_priority == "widows_orphans" %>
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+\newcommand{\headNeedspace}[1]{}
+<% elif layout_priority == "balanced" %>
+\widowpenalty=150
+\clubpenalty=150
+\flushbottom
+\newcommand{\headNeedspace}[1]{\Needspace{#1\baselineskip}}
+<% else %>
+\widowpenalty=1000
+\clubpenalty=1000
+\flushbottom
+\newcommand{\headNeedspace}[1]{\Needspace{#1\baselineskip}}
+<% endif %>
+
+% --- Chapter title styling ---
+% titlesec alignment macros: \filleft=right, \filcenter=centered, \filright=left
+\usepackage{titlesec}
+<% set align = chapter_title.align | default("left") %>
+<% if align == "right" %><% set fill = "\\filleft" %>
+<% elif align == "center" %><% set fill = "\\filcenter" %>
+<% else %><% set fill = "\\filright" %>
+<% endif %>
+<% if chapter_number.show %>
+  <% if chapter_number.format == "numeral" %>
+\titleformat{\chapter}[display]
+  {\normalfont<<fill>>}
+  {\headingfont\fontsize{<<chapter_number.size_pt>>}{<<chapter_number.size_pt + 4>>}\selectfont\thechapter}
+  {0.6em}
+  {\headingfont\fontsize{<<chapter_title.size_pt>>}{<<chapter_title.size_pt + 6>>}\selectfont<% if chapter_title.bold %>\bfseries<% endif %><% if chapter_title.italic %>\itshape<% endif %><<fill>>}
+  <% elif chapter_number.format == "chapter_n" %>
+\titleformat{\chapter}[display]
+  {\normalfont<<fill>>}
+  {\headingfont\fontsize{<<chapter_number.size_pt>>}{<<chapter_number.size_pt + 4>>}\selectfont Chapter \thechapter}
+  {0.6em}
+  {\headingfont\fontsize{<<chapter_title.size_pt>>}{<<chapter_title.size_pt + 6>>}\selectfont<% if chapter_title.bold %>\bfseries<% endif %><% if chapter_title.italic %>\itshape<% endif %><<fill>>}
+  <% endif %>
+<% else %>
+\titleformat{\chapter}[display]
+  {\normalfont<<fill>>}
+  {}
+  {0pt}
+  {\headingfont\fontsize{<<chapter_title.size_pt>>}{<<chapter_title.size_pt + 6>>}\selectfont<% if chapter_title.bold %>\bfseries<% endif %><% if chapter_title.italic %>\itshape<% endif %><<fill>>}
+<% endif %>
+\titlespacing*{\chapter}{0pt}{<<chapter_title.space_before_pt|default(60)>>pt}{<<chapter_title.space_after_pt|default(40)>>pt}
+
+% --- Section title styling ---
+% \needspace prevents hanging headers: if there isn't enough room for the
+% heading + N lines of body below it on the current page, break to a new
+% page so the heading stays with its content.
+\usepackage{needspace}
+\titleformat{\section}
+  {\headNeedspace{4}\headingfont\large\bfseries}{}{0pt}{}
+\titleformat{\subsection}
+  {\headNeedspace{3}\headingfont\bfseries}{}{0pt}{}
+\titleformat{\subsubsection}
+  {\headNeedspace{3}\headingfont\bfseries\itshape}{}{0pt}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
+
+% Display-math widow penalty (e.g. blockquotes/displays at column edges)
+\displaywidowpenalty=10000
+
+% Stronger penalty against breaking inside a paragraph
+\interlinepenalty=100
+
+% Let TeX stretch interword space as a last resort instead of pushing an
+% unbreakable token (a bold URL, a long cite) past the right margin. Without
+% this, KDP's previewer rejects the file with "text is outside the margins".
+\setlength{\emergencystretch}{3em}
+
+% --- Running headers/footers ---
+\makepagestyle{kdpheaders}
+\makeevenhead{kdpheaders}{\thepage}{}{\fontsize{<<running_head.size_pt>>}{<<running_head.size_pt + 2>>}\selectfont\itshape <<author>>}
+\makeoddhead{kdpheaders}{\fontsize{<<running_head.size_pt>>}{<<running_head.size_pt + 2>>}\selectfont\itshape <<title>>}{}{\thepage}
+<% if footer_url %>
+\makeevenfoot{kdpheaders}{}{\fontsize{8}{10}\selectfont\color{black!55}<<footer_url>>}{}
+\makeoddfoot{kdpheaders}{}{\fontsize{8}{10}\selectfont\color{black!55}<<footer_url>>}{}
+<% else %>
+\makeevenfoot{kdpheaders}{}{}{}
+\makeoddfoot{kdpheaders}{}{}{}
+<% endif %>
+\makeheadrule{kdpheaders}{\textwidth}{0pt}
+\pagestyle{plain}
+\aliaspagestyle{chapter}{empty}
+\aliaspagestyle{part}{empty}
+
+% --- Drop caps ---
+<% if drop_caps %>
+\usepackage{lettrine}
+\renewcommand{\LettrineFontHook}{\bfseries}
+\setcounter{DefaultLines}{3}
+<% endif %>
+
+% --- Emblem: the seven interlocking rings of the Earth flag, drawn in TikZ so
+% it stays vector at any size. `emblem: rings` in book.yaml turns it on; it
+% then appears on the half-title and title pages, on part pages, as the
+% chapter-end ornament and as the scene break. #1 = ring radius (a length).
+<% if emblem == "rings" %>
+\usepackage{tikz}
+\newcommand{\ringsEmblem}[1]{%
+  \begin{tikzpicture}[baseline=(current bounding box.center)]
+    \pgfmathsetlengthmacro{\ringlw}{0.11*#1}
+    \foreach \a in {0,60,...,300} {\draw[line width=\ringlw] (\a:#1) circle (#1);}
+    \draw[line width=\ringlw] (0,0) circle (#1);
+  \end{tikzpicture}}
+% The ornament closes a chapter only when it fits beneath the last line. If
+% the page is nearly full (or the text ended exactly at a page foot and we
+% are already on a fresh page) it is dropped: an emblem alone on an
+% otherwise empty page costs a sheet of paper and looks like a mistake.
+\newcommand{\chapterEndOrnament}{\par
+  \ifdim\pagetotal>0pt\relax
+    \ifdim\dimexpr\pagegoal-\pagetotal\relax>5\baselineskip\relax
+      \nopagebreak\vspace{1.6em}\begin{center}\ringsEmblem{4.2pt}\end{center}
+    \fi
+  \fi}
+<% else %>
+\newcommand{\chapterEndOrnament}{}
+<% endif %>
+
+% --- Scene break (asterism, or the emblem) ---
+<% if scene_break == "emblem" and emblem == "rings" %>
+\newcommand{\sceneBreak}{%
+  \begin{center}\vspace{0.6em}\ringsEmblem{3pt}\vspace{0.6em}\end{center}}
+<% else %>
+\newcommand{\sceneBreak}{%
+  \begin{center}\vspace{0.6em}{\large $\ast\ \ast\ \ast$}\vspace{0.6em}\end{center}}
+<% endif %>
+
+% --- Callout boxes ---
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{calloutbox}[1][]{
+  enhanced,
+  colback=black!5,            % light gray background
+  colframe=black,             % black border
+  boxrule=0.8pt,
+  arc=4pt,                    % slightly rounded corners
+  left=12pt, right=12pt, top=10pt, bottom=10pt,
+  fonttitle=\headingfont\bfseries,
+  before skip=14pt, after skip=14pt,
+  #1
+}
+
+% --- Chapter-end CTA box: text on the left, QR on the right ---
+\newcommand{\ctaCallout}[2]{%
+  % #1 = custom sentence (markdown body)
+  % #2 = URL for QR + display
+  \begin{calloutbox}
+    \begin{minipage}[c]{0.65\linewidth}
+      \itshape #1\par\vspace{6pt}
+      \textbf{\headingfont\fontsize{10}{12}\selectfont #2}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.28\linewidth}
+      \centering
+      \qrcode[height=0.95in]{https://#2}
+    \end{minipage}
+  \end{calloutbox}
+}
+
+% --- FREE GIFT box (Hormozi-style direct response) ---
+% #1 = number, #2 = headline (caps), #3 = body LaTeX, #4 = URL
+% Reserve enough vertical room so the box doesn't split across a page break.
+% Measured at 10.5pt/1.35 with a 1.05in QR: the box is ~120pt plus 14pt of
+% before/after skip = ~10.4 baselines. Over-reserving strands blank lines on
+% the page before, so keep this just above the real height.
+\newcommand{\hormoziCallout}[4]{%
+  \needspace{12\baselineskip}%
+  \begin{calloutbox}
+    {\headingfont\bfseries\fontsize{10.5}{13}\selectfont FREE GIFT \##1: #2}\par
+    \vspace{10pt}
+    \begin{minipage}[c]{0.66\linewidth}
+      \headingfont\fontsize{9.5}{13.5}\selectfont #3
+    \end{minipage}\hfill
+    \begin{minipage}[c]{0.27\linewidth}
+      \centering
+      \qrcode[height=1.1in]{https://#4}\par
+      \vspace{4pt}
+      \colorbox{black}{\color{white}\hspace{4pt}\fontsize{7.5}{9}\selectfont\headingfont\bfseries SCAN ME\hspace{4pt}\rule[-1.5pt]{0pt}{10pt}}
+    \end{minipage}
+  \end{calloutbox}
+}
+
+% --- QR codes ---
+\usepackage{qrcode}
+% Caption sits in a fixed-width minipage, NOT a `c` tabular cell: a `c` cell
+% never line-breaks, so any caption longer than the text block silently runs
+% off the page and KDP's previewer rejects the file as "text outside the
+% margins".
+\newcommand{\qrcallout}[2]{%
+  \begin{center}
+  \vspace{0.6em}
+  \qrcode[height=1in]{#1}\\[0.55em]
+  \begin{minipage}{0.84\linewidth}
+    \centering\small\itshape #2
+  \end{minipage}\\[0.4em]
+  \begin{minipage}{0.84\linewidth}
+    \centering\footnotesize\ttfamily\sloppy #1
+  \end{minipage}
+  \vspace{0.6em}
+  \end{center}
+}
+
+% --- Footnotes ---
+<% if footnotes.location == "page" %>
+\renewcommand{\footnoterule}{\noindent\rule{0.3\textwidth}{0.3pt}\vspace{2pt}}
+<% elif footnotes.location == "end_of_chapter" %>
+\usepackage{endnotes}
+\let\footnote=\endnote
+\renewcommand{\notesname}{Notes}
+<% endif %>
+
+% --- Images (part plates, figures) ---
+\usepackage{graphicx}
+
+% --- Hyperlinks (for TOC + cross-refs; styled invisibly for print) ---
+\usepackage[hidelinks]{hyperref}
+% URLs in the body font, not typewriter: a source list set in Courier looks
+% like a printout, and pandoc emits \url{} for every autolink.
+\urlstyle{same}
+% xurl lets a URL break after any character, so a long source link
+% wraps instead of running into the margin (an overfull hbox KDP rejects).
+\usepackage{xurl}
+% Room for "VIII" in the contents: memoir's default part-number column
+% is 1.5em, and a bold three-letter numeral overruns it.
+\setlength{\cftpartnumwidth}{2.5em}
+<% if toc_title and not cjk %>\renewcommand{\contentsname}{<<toc_title>>}<% endif %>
+<% if toc_depth is defined %>
+% -1 = parts only, 0 = parts + chapters, 1 = + sections (memoir default is 2)
+\setcounter{tocdepth}{<<toc_depth>>}
+<% endif %>
+
+% --- Tables: booktabs rules + longtable for page-spanning tables ---
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+% calc supplies \real{}, which pandoc uses in its column specs:
+%   p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+% Without it xelatex dies with "Missing number, treated as zero" on the
+% first table in the book.
+\usepackage{calc}
+% Keep a table that follows \paragraph/\subparagraph from swapping order.
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+\renewcommand{\arraystretch}{1.15}    % slight vertical padding in cells
+% Pandoc 3.x emits `\def\LTcaptype{none}` for captionless tables to suppress
+% the table counter — but `none` must be a defined counter for memoir's
+% caption setup. Stub it.
+\newcounter{none}
+
+% --- Epigraph styling: italic, smaller, right-aligned, indented ---
+\renewenvironment{quote}
+  {\par\vspace{0.5em}\hfill\begin{minipage}{0.85\textwidth}\raggedleft\itshape\small}
+  {\end{minipage}\par\vspace{2.0em}}
+
+
+% --- Tract layout macros (books/christians-guide-tract/build/preamble.tex.j2) ---
+\setsecnumdepth{none}
+\maxsecnumdepth{none}
+\raggedbottom
+\usepackage{xcolor}
+\usepackage{enumitem}
+% The cartoon page: opens on a verso, fills the type block, no folio.
+\newcommand{\panelPage}[1]{%
+  \cleartoverso\thispagestyle{empty}%
+  \vspace*{\fill}\noindent\begin{center}\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{#1}\end{center}\vspace*{\fill}%
+  \clearpage}
+% The facing page: the verse or the finding, then the reference line beneath it.
+\newcommand{\spreadHead}[2]{%
+  {\noindent\raggedright\headingfont\fontsize{13}{16}\selectfont\bfseries #1\par}%
+  \ifx\\#2\\\else{\noindent\raggedright\fontsize{9}{11}\selectfont\itshape #2\par}\fi
+  \vspace{0.9em}}
+% The foot of the facing page: the ids of the verified claims the page rests on.
+\newcommand{\spreadSource}[1]{%
+  \ifx\\#1\\\else\vfill{\noindent\raggedright\fontsize{6.8}{8.5}\selectfont\color{black!60}Facts registry: #1\par}\fi
+  \clearpage}
+\newenvironment{passages}{\begin{itemize}[leftmargin=0.9em,itemsep=0.15em,parsep=0pt,topsep=0.2em,label=\textendash]\fontsize{8.3}{10.3}\selectfont}{\end{itemize}}
+
+% --- Title metadata ---
+\title{<<title>>}
+\author{<<author>>}
+
+\begin{document}
+
+% --- Title page (page 1; the tract has no half-title) ---
+\frontmatter
+\thispagestyle{empty}
+\vspace*{0.9in}
+\begin{center}
+{\fontsize{8}{10}\selectfont\scshape A Safe Schools Guide}\\[1.6em]
+{\fontsize{19}{23}\selectfont\bfseries <<title>>}\\[1.4em]
+<% if subtitle %>{\fontsize{11}{14}\selectfont\itshape <<subtitle>>}\\[2.6em]<% endif %>
+{\fontsize{11}{14}\selectfont <<author>>}
+\vfill
+{\fontsize{9}{11}\selectfont\scshape <<publisher>>}\\[0.3em]
+{\fontsize{8}{10}\selectfont earthpilot.org/kids}
+\vspace*{0.35in}
+\end{center}
+\clearpage
+
+% --- Copyright page ---
+\thispagestyle{empty}
+\vspace*{\fill}
+{\raggedright\small\setlength{\parindent}{0pt}\setlength{\parskip}{0.7em}
+<% if copyright_line %><<copyright_line>>\par{}<% else %>Copyright \copyright\ <<copyright_year>> <<author>>.\par{}<% endif %>
+<% if rights_notice %>
+<% for line in rights_notice %>
+<<line>>\par{}
+<% endfor %>
+<% else %>
+All rights reserved.\par{}
+<% endif %>
+<% if publisher or publication_place %>
+<% if publisher %><<publisher>><% endif %><% if publisher and publication_place %>, <% endif %><% if publication_place %><<publication_place>><% endif %>\par{}
+<% endif %>
+<% if lccn and lccn not in ("pending", "skip") %>
+Library of Congress Control Number: <<lccn>>\par{}
+<% endif %>
+}
+\clearpage
+
+% --- TOC (always recto; \cleardoublepage inserts a blank verso if needed) ---
+<% if toc %>
+\cleardoublepage
+\tableofcontents*
+<% endif %>
+
+% Chapter one always opens on a right-hand page.
+\cleardoublepage
+\mainmatter
+<% if chapters_open == "left" %>
+% Chapters open on a LEFT-hand page, so a chapter written to fill two pages
+% is a true facing spread instead of a leaf printed on both sides.
+\openleft
+<% endif %>

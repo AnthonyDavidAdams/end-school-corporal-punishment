@@ -1,0 +1,207 @@
+# Shot list for the tract's cartoons. tools/panels.py assembles every prompt from `style`,
+# `cast` and the panel's own `scene` and `text`, attaches the character sheet as a reference,
+# and writes panels.md (the human-readable shot list with the exact prompt and request id).
+# Change a character HERE, never in a panel.
+
+style: >
+  A plain black ink line drawing in the tradition of small gospel tracts: clean, confident pen
+  lines, light cross-hatching for shade, no gray wash, no color, no halftone, pure black on
+  white paper. Modest realism, warm and plain faces, ordinary clothes, ordinary rooms. Nothing
+  is exaggerated: no caricature, no distorted features, no mockery of anyone, no likeness of
+  any real person, no logos, no denominational symbols beyond a plain wooden cross where the
+  scene calls for one. Every text element is hand-lettered in neat upright block capitals in
+  black ink and must be spelled exactly as given. No other text, signs, labels or lettering
+  anywhere in the picture.
+
+sheet_prompt: >
+  A character reference sheet for a small black-and-white tract, landscape, white background:
+  the six people below standing in a row, full figure, facing the viewer, each drawn once in
+  the same plain ink-line style, evenly spaced, with nothing else in the picture and no text.
+
+cast:
+  minister: "THE MINISTER, a man in his late sixties, short white hair, round wire glasses, a cardigan over an open-collared shirt, a kind lined face"
+  teacher: "THE TEACHER, a woman in her forties, hair pulled back, a cardigan, a lanyard with a key card, flat shoes"
+  child: "THE CHILD, a boy about nine, a striped t-shirt, sneakers, a cowlick"
+  board_member: "THE BOARD MEMBER, a Black woman in her fifties, a blazer, reading glasses on a cord, short natural hair"
+  superintendent: "THE SUPERINTENDENT, a heavyset man in his fifties, a tie, a school lanyard, a lapel pin"
+  principal: "THE PRINCIPAL, a man in his forties, a mustache, shirt sleeves and a tie, a ring of keys on his belt"
+
+# text.kind: balloons (speech balloons, one per line, speaker first) or caption (one boxed line at the foot)
+panels:
+  - id: s01
+    page: "pages 4-5, Why a minister is writing this"
+    cast: [minister, superintendent]
+    scene: >
+      A church fellowship hall: folding tables, a coffee urn on a side table, a plain wooden
+      cross on the wall, a stack of paper cups. THE SUPERINTENDENT stands on the LEFT of the
+      picture and THE MINISTER on the RIGHT, facing each other, each holding a paper cup of
+      coffee, both calm and courteous. The Superintendent speaks first, so his balloon is on
+      the left and higher; the Minister's reply balloon is on the right and lower.
+    text:
+      kind: balloons
+      lines:
+        - [superintendent, "THE BIBLE SAYS WHAT IT SAYS."]
+        - [minister, "IT DOES. IT ALSO SAYS HOW TO JUDGE WHAT WE DO WITH IT."]
+  - id: s02
+    page: "pages 6-7, Teaching them to observe all things"
+    cast: [teacher, child]
+    scene: >
+      A Sunday school room with a low round table, small chairs, a felt board on an easel and
+      a window with curtains. THE TEACHER sits at the low table with four children, THE CHILD
+      among them, reading from an open book while the children lean in.
+    text:
+      kind: caption
+      lines: [["", "A DISCIPLE IS A LEARNER."]]
+  - id: s03
+    page: "pages 8-9, Provoke not your children to wrath"
+    cast: [child, teacher]
+    scene: >
+      A school hallway with lockers. THE CHILD sits alone on a bench outside a closed office
+      door, arms crossed, jaw set, angry and near tears. THE TEACHER stands a few steps away
+      in a classroom doorway, one hand on the door frame, looking at him with concern.
+    text:
+      kind: caption
+      lines: [["", "DO NOT PROVOKE THE CHILD TO WRATH. THEN RAISE AND TEACH."]]
+  - id: s04
+    page: "pages 10-11, Afterward it yieldeth the peaceable fruit of righteousness"
+    cast: [minister, child]
+    scene: >
+      An orchard in late summer. THE MINISTER stands with one hand on the trunk of an apple
+      tree heavy with fruit; THE CHILD beside him holds an apple up to show him. Rows of
+      trees recede behind them.
+    text:
+      kind: caption
+      lines: [["", "JUDGE IT BY WHAT IT YIELDS AFTERWARD."]]
+  - id: s05
+    page: "pages 12-13, He that spareth his rod hateth his son"
+    cast: [minister, board_member]
+    scene: >
+      A kitchen table. THE MINISTER, reading glasses on, has a large open Bible in front of
+      him and a finger on the page. THE BOARD MEMBER sits across from him with a cup of
+      coffee, listening, her glasses in her hand.
+    text:
+      kind: balloons
+      lines:
+        - [minister, "I AM QUOTING ALL OF THEM. I DO NOT WANT TO BE ACCUSED OF HIDING ONE."]
+  - id: s06
+    page: "pages 14-15, His son. Thy son."
+    cast: [principal, child]
+    scene: >
+      A principal's office. THE PRINCIPAL sits behind his desk with his hands folded; a
+      flat wooden paddle hangs on the wall behind him and a signed form lies on the desk.
+      THE CHILD sits very small in the chair in front of the desk, feet not reaching the
+      floor, hands in his lap. No one is touching anyone; the room is still.
+    text:
+      kind: caption
+      lines: [["", "NOT ONE OF THOSE VERSES IS ADDRESSED TO A SCHOOL."]]
+  - id: s07
+    page: "pages 16-17, Ye shall know them by their fruits"
+    cast: [minister, board_member]
+    scene: >
+      A path between rows of fruit trees. THE MINISTER and THE BOARD MEMBER walk side by
+      side. The tree nearest them is a bare thorn bush with no fruit; every tree beyond it
+      is heavy with apples.
+    text:
+      kind: balloons
+      lines:
+        - [board_member, "I WAS PADDLED AND I TURNED OUT FINE."]
+        - [minister, "THAT IS WHAT ONE TREE PROVES ABOUT AN ORCHARD."]
+  - id: s08
+    page: "pages 18-19, The thing we tell ourselves paddling is for"
+    cast: [child, teacher]
+    scene: >
+      A classroom with rows of desks and children writing. THE CHILD has his head down on
+      his folded arms on his desk. THE TEACHER crouches beside his desk with a hand on his
+      shoulder, speaking quietly.
+    text:
+      kind: caption
+      lines: [["", "THE ANXIETY AND WITHDRAWAL THAT TEACHERS CALL QUIET."]]
+  - id: s09
+    page: "pages 20-21, Lest they be discouraged"
+    cast: []
+    scene: >
+      A front porch step in plain daylight, a screen door behind, the sky left as blank white
+      paper. A grown man in his thirties in a work shirt, with the same cowlick THE CHILD has,
+      sits on the step looking down at his own hands. His small daughter, about five, sits
+      beside him looking up at his face. Light, open line work with white paper showing
+      everywhere; no dark sky, no heavy shading, no gray tone.
+    text:
+      kind: caption
+      lines: [["", "WHATSOEVER A MAN SOWETH, THAT SHALL HE ALSO REAP."]]
+  - id: s10
+    page: "pages 22-23, Prove all things; hold fast that which is good"
+    cast: [board_member]
+    scene: >
+      A kitchen table at night under a single lamp. THE BOARD MEMBER, reading glasses on,
+      holds a stapled research paper in one hand and reads it closely; an open Bible lies
+      on the table beside it with a pencil across the page.
+    text:
+      kind: caption
+      lines: [["", "PROVE, IN THE OLD SENSE: TEST."]]
+  - id: s11
+    page: "pages 24-25, Chasteneth him betimes"
+    cast: [teacher, child]
+    scene: >
+      A classroom. THE TEACHER kneels beside THE CHILD at his desk and points to a poster on
+      the wall showing three simple rules as pictures (a raised hand, a chair, a clock) with
+      no words on it. THE CHILD is practicing raising his hand, a little smile on his face.
+    text:
+      kind: caption
+      lines: [["", "EARLY, OFTEN, AND BEFORE THE THING HAS GONE WRONG."]]
+  - id: s12
+    page: "pages 26-27, Same scripture. Different board."
+    cast: []
+    scene: >
+      A large church assembly hall seen from the back: rows of seated delegates of all ages
+      holding up white voting cards, a moderator at a lectern on a low stage, a plain banner
+      with no words behind the stage. Orderly, serious, open.
+    text:
+      kind: caption
+      lines: [["", "THREE HUNDRED THIRTY-FOUR TO THREE HUNDRED SIX."]]
+  - id: s13
+    page: "pages 28-29, The Board prohibits the use of corporal punishment in the District."
+    cast: [board_member, superintendent, minister, teacher]
+    scene: >
+      A school board meeting room. A long table with microphones and nameplates (blank).
+      THE BOARD MEMBER, seated at the table, raises her hand to vote, a single index card in
+      front of her. THE SUPERINTENDENT sits at the end of the table. In the audience chairs
+      behind, THE MINISTER and THE TEACHER sit watching.
+    text:
+      kind: caption
+      lines: [["", "MOVE THE SENTENCE."]]
+
+cover:
+  page: "front cover"
+  cast: [minister, child]
+  # The interior is black ink; the cover is the same drawing in color (Anthony, 2026-10-29:
+  # "cover should be color of course"). The black-and-white take is kept as
+  # build/cover/front-art-bw.png and attached as the second reference so the composition holds.
+  color: true
+  style: >
+    The same plain pen-and-ink line drawing as the attached black-and-white cover, reproduced
+    exactly in composition, figures and lettering, and hand-colored with soft flat watercolor
+    washes in the way old tracts and Sunday school papers were: a warm cream background, fresh
+    green leaves, bright red apples, warm brown bark and bench, the Minister's tan cardigan and
+    pale blue shirt, the Child's blue-and-white striped shirt and tan trousers, warm skin tones.
+    Black ink lines stay crisp over the color. The lettering is deep red for the title and dark
+    green for the other lines, hand-lettered in bold upright block capitals. No gradients, no
+    photographic shading, no other text anywhere.
+  bw_reference: build/cover/front-art-bw.png
+  scene: >
+    A front cover for a small tract, portrait. An apple tree heavy with fruit fills the
+    middle of the picture. THE MINISTER sits on a plain bench beneath it with an open Bible
+    on his knee; THE CHILD stands on tiptoe reaching up for an apple. Generous white space
+    at the top for the title and at the bottom for the author's name.
+  text:
+    title: "A CHRISTIAN'S GUIDE TO CORPORAL PUNISHMENT"
+    subtitle: "The rod, the fruit, and the school board"
+    author: "ANTHONY ADAMS"
+    series: "A SAFE SCHOOLS GUIDE"
+
+# fal.ai prices read from fal.ai/models on 2026-10-29 (USD per image, high quality):
+#   fal-ai/gpt-image-2        1024x1024  0.211      (the character sheet)
+#   fal-ai/gpt-image-2/edit   1024x1536  0.178      (each panel and the cover, sheet attached)
+pricing:
+  sheet_usd: 0.211
+  panel_usd: 0.178
+  cover_usd: 0.178
