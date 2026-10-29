@@ -593,6 +593,9 @@ writeFileSync(join(site, "resources", "index.html").replace(/resources\/index/, 
   extraHead: `<script>function copyT(b){navigator.clipboard.writeText(b.previousElementSibling.innerText).then(()=>{const t=b.innerText;b.innerText='Copied';setTimeout(()=>b.innerText=t,1500)})}</script>`,
   body: `<section class="hero"><div class="wrap"><h1>Facts and templates</h1>
 <p class="lede">Every sentence below is a file in the claims registry with its primary source and the date it was last verified. Quote the year with the number. If one is wrong, <a href="${REPO}/issues/new?template=fact-correction.yml">say so</a> and it will be fixed the same day.</p></div></section>
+<div class="grid" id="one-sheet">
+<div class="card"><h2>The one-sheet</h2><p>This page on one printed page: the map, the national figures, who it lands on, what the research finds, who has said stop, the sentence a board adopts, and what to do next. Letter size, in color, every figure from the registry below. Hand it to a board member or pin it on a staff-room wall.</p><p><a class="cta" href="/kids/kit/safe-schools-one-sheet.pdf" download>Download the one-sheet (PDF)</a></p></div>
+</div>
 <h2 id="facts">Verified facts</h2>
 ${facts}
 <h2 id="letters">Templates</h2>
