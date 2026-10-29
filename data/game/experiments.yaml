@@ -92,3 +92,56 @@ experiments:
           Would you put it on one agenda? The kit is at {brief_link} and I can send a tracked-changes edit of {code} so your solicitor reviews instead of drafts.
 
           {sig}
+
+  ask_research:
+    kind: research
+    status: live                     # live so that every research request is assigned and HELD; nothing sends until a variant is approved
+    question: Does a plain question to the board president about what the board relies on get more replies, and more documents or status flips, than the formal records request; and does adding the norm (one hundred twenty-five Missouri boards, the JGA-2 sentence) and the Safe School offer help or hurt?
+    proposed: 2026-10-29             # strategy/outreach/drafts/mo-research-ask/README.md has the twelve test districts, the dossiers and the scoring note
+    variants:
+      A:
+        name: records request, what the board relied on (control)
+        approved: false              # PROPOSAL: the copy is the live ask_research() in tools/outreach/messages.py, unchanged; set true once Anthony has read the held batch
+        subject: "Records request: what {district}'s board relied on"
+        opener: the district still permits it; I want the board's reasoning in its own words, so I am asking a small number of districts the same questions
+        ask_size: five categories of records for ten years, under the Sunshine Law
+        attachment: none
+        # body: messages.ask_research() in tools/outreach/messages.py (note: that body carries one em dash, between "imposed for" and "the incident log"; fix it there)
+      B:
+        name: plain question to the board president
+        approved: false              # PROPOSAL: set true once Anthony has read the held batch
+        subject: "A question about {district}'s corporal punishment policy"
+        opener: who I am in one line, the board's own decision under RSMo 160.261, the one hundred twenty-five, then the question
+        ask_size: one question; a document or a plain answer both count
+        attachment: none
+        # {who} must be the board president's first name: queue the request with `superintendent` set to the president's name from the dossier (see the README). {sig} is the friend's signature; the formal block is not a template field.
+        body: |
+          Hi {who},
+
+          I keep a public record of what each Missouri district's own written policy says about corporal punishment, quoted from its documents (earthpilot.org/kids). {district}'s policy keeps it, which is the board's call to make under RSMo 160.261. One hundred twenty-five Missouri boards have written it out of theirs, and I am trying to understand the difference from the boards themselves rather than guess at it.
+
+          Missouri law protects a paddling only when it is done in a reasonable manner (RSMo 160.261) and when the adult reasonably believes the force is necessary to keep discipline (RSMo 563.061). So my question is just this: when the board last kept the policy, what did it rely on to decide the paddle is necessary where other boards found it was not? A study, a report from the administration, the district's own discipline numbers, the board's experience? Whatever it was, I would be glad to read it and to put it next to the policy in the record, so the board's reasoning is on the page in its own words.
+
+          If it has not come up in a while and there is no file to send, that is a fair answer too, and I will record it that way.
+
+          {sig}
+      C:
+        name: the question, the norm and the offer
+        approved: false              # PROPOSAL: set true once Anthony has read the held batch
+        subject: "A question about {district}'s corporal punishment policy"   # same subject as B on purpose: the test is the norm and the offer, not the subject line
+        opener: as B
+        ask_size: one question; the JGA-2 sentence and the Safe School recognition offered, no ask attached to them
+        attachment: none             # the board brief is linked ({brief_link}), not attached
+        # {model_note} and {model_sentence} render from data/states/model-language.json: for Missouri, "The sentence 28 Missouri boards already use (policy JGA-2) is" and "Corporal punishment is strictly prohibited as a method of discipline." The count is the engine's sourced figure.
+        body: |
+          Hi {who},
+
+          I keep a public record of what each Missouri district's own written policy says about corporal punishment, quoted from its documents (earthpilot.org/kids). {district}'s policy keeps it, which is the board's call to make under RSMo 160.261. One hundred twenty-five Missouri boards have written it out of theirs, and I am trying to understand the difference from the boards themselves rather than guess at it.
+
+          Missouri law protects a paddling only when it is done in a reasonable manner (RSMo 160.261) and when the adult reasonably believes the force is necessary to keep discipline (RSMo 563.061). So my question is just this: when the board last kept the policy, what did it rely on to decide the paddle is necessary where other boards found it was not? A study, a report from the administration, the district's own discipline numbers, the board's experience? Whatever it was, I would be glad to read it and to put it next to the policy in the record, so the board's reasoning is on the page in its own words.
+
+          If it has not come up in a while and there is no file to send, that is a fair answer too, and I will record it that way.
+
+          One more thing, with no ask attached. {model_note}: "{model_sentence}" When a board adopts that sentence, the district is recognized as a Safe School for 2026-27, with a certificate and a press release it can use, and the board brief with the model policy is at {brief_link}. It is there if the board ever wants it; the question above stands on its own either way.
+
+          {sig}

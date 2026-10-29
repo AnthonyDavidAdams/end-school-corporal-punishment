@@ -1,0 +1,1285 @@
+state: MO
+updated: '2026-10-29'
+method: 'agent:claude (Fable 5.1), decision-maker-dossier skill, run 2026-10-29 from session dossiers-leg. Public record only: house.mo.gov and senate.mo.gov member, committee and bill pages (read with curl; the House pages load their content in iframes, so the iframe URLs were fetched directly), documents.house.mo.gov bill summaries, fiscal notes, HCS text, witness forms and the House Journal, revisor.mo.gov, and on-the-record quotes in established outlets. Committee rosters are the 103rd General Assembly, 2nd regular session (2026) rosters as published on 2026-10-29. House term_ends 2027 is the end of the two-year term the official bios describe. Senate term_ends is left null because the member pages give only first-elected year; term_limited_after is the "Ineligible for Reelection" year on https://www.senate.mo.gov/Senators/TermLimits. Senate member pages publish no email address, so Senate email is null.'
+bodies:
+  house_education_committee:
+    body: Missouri House of Representatives, Committee on Elementary and Secondary Education
+    body_type: house_education_committee
+    official_url: https://house.mo.gov/Committees.aspx?category=all&committee=4302&year=2026&code=R
+    roster_url: https://house.mo.gov/MemberGridCluster.aspx?filter=compage&category=committee&committee=4302&year=2026&code=R&cluster=true
+    session: 103rd General Assembly, 2nd regular session (2026)
+    jurisdiction: The committee on Elementary and Secondary Education may consider and report upon bills and matters referred to it relating to elementary and secondary education and life-long learning in this state, including teachers, financing, property, indebtedness, and curriculum. (quoted from https://house.mo.gov/PressRelease.aspx?prid=272)
+    member_count: 21
+    party_split: 14 R, 7 D
+    decisive_votes: 11
+    members:
+    - name: Ed Lewis
+      seat: 6
+      party: R
+      role: chair
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=006
+      contact:
+        email: Ed.Lewis@house.mo.gov
+        phone: 573-751-6566
+      hometown: Moberly
+      first_elected: 2020
+      position_on_cp: unknown
+      evidence: []
+      values:
+      - quote: I am honored to serve the people of Missouri as Chairman of the Elementary and Secondary Education committee.
+        url: https://house.mo.gov/PressRelease.aspx?prid=272
+        date: '2025-01-23'
+        frame: other
+        context: Official House press release (PDF) announcing his appointment as chair.
+      - quote: I look forward to working with the members of this committee as we work to create policies to help Missourians save their hard-earned dollars while removing unnecessary regulations.
+        url: https://house.mo.gov/PressRelease.aspx?prid=272
+        date: '2025-01-23'
+        frame: fiscal
+        context: Same press release.
+      - quote: I thought that they needed someone like myself, someone who would really advocate for education for everybody in the state.
+        url: https://themissouritimes.com/freshmen-to-watch-ed-lewis/
+        date: '2021-02-11'
+        frame: other
+        context: Missouri Times profile, on why he ran.
+      - quote: I want to advocate for education in my district, but I also want to advocate for education for every student in the state.
+        url: https://themissouritimes.com/freshmen-to-watch-ed-lewis/
+        date: '2021-02-11'
+        frame: other
+        context: Missouri Times profile.
+      - quote: The problem is obvious to all of us at this point. We don't have enough teachers for our public schools and, to some extent, for the private and parochial schools as well.
+        url: https://www.newstribune.com/news/2024/feb/08/missouri-lawmakers-want-to-raise-teacher-pay-but/
+        date: '2024-02-08'
+        frame: teachers
+        context: Missouri Independent story by Annelise Hanshaw (2024-02-07), republished by the Jefferson City News Tribune and The 74 (https://www.the74million.org/article/missouri-lawmakers-want-to-raise-teacher-pay-but-anticipate-senate-resistance/); said to a House committee about his teacher pay bill.
+      - quote: I don't think we should legislate through the budget. I think that the policy should go first and the budget should follow.
+        url: https://www.newstribune.com/news/2024/feb/08/missouri-lawmakers-want-to-raise-teacher-pay-but/
+        date: '2024-02-08'
+        frame: fiscal
+        context: Same story.
+      public_affiliations:
+      - type: church
+        name: Timber Lake Christian Church, Moberly
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=006
+      - type: profession
+        name: High school chemistry and physics teacher, 32 years, Vandalia and Moberly
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=006
+      - type: employer
+        name: Central Christian College of the Bible, Moberly, 30 years
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=006
+      contact_log: []
+      notes: Chair. Former 32-year high school science teacher. No statement on corporal punishment found. Values quotes are from an official press release, a 2021 Missouri Times profile, and 2024 teacher-pay coverage. The Missouri Independent original (https://missouriindependent.com/2024/02/07/missouri-lawmakers-want-to-raise-teacher-pay-but-anticipate-senate-resistance/) returned a Cloudflare challenge; the same text was read at the News Tribune and The 74 republications. The House Capitol Report page is a signup form only. Northwest Missouri State lecture notice (2025-10-03) had no Lewis quotes.
+    - name: Brad Banderman
+      seat: 119
+      party: R
+      role: vice_chair
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=119
+      contact:
+        email: Brad.Banderman@house.mo.gov
+        phone: 573-751-0549
+      hometown: St. Clair
+      first_elected: 2022
+      position_on_cp: unknown
+      evidence: []
+      values:
+      - quote: Local Control of Public education safeguards a parent's or guardian's rightful place in the education of their children.
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: local_control
+        context: Campaign site, Plank 6; the page states the planks were written by the candidate and edited by Dr. Gavin Hooks. Undated.
+      - quote: The choice of education should always rest with parents or guardians not government.
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: parental_rights
+        context: Campaign site, Plank 6.
+      - quote: Brad is a proponent of Public, Private and Home Schooling.
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: other
+        context: Campaign site, Plank 6, written in the third person.
+      - quote: Local Solutions to Local Problems.
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: local_control
+        context: Campaign site, Plank 9.
+      - quote: Centralizing government authority and power enables corruption and is dangerous to individual freedom.
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: local_control
+        context: Campaign site, Plank 9.
+      - quote: All levels of government should operate in the black and on a budget.
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: fiscal
+        context: Campaign site, Plank 3 or 5.
+      - quote: Brad says he will never be ashamed of Jesus.
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: faith
+        context: Campaign site, About section, third person.
+      - quote: His life's work is to impact the next generation to live as genuine Christians
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: faith
+        context: Campaign site, About section, third person; sentence continues on the page.
+      - quote: We must enforce the laws we have equally and without hesitation.
+        url: https://www.banderman4rep119.com/
+        date: null
+        frame: other
+        context: Campaign site, Plank 10 (first responders and law enforcement).
+      public_affiliations:
+      - type: church
+        name: Student pastor, Bethel Baptist Church, Lonedell
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=119
+      - type: profession
+        name: Substitute teacher and bus driver, St. Clair R-XIII School District
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=119
+      - type: civic
+        name: Assistant chaplain, St. Clair Police Department
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=119
+      - type: education
+        name: Missouri Baptist College, B.A. Religion with emphasis in youth education
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=119
+      contact_log: []
+      notes: Vice chair. Student pastor and former substitute teacher and bus driver in the St. Clair R-XIII district. No statement on corporal punishment found. Values quotes come from his campaign site; most of the site is written in the third person, and the page says the planks were written by the candidate. Ballotpedia (https://ballotpedia.org/Brad_Banderman) returned an empty page to the fetcher, so his Candidate Connection survey could not be read.
+    - name: Kathy Steinhoff
+      seat: 45
+      party: D
+      role: ranking_member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=045
+      contact:
+        email: Kathy.Steinhoff@house.mo.gov
+        phone: 573-751-4189
+      hometown: Columbia
+      first_elected: 2022
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Math teacher, Columbia Public Schools, 34 years; National Board Certified Teacher
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=045
+      - type: union
+        name: Columbia NEA, president 2015 to 2021
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=045
+      contact_log: []
+      notes: Ranking minority member. Former Columbia NEA president. No statement on corporal punishment found; values not researched (not chair or vice chair).
+    - name: Stephanie Boykin
+      seat: 70
+      party: D
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=070
+      contact:
+        email: Stephanie.Boykin@house.mo.gov
+        phone: 573-751-4163
+      hometown: Florissant
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: military
+        name: U.S. Air Force, 40 years, retired lieutenant colonel 2022
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=070
+      - type: profession
+        name: Certified teacher; taught language arts in Columbia and St. Louis districts
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=070
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Mark Boyko
+      seat: 90
+      party: D
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=090
+      contact:
+        email: Mark.Boyko@house.mo.gov
+        phone: 573-751-4069
+      hometown: Kirkwood
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Attorney, ERISA litigator, 20 years
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=090
+      - type: civic
+        name: Eagle Scout
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=090
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Tricia Byrnes
+      seat: 63
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=063
+      contact:
+        email: Tricia.Byrnes@house.mo.gov
+        phone: 573-751-1460
+      hometown: Wentzville
+      first_elected: 2022
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: eCommerce marketing consultant
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=063
+      - type: civic
+        name: Advocate for families impacted by federal nuclear contamination
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=063
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Jamie Ray Gragg
+      seat: 140
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=140
+      contact:
+        email: JamieRay.Gragg@house.mo.gov
+        phone: 573-751-2565
+      hometown: Ozark
+      first_elected: 2022
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Owner and operator, Ozark Mountain Tops and Art Works
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=140
+      - type: other
+        name: Former camping ministries work; Southwest Baptist University graduate
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=140
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: John Hewkin
+      seat: 120
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=120
+      contact:
+        email: John.Hewkin@house.mo.gov
+        phone: 573-751-1688
+      hometown: Cuba
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Pharmacist for nearly 40 years; former owner of Towne Pharmacy, Cuba; BJC Sullivan Hospital pharmacy
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=120
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Josh Hurlbert
+      seat: 8
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=008
+      contact:
+        email: Josh.Hurlbert@house.mo.gov
+        phone: 573-751-0246
+      hometown: Smithville
+      first_elected: 2020
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Senior Field Representative for U.S. Rep. Sam Graves since 2009
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=008
+      - type: civic
+        name: Smithville Rotary Club, past president
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=008
+      - type: office
+        name: Smithville Alderman 2018 to 2020
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=008
+      - type: other
+        name: Homeschooled (self-stated)
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=008
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Martin Jacobs
+      seat: 38
+      party: D
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=038
+      contact:
+        email: Martin.Jacobs@house.mo.gov
+        phone: 573-751-2238
+      hometown: Liberty
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Teacher, assistant principal, principal and coach for 44 years; principal at Liberty High School and Liberty North High School
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=038
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Ann Kelley
+      seat: 127
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=127
+      contact:
+        email: Ann.Kelley@house.mo.gov
+        phone: 573-751-2165
+      hometown: Lamar
+      first_elected: 2018
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Middle school English Language Arts teacher, Lamar School District, 13 years; former licensed daycare owner
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=127
+      - type: civic
+        name: Chambers of Commerce for Barton County, Sarcoxie, Lockwood and Greenfield; NRA; Missouri Farm Bureau; Missouri State Teachers Association (bio text was truncated in this read; verify the last item on the official page)
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=127
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Becky Laubinger
+      seat: 117
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=117
+      contact:
+        email: Becky.Laubinger@house.mo.gov
+        phone: 573-751-2317
+      hometown: Park Hills
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Executive director, Monarch Family Resource Center
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=117
+      - type: education
+        name: Missouri Baptist University, B.A. Religious Studies, 1998
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=117
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Cathy Jo Loy
+      seat: 163
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=163
+      contact:
+        email: Cathyjo.Loy@house.mo.gov
+        phone: 573-751-5458
+      hometown: Carthage
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Graphic designer and display artist; former licensed home daycare provider
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=163
+      - type: office
+        name: Missouri Public Charter School Commission, four years, appointed by Gov. Parson
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=163
+      - type: church
+        name: Christ the King Church (bio text was truncated in this read; verify on the official page)
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=163
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: John Martin
+      seat: 44
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=044
+      contact:
+        email: John.Martin@house.mo.gov
+        phone: 573-751-1169
+      hometown: Columbia
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Owner, Pro Pumping and Hydrojetting, LLC
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=044
+      - type: church
+        name: Former pastor in Hallsville and Columbia
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=044
+      - type: civic
+        name: Chamber of Commerce; Boone County Farm Bureau; 4-H volunteer
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=044
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Mark Meirath
+      seat: 39
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=039
+      contact:
+        email: Mark.Meirath@house.mo.gov
+        phone: 573-751-1468
+      hometown: Excelsior Springs
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Owner of a construction company; former bank branch manager and lender
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=039
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Matthew Overcast
+      seat: 155
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=155
+      contact:
+        email: Matthew.Overcast@house.mo.gov
+        phone: 573-751-2042
+      hometown: Ava
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Attorney (J.D., Mitchell Hamline School of Law)
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=155
+      - type: military
+        name: U.S. Air Force 2010 to 2014
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=155
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Brad Pollitt
+      seat: 52
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=052
+      contact:
+        email: Bradley.Pollitt@house.mo.gov
+        phone: 573-751-9774
+      hometown: Sedalia
+      first_elected: 2018
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Owner and operator, Rocher P. Cattle Company LLC; educator and administrator 34 years, superintendent in Sedalia
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=052
+      - type: civic
+        name: B&G Club; Rotary Club; Pachyderm Club; Missouri Cattlemen's Association; Missouri Farm Bureau; National Rifle Association
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=052
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Melissa Schmidt
+      seat: 141
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=141
+      contact:
+        email: Melissa.Schmidt@house.mo.gov
+        phone: 573-751-2205
+      hometown: Eldridge
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: State certified childcare center director, 30 years; nonprofit development and program coordination
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=141
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Kem Smith
+      seat: 68
+      party: D
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=068
+      contact:
+        email: Kem.Smith@house.mo.gov
+        phone: 573-751-9628
+      hometown: Florissant
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Veteran educator; Doctorate of Education, North Central University
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=068
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Connie Steinmetz
+      seat: 87
+      party: D
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=087
+      contact:
+        email: Connie.Steinmetz@house.mo.gov
+        phone: 573-751-0100
+      hometown: Maryland Heights
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Kindergarten, first and second grade teacher for nearly 40 years, Clayton and Hazelwood districts
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=087
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+    - name: Cecelie Williams
+      seat: 111
+      party: R
+      role: member
+      term_ends: 2027
+      official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=111
+      contact:
+        email: Cecelie.Williams@house.mo.gov
+        phone: 573-751-4567
+      hometown: Dittmer
+      first_elected: 2024
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Owner, Turf One Landscape Management, Cedar Hill; former licensed insurance agent
+        url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=111
+      contact_log: []
+      notes: No statement on corporal punishment found in this run; values not researched (not chair or vice chair). Affiliations are from the official House biography only.
+  senate_education_committee:
+    body: Missouri Senate, Committee on Education
+    body_type: senate_education_committee
+    official_url: https://www.senate.mo.gov/Committees/CommitteeDetail?id=1727&year=2026
+    assigned_bills_url: https://www.senate.mo.gov/Committees/AssignedBills?id=6&year=2026
+    minutes_url: https://www.senate.mo.gov/Committees/CommitteeMinutes?year=2026&id=161
+    session: 103rd General Assembly, 2nd regular session (2026)
+    jurisdiction: The Committee on Education shall consider and report upon bills and matters referred to it relating to education in the state, including the public schools, libraries, programs and institutions of higher learning. (quoted from the committee page)
+    member_count: 7
+    party_split: 5 R, 2 D
+    decisive_votes: 4
+    members:
+    - name: Rick Brattin
+      seat: 31
+      party: R
+      role: chair
+      term_ends: null
+      first_elected: 2020
+      term_limited_after: 2028
+      official_url: https://www.senate.mo.gov/Senators/Member?id=5
+      contact:
+        email: null
+        phone: 573-751-2108
+      hometown: null
+      position_on_cp: unknown
+      evidence:
+      - date: '2025-01-01'
+        summary: Sponsor of SJR 6 (2025), "Amends the Constitution to assert the right of parents to participate in and direct the education of their children free from government interference"; status shown as Voted Do Pass, Senate Education Committee. Sponsorship record, not a corporal punishment position.
+        url: https://www.senate.mo.gov/BillTracking/Bills/BillInformation?handler=legislation&year=2025&session=R&billPrefix=SJR&billSuffix=6
+      values:
+      - quote: Nothing in this bill is a requirement. Nothing in this bill is a database.
+        url: https://www.kcur.org/education/2025-02-19/missouri-bill-would-give-tax-credit-to-homeschool-and-private-school-families
+        date: '2025-02-19'
+        frame: parental_rights
+        context: Missouri Independent story by Annelise Hanshaw, republished by KCUR, on his homeschool and private school tax credit bill; answering homeschool families who feared regulation.
+      - quote: In fact, this only bolsters that and gives the full capability and freedom and liberty
+        url: https://www.kcur.org/education/2025-02-19/missouri-bill-would-give-tax-credit-to-homeschool-and-private-school-families
+        date: '2025-02-19'
+        frame: parental_rights
+        context: Same story; fragment as quoted there.
+      - quote: It is one thing to get an education, or in many places a lack thereof,
+        url: https://www.newstribune.com/news/2026/feb/13/partisan-clash-erupts-in-missouri-senate/
+        date: '2026-02-13'
+        frame: other
+        context: Missouri Independent story by Annelise Hanshaw (2026-02-12), read at the News Tribune republication; from a video he shared about open enrollment.
+      - quote: to get out of failing school districts and get to a school where they could learn.
+        url: https://www.newstribune.com/news/2026/feb/13/partisan-clash-erupts-in-missouri-senate/
+        date: '2026-02-13'
+        frame: other
+        context: Same story; his description of what open enrollment opponents would deny students.
+      - quote: status quo for education in Missouri is not working.
+        url: https://www.northcassherald.com/post/response-to-brattin-position-on-failed-public-education
+        date: '2021-01-31'
+        frame: other
+        context: 'Secondhand: quoted from an earlier Brattin letter to the editor by the Belton school board president in a reply letter in the North Cass Herald. Brattin''s original letter was not read.'
+      public_affiliations:
+      - type: church
+        name: Abundant Life Church, Lee's Summit
+        url: https://www.senate.mo.gov/Senators/Member?id=5
+      - type: military
+        name: United States Marine Corps, six years, Sergeant
+        url: https://www.senate.mo.gov/Senators/Member?id=5
+      - type: profession
+        name: Founder of a small construction business; former Cass County auditor
+        url: https://www.senate.mo.gov/Senators/Member?id=5
+      - type: office
+        name: Missouri House of Representatives 2010 to 2018 (District 55)
+        url: https://www.senate.mo.gov/Senators/Member?id=5
+      contact_log: []
+      notes: Chair. The Senate member page lists a Capitol phone and room but no email address. Term limits page shows him ineligible for reelection after 2028. No statement on corporal punishment found. A Show Me Progress blog post (2025-10-09) carries a partial transcript of his remarks at a Warrensburg chamber event, including a line about parents knowing what is best for their kids; it is a partisan blog transcript, not an established outlet, so it is not entered as a values quote. His Senate media archive lists 2022 and 2023 Capitol Report columns ("Protecting Young Minds", "The Missouri Legislature Must Act Now to Protect Children") but no links were present and they were not read.
+    - name: Brad Hudson
+      seat: 33
+      party: R
+      role: vice_chair
+      term_ends: null
+      first_elected: 2024
+      term_limited_after: 2032
+      official_url: https://www.senate.mo.gov/Senators/Member?id=6377
+      contact:
+        email: null
+        phone: 573-751-1882
+      hometown: null
+      position_on_cp: unknown
+      evidence: []
+      values:
+      - quote: As a Legislature, one of our most important duties is creating and passing a balanced state budget.
+        url: https://www.legends1063.fm/news/local-news/hudson-named-vice-chair-of-powerful-state-senate-committee/
+        date: '2025-09-23'
+        frame: fiscal
+        context: Local radio news story on his appointment as Appropriations vice chair.
+      - quote: while also finding ways to decrease spending and live within our means as a state.
+        url: https://www.legends1063.fm/news/local-news/hudson-named-vice-chair-of-powerful-state-senate-committee/
+        date: '2025-09-23'
+        frame: fiscal
+        context: Same story; fragment as quoted there.
+      - quote: We will be meticulous as we analyze every area of state spending,
+        url: https://www.legends1063.fm/news/local-news/hudson-named-vice-chair-of-powerful-state-senate-committee/
+        date: '2025-09-23'
+        frame: fiscal
+        context: Same story.
+      - quote: transparent in our communications with the citizens and accountable to those who have elected us to serve them.
+        url: https://www.legends1063.fm/news/local-news/hudson-named-vice-chair-of-powerful-state-senate-committee/
+        date: '2025-09-23'
+        frame: other
+        context: Same story.
+      public_affiliations:
+      - type: church
+        name: Pastor, Blessing Heights Worship Center
+        url: https://www.senate.mo.gov/Senators/Member?id=6377
+      - type: civic
+        name: Rotary Club of Table Rock Lake, member and past president
+        url: https://www.senate.mo.gov/Senators/Member?id=6377
+      - type: office
+        name: Stone County Assessor 2009 to 2018; Missouri House 2019 to 2025
+        url: https://www.senate.mo.gov/Senators/Member?id=6377
+      - type: civic
+        name: Southwest Missouri Assessors Association, past president; Stone County National Day of Prayer coordinator
+        url: https://www.senate.mo.gov/Senators/Member?id=6377
+      - type: education
+        name: Midwest College of Theology, B.A. Biblical Studies, 2011
+        url: https://www.senate.mo.gov/Senators/Member?id=6377
+      contact_log: []
+      notes: Vice chair. Also vice chair of Appropriations and of Government Efficiency. No statement on corporal punishment or on school discipline found. His own-words items at the Houston Herald (a legislative update column, 2025-03-07, and a 2026-04-17 story) are paywalled and were not read. Senate media pages list only committee presentation videos with no transcripts.
+    - name: David Gregory
+      seat: 15
+      party: R
+      role: member
+      term_ends: null
+      first_elected: 2024
+      term_limited_after: 2032
+      official_url: https://www.senate.mo.gov/Senators/Member?id=6371
+      contact:
+        email: null
+        phone: 573-751-5568
+      hometown: null
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Litigation attorney
+        url: https://www.senate.mo.gov/Senators/Member?id=6371
+      - type: faith
+        name: Christian (self-stated on official bio)
+        url: https://www.senate.mo.gov/Senators/Member?id=6371
+      - type: office
+        name: Missouri House of Representatives from 2016; chaired the House Special Committee on Government Accountability
+        url: https://www.senate.mo.gov/Senators/Member?id=6371
+      contact_log: []
+      notes: Not chair or vice chair; values not researched.
+    - name: Mike Henderson
+      seat: 3
+      party: R
+      role: member
+      term_ends: null
+      first_elected: 2024
+      term_limited_after: 2032
+      official_url: https://www.senate.mo.gov/Senators/Member?id=6368
+      contact:
+        email: null
+        phone: 573-751-4008
+      hometown: null
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Educator and administrator 1983 to 2014; public school teacher and coach
+        url: https://www.senate.mo.gov/Senators/Member?id=6368
+      - type: office
+        name: Missouri House (District 117) 2017 to 2025; Speaker Pro Tem 2023 to 2025
+        url: https://www.senate.mo.gov/Senators/Member?id=6368
+      contact_log: []
+      notes: Not chair or vice chair; values not researched.
+    - name: Maggie Nurrenbern
+      seat: 17
+      party: D
+      role: member
+      term_ends: null
+      first_elected: 2024
+      term_limited_after: 2032
+      official_url: https://www.senate.mo.gov/Senators/Member?id=6372
+      contact:
+        email: null
+        phone: 573-751-5282
+      hometown: null
+      position_on_cp: supports_ban
+      evidence: &id001
+      - date: '2022-12-01'
+        summary: Prefiled HB 121 (2023), "Modifies provisions relating to corporal punishment in schools"; the House summary says it mandates each district to prohibit corporal punishment and spanking.
+        url: https://house.mo.gov/Bill.aspx?bill=HB121&year=2023&code=R
+      - date: '2023-12-01'
+        summary: Prefiled HB 1581 (2024), same title and summary.
+        url: https://house.mo.gov/Bill.aspx?bill=HB1581&year=2024&code=R
+      values: &id002
+      - quote: Now, I'm running for State Senate because as a mom of three, former local public school teacher and dedicated community volunteer, I have a renewed purpose to fight for great public education for every kid in our state, create more economic opportunity, finally expand access to affordable health care and keep our families safe.
+        url: https://themissouritimes.com/press-release-state-representative-maggie-nurrenbern-launches-campaign-for-state-senate-district-17/
+        date: '2023-02-22'
+        frame: teachers
+        context: Campaign launch press release carried by the Missouri Times.
+      - quote: I know we need leaders who will stand up as a voice of moderation, bring people together and actually achieve results that make a positive difference for our community.
+        url: https://themissouritimes.com/press-release-state-representative-maggie-nurrenbern-launches-campaign-for-state-senate-district-17/
+        date: '2023-02-22'
+        frame: other
+        context: Same release; the fetcher returned this sentence in two fragments, joined here at the comma as the release reads.
+      public_affiliations: &id003
+      - type: profession
+        name: Former Spanish, journalism and ELL teacher, University Academy (Kansas City) and North Kansas City High School
+        url: https://www.senate.mo.gov/Senators/Member?id=6372
+      - type: union
+        name: Former NKC-NEA building representative
+        url: https://www.senate.mo.gov/Senators/Member?id=6372
+      - type: civic
+        name: Board member, Feed Northland Kids; PTA, Oakwood Manor Elementary School; Gladstone and Northland Chambers of Commerce; North Kansas City Rotary Club
+        url: https://www.senate.mo.gov/Senators/Member?id=6372
+      - type: service
+        name: Peace Corps volunteer, Ecuador, two years
+        url: https://www.senate.mo.gov/Senators/Member?id=6372
+      contact_log: []
+      notes: Sits on the Senate Education Committee (also Appropriations, Families Seniors and Health, Fiscal Oversight, Local Government Elections and Pensions, Joint Committee on Education). Sponsored the 2023 and 2024 House ban bills; see sponsors section. Her Senate sponsored-bills page for 2026 (https://www.senate.mo.gov/BillTracking/Bills/sponsoredbills?district=17) contains no corporal punishment bill. No direct quote from her about corporal punishment was found.
+    - name: Nick Schroer
+      seat: 2
+      party: R
+      role: member
+      term_ends: null
+      first_elected: 2022
+      term_limited_after: 2030
+      official_url: https://www.senate.mo.gov/Senators/Member?id=276
+      contact:
+        email: null
+        phone: 573-751-1282
+      hometown: null
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations:
+      - type: profession
+        name: Attorney; general counsel, Venture Group Investments, Inc., St. Peters
+        url: https://www.senate.mo.gov/Senators/Member?id=276
+      - type: office
+        name: Missouri House (District 107), six years
+        url: https://www.senate.mo.gov/Senators/Member?id=276
+      - type: education
+        name: Trinity Catholic High School; University of Missouri-St. Louis; Southern Illinois University School of Law
+        url: https://www.senate.mo.gov/Senators/Member?id=276
+      contact_log: []
+      notes: Chairs Senate Judiciary and Civil and Criminal Jurisprudence. Not chair or vice chair of Education; values not researched. Offered a House amendment to SB 681 in 2022 (4133H10.03H) as a representative; the amendment text was not read.
+    - name: Stephen Webber
+      seat: 19
+      party: D
+      role: member
+      term_ends: null
+      first_elected: 2024
+      term_limited_after: 2032
+      official_url: https://www.senate.mo.gov/Senators/Member?id=6373
+      contact:
+        email: null
+        phone: 573-751-3931
+      hometown: null
+      position_on_cp: unknown
+      evidence: []
+      values: []
+      public_affiliations: []
+      contact_log: []
+      notes: Boone County. The Senate member page carries no biography. Not chair or vice chair; values not researched.
+sponsors:
+- name: Maggie Nurrenbern
+  current_chamber: Senate
+  seat: 17
+  party: D
+  role: member
+  term_ends: null
+  first_elected_senate: 2024
+  term_limited_after: 2032
+  official_url: https://www.senate.mo.gov/Senators/Member?id=6372
+  former_house_url: https://house.mo.gov/MemberDetails.aspx?year=2024&code=R&district=015
+  contact:
+    email: null
+    phone: 573-751-5282
+  current_committees:
+  - Appropriations
+  - Education
+  - Families, Seniors and Health
+  - Fiscal Oversight
+  - Local Government, Elections and Pensions
+  - Joint Committee on Education
+  - Competency-based Education Task Force (statewide committee)
+  position_on_cp: supports_ban
+  evidence: *id001
+  values: *id002
+  public_affiliations: *id003
+  bills:
+  - HB 121 (2023)
+  - HB 1581 (2024)
+  own_words_on_bill: []
+  contact_log: []
+  notes: 'Confirmed: elected to the Senate in 2024 for District 17 (Clay County) and sits on the Senate Education Committee. Her archived 2024 House page (District 15) lists HB 1581 among her sponsored bills and shows Budget and Appropriations-General Administration (ranking minority member) as her 2024 House committees. No reported statement by her on either ban bill was found in this run.'
+- name: Ian Mackey
+  current_chamber: none (resigned from the House effective 2026-08-31)
+  seat: 99
+  party: D
+  role: former_member
+  term_ends: null
+  official_url: https://house.mo.gov/MemberDetails.aspx?year=2023&code=R&district=099
+  contact:
+    email: null
+    phone: null
+  position_on_cp: supports_ban
+  evidence:
+  - date: '2021-12-14'
+    summary: Prefiled HB 1937 (2022), "Modifies provisions relating to corporal punishment in schools"; referred to Elementary and Secondary Education 2022-05-13, never heard.
+    url: https://house.mo.gov/Bill.aspx?bill=HB1937&year=2022&code=R
+  - date: '2022-12-01'
+    summary: Prefiled HB 160 (2023), same title; summary says the bill mandates each district to prohibit corporal punishment and spanking and is the same as HB 121 (2023).
+    url: https://house.mo.gov/Bill.aspx?bill=HB160&year=2023&code=R
+  - date: '2026-08-27'
+    summary: 'Resignation letter printed in the House Journal, veto session, 2026-09-16: cites his seclusion-limits law and his law prohibiting zero tolerance discipline policies as his record.'
+    url: https://documents.house.mo.gov/billtracking/bills261/jrnpdf/jrn073.pdf
+  values:
+  - quote: Throughout my eight years in Jefferson City, my office has been responsible for legislation signed into law to limit the use of seclusion of students in our K-12 schools and require public reporting of such incidents.
+    url: https://documents.house.mo.gov/billtracking/bills261/jrnpdf/jrn073.pdf
+    date: '2026-08-27'
+    frame: safe_schools
+    context: Resignation letter to Gov. Kehoe, printed in the House Journal of 2026-09-16.
+  - quote: Our office also authored legislation, that you signed, that prohibits our school districts from using zero tolerance discipline policies and requires that they now investigate incidents and issue punitive consequences based on the facts.
+    url: https://documents.house.mo.gov/billtracking/bills261/jrnpdf/jrn073.pdf
+    date: '2026-08-27'
+    frame: safe_schools
+    context: Same letter.
+  public_affiliations:
+  - type: profession
+    name: Attorney and former teacher
+    url: https://house.mo.gov/MemberDetails.aspx?year=2023&code=R&district=099
+  - type: church
+    name: Church of St. Michael and St. George, Clayton
+    url: https://house.mo.gov/MemberDetails.aspx?year=2023&code=R&district=099
+  - type: education
+    name: Hickory County R-1 High School; Westminster College (B.A. Early Childhood Education); Suffolk University Law School
+    url: https://house.mo.gov/MemberDetails.aspx?year=2023&code=R&district=099
+  bills:
+  - HB 1937 (2022)
+  - HB 160 (2023)
+  own_words_on_bill: []
+  contact_log: []
+  notes: The 2026 House page for District 099 (https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=099) reads "District Vacant" as of 2026-10-29. His resignation letter dated 2026-08-27, effective 11:59 p.m. 2026-08-31, is printed in the House Journal for the 2026-09-16 veto session; the letter says he is term-limited and is leaving the state. St. Louis Public Radio (2026-05-27, https://www.stlpr.org/podcast/politically-speaking/2026-05-27/missouri-state-representative-mackey-says-ballot-items-have-hurt-democrats) reported he was barred by term limits from running again and was not running for anything in 2026. A Missouri House Democratic Caucus post (https://mohousedemcaucus.com/post/mackey-pre-files-school-discipline-reform-legislation) is reported by search engines to carry his statement on HB 160, but the host did not resolve in this run and the page was not read, so no quote from it is entered. His campaign site (https://imackey.com/meet-ian) returned 403. The 2023 House
+    bio was an archival record with contact details removed.
+- name: Jo Doll
+  current_chamber: House
+  seat: 91
+  party: D
+  role: member
+  term_ends: 2027
+  first_elected: 2020
+  official_url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=091
+  contact:
+    email: Jo.Doll@house.mo.gov
+    phone: 573-751-1285
+  hometown: St. Louis
+  current_committees:
+  - Health and Mental Health
+  - Joint Committee on Administrative Rules
+  - Special Committee on Rural Issues
+  - Legislative Review (Ranking Minority Member)
+  - Professional Registration and Licensing (Ranking Minority Member)
+  position_on_cp: supports_ban
+  evidence:
+  - date: '2023-02-07'
+    summary: Co-sponsored HB 121 (2023), the only co-sponsor on any of the four bills.
+    url: https://house.mo.gov/CoSponsors.aspx?bill=HB121&year=2023&code=R
+  - date: '2026-01-07'
+    summary: Introduced HB 2827 (2026), "Modifies provisions relating to corporal punishment in schools"; summary says it mandates each district to prohibit corporal punishment and spanking.
+    url: https://house.mo.gov/Bill.aspx?bill=HB2827&year=2026&code=R
+  values:
+  - quote: Trying to make the world a better place for them is my biggest inspiration
+    url: https://themissouritimes.com/freshmen-to-watch-jo-doll/
+    date: '2021-04-22'
+    frame: other
+    context: Missouri Times profile; "them" refers to her children.
+  - quote: Jo's running for State Representative to expand healthcare, protect public education, and keep our kids safe.
+    url: https://dollformo.com/
+    date: null
+    frame: safe_schools
+    context: Campaign site home page, written in the third person; undated.
+  - quote: Since joining the school board, Jo helped pass a $22 million bond issue to improve safety and accessibility in Webster schools, and also worked to help improve teacher pay.
+    url: https://dollformo.com/issues
+    date: null
+    frame: teachers
+    context: Campaign site Issues page, third person; undated.
+  public_affiliations:
+  - type: profession
+    name: Physical therapist
+    url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=091
+  - type: office
+    name: Vice president, Webster Groves Board of Education (per official House bio); elected to the board in 2017 (per campaign site)
+    url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=091
+  - type: church
+    name: Webster Groves Presbyterian Church
+    url: https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=091
+  - type: civic
+    name: Moms Demand Action (per campaign site Issues page)
+    url: https://dollformo.com/issues
+  bills:
+  - HB 2827 (2026)
+  own_words_on_bill: []
+  contact_log: []
+  notes: Does not sit on the Elementary and Secondary Education Committee. Her House press release listing (https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=091&category=pressreleases) returned no releases. No reported statement by her on HB 2827 was found in this run; the 2026-08-20 KCUR/NPR national story on corporal punishment (https://www.kcur.org/education/2026-08-19/15-states-have-laws-that-allow-corporal-punishment-in-schools-heres-where-and-why) quotes no Missouri legislator. The Votesmart issue page (https://justfacts.votesmart.org/public-statement/1480900/issue-position-education) returned 403.
+bills:
+- bill: HB 121
+  year: 2023
+  general_assembly: 102nd, 1st regular session
+  sponsor: Maggie Nurrenbern (D, House District 15)
+  url: https://house.mo.gov/Bill.aspx?bill=HB121&year=2023&code=R
+  title: Modifies provisions relating to corporal punishment in schools
+  summary_as_stated: This bill mandates each district to prohibit the use of corporal punishment and spanking in schools. It defines corporal punishment as the infliction of pain by an adult upon the body of a child as penalty for doing something that has been disapproved of by the adult. This bill is similar to HB 160 (2023) and HB 1937 (2022).
+  summary_url: https://documents.house.mo.gov/billtracking/bills231/sumpdf/HB0121I.pdf
+  lr_number: 0429H.01I
+  proposed_effective_date: '2023-08-28'
+  actions:
+  - date: '2022-12-01'
+    action: Prefiled (H)
+  - date: '2023-01-04'
+    action: Read First Time (H), H 56
+  - date: '2023-01-05'
+    action: Read Second Time (H), H 179
+  - date: '2023-05-12'
+    action: 'Referred: Elementary and Secondary Education (H), H 3494'
+  referred_to: Elementary and Secondary Education (H)
+  referral_date: '2023-05-12'
+  hearing_held: false
+  hearing_note: 'BillHearings page: "This Bill is currently not scheduled for a committee hearing." Referral came on the last day of the 2023 regular session, so the bill died in committee without a hearing.'
+  co_sponsors:
+  - name: Jo Doll
+    district: 91
+    party: D
+    date: '2023-02-07'
+  co_sponsors_url: https://house.mo.gov/CoSponsors.aspx?bill=HB121&year=2023&code=R
+  actions_url: https://house.mo.gov/BillActions.aspx?bill=HB121&year=2023&code=R
+  fiscal_note: null
+  died_in: House Elementary and Secondary Education Committee (never heard)
+- bill: HB 160
+  year: 2023
+  general_assembly: 102nd, 1st regular session
+  sponsor: Ian Mackey (D, House District 99)
+  url: https://house.mo.gov/Bill.aspx?bill=HB160&year=2023&code=R
+  title: Modifies provisions relating to corporal punishment in schools
+  summary_as_stated: This bill mandates each district to prohibit the use of corporal punishment and spanking in schools. It defines corporal punishment as the infliction of pain by an adult upon the body of a child as penalty for doing something that has been disapproved of by the adult. This bill is similar to HB 1937 (2022) and is the same as HB 121 (2023).
+  summary_url: https://documents.house.mo.gov/billtracking/bills231/sumpdf/HB0160I.pdf
+  lr_number: 0347H.01I
+  proposed_effective_date: '2023-08-28'
+  actions:
+  - date: '2022-12-01'
+    action: Prefiled (H)
+  - date: '2023-01-04'
+    action: Read First Time (H), H 58
+  - date: '2023-01-05'
+    action: Read Second Time (H), H 180
+  - date: '2023-05-12'
+    action: 'Referred: Elementary and Secondary Education (H), H 3495'
+  referred_to: Elementary and Secondary Education (H)
+  referral_date: '2023-05-12'
+  hearing_held: false
+  hearing_note: 'BillHearings page: not scheduled. Referral on the last day of session; died without a hearing.'
+  co_sponsors: []
+  co_sponsors_url: https://house.mo.gov/CoSponsors.aspx?bill=HB160&year=2023&code=R
+  actions_url: https://house.mo.gov/BillActions.aspx?bill=HB160&year=2023&code=R
+  fiscal_note: null
+  died_in: House Elementary and Secondary Education Committee (never heard)
+- bill: HB 1581
+  year: 2024
+  general_assembly: 102nd, 2nd regular session
+  sponsor: Maggie Nurrenbern (D, House District 15)
+  url: https://house.mo.gov/Bill.aspx?bill=HB1581&year=2024&code=R
+  title: Modifies provisions relating to corporal punishment in schools
+  summary_as_stated: This bill mandates that each district prohibit the use of corporal punishment and spanking in schools. It defines corporal punishment as the infliction of pain by an adult upon the body of a child as penalty for doing something that has been disapproved of by the adult. This bill is the same as HB 160 and HB 121 (2023).
+  summary_url: https://documents.house.mo.gov/billtracking/bills241/sumpdf/HB1581I.pdf
+  lr_number: 3193H.01I
+  proposed_effective_date: '2024-08-28'
+  actions:
+  - date: '2023-12-01'
+    action: Prefiled (H)
+  - date: '2024-01-03'
+    action: Read First Time (H), H 19
+  - date: '2024-01-04'
+    action: Read Second Time (H), H 183
+  - date: '2024-05-17'
+    action: 'Referred: General Laws (H), H 2053'
+  referred_to: General Laws (H)
+  referral_date: '2024-05-17'
+  hearing_held: false
+  hearing_note: 'BillHearings page: not scheduled. Referred to General Laws, not to the education committee, on the last day of the 2024 session; died without a hearing.'
+  co_sponsors: []
+  co_sponsors_url: https://house.mo.gov/CoSponsors.aspx?bill=HB1581&year=2024&code=R
+  actions_url: https://house.mo.gov/BillActions.aspx?bill=HB1581&year=2024&code=R
+  fiscal_note:
+    url: https://documents.house.mo.gov/billtracking/bills241/fiscal/fispdf/3193H.01I.ORG.pdf
+    date: '2024-01-02'
+    estimated_net_effect: $0 general revenue, $0 other state funds, $0 federal funds, 0 FTE, $0 local government, FY2025 to FY2027
+    quotes:
+    - Officials from the Department of Elementary and Secondary Education assume the proposal will have no fiscal impact on their organization. Oversight does not have any information to the contrary. Therefore, Oversight will reflect a zero impact on the fiscal note.
+    - Oversight received zero responses from school districts related to the fiscal impact of this proposal.
+    - No direct fiscal impact to small businesses would be expected as a result of this proposal.
+    signed_by: Julie Morff, Director, and Ross Strope, Assistant Director, Committee on Legislative Research Oversight Division
+  died_in: House General Laws Committee (never heard)
+- bill: HB 2827
+  year: 2026
+  general_assembly: 103rd, 2nd regular session
+  sponsor: Jo Doll (D, House District 91)
+  url: https://house.mo.gov/Bill.aspx?bill=HB2827&year=2026&code=R
+  title: Modifies provisions relating to corporal punishment in schools
+  summary_as_stated: This bill mandates each district to prohibit the use of corporal punishment and spanking in schools. The bill defines "corporal punishment" as the infliction of pain by an adult upon the body of a child as penalty for doing something that has been disapproved of by the adult. This bill is similar to HB 121 (2023).
+  summary_url: https://documents.house.mo.gov/billtracking/bills261/sumpdf/HB2827I.pdf
+  bill_text_url: https://documents.house.mo.gov/billtracking/bills261/hlrbillspdf/6334H.01I.pdf
+  lr_number: 6334H.01I
+  proposed_effective_date: '2026-08-28'
+  actions:
+  - date: '2026-01-07'
+    action: Introduced and Read First Time (H), H 73
+  - date: '2026-01-08'
+    action: Read Second Time (H), H 313
+  - date: '2026-05-15'
+    action: 'Referred: Emerging Issues (H), H 2697'
+  referred_to: Emerging Issues (H)
+  referral_date: '2026-05-15'
+  hearing_held: false
+  hearing_note: 'BillHearings page: not scheduled. Referred to Emerging Issues, not to Elementary and Secondary Education, on the last day of the 2026 regular session. The House page shows the status bar at "In Committee", "Floor Action Incomplete". Emerging Issues 2026 roster: Brad Christ (R) chair, Tara Peters (R) vice chair, Elizabeth Fuchs (D) ranking minority member; Josh Hurlbert and Matthew Overcast sit on both Emerging Issues and Elementary and Secondary Education (https://house.mo.gov/MemberGridCluster.aspx?filter=compage&category=committee&committee=4303&year=2026&code=R&cluster=true).'
+  co_sponsors: []
+  co_sponsors_url: https://house.mo.gov/CoSponsors.aspx?bill=HB2827&year=2026&code=R
+  actions_url: https://house.mo.gov/BillActions.aspx?bill=HB2827&year=2026&code=R
+  fiscal_note: null
+  died_in: House Emerging Issues Committee (never heard)
+related_bills_not_in_scope:
+- bill: HB 1937
+  year: 2022
+  sponsor: Ian Mackey (D, then House District 87)
+  url: https://house.mo.gov/Bill.aspx?bill=HB1937&year=2022&code=R
+  title: Modifies provisions relating to corporal punishment in schools
+  actions:
+  - date: '2021-12-14'
+    action: Prefiled (H)
+  - date: '2022-01-05'
+    action: Read First Time (H), H 36
+  - date: '2022-01-06'
+    action: Read Second Time (H), H 182
+  - date: '2022-05-13'
+    action: 'Referred: Elementary and Secondary Education (H), H 3608'
+  hearing_held: false
+  died_in: House Elementary and Secondary Education Committee (never heard)
+legislative_record_on_corporal_punishment:
+  sb_681_2022_opt_in_amendment:
+    bill: CCS#2 HCS SS SCS SBs 681 & 662 (2022), "Elementary and Secondary Education"
+    house_bill_page: https://house.mo.gov/Bill.aspx?bill=SB681&year=2022&code=R
+    senate_bill_page: https://www.senate.mo.gov/BillTracking/Bills/BillInformation?handler=legislation&year=2022&session=R&billPrefix=SB&billSuffix=681
+    senate_sponsor: Cindy O'Laughlin (R, Senate District 18)
+    house_handler: Chuck Basye (R, House District 47)
+    what_the_law_did: 'Added to section 160.261.1 RSMo: "No pupil shall be subject to corporal punishment procedures outlined in the discipline and corporal punishment policy without a parent or guardian being notified and providing written permission for the corporal punishment." (quoted from the HCS text, 4133H.10C, and from the current statute at revisor.mo.gov)'
+    where_it_entered: The House Committee Substitute. The Senate perfected text (https://www.senate.mo.gov/22info/pdf-bill/perf/SB681.pdf, 24 pages) contains no occurrence of "corporal"; the HCS text (https://documents.house.mo.gov/billtracking/bills221/hlrbillspdf/4133H.10C.pdf) contains the written-permission sentence in section 160.261. The HCS summary (https://documents.house.mo.gov/billtracking/bills221/sumpdf/SB0681C.pdf) records "Voted Do Pass with HCS by the Standing Committee on Elementary and Secondary Education by a vote of 19 to 0." The individual who drafted or moved the corporal punishment language inside the committee substitute is not identified on any page read; the House amendments page for the bill returned an error and the amendment PDFs were not read.
+    house_committee_actions:
+    - date: '2022-04-11'
+      action: 'Referred: Elementary and Secondary Education (H)'
+    - date: '2022-04-19'
+      action: Public Hearing Completed (H)
+    - date: '2022-04-21'
+      action: Executive Session Completed; HCS Voted Do Pass; HCS Reported Do Pass, AYES 19 NOES 0 PRESENT 0
+    - date: '2022-05-02'
+      action: Third Read and Passed with Amendments (H), HA 1 through HA 19
+    - date: '2022-05-12'
+      action: House Adopts Conference Committee Report; Truly Agreed To and Finally Passed
+    - date: '2022-06-30'
+      action: Approved by Governor (G)
+    truly_agreed_summary_quote: CORPORAL PUNISHMENT (Section 160.261) This bill requires school districts to notify parents and receive written permission before using corporal punishment. The bill repeals language related to the jurisdiction of the Children's Division within the Department of Social Services (DSS) and its ability to investigate reports of alleged child abuse by personnel of a school district, a teacher, or other school employee. It also repeals language related to how a school and school district are to handle reports of alleged child abuse.
+    truly_agreed_summary_url: https://documents.house.mo.gov/billtracking/bills221/sumpdf/SB0681T.pdf
+    what_was_said: Nothing on corporal punishment was found in the record read. The witness appearance forms for the 2022-04-19 House hearing (https://documents.house.mo.gov/billtracking/bills221/witnesses/SB681Testimony.pdf) contain no occurrence of "corporal"; the testimony read concerned reading success plans. No floor or committee remark on the provision was found.
+    statute_now:
+      url: https://revisor.mo.gov/main/OneSection.aspx?section=160.261
+      history_line_excerpt: A.L. 2014 S.B. 491, A.L. 2014 H.B. 1371, A.L. 2022 S.B. 681 & 662
+      quotes:
+      - including the district's determination on the use of corporal punishment
+      - without a parent or guardian being notified and providing written permission for the corporal punishment.
+      - Spanking, when administered by certificated personnel and in the presence of a witness who is an employee of the school district
+      - is not abuse within the meaning of chapter 210.
+    local_press_context: 'KY3 (2022-08-24, https://www.ky3.com/2022/08/24/cassville-mo-school-district-reinstates-corporal-punishment-option-students-parents-react-decision/) on the Cassville R-IV opt-in policy states: "Missouri Statute authorizes corporal punishment as an option for each local school to consider if parents opt-in." The article names no legislator.'
+  committee_activity_since: No bill with "corporal" in its title appears in the House Elementary and Secondary Education bills-in-committee lists for 2025 (https://house.mo.gov/BillsInCommittee.aspx?year=2025&code=R&committee=4302) or 2026 (https://house.mo.gov/BillsInCommittee.aspx?year=2026&code=R&committee=4302), nor in the Senate Education Committee assigned-bills lists for 2025 (https://www.senate.mo.gov/Committees/AssignedBills?id=6&year=2025) or 2026 (https://www.senate.mo.gov/Committees/AssignedBills?id=6&year=2026). None of the four ban bills or HB 1937 received a hearing, so there are no committee minutes, witness lists or votes on a ban. The only fiscal note found is for HB 1581 (2024), which found zero fiscal impact and zero school district responses.
+framing_note:
+  house_chair_ed_lewis: 'Lewis is a 32-year science teacher whose own words center on teachers and public education ("We don''t have enough teachers for our public schools") and on fiscal discipline ("help Missourians save their hard-earned dollars while removing unnecessary regulations"; "the policy should go first and the budget should follow"). The teachers frame fits best: lead with Missouri teachers and administrators who do not want to hold the paddle, and with the AFT and NEA positions. The fiscal frame is a second door: liability and settlement costs. Nothing he has said supports or opposes a ban; his bio lists a church membership and a Bible college career, but he has said nothing on faith in the sources read, so do not lead with it.'
+  house_vice_chair_brad_banderman: Banderman's campaign planks are explicit local control and parental rights ("Local Control of Public education safeguards a parent's or guardian's rightful place in the education of their children"; "The choice of education should always rest with parents or guardians not government"), plus faith and fiscal planks. The 2022 opt-in law is already the parental-rights version of this issue; the argument to him is that written permission is the floor and that a parent should never find the state has hit a child without their say. He is a youth pastor and former substitute teacher and bus driver in a district that may permit paddling; a Franklin County pastor or teacher is the right messenger, not an out-of-district advocate.
+  senate_chair_rick_brattin: 'Brattin''s own words are about parental freedom from government ("Nothing in this bill is a requirement"; "freedom and liberty") and about students escaping "failing school districts"; he sponsored SJR 6 (2025) asserting a parental right to direct education free from government interference. The parental-rights frame is the only one his record supports: a ban as the state keeping its hands off a parent''s child, and opt-in consent as the minimum. He is a Marine veteran and self-described devoted Christian; avoid the human-rights and international frames entirely.'
+  senate_vice_chair_brad_hudson: Hudson's only quotes found are fiscal ("decrease spending and live within our means"; "accountable to those who have elected us"). He is a pastor and former county assessor. Lead with the fiscal and liability frame and let faith come only through pastors in Senate District 33 who oppose paddling. No statement on schools discipline was found; treat him as unknown.
+caveats:
+- The November 2026 general election covers every House seat; House members here are the 2026 session roster and term_ends 2027 marks the end of the current two-year term. The 104th General Assembly convenes in January 2027 and committee chairs and rosters will be reassigned by the new Speaker; the Senate committee will also be reconstituted by the President Pro Tem. Re-run this dossier after the January 2027 assignments are posted.
+- 'Confirmed in this run: the 2026 House committee is named "Elementary and Secondary Education" (id 4302) and the Senate committee "Education" (id 1727); the 21 House members and 7 Senate members above with roles as published; House Capitol phone and email for every House member; Senate Capitol phone for every senator; all four bill histories, referrals, hearing status, co-sponsors and summaries from the official pages; Nurrenbern''s Senate seat and committees; Mackey''s resignation (House Journal); Doll''s current committees.'
+- 'Not confirmed: Senate email addresses (not published on member pages); any Senate term end date (only first-elected and term-limit years are published); the chairs of the 2023 Elementary and Secondary Education Committee and the 2024 General Laws Committee where HB 121, HB 160 and HB 1581 died (the archived roster pages at house.mo.gov returned no content to the fetcher); who moved the 2022 opt-in language inside the SB 681 House committee substitute; any legislator statement on corporal punishment other than the sponsorships themselves; Banderman''s Ballotpedia survey; Brattin''s 2022 and 2023 Capitol Report columns on children.'
+- The shared web search budget for this session was exhausted at the end of this run; the last two searches (Brattin's 2022 and 2023 columns) were not performed.
+- Values quotes are the member's own published words with the URL and date given; where a quote was read in a republication (News Tribune, The 74, KCUR) rather than the originating outlet, both are named. Campaign-site text written in the third person is marked as such.
+- position_on_cp is unknown for every committee member except Nurrenbern (sponsor). No committee member has voted on a ban because no ban bill has been heard.
+sources_searched:
+- https://house.mo.gov/CommitteeList.aspx?year=2026&code=R
+- https://house.mo.gov/CommitteeList.aspx?year=2024&code=R
+- https://house.mo.gov/CommitteeList.aspx?year=2023&code=R
+- https://house.mo.gov/Committees.aspx?category=all&committee=4302&year=2026&code=R
+- https://house.mo.gov/CommitteesTMenu.aspx?category=all&committee=4302&year=2026&code=R
+- https://house.mo.gov/CommitteeDetail.aspx?filter=compage&committee=4302&year=2026&code=R&viewCode=&cluster=true
+- https://house.mo.gov/MemberGridCluster.aspx?filter=compage&category=committee&committee=4302&year=2026&code=R&cluster=true
+- https://house.mo.gov/MemberGridCluster.aspx?filter=compage&category=committee&committee=4303&year=2026&code=R&cluster=true
+- https://house.mo.gov/MemberGridCluster.aspx?filter=compage&category=committee&committee=4302&year=2023&code=R&cluster=true (no content returned)
+- https://house.mo.gov/MemberGridCluster.aspx?filter=compage&category=committee&committee=4307&year=2024&code=R&cluster=true (no content returned)
+- https://house.mo.gov/BillsInCommittee.aspx?year=2026&code=R&committee=4302
+- https://house.mo.gov/BillsInCommittee.aspx?year=2025&code=R&committee=4302
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=006
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=119
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=045
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=070
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=090
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=063
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=140
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=120
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=008
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=038
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=127
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=117
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=163
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=044
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=039
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=155
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=052
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=141
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=068
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=087
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=111
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=091
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=099 (District Vacant)
+- https://house.mo.gov/MemberDetails.aspx?year=2023&code=R&district=099
+- https://house.mo.gov/MemberDetails.aspx?year=2024&code=R&district=015
+- https://house.mo.gov/MemberDetails.aspx?year=2026&code=R&district=091&category=pressreleases (empty)
+- https://house.mo.gov/CapitolReport.aspx?district=006 (signup form only)
+- https://house.mo.gov/PressRelease.aspx?prid=272
+- https://house.mo.gov/Bill.aspx?bill=HB121&year=2023&code=R
+- https://house.mo.gov/Bill.aspx?bill=HB160&year=2023&code=R
+- https://house.mo.gov/Bill.aspx?bill=HB1581&year=2024&code=R
+- https://house.mo.gov/Bill.aspx?bill=HB2827&year=2026&code=R
+- https://house.mo.gov/Bill.aspx?bill=HB1937&year=2022&code=R
+- https://house.mo.gov/Bill.aspx?bill=SB681&year=2022&code=R
+- https://house.mo.gov/BillContent.aspx?bill=HB2827&year=2026&code=R&style=new (and the same for HB121 2023, HB160 2023, HB1581 2024, HB1937 2022, SB681 2022)
+- https://house.mo.gov/BillActions.aspx?bill=HB2827&year=2026&code=R (and the same for HB121, HB160, HB1581, HB1937, SB681)
+- https://house.mo.gov/CoSponsors.aspx?bill=HB2827&year=2026&code=R (and the same for HB121, HB160, HB1581)
+- https://house.mo.gov/BillHearings.aspx?Bill=HB2827&year=2026&code=R (and the same for HB121, HB160, HB1581)
+- https://house.mo.gov/BillAmendments.aspx?bill=SB681&year=2022&code=R (error page)
+- https://documents.house.mo.gov/billtracking/bills231/sumpdf/HB0121I.pdf
+- https://documents.house.mo.gov/billtracking/bills231/sumpdf/HB0160I.pdf
+- https://documents.house.mo.gov/billtracking/bills241/sumpdf/HB1581I.pdf
+- https://documents.house.mo.gov/billtracking/bills241/fiscal/fispdf/3193H.01I.ORG.pdf
+- https://documents.house.mo.gov/billtracking/bills261/sumpdf/HB2827I.pdf
+- https://documents.house.mo.gov/billtracking/bills221/sumpdf/SB0681T.pdf
+- https://documents.house.mo.gov/billtracking/bills221/sumpdf/SB0681C.pdf
+- https://documents.house.mo.gov/billtracking/bills221/hlrbillspdf/4133H.10C.pdf
+- https://documents.house.mo.gov/billtracking/bills221/witnesses/SB681Testimony.pdf
+- https://www.senate.mo.gov/22info/pdf-bill/perf/SB681.pdf
+- https://documents.house.mo.gov/billtracking/bills261/jrnpdf/jrn073.pdf
+- https://revisor.mo.gov/main/OneSection.aspx?section=160.261
+- https://www.senate.mo.gov/committees/
+- https://www.senate.mo.gov/Committees/CommitteeGroup?type=1&year=2026
+- https://www.senate.mo.gov/Committees/CommitteeDetail?id=1727&year=2026
+- https://www.senate.mo.gov/Committees/AssignedBills?id=6&year=2026
+- https://www.senate.mo.gov/Committees/AssignedBills?id=6&year=2025
+- https://www.senate.mo.gov/Committees/CommitteeMinutes?year=2026&id=161
+- https://www.senate.mo.gov/Senators/
+- https://www.senate.mo.gov/Senators/TermLimits
+- https://www.senate.mo.gov/Senators/Member?id=5
+- https://www.senate.mo.gov/Senators/Member?id=6377
+- https://www.senate.mo.gov/Senators/Member?id=6371
+- https://www.senate.mo.gov/Senators/Member?id=6368
+- https://www.senate.mo.gov/Senators/Member?id=6372
+- https://www.senate.mo.gov/Senators/Member?id=276
+- https://www.senate.mo.gov/Senators/Member?id=6373
+- https://www.senate.mo.gov/BillTracking/Bills/sponsoredbills?district=17
+- https://www.senate.mo.gov/BillTracking/Bills/BillInformation?handler=legislation&year=2025&session=R&billPrefix=SJR&billSuffix=6
+- https://www.senate.mo.gov/Media/CurrentMedia?id=5
+- https://www.senate.mo.gov/Media/CurrentMedia?id=6377
+- https://www.senate.mo.gov/Media/CurrentMedia?id=6372 (empty)
+- https://www.senate.mo.gov/Media/MediaArchive?id=5
+- https://www.senate.mo.gov/Media/MediaArchive?id=6377
+- https://www.senate.mo.gov/Media/NewsDetails?id=2205
+- https://www.senate.mo.gov/Media/newsDetails?id=1816
+- https://themissouritimes.com/freshmen-to-watch-ed-lewis/
+- https://themissouritimes.com/freshmen-to-watch-jo-doll/
+- https://themissouritimes.com/press-release-state-representative-maggie-nurrenbern-launches-campaign-for-state-senate-district-17/
+- https://www.newstribune.com/news/2024/feb/08/missouri-lawmakers-want-to-raise-teacher-pay-but/
+- https://www.the74million.org/article/missouri-lawmakers-want-to-raise-teacher-pay-but-anticipate-senate-resistance/
+- https://missouriindependent.com/2024/02/07/missouri-lawmakers-want-to-raise-teacher-pay-but-anticipate-senate-resistance/ (Cloudflare challenge; not read)
+- https://www.newstribune.com/news/2026/feb/13/partisan-clash-erupts-in-missouri-senate/
+- https://missouriindependent.com/2026/02/12/partisan-clash-erupts-in-missouri-senate-education-hearing-on-transgender-students/ (403)
+- https://www.kcur.org/education/2025-02-19/missouri-bill-would-give-tax-credit-to-homeschool-and-private-school-families
+- https://semissourian.com/news/missouri-senators-propose-tax-credit-for-homeschool-and-private-school-families-83440967 (403)
+- https://www.northcassherald.com/post/response-to-brattin-position-on-failed-public-education
+- https://showmeprogress.com/2025/10/09/rick-brattin-r-and-brandon-phelps-r-chamber-of-commerce-coffee-concerns-warrensburg-missouri-october-9-2025/ (partisan blog transcript; not used for values)
+- https://www.legends1063.fm/news/local-news/hudson-named-vice-chair-of-powerful-state-senate-committee/
+- https://houstonherald.com/?p=226304 (paywalled)
+- https://houstonherald.com/?p=269325 (paywalled)
+- https://www.banderman4rep119.com/
+- https://ballotpedia.org/Brad_Banderman (empty response)
+- https://dollformo.com/
+- https://dollformo.com/issues
+- https://justfacts.votesmart.org/public-statement/1480900/issue-position-education (403)
+- https://www.stlpr.org/podcast/politically-speaking/2026-05-27/missouri-state-representative-mackey-says-ballot-items-have-hurt-democrats
+- https://www.stlpr.org/podcast/politically-speaking/2021-02-24/state-rep-jo-doll-on-her-entry-into-missouri-legislative-politics-and-overseeing-school-districts
+- https://en.wikipedia.org/wiki/Ian_Mackey (used only to locate the House Journal citation)
+- https://imackey.com/meet-ian (403)
+- https://mohousedemcaucus.com/post/mackey-pre-files-school-discipline-reform-legislation (host did not resolve)
+- https://www.mohousedems.com/maggie-nurrenbern-information-library (404)
+- https://www.nwmissouri.edu/media/news/2025/10/03DistinguishedLecture-EdLewis.htm
+- https://www.kcur.org/education/2026-08-19/15-states-have-laws-that-allow-corporal-punishment-in-schools-heres-where-and-why
+- https://www.ky3.com/2022/08/24/cassville-mo-school-district-reinstates-corporal-punishment-option-students-parents-react-decision/
+- https://legiscan.com/MO/supplement/SB681/id/274305 (403; seen only in search snippets)
