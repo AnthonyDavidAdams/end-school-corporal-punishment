@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { certificateHtml, certifiable } from "./certificate.mjs";
 import { toll as buildToll } from "./toll.mjs";
 import { connectSections, mdToHtml } from "./connect-page.mjs";
+import { guideBody } from "./lib/after-a-paddling.mjs";
 // A district's name becomes its certificate URL, so the rule has to be stable: the same district must
 // get the same address on every rebuild or a printed link stops working.
 const slug = (x) => String(x).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -611,6 +612,23 @@ ${templates.map(t => `<h3 id="${t.f.replace(".md", "")}">${esc(t.title)}</h3>${t
 <li><a href="${REPO}/tree/main/share">Share kits</a>: images in the visual language of the communities that still paddle.</li>
 </ul>`}));
 
+// ---------- kit: the parent guide "After a paddling" ----------
+// Body from kit/after-a-paddling.md plus three tables from data/states/ (tools/lib/after-a-paddling.mjs);
+// the PDF of the same body is built by tools/kit/after-a-paddling.mjs.
+{
+  const g = guideBody(root);
+  mkdirSync(join(site, "kit", "after-a-paddling"), { recursive: true });
+  writeFileSync(join(site, "kit", "after-a-paddling", "index.html"), shell({
+    title: g.title, path: "/kit/after-a-paddling/", description: g.description, image: `${BASE}/assets/og-after-a-paddling.png`,
+    extraHead: `<style>.guide .notice{background:#FBF3EC;border:1px solid #E8D5C4;border-radius:var(--radius);padding:.8rem 1rem;margin:1rem 0}.guide h2{margin-top:2.4rem}.guide h3{margin-top:1.6rem}.guide table{font-size:.86rem}.guide td .note{color:var(--muted);font-size:.8rem}.guide q{quotes:"\\201C" "\\201D"}.guide .tablewrap{margin:1rem 0}</style>`,
+    body: `<section class="hero"><div class="wrap"><p class="kicker">For parents and students</p><h1>${esc(g.title)}</h1>
+<p class="lede">${esc(g.description)}</p>
+<p><a class="cta" href="/kids/kit/after-a-paddling.pdf">Download as a PDF</a> <a class="cta alt" href="/kids/kit/">The Safe Discipline Program kit</a></p></div></section>
+<div class="guide">${g.body.replace(/^<h1[^>]*>.*?<\/h1>\n?/, "").replace(/<table class="guide-table/g, '<div class="tablewrap"><table class="guide-table').replace(/<\/table>/g, "</table></div>")}
+<p class="small">Statutes and deadlines were read at each state's own statute site on ${esc(g.verified)}. Source: <a href="${REPO}/blob/main/kit/after-a-paddling.md">kit/after-a-paddling.md</a> and <a href="${REPO}/blob/main/data/states/liability.json">data/states/liability.json</a>; every citation also lives as a claim in <a href="/kids/resources/">the facts registry</a>.</p></div>`,
+  }));
+}
+
 // ---------- contribute ----------
 // The walkthrough on the contribute page is a real district out of the record, not an illustration, so
 // it cannot quietly become untrue. If this district is ever re-read and the answer changes, the page
@@ -980,6 +998,7 @@ ${tables}
 <b>For schools</b>
 <a href="/kids/kit/">The Safe Discipline Program kit</a>
 <a href="/kids/kit/when-a-parent-asks-for-the-paddle.pdf">When a parent asks for the paddle</a>
+<a href="/kids/kit/after-a-paddling/">After a paddling: what a family can do</a>
 <a href="/kids/board/">The film for school boards</a>
 <b>End School Corporal Punishment</b>
 <a href="/kids/">The map</a>
