@@ -13,7 +13,7 @@ that they are requests under the state's law.
 Nothing here is generated at send time except the district's name, the recipient's first name and the
 compliment line, which comes from compliment.py and is checked against its own source before it ships.
 """
-import re, datetime, email.utils
+import re, datetime, email.utils, hashlib
 
 def ago(when):
     """'this morning', 'yesterday', 'last week', 'back in September': every message knows when the other side
@@ -55,18 +55,25 @@ PARENTS = "For a school that values data-driven outcomes for students, corporal 
 STANCE = 'The science on this is settled. No study has found a benefit. On average, corporal punishment increases the behavior it is meant to stop, and it raises the odds of anxiety and depression, lower grades, and of the child growing up to hit their own children. There is no research-supported reason to use it.'
 
 
+SUFFIX = {"jr", "sr", "ii", "iii", "iv", "v", "interim", "acting", "superintendent", "supt", "ceo", "esq"}
+
 def first_name(sup, fallback="there"):
-    """'Downs, David' -> 'David'; 'David Downs' -> 'David'; 'Dr. David Downs' -> 'David'."""
+    """'Downs, David' -> 'David'; 'David Downs' -> 'David'; 'Dr. David Downs' -> 'David';
+    'Dr. Washington Cole, IV, Interim' -> 'Washington' (it rendered as 'Iv' until 2026-10-30)."""
     s = re.sub(r"\b(dr|mr|mrs|ms|supt|superintendent|ed\.?s|ed\.?d|ph\.?d)\.?\b", " ", str(sup or ""), flags=re.I)
-    s = re.sub(r"[^A-Za-z,'\- ]", " ", s).strip()
-    if not s:
+    s = re.sub(r"[^A-Za-z,'\- ]", " ", s)
+    parts = [p.strip() for p in s.split(",")]
+    parts = [p for p in parts if p and p.lower().strip(". ") not in SUFFIX]   # drop ', IV', ', Interim', ', Jr'
+    if not parts:
         return fallback
-    if "," in s:
-        part = s.split(",")[1].strip()
-    else:
-        part = s.split()[0]
-    part = part.split()[0] if part.split() else ""
+    part = parts[1] if len(parts) > 1 else parts[0]   # 'Last, First' once suffixes are gone; else 'First Last'
+    words = [w for w in part.split() if w.lower() not in SUFFIX]
+    part = words[0] if words else ""
     return "-".join(x.capitalize() for x in part.split("-")) if len(part) > 1 else fallback
+
+
+def possessive(name):
+    return name + ("'" if name.endswith("s") else "'s")
 
 
 def sig(user, formal=False):
@@ -236,10 +243,20 @@ We keep a public, sourced record of what each district's own rule says — {SITE
 """
 
 
-def nudge(r, user):
-    """One soft follow-up. Never a second."""
-    who = first_name(r.get("superintendent"))
-    return f"""Hi {who}, just bumping this in case it got buried. Still after {nice(r['name'])}'s corporal punishment policy and the handbook link. A URL is plenty, or forward it to whoever keeps the board policies and I'll take it from there.
+def nudge(r, user, answered_in_state=0):
+    """One follow-up, never a second. Three shapes, picked by the request id so a superintendent who compares notes
+    with a neighbor does not see the same sentence twice. Each names the district, says when we wrote, and asks for
+    the one thing we want. No "bumping", no "buried": 502 of those went out in a single day on 2026-10-27."""
+    who = addressed_name(r); d = nice(r["name"]); when = ago(r.get("sent_at")); st = state_name(r.get("state"))
+    pick = int(hashlib.sha1(str(r.get("id", "")).encode()).hexdigest(), 16) % 3
+    if pick == 1 and answered_in_state < 3: pick = 0
+    if pick == 0:
+        body = f"Hi {who}, I wrote {when} about {possessive(d)} corporal punishment policy and haven't heard back, which usually means it landed on a busy day. A link to the board policy or the handbook section is all I need. If someone else keeps the policy manual, forwarding this to them works just as well."
+    elif pick == 1:
+        body = f"Hi {who}, following up on my note from {when}. {answered_in_state} {st} districts have sent their corporal punishment policy so far and I'd like {d} on the map in its own words rather than as a blank. A link to the policy page is plenty."
+    else:
+        body = f"Hi {who}, I asked {when} for {possessive(d)} written policy on corporal punishment and may have caught you at a bad time. Could you send the link to the board policy or the handbook section? If it's quicker, the name of whoever keeps the policy manual is just as good."
+    return f"""{body}
 
 {sig(user)}
 """
@@ -417,8 +434,16 @@ If it is something the board might take up, the one-sentence language {a} and mo
 
 
 def apology(r, user):
-    """After the 2026-10-26 misfire, when a killed cycle re-sent the same nudge up to five times in one evening."""
+    """Two shapes. The first is for the 2026-10-26 misfire, when a killed cycle re-sent the same nudge up to five
+    times in one evening. The second is for a follow-up that went to someone who had already answered: eight
+    districts got "still after your policy" on 2026-10-27, days after sending it, before the answered check existed."""
     who = addressed_name(r)
+    if r.get("reason") == "nudged_after_reply":
+        when = ago(r.get("answered_on")) if r.get("answered_on") else "earlier"
+        return f"""Hi {who}, please ignore the follow-up I sent asking again for the policy. You had already replied {when}, and that note went out by mistake on my end. Sorry for the noise, and no need to answer this.
+
+{sig(user)}
+"""
     return f"""Hey {who}, sorry about that. My email glitched last night and resent the same note a few times. Not trying to spam you, one copy was plenty. No need to reply to this.
 
 {sig(user)}

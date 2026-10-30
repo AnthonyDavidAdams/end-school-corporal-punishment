@@ -1336,19 +1336,56 @@ def release(kind, states=None):
     save(reqs); log(f"release {kind}: {k} released"); return k
 
 # ---------------------------------------------------------------- follow-up
+NUDGE_PER_CYCLE = 3     # about one every twenty minutes through the working day
+NUDGE_PER_DAY = 60      # 502 went out on 2026-10-27, from midnight on, when the whole 10-10 batch came due at once
+NUDGE_HOURS = (8, 17)   # local time, Monday to Friday; nothing at 2 a.m. signed "Sent from my iPhone"
+
 def followup():
     reqs = load(); n = 0
+    now = datetime.datetime.now()
+    if now.weekday() >= 5 or not (NUDGE_HOURS[0] <= now.hour < NUDGE_HOURS[1]):
+        log("followup: outside sending hours"); return
+    today = now.date().isoformat()
+    sent_today = sum(1 for r in reqs if str(r.get("followup_sent_at") or "").startswith(today))
+    if sent_today >= NUDGE_PER_DAY:
+        log(f"followup: {sent_today} today, daily cap reached"); return
+    answered_in_state = {}
     for r in reqs:
-        if n >= 15: break   # at most 15 nudges per cycle; the rest wait for the next one
-        answered = r.get("last_reply_at") or any(e.get("kind") != "auto_reply_or_bounce" for e in r.get("replies") or [])
-        if answered: continue   # a thread with a reply never gets "in case it got buried" (39 did before 2026-10-27)
+        if r.get("kind", "policy") == "policy" and r.get("status") == "answered":
+            answered_in_state[r["state"]] = answered_in_state.get(r["state"], 0) + 1
+    def due(r):
+        if r["status"] not in ("sent", "promised") or r.get("followup_sent_at"): return False
+        if r.get("last_reply_at") or any(e.get("kind") != "auto_reply_or_bounce" for e in r.get("replies") or []): return False   # a thread with a reply never gets a nudge (39 did before 2026-10-27)
         ours = max([r.get("sent_at") or ""] + [str(o.get("at") or "") for o in r.get("our_messages") or []], key=when_ts)
-        if r["status"] in ("sent", "promised") and not r.get("followup_sent_at") and business_days_since(ours if "," not in ours else datetime.datetime.fromtimestamp(when_ts(ours)).isoformat()) >= 10:
-            m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = "Re: " + (r.get("subject") or subject_for(r))
-            m["In-Reply-To"] = r["message_id"]; m["References"] = r["message_id"]; m.set_content(messages.nudge(r, USER))
-            try: smtp_send(m); r["followup_sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); n += 1; log("nudged", r["state"], r["name"]); save(reqs); time.sleep(8)   # saved per send: a cycle killed mid-loop re-nudged 45 districts on 2026-10-26
-            except Exception as e: log("nudge failed", r["name"], e)
-    save(reqs); log(f"followup: {n} nudges")
+        return business_days_since(ours if "," not in ours else datetime.datetime.fromtimestamp(when_ts(ours)).isoformat()) >= 10
+    eligible = sorted((r for r in reqs if due(r)), key=lambda r: -(r.get("kids") or 0))   # most children struck first
+    for r in eligible[:min(NUDGE_PER_CYCLE, NUDGE_PER_DAY - sent_today)]:
+        m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = "Re: " + (r.get("subject") or subject_for(r))
+        m["In-Reply-To"] = r["message_id"]; m["References"] = r["message_id"]
+        body = messages.nudge(r, USER, answered_in_state.get(r["state"], 0)); m.set_content(body)
+        try:
+            smtp_send(m); r["followup_sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); n += 1
+            r.setdefault("our_messages", []).append({"at": r["followup_sent_at"], "kind": "nudge", "text": body})
+            log("nudged", r["state"], r["name"]); save(reqs); time.sleep(8)   # saved per send: a cycle killed mid-loop re-nudged 45 districts on 2026-10-26
+        except Exception as e: log("nudge failed", r["name"], e)
+    save(reqs); log(f"followup: {n} nudges, {len(eligible) - n} still due")
+
+def queue_nudge_apologies():
+    """One held apology per district that got a follow-up after it had already answered (the 2026-10-27 run, before
+    the answered check). Threads under the original request; Anthony reads the batch before it goes."""
+    reqs = load(); have = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "apology"}; added = 0
+    for r in list(reqs):
+        if r.get("kind", "policy") != "policy" or not r.get("followup_sent_at") or r["followup_sent_at"] == "n/a": continue
+        if not r.get("last_reply_at") or when_ts(r["last_reply_at"]) >= when_ts(r["followup_sent_at"]): continue
+        if not any(e.get("kind") != "auto_reply_or_bounce" for e in r.get("replies") or []): continue
+        if str(r.get("nces_id")) in have: continue
+        rid = hashlib.sha1(f"apology|nudge|{r['id']}".encode()).hexdigest()[:10]
+        reqs.append({"id": rid, "state": r["state"], "state_name": r.get("state_name"), "name": r["name"], "nces_id": str(r.get("nces_id")), "kids": r.get("kids") or 0,
+                     "kind": "apology", "reason": "nudged_after_reply", "answered_on": r["last_reply_at"], "to": r["to"], "superintendent": r.get("superintendent"),
+                     "parent_request": r["id"], "status": "held", "replies": [], "followup_sent_at": "n/a", "queued_at": datetime.datetime.now().isoformat(timespec="seconds"),
+                     "notes": f"Nudge sent {r['followup_sent_at'][:16]} after their reply of {r['last_reply_at'][:16]}; before the answered check of 2026-10-27."})
+        added += 1
+    save(reqs); log(f"queued {added} held apologies for follow-ups sent after a reply")
 
 def retriage(send=False):
     """Re-read every stored reply with the current triage, and take the move it calls for.
@@ -1415,6 +1452,7 @@ if __name__ == "__main__":
     if cmd == "decide": decide(); sys.exit()
     if cmd == "catchup": catchup(send="--dry" not in sys.argv); sys.exit()
     if cmd == "queue-corrections": queue_corrections(); sys.exit()
+    if cmd == "queue-nudge-apologies": queue_nudge_apologies(); sys.exit()
     if cmd == "queue-align": queue_align(int(sys.argv[2]) if len(sys.argv) > 2 else 25, sys.argv[3].split(",") if len(sys.argv) > 3 else None); sys.exit()
     if cmd == "release-align":   # Anthony has seen the held list; let the next cycle send it
         reqs = load(); k = 0; skip = set(sys.argv[sys.argv.index("--not") + 1].split(",")) if "--not" in sys.argv else set()
