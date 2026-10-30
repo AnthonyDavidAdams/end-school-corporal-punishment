@@ -416,6 +416,37 @@
   "body": "The old site's 'students with disabilities are punished at twice the rate' is not supported nationally by any recent year. The disparity is real at the district level (Gershoff and Font 2016) and in specific states, and it moved with policy: Mississippi's count of students with disabilities struck fell from 3,304 in 2017-18 to 30 in 2021-22 after HB 1182 (2019). Students served only under Section 504 remain over-represented (5 percent of students struck versus 3 percent of enrollment in 2020-21). Use the state-level figures in data/crdc/ for testimony.\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "crdc-missouri-2023-24-computed",
+  "claim": "In the 2023-24 school year, 1,002 Missouri public school students received corporal punishment in 1,231 instances, computed by this project from the raw Civil Rights Data Collection file released August 31, 2026; 857 of the 1,002 were boys and 161 were students with disabilities.",
+  "status": "verified",
+  "figure": 1002,
+  "as_of": "2023-24",
+  "sources": [
+   {
+    "url": "https://civilrightsdata.ed.gov/assets/ocr/docs/2023-24-crdc-data.zip",
+    "title": "2023-24 CRDC public-use data file (SCH/Corporal Punishment.csv)",
+    "publisher": "US Department of Education, Office for Civil Rights",
+    "date": "2026-08-31",
+    "primary": true
+   },
+   {
+    "url": "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/data/crdc/2023-24/states.csv",
+    "title": "data/crdc/2023-24/states.csv (this project's state extract)",
+    "publisher": "End School Corporal Punishment (this project)",
+    "date": "2026-09-09",
+    "primary": false
+   }
+  ],
+  "tags": [
+   "crdc",
+   "missouri",
+   "computed"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Same method and caveats as crdc-national-total-2023-24-computed: our sum of the school-level counts, 1.15 per thousand enrolled, down 11.6 percent from 1,133 in 2021-22. The Office for Civil Rights has published no analysis of the 2023-24 release.\n\n## History\n- 2026-10-29: created from the project's state extract for the Missouri memo."
+ },
+ {
   "id": "crdc-national-total-2021-22",
   "claim": "In the 2021-22 school year, 24,534 K-12 public school students received corporal punishment in the United States, according to the federal Civil Rights Data Collection.",
   "status": "verified",
@@ -606,6 +637,54 @@
   "body": "Repeat this whenever a figure is quoted. Evidence of error in both directions: six jurisdictions that ban the practice reported nonzero counts in 2017-18, and a New Jersey district reported 380 students in 2023-24. Instances exceed students by about 30 percent (31,779 versus 24,534 in 2021-22).\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "districts-missouri-policy-counts-2026-10",
+  "claim": "As of October 29, 2026, this project's records for Missouri's 325 districts list 125 with a written policy prohibiting corporal punishment, 128 whose policy permits it (46 outright and 82 only with a parent's written consent), 71 whose published documents are silent and one unknown.",
+  "status": "verified",
+  "figure": 128,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/blob/main/data/districts/MO.yaml",
+    "title": "data/districts/MO.yaml",
+    "publisher": "End School Corporal Punishment (this project)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "districts",
+   "computed",
+   "missouri"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Our own count from the district file. Because RSMo 160.261.1 has required a parent's written permission for any corporal punishment since August 28, 2022, every Missouri district that permits it is in practice an opt-in district; the 46 \"allows\" entries are policies that do not themselves recite the consent rule. The modal prohibition sentence among Missouri boards, used by 28 of them in policy JGA-2, is \"Corporal punishment is strictly prohibited as a method of discipline.\" (data/states/model-language.json). Re-run the tally before quoting; the records request campaign adds entries weekly.\n\n## History\n- 2026-10-29: created for the Missouri instance of the necessity memo."
+ },
+ {
+  "id": "districts-prohibiting-boards-17-states-2026-10",
+  "claim": "As of October 29, 2026, this project's district records for the 17 states whose law permits corporal punishment list 1,190 school boards with a written policy prohibiting it, 1,475 whose policy permits it, 200 that permit it only with a parent's written consent, 518 whose published documents are silent and 45 unknown.",
+  "status": "verified",
+  "figure": 1190,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment/tree/main/data/districts",
+    "title": "data/districts/<ST>.yaml, one file per state, each entry with source URL and verbatim quote",
+    "publisher": "End School Corporal Punishment (this project)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "districts",
+   "computed",
+   "boards"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Our own count, not an outside publication. Method: load data/districts/{AL,AR,AZ,FL,GA,IN,KS,KY,LA,MS,MO,NC,OK,SC,TN,TX,WY}.yaml and tally the status field. Per state (bans / allows / consent_required / silent / unknown): AL 27/73/6/21/0; AR 17/140/7/25/3; AZ 19/2/0/0/1; FL 22/8/6/18/1; GA 32/94/3/36/0; IN 144/46/1/36/2; KS 148/11/1/62/3; KY 156/5/1/5/0; LA 10/13/7/27/0; MS 20/98/6/8/16; MO 125/46/82/71/1; NC 94/2/0/13/2; OK 43/157/71/131/1; SC 1/1/0/12/7; TN 28/44/5/39/0; TX 300/735/4/0/5; WY 4/0/0/14/3. \"Silent\" means the district's published handbook and policy were read and say nothing either way; in Arkansas a silent policy operates as a prohibition under section 6-18-503(b), but the count keeps it as silent. Use \"more than eleven hundred boards\" in prose. The count moves as the scan continues; re-run the tally before quoting a precise figure, and retire this claim when a later month's count replaces it.\n\n## History\n- 2026-10-29: created for the necessity memo and brief."
+ },
+ {
   "id": "evidence-no-post-ban-outcome-study",
   "claim": "No study has found that ending corporal punishment increases misbehavior, and no study has found that using it improves behavior; as of September 2026 there is no US natural-experiment study of suspensions or achievement before and after a state or district ban.",
   "status": "verified",
@@ -794,6 +873,259 @@
   "last_verified": "2026-09-09",
   "verified_by": "agent:claude (research pass 2026-09-09)",
   "body": "The Global Initiative counts 199 states and territories, more than the 193 UN members. The United States is counted among the 62 as 'SOME' (prohibited in some states). The old site's '128 countries' figure is stale.\n\n## History\n- 2026-09-09: created."
+ },
+ {
+  "id": "law-alabama-paddling-immunity-clause",
+  "claim": "In Alabama, the statute says of a school employee who paddles a child under board policy: \"So long as teachers follow approved policy in the exercise of their responsibility to maintain discipline in their classroom, such teacher shall be immune from civil or criminal liability.\" (Ala. Code § 16-28A-1); the statute's consent rule is: None in the statute; the local board's policy decides.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://alison.legislature.state.al.us/code-of-alabama?section=16-28A-1",
+    "title": "Ala. Code § 16-28A-1",
+    "publisher": "Alabama Legislature (alison.legislature.state.al.us)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "alabama",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/AL.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-alabama-suit-deadlines-public-school",
+  "claim": "In Alabama, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: No statute names a school board. The six-month tort claim rule is for municipalities only. Alabama's constitution says the State may never be made a defendant in any court (Art. I, § 14); ask a lawyer whether a board of education shares that immunity. (Ala. Code § 11-47-23); time limit to sue: Two years for any injury to the person. (Ala. Code § 6-2-38(l)); a child's age: Yes. A child under nineteen has until two years after turning nineteen. (Ala. Code § 6-2-8(a)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://alison.legislature.state.al.us/code-of-alabama?section=11-47-23",
+    "title": "Ala. Code § 11-47-23",
+    "publisher": "Alabama Legislature (alison.legislature.state.al.us)",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://alison.legislature.state.al.us/code-of-alabama?section=6-2-38",
+    "title": "Ala. Code § 6-2-38(l)",
+    "publisher": "Alabama Legislature (alison.legislature.state.al.us)",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://alison.legislature.state.al.us/code-of-alabama?section=6-2-8",
+    "title": "Ala. Code § 6-2-8(a)",
+    "publisher": "Alabama Legislature (alison.legislature.state.al.us)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "alabama",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-ali-restatement-children-8-10",
+  "claim": "Section 8.10 of the American Law Institute's Restatement of the Law, Children and the Law (Tentative Draft No. 2, 2019) provides that 'the use of force to punish through the infliction of pain is not necessary to maintain order or safety, and therefore corporal punishment is prohibited in public schools unless expressly authorized by statute, and any such authorization is to be narrowly construed'; the ALI membership approved the full Restatement on May 17, 2024.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2024-05-17",
+  "sources": [
+   {
+    "url": "https://www.thealiadviser.org/wp-content/uploads/2019/04/Children-Section-8-10-BL-Comment.pdf",
+    "title": "Restatement of the Law, Children and the Law, Tentative Draft No. 2, section 8.10 Black Letter and Comment (pp. 142-150)",
+    "publisher": "The American Law Institute (posted on The ALI Adviser)",
+    "date": "2019-04",
+    "primary": true
+   },
+   {
+    "url": "https://ali.org/news/articles/american-law-institutes-restatement-law-children-and-law-approved",
+    "title": "Restatement of the Law, Children and the Law Is Approved (press release)",
+    "publisher": "The American Law Institute",
+    "date": "2024-05-17",
+    "primary": true
+   },
+   {
+    "url": "https://www.ali.org/publications/restatement-law/children-and-law",
+    "title": "Restatement of the Law, Children and the Law (publication page)",
+    "publisher": "The American Law Institute",
+    "date": "2024",
+    "primary": true
+   },
+   {
+    "url": "https://www.thealiadviser.org/children-law/children-in-schools-use-of-force-to-control-and-punish/",
+    "title": "Children in Schools: Use of Force to Control and Punish (excerpt of section 8.10)",
+    "publisher": "The ALI Adviser",
+    "date": "2019-04",
+    "primary": false
+   }
+  ],
+  "tags": [
+   "law",
+   "restatement",
+   "ali",
+   "schools"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Black letter as posted by the ALI in April 2019 (Part II, Children in Schools; Chapter 8, Discipline and Order Maintenance; Topic 1; section 8.10, Use of Force to Control and Punish), first paragraph: \"In a criminal proceeding or a civil suit alleging an intentional tort, the use of reasonable force by a teacher or other school authority with responsibility for the care and education of students is privileged if the school authority reasonably believes that the force is necessary to maintain order and safety in the school.\" Second paragraph as in the claim.\n\nComment c (page 145): \"Where a broad and growing legal, medical, and social scientific consensus categorically rejects the propriety and efficacy of corporal punishment, corporal punishment cannot be said to be 'necessary.' Thus, application of the 'reasonable belief in necessity' requirement precludes application of the common-law privilege to corporal punishment.\" Comment c also says that \"in both the school and family setting, there is a growing social scientific consensus that the use of corporal punishment is ineffective and potentially harmful to children.\" Comment a (page 143): \"Where corporal punishment is still authorized by statute, this Restatement notes that the reasonableness contemplated in those statutes is increasingly out of step with trends in the law.\"\n\nStatus of the text. The PDF read here carries the footer \"Tentative draft – not approved\" because it was posted before the May 2019 Annual Meeting. The ALI's press release of May 17, 2024 says the membership \"voted today to approve Restatement of the Law, Children and the Law\" and that \"until the official text is published, the drafts approved by the membership are the official position of ALI, and may be cited as such.\" The ALI publications page lists the Restatement as a 2024 publication in volumes. The published volume was not opened in this project (it is sold, not posted), so the section number and wording in the official text have not been checked against the 2019 draft; every citation should say \"Tentative Draft No. 2 (2019), Restatement approved by the membership May 17, 2024\" until someone reads the printed section. The ALI project page could not be opened without accepting the site's terms banner, which this project does not do unattended.\n\n## History\n- 2026-10-29: created from the ALI's posted draft text and its 2024 press release."
+ },
+ {
+  "id": "law-arizona-paddling-immunity-clause",
+  "claim": "In Arizona, no immunity clause: the words immune and liable do not appear in the school discipline statute. (A.R.S. § 15-843); the statute's consent rule is: None in the statute; the board sets the procedures.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.azleg.gov/ars/15/00843.htm",
+    "title": "A.R.S. § 15-843",
+    "publisher": "Arizona Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "arizona",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/AZ.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-arizona-suit-deadlines-public-school",
+  "claim": "In Arizona, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Yes. A written claim stating the facts and a settlement amount must be filed with the district within one hundred eighty days of when you knew of the injury, or it is barred. The claim is deemed denied after sixty days. (A.R.S. § 12-821.01); time limit to sue: One year for any action against a public entity or employee; two years for personal injury generally. (A.R.S. §§ 12-821, 12-542); a child's age: Partly. A minor may file the claim within one hundred eighty days after turning eighteen; the general tolling rule is separate. (A.R.S. §§ 12-821.01(D), 12-502).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.azleg.gov/ars/12/00821-01.htm",
+    "title": "A.R.S. § 12-821.01",
+    "publisher": "Arizona Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.azleg.gov/ars/12/00821.htm",
+    "title": "A.R.S. §§ 12-821, 12-542",
+    "publisher": "Arizona Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "arizona",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-arkansas-paddling-immunity-clause",
+  "claim": "In Arkansas, the statute says of a school employee who paddles a child under board policy: \"teachers and administrators in a school district that authorizes use of corporal punishment in the school district's written student discipline policy shall be immune from any civil liability for administering corporal punishment to students, provided only that the corporal punishment is administered in substantial compliance with the school district's written student discipline policy. [...] A teacher or administrator [...] is not immune from civil liability under subdivision (a)(1) of this section if the teacher or administrator uses corporal punishment on a child who is intellectually disabled, nonambulatory, nonverbal, or autistic.\" (Ark. Code § 6-17-112(a)); the statute's consent rule is: None in the statute; the district's written discipline policy must authorize it.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "http://www.lexisnexis.com/hottopics/arcode",
+    "title": "Ark. Code § 6-17-112(a)",
+    "publisher": "Arkansas General Assembly, Code of Arkansas Public Access (LexisNexis-hosted)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "arkansas",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/AR.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-arkansas-suit-deadlines-public-school",
+  "claim": "In Arkansas, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: None in the immunity statute. School districts are immune from suit for damages except to the extent they carry liability insurance, and no tort action lies against the district for its employees' acts; the claim is against the insurance. (Ark. Code § 21-9-301); time limit to sue: Three years is the period in § 16-56-105; the specific item covering injury to the person could not be read on the official site, so confirm it with a lawyer. (Ark. Code § 16-56-105); a child's age: Yes. A person under twenty-one when the claim accrues may sue within three years after reaching full age. (Ark. Code § 16-56-116(a)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://arkleg.state.ar.us/Acts/FTPDocument?path=%2FACTS%2F2021R%2FPublic%2F&file=627.pdf&ddBienniumSession=2021%2F2021R",
+    "title": "Ark. Code § 21-9-301",
+    "publisher": "Arkansas General Assembly, Code of Arkansas Public Access (LexisNexis-hosted)",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "http://www.lexisnexis.com/hottopics/arcode",
+    "title": "Ark. Code § 16-56-105",
+    "publisher": "Arkansas General Assembly, Code of Arkansas Public Access (LexisNexis-hosted)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "arkansas",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-canada-2004-scc-4-teachers",
+  "claim": "In Canadian Foundation for Children, Youth and the Law v. Canada (Attorney General), 2004 SCC 4, decided January 30, 2004, the Supreme Court of Canada read the words 'reasonable under the circumstances' in Criminal Code section 43 against the expert evidence and held that 'substantial societal consensus, supported by expert evidence and Canada's treaty obligations, indicates that corporal punishment by teachers is unreasonable', so that teachers 'may reasonably apply force to remove a child from a classroom or secure compliance with instructions, but not merely as corporal punishment.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2004-01-30",
+  "sources": [
+   {
+    "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/2115/1/document.do",
+    "title": "Canadian Foundation for Children, Youth and the Law v. Canada (Attorney General), [2004] 1 S.C.R. 76, 2004 SCC 4 (reasons, PDF)",
+    "publisher": "Supreme Court of Canada",
+    "date": "2004-01-30",
+    "primary": true
+   },
+   {
+    "url": "https://decisions.scc-csc.ca/scc-csc/scc-csc/en/item/2115/index.do",
+    "title": "Case page",
+    "publisher": "Supreme Court of Canada",
+    "date": "2004-01-30",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "international",
+   "canada",
+   "courts"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Majority reasons by McLachlin C.J. The passages: paragraph 38, \"Contemporary social consensus is that, while teachers may sometimes use corrective force to remove children from classrooms or secure compliance with instructions, the use of corporal punishment by teachers is not acceptable. Many school boards forbid the use of corporal punishment, and some provinces and territories have legislatively prohibited its use by teachers ... Section 43 will protect a teacher who uses reasonable, corrective force to restrain or remove a child in appropriate circumstances. Substantial societal consensus, supported by expert evidence and Canada's treaty obligations, indicates that corporal punishment by teachers is unreasonable.\" Paragraph 40, \"Teachers may reasonably apply force to remove a child from a classroom or secure compliance with instructions, but not merely as corporal punishment.\" Paragraph 37 records the experts' agreement that corporal punishment of children under two and of teenagers, with objects, or to the head is harmful and \"will not be reasonable.\" The statute was upheld for parents (minor corrective force of a transitory and trifling nature); the court narrowed it by interpretation rather than striking it. Dissents by Binnie, Arbour and Deschamps JJ. Use as the clearest example of a court reading a reasonableness standard against the evidence and removing teachers from it.\n\n## History\n- 2026-10-29: created from the Court's own PDF of the reasons."
  },
  {
   "id": "law-cardona-letter-2023",
@@ -1022,6 +1354,118 @@
   "body": "The consent provision came from a four-year effort by University of Florida students in the Florida Student Policy Forum, who first sought a ban for students with disabilities and settled for consent after pushback from conservative districts. Baseline: 17 Florida counties reported 516 instances in 2023-24 (Suwannee 74, Holmes 65, Calhoun 59, Columbia 50, Wakulla 45, Washington 43). Florida districts that still permit the practice are coded consent_required.\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "law-florida-paddling-immunity-clause",
+  "claim": "In Florida, the statute says of a school employee who paddles a child under board policy: \"An officer, employee, or agent of the state or of any of its subdivisions may not be held personally liable in tort or named as a party defendant in any action for any injury or damage suffered as a result of any act, event, or omission of action in the scope of her or his employment or function, unless such officer, employee, or agent acted in bad faith or with malicious purpose or in a manner exhibiting wanton and willful disregard of human rights, safety, or property.\" (Fla. Stat. § 768.28(9)(a) (general employee immunity; the school statutes have no corporal punishment immunity clause)); the statute's consent rule is: Opt-in. A board that allows it must require parental consent, for the year or before each paddling (§ 1002.20(4)(c), since July 1, 2025).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0768/Sections/0768.28.html",
+    "title": "Fla. Stat. § 768.28(9)(a) (general employee immunity; the school statutes have no corporal punishment immunity clause)",
+    "publisher": "Florida Legislature, Online Sunshine / Florida Senate",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "florida",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/FL.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-florida-suit-deadlines-public-school",
+  "claim": "In Florida, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Yes. A written claim to the agency and to the Department of Financial Services within three years, and a denial, before suit. The statute does not name school boards; a lawyer must confirm how it applies to a district. (Fla. Stat. § 768.28(6)); time limit to sue: Four years for a claim under the sovereign immunity statute; generally two years for negligence and four for battery. (Fla. Stat. §§ 768.28(14), 95.11); a child's age: Rarely. Minority pauses the clock only while the child has no parent or guardian able to sue, and never beyond seven years. Nothing in § 768.28 pauses the claim deadline. (Fla. Stat. § 95.051(1)(i)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0768/Sections/0768.28.html",
+    "title": "Fla. Stat. § 768.28(6)",
+    "publisher": "Florida Legislature, Online Sunshine / Florida Senate",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0095/Sections/0095.11.html",
+    "title": "Fla. Stat. §§ 768.28(14), 95.11",
+    "publisher": "Florida Legislature, Online Sunshine / Florida Senate",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0095/Sections/0095.051.html",
+    "title": "Fla. Stat. § 95.051(1)(i)",
+    "publisher": "Florida Legislature, Online Sunshine / Florida Senate",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "florida",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-georgia-paddling-immunity-clause",
+  "claim": "In Georgia, the statute says of a school employee who paddles a child under board policy: \"No principal or teacher who shall administer corporal punishment to a pupil or pupils under his care and supervision in conformity with the policies and regulations of the area, county, or independent board of education employing him and in accordance also with this subpart shall be held accountable or liable in any criminal or civil action based upon the administering of corporal punishment where the corporal punishment is administered in good faith and is not excessive or unduly severe.\" (O.C.G.A. § 20-2-732); the statute's consent rule is: Opt-out by physician only: a statement from a medical doctor licensed in Georgia, filed on the day of enrollment (§ 20-2-731(5)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "http://www.lexisnexis.com/hottopics/gacode",
+    "title": "O.C.G.A. § 20-2-732",
+    "publisher": "Georgia Code Revision Commission, O.C.G.A. (LexisNexis-hosted)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "georgia",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/GA.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-georgia-suit-deadlines-public-school",
+  "claim": "In Georgia, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: None found. The six-month municipal notice and the twelve-month county and state rules do not name school districts, and the state Tort Claims Act excludes them. Separately, a teacher who paddles in good faith under board policy is not liable in a civil or criminal action. (O.C.G.A. §§ 36-33-5, 50-21-22(5), 20-2-732); time limit to sue: Two years for injuries to the person. (O.C.G.A. § 9-3-33); a child's age: Yes. A child has the same two years after turning eighteen. (O.C.G.A. § 9-3-90(b)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "http://www.lexisnexis.com/hottopics/gacode",
+    "title": "O.C.G.A. §§ 36-33-5, 50-21-22(5), 20-2-732",
+    "publisher": "Georgia Code Revision Commission, O.C.G.A. (LexisNexis-hosted)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "georgia",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
   "id": "law-idaho-hb281-2023",
   "claim": "Idaho banned corporal punishment and chemical restraint in public and charter schools on April 3, 2023 through House Bill 281, a restraint-and-seclusion bill carried by a Republican sponsor; it passed the House 45-22 and the Senate 21-12.",
   "status": "verified",
@@ -1053,6 +1497,386 @@
   "body": "Floor sponsor Rep. Marco Erickson (R). The bill followed an Idaho Statesman investigation into restraint and seclusion injuries; corporal punishment was bundled in and barely contested. Private schools were removed by Senate amendment. Effective July 1, 2023. Case study: strategy/case-studies/idaho-2023.md.\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "law-idea-state-complaint-one-year",
+  "claim": "Under the Individuals with Disabilities Education Act regulations, any organization or individual may file a signed written complaint with the state education agency alleging a violation that occurred not more than one year before the complaint is received (34 CFR 300.153), and the agency must resolve it within 60 days (34 CFR 300.152(a)).",
+  "status": "verified",
+  "figure": 1,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-III/part-300/subpart-B/subject-group-ECFR0ec59c730ac278e/section-300.153",
+    "title": "34 CFR 300.153 Filing a complaint",
+    "publisher": "eCFR, Office of the Federal Register",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-III/part-300/subpart-B/subject-group-ECFR0ec59c730ac278e/section-300.152",
+    "title": "34 CFR 300.152 Minimum State complaint procedures",
+    "publisher": "eCFR, Office of the Federal Register",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "federal",
+   "idea",
+   "disability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Verbatim, 300.153(c): \"The complaint must allege a violation that occurred not more than one year prior to the date that the complaint is received in accordance with § 300.151.\" 300.152(a): \"Each SEA must include in its complaint procedures a time limit of 60 days after a complaint is filed under § 300.153 to\" carry out an investigation if needed, take the complainant's information, review the information and issue a written decision. 300.153(d): the complainant must send a copy to the district at the same time. Used in the parent guide for a child with an IEP.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-immunity-alabama-16-28a-1",
+  "claim": "Ala. Code section 16-28A-1 (Acts 1995, No. 95-539) gives teachers 'the authority and responsibility to use appropriate means of discipline up to and including corporal punishment as may be prescribed by the local board of education' and provides that 'so long as teachers follow approved policy in the exercise of their responsibility to maintain discipline in their classroom, such teacher shall be immune from civil or criminal liability'; the statute's only standard words are 'appropriate' and 'follow approved policy', with no reasonableness, necessity or excess language.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://alison.legislature.state.al.us/code-of-alabama?section=16-28A-1",
+    "title": "Code of Alabama, section 16-28A-1, Legislative Findings",
+    "publisher": "Alabama Legislature (ALISON)",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://alison.legislature.state.al.us/code-of-alabama?section=16-28A-5",
+    "title": "Code of Alabama, section 16-28A-5, Immunity for Other Authorized School Personnel",
+    "publisher": "Alabama Legislature (ALISON)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "alabama"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Section 16-28A-1 in full: \"It is the finding of the Alabama Legislature that the people of Alabama have two basic expectations of their public schools: (1) that students be allowed to learn in a safe classroom setting where order and discipline are maintained; and (2) that students learn at the level of their capabilities and achieve accordingly. ... The teacher in each classroom is expected to maintain order and discipline. Teachers are hereby given the authority and responsibility to use appropriate means of discipline up to and including corporal punishment as may be prescribed by the local board of education. So long as teachers follow approved policy in the exercise of their responsibility to maintain discipline in their classroom, such teacher shall be immune from civil or criminal liability. It shall be the responsibility of the local boards of education and the administrators employed by them to provide legal support to each teacher exercising his or her authority and responsibility to maintain order and discipline in his or her classroom as long as the teacher follows the local board of education's policy. ... Local school board authorities and school administrators providing such support shall be absolutely immune from civil and criminal liability for actions authorized or required by this section.\" Section 16-28A-5 extends the chapter to \"principals, assistant principals and any other school personnel authorized to use corporal punishment under the policies and guidelines developed by the local board of education.\"\n\nReading: the immunity is conditioned entirely on policy compliance and on the word \"appropriate,\" so the reasonableness and necessity limits come from the common law (Ingraham; Restatement (Second) of Torts section 147(2)) and from the board's own policy, which in Alabama usually says \"reasonable.\"\n\n## History\n- 2026-10-29: created from the Legislature's code site."
+ },
+ {
+  "id": "law-immunity-arkansas-6-17-112",
+  "claim": "Ark. Code section 6-17-112(a)(1), as amended by Act 557 of 2019, makes teachers and administrators 'immune from any civil liability for administering corporal punishment to students, provided only that the corporal punishment is administered in substantial compliance with the school district's written student discipline policy', withdraws that immunity for a child 'who is intellectually disabled, non-ambulatory, non-verbal, or autistic' (a)(2), and section 6-18-505(c)(1) permits corporal punishment 'administered in accord with the district's written student discipline policy ... in order to maintain discipline and order within the public schools.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2019-03-26",
+  "sources": [
+   {
+    "url": "https://www.arkleg.state.ar.us/Home/FTPDocument?path=/ACTS/2019R/Public/ACT557.pdf",
+    "title": "Act 557 of 2019 (SB 381), amending sections 6-17-112(a), 6-17-1113(a)(2), 6-18-503(b) and 6-18-505(c)(1)",
+    "publisher": "Arkansas General Assembly",
+    "date": "2019-03-26",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "arkansas"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Text as enacted (the act prints the amended sections in full, so the quotation is of the statute, not a summary). Section 6-17-112(a)(1): \"Except as provided under subdivision (a)(2) of this section, teachers and administrators in a school district that authorizes use of corporal punishment in the school district's written student discipline policy shall be immune from any civil liability for administering corporal punishment to students, provided only that the corporal punishment is administered in substantial compliance with the school district's written student discipline policy.\" (a)(2): \"A teacher or administrator in a school district that authorizes use of corporal punishment in the school district's written student disciplinary policy is not immune from civil liability under subdivision (a)(1) of this section if the teacher or administrator uses corporal punishment on a child who is intellectually disabled, non-ambulatory, non-verbal, or autistic.\" Section 6-18-505(c)(1): \"A teacher or school administrator in a school district that authorizes use of corporal punishment in the district's written student discipline policy may use corporal punishment, provided only that if the punishment is administered in accord with the district's written student discipline policy, on any pupil, except a child who is intellectually disabled, non-ambulatory, non-verbal, or autistic, in order to maintain discipline and order within the public schools.\" Section 6-17-1113(a)(2)(B) removes the School Worker Defense Program's cover for the same four categories.\n\nStandard words: \"substantial compliance\" with written policy and \"in order to maintain discipline and order\"; no reasonableness or excess language in these subsections. The conditions in section 6-18-503(b)(1) recorded in data/states/AR.yaml (for cause, reasonable, after warning, in an administrator's presence) were not opened at a primary source on this date: the official Arkansas Code is served by a LexisNexis portal that put a CAPTCHA in front of the section page, and no later act was found to have changed that subsection. Approved March 26, 2019.\n\n## History\n- 2026-10-29: created from the enrolled act on the General Assembly's site."
+ },
+ {
+  "id": "law-immunity-georgia-20-2-732",
+  "claim": "O.C.G.A. section 20-2-732 provides that no principal or teacher who administers corporal punishment 'in conformity with the policies and regulations' of the board 'shall be held accountable or liable in any criminal or civil action based upon the administering of corporal punishment where the corporal punishment is administered in good faith and is not excessive or unduly severe', and section 20-2-731 authorizes it 'in order to maintain proper control and discipline' subject to the requirements that it 'shall not be excessive or unduly severe' and 'shall never be used as a first line of punishment for misbehavior unless the pupil was informed beforehand.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "http://www.lexisnexis.com/hottopics/gacode",
+    "title": "Official Code of Georgia Annotated, sections 20-2-731 and 20-2-732 (public access portal maintained for the Georgia Code Revision Commission)",
+    "publisher": "Georgia General Assembly / LexisNexis",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "georgia"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Section 20-2-732 as displayed on the official portal: \"No principal or teacher who shall administer corporal punishment to a pupil or pupils under his care and supervision in conformity with the policies and regulations of the area, county, or independent board of education employing him and in accordance also with this subpart shall be held accountable or liable in any criminal or civil action based upon the administering of corporal punishment where the corporal punishment is administered in good faith and is not excessive or unduly severe.\" The portal's annotation notes Peterson v. Baker, 504 F.3d 1331 (11th Cir. 2007), applying the immunity absent \"actual malice or an intent to injure.\"\n\nSection 20-2-731 opening and requirements (1) and (2) as displayed: \"An area, county, or independent board of education may, upon the adoption of written policies, authorize any principal or teacher employed by the board to administer, in the exercise of his sound discretion, corporal punishment on any pupil or pupils placed under his supervision in order to maintain proper control and discipline. Any such authorization shall be subject to the following requirements: (1) The corporal punishment shall not be excessive or unduly severe; (2) Corporal punishment shall never be used as a first line of punishment for misbehavior unless the pupil was informed beforehand that specific misbehavior could occasion ...\" The portal's search view truncated the section there; the remaining requirements (a witness informed beforehand, a written explanation to the parent on request, and the exemption for a child whose parent files a physician's statement) are recorded in data/states/GA.yaml from an earlier read and were not re-read on this date because the portal's full-document view sits behind a CAPTCHA.\n\nStandard words: \"good faith,\" \"not excessive or unduly severe,\" \"in conformity with the policies,\" \"sound discretion,\" \"proper control and discipline.\" Georgia is the clearest statutory statement that immunity stops at excess.\n\n## History\n- 2026-10-29: created from the official public-access portal (search view)."
+ },
+ {
+  "id": "law-immunity-louisiana-17-416-1",
+  "claim": "La. R.S. 17:416.1(C) obliges the school board to defend a teacher sued over discipline and to 'indemnify him fully against such judgment', except where the judgment specifically decrees that the teacher's action 'was malicious, and willfully and deliberately intended to cause bodily harm'; subsection (A) permits 'other reasonable disciplinary and corrective measures to maintain order in the schools'; and subsection (B)(1) prohibits corporal punishment 'unless the student's parent or legal guardian provides written consent' for that school year on a state form.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2025-12-01",
+  "sources": [
+   {
+    "url": "https://www.legis.la.gov/Legis/Law.aspx?d=81025",
+    "title": "La. R.S. 17:416.1, Discipline of students; additional disciplinary authority (as amended through Acts 2025, No. 479)",
+    "publisher": "Louisiana State Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "louisiana"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Subsection (A): \"In addition to the specific disciplinary measures authorized in R.S. 17:416 teachers, principals, and administrators of the public schools may, subject to any rules as may be adopted by the parish or city school board, employ other reasonable disciplinary and corrective measures to maintain order in the schools\". Subsection (B)(1): \"The use of any form of corporal punishment is prohibited in any public school unless the student's parent or legal guardian provides written consent for the use of corporal punishment in a document created by the state Department of Education solely for such purpose. Such consent applies only to the school year in which it is given. No form of corporal punishment shall be administered to a student with an exceptionality as defined in R.S. 17:1942 or to a student who has been determined to be eligible for services under Section 504 of the Rehabilitation Act of 1973 and has an Individual Accommodation Plan.\" (B)(2) defines corporal punishment as \"using physical force to discipline a student, with or without an object\" including \"hitting, paddling, striking, spanking, slapping, or any other physical force that causes pain or physical discomfort,\" and bars taping a student's mouth \"regardless of parental consent.\" (B)(3)(a) excludes \"the use of reasonable and necessary physical restraint of a student to protect the student or others from bodily harm.\" Subsection (C): \"Should any teacher, principal, or administrator in the public school system be sued for damages ... it shall be the responsibility of the school board employing such teacher, principal, or administrator to provide such defendant with a legal defense to such suit ... Should any such teacher, principal, or administrator be cast in judgment for damages in such suit, it shall be the obligation of the school board employing such defendant to indemnify him fully against such judgment ... Nothing in this Section shall require a school board to indemnify a teacher, principal, or administrator against a judgment wherein there is a specific decree in the judgment that the action of the teacher, principal, or administrator was malicious, and willfully and deliberately intended to cause bodily harm.\" History line: Acts 1975, No. 559; 1988, No. 898; 2003, No. 732; 2017, No. 266; 2023, No. 268; 2024, No. 780; 2025, No. 479 (effective December 1, 2025).\n\nStandard words: \"reasonable disciplinary and corrective measures to maintain order,\" \"reasonable and necessary physical restraint\" (for the restraint exclusion), \"malicious, and willfully and deliberately intended to cause bodily harm\" (the indemnity exception). Louisiana is not an immunity statute but an indemnity one: the board pays, so the board carries the exposure.\n\n## History\n- 2026-10-29: created from the Legislature's site."
+ },
+ {
+  "id": "law-immunity-mississippi-37-11-57",
+  "claim": "Miss. Code section 37-11-57(2), as amended by HB 1182 (2019), provides that 'corporal punishment administered in a reasonable manner ... does not constitute negligence or child abuse' and bars civil damages 'unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety', defining corporal punishment as 'the reasonable use of physical force or physical contact ... as may be necessary to maintain discipline, to enforce a school rule, for self-protection or for the protection of other students from disruptive students'; subsection (1) excepts 'excessive force or cruel and unusual punishment' and subsection (3) withholds immunity for any student with an IEP or Section 504 plan.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2019-07-01",
+  "sources": [
+   {
+    "url": "http://billstatus.ls.state.ms.us/documents/2019/pdf/HB/1100-1199/HB1182SG.pdf",
+    "title": "House Bill 1182, 2019 Regular Session, as sent to the Governor (prints section 37-11-57 in full as amended)",
+    "publisher": "Mississippi Legislature",
+    "date": "2019-03-21",
+    "primary": true
+   },
+   {
+    "url": "http://billstatus.ls.state.ms.us/2019/pdf/history/HB/HB1182.xml",
+    "title": "HB 1182 (2019) history",
+    "publisher": "Mississippi Legislature",
+    "date": "2019-03-21",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "mississippi"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Subsection (1): \"Except in the case of excessive force or cruel and unusual punishment, a public school teacher, assistant teacher, principal, or an assistant principal acting within the course and scope of his employment shall not be liable for any action carried out in conformity with state or federal law or rules or regulations of the State Board of Education or the local school board or governing board of a charter school regarding the control, discipline, suspension and expulsion of students.\" Subsection (2): \"Corporal punishment administered in a reasonable manner, or any reasonable action to maintain control and discipline of students taken by a public school teacher, assistant teacher, principal or assistant principal acting within the scope of his employment or function and in accordance with any state or federal laws or rules or regulations of the State Board of Education or the local school board or governing board of a charter school does not constitute negligence or child abuse. No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety. For the purposes of this subsection, 'corporal punishment' means the reasonable use of physical force or physical contact by a teacher, assistant teacher, principal or assistant principal, as may be necessary to maintain discipline, to enforce a school rule, for self-protection or for the protection of other students from disruptive students.\" Subsection (3) prohibits corporal punishment on any student with an IEP or a Section 504 plan and provides that \"no school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.\" Effective July 1, 2019.\n\nStandard words: \"reasonable manner,\" \"reasonable use of physical force ... as may be necessary,\" \"excessive force,\" \"bad faith or with malicious purpose.\" Mississippi's own definition builds necessity into the term \"corporal punishment\": force that is not necessary to maintain discipline is, by the statute's definition, not corporal punishment at all and gets no immunity. The current code text is served by a LexisNexis portal; the enrolled bill was used because it prints the section in full and no later amendment was found.\n\n## History\n- 2026-10-29: created from the enrolled bill on the Legislature's site."
+ },
+ {
+  "id": "law-immunity-missouri-160-261",
+  "claim": "RSMo 160.261.10 provides that spanking 'when administered by certificated personnel and in the presence of a witness who is an employee of the school district', or 'the use of reasonable force to protect persons or property, when administered by personnel of a school district in a reasonable manner in accordance with the local board of education's written policy of discipline, is not abuse within the meaning of chapter 210'; subsection 8 shields staff from civil liability 'when acting in conformity with the established policies developed by each board'; and subsection 1 forbids corporal punishment 'without a parent or guardian being notified and providing written permission.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=160.261",
+    "title": "RSMo 160.261",
+    "publisher": "Missouri Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "missouri"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Subsection 1 (opening): \"The local board of education of each school district shall clearly establish a written policy of discipline, including the district's determination on the use of corporal punishment and the procedures in which punishment will be applied. ... No pupil shall be subject to corporal punishment procedures outlined in the discipline and corporal punishment policy without a parent or guardian being notified and providing written permission for the corporal punishment.\" Subsection 8: \"Teachers and other authorized district personnel in public schools responsible for the care, supervision, and discipline of schoolchildren, including volunteers selected with reasonable care by the school district, shall not be civilly liable when acting in conformity with the established policies developed by each board, including but not limited to policies of student discipline ... Nothing in this section shall be construed to create a new cause of action against such school district, or to relieve the school district from liability for the negligent acts of such persons.\" Subsection 10 as quoted in the claim.\n\nStandard words: \"reasonable force,\" \"reasonable manner,\" \"in accordance with the local board of education's written policy,\" \"in conformity with the established policies.\" The spanking clause itself carries no reasonableness word; its conditions are certificated personnel, a witness, and the parent's written permission. The reasonableness and necessity limits therefore come from the board's own policy (Missouri boards that permit it almost all say \"reasonable\") and from the common law.\n\n## History\n- 2026-10-29: created from the Revisor's site."
+ },
+ {
+  "id": "law-immunity-oklahoma-24-100-4",
+  "claim": "Oklahoma has no corporal punishment immunity statute as such: 70 O.S. section 24-100.4(C) gives the teacher 'the same right as a parent or guardian to control and discipline such child according to district policies'; 21 O.S. section 844 provides that nothing in the child abuse act 'shall prohibit any parent, teacher or other person from using ordinary force as a means of discipline, including but not limited to spanking, switching or paddling'; and 70 O.S. section 13-116, as amended in 2025, prohibits corporal punishment 'on any student identified with a disability in accordance with the Individuals with Disabilities Education Act.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os70.pdf",
+    "title": "Oklahoma Statutes, Title 70 (Schools), sections 24-100.4 and 13-116",
+    "publisher": "Oklahoma Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os21.pdf",
+    "title": "Oklahoma Statutes, Title 21 (Crimes and Punishments), section 844",
+    "publisher": "Oklahoma Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "oklahoma"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "70 O.S. section 24-100.4(C): \"The teacher of a child attending a public school shall have the same right as a parent or guardian to control and discipline such child according to district policies during the time the child is in attendance or in transit to or from the school or any other school function authorized by the school district or classroom presided over by the teacher.\" Subsection (D): \"Except concerning students on individualized education plans (IEP) pursuant to the Individuals with Disabilities Education Act (IDEA), P.L. No. 101-476, the State Board of Education shall not have authority to prescribe student disciplinary policies for school districts or to proscribe corporal punishment in the public schools.\" 21 O.S. section 844 (Laws 1963, c. 53, section 2): \"Provided, however, that nothing contained in this Act shall prohibit any parent, teacher or other person from using ordinary force as a means of discipline, including but not limited to spanking, switching or paddling.\" 70 O.S. section 13-116(A) (Laws 2017, c. 222; amended Laws 2025, c. 99): \"School district personnel shall be prohibited from using corporal punishment on any student identified with a disability in accordance with the Individuals with Disabilities Education Act (IDEA)\"; (B) defines corporal punishment as \"the deliberate infliction of physical pain by hitting, paddling, spanking, slapping, or any other physical force used as a means of discipline.\"\n\nStandard words: \"ordinary force,\" \"according to district policies.\" The parent's right that section 24-100.4(C) borrows is itself the common-law privilege, so the Restatement's reasonableness and necessity limits apply through the borrowing. Section 6-114, cited in older sources, was renumbered as 24-100.4 by Laws 2002, c. 149.\n\n## History\n- 2026-10-29: created from the Legislature's compiled title PDFs."
+ },
+ {
+  "id": "law-immunity-tennessee-49-6-4103",
+  "claim": "Tenn. Code section 49-6-4103(a)(1) provides that 'any teacher or school principal may use corporal punishment in a reasonable manner against any pupil for good cause in order to maintain discipline and order within the public schools'; subdivision (a)(2), added by Public Chapter 275 (2023), requires the educator first to document having 'acted to address the student's behavior', 'provided consequences', 'consulted with the student's parent or legal guardian' and 'considered the need' for a disability evaluation; subsection (b), added by Public Chapter 900 (2018), prohibits it for a student with a disability unless district policy permits it and the parent gives written permission; and section 49-6-4104 directs each board to adopt rules 'to implement and control any form of corporal punishment.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2023-04-28",
+  "sources": [
+   {
+    "url": "https://publications.tnsosfiles.com/acts/113/pub/pc0275.pdf",
+    "title": "Public Chapter No. 275 (SB 972, 2023), amending section 49-6-4103",
+    "publisher": "Tennessee Secretary of State",
+    "date": "2023-04-28",
+    "primary": true
+   },
+   {
+    "url": "https://publications.tnsosfiles.com/acts/110/pub/pc0900.pdf",
+    "title": "Public Chapter No. 900 (HB 2330, 2018), adding section 49-6-4103(b)",
+    "publisher": "Tennessee Secretary of State",
+    "date": "2018-07-01",
+    "primary": true
+   },
+   {
+    "url": "https://advance.lexis.com/container/?pdmfid=1000516&config=014CJAA5ZGVhZjA3NS02MmMzLTRlZWQtOGJjNC00YzQ1MmZlNzc2YWYKAFBvZENhdGFsb2e9zYpNUjTRaIWVfyrur9ud&ecomp=6s85k",
+    "title": "Tennessee Code Unannotated, free public access, sections 49-6-4103 and 49-6-4104 (search view)",
+    "publisher": "LexisNexis for the State of Tennessee",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "tennessee"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Section 49-6-4103(a)(1) as displayed on the state's public-access portal: \"Any teacher or school principal may use corporal punishment in a reasonable manner against any pupil for good cause in order to maintain discipline and order within the public schools.\" (a)(2)(A), from Public Chapter 275: \"Notwithstanding subsection (a)(1), prior to the administration of corporal punishment against a student, the student's teacher or school principal must document in the student's educational record that they have: (i) Acted to address the student's behavior; (ii) Provided consequences to the student to address the behavior; (iii) Consulted with the student's parent or legal guardian about the student's behavior; and (iv) Considered the need to conduct an initial evaluation to determine whether the student has a disability\". (b)(1), from Public Chapter 900: \"teachers, school principals, or other school personnel are prohibited from using corporal punishment against any student who has a disability; unless an LEA's discipline policy permits the use of corporal punishment and a parent of a child who has a disability permits, in writing, the use of corporal punishment against the parent's child.\" Section 49-6-4104: \"Each local board of education shall adopt rules and regulations it deems necessary to implement and control any form of corporal punishment in the schools in its district.\" The portal's full-document view sits behind a CAPTCHA, so the quotations come from its search view plus the two enrolled public chapters.\n\nStandard words: \"reasonable manner,\" \"good cause,\" \"in order to maintain discipline and order.\" Tennessee is the one permitting state whose statute now requires written proof that milder means were tried first (a)(2), which is the Restatement comment d inquiry written into law. Tennessee has no separate immunity section for corporal punishment in this part; section 49-6-4107 (reasonable force to correct or restrain) was seen in the search results and not read.\n\n## History\n- 2026-10-29: created from the two public chapters and the public-access portal."
+ },
+ {
+  "id": "law-immunity-texas-9-62",
+  "claim": "Texas Penal Code section 9.62 justifies an educator's non-deadly force only 'when and to the degree the actor reasonably believes the force is necessary to further the special purpose or to maintain discipline in a group'; Education Code section 22.0512 bars a district from disciplining an employee for force 'to the extent justified under Section 9.62' while preserving the district's power to enforce 'a policy relating to corporal punishment'; and section 37.0011 lets an educator use corporal punishment where the board's code of conduct permits it unless the parent 'has previously provided a written, signed statement prohibiting' it.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://statutes.capitol.texas.gov/Docs/PE/htm/PE.9.htm#9.62",
+    "title": "Texas Penal Code section 9.62, Educator-Student",
+    "publisher": "Texas Legislature Online",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://statutes.capitol.texas.gov/Docs/ED/htm/ED.22.htm#22.0512",
+    "title": "Texas Education Code section 22.0512, Immunity from Disciplinary Proceedings for Professional Employees",
+    "publisher": "Texas Legislature Online",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://statutes.capitol.texas.gov/Docs/ED/htm/ED.37.htm#37.0011",
+    "title": "Texas Education Code section 37.0011, Use of Corporal Punishment",
+    "publisher": "Texas Legislature Online",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "texas"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Penal Code section 9.62 in full: \"The use of force, but not deadly force, against a person is justified: (1) if the actor is entrusted with the care, supervision, or administration of the person for a special purpose; and (2) when and to the degree the actor reasonably believes the force is necessary to further the special purpose or to maintain discipline in a group.\" Education Code section 22.0512(a): \"A professional employee of a school district may not be subject to disciplinary proceedings for the employee's use of physical force against a student to the extent justified under Section 9.62, Penal Code.\" Section 22.0512(c): \"This section does not prohibit a school district from: (1) enforcing a policy relating to corporal punishment; or (2) notwithstanding Subsection (a), bringing a disciplinary proceeding against a professional employee of the district who violates the district policy relating to corporal punishment.\" Section 37.0011(a) defines corporal punishment as \"the deliberate infliction of physical pain by hitting, paddling, spanking, slapping, or any other physical force used as a means of discipline,\" excluding athletic activity and authorized restraint; (b) to (d) set the opt-out.\n\nStandard words: \"reasonably believes the force is necessary\" (Penal Code), \"to the extent justified under Section 9.62\" (Education Code). Texas is the one state in this set whose statute makes reasonable belief in necessity the explicit condition of the justification, in the Restatement's own terms. Texas Education Code section 22.0511 (immunity from civil liability for acts within the scope of duties involving judgment or discretion, with an exception for excessive force in discipline) was not re-read on this date and is not quoted here.\n\n## History\n- 2026-10-29: created from Texas Legislature Online."
+ },
+ {
+  "id": "law-immunity-wyoming-21-4-308",
+  "claim": "Wyo. Stat. section 21-4-308(b) makes teachers, principals and superintendents 'immune from civil and criminal liability in the exercise of reasonable corporal discipline of a student as authorized by board policy', and subsection (a) lets each board 'adopt rules for reasonable forms of punishment and disciplinary measures' under which staff 'may impose reasonable forms of punishment and disciplinary measures for insubordination, disobedience, and other misconduct.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://wyoleg.gov/statutes/compress/title21.pdf",
+    "title": "Wyoming Statutes, Title 21, section 21-4-308, Punishment and disciplinary measures; denial of diploma or credit",
+    "publisher": "Wyoming Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "states",
+   "immunity",
+   "wyoming"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Subsections (a) and (b) in full: \"(a) Each board of trustees in each school district within the state may adopt rules for reasonable forms of punishment and disciplinary measures. Subject to such rules, teachers, principals, and superintendents in such district may impose reasonable forms of punishment and disciplinary measures for insubordination, disobedience, and other misconduct. (b) Teachers, principals and superintendents in each district shall be immune from civil and criminal liability in the exercise of reasonable corporal discipline of a student as authorized by board policy.\" Standard words: \"reasonable,\" three times, and \"as authorized by board policy.\" The statute grants immunity for reasonable corporal discipline; it does not itself authorize the practice, which is why a Wyoming board that has no corporal punishment policy leaves its staff with no immunity to claim.\n\n## History\n- 2026-10-29: created from the Legislature's compiled Title 21 PDF."
+ },
+ {
+  "id": "law-indiana-paddling-immunity-clause",
+  "claim": "In Indiana, the statute says of a school employee who paddles a child under board policy: \"have qualified immunity with respect to a disciplinary action taken to promote student conduct under subdivision (2) if the action is taken in good faith and is reasonable.\" (Ind. Code § 20-33-8-8(b)(3)); the statute's consent rule is: None in the statute, which does not mention corporal punishment.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://iga.in.gov/laws/2025/ic/titles/20#20-33-8-8",
+    "title": "Ind. Code § 20-33-8-8(b)(3)",
+    "publisher": "Indiana General Assembly, Indiana Code 2025",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "indiana",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/IN.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-indiana-suit-deadlines-public-school",
+  "claim": "In Indiana, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Yes. Written notice to the school board (and the state political subdivision risk management commission, where it applies) within one hundred eighty days of the loss, or the claim is barred; suit only after denial. A separate pre-suit notice applies to suits against public schools. (Ind. Code §§ 34-13-3-8, 34-13-3-13, 34-13-3.5); time limit to sue: Two years for injury to the person. (Ind. Code § 34-11-2-4(a)); a child's age: For the suit, yes: two years after the disability ends. For the notice, only an incapacitated person gets one hundred eighty days after the incapacity ends; ask a lawyer whether a child qualifies. (Ind. Code §§ 34-11-6-1, 34-13-3-9).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://iga.in.gov/ic/2025/Title_34.html",
+    "title": "Ind. Code §§ 34-13-3-8, 34-13-3-13, 34-13-3.5",
+    "publisher": "Indiana General Assembly, Indiana Code 2025",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "indiana",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
   "id": "law-ingraham-v-wright-1977",
   "claim": "In Ingraham v. Wright (1977), a 5-4 Supreme Court held that the Eighth Amendment does not apply to corporal punishment in public schools and that due process does not require a hearing before paddling because state tort and criminal remedies suffice; it expressly left open whether excessive corporal punishment violates substantive due process.",
   "status": "verified",
@@ -1079,9 +1903,310 @@
    "federal",
    "courts"
   ],
-  "last_verified": "2026-09-09",
-  "verified_by": "agent:claude (research pass 2026-09-09)",
-  "body": "Powell for the Court; White dissenting with Brennan, Marshall and Stevens. The Court did acknowledge a 'constitutionally protected liberty interest' in freedom from bodily punishment (at 674) and left the substantive due process question open (at 659 n.12), which is where fifty years of circuit litigation have run.\n\n## History\n- 2026-09-09: created."
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (research pass 2026-09-09; re-read 2026-10-29)",
+  "body": "Powell for the Court; White dissenting with Brennan, Marshall and Stevens. The Court did acknowledge a 'constitutionally protected liberty interest' in freedom from bodily punishment (at 674) and left the substantive due process question open (at 659 n.12), which is where fifty years of circuit litigation have run.\n\nAt 661-662 the Court states the common-law rule it left in place: teachers 'may impose reasonable but not excessive force to discipline a child,' privileging force a teacher 'reasonably believes to be necessary for (the child's) proper control, training, or education' (Restatement (Second) of Torts section 147(2)), with reasonableness judged by 'all of the circumstances,' including 'the availability of less severe but equally effective means of discipline' (section 150, comments c-e). See law-restatement-second-torts-147-150.\n\n## History\n- 2026-09-09: created.\n- 2026-10-29: re-read at Cornell LII for the necessity brief; the Restatement passage at 661-662 added to the body."
+ },
+ {
+  "id": "law-kansas-paddling-immunity-clause",
+  "claim": "In Kansas, no school statute and no immunity clause. The only statute on the subject is the criminal child abuse law, which punishes knowingly inflicting cruel and inhuman corporal punishment. (K.S.A. 21-5602); the statute's consent rule is: None. Kansas has no school corporal punishment statute.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.ksrevisor.gov/statutes/chapters/ch21/021_056_0002.html",
+    "title": "K.S.A. 21-5602",
+    "publisher": "Kansas Office of Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "kansas",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/KS.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-kansas-suit-deadlines-public-school",
+  "claim": "In Kansas, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Yes. Written notice to the clerk or the school board before any suit; no suit until the claim is denied or one hundred twenty days pass. The notice has no deadline of its own, but the suit must still meet the limitation period, with at least ninety days after denial. (K.S.A. 12-105b(d), 12-105a); time limit to sue: Two years. (K.S.A. 60-513(a)(4)); a child's age: Yes for the suit: a child may sue within one year after turning eighteen, but never more than eight years after the act. The notice statute says nothing about minors. (K.S.A. 60-515(a)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.ksrevisor.gov/statutes/chapters/ch12/012_001_0005b.html",
+    "title": "K.S.A. 12-105b(d), 12-105a",
+    "publisher": "Kansas Office of Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.ksrevisor.gov/statutes/chapters/ch60/060_005_0013.html",
+    "title": "K.S.A. 60-513(a)(4)",
+    "publisher": "Kansas Office of Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.ksrevisor.gov/statutes/chapters/ch60/060_005_0015.html",
+    "title": "K.S.A. 60-515(a)",
+    "publisher": "Kansas Office of Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "kansas",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-kentucky-paddling-immunity-clause",
+  "claim": "In Kentucky, no civil immunity clause. The criminal code makes a teacher's force justifiable when the teacher believes it necessary to maintain reasonable discipline in a school, class, or other group and it is not designed to cause serious injury. (KRS 503.110(1)); the statute's consent rule is: Opt-in by regulation: annual written consent plus verbal consent before each instance (704 KAR 7:170 § 3). Every district has prohibited it.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=19677",
+    "title": "KRS 503.110(1)",
+    "publisher": "Kentucky Legislative Research Commission",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "kentucky",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/KY.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-kentucky-suit-deadlines-public-school",
+  "claim": "In Kentucky, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: None for a local school board. The Board of Claims rules apply only to the Commonwealth and its agencies. (KRS 49.070(2)); time limit to sue: One year for injury to the person. (KRS 413.140(1)(a)); a child's age: Yes. A child has the same one year after the disability is removed. (KRS 413.170(1)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=51456",
+    "title": "KRS 49.070(2)",
+    "publisher": "Kentucky Legislative Research Commission",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=58050",
+    "title": "KRS 413.140(1)(a)",
+    "publisher": "Kentucky Legislative Research Commission",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=17873",
+    "title": "KRS 413.170(1)",
+    "publisher": "Kentucky Legislative Research Commission",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "kentucky",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-louisiana-paddling-immunity-clause",
+  "claim": "In Louisiana, the statute says of a school employee who paddles a child under board policy: \"Should any teacher, principal, or administrator in the public school system be sued for damages by any student, the parent of any student or other persons qualified to bring suit on behalf of such student based upon the act or omission of such teacher, principal, or administrator in the directing of and disciplining of school children under their care and supervision, it shall be the responsibility of the school board employing such teacher, principal, or administrator to provide such defendant with a legal defense to such suit including reasonable attorney fees, investigatory costs, and other related expenses. Should any such teacher, principal, or administrator be cast in judgment for damages in such suit, it shall be the obligation of the school board employing such defendant to indemnify him fully against such judgment [...]\" (La. R.S. 17:416.1(C)); the statute's consent rule is: Opt-in: written consent each school year on the state Department of Education form (R.S. 17:416.1(B)(1)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.legis.la.gov/Legis/Law.aspx?d=81025",
+    "title": "La. R.S. 17:416.1(C)",
+    "publisher": "Louisiana State Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "louisiana",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/LA.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-louisiana-suit-deadlines-public-school",
+  "claim": "In Louisiana, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: None. The Governmental Claims Act requires no pre-suit notice, and a school board is a political subdivision under it. Suit must be in a Louisiana state court, and damages for one person are capped at five hundred thousand dollars. (La. R.S. 13:5102(B)(1), 13:5106); time limit to sue: Two years for injuries on or after July 1, 2024; one year for earlier injuries. (La. Civ. Code art. 3493.1); a child's age: No. Prescription runs against minors. The suspension between parents and children during minority concerns a child's claims against the parents, not a school. (La. Civ. Code arts. 3468, 3469).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://legis.la.gov/Legis/Law.aspx?d=77934",
+    "title": "La. R.S. 13:5102(B)(1), 13:5106",
+    "publisher": "Louisiana State Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.legis.la.gov/Legis/Law.aspx?d=1386443",
+    "title": "La. Civ. Code art. 3493.1",
+    "publisher": "Louisiana State Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.legis.la.gov/legis/Law.aspx?d=110491",
+    "title": "La. Civ. Code arts. 3468, 3469",
+    "publisher": "Louisiana State Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "louisiana",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-mississippi-paddling-immunity-clause",
+  "claim": "In Mississippi, the statute says of a school employee who paddles a child under board policy: \"No public school teacher, assistant teacher, principal or assistant principal so acting shall be held liable in a suit for civil damages alleged to have been suffered by a student as a result of the administration of corporal punishment, or the taking of action to maintain control and discipline of a student, unless the court determines that the teacher, assistant teacher, principal or assistant principal acted in bad faith or with malicious purpose or in a manner exhibiting a wanton and willful disregard of human rights or safety. [...] No school personnel shall be granted immunity from liability under subsection (2) of this section for the use of corporal punishment on a student with a disability.\" (Miss. Code § 37-11-57(2), (3)); the statute's consent rule is: None in the statute.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://billstatus.ls.state.ms.us/documents/2019/pdf/HB/1100-1199/HB1182SG.pdf",
+    "title": "Miss. Code § 37-11-57(2), (3)",
+    "publisher": "Mississippi Legislature (enrolled act) and Mississippi Code Public Access (LexisNexis-hosted); deadlines read at Justia",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "mississippi",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/MS.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-mississippi-suit-deadlines-public-school",
+  "claim": "In Mississippi, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Yes. A notice of claim to the district's chief executive officer at least ninety days before suit; suit within one year of the incident, with the notice pausing the clock ninety-five days. Missing the window is an absolute bar. Read at Justia; the state's official code site could not be opened. (Miss. Code § 11-46-11); time limit to sue: One year under the Tort Claims Act; three years generally. (Miss. Code §§ 11-46-11(3), 15-1-49); a child's age: Yes. A child may bring the action within the time allowed after the disability is removed. The statute does not say whether the ninety-day notice is also deferred. (Miss. Code § 11-46-11(4)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://law.justia.com/codes/mississippi/title-11/chapter-46/section-11-46-11/",
+    "title": "Miss. Code § 11-46-11",
+    "publisher": "Mississippi Legislature (enrolled act) and Mississippi Code Public Access (LexisNexis-hosted); deadlines read at Justia",
+    "date": "2026-10-29",
+    "primary": false
+   }
+  ],
+  "tags": [
+   "law",
+   "mississippi",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice. Mississippi's official code site (LexisNexis) could not be opened; the deadline sections were read at Justia's copy, so the sources are marked secondary.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-missouri-paddling-immunity-clause",
+  "claim": "In Missouri, the statute says of a school employee who paddles a child under board policy: \"Spanking, when administered by certificated personnel and in the presence of a witness who is an employee of the school district, or the use of reasonable force to protect persons or property, when administered by personnel of a school district in a reasonable manner in accordance with the local board of education's written policy of discipline, is not abuse within the meaning of chapter 210.\" (RSMo 160.261.10; see also 160.261.8 (no civil liability when acting in conformity with board policy)); the statute's consent rule is: Opt-in: the parent is notified and gives written permission (RSMo 160.261.1).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=160.261",
+    "title": "RSMo 160.261.10; see also 160.261.8 (no civil liability when acting in conformity with board policy)",
+    "publisher": "Missouri Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "missouri",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/MO.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-missouri-suit-deadlines-public-school",
+  "claim": "In Missouri, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: None for school districts. Sovereign immunity is waived only for motor vehicles and dangerous property conditions, and only to the extent of insurance. (RSMo 537.600, 537.610); time limit to sue: Two years for assault and battery; five years for other injury to the person. (RSMo 516.140, 516.120(4)); a child's age: Yes. A person under twenty-one when the claim accrues has the full period after the disability is removed. (RSMo 516.170).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=537.600",
+    "title": "RSMo 537.600, 537.610",
+    "publisher": "Missouri Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=516.140",
+    "title": "RSMo 516.140, 516.120(4)",
+    "publisher": "Missouri Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://revisor.mo.gov/main/OneSection.aspx?section=516.170",
+    "title": "RSMo 516.170",
+    "publisher": "Missouri Revisor of Statutes",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "missouri",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
  },
  {
   "id": "law-new-mexico-hb172-2011",
@@ -1115,6 +2240,169 @@
   "body": "Sponsor Rep. Rick Miera (D). The old site cited 'SB 199'; no such bill exists for this purpose. Martinez framed her signature as parental rights: the decision 'is best left to a parent.' At the time only 36 of 89 districts still permitted the practice. Case study: strategy/case-studies/new-mexico-2011.md.\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "law-north-carolina-fee-shifting-6-21-4",
+  "claim": "North Carolina G.S. 6-21.4 lets a judge award a reasonable attorney fee to the lawyer of a public school principal or teacher who prevails in a civil action arising from corporal punishment, upon a determination that the plaintiff's action was frivolous or without substantial merit, taxed as court costs.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_6/GS_6-21.4.html",
+    "title": "G.S. 6-21.4 Allowance of counsel fees and costs in certain cases involving principals or teachers",
+    "publisher": "North Carolina General Assembly",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "north-carolina",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Complete text: \"In any civil action brought against a public school principal or teacher as defined in G.S. 115C-390 arising or resulting from the use of corporal punishment, upon a determination that the principal or teacher has prevailed and that the plaintiff's action was frivolous or without substantial merit, the presiding judge may, in his discretion, allow a reasonable attorney fee to the duly licensed attorney representing the principal or teacher. The attorney's fee shall be taxed as part of the court costs. (1981, c. 381, s. 1; c. 682, s. 22.)\" The fee is discretionary and requires both that the educator won and that the suit was frivolous or without substantial merit; it is not awarded merely because the family lost.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-north-carolina-paddling-immunity-clause",
+  "claim": "In North Carolina, no immunity clause. The statute defines excessive force as force that results in injury to the child that requires medical attention beyond simple first aid, and a separate statute lets a judge award the teacher's attorney fee against a frivolous suit (G.S. 6-21.4). (G.S. 115C-390.4); the statute's consent rule is: Opt-out: a written statement on a form offered at enrollment (G.S. 115C-390.4(b)(6)). Every district has prohibited it.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_115C/GS_115C-390.4.html",
+    "title": "G.S. 115C-390.4",
+    "publisher": "North Carolina General Assembly",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "north-carolina",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/NC.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-north-carolina-suit-deadlines-public-school",
+  "claim": "In North Carolina, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: None for ordinary tort claims against a local board; the Industrial Commission route covers school bus claims only. The board's immunity is waived only to the extent of its liability insurance. (G.S. 115C-42, 143-300.1); time limit to sue: Three years. (G.S. 1-52(5), (16)); a child's age: Yes. A child has the full three years after turning eighteen. (G.S. 1-17(a)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_115C/GS_115C-42.html",
+    "title": "G.S. 115C-42, 143-300.1",
+    "publisher": "North Carolina General Assembly",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_1/GS_1-52.html",
+    "title": "G.S. 1-52(5), (16)",
+    "publisher": "North Carolina General Assembly",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_1/GS_1-17.html",
+    "title": "G.S. 1-17(a)",
+    "publisher": "North Carolina General Assembly",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "north-carolina",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-ocr-complaint-180-days",
+  "claim": "A discrimination complaint to the US Department of Education's Office for Civil Rights must ordinarily be filed within 180 days of the last act of discrimination (34 CFR 100.7(b)); anyone may file, no lawyer is needed, it can be filed online, by the fillable PDF form, or by signed letter to OCR@ed.gov, a parent signs the consent form for a child under 18 and the complaint is closed if a requested consent form is not received within 20 calendar days, and OCR resolves complaints as a neutral fact finder, not as the complainant's advocate.",
+  "status": "verified",
+  "figure": 180,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.ed.gov/laws-and-policy/civil-rights-laws/file-complaint/how-file-discrimination-complaint-ocr",
+    "title": "How to File a Discrimination Complaint with OCR (page last reviewed August 26, 2025)",
+    "publisher": "US Department of Education, Office for Civil Rights",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.ed.gov/laws-and-policy/civil-rights-laws/file-complaint/ocr-discrimination-complaint-form",
+    "title": "OCR: Discrimination Complaint Form (page last reviewed January 20, 2026)",
+    "publisher": "US Department of Education, Office for Civil Rights",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.ed.gov/laws-and-policy/civil-rights-laws/file-complaint/questions-and-answers-ocrs-complaint-process",
+    "title": "Questions and Answers on OCR's Complaint Process",
+    "publisher": "US Department of Education, Office for Civil Rights",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-I/part-100/section-100.7",
+    "title": "34 CFR 100.7 Conduct of investigations",
+    "publisher": "eCFR, Office of the Federal Register",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://ocrcas.ed.gov/",
+    "title": "OCR Complaint Assessment System (online complaint portal)",
+    "publisher": "US Department of Education, Office for Civil Rights",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "federal",
+   "ocr"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Verbatim from the how-to-file page: \"A complaint must ordinarily be filed within 180 days of the last act of discrimination. If your complaint involves matters that occurred longer ago than this and you are requesting a waiver, you will be asked to show good cause why you did not file your complaint within the 180-day period.\" and \"Anyone may file a complaint. The person or organization filing the complaint need not be a victim of the alleged discrimination but may complain on behalf of another person or group.\" From the complaint-form page: \"The complainant will be informed that the complaint will be closed if written consent is necessary in order to resolve the complaint and is not received within 20 calendar days of the date of the acknowledgement letter or the date the Consent Form is requested from the complainant.\" and \"Where the person is a minor (under the age of 18) or a legally incompetent adult, the Consent Form must be signed by that person's parent or legal guardian.\" From the Q&A: \"OCR's role is to be a neutral fact-finder and to promptly resolve complaints. OCR has a variety of options for resolving complaints, including facilitated resolutions and investigations. OCR does not act as an advocate for either party during the process.\" and, on using the school's own grievance process first, \"Once the other complaint process is completed, you have 60 days to file your complaint with OCR.\" 34 CFR 100.7(b): \"A complaint must be filed not later than 180 days from the date of the alleged discrimination, unless the time for filing is extended by the responsible Department official or his designee.\" A paddling is not itself a civil rights violation under the laws OCR enforces; the complaint must allege discrimination on the basis of disability, race, color, national origin, sex or age, or retaliation.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-oklahoma-paddling-immunity-clause",
+  "claim": "In Oklahoma, no immunity clause in the school statutes. The child abuse act does not prohibit ordinary force as a means of discipline, including but not limited to spanking, switching or paddling (21 O.S. § 844), and the Governmental Tort Claims Act exempts the use of necessary and reasonable force by a school district employee to control and discipline a student (51 O.S. § 155(35)). (21 O.S. § 844; 51 O.S. § 155(35)); the statute's consent rule is: None in the statute.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os21.pdf",
+    "title": "21 O.S. § 844; 51 O.S. § 155(35)",
+    "publisher": "Oklahoma Legislature (complete title PDFs, 2025 compilation)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "oklahoma",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/OK.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
   "id": "law-oklahoma-sb364-2025",
   "claim": "Oklahoma's SB 364, prohibiting corporal punishment of students with disabilities, became law in May 2025 without Governor Kevin Stitt's signature after passing the Senate 31-16 and the House 63-25.",
   "status": "verified",
@@ -1145,6 +2433,38 @@
   "last_verified": "2026-09-09",
   "verified_by": "agent:claude (research pass 2026-09-09)",
   "body": "Earlier attempt: HB 1028 (Rep. John Talley, R) failed 45-43 on March 14, 2023, passed 84-8 on reconsideration six days later, and stalled in the Senate. Oklahoma's bills were carried by Republicans without an outside coalition. Reported quotes from opponents citing Proverbs could not be sourced and must not be published until they are.\n\n## History\n- 2026-09-09: created."
+ },
+ {
+  "id": "law-oklahoma-suit-deadlines-public-school",
+  "claim": "In Oklahoma, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Yes. A written claim filed with the clerk of the school board within one year of the loss, or it is forever barred; suit within one hundred eighty days after the claim is denied, or deemed denied at ninety days. The Act also exempts the use of necessary and reasonable force by a school employee to control and discipline a student. (51 O.S. §§ 156, 157, 155(35)); time limit to sue: Under the Governmental Tort Claims Act, the one-year claim and then one hundred eighty days. Generally two years for injury, one year for assault and battery. (51 O.S. §§ 156, 157; 12 O.S. § 95(A)); a child's age: Not for the claim. The Act pauses the notice deadline only for up to ninety days of incapacity from the injury. The general rule giving a child one year after the disability ends does not mention the Act. (51 O.S. § 156(E); 12 O.S. § 96).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os51.pdf",
+    "title": "51 O.S. §§ 156, 157, 155(35)",
+    "publisher": "Oklahoma Legislature (complete title PDFs, 2025 compilation)",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.oklegislature.gov/OK_Statutes/CompleteTitles/os12.pdf",
+    "title": "51 O.S. §§ 156, 157; 12 O.S. § 95(A)",
+    "publisher": "Oklahoma Legislature (complete title PDFs, 2025 compilation)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "oklahoma",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
  },
  {
   "id": "law-opt-in-consent-states",
@@ -1192,6 +2512,37 @@
   "body": "Texas, North Carolina and Georgia (physician letter only) remain opt-out states, where the burden is on the parent to object. Missouri: RSMo 160.261, SBs 681 and 662, effective August 28, 2022. Louisiana: R.S. 17:416.1(B), Act 268 of 2023 (HB 242), effective August 1, 2023, House 74-21, Senate 37-1. Florida: § 1002.20(4)(c), ch. 2025-110, effective July 1, 2025, final votes unanimous. Opt-in is the parental-rights bill and passes where bans fail; it also produces a signed form that can be counted.\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "law-pratt-2024-hitting-back",
+  "claim": "Pressly Pratt, 'Hitting Back: Methods of Abolishing Corporal Punishment in the Florida School System', 76 Florida Law Review 789 (2024), argues at page 794 that 'all in-school corporal punishment is inherently unreasonable' and, finding the federal precedent lacking, turns to the Florida constitution's uniform-education and privacy clauses and to legislation or a constitutional amendment.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2024-05-01",
+  "sources": [
+   {
+    "url": "https://www.floridalawreview.com/api/v1/articles/121220-hitting-back-methods-of-abolishing-corporal-punishment-in-the-florida-school-system.pdf",
+    "title": "Hitting Back: Methods of Abolishing Corporal Punishment in the Florida School System",
+    "publisher": "Florida Law Review, vol. 76, issue 3, p. 789",
+    "date": "2024-05-01",
+    "primary": true
+   },
+   {
+    "url": "https://scholarship.law.ufl.edu/flr/vol76/iss3/5/",
+    "title": "Repository entry",
+    "publisher": "UF Law Scholarship Repository",
+    "date": "2024",
+    "primary": false
+   }
+  ],
+  "tags": [
+   "law",
+   "scholarship",
+   "state-constitutions"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "A student note (the author was a 2024 J.D. candidate at the University of Florida Levin College of Law), not a faculty article; say so when citing. The sentence at 794: \"And tort claims based on a reasonableness standard imply that some level of corporal punishment in schools is reasonable. This Note argues that all in-school corporal punishment is inherently unreasonable\". Part II reviews Ingraham, the substantive due process circuits, Dobbs, and the Fourth Amendment route; Part III argues from article IX, section 1 (uniform education) and article I, section 23 (privacy) of the Florida constitution and closes with a call for legislation or a constitutional amendment. The abstract's count of \"eighteen states\" differs from this project's seventeen (law-states-permitting-count).\n\n## History\n- 2026-10-29: created from the journal's PDF."
+ },
+ {
   "id": "law-private-school-bans-five-states",
   "claim": "Five states prohibit corporal punishment in private schools as well as public: New Jersey, Iowa, Maryland (HB 185, 2023), New York (Chapter 551, 2023) and Illinois (Public Act 103-0806, effective January 1, 2025).",
   "status": "verified",
@@ -1237,6 +2588,125 @@
   "body": "Maryland's ban works through the State Board's certificate of approval for nonpublic schools and exempts schools operated by a bona fide church organization. Colorado's 2023 statute is public-only despite a Global Initiative note suggesting otherwise. Dates for New Jersey (1867) and Iowa (1989) are reported from press, not verified on a statute page.\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "law-restatement-second-torts-147-150",
+  "claim": "Restatement (Second) of Torts section 147(2) (1965) privileges a teacher's force only to the extent the teacher 'reasonably believes [it] to be necessary' for the child's 'proper control, training, or education', and section 150 comment d withholds the privilege 'to use a means to compel obedience if a less severe method appears likely to be equally effective'; Ingraham v. Wright listed 'the availability of less severe but equally effective means of discipline' among the reasonableness factors, citing section 150 comments c to e.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "1965",
+  "sources": [
+   {
+    "url": "https://www.law.cornell.edu/supremecourt/text/430/651",
+    "title": "Ingraham v. Wright, 430 U.S. 651, 661-662 (1977), quoting Restatement (Second) of Torts section 147(2) and citing section 150 comments c-e",
+    "publisher": "Legal Information Institute, Cornell",
+    "date": "1977-04-19",
+    "primary": true
+   },
+   {
+    "url": "https://www.courtlistener.com/opinion/6329868/in-re-rodney-c/",
+    "title": "In re Rodney C., 91 Misc. 2d 677, 398 N.Y.S.2d 511 (N.Y. Fam. Ct. 1977), quoting Restatement (Second) of Torts section 150 comments d and e",
+    "publisher": "CourtListener (Harvard Caselaw Access Project scan)",
+    "date": "1977",
+    "primary": true
+   },
+   {
+    "url": "https://lawreview.law.ucdavis.edu/sites/g/files/dgvnsk15026/files/media/documents/42-4_Sacks.pdf",
+    "title": "Sacks, State Actors Beating Children, 42 U.C. Davis L. Rev. 1165, 1174 n.34 (2009), paraphrasing the same passages",
+    "publisher": "UC Davis Law Review",
+    "date": "2009-04",
+    "primary": false
+   }
+  ],
+  "tags": [
+   "law",
+   "torts",
+   "restatement",
+   "privilege"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "The Restatement (Second) of Torts is not freely available online; the American Law Institute sells it. Every quotation here was read in a court opinion that quotes it, and the fact file records the words as the courts give them.\n\nIngraham, 430 U.S. at 661: \"The prevalent rule in this country today privileges such force as a teacher or administrator 'reasonably believes to be necessary for (the child's) proper control, training, or education.' Restatement (Second) of Torts § 147(2) (1965); see id., § 153(2).\" At 662: \"All of the circumstances are to be taken into account in determining whether the punishment is reasonable in a particular case. Among the most important considerations are the seriousness of the offense, the attitude and past behavior of the child, the nature and severity of the punishment, the age and strength of the child, and the availability of less severe but equally effective means of discipline. Id., at 290-291; Restatement (Second) of Torts § 150, Comments c-e, p. 268 (1965).\" The \"Id.\" is 1 F. Harper and F. James, Law of Torts § 3.20 (1956), so the phrase \"less severe but equally effective means of discipline\" is the Court's summary of Harper and James and of the comments, not the Restatement's own sentence.\n\nRodney C., 91 Misc. 2d at 680-681, gives the Restatement's own words. Section 150 subdivision (b): \"the age, sex, physical and mental condition of the child\" are factors. Comment d: a parent is not privileged \"to use a means to compel obedience if a less severe method appears likely to be equally effective.\" Comment e: \"a punishment may not be unnecessarily degrading.\" Section 151: force \"applied * * * primarily for any purpose other than proper training or education of the child or for the preservation of discipline is not privileged.\" Rodney C. is a parental case; Ingraham applies the same sections to teachers through section 147(2) and section 153(2).\n\nHow to use: quote Ingraham for the teacher's privilege and for the factor list, and quote Rodney C. when the exact Restatement wording of comment d is wanted. Sacks (2009) at 1174 n.34 reproduces Ingraham's factor list, so her \"less severe but equally effective means\" is Ingraham's phrase, not the Restatement's. Comment c was not quoted in either opinion and has not been read in this project.\n\n## History\n- 2026-10-29: created from Ingraham (Cornell LII) and In re Rodney C. (CourtListener), both opened the same day."
+ },
+ {
+  "id": "law-sacks-2009-state-actors-beating-children",
+  "claim": "Deana Pollard Sacks, 'State Actors Beating Children: A Call for Judicial Relief', 42 U.C. Davis Law Review 1165 (2009), argues at page 1169 that the 'social efficacy and propriety' of school corporal punishment 'remains unexamined by the judiciary, despite a wealth of social science research', because the federal courts adopted an intent-based excessive-force model after Ingraham.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2009-04",
+  "sources": [
+   {
+    "url": "https://lawreview.law.ucdavis.edu/sites/g/files/dgvnsk15026/files/media/documents/42-4_Sacks.pdf",
+    "title": "State Actors Beating Children: A Call For Judicial Relief",
+    "publisher": "UC Davis Law Review, vol. 42, no. 4, p. 1165",
+    "date": "2009-04",
+    "primary": true
+   },
+   {
+    "url": "https://lawreview.law.ucdavis.edu/archives/42/4/state-actors-beating-children-call-judicial-relief",
+    "title": "Archive entry, vol. 42, April 2009, page 1165",
+    "publisher": "UC Davis Law Review",
+    "date": "2009-04",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "scholarship",
+   "courts"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Full sentence at 1169 (the original sets off the middle clause with dashes): \"The more pressing issue relevant to all instances of school corporal punishment, its social efficacy and propriety, remains unexamined by the judiciary, despite a wealth of social science research that demonstrates beyond any reasonable doubt that corporal punishment is an ineffective educational tool that creates unnecessary and very serious risks to children.\" The preceding sentence: \"The intent-based executive deprivation model employed in school corporal punishment cases for the past thirty years was rendered unconstitutional nearly two decades ago, but remains the majority rule.\" Footnote 34 at 1174 quotes Restatement (Second) of Torts section 147(2) and reproduces Ingraham's factor list including \"the availability of less severe but equally effective means of discipline,\" citing section 150 comments c to e. Author then at Texas Southern University, Thurgood Marshall School of Law. Use for the diagnosis that no US court has examined efficacy; the \"beyond any reasonable doubt\" characterization of the research is the author's and this project's own fact files are more careful about causation.\n\n## History\n- 2026-10-29: created from the law review's PDF."
+ },
+ {
+  "id": "law-south-africa-2019-zacc-34",
+  "claim": "In Freedom of Religion South Africa v Minister of Justice and Constitutional Development [2019] ZACC 34, decided September 18, 2019, a unanimous Constitutional Court declared the common-law defence of reasonable and moderate parental chastisement unconstitutional, holding at paragraph 70 that 'the paucity of proof that the chastisement is beneficial and the availability of less restrictive means to instil discipline militate against the reasonableness and justification of the limitation.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2019-09-18",
+  "sources": [
+   {
+    "url": "https://www.saflii.org/za/cases/ZACC/2019/34.html",
+    "title": "Freedom of Religion South Africa v Minister of Justice and Constitutional Development and Others (CCT320/17) [2019] ZACC 34; 2019 (11) BCLR 1321 (CC); 2020 (1) SA 1 (CC)",
+    "publisher": "Southern African Legal Information Institute (full judgment as handed down)",
+    "date": "2019-09-18",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "international",
+   "south-africa",
+   "courts"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (necessity brief session 2026-10-29)",
+  "body": "Mogoeng CJ for a unanimous court of ten. The case concerned parents, not schools, and the order (paragraph 76) declares \"the common law defence of reasonable and moderate parental chastisement\" inconsistent with sections 10 (dignity) and 12(1)(c) (freedom from all forms of violence) of the Constitution. The reasoning that transfers to a necessity argument: paragraph 39, \"we must ask why it is necessary to resort to chastisement in the first place. Is it not the actual or potential pain or hurt that flows from it that is believed to be more likely to have a greater effect than any other reasonably available method of discipline?\"; paragraph 64, \"the paucity of clear or satisfactory empirical evidence that supports chastisement as a beneficial means of instilling discipline\"; paragraph 67, force \"cannot in circumstances where there is an effective non-violent option available be said to be consonant with the best interests of a child\"; paragraph 69, positive parenting \"is a less restrictive means of discipline that could potentially be effective in the attainment of the same purpose\"; paragraph 70 as quoted in the claim. The court was candid (paragraphs 53, 54 and 64) that some of the research does not separate moderate from abusive force, which is the honest caveat to carry when citing it. The judgment cites the American Academy of Pediatrics 2018 statement (footnote 50).\n\n## History\n- 2026-10-29: created from the full judgment on SAFLII."
+ },
+ {
+  "id": "law-south-carolina-paddling-immunity-clause",
+  "claim": "In South Carolina, no immunity clause; the statute is one sentence. The Tort Claims Act bars liability for the supervision or control of a student except when the responsibility or duty is exercised in a grossly negligent manner (§ 15-78-60(25)). (S.C. Code § 59-63-260); the statute's consent rule is: None in the statute.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.scstatehouse.gov/code/t59c063.php",
+    "title": "S.C. Code § 59-63-260",
+    "publisher": "South Carolina Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "south-carolina",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/SC.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
   "id": "law-south-carolina-statute",
   "claim": "South Carolina's only statute on the subject, § 59-63-260, unchanged since 1973, says the governing body of each school district 'may provide corporal punishment for any pupil that it deems just and proper,' with no limits, and no bill to change it was filed in the 2023-24 or 2025-26 sessions.",
   "status": "verified",
@@ -1265,6 +2735,38 @@
   "last_verified": "2026-09-09",
   "verified_by": "agent:claude (research pass 2026-09-09)",
   "body": "Federal data show 85 students struck in 2021-22 and 23 in 2017-18, so use is small but not zero. Whether every district has prohibited it by policy is unverified; a September 2025 Island Packet explainer likely has a current tally and should be read by a person (the site blocks agents).\n\n## History\n- 2026-09-09: created."
+ },
+ {
+  "id": "law-south-carolina-suit-deadlines-public-school",
+  "claim": "In South Carolina, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Optional. A verified claim may be filed with the district within one year; it is not required, but filing it extends the time to sue from two years to three. (S.C. Code § 15-78-80); time limit to sue: Two years under the Tort Claims Act, three if a verified claim was filed; three years generally. (S.C. Code §§ 15-78-110, 15-3-530(5)); a child's age: Yes, and the statute names the Tort Claims Act. The years under eighteen do not count, but the suit must be filed within one year after the child turns eighteen. (S.C. Code § 15-3-40).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.scstatehouse.gov/code/t15c078.php",
+    "title": "S.C. Code § 15-78-80",
+    "publisher": "South Carolina Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.scstatehouse.gov/code/t15c003.php",
+    "title": "S.C. Code § 15-3-40",
+    "publisher": "South Carolina Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "south-carolina",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
  },
  {
   "id": "law-states-permitting-count",
@@ -1304,6 +2806,55 @@
   "body": "Counts differ by source because states with no statute either way (Connecticut, Indiana, Kansas, New Hampshire, South Dakota, Maine) are classified differently: Cardona 2023 counted 23 (16 expressly allow, 7 do not prohibit); Bellwether 2024 said 17; APSAC 2025 said 18; NPR's August 2026 tracker said 15 allow and 30 plus DC ban. This project's list (data/states/) is: Alabama, Arizona, Arkansas, Florida, Georgia, Indiana, Kansas, Kentucky, Louisiana, Mississippi, Missouri, North Carolina, Oklahoma, South Carolina, Tennessee, Texas, Wyoming. No state enacted a full public-school ban in 2024, 2025, or 2026 (searched 2026-09-09); the most recent are Colorado and Idaho (2023).\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "law-tennessee-paddling-immunity-clause",
+  "claim": "In Tennessee, no immunity clause in the corporal punishment sections. Before any paddling the teacher or principal must document in the student's record that they addressed the behavior, gave consequences, consulted the parent and considered a disability evaluation (§ 49-6-4103(a)(2)). (T.C.A. §§ 49-6-4103, 49-6-4104); the statute's consent rule is: None for most students. For a student with a disability, prohibited unless district policy allows it and the parent gives written permission stating the type and circumstances (§ 49-6-4103(b)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "http://www.lexisnexis.com/hottopics/tncode",
+    "title": "T.C.A. §§ 49-6-4103, 49-6-4104",
+    "publisher": "Tennessee Code Unannotated (LexisNexis-hosted) and Tennessee Secretary of State (Public Chapters)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "tennessee",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/TN.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-tennessee-suit-deadlines-public-school",
+  "claim": "In Tennessee, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: None. The Governmental Tort Liability Act's former procedural notice section (§ 29-20-302) is repealed. If a claim is denied, suit is in circuit court, only where the Act removes immunity. (T.C.A. §§ 29-20-305(a), 29-20-302 (repealed)); time limit to sue: Twelve months under the Governmental Tort Liability Act; one year for injuries to the person generally, two years if criminal charges are brought over the injury. (T.C.A. §§ 29-20-305(b), 28-3-104(a)); a child's age: Yes for the general limitation period: a person under eighteen may sue after legal rights are restored, within the limitation period, up to three years. The statute does not say whether this reaches the Act's twelve-month period; ask a lawyer. (T.C.A. § 28-1-106(a)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "http://www.lexisnexis.com/hottopics/tncode",
+    "title": "T.C.A. §§ 29-20-305(a), 29-20-302 (repealed)",
+    "publisher": "Tennessee Code Unannotated (LexisNexis-hosted) and Tennessee Secretary of State (Public Chapters)",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "tennessee",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice. Tennessee's official code site is LexisNexis-hosted and shows full sections only after a CAPTCHA, which was not attempted; the text was read from the official site's search view, which shows the opening of each section, and the quoted clauses appear there in full.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
   "id": "law-texas-hb772-2023",
   "claim": "Texas HB 772, which would have banned corporal punishment in public schools, failed on second reading in the House on April 26, 2023 by a reported 58-86; its sponsor, Rep. Alma Allen, has filed the bill every session for 18 years.",
   "status": "verified",
@@ -1333,6 +2884,62 @@
   "last_verified": "2026-09-09",
   "verified_by": "agent:claude (research pass 2026-09-09)",
   "body": "Opponents on the floor: Rep. Steve Toth, 'Kids do need to fear leadership,' and Rep. Matt Schaefer, who urged members to 'follow the design that God has for disciplining children.' The 2025 (89R) filing was not checked; see the bill-watch task.\n\n## History\n- 2026-09-09: created."
+ },
+ {
+  "id": "law-texas-paddling-immunity-clause",
+  "claim": "In Texas, the statute says of a school employee who paddles a child under board policy: \"A professional employee of a school district may not be subject to disciplinary proceedings for the employee's use of physical force against a student to the extent justified under Section 9.62, Penal Code. [...] This section does not prohibit a school district from: (1) enforcing a policy relating to corporal punishment; or (2) [...] bringing a disciplinary proceeding against a professional employee of the district who violates the district policy relating to corporal punishment.\" (Tex. Educ. Code § 22.0512; Penal Code § 9.62 (force is justified when the educator reasonably believes it necessary to maintain discipline in a group)); the statute's consent rule is: Opt-out: a signed written statement to the board each school year (§ 37.0011(c)).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://statutes.capitol.texas.gov/Docs/ED/htm/ED.22.htm#22.0512",
+    "title": "Tex. Educ. Code § 22.0512; Penal Code § 9.62 (force is justified when the educator reasonably believes it necessary to maintain discipline in a group)",
+    "publisher": "Texas Legislature Online",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "texas",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/TX.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-texas-suit-deadlines-public-school",
+  "claim": "In Texas, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Yes. The district is entitled to written notice within six months of the incident, describing the injury, the time and place, and the incident; not required if the district has actual notice of the injury. To sue a professional employee personally: written notice ninety days before suit and exhaustion of the district's grievance process. The Tort Claims Act does not reach school districts except for motor vehicles, or any intentional tort, including disciplinary action by school authorities. (Civ. Prac. & Rem. Code §§ 101.101, 101.051, 101.057; Educ. Code §§ 22.0513, 22.0514); time limit to sue: Two years for personal injury. (Civ. Prac. & Rem. Code § 16.003(a)); a child's age: Yes for the suit: time under eighteen is not counted. The six-month notice statute says nothing about minors. (Civ. Prac. & Rem. Code § 16.001).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://statutes.capitol.texas.gov/Docs/CP/htm/CP.101.htm",
+    "title": "Civ. Prac. & Rem. Code §§ 101.101, 101.051, 101.057; Educ. Code §§ 22.0513, 22.0514",
+    "publisher": "Texas Legislature Online",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://statutes.capitol.texas.gov/Docs/CP/htm/CP.16.htm",
+    "title": "Civ. Prac. & Rem. Code § 16.003(a)",
+    "publisher": "Texas Legislature Online",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "texas",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
  },
  {
   "id": "law-wyoming-immunity-repeal-attempts",
@@ -1377,6 +2984,55 @@
   "last_verified": "2026-09-09",
   "verified_by": "agent:claude (research pass 2026-09-09)",
   "body": "W.S. § 21-4-308(b). By 2022-23, press reported only one to three of Wyoming's 48 districts still had corporal punishment in policy (Niobrara County School District #1 named), and the state had reported no incidents to the federal government since 2012; the 2022 and 2023 district counts conflict. Laramie County SD 1 reaffirmed its prohibition in October 2025. The advocate was a middle-school principal, Jeff Jones, whose dissertation reviewed all 48 policies.\n\n## History\n- 2026-09-09: created."
+ },
+ {
+  "id": "law-wyoming-paddling-immunity-clause",
+  "claim": "In Wyoming, the statute says of a school employee who paddles a child under board policy: \"Teachers, principals and superintendents in each district shall be immune from civil and criminal liability in the exercise of reasonable corporal discipline of a student as authorized by board policy.\" (W.S. § 21-4-308(b)); the statute's consent rule is: None in the statute.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://wyoleg.gov/statutes/compress/title21.pdf",
+    "title": "W.S. § 21-4-308(b)",
+    "publisher": "Wyoming Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "wyoming",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's state table (kit/after-a-paddling.md). The quoted words are verbatim from the statute as read on 2026-10-29; '[...]' marks text left out. Consent rule and limits come from the same reading and from data/states/WY.yaml. The immunity runs only as far as the board's policy: outside the policy (no witness or warning where required, no consent form where required, a protected student, excessive force) the statute's protection does not apply.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
+ },
+ {
+  "id": "law-wyoming-suit-deadlines-public-school",
+  "claim": "In Wyoming, a family suing a public school district over a paddling faces these statutory clocks (read at the state's statute site on 2026-10-29): notice of claim: Yes. An itemized written claim, signed under oath, filed at the district's business office within two years of the act; suit within one year after the claim is filed. Governmental entities and employees are immune from any tort except the listed waivers. (W.S. §§ 1-39-113, 1-39-114, 1-39-104); time limit to sue: One year after the claim is filed. Generally four years for injury to rights and one year for assault or battery. (W.S. §§ 1-39-114, 1-3-105); a child's age: Only for the youngest. A child seven or younger has until the eighth birthday or two years after the act, whichever is longer. The general rule giving a minor three years after the disability ends does not mention the Act. (W.S. §§ 1-39-114, 1-3-114).",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://wyoleg.gov/statutes/compress/title01.pdf",
+    "title": "W.S. §§ 1-39-113, 1-39-114, 1-39-104",
+    "publisher": "Wyoming Legislature",
+    "date": "2026-10-29",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "law",
+   "wyoming",
+   "deadlines",
+   "liability"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (after-a-paddling guide, 2026-10-29)",
+  "body": "Used in the parent guide's deadlines table (kit/after-a-paddling.md). Plain-language summary of the statute text; the verbatim text is in the research notes behind the guide. Whether a child's minority pauses a notice-of-claim deadline is, in most states, not answered by the statute itself and must be checked with a lawyer; the claim records only what the statute says. General information, not legal advice.\n\n## History\n- 2026-10-29: created for the parent guide kit/after-a-paddling.md; text read at the source on this date."
  },
  {
   "id": "litigation-overton-isd-2023-dismissal",
@@ -1709,6 +3365,185 @@
   "body": "Scope matters: quote APA on physical punishment generally, not as a school-specific position. APA endorsed the federal Protecting Our Students in Schools Act in 2023 (law-federal-possa-2025), which is the school-specific citation.\n\n## History\n- 2026-09-09: created."
  },
  {
+  "id": "org-catholic-archdiocese-baltimore-discipline-policy",
+  "claim": "The Archdiocese of Baltimore's Catholic schools policy manual, policy SS 2.0 Discipline, states that 'Catholic schools' personnel may never use corporal punishment.'",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2025-05",
+  "sources": [
+   {
+    "url": "https://sites.google.com/archbaltschools.org/aobpolicy/student-services/discipline",
+    "title": "Policy Manual - Discipline (SS 2.0)",
+    "publisher": "Archdiocese of Baltimore, Department of Catholic Schools",
+    "date": "2025-05",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "organizations",
+   "churches",
+   "catholic",
+   "private-schools"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (Christian's guide session 2026-10-29)",
+  "body": "Read at the archdiocesan schools policy site (a Google Sites manual on the archbaltschools.org domain) on 2026-10-29. Verbatim: \"Catholic schools' personnel may never use corporal punishment.\" The page shows \"May 2025\" at the foot, not labeled as an adoption or revision date. Maryland prohibits corporal punishment in public schools, so, as with Des Moines, this is an example of a diocesan rule and not a rule inside a permitting state. Dioceses in permitting states (Mobile, Jackson, Galveston-Houston, Little Rock, Dallas, Oklahoma City) were searched on 2026-10-29 and no published policy text was found; ask the diocesan schools offices directly before saying anything about them.\n\n## History\n- 2026-10-29: created for kit/a-christians-guide.md."
+ },
+ {
+  "id": "org-catholic-diocese-des-moines-policy-466",
+  "claim": "The Catholic Diocese of Des Moines' school policy 466, Corporal Punishment, states that the diocesan Catholic Schools Office and the State of Iowa define corporal punishment as the intentional physical punishment of a student and that 'Corporal punishment is prohibited', while permitting reasonable and necessary force not intended to cause pain to stop a disturbance, take a weapon, defend a person, or remove a disruptive pupil.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2024",
+  "sources": [
+   {
+    "url": "https://www.dmdiocese.org/filesimages/Schools/School%20Policies%20and%20Regulations/400%20Staff%20Personnel/466%20Corporal%20Punishment.pdf",
+    "title": "Policy 466, Corporal Punishment (Catholic Schools Policies/Regulations, Staff Personnel)",
+    "publisher": "Diocese of Des Moines",
+    "date": "2024",
+    "primary": true
+   },
+   {
+    "url": "https://web.archive.org/web/20240303154535/https://www.dmdiocese.org/filesimages/Schools/School%20Policies%20and%20Regulations/400%20Staff%20Personnel/466%20Corporal%20Punishment.pdf",
+    "title": "Internet Archive snapshot of the policy PDF, 2024-03-03",
+    "publisher": "Internet Archive",
+    "date": "2024-03-03",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "organizations",
+   "churches",
+   "catholic",
+   "private-schools"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (Christian's guide session 2026-10-29)",
+  "body": "Verbatim: \"The Diocese of Des Moines Catholic Schools Office, under the aegis of the Bishop, and the State of Iowa define corporal punishment as the intentional physical punishment of a student. Corporal punishment is prohibited. It includes the use of unreasonable or unnecessary physical force or physical contact made with the intent to harm or cause pain.\" Followed by the list of permitted reasonable force (quell a disturbance, obtain a weapon, self-defense under Iowa Code 704.3, protection of property under 704.4 or 704.5, remove a disruptive pupil, protect from self-harm, protect others, incidental contact to maintain order) and five factors for judging reasonableness. No adoption date is printed on the policy.\n\nAccess note: on 2026-10-29 the live URL at dmdiocese.org returned a 404 page in both WebFetch and the browser, and the diocese's policies index page no longer lists the 400-series documents in a form the browser could find; the text above was read from the Internet Archive's 2024-03-03 capture of the diocese's own PDF. Iowa is not a state that permits corporal punishment in public schools (Iowa Code 280.21), so this policy restates state law for diocesan schools; cite it as an example of a diocesan rule, not as a rule inside a permitting state. The lead that all US diocesan Catholic schools prohibit it (Center for Effective Discipline, 2011) remains a secondary, unverified claim.\n\n## History\n- 2026-10-29: created for kit/a-christians-guide.md."
+ },
+ {
+  "id": "org-catholic-new-orleans-2011-aymond-reported",
+  "claim": "In March 2011 the Catholic News Agency reported that Archbishop Gregory Aymond of New Orleans and the head of the school's board ordered an end to paddling at St. Augustine High School, described as the last Catholic school in the United States to use it, with the archbishop saying 'I do not believe the teachings of the Catholic Church, as we interpret them today in 2011, can possibly condone corporal punishment' and 'I cannot imagine Jesus paddling anyone.'",
+  "status": "reported",
+  "figure": null,
+  "as_of": "2011-03",
+  "sources": [
+   {
+    "url": "https://www.ewtnnews.com/world/us/archbishop-aymond-bans-corporal-punishment-from-new-orleans-catholic-school",
+    "title": "Archbishop Aymond bans corporal punishment from New Orleans Catholic school",
+    "publisher": "Catholic News Agency (EWTN News)",
+    "date": "2011-03-08",
+    "primary": false
+   },
+   {
+    "url": "https://www.christiancentury.org/article/2011-06/religious-order-vows-end-paddling-new-orleans-school",
+    "title": "Religious order vows end to paddling at New Orleans school",
+    "publisher": "Christian Century (Religion News Service)",
+    "date": "2011-06",
+    "primary": false
+   }
+  ],
+  "tags": [
+   "organizations",
+   "churches",
+   "catholic",
+   "private-schools",
+   "louisiana"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (Christian's guide session 2026-10-29)",
+  "body": "Press only. The Catholic News Agency article (published 2011-03-08, read 2026-10-29 at its EWTN News address) quotes the archbishop as above, says the school had used a wooden paddle since 1951, and attributes to Dr. Monica Applewhite the statement that St. Augustine was the last Catholic school in the country to use one. The archdiocese's own statement and the Clarion Herald (the archdiocesan newspaper, which ceased publication in 2025) were not found online; press summaries also quote the archbishop saying the archdiocese had \"for decades not permitted corporal punishment in its schools,\" which was not read in a primary source. The Christian Century item was not opened; it is listed as the lead for the June 2011 outcome (the Josephite order ending the practice). St. Augustine is run by the Josephites, not the archdiocese. Quote with attribution to the press report.\n\n## History\n- 2026-10-29: created for kit/a-christians-guide.md."
+ },
+ {
+  "id": "org-denominations-no-position-corporal-punishment-2026-10",
+  "claim": "As of October 29, 2026, the Southern Baptist Convention's resolutions library returns no resolution for 'corporal punishment' or 'spanking'; the Episcopal Church's Acts of Convention database (1973-2024) returns no record for 'corporal'; the Christian Church (Disciples of Christ) website search returns nothing for 'corporal punishment'; and the Church of the Brethren's 1999 Annual Conference resolution 'Children and Violence' does not mention corporal punishment.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2026-10-29",
+  "sources": [
+   {
+    "url": "https://www.sbc.net/resource-library/resolutions/?s=corporal+punishment",
+    "title": "Resolutions library, search 'corporal punishment' (12 results, none on corporal punishment of children)",
+    "publisher": "Southern Baptist Convention",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.sbc.net/resource-library/resolutions/?s=spanking",
+    "title": "Resolutions library, search 'spanking' (no results found)",
+    "publisher": "Southern Baptist Convention",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://digitalarchives.episcopalarchives.org/acts/",
+    "title": "The Acts of Convention: Digital Archive 1973-2024 (searches 'corporal punishment' and 'corporal': no records)",
+    "publisher": "The Archives of the Episcopal Church",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://disciples.org/?s=corporal+punishment",
+    "title": "Site search 'corporal punishment' (no posts found)",
+    "publisher": "Christian Church (Disciples of Christ)",
+    "date": "2026-10-29",
+    "primary": true
+   },
+   {
+    "url": "https://www.brethren.org/ac/statements/1999-children-and-violence/",
+    "title": "Children and Violence (1999 Annual Conference resolution)",
+    "publisher": "Church of the Brethren",
+    "date": "1999",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "organizations",
+   "churches",
+   "gap"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (Christian's guide session 2026-10-29)",
+  "body": "An absence claim: each body's own site was searched on 2026-10-29 and the searches above are what was run. Absence in a site search is not proof that no action exists (a resolution could be indexed under other words, or held in a journal the search does not cover), so the booklet says \"returns no resolution\" and \"the question has not come to the floor\", not \"the church is for it\". The SBC search for \"corporal punishment\" returned twelve items (capital punishment, hell, prison reform, religious liberty, alcohol), none about children. The Episcopal archive's own search gives \"No records were found which matched your query\" for both phrases. The Brethren resolution is about school conflict-resolution instruction, media violence and gun legislation after Columbine. Not checked, or blocked: Assemblies of God position papers (ag.org returned 403), American Baptist Churches USA (site search did not run), Lutheran Church-Missouri Synod, Seventh-day Adventist, National Council of Churches. Re-run the searches before quoting this claim in a later year.\n\n## History\n- 2026-10-29: created for kit/a-christians-guide.md."
+ },
+ {
+  "id": "org-elca-2025-child-protection-social-message",
+  "claim": "The Evangelical Lutheran Church in America's social message on Child Protection, adopted by the ELCA Church Council on November 12, 2025, says worshiping communities are called to be safe spaces, free of violence, where physical intimidation or the use of force, including physical discipline, are specifically prohibited, and encourages synods and the churchwide organization to provide parents and caregivers with resources on effective forms of nonphysical discipline.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2025-11-12",
+  "sources": [
+   {
+    "url": "https://cdn.elca.org/cdn/wp-content/uploads/Child_Protection_social_message_web.pdf",
+    "title": "A social message on Child Protection",
+    "publisher": "Evangelical Lutheran Church in America",
+    "date": "2025-11-12",
+    "primary": true
+   },
+   {
+    "url": "https://resources.elca.org/faith-and-society/child-protection-social-message/",
+    "title": "Child Protection Social Message (resource page)",
+    "publisher": "Evangelical Lutheran Church in America",
+    "date": "2026-01-30",
+    "primary": true
+   },
+   {
+    "url": "https://www.elca.org/faith/faith-and-society/social-messages",
+    "title": "Social Messages (index)",
+    "publisher": "Evangelical Lutheran Church in America",
+    "date": "2026",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "organizations",
+   "churches"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (Christian's guide session 2026-10-29)",
+  "body": "Read from the church's PDF on 2026-10-29. Page 1: \"This social message was adopted by the ELCA Church Council on November 12, 2025.\" Verbatim: \"Worshiping communities are called to be safe spaces, free of violence, where physical intimidation or the use of force—including physical discipline—are specifically prohibited.\" And: \"Synods and the churchwide organization are also encouraged to provide resources for parents and caregivers on effective forms of nonphysical discipline and theological resources that can equip the church to address child maltreatment\". The message also describes physical punishment \"such as spanking or hitting\" as \"often rooted in family and religious culture and tradition\" in its section on physical abuse. A social message is adopted by the Church Council; it is a lower tier than a social statement, which needs a two-thirds vote of a churchwide assembly (elca.org). It is about church settings and parents; it does not name schools, so do not cite it as a position on school corporal punishment.\n\n## History\n- 2026-10-29: created for kit/a-christians-guide.md."
+ },
+ {
   "id": "org-nasp-position",
   "claim": "The National Association of School Psychologists 'strongly opposes the use of corporal punishment in schools and supports ending its use in all schools' (position statement, revised 2021).",
   "status": "verified",
@@ -1754,9 +3589,9 @@
  },
  {
   "id": "org-nwlc-open-letter-2016",
-  "claim": "In November 2016 more than 100 organizations, including the ACLU, APA, AFT, NEA, AAP, NAACP, SPLC and the Children's Defense Fund, signed an open letter organized by the National Women's Law Center calling for an end to corporal punishment in schools.",
+  "claim": "In November 2016, 79 organizations, including the ACLU, APA, AFT, NEA, AAP, NAACP, NASSP, National PTA, SPLC and the Children's Defense Fund, signed an open letter organized by the National Women's Law Center calling for an end to corporal punishment in schools.",
   "status": "verified",
-  "figure": 100,
+  "figure": 79,
   "as_of": "2016-11-21",
   "sources": [
    {
@@ -1770,9 +3605,107 @@
   "tags": [
    "organizations"
   ],
-  "last_verified": "2026-09-09",
+  "last_verified": "2026-10-28",
   "verified_by": "agent:claude (research pass 2026-09-09)",
-  "body": "Useful as the one-line proof that every major medical, psychological, educator and civil-rights body is on record. The letter cited 109,000 students receiving corporal punishment in 2013-14 and the disparity for Black girls.\n\n## History\n- 2026-09-09: created."
+  "body": "Useful as the one-line proof that every major medical, psychological, educator and civil-rights body is on record. The letter cited 109,000 students receiving corporal punishment in 2013-14 and the disparity for Black girls.\n\n## History\n- 2026-09-09: created.\n- 2026-10-28: count corrected from 'more than 100' to 79, the number listed under the letter on the NWLC page (NWLC itself is the organizer, not counted). Full list in tools/film/script-national.json (s10_words)."
+ },
+ {
+  "id": "org-pcusa-2012-resolution-against-corporal-punishment",
+  "claim": "In 2012 the 220th General Assembly of the Presbyterian Church (U.S.A.) adopted a Resolution Against Corporal Punishment, by a vote of 334 to 306, encouraging members to adopt discipline methods at home, in schools, pediatric facilities, institutions and child care facilities that do not include corporal punishment of children, and calling upon all states to enact licensing laws prohibiting corporal punishment in schools and day and residential childcare facilities.",
+  "status": "verified",
+  "figure": "334-306",
+  "as_of": "2012",
+  "sources": [
+   {
+    "url": "https://centernet.pcusa.org/wp-content/uploads/Anti-Corporal-Punishment-Res-2012.pdf",
+    "title": "Resolution Against Corporal Punishment (2012) and Accompanying PCUSA and Other Resources on Nurturing Children (Social Witness Policy Statement and Bibliography)",
+    "publisher": "Presbyterian Church (U.S.A.)",
+    "date": "2012",
+    "primary": true
+   },
+   {
+    "url": "https://presbyteriangifts.pcusa.org/sites/default/files/assemblyinbrief.pdf",
+    "title": "Assembly in Brief 2012: 220th General Assembly, June 30-July 7, Pittsburgh",
+    "publisher": "Presbyterian Church (U.S.A.), Office of the General Assembly",
+    "date": "2012",
+    "primary": true
+   },
+   {
+    "url": "https://new14.pcusa.org/news/2012/7/2/social-justices/",
+    "title": "Social Justice Issues (committee recommends positive discipline rather than corporal punishment)",
+    "publisher": "Presbyterian Church (U.S.A.)",
+    "date": "2012-07-02",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "organizations",
+   "churches"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (Christian's guide session 2026-10-29)",
+  "body": "Operative text, verbatim from the church's policy statement PDF: the PC(USA) \"1. a. Encourages its members to adopt discipline methods at home, in schools, pediatric facilities, and institutions (e.g. hospitals, orphanages, clinics, state institutions) and child care facilities that do not include corporal punishment of children, and b. Encourages congregations to offer opportunities for dialogue and education on effective discipline of children; 2. Calls upon all states to enact licensing laws prohibiting corporal punishment in schools and day and residential childcare facilities; 3. Directs the appropriate General Assembly committees to provide limited bibliography of resources presenting alternative effective methods of discipline to corporal punishment\". Assembly in Brief 2012 (pcusa.org): \"In its closest social justice issues vote, the Assembly voted 334-306 to call for an end to corporal punishment in homes, schools, pediatric facilities, hospitals, orphanages, clinics, state institutions and childcare facilities.\" The item and overture number were not read (pc-biz.org is a JavaScript application); press reports attribute it to the Presbytery of Grace with nine abstentions, not verified here.\n\nAccess note: on 2026-10-29 centernet.pcusa.org returned \"Centernet is down for maintenance\"; the PDF was read from the Internet Archive snapshot of that URL dated 2025-12-15 (web.archive.org/web/20251215022459/...). The Assembly in Brief PDF was read live at pcusa.org.\n\n## History\n- 2026-10-29: created for kit/a-christians-guide.md."
+ },
+ {
+  "id": "org-umc-2004-discipline-children-without-corporal-punishment",
+  "claim": "The United Methodist Church's 2004 General Conference adopted the resolution 'Discipline Children Without Corporal Punishment' (Resolution 70 of 2004, 3088 of 2008 and 2012), readopted in 2012, resolving that 'The United Methodist Church encourages its members to adopt discipline methods that do not include corporal punishment of their children'; the church's website now marks the resolution deleted or expired.",
+  "status": "verified",
+  "figure": null,
+  "as_of": "2004-2012",
+  "sources": [
+   {
+    "url": "https://www.umc.org/en/content/book-of-resolutions-discipline-children-without-corporal-punishment",
+    "title": "Book of Resolutions: Discipline Children without Corporal Punishment (DELETED/EXPIRED)",
+    "publisher": "The United Methodist Church",
+    "date": "2016",
+    "primary": true
+   },
+   {
+    "url": "https://www.umcjustice.org/latest/discipline-children-without-corporal-punishment-85",
+    "title": "Discipline Children Without Corporal Punishment (Resolution 3088, 2016 Book of Resolutions)",
+    "publisher": "General Board of Church and Society, The United Methodist Church",
+    "date": "2016",
+    "primary": true
+   },
+   {
+    "url": "https://www.umcjustice.org/who-we-are/proposed-resolutions-for-general-conference-charlotte",
+    "title": "Petitions and Proposed Resolutions for General Conference Charlotte (#3087, Discipline Children without Corporal Punishment, Including in Schools and Childcare Facilities, Amend and Readopt)",
+    "publisher": "General Board of Church and Society, The United Methodist Church",
+    "date": "2024",
+    "primary": true
+   }
+  ],
+  "tags": [
+   "organizations",
+   "churches"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (Christian's guide session 2026-10-29)",
+  "body": "Read at umc.org on 2026-10-29. The page title carries \"(DELETED/EXPIRED)\"; the text shown is the 2016 Book of Resolutions version with the lines \"ADOPTED 2004\", \"READOPTED 2012\", \"RESOLUTION #3088, 2008, 2012 BOOK OF RESOLUTIONS\", \"RESOLUTION #70, 2004 BOOK OF RESOLUTIONS\", \"See Social Principles, ¶ 162C\". Two resolved clauses: members encouraged \"to adopt discipline methods that do not include corporal punishment of their children\"; congregations encouraged \"to offer opportunities for dialogue and education on effective discipline of children.\" The whereas clauses say corporal punishment \"models aggressive behavior as a solution to conflict\" and that \"It is difficult to imagine Jesus of Nazareth condoning any action that is intended to hurt children\" (the latter as quoted by Bishop Nunn, org-umc-oklahoma-bishop-2024-column; the whereas text on the umc.org page was summarized, not quoted, by the fetch).\n\nStatus of the schools resolution: a publisher's table of contents for the 2020/2024 Book of Resolutions lists item 4212, \"Prohibit Corporal Punishment in Schools and Childcare Facilities\" (the 2004 original was Resolution 69, \"Corporal Punishment in Schools and Child Care Facilities\", calling on all states to enact laws prohibiting it). Its current text could not be read at umc.org on 2026-10-29 (several URL forms returned 404; the site search returns only the expired resolution). The General Board of Church and Society proposed petition #3087 to amend and readopt the family resolution with schools and childcare added for the 2024 General Conference; the outcome of that petition was not found. Say \"adopted in 2004, readopted in 2012, now marked expired on the church's site\" and no more.\n\n## History\n- 2026-10-29: created for kit/a-christians-guide.md."
+ },
+ {
+  "id": "org-umc-oklahoma-bishop-2024-column",
+  "claim": "In May 2024, after two verses from Proverbs were quoted in the Oklahoma Senate against House Bill 1028, which would bar schools from using corporal punishment on children with disabilities, Bishop James G. Nunn, the United Methodist bishop for the Oklahoma Area, wrote in The Oklahoman that United Methodists do not condone corporal punishment, quoting the church's resolution encouraging members 'to adopt discipline methods that do not include corporal punishment of their children'.",
+  "status": "reported",
+  "figure": null,
+  "as_of": "2024-05-03",
+  "sources": [
+   {
+    "url": "https://www.yahoo.com/news/united-methodists-not-condone-corporal-100737983.html",
+    "title": "United Methodists 'do not condone corporal punishment,' Oklahoma bishop says",
+    "publisher": "The Oklahoman (syndicated by Yahoo News)",
+    "date": "2024-05-03",
+    "primary": false
+   }
+  ],
+  "tags": [
+   "organizations",
+   "churches",
+   "oklahoma"
+  ],
+  "last_verified": "2026-10-29",
+  "verified_by": "agent:claude (Christian's guide session 2026-10-29)",
+  "body": "A guest column by the bishop, read in the Yahoo syndication of The Oklahoman on 2026-10-29. Reported, not a denominational act: it is one bishop's statement in a newspaper, and the original at oklahoman.com was not opened. The column quotes the Book of Resolutions (\"It is difficult to imagine Jesus of Nazareth condoning any action that is intended to hurt children\") and the Social Principles (\"corporal punishment models aggressive behavior as a solution to conflict\"; \"children must eventually develop their own conscience and self-discipline\"). Use it as context for the Oklahoma debate and as a church leader's reading of the resolution in org-umc-2004-discipline-children-without-corporal-punishment, not as the church's position in itself.\n\n## History\n- 2026-10-29: created for kit/a-christians-guide.md."
  },
  {
   "id": "persuasion-constituent-lobbying-bergan-2009",

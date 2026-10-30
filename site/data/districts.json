@@ -5038,20 +5038,28 @@
   {
    "name": "Fayetteville Public Schools",
    "county": "Washington",
-   "nces_id": null,
-   "status": "unknown",
-   "source": null,
-   "quote": null,
-   "last_verified": null,
+   "nces_id": "0506120",
+   "status": "allows",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/fc331e97b2-Policy_5114.pdf",
+   "quote": "Corporal punishment should not be used unless other disciplinary techniques have been attempted unsuccessfully with the student.",
+   "last_verified": "2026-10-28",
    "legacy_status": "bans",
-   "notes": "Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.",
+   "notes": "Received from the district by email in answer to a public records request, 2026-10-28; the document is kept in the repository at data/policies/inbound/AR/fc331e97b2-Policy_5114.pdf. Identity is name and state matched against the federal LEA directory.",
    "contact": {
     "district_email": "jonathan.mulford@fayar.net",
     "superintendent": "MULFORD, JONATHAN D.",
     "phone": "(479) 444-3000",
     "contact_source": "ADE Data Center Superintendent Contact List, 2026-09-25",
     "as_of": "2026-09-25"
-   }
+   },
+   "policy_code": null,
+   "crdc_students_latest": null,
+   "method": "records_request",
+   "parent_control": "unknown",
+   "quotes": [
+    "Corporal punishment should not be used unless other disciplinary techniques have been attempted unsuccessfully with the student.",
+    "Corporal punishment should not be used unless the student has been warned that repetition or continuation of a behavior may lead to corporal punishment."
+   ]
   },
   {
    "name": "FLIPPIN SCHOOL DISTRICT",
@@ -23205,13 +23213,13 @@
    "name": "Atchison Public Schools",
    "county": "Atchison",
    "nces_id": "2003540",
-   "status": "silent",
-   "source": "https://cdnsm5-ss13.sharpschool.com/UserFiles/Servers/Server_156503/File/Handbooks/2022-2023%20AES%20Student%20Handbook_FINAL.pdf",
-   "quote": null,
+   "status": "bans",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2003540-JDA_Corporal_Punishment.pdf",
+   "quote": "JDA CORPORAL PUNISHMENT Corporal punishment shall not be permitted in the school district.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
-   "method": "searched_document",
+   "last_verified": "2026-10-30",
+   "method": "records_request",
    "parent_control": "unknown",
    "documents": [
     {
@@ -23223,8 +23231,11 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Received from the district by email in answer to a public records request, 2026-10-30; the document is kept in the repository at data/policies/inbound/KS/2003540-JDA_Corporal_Punishment.pdf. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "JDA CORPORAL PUNISHMENT Corporal punishment shall not be permitted in the school district."
+   ]
   },
   {
    "name": "Attica",
@@ -26843,13 +26854,13 @@
    "name": "Marais Des Cygnes Valley",
    "county": "Osage",
    "nces_id": "2009480",
-   "status": "silent",
-   "source": "https://www.usd456.org/live-feed?page_no=69",
-   "quote": null,
+   "status": "bans",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2009480-link-2e69d9.pdf",
+   "quote": "JDA Corporal Punishment Corporal punishment shall not be permitted in the school district.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
-   "method": "searched_document",
+   "last_verified": "2026-10-28",
+   "method": "records_request",
    "parent_control": "unknown",
    "documents": [
     {
@@ -26861,8 +26872,11 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Received from the district by email in answer to a public records request, 2026-10-28; the document is kept in the repository at data/policies/inbound/KS/2009480-link-2e69d9.pdf. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "JDA Corporal Punishment Corporal punishment shall not be permitted in the school district."
+   ]
   },
   {
    "name": "Marion-Florence",
@@ -35680,16 +35694,16 @@
    "name": "Jefferson Parish Schools",
    "county": "Jefferson",
    "nces_id": "2200840",
-   "status": "silent",
-   "source": "https://www.jpschools.org/families/student-family-policies",
-   "quote": null,
-   "last_verified": "2026-09-26",
+   "status": "bans",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/LA/2200840-link-74335c.txt",
+   "quote": "JDA CORPORAL PUNISHMENT The Jefferson Parish School Board shall prohibit the use of corporal punishment by all of its employees.",
+   "last_verified": "2026-10-29",
    "legacy_status": "bans",
-   "notes": "3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
+   "notes": "Received from the district by email in answer to a public records request, 2026-10-29; the document is kept in the repository at data/policies/inbound/LA/2200840-link-74335c.txt. Identity is name and state matched against the federal LEA directory.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "method": "searched_document",
-   "parent_control": "unknown",
+   "method": "records_request",
+   "parent_control": "none",
    "documents": [
     {
      "kind": "board_policy",
@@ -35715,6 +35729,11 @@
      "retrieved": "2026-09-26",
      "by": "Mothership (search + read)"
     }
+   ],
+   "quotes": [
+    "JDA CORPORAL PUNISHMENT The Jefferson Parish School Board shall prohibit the use of corporal punishment by all of its employees.",
+    "Students shall not be paddled, spanked or otherwise physically disciplined for infractions of student conduct regulations.",
+    "Furthermore, no other person (including parents or guardians) shall be allowed to administer corporal punishment to a student while on school grounds."
    ]
   },
   {
@@ -40113,14 +40132,14 @@
    "name": "Hume R-VIII",
    "county": "Bates",
    "nces_id": "2915330",
-   "status": "silent",
-   "source": "https://www.humer8.k12.mo.us/school-board-information",
-   "quote": null,
-   "policy_code": null,
+   "status": "consent_required",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2915330-MCE_Policy_2670.pdf",
+   "quote": "Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.",
+   "policy_code": "2670",
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
-   "method": "searched_document",
-   "parent_control": "unknown",
+   "last_verified": "2026-10-29",
+   "method": "records_request",
+   "parent_control": "opt_in",
    "documents": [
     {
      "kind": "other",
@@ -40131,8 +40150,12 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Received from the district by email in answer to a public records request, 2026-10-29; the document is kept in the repository at data/policies/inbound/MO/2915330-MCE_Policy_2670.pdf. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.",
+    "No student will be administered corporal punishment without prior notification to and written permission of the student’s parents/guardians."
+   ]
   },
   {
    "name": "Iberia R-V",
@@ -41704,18 +41727,18 @@
    "name": "Neosho School District",
    "county": "Newton",
    "nces_id": "2921810",
-   "status": "allows",
-   "source": "https://s3.amazonaws.com/scschoolfiles/3459/2023_2024_neosho_school_district_high_school_student_handbook_final.pdf",
-   "quote": "Definitions Abuse – Any physical injury, sexual abuse or emotional abuse inflicted on a child other than by accidental means by those responsible for the child's care, custody and control or by any other person, except that discipline including spanking, administered in a reasonable manner, shall not be construed as abuse.",
-   "policy_code": null,
+   "status": "bans",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2921810-email-2ac644d2.txt",
+   "quote": "Neosho School District’s current policy states that corporal punishment is not permitted, while allowing reasonable physical force when necessary to protect students, others, or property, as well as restraint in accordance with district policy.",
+   "policy_code": "JGA-2",
    "crdc_students_latest": null,
-   "last_verified": "2026-09-25",
-   "method": "searched_document",
+   "last_verified": "2026-10-28",
+   "method": "records_request",
    "parent_control": "unknown",
    "quotes": [
-    "Definitions Abuse – Any physical injury, sexual abuse or emotional abuse inflicted on a child other than by accidental means by those responsible for the child's care, custody and control or by any other person, except that discipline including spanking, administered in a reasonable manner, shall not be construed as abuse."
+    "Neosho School District’s current policy states that corporal punishment is not permitted, while allowing reasonable physical force when necessary to protect students, others, or property, as well as restraint in accordance with district policy."
    ],
-   "notes": "Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MO). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "notes": "Received from the district by email in answer to a public records request, 2026-10-28; the document is kept in the repository at data/policies/inbound/MO/2921810-email-2ac644d2.txt. Identity is name and state matched against the federal LEA directory.",
    "county_source": "nces_edge_geocode_2023_24"
   },
   {
@@ -56990,13 +57013,13 @@
    "name": "Chickasha",
    "county": "Grady",
    "nces_id": "4007560",
-   "status": "silent",
-   "source": "https://www.chickasha.k12.ok.us/vimages/shared/vnews/stories/60f1cd4849240/Official%202024-2025%20CHS%20Student%20Handbook%20Updated%208-8-2024%20(1).pdf",
-   "quote": null,
+   "status": "bans",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4007560-EK_rev_22_-_Oct_2026.pdf",
+   "quote": "District prohibits the use of corporal punishment as a means of discipline, and any employee who violates this policy will be subject to discipline up to and including termination.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
-   "method": "searched_document",
+   "last_verified": "2026-10-30",
+   "method": "records_request",
    "parent_control": "unknown",
    "documents": [
     {
@@ -57032,8 +57055,11 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Received from the district by email in answer to a public records request, 2026-10-30; the document is kept in the repository at data/policies/inbound/OK/4007560-EK_rev_22_-_Oct_2026.pdf. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "District prohibits the use of corporal punishment as a means of discipline, and any employee who violates this policy will be subject to discipline up to and including termination."
+   ]
   },
   {
    "name": "Chisholm",
@@ -69679,13 +69705,13 @@
    "name": "Millington Municipal Schools",
    "county": "Shelby",
    "nces_id": "4700150",
-   "status": "silent",
-   "source": "https://millingtonschools.org/153552_2",
-   "quote": null,
-   "policy_code": null,
+   "status": "bans",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TN/4700150-email-85538537.txt",
+   "quote": "It is the policy of the Millington Municipal Schools Board of Education that corporal punishment shall not be used as a disciplinary measure in any school. The director of schools shall be responsible for developing and implementing in-service training programs for teachers and staff in the use of alternative, positive measures of discipline.",
+   "policy_code": "6.314",
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
-   "method": "searched_document",
+   "last_verified": "2026-10-28",
+   "method": "records_request",
    "parent_control": "unknown",
    "documents": [
     {
@@ -69697,8 +69723,11 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Policy 6.314 Corporal Punishment (issued 05/05/14, reviewed/revised 06/01/26) pasted in full by the district by email in answer to a public records request, 2026-10-28; the email is kept in the repository at data/policies/inbound/TN/4700150-email-85538537.txt. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "06/01/26 It is the policy of the Millington Municipal Schools Board of Education that corporal punishment shall not be used as a disciplinary measure in any school.1 The director of schools shall be responsible for developing and implementing in-service training programs for teachers and staff in the use of alternative, positive measures of discipline."
+   ]
   },
   {
    "name": "Monroe County",

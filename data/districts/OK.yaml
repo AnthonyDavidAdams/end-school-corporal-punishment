@@ -1852,13 +1852,13 @@ districts:
   - name: Chickasha
     county: Grady
     nces_id: "4007560"
-    status: silent
-    source: https://www.chickasha.k12.ok.us/vimages/shared/vnews/stories/60f1cd4849240/Official%202024-2025%20CHS%20Student%20Handbook%20Updated%208-8-2024%20(1).pdf
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4007560-EK_rev_22_-_Oct_2026.pdf
+    quote: District prohibits the use of corporal punishment as a means of discipline, and any employee who violates this policy will be subject to discipline up to and including termination.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-10-30
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -1885,8 +1885,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-30; the document is kept in the repository at data/policies/inbound/OK/4007560-EK_rev_22_-_Oct_2026.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - District prohibits the use of corporal punishment as a means of discipline, and any employee who violates this policy will be subject to discipline up to and including termination.
   - name: Chisholm
     county: Garfield
     nces_id: "4021780"

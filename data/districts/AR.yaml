@@ -1259,19 +1259,26 @@ districts:
     county_source: nces_edge_geocode_2023_24
   - name: Fayetteville Public Schools
     county: Washington
-    nces_id: null
-    status: unknown
-    source: null
-    quote: null
-    last_verified: null
+    nces_id: "0506120"
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/fc331e97b2-Policy_5114.pdf
+    quote: Corporal punishment should not be used unless other disciplinary techniques have been attempted unsuccessfully with the student.
+    last_verified: 2026-10-28
     legacy_status: bans
-    notes: Status carried over from the pre-2026 map with no source and not verified. The first districts re-checked in 2026 were wrong in this data more often than not, so it is recorded as unknown until someone opens the policy. The previous unsourced value is kept in legacy_status.
+    notes: Received from the district by email in answer to a public records request, 2026-10-28; the document is kept in the repository at data/policies/inbound/AR/fc331e97b2-Policy_5114.pdf. Identity is name and state matched against the federal LEA directory.
     contact:
       district_email: jonathan.mulford@fayar.net
       superintendent: MULFORD, JONATHAN D.
       phone: (479) 444-3000
       contact_source: ADE Data Center Superintendent Contact List, 2026-09-25
       as_of: 2026-09-25
+    policy_code: null
+    crdc_students_latest: null
+    method: records_request
+    parent_control: unknown
+    quotes:
+      - Corporal punishment should not be used unless other disciplinary techniques have been attempted unsuccessfully with the student.
+      - Corporal punishment should not be used unless the student has been warned that repetition or continuation of a behavior may lead to corporal punishment.
   - name: FLIPPIN SCHOOL DISTRICT
     county: Marion
     nces_id: "0506150"

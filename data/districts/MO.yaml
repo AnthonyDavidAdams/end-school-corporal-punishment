@@ -2561,14 +2561,14 @@ districts:
   - name: Hume R-VIII
     county: Bates
     nces_id: "2915330"
-    status: silent
-    source: https://www.humer8.k12.mo.us/school-board-information
-    quote: null
-    policy_code: null
+    status: consent_required
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2915330-MCE_Policy_2670.pdf
+    quote: Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
+    policy_code: "2670"
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-10-29
+    method: records_request
+    parent_control: opt_in
     documents:
       - kind: other
         url: https://www.humer8.k12.mo.us/school-board-information
@@ -2576,8 +2576,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-10-29; the document is kept in the repository at data/policies/inbound/MO/2915330-MCE_Policy_2670.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Authorized Corporal punishment should be used only after other methods have failed and when there is reason to believe it will be helpful in maintaining discipline or in the development of the student's character and power of self-control.
+      - No student will be administered corporal punishment without prior notification to and written permission of the student’s parents/guardians.
   - name: Iberia R-V
     county: Miller
     nces_id: "2915420"
@@ -3883,17 +3886,17 @@ districts:
   - name: Neosho School District
     county: Newton
     nces_id: "2921810"
-    status: allows
-    source: https://s3.amazonaws.com/scschoolfiles/3459/2023_2024_neosho_school_district_high_school_student_handbook_final.pdf
-    quote: Definitions Abuse – Any physical injury, sexual abuse or emotional abuse inflicted on a child other than by accidental means by those responsible for the child's care, custody and control or by any other person, except that discipline including spanking, administered in a reasonable manner, shall not be construed as abuse.
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2921810-email-2ac644d2.txt
+    quote: Neosho School District’s current policy states that corporal punishment is not permitted, while allowing reasonable physical force when necessary to protect students, others, or property, as well as restraint in accordance with district policy.
+    policy_code: JGA-2
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-10-28
+    method: records_request
     parent_control: unknown
     quotes:
-      - Definitions Abuse – Any physical injury, sexual abuse or emotional abuse inflicted on a child other than by accidental means by those responsible for the child's care, custody and control or by any other person, except that discipline including spanking, administered in a reasonable manner, shall not be construed as abuse.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MO). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+      - Neosho School District’s current policy states that corporal punishment is not permitted, while allowing reasonable physical force when necessary to protect students, others, or property, as well as restraint in accordance with district policy.
+    notes: Received from the district by email in answer to a public records request, 2026-10-28; the document is kept in the repository at data/policies/inbound/MO/2921810-email-2ac644d2.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Nevada R-V
     county: Vernon
