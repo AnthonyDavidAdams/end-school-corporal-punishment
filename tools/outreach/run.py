@@ -304,7 +304,7 @@ def scrub(path):
         if t2 != t: open(path, "w").write(t2)
     except Exception: pass
 
-CODE_RE = re.compile(r"(?:\b(?:Board\s+)?Policy\s*(?:No\.?|Number|#)?\s*:?\s*|\bP\s+(?=\d{4}\b))([A-Z]{1,5}(?:-\d{1,4})?(?:\([A-Z]+\))?|\d{2,4}(?:\.\d{1,4})?)\b(?![A-Za-z])")
+CODE_RE = re.compile(r"(?:\b(?:Board\s+)?Policy\s*(?:No\.?|Number|#)?\s*:?\s*|\bP\s+(?=\d{4}\b))([A-Z]{1,5}(?:-\d{1,4})?(?:\([A-Z]+\))?|\d{1,4}(?:\.\d{1,4})?)\b(?![A-Za-z])")
 def policy_code_in(text):
     """The policy's own code when the document names it ('Policy JGA-2', 'Board Policy 09.433', 'P 2670',
     'Policy FO(LOCAL)'), so a pasted policy is recorded with its number. Without it a bans record built
@@ -317,11 +317,13 @@ def policy_code_in(text):
     # A heading form: the code on the line of, or just above, the title ('JDA Corporal Punishment JDA',
     # 'STUDENTS 09.433' two lines above 'Corporal Punishment').
     lines = [re.sub(r"[\u200b\u00a0\ufeff]", " ", l) for l in (text or "")[:4000].splitlines()[:60]]
+    m = re.search(r"Descriptor Code:?\s*\n(?:\s*\n)*\s*(\d{1,4}(?:\.\d{1,4})?|[A-Z]{2,5}(?:-\d{1,4})?)\b", "\n".join(lines))   # the TSBA layout (Tennessee)
+    if m: return m.group(1)
     for i, l in enumerate(lines):
         if l.startswith("Policy text as sent by email"): continue   # the filing header carries a timezone like -0500
         if re.search(r"RSMo|§|K\.S\.A|Ark\. Code|Code Ann|Stat\.|Section \d|U\.S\.C", l): continue   # a statute citation is not a policy code
         if not any(re.search(r"corporal punishment", x, re.I) for x in lines[i:i + 3]): continue
-        for m in re.finditer(r"(?<![A-Za-z0-9+-])([A-Z]{2,5}(?:-\d{1,4})?|\d{2,4}\.\d{1,4}|\d{4})(?![A-Za-z0-9])", l):
+        for m in re.finditer(r"(?<![A-Za-z0-9+-])([A-Z]{2,5}(?:-\d{1,4})?|\d{1,4}\.\d{1,4}|\d{4})(?![A-Za-z0-9])", l):
             c = m.group(1)
             if c in HEADING_NOISE or (c.isdigit() and len(c) == 4 and 1900 <= int(c) <= 2100): continue
             if c.isalpha() and (len(c) > 4 or not re.search(r"corporal punishment", l, re.I)): continue   # a bare acronym counts only on the title line itself ('JDA Corporal Punishment'), and letter codes run two to four letters
@@ -345,7 +347,7 @@ def file_document(r, path, how):
     """Clip -> Jev classify -> record -> merge -> publish. Returns the status recorded, or None."""
     scrub(path)
     text = doc_text(path); cands = clip(text)
-    if how.startswith("pasted into") and not policy_like(text):
+    if how.startswith("pasted into") and (not policy_like(text) or not policy_code_in(text)):   # a pasted policy without its code is unpublishable as bans (validate.mjs); kept as the district's word until the code or a link arrives (Millington TN blocked every publish for two days)
         # Their word, not their policy: the thread keeps it (the writer reads it), the record does not.
         log("email is a statement, not policy text; not filed:", r["name"], (cands[0][:80] if cands else ""))
         try: os.remove(path)
