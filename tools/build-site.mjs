@@ -1066,7 +1066,7 @@ ${tables}
   // ---------- the board page: /board/ is the national page; each state's page is /board/<ST>/ ----------
   // A bare link (the first batch of board-member notes went out with one) lands here. A tagged link whose token is
   // known is forwarded to the recipient's own state page by r.json: token -> [state, nces], no names, no emails.
-  // The film is the national edition (tools/film/script-national.json); Texas itself is /board/TX/ with the Texas edition.
+  // The film is the national edition (tools/film/script-national.json) on every board page, Texas included.
   mkdirSync(join(site, "board"), { recursive: true });
   const permittingStates = Object.values(states).filter(x => x.status === "legal" || x.status === "partial");
   try {
@@ -1119,7 +1119,7 @@ ${tables}
     const trend = c17.students && c24.students ? ` In 2017-18 it was ${n(c17.students)}: the practice is already leaving.` : (s.status === "partial" ? " No district in the state has used it since 2018." : "");
     const shares = c24.students ? `Of the students struck, ${Math.round(100 * (c24.boys || 0) / c24.students)} percent were boys and ${Math.round(100 * (c24.with_disabilities || 0) / c24.students)} percent had a disability.` : "";
     const limits = Array.isArray(s.limits) ? s.limits : (s.limits ? [s.limits] : []);
-    const film = code === "TX" ? "one-sentence" : "one-sentence-national", poster = code === "TX" ? "one-sentence-poster.jpg" : "one-sentence-national-poster.jpg";
+    const film = "one-sentence-national", poster = "one-sentence-national-poster.jpg";   // one film everywhere since 2026-10-30; the Texas cut is retired
     const dir = join(site, "board", code); mkdirSync(dir, { recursive: true });
     writeFileSync(join(dir, "index.html"), shell({
       title: `One sentence: corporal punishment and your ${s.name} school board`, path: `/board/${code}/`,
