@@ -1399,6 +1399,7 @@ def discover(n=1):
             r["recorded_status"] = rec["status"]; continue
         looked += 1
         try: status, tried = recheck_mod.recheck(r, file_document, log=log)
+        except recheck_mod.SearchDown as ex: log("discover: search is down, stopping; nothing recorded:", str(ex)[:120]); text_anthony(f"ESCP discover: {str(ex)[:80]}") if looked == 1 else None; break
         except Exception as ex: log("discover: recheck failed", r["name"], repr(ex)[:100]); status, tried = None, []
         r["rechecked_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["recheck_tried"] = tried[:6]
         if status and status != "held": r["recorded_status"] = status; found += 1; log("discover: found", r["state"], r["name"], status)

@@ -13,7 +13,7 @@ different and much better email than "I can't find it".
 
     python3 tools/outreach/recheck.py <nces_id|name> [domain]     # try one, print what happened
 """
-import json, os, re, subprocess, sys, urllib.parse, urllib.request
+import json, os, re, subprocess, sys, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
@@ -47,6 +47,10 @@ def domain_of(addr_or_url):
     return None if (not d or d in SKIP_DOMAINS or "." not in d) else d
 
 
+class SearchDown(RuntimeError):
+    pass
+
+
 def search(q, count=12):
     key = brave_key()
     if not key:
@@ -55,6 +59,10 @@ def search(q, count=12):
     req = urllib.request.Request(url, headers={"Accept": "application/json", "X-Subscription-Token": key})
     try:
         j = json.load(urllib.request.urlopen(req, timeout=30))
+    except urllib.error.HTTPError as e:
+        if e.code in (402, 429):   # no credit, or throttled: say so, never "nothing indexed" (absent is not negative)
+            raise SearchDown(f"Brave {e.code}: {e.read()[:100]!r}")
+        return []
     except Exception:
         return []
     return [{"title": x.get("title", ""), "url": x.get("url", ""), "snippet": (x.get("description") or "")[:200]}

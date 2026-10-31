@@ -107,8 +107,10 @@ def work(M, reqs, mine, limit=PER_CYCLE, dry=False, deadline=None):
         if done >= limit: break
         if deadline and time.time() > deadline: run.log("desk: out of time, the rest wait a cycle"); break
         e = r["replies"][-1]
-        if r["id"] in mine or r.get("hold_replies"):
-            r["status"] = "anthony_replied"; e["action"] = (e.get("action") or "") + "; desk: Anthony is in this thread"; run.save(reqs); continue
+        if r.get("hold_replies"):   # Anthony's own replies are context, not a lock (2026-10-09); only hold_replies parks a thread
+            r["status"] = "anthony_replied"; e["action"] = (e.get("action") or "") + "; desk: thread held by hand"
+            if not dry: run.save(reqs)
+            continue
         msg, body, atts = latest_eml(r, e)
         subject = (str(make_header(decode_header(msg.get("Subject") or ""))) if msg else None) or r.get("subject") or (messages.nice(r["name"]) + " corporal punishment policy")
         thread = run.thread_of(r, reqs); record = run.record_status(r)
