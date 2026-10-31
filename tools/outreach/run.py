@@ -63,7 +63,9 @@ def delete_draft(M, subject):
     for num in (data[0].split() if data and data[0] else []):
         M.store(num, "+FLAGS", "\\Deleted")
     M.expunge()
+GMAIL_DRAFTS = False   # 2026-10-31: the desk sends or closes every held reply itself; no more drafts in Anthony's Gmail
 def put_draft(M, msg):
+    if not GMAIL_DRAFTS: return
     M.append('"[Gmail]/Drafts"', "\\Draft", imaplib.Time2Internaldate(time.time()), msg.as_bytes())
 def text_anthony(line):
     if not SMS: return
