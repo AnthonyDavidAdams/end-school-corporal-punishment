@@ -214,15 +214,16 @@ def parse(text):
     return {"move": d["move"], "reply": body, "why": str(d.get("why", ""))[:200]}
 
 
-def decide(r, thread, record, filed, facts, recheck, quiet):
+def decide(r, thread, record, filed, facts, recheck, quiet, note=None):
+    sit = situation(r, thread, record, filed, facts, recheck, quiet) + (f"\n\nDESK NOTE (rules that apply to this thread; follow them): {note}" if note else "")
     if USE_CLI:
-        text = ask_cli(BRIEF, situation(r, thread, record, filed, facts, recheck, quiet))
+        text = ask_cli(BRIEF, sit)
         if text:
             return parse(text)
     req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps({"model": WRITER, "max_tokens": 2000, "temperature": 0.2,
                          "messages": [{"role": "system", "content": BRIEF},
-                                      {"role": "user", "content": situation(r, thread, record, filed, facts, recheck, quiet)}]}).encode(),
+                                      {"role": "user", "content": sit}]}).encode(),
         headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
     text = None
     for attempt in range(3):
@@ -259,8 +260,10 @@ def unstock(decision, r, thread, record, filed, facts, recheck, quiet):
     return second or decision
 
 
-def check(body, thread, record=None):
-    """Six things a reply must not do, judged by Jev without sight of the brief."""
+THRESHOLDS = {"answers": (">=", 0.5), "promises": ("<", 0.35), "tone": (">=", 0.7), "minor": ("<", 0.4), "contradicts": ("<", 0.6), "reverses": ("<", 0.6)}
+
+def scores(body, thread, record=None):
+    """Six things a reply must not do, judged by Jev without sight of the brief. The probabilities, or None."""
     theirs = [m for m in thread if m["who"] == "them"]
     last = theirs[-1]["text"] if theirs else ""
     ours = [m for m in thread if m["who"] != "them"]
@@ -285,10 +288,52 @@ def check(body, thread, record=None):
         headers={"Authorization": f"Bearer {key()}", "Content-Type": "application/json"})
     try:
         a = json.load(urllib.request.urlopen(req, timeout=60))["answers"]
-        p = lambda k: float(a[k].get("noul") or 0)
-        return p("answers") >= 0.5 and p("promises") < 0.35 and p("tone") >= 0.7 and p("minor") < 0.4 and p("contradicts") < 0.6 and p("reverses") < 0.6
+        return {k: float(a[k].get("noul") or 0) for k in qs}
     except Exception:
-        return False
+        return None
+
+
+def failures(s):
+    """[(question, margin)] for every threshold the scores miss; empty means the referee passes."""
+    out = []
+    for k, (op, t) in THRESHOLDS.items():
+        v = s.get(k, 0)
+        if (op == ">=" and v < t) or (op == "<" and v >= t): out.append((k, abs(v - t)))
+    return out
+
+
+def check(body, thread, record=None):
+    s = scores(body, thread, record)
+    return bool(s) and not failures(s)
+
+
+JUDGE = """You are the second reader of a short email that is about to be sent on behalf of Anthony Adams of the Safe Schools Project to a school district official. A first, automatic reader flagged it on one or more points; its scores are noisy and it is sometimes wrong (it once read the official's own first name as a child's name). Read the thread and the draft and decide for yourself.
+
+The draft must: respond to what the official actually said; promise nothing beyond what the project does (a public record of each district's own policy wording at earthpilot.org/kids, a free policy kit for boards, a Safe School listing with a certificate and press release once a board adopts a prohibition, a free behavior coach); stay courteous, with no sarcasm, pressure or condescension; name no child; state the district's policy status consistently with RECORD; and not silently contradict what we told them earlier in the thread. Two to five sentences, phone-plain, no em dashes, no stock openers, signed exactly "Anthony" then a blank line then "Sent from my iPhone" (or the formal sign-off if the draft already uses one for a state agency).
+
+Respond in exactly this form and nothing else:
+VERDICT: OK or FIX
+PROBLEMS: one line (write "none" for OK)
+---
+<the full repaired email body if FIX; leave empty if OK>"""
+
+
+def judge(body, thread, record, fails):
+    convo = "\n\n".join(f"[{m['who']} · {m.get('date') or ''}]\n{(m.get('text') or '')[:1800]}" for m in thread[-8:])
+    rec = {k: (record or {}).get(k) for k in ("status", "policy_code", "quote", "district_says")}
+    user = (f"RECORD: {json.dumps(rec, default=str)}\nFIRST READER FLAGGED: {', '.join(f'{k} (margin {m:.2f})' for k, m in fails)}\n\n"
+            f"THE THREAD, OLDEST FIRST:\n\n{convo}\n\nTHE DRAFT:\n\n{body}")
+    text = ask_cli(JUDGE, user)
+    if not text: return None
+    lines = text.replace("\r", "").split("\n")
+    vi = next((i for i, l in enumerate(lines) if re.match(r"\s*VERDICT:", l, re.I)), None)
+    if vi is None: return None
+    ok = "OK" in lines[vi].upper().split("VERDICT:")[-1]
+    pi = next((i for i in range(vi + 1, min(vi + 4, len(lines))) if re.match(r"\s*PROBLEMS:", lines[i], re.I)), None)
+    problems = re.sub(r"^\s*PROBLEMS:\s*", "", lines[pi], flags=re.I).strip() if pi is not None else ""
+    di = next((i for i in range(vi + 1, len(lines)) if re.match(r"\s*-{3,}\s*$", lines[i])), None)
+    fixed = "\n".join(lines[di + 1:]).strip() if di is not None else ""
+    return {"ok": ok, "problems": problems if problems.lower() != "none" else "", "fixed": fixed or None}
 
 
 DIRECTIONS = re.compile(r"section|series|under the|tab\b|menu|look (at|under|in)|go to|found (at|under|in)|click|page \d|policy (manual|book)|board (policies|docs)|handbook", re.I)

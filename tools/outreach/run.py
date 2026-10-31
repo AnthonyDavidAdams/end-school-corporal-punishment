@@ -161,6 +161,7 @@ def last_contact(address, reqs, exclude=None):
         for o in r.get("our_messages") or []: best = max(best, when_ts(o.get("at")))
     return best
 
+HOLD_NEW = False   # 2026-10-30, Anthony: "I don't want anything really on my desk". New batches go pending; only an unapproved experiment variant is held.
 COOLDOWN_EXEMPT = ("apology", "certificate_correction")   # these answer a thread of ours and must not wait
 
 def send(limit=25):
@@ -1220,7 +1221,7 @@ def queue_corrections():
             rid = hashlib.sha1(f"certificate_correction|{st}|{x['nces_id']}".encode()).hexdigest()[:10]
             reqs.append({"id": rid, "state": st, "state_name": names.get(st, st), "name": x["name"], "nces_id": str(x["nces_id"]), "kids": 0, "kind": "certificate_correction", "to": cert["to"],
                          "superintendent": cert.get("superintendent"), "parent_request": cert["id"], "district_says": x["district_says"], "peers": peers_for(st),
-                         "status": "held", "replies": [], "followup_sent_at": "n/a", "queued_at": datetime.datetime.now().isoformat(timespec="seconds"), "notes": f"Certificate {cert['id']} sent {cert.get('sent_at','')[:16]} quoted the superintendent's email as policy; record reclassified silent 2026-10-27."})
+                         "status": "held" if HOLD_NEW else "pending", "replies": [], "followup_sent_at": "n/a", "queued_at": datetime.datetime.now().isoformat(timespec="seconds"), "notes": f"Certificate {cert['id']} sent {cert.get('sent_at','')[:16]} quoted the superintendent's email as policy; record reclassified silent 2026-10-27."})
             cert["retracted_at"] = datetime.date.today().isoformat(); cert["notes"] = (cert.get("notes") or "") + " RETRACTED 2026-10-27: quoted the superintendent's email, not a board policy; correction queued."
             pol = next((r for r in reqs if r.get("kind") == "policy" and str(r.get("nces_id")) == str(x["nces_id"])), None)
             if pol:
@@ -1260,7 +1261,7 @@ def queue_align(n=25, states=None):
         rid = hashlib.sha1(f"align|{d['state']}|{d['nces_id']}".encode()).hexdigest()[:10]
         reqs.append({"id": rid, "state": d["state"], "name": d["name"], "nces_id": d["nces_id"], "kids": 0, "kind": "align", "to": to, "superintendent": c.get("superintendent"), "peers": peers_for(d["state"]),
                      "statute": statutes.get(d["state"]), "quote": d["quote"], "policy_code": d.get("policy_code"), "attachments": [brief],
-                     "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+                     "status": "held" if HOLD_NEW else "pending", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
         if game_assign: game_assign.apply(reqs[-1])   # experiment + variant; variant B goes out without the attachment
         added += 1
     save(reqs); log(f"queue-align: {added} queued"); return added
@@ -1301,7 +1302,7 @@ def queue_board(n=25, days=14):
             if any(x["id"] == rid for x in reqs): continue
             reqs.append({"id": rid, "state": r["state"], "name": r["name"], "nces_id": r["nces_id"], "kids": 0, "kind": "board_note", "to": m["email"], "member": m["name"], "role": m.get("role"),
                          "quote": r.get("quote"), "policy_code": r.get("policy_code"), "link": links.make(r["nces_id"], m["email"], "board", m["name"], r["state"]), "parent_request": r["id"],
-                         "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+                         "status": "held" if HOLD_NEW else "pending", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
         done.add(str(r["nces_id"])); added += 1
     save(reqs); log(f"queue-board: {added} boards queued (held)"); return added
 
@@ -1324,7 +1325,7 @@ def queue_neighbors(n=25, quiet_days=14):
         anchor = sorted(t["anchors"], key=lambda a: (not a.get("same_county"), a["name"]))[0]["name"]
         rid = hashlib.sha1(f"neighbor|{t['state']}|{nid}".encode()).hexdigest()[:10]
         reqs.append({"id": rid, "state": t["state"], "name": t["name"], "nces_id": nid, "kids": 0, "kind": "neighbor", "to": to, "superintendent": c.get("superintendent"), "anchor": anchor,
-                     "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+                     "status": "held" if HOLD_NEW else "pending", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
         added += 1
     save(reqs); log(f"queue-neighbors: {added} queued (held)"); return added
 
@@ -1370,6 +1371,40 @@ def followup():
         except Exception as e: log("nudge failed", r["name"], e)
     save(reqs); log(f"followup: {n} nudges, {len(eligible) - n} still due")
 
+def desk_pass(limit=None, dry=False):
+    """Work the parked threads (desk.py): a few per cycle, the whole backlog by hand."""
+    import desk
+    reqs = load(); M = imap()
+    try:
+        mine = anthony_threads(M, reqs)
+        if not dry: save(reqs)
+    except Exception as ex: log("desk: sent-mail scan failed", repr(ex)[:80]); mine = set()
+    n = desk.work(M, reqs, mine, limit=limit or desk.PER_CYCLE, dry=dry, deadline=CYCLE_DEADLINE - 90)
+    try: M.logout()
+    except Exception: pass
+    log(f"desk: {n} threads worked, {sum(1 for r in load() if r['status'] == 'needs_review')} still parked")
+
+def discover(n=1):
+    """Look again, on their own site, for the policy of a district that has not sent one: a few per cycle,
+    each district once a month. First contacts are exhausted (0 eligible on 2026-10-30); this and the replies
+    are how the record keeps growing. Nothing is emailed; a find is filed and published like any other."""
+    reqs = load(); cutoff = (datetime.datetime.now() - datetime.timedelta(days=30)).isoformat()
+    cands = [r for r in reqs if r.get("kind", "policy") == "policy" and r.get("status") in ("sent", "answered", "closed", "bounced") and r.get("recorded_status") not in ("bans", "allows", "consent_required")
+             and (r.get("rechecked_at") or "") < cutoff and (recheck_mod.domain_of(r.get("answered_from") or r.get("to")) or recheck_mod.domain_of(website_of(r)))]
+    cands.sort(key=lambda r: -(r.get("kids") or 0)); found = 0; looked = 0
+    for r in cands:
+        if looked >= n or time.time() > CYCLE_DEADLINE - 200: break
+        rec = record_status(r)
+        if rec.get("status") in ("bans", "allows", "consent_required") and rec.get("quote"):
+            r["recorded_status"] = rec["status"]; continue
+        looked += 1
+        try: status, tried = recheck_mod.recheck(r, file_document, log=log)
+        except Exception as ex: log("discover: recheck failed", r["name"], repr(ex)[:100]); status, tried = None, []
+        r["rechecked_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["recheck_tried"] = tried[:6]
+        if status and status != "held": r["recorded_status"] = status; found += 1; log("discover: found", r["state"], r["name"], status)
+        save(reqs)
+    save(reqs); log(f"discover: {looked} looked at, {found} found, {len(cands)} still to look at")
+
 def queue_nudge_apologies():
     """One held apology per district that got a follow-up after it had already answered (the 2026-10-27 run, before
     the answered check). Threads under the original request; Anthony reads the batch before it goes."""
@@ -1382,7 +1417,7 @@ def queue_nudge_apologies():
         rid = hashlib.sha1(f"apology|nudge|{r['id']}".encode()).hexdigest()[:10]
         reqs.append({"id": rid, "state": r["state"], "state_name": r.get("state_name"), "name": r["name"], "nces_id": str(r.get("nces_id")), "kids": r.get("kids") or 0,
                      "kind": "apology", "reason": "nudged_after_reply", "answered_on": r["last_reply_at"], "to": r["to"], "superintendent": r.get("superintendent"),
-                     "parent_request": r["id"], "status": "held", "replies": [], "followup_sent_at": "n/a", "queued_at": datetime.datetime.now().isoformat(timespec="seconds"),
+                     "parent_request": r["id"], "status": "held" if HOLD_NEW else "pending", "replies": [], "followup_sent_at": "n/a", "queued_at": datetime.datetime.now().isoformat(timespec="seconds"),
                      "notes": f"Nudge sent {r['followup_sent_at'][:16]} after their reply of {r['last_reply_at'][:16]}; before the answered check of 2026-10-27."})
         added += 1
     save(reqs); log(f"queued {added} held apologies for follow-ups sent after a reply")
@@ -1453,6 +1488,8 @@ if __name__ == "__main__":
     if cmd == "catchup": catchup(send="--dry" not in sys.argv); sys.exit()
     if cmd == "queue-corrections": queue_corrections(); sys.exit()
     if cmd == "queue-nudge-apologies": queue_nudge_apologies(); sys.exit()
+    if cmd == "desk": desk_pass(limit=int(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2].isdigit() else 999, dry="--dry" in sys.argv); sys.exit()
+    if cmd == "discover": discover(int(sys.argv[2]) if len(sys.argv) > 2 else 5); sys.exit()
     if cmd == "queue-align": queue_align(int(sys.argv[2]) if len(sys.argv) > 2 else 25, sys.argv[3].split(",") if len(sys.argv) > 3 else None); sys.exit()
     if cmd == "release-align":   # Anthony has seen the held list; let the next cycle send it
         reqs = load(); k = 0; skip = set(sys.argv[sys.argv.index("--not") + 1].split(",")) if "--not" in sys.argv else set()
@@ -1493,8 +1530,13 @@ if __name__ == "__main__":
             log("momentum certificates failed", repr(ex)[:100])
         try: decide()
         except Exception as ex: log("decide failed", repr(ex)[:100])
+        try: discover(1)
+        except Exception as ex: log("discover failed", repr(ex)[:100])
         ops_page()
         inbox()
+        # The parked threads, two a cycle, after the inbox so a slow model call never starves it.
+        try: desk_pass()
+        except Exception as ex: log("desk failed", repr(ex)[:100])
     elif cmd == "compliments":
         # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
         reqs = load(); n = 0
