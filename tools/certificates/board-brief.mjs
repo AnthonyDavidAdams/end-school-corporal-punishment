@@ -14,7 +14,19 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
 const nces = arg("nces"); if (!nces) { console.error("--nces required"); process.exit(1); }
 const lag = JSON.parse(readFileSync(join(root, "data/outreach/policy-lag.json"), "utf8"));
-const d = lag.find((x) => x.nces_id === nces); if (!d) { console.error("not in the policy-lag list"); process.exit(1); }
+let d = lag.find((x) => x.nces_id === nces);
+if (!d) {
+  // Not on the policy-lag list (a small district, or one whose record changed after the list was built):
+  // read the state record itself. Reported count comes from the CRDC extract, which lists only districts with a count.
+  const { readdirSync } = await import("node:fs"); const YAML = (await import("yaml")).default;
+  for (const f of readdirSync(join(root, "data/districts")).filter((f) => /^[A-Z]{2}\.yaml$/.test(f))) {
+    const y = YAML.parse(readFileSync(join(root, "data/districts", f), "utf8"));
+    const r = (y.districts || []).find((x) => String(x.nces_id) === String(nces));
+    if (r) { d = { state: y.state || f.slice(0, 2), name: r.name, nces_id: String(r.nces_id), status: r.status, quote: r.quote, policy_code: r.policy_code || arg("code", null), source: r.source, reported_2023_24: 0 }; break; }
+  }
+  if (d) { const row = readFileSync(join(root, "data/crdc/2023-24/districts.csv"), "utf8").split("\n").find((l) => l.split(",")[1] === String(nces)); if (row) d.reported_2023_24 = Number(row.split(",").pop()); }
+}
+if (!d) { console.error("not in the policy-lag list or any state record"); process.exit(1); }
 const model = JSON.parse(readFileSync(join(root, "data/states/model-language.json"), "utf8"));
 const states = JSON.parse(readFileSync(join(root, "site/data/states.json"), "utf8"));
 const STATE = { AL: "Alabama", AR: "Arkansas", AZ: "Arizona", FL: "Florida", GA: "Georgia", IN: "Indiana", KS: "Kansas", KY: "Kentucky", LA: "Louisiana", MO: "Missouri", MS: "Mississippi", NC: "North Carolina", OK: "Oklahoma", SC: "South Carolina", TN: "Tennessee", TX: "Texas", WY: "Wyoming", CO: "Colorado", ID: "Idaho", NM: "New Mexico" }[d.state] || d.state;

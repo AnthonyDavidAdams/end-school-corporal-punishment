@@ -471,8 +471,9 @@ def inbox():
             log("digest failed", repr(e)[:120])
 HARD_BLOCK = re.compile(r"attorney|lawyer|legal action|cease|desist|stop (contacting|emailing|writing)|do not contact|harass|complaint against|report you|unsubscribe", re.I)
 NOTE_MARKS = re.compile(r"\[(HELD|DRAFT)[^\]]*\]|They wrote:|^WHY:|^MOVE:", re.M)
-def reply_to(r, frm, mid, subject, text, to=None):
-    """One reply on an existing thread. Returns True if it went. A body carrying a reviewer's note never goes."""
+def reply_to(r, frm, mid, subject, text, to=None, attachments=None):
+    """One reply on an existing thread. Returns True if it went. A body carrying a reviewer's note never goes.
+    attachments: repo-relative or absolute paths of PDFs to attach (the district's kit, when they ask for it)."""
     if NOTE_MARKS.search(text or ""):
         log("REFUSED to send: the text carries a reviewer note", r["name"]); return False
     m = EmailMessage(); m["From"] = FROM; m["To"] = to or frm
@@ -481,9 +482,12 @@ def reply_to(r, frm, mid, subject, text, to=None):
     if not to: m["In-Reply-To"] = mid; m["References"] = mid
     m["Message-ID"] = f"<escp-reply-{hashlib.sha1((r['id'] + mid + text[:40]).encode()).hexdigest()[:12]}@earthpilot.org>"
     m.set_content(text)
+    for att in attachments or []:
+        pth = att if os.path.isabs(att) else os.path.join(ROOT, att)
+        m.add_attachment(open(pth, "rb").read(), maintype="application", subtype="pdf" if pth.endswith(".pdf") else "octet-stream", filename=os.path.basename(pth))
     try:
         smtp_send(m)
-        r.setdefault("our_messages", []).append({"at": datetime.datetime.now().isoformat(timespec="seconds"), "to": to or frm, "text": text})
+        r.setdefault("our_messages", []).append({"at": datetime.datetime.now().isoformat(timespec="seconds"), "to": to or frm, "text": text, **({"attachments": [os.path.basename(a) for a in attachments]} if attachments else {})})
         return True
     except Exception as ex:
         log("reply failed", r["name"], repr(ex)[:140]); return False

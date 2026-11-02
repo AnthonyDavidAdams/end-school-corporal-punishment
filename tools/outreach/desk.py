@@ -11,7 +11,7 @@ raised as questions.
     python3 tools/outreach/run.py desk          # work the whole backlog now (the cycle does four a pass)
     python3 tools/outreach/run.py desk --dry    # show what it would do
 """
-import datetime, email, json, os, re, time
+import datetime, email, json, os, re, subprocess, time
 from email.header import decode_header, make_header
 import run, writer as W, triage as T, messages
 
@@ -22,6 +22,22 @@ HARD = {"contradicts", "reverses"}   # where Jev is reliable; the soft four (ans
 
 STOP = re.compile(r"stop (contacting|emailing|writing)|do not contact|unsubscribe|cease|desist|harass|attorney|lawyer|legal action", re.I)
 COMPLAINT = re.compile(r"complaint against|report you|inappropriate|unprofessional|spam", re.I)
+# "Please send to me", "email it over", "I'd like a copy": they want the kit in their inbox, not a link.
+SEND_KIT = re.compile(r"\b(send|email|e-mail|forward|mail)\b[^.?!]{0,40}\b(it|them|that|those|me|us|over|along|the (kit|policy|files|documents|packet|language|materials))\b|\b(like|love|want|appreciate)\b[^.?!]{0,20}\bcop(y|ies)\b", re.I)
+
+
+def build_kit(r):
+    """The district's own kit as one PDF: the two-page board brief, the policy in the district's name and
+    numbering, the motion and resolution, the letters, the training plan. Returns a repo-relative path or None."""
+    args = ["node", "kit/district-kit.mjs", "--nces", str(r.get("nces_id") or ""), "--superintendent", r.get("superintendent") or "", "--email", r.get("to") or ""]
+    if r.get("policy_code"): args += ["--code", r["policy_code"]]
+    try:
+        p = subprocess.run(args, cwd=os.path.join(run.ROOT, "tools"), capture_output=True, text=True, timeout=240)
+    except Exception as ex:
+        run.log("desk: kit build failed", r["name"], repr(ex)[:100]); return None
+    m = re.search(r"wrote (\S+\.pdf)", p.stdout or "")
+    if p.returncode != 0 or not m: run.log("desk: kit build failed", r["name"], (p.stderr or "")[-160:]); return None
+    return os.path.relpath(m.group(1), run.ROOT) if os.path.isabs(m.group(1)) else m.group(1)
 
 
 def fee_quoted(text):
@@ -55,6 +71,12 @@ def directive_for(r, e, body, record, thread):
         notes.append("They say only a resident may ask. Ask in one line what proof of residency they accept, thank them, and nothing else (move ask_residency_proof).")
     their = sum(1 for m in thread if m["who"] == "them")
     if r.get("invited_policy_at"): notes.append(f"The board was already invited to adopt a written prohibition on {r['invited_policy_at']}: do not invite again.")
+    offered = any("kids/kit" in (m.get("text") or "") for m in (r.get("our_messages") or [])[-2:])   # we pointed at the kit; they answered "send it"
+    if r.get("invited_policy_at") and offered and SEND_KIT.search(plain) and not e.get("kit_sent") and not r.get("kit_sent_at"):
+        kit = build_kit(r)
+        if kit:
+            e["attach_kit"] = kit
+            notes.append("They asked for the kit to be sent to them. The district's kit is attached to this reply as one PDF: the two-page board brief, the policy written in the district's name and numbering, the motion and resolution, the letters for staff and families, and the ninety-day plan. Say so in one line, ask which meeting it lands on, and do not point them to the web link instead.")
     if r.get("formal_requested_at"): notes.append(f"A formal records request already went out on {r['formal_requested_at']}: do not send another.")
     if record.get("status") == "bans": notes.append("The record already shows a written prohibition: no invitation, no minutes request.")
     if their > 1: notes.append("This is not their first reply: do not ask for minutes.")
@@ -162,8 +184,10 @@ def work(M, reqs, mine, limit=PER_CYCLE, dry=False, deadline=None):
             close(r, e, detail, M, subject)
         else:
             to = facts.get("redirect_to") if move == "forward" else None
-            if run.reply_to(r, e.get("from"), e.get("message_id"), subject, draft, to=to):
+            kit = e.pop("attach_kit", None)
+            if run.reply_to(r, e.get("from"), e.get("message_id"), subject, draft, to=to, attachments=[kit] if kit else None):
                 e["our_reply"] = draft; e["move"] = move; e["why"] = f"desk: {detail}; {why}"; e["action"] = (e.get("action") or "") + f"; desk replied ({move})"
+                if kit: e["kit_sent"] = kit; r["kit_sent_at"] = datetime.date.today().isoformat()
                 if to: r["to"] = to
                 apply_move(r, e, move)
                 drop_draft(M, subject)
