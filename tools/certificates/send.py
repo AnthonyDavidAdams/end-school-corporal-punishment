@@ -36,12 +36,14 @@ def contacts():
 
 
 def enrollment():
+    """Federal enrollment by district id. (Until 2026-11-02 this read column 7 of the directory, which is a
+    state code, so every district counted as 0 and the biggest-first order was alphabetical.)"""
     m = {}
     try:
-        for line in open(os.path.join(ROOT, "data/nces/lea-directory-2023-24.csv")).read().split("\n")[1:]:
+        for line in open(os.path.join(ROOT, "data/nces/lea-enrollment-2023-24.csv")).read().split("\n")[1:]:
             c = line.split(",")
-            if len(c) > 7:
-                try: m[c[0]] = int(c[7] or 0)
+            if len(c) > 2:
+                try: m[c[0]] = int(c[2] or 0)
                 except ValueError: pass
     except Exception: pass
     return m
@@ -212,11 +214,14 @@ def cover(d, reqs=None):
     p = prior(d, reqs or [])
     if p:
         return in_thread_cover(d, p)
-    if False:
-        pass
-    else:
-        greet = f"Dear Superintendent {last}," if last else "Dear Superintendent,"
-        lead = "Congratulations. "
+    if not os.environ.get("ESCP_CERT_TEMPLATE"):
+        import cover as cover_mod
+        written = cover_mod.write(d, p)
+        if written:
+            d["cover"] = "written"; return written
+    d["cover"] = "template"
+    greet = f"Dear Superintendent {last}," if last else "Dear Superintendent,"
+    lead = "Congratulations. "
     # paragraphs as (text with **bold** marks); rendered two ways below
     paras = [
         lead + f"{name} has a written board policy that **prohibits corporal punishment in every school it governs**. Not every district in {st} can say that, and in the 17 states where the practice is still legal, most cannot. We are recognizing {name} with a **Safe School certificate for the {yr} school year**.",
@@ -254,9 +259,11 @@ def cover(d, reqs=None):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--dry", action="store_true"); ap.add_argument("--limit", type=int, default=150); ap.add_argument("--state"); ap.add_argument("--test", help="send the first district's package to this address instead; nothing is logged")
-    ap.add_argument("--momentum", action="store_true", help="only districts whose superintendent has written to us (they sent the policy): keep the momentum, certificate the same day"); a = ap.parse_args()
+    ap.add_argument("--momentum", action="store_true", help="only districts whose superintendent has written to us (they sent the policy): keep the momentum, certificate the same day")
+    ap.add_argument("--skip-state", default="", help="comma-separated states to leave out (WY until its policy codes are verified)"); a = ap.parse_args()
     reqs = run.load(); cands = candidates(reqs)
     if a.state: cands = [c for c in cands if c["state"] == a.state]
+    if a.skip_state: cands = [c for c in cands if c["state"] not in a.skip_state.upper().split(",")]
     if a.momentum:
         cands = [c for c in cands if prior(c, reqs) and not open_thread(c, reqs)]
         cands.sort(key=lambda c: (prior(c, reqs) or {}).get("when") or "", reverse=True)
@@ -274,7 +281,13 @@ def main():
         for d in batch: print(f"  {d['state']}  {clean_name(d['name'])[:40]:<40}  {d['code']:<8}  {(d.get('superintendent') or '')[:26]:<26}  {d['to']:<40}  {'(prior exchange)' if prior(d, reqs) else ''}")
         return
     sent = 0
+    import fcntl
     for d in batch:
+        # The 15-minute cycle runs this same script in --momentum mode; a batch run and a cycle must not
+        # save over each other, so the ledger is re-read and written under the lock for every send.
+        with open(run.REQ + ".lock", "w") as L:
+            fcntl.flock(L, fcntl.LOCK_EX); reqs = run.load()
+            if any(r.get("kind") == "certificate" and str(r.get("nces_id")) == d["nces_id"] for r in reqs): print("already certified", d["name"]); continue
         try:
             pdf = render(d)
         except Exception as ex:
@@ -296,10 +309,13 @@ def main():
             run.smtp_send(m)
         except Exception as ex:
             print("SEND FAILED", d["name"], str(ex)[:120]); continue
-        reqs.append({"id": rid, "kind": "certificate", "state": d["state"], "name": d["name"], "nces_id": d["nces_id"], "kids": None, "to": d["to"], "superintendent": d.get("superintendent"),
-                     "status": "sent", "sent_at": datetime.datetime.now().isoformat(timespec="seconds"), "message_id": m["Message-ID"], "subject": subject, "body": body, "replies": [], "followup_sent_at": "n/a",
-                     "certificate_pdf": os.path.relpath(pdf, ROOT), "notes": f"Safe School certificate {YEAR}; board policy {d['code']}."})
-        run.save(reqs); sent += 1; print("sent", d["state"], clean_name(d["name"]), "->", d["to"])
+        with open(run.REQ + ".lock", "w") as L:
+            fcntl.flock(L, fcntl.LOCK_EX); reqs = run.load()
+            reqs.append({"id": rid, "kind": "certificate", "state": d["state"], "name": d["name"], "nces_id": d["nces_id"], "kids": None, "to": d["to"], "superintendent": d.get("superintendent"),
+                         "status": "sent", "sent_at": datetime.datetime.now().isoformat(timespec="seconds"), "message_id": m["Message-ID"], "subject": subject, "body": body, "replies": [], "followup_sent_at": "n/a",
+                         "certificate_pdf": os.path.relpath(pdf, ROOT), "notes": f"Safe School certificate {YEAR}; board policy {d['code']}; cover {d.get('cover', 'template')}."})
+            run.save(reqs)
+        sent += 1; print("sent", d["state"], clean_name(d["name"]), "->", d["to"], f"({d.get('cover', 'template')})", flush=True)
         import time; time.sleep(6)
     print(f"certificates sent: {sent}")
 
