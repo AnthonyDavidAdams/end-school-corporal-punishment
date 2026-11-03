@@ -63264,12 +63264,12 @@
    "name": "Piedmont",
    "county": "Canadian",
    "nces_id": "4023970",
-   "status": "silent",
-   "source": "https://resources.finalsite.net/images/v1632929134/piedmontschoolsorg/jongqfd1krz8bxr67t3a/PiedmontPublicSchoolsStudentHandbook21-222.pdf",
-   "quote": null,
+   "status": "bans",
+   "source": "https://content.myconnectsuite.com/api/documents/811f55ab2d094c09b0e44b465a5c70ad.pdf",
+   "quote": "10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
+   "last_verified": "2026-11-03",
    "method": "searched_document",
    "parent_control": "unknown",
    "documents": [
@@ -63298,8 +63298,14 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.",
+    "10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.",
+    "10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.",
+    "10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel."
+   ]
   },
   {
    "name": "Pioneer",
@@ -63993,14 +63999,14 @@
    "name": "Ringling",
    "county": "Jefferson",
    "nces_id": "4025860",
-   "status": "silent",
-   "source": "https://www.ringling.k12.ok.us/elementary-student-handbook",
-   "quote": null,
+   "status": "consent_required",
+   "source": "https://s3.amazonaws.com/scschoolfiles/2514/studenthandbook.pdf",
+   "quote": "Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
+   "last_verified": "2026-11-03",
    "method": "searched_document",
-   "parent_control": "unknown",
+   "parent_control": "opt_in",
    "documents": [
     {
      "kind": "handbook",
@@ -64011,8 +64017,30 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.",
+    "Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.",
+    "Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.",
+    "Corporal punishment may only be given to a student who has a “Parental consent to Administer Corporal Punishment” form signed by the student’ parent/guardian on file in the principal’s office.",
+    "_____ I give permission for my child to be given swats.",
+    "___________________________________________ __________________________ Parent/Guardian Date ______ I do not give permission for my child to be given swats.",
+    "Corporal punishment may only be given to a student who has a “Parental consent to Administer Corporal Punishment” form signed by the student’ parent/guardian on file in the principal’s office.",
+    "_____ I give permission for my child to be given swats.",
+    "___________________________________________ __________________________ Parent/Guardian Date ______ I do not give permission for my child to be given swats.",
+    "Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.",
+    "Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.",
+    "Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.",
+    "In-School Detention, Short term suspension (under 5 days), Long term suspension (over 6 days), Corporal Punishment, or any other disciplinary action deemed appropriate by the principal and parent.",
+    "Corporal punishment may only be given to a student who has a “Parental consent to Administer Corporal Punishment” form signed by the student’ parent/guardian on file in the principal’s office.",
+    "_____ I give permission for my child to be given swats.",
+    "___________________________________________ __________________________ Parent/Guardian Date ______ I do not give permission for my child to be given swats.",
+    "Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.",
+    "Corporal punishment may only be given to a student who has a “Parental consent to Administer Corporal Punishment” form signed by the student’ parent/guardian on file in the principal’s office.",
+    "_____ I give permission for my child to be given swats.",
+    "___________________________________________ __________________________ Parent/Guardian Date ______ I do not give permission for my child to be given swats."
+   ]
   },
   {
    "name": "Ringwood",
@@ -64201,12 +64229,12 @@
    "name": "Rush Springs",
    "county": "Grady",
    "nces_id": "4026550",
-   "status": "silent",
-   "source": "https://s3.amazonaws.com/scschoolfiles/6000/2425_rush_springs_hs_handbook.pdf",
-   "quote": null,
+   "status": "allows",
+   "source": "https://s3.amazonaws.com/scschoolfiles/57/high_school__handbook_2018-2019_cgiv_revised.pdf",
+   "quote": "Professional judgment shall be used when considering corporal punishment as a means of discipline for handicapped students.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
+   "last_verified": "2026-11-03",
    "method": "searched_document",
    "parent_control": "unknown",
    "documents": [
@@ -64219,8 +64247,12 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "Professional judgment shall be used when considering corporal punishment as a means of discipline for handicapped students.",
+    "Professional judgment shall be used when considering corporal punishment as a means of discipline for handicapped students."
+   ]
   },
   {
    "name": "RYAN",
@@ -64425,12 +64457,12 @@
    "name": "Seminole",
    "county": "Seminole",
    "nces_id": "4027300",
-   "status": "silent",
-   "source": "https://static1.squarespace.com/static/62b0294f66825516d8498347/t/64b9784c5035643261c00d87/1689876557270/SCPSStudentCodeofConductandDisciplinePlan22-23.pdf",
-   "quote": null,
+   "status": "bans",
+   "source": "https://www.choicesinlearning.org/ourpages/auto/2014/4/22/38790034/SCPS%20Student%20Conduct%20and%20Discipline%20Code.pdf?rnd=1761581975527",
+   "quote": "CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
+   "last_verified": "2026-11-03",
    "method": "searched_document",
    "parent_control": "unknown",
    "documents": [
@@ -64451,8 +64483,14 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.",
+    "CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.",
+    "CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.",
+    "CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment."
+   ]
   },
   {
    "name": "SEQUOYAH",
@@ -65793,14 +65831,14 @@
    "name": "Union",
    "county": "Tulsa",
    "nces_id": "4030600",
-   "status": "silent",
-   "source": "https://resources.finalsite.net/images/v1755608500/unionpsorg/kmld4r1svxiwd7lujsyg/uhs_handbook.pdf",
-   "quote": null,
+   "status": "consent_required",
+   "source": "https://irp-cdn.multiscreensite.com/bbd354e5/files/uploaded/Code%20Of%20Student%20Conduct%202019-20.pdf",
+   "quote": "• Corporal punishment – spanking a student after attaining approval from their parent or guardian.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
+   "last_verified": "2026-11-03",
    "method": "searched_document",
-   "parent_control": "unknown",
+   "parent_control": "opt_in",
    "documents": [
     {
      "kind": "handbook",
@@ -65827,8 +65865,31 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "• Corporal punishment – spanking a student after attaining approval from their parent or guardian.",
+    "Corporal punishment may only be administered by the principal or his designee.",
+    "o An administrator may administer no more than three swats only on the posterior part of the body.",
+    "• Corporal punishment – spanking a student after attaining approval from their parent or guardian.",
+    "Corporal punishment may only be administered by the principal or his designee.",
+    "o An administrator may administer no more than three swats only on the posterior part of the body.",
+    "• Corporal punishment – spanking a student after attaining approval from their parent or guardian.",
+    "Corporal punishment may only be administered by the principal or his designee.",
+    "o An administrator may administer no more than three swats only on the posterior part of the body.",
+    "• Corporal punishment – spanking a student after attaining approval from their parent or guardian.",
+    "Corporal punishment may only be administered by the principal or his designee.",
+    "o An administrator may administer no more than three swats only on the posterior part of the body.",
+    "• Corporal punishment – spanking a student after attaining approval from their parent or guardian.",
+    "Corporal punishment may only be administered by the principal or his designee.",
+    "o An administrator may administer no more than three swats only on the posterior part of the body.",
+    "• Corporal punishment – spanking a student after attaining approval from their parent or guardian.",
+    "Corporal punishment may only be administered by the principal or his designee.",
+    "o An administrator may administer no more than three swats only on the posterior part of the body.",
+    "• Corporal punishment – spanking a student after attaining approval from their parent or guardian.",
+    "Corporal punishment may only be administered by the principal or his designee.",
+    "o An administrator may administer no more than three swats only on the posterior part of the body."
+   ]
   },
   {
    "name": "Union City",
@@ -66308,14 +66369,14 @@
    "name": "Wayne",
    "county": "McClain",
    "nces_id": "4032010",
-   "status": "silent",
-   "source": "https://www.waynesd.org/images/DO/Strategic_Plan/Wayne_County_Student_Code_of_Conduct.pdf",
-   "quote": null,
+   "status": "allows",
+   "source": "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1781/Wchs/3a4ef740-32c6-41ba-8f5e-d5167aa39fc4/WCHS_Handbook_FY21__1_.pdf",
+   "quote": "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
+   "last_verified": "2026-11-03",
    "method": "searched_document",
-   "parent_control": "unknown",
+   "parent_control": "opt_out",
    "documents": [
     {
      "kind": "code_of_conduct",
@@ -66326,8 +66387,50 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary.",
+    "CORPORAL PUNISHMENT Teachers and principals have the authority and responsibility to take reasonable measures to maintain control and discipline of students under their care and supervision.",
+    "Corporal punishment has been approved by the Wayne County Board of Education as an acceptable method of punishment.",
+    "State law stipulates that a parent or legal guardian who opposes corporal punishment for his/her child must, upon the day of enrollment of the student, file with the principal of the school a statement from a medical doctor licensed in Georgia stating that corporal punishment is detrimental to the child’s mental or emotional stability.",
+    "However, in an effort to work cooperatively with parents, the school system allows a parent to provide a personal written statement each year to the principal of the school requesting that corporal punishment not be used with his/her child so that a statement from a doctor is not necessary."
+   ]
   },
   {
    "name": "Waynoka",
@@ -66656,12 +66759,12 @@
    "name": "White Rock",
    "county": "Lincoln",
    "nces_id": "4032640",
-   "status": "silent",
-   "source": "https://www.whiterock.k12.ok.us/parentsstudents-2",
-   "quote": null,
+   "status": "allows",
+   "source": "https://s3.amazonaws.com/scschoolfiles/623/student_handbookfy22docx.pdf",
+   "quote": "Corporal Punishment (1 to 3 swats according to offense committed) 4.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
+   "last_verified": "2026-11-03",
    "method": "searched_document",
    "parent_control": "unknown",
    "documents": [
@@ -66674,8 +66777,12 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "Corporal Punishment (1 to 3 swats according to offense committed) 4.",
+    "Corporal Punishment (1 to 3 swats according to offense committed) 4."
+   ]
   },
   {
    "name": "Whitefield",
@@ -67369,12 +67476,12 @@
    "name": "Orangeburg",
    "county": "Orangeburg",
    "nces_id": "4503910",
-   "status": "silent",
-   "source": "https://www.ocsdsc.org/school-board/policies",
-   "quote": null,
+   "status": "allows",
+   "source": "https://resources.finalsite.net/images/v1697103942/ocsdscorg/esuwfot73aleoblddy1l/22-23_ocsd_code_of_conduct.pdf",
+   "quote": "Corporal Punishment/Physical Force explains when the use of restraint/physical force is appropriate.",
    "policy_code": null,
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
+   "last_verified": "2026-11-03",
    "method": "searched_document",
    "parent_control": "unknown",
    "documents": [
@@ -67387,8 +67494,12 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "Corporal Punishment/Physical Force explains when the use of restraint/physical force is appropriate.",
+    "Corporal Punishment/Physical Force explains when the use of restraint/physical force is appropriate."
+   ]
   },
   {
    "name": "Orangeburg County Schools",
