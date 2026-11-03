@@ -1,0 +1,1190 @@
+
+<!DOCTYPE html>
+<html style="min-height: 100%" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+            <meta property="og:title" content="Administration" />
+            <meta property="og:url" content="https://www.glcsd.org/admin" />
+            <meta property="og:type" content="website" />
+
+            <link rel="icon" type="image/ico" href="https://content.myconnectsuite.com/api/documents/93e3be7cf8084e6391948df909628d72.ico" />
+
+    <title>
+        
+    Administration
+
+    </title>
+
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/brands.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/solid.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/regular.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/v4-shims.min.css" />
+
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/custom-icons.css?v=0nvJki9gQnLR8cy7OQ62gyocqslU3-0UC4caTS3-zns" />
+    <link rel="stylesheet" href="/css/core/components.css?v=Vf-NAdeZjGYJj_koruCkkng_0snGh_WkiAEkx7MV1Fw" />
+    <link rel="stylesheet" href="/css/core/dialog.css?v=1ZqiCMDGL9AayDJeEOQRt9Q0kxP5vn7z7uOhyK3OqBI" />
+    <link rel="stylesheet" href="/css/toolbar.css?v=VwnbxHzktDLVXaVPyZXQYOir4v0G7gYmu2topYebOvo" />
+    <link rel="stylesheet" href="/css/audioplayer.css?v=oOVrPQm5jqukq_n6Qusjiltm60L5DqgmllxnDadm5yc" />
+
+
+    <!-- Load FullCalendar -->
+    <script src='/lib/fullCalendarV6/moment/moment.min.js'></script>
+    <script src="/lib/fullCalendarV6/index.global.min.js"></script>
+    <script src="/lib/fullCalendarV6/moment/index.global.min.js"></script>
+
+    
+    <link rel="stylesheet" href="/css/jquery-ui/jquery-ui-1.13.2.css" />
+    <link rel="stylesheet" href="/css/public.css?v=rwVB8ctwhKk5zO6mQUqPDn9fLsa6nSLJhsnTw1lodek" />
+
+
+    <style name="site-css">
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@400;900');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500');
+
+
+
+/*-------- Search Placeholder Text --------*/
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffffff;
+  opacity: 1; /* Firefox */}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ffffff;}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ffffff;}
+
+/* focus visualization for ADA Compliance */
+a:focus, a:focus img, a:focus > img, button:focus {outline: 3px solid #570E0E!important;} 
+.cs-header a:focus, .cs-header a:focus img, .cs-header a:focus > img, button:focus {outline: 3px solid #BB0400!important;} 
+.bg-contrast a:focus, .bg-contrast a:focus img, .bg-contrast a:focus > img, button:focus {outline: 3px solid #BB0400!important;} 
+.bg-default a:focus, .bg-default a:focus img, .bg-default a:focus > img, button:focus {outline: 3px solid #570E0E!important;} 
+
+
+/*-------- Victory Template CSS --------*/ 
+/* fonts */
+body {background: #ffffff ;    margin: 0px;    font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, "sans-serif";} 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;   font-weight: 500;  line-height: 1.1;  color: inherit;}
+
+/* navigation ribbon */
+.navbar { border-radius: 0;margin-bottom: 0px;}
+.navbar .navbar-default {margin-bottom: 0 }
+.navbar-default { border: none;background-color: transparent;}  
+.nav > li > a { font-family: color: #333;}
+.navbar-default .navbar-nav > li > a { color: #fff;}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus { color: #ccc;}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus { color: #eaeaea; background-color: #222222;}
+.dropdown-menu {background-color: #222;color:#fff;} 
+.navbar-default .navbar-nav > li > a { color: #000; }
+.navbar-default .navbar-nav > li > a:hover { color: #333; }
+.dropdown-menu { background: #eaeaea;color: #000; }
+.dropdown-menu > li > a { color: #000 !important; } 
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {color: #333;}
+.cs-topmenu .navbar-default .navbar-nav > li > a { color: #fff;
+    font-size: 20px;
+    text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+padding-right:25px;
+letter-spacing:2px;}
+.cs-topmenu .navbar-default .navbar-nav > li > a:hover {background-color:#000;}
+.cs-topmenu .navbar-submenu {  color: #333; }
+.cs-topmenu2 .navbar-default .navbar-nav > li > a { color: #fff;
+    font-size: 15px;
+    text-transform: uppercase; font-family: 'DM Sans', sans-serif;
+letter-spacing:2px;
+border-right:1px solid #133B76;
+padding: 15px 25px 15px 25px;}
+
+.navbar-nav .open .dropdown-menu { background: #fff;}
+.navbar-toggle {background-color: #fff;}
+
+.sitenamefont {font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif; color:#ffffff;font-size:60px;line-height:1; font-weight:700;padding:0 0 0 5px;}
+.sitenamesubfont { color:#ffffff;font-size:20px;letter-spacing: 4px;padding:0 0 0 20px; text-transform:uppercase;}
+
+/* padding */
+.cs-nopadding {padding: 0; margin: 0 -15px 0 0;}
+.cs-row-nopadding > .content-widget > .content-layout > .row > div:not(:first-child){ padding: 0 !important }
+.cs-row-nopadding > .content-widget > .content-layout > .row > div:not(:last-child){ padding: 0 !important }
+.cs-padding5 {padding:9px;}
+.cs-paddingheader {padding:5px 12px;}
+.cs-padding20 {padding:20px;}
+.cs-paddinglogo {padding:30px 0;}
+.cspadding20 {padding:20px}
+
+/* footer */
+.cs-footer{  margin-top: 0px; background: #164286;}
+.cs-footer-info {  text-align: center}
+.cs-footer a {color:#fff;}
+.copyright {color: #ffffff;}
+
+/* misc */
+.text-muted {color: #575757;}
+.table-striped > tbody > tr:nth-of-type(2n+1) {background-color: #f9f9f9;color: #000;} 
+.jumbotron, .jumbotron h1, .jumbotron .h1 {color: #000;}
+
+/* social media */
+.cs-socialmediaback { padding: 10px;} 
+.cs-socialmedia a {    padding: 5px;   color: #000000;  font-size: 20px;  background: #cccccc; text-align: center;  float: right;width: 36px; height: 36px;   border-radius: 100%;   margin-right: 7px; /*space between*/} 
+.cs-socialmedia a i { font-size: 20px;  line-height: 38px;  color: #000000;}
+
+/*toolbar */
+.cs-toolbar{   padding: 5px 15px 0 15px;    background: #000;  color: #fff; }
+.cs-toolbar,.cs-toolbar a{   color: #8bb9ee;}
+
+/* carousel */        
+.cs-carousel-widget-title {font-size:20px;padding:5px; text-transform: uppercase;}
+.cs-carousel-widget-description {padding:5px; font-size:14px;font-weight: normal;}
+.cs-carousel-widget-link {color:#ffffff;padding:5px;font-weight: bold; }   
+.bg-default .cs-carousel-widget-link a,   .bg-contrast .cs-carousel-widget-link a,  .bg-dark  .cs-carousel-widget-link a,  .bg-danger  .cs-carousel-widget-link a {color: #ffffff;}
+
+/*-------- Site CSS --------*/
+button, input, optgroup, select, textarea {background-color: #164286; border: 1px solid; color:#fff;}
+
+/* header */
+.cs-fullwidthheaderbar {width: 100%; height: 56px; padding:10px;}
+.cs-header-navbar {background: #222222;   font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;    font-size: 16px;   font-weight: 400;  color: #fff; }
+.cs-header-navbar {font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, "sans-serif"; font-size: 14px;}
+.cs-header {background: #164286;}
+
+.alert-info { background-color: #eaeaea; border-color: #eaeaea; color: #000000;}
+
+/* red color preset */
+.bg-default {background: #BB0400; color: #ffffff;}  
+a.bg-default:hover, a.bg-default:focus {background: #BB0400; color: #ffffff;}  
+.bg-contrast {background: #164286; color: #ffffff;} 
+a.bg-contrast:hover, a.bg-default:focus {background: #164286; color: #ffffff;}
+.bg-muted {background: #eaeaea; color: #000000;}
+.bg-clean {background: #ffffff; color: #000000;}
+.bg-dark {background: #222222; color: #ffffff;} 
+a.bg-dark:hover, a.bg-default:focus {background: #222222; color: #ffffff;}
+.bg-success {background: #E28578; color: #000000;}
+a.bg-success:hover, a.bg-success:focus {background: #E28578; color: #000000;}
+.bg-info {background: #f5efdc; color: #000000;} 
+a.bg-info:hover, a.bg-info:focus {background: #f5efdc; color: #000000;} 
+.bg-warning {background: #d8ceb0; color: #000000;}  
+a.bg-warning:hover, a.bg-warning:focus {background: #d8ceb0; color: #000000;}  
+.bg-danger {background: #FFD700; color: #000000;} 
+a.bg-danger:hover, a.bg-danger:focus  {background: #FFD700; color: #000000;}   
+
+.bg-fancy { background-image: url("https://content.myconnectsuite.com/api/documents/6068eb2a749b4f0db19721621a551e0a");  background-attachment: fixed;  background-position: center;background-repeat: no-repeat;  background-size: cover;color: #000000;}
+ 
+
+.cs-calendar-widget a:link {color: #000;}
+
+.bg-dark .navbar-submenu > li > a {color: #000000;}
+
+.bg-default {color: #ffffff !important;} 
+ 
+/*-------- Beginning Color Adjustments --------*/
+
+.panel-title a:link, .panel-title a:hover, .panel-title a:visited, .panel-title a:active {color: #000;}
+.list-group a:link, .list-group a:hover, .list-group a:visited, .list-group a:active {color: #000;} 
+.fc th, .fc td {color: inherit;}
+
+/*-------- Default --------*/ 
+.bg-default .h1, .bg-default .h2, .bg-default .h3, .bg-default .h4, .bg-default .h5, .bg-default .h6,
+.bg-default h1, .bg-default h2,.bg-default h3, .bg-default h4, .bg-default h5, .bg-default h6 {color: #ffffff;}
+.bg-default .panel-title a {color: #000;}
+.bg-default a:link, .bg-default a:hover, .bg-default a:active, .bg-default a:visited {color: #ffffff;}
+.bg-default .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-default .text-muted {color: #ffffff !important;}
+.bg-default .fc-day-number {color: #ffffff;}
+.bg-default .panel-title a {color: #000;}
+.bg-default .list-group-item  a:link, .bg-default .list-group-item a:hover, .bg-default .list-group-item a:active, .bg-default .list-group-item a:visited {color: #000000;}
+.bg-default .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-default .cs-card-carousel .title {color: #000000;} 
+.bg-default .cs-card-horizontal2 .title {color: #000000;} 
+.bg-default .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-default .fc th, .bg-default .cs-subtext {color: #fff;}
+.bg-default .fc-list-heading a {color: #000;}
+
+/*-------- Contrast --------*/ 
+.bg-contrast .h1, .bg-contrast .h2, .bg-contrast .h3, .bg-contrast .h4, .bg-contrast .h5, .bg-contrast .h6,
+.bg-contrast h1, .bg-contrast h2,.bg-contrast h3, .bg-contrast h4, .bg-contrast h5, .bg-contrast h6 {color: #ffffff;}
+.bg-contrast .panel-title a {color: #000;}
+.bg-contrast a:link, .bg-contrast a:hover, .bg-contrast a:active, .bg-contrast a:visited {color: #ffffff;}
+.bg-contrast .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-contrast .text-muted {color: #ffffff !important;}
+.bg-contrast .fc-day-number {color: #ffffff;}
+.bg-contrast .panel-title a {color: #000;}
+.bg-contrast .list-group-item  a:link, .bg-contrast .list-group-item a:hover, .bg-contrast .list-group-item a:active, .bg-contrast .list-group-item a:visited {color: #000000;}
+.bg-contrast .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-contrast .cs-card-carousel .title {color: #000000;} 
+.bg-contrast .cs-card-horizontal2 .title {color: #000000;} 
+.bg-contrast .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-contrast .fc th, .bg-contrast .cs-subtext {color: #fff;}
+.bg-contrast .fc-list-heading a {color: #000;}
+ 
+
+/*-------- Dark --------*/ 
+.bg-dark .h1, .bg-dark .h2, .bg-dark .h3, .bg-dark .h4, .bg-dark .h5, .bg-dark .h6,
+.bg-dark h1, .bg-dark h2,.bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6 {color: #ffffff;}
+.bg-dark .panel-title a {color: #000;}
+.bg-dark a:link, .bg-dark a:hover, .bg-dark a:active, .bg-dark a:visited {color: #ffffff;}
+.bg-dark .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-dark .text-muted {color: #ffffff !important;}
+.bg-dark .fc-day-number {color: #ffffff;}
+.bg-dark .panel-title a {color: #000;}
+.bg-dark .list-group-item  a:link, .bg-dark .list-group-item a:hover, .bg-dark .list-group-item a:active, .bg-dark .list-group-item a:visited {color: #000000;}
+.bg-dark .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-dark .cs-card-carousel .title {color: #000000;} 
+.bg-dark .cs-card-horizontal2 .title {color: #000000;} 
+.bg-dark .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-dark .fc th, .bg-dark .cs-subtext {color: #fff;}
+.bg-dark .fc-list-heading a {color: #000;}
+ 
+
+/*-------- End Color Adjustments --------*/
+
+.cs-whitelinks a:link, .cs-whitelinks a:hover, .cs-whitelinks a:active, .cs-whitelinks a:visited {color:#fff;}
+.cs-blacklinks a:link, .cs-blacklinks a:hover, .cs-blacklinks a:active, .cs-blacklinks a:visited {color:#000;}
+
+.fc-toolbar button {font-size: 11px;} 
+.cs-motto { padding: 10px; }
+.cs-slideshow { border-top-right-radius: 50px;  }
+.cs-address {font-size: 17px;text-align: center;font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif; color: #ffffff;} 
+.cs-borders {border: 10px solid #363636;  border-bottom: none; border-top: none;}
+.cs-text-white {color: #ffffff;}
+.links-lite, .links-lite a:link, .links-lite a:hover, .links-lite a:visited, .links-lite a:active {color: #fff;}
+.cs-menuback {background: #5e1515;}
+.cs-blacklinks a:link, .cs-blacklinks a:hover, .cs-blacklinks a:active, .cs-blacklinks a:visited {color:#000;}
+.cs-searchlayers > div{z-index: 0 !important;}
+ 
+.cs-calendar-widget .btn {padding: 6px;font-size: 11px;}
+
+
+
+.search-field i { color: #fff; }
+
+/*-------- Hamburger Contrast Issue --------*/
+.navbar-toggle {background-color: #fff; color:#000;}
+
+
+/*----QUICK LINKS HOMEPAGE----*/
+
+.homepageql .cs-quicklinks-bubbles .cs-item-title {font-size:15px;}
+.homepageql .cs-quicklinks-bubbles .cs-card {font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif; width: 230px !important; height: 230px !important;   padding: 20px !important; margin: 0 20px;}
+.homepageql .cs-quicklinks-bubbles .cs-quicklinks-icon {line-height: 60px !important;}
+.homepageql .cs-quicklinks-bubbles .cs-link {text-shadow: 0 0 0 #000 !important;}
+
+.homepageql .cs-quicklinks-bubbles .cs-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    background: #164286;
+    text-shadow: 0 0 5px #000;
+    border-radius: 50%;
+    padding-top: 40px;
+  border: 3px solid #fff;
+  box-shadow: 1px 1px 5px 1px #888888;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.cs-quicklinks-bubbles .cs-link:hover, .cs-quicklinks-bubbles .cs-link:focus, .cs-quicklinks-bubbles .cs-link:active {
+  -webkit-transform: scale(1.1) rotate(4deg);
+  transform: scale(1.1) rotate(4deg);
+  box-shadow: 1px 1px 10px 1px #888;
+border: 3px solid #fff;
+}
+
+
+
+
+/* #region Color code for list view of QL (option 6 & 5) */
+
+        /* QL List Background Color */
+        :root{--qlmain-color:#BB0400;}
+
+        /* QL list Font Color */
+        :root{--qlfont-color:#fff;}
+
+        /* QL list Focus, Hover, Focus-visible Background-Color*/
+        :root{--qlfhf-bg-color:#F1F1F1;}
+
+        /* QL Focus, Hover, Focus-visible Font-Color*/
+        :root{--qlfhf-f-color:#000;}
+
+/* #endregion */
+
+/* #region -----------quicklinks style code ----------------------------------------*/
+
+   /* View 6 list ql view */
+
+   .cs-quicklinks-iconslist .cs-link {
+    min-height:50px;
+    display:inherit;
+    background-color:var(--qlmain-color);
+      /* this is set to important to not be changed by bg classes */
+    color:var(--qlfont-color)!important;
+      -webkit-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      position: relative;
+      -webkit-transition-property: color;
+      transition-property: color;
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+    }
+    .cs-quicklinks-iconslist .cs-link:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--qlfhf-bg-color);
+       color:var(--qlfont-color)!important; 
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transform-origin: 0 50%;
+      transform-origin: 0 50%;
+      -webkit-transition-property: transform;
+      transition-property: transform;
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+    .cs-quicklinks-iconslist .cs-link:hover .cs-item-title,
+    .cs-quicklinks-iconslist .cs-link:focus .cs-item-title,
+    .cs-quicklinks-iconslist .cs-link:active .cs-item-title,
+    .cs-quicklinks-iconslist .cs-link:hover i,
+    .cs-quicklinks-iconslist .cs-link:focus i,
+    .cs-quicklinks-iconslist .cs-link:active i
+    {
+      color: var(--qlfhf-f-color)!important; 
+      /* this is set to important to not be changed by bg classes */
+    }
+    .cs-quicklinks-iconslist .cs-link:hover:before, .cs-quicklinks-iconslist .cs-link:focus:before, .cs-quicklinks-iconslist .cs-link:active:before {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+    
+    .cs-quicklinks-iconslist .cs-item-title {font-size:16px;}
+
+     /* View 5 list ql view */
+
+     .cs-quicklinks-cardslist .cs-link {
+       min-height:50px;
+       display:inherit;
+       background-color:var(--qlmain-color);
+         -webkit-transform: perspective(1px) translateZ(0);
+         transform: perspective(1px) translateZ(0);
+         box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+         position: relative;
+         -webkit-transition-property: color;
+         transition-property: color;
+         -webkit-transition-duration: 0.3s;
+         transition-duration: 0.3s;
+       }
+       .cs-quicklinks-cardslist .cs-item-title {
+         color:var(--qlfont-color)!important; 
+       }
+
+       .cs-quicklinks-cardslist .cs-link:before {
+         content: "";
+         position: absolute;
+         z-index: -1;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: var(--qlfhf-bg-color);
+          color:var(--qlfont-color)!important; 
+         -webkit-transform: scaleX(0);
+         transform: scaleX(0);
+         -webkit-transform-origin: 0 50%;
+         transform-origin: 0 50%;
+         -webkit-transition-property: transform;
+         transition-property: transform;
+         -webkit-transition-duration: 0.3s;
+         transition-duration: 0.3s;
+         -webkit-transition-timing-function: ease-out;
+         transition-timing-function: ease-out;
+       }
+       .cs-quicklinks-cardslist .cs-link:hover .cs-item-title,
+       .cs-quicklinks-cardslist .cs-link:focus .cs-item-title,
+       .cs-quicklinks-cardslist .cs-link:active .cs-item-title,
+       .cs-quicklinks-cardslist .cs-link:hover i,
+       .cs-quicklinks-cardslist .cs-link:focus i,
+       .cs-quicklinks-cardslist .cs-link:active i
+       {
+         color: var(--qlfhf-f-color)!important; 
+         /* this is set to important to not be changed by bg classes */
+       }
+       .cs-quicklinks-cardslist .cs-link:hover:before, .cs-quicklinks-cardslist .cs-link:focus:before, .cs-quicklinks-cardslist .cs-link:active:before {
+         -webkit-transform: scaleX(1);
+         transform: scaleX(1);
+       }
+       
+       /* .cs-quicklinks-cardslist .cs-item-title {font-size:16px;} */
+
+/* #endregion */
+
+    </style>
+
+    <style name="site-fonts">
+        
+
+
+    </style>
+
+    <style name="site-colors">
+        
+    </style>
+
+    
+
+
+
+    <!-- load these scripts first -->
+    
+
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
+<script>(window.jQuery||document.write("\u003Cscript src=\u0022/lib/jquery3.5.1/jquery.min.js\u0022 crossorigin=\u0022anonymous\u0022\u003E\u003C/script\u003E"));</script>
+    
+
+    <script>let __isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;</script>
+
+    <!-- Put JW Player scripts here for now.  TO DO: Update widget framework to allow for adding javascripts dependencies. -->
+    <script src="/js/jwplayer/jwplayer.js"></script>
+    <script>jwplayer.key = "e2ENuQrC9eoMFbWWNz3dxcI6mkbnbK5iF070aGKXo28=";</script>
+
+
+    
+
+    <script>
+        window.setTimeout(function () { document.title = "Administration - Greenwood Leflore Consolidated School District"; }, 500);
+    </script>
+
+    
+
+</head>
+<body class="">
+
+    
+    <a class="skip-main" href="#maincontent">Skip to main content</a>
+    
+
+
+
+
+
+    <div class="cs-body cs-master-layout cs-master-layout-fullwidth csc-content-tree">
+<div class="cs-toolbar clearfix" role="region" aria-label="User Toolbar">
+    <div class="pull-left">
+        <div></div>
+    </div>
+    <div class="pull-right text-right">
+        <div>
+<div class="csc-usertools">
+    <ul class="csc-list-inline">
+        <li class="csc-usertools-login">
+            <a href="/sys/account/login">
+                <i class="fa fa-sign-in"></i> &nbsp;
+                Login
+            </a>
+        </li>
+        <li class="csc-usertools-register">
+            <a href="/sys/account/register">
+                Register
+            </a>
+        </li>
+    </ul>
+</div>
+
+</div>
+    </div>
+</div>
+
+<header class="cs-header">
+    <div class="cs-header-content">
+        <div class=" content-zone csc-content-zone" name="header">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+
+</div>
+        </div>
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node cs-topmenu2" style="padding-top:0;padding-right:None;padding-bottom:0;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-right" style="">
+            
+
+
+
+    <div class="navbar navbar-default cs-navbar-default " role="navigation" aria-labelledby="navMenuTitle_a5964583df974a8288c3e74562e7fbb4">
+        <div class="navbar-header cs-navbar-header">
+            <button class="navbar-toggle cs-navbar-toggle" type="button" id="navMenuButton_a5964583df974a8288c3e74562e7fbb4" data-toggle="collapse" data-target="#a5964583df974a8288c3e74562e7fbb4">
+                <span id="navMenuTitle_a5964583df974a8288c3e74562e7fbb4" class="sr-only cs-text">Header Menu</span>
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div id="a5964583df974a8288c3e74562e7fbb4" class="collapse navbar-collapse cs-navbar-collapse">
+            <ul class="navbar-nav nav scrollable-nav-menu cs-navbar-list">
+                        <li><a class="cs-link cs-item-title" href="https://www.mdek12.org/" target="_blank">Mississippi Department of Education</a></li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Schools
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="https://aejh.glcsd.org" target="_blank">Amanda Elzy Jr. High School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://aehs.glcsd.org" target="_blank">Amanda Elzy High School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://bes.glcsd.org" target="_blank">Bankston Elementary School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://cbe.glcsd.org" target="_blank">Claudine F. Brown Elementary School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://des.glcsd.org" target="_blank">Davis Elementary School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://ees.glcsd.org" target="_blank">East Elementary School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://excelacademy.glcsd.org" target="_blank">Excel Academy</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://ghs.glcsd.org" target="_blank">Greenwood High School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://ctc.glcsd.org" target="_blank">Greenwood Leflore Career &amp; Technical Center</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://gms.glcsd.org" target="_blank">Greenwood Middle School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://lces.glcsd.org" target="_blank">Leflore County Elementary School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://lchs.glcsd.org" target="_blank">Leflore County High School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://tes.glcsd.org" target="_blank">Threadgill Elementary School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://tps.glcsd.org" target="_blank">Threadgill Primary School</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="cs-link cs-item-title" href="/handbooks" target="_self">Handbooks</a></li>
+            </ul>
+        </div>
+    </div>
+<script type="text/javascript">
+    $("#navMenuButton_a5964583df974a8288c3e74562e7fbb4").click(function () {
+        $("i", this).toggleClass("fa-bars");
+        $("i", this).toggleClass("fa-times");
+    });
+</script>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node bg-default cs-topmenu" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+
+
+    <div class="navbar navbar-default cs-navbar-default " role="navigation" aria-labelledby="navMenuTitle_0a01b6d8ec9e4f0caaffb2c542db0357">
+        <div class="navbar-header cs-navbar-header">
+            <button class="navbar-toggle cs-navbar-toggle" type="button" id="navMenuButton_0a01b6d8ec9e4f0caaffb2c542db0357" data-toggle="collapse" data-target="#0a01b6d8ec9e4f0caaffb2c542db0357">
+                <span id="navMenuTitle_0a01b6d8ec9e4f0caaffb2c542db0357" class="sr-only cs-text">Main Navigation Menu</span>
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div id="0a01b6d8ec9e4f0caaffb2c542db0357" class="collapse navbar-collapse cs-navbar-collapse">
+            <ul class="navbar-nav nav scrollable-nav-menu cs-navbar-list">
+                        <li><a class="cs-link cs-item-title" href="/" target="_self">Home</a></li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                About
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="https://content.myconnectsuite.com/api/documents/8365dcaf6d5a41e7b5a84bd48dcbb1d8" target="_blank">2026-2027 District Calendar</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/costaff" target="_self">Central Office Staff Directory</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://content.myconnectsuite.com/api/documents/620d531396e94d299b40f2e0c480dd7f" target="_blank">District Report</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="cs-link cs-item-title" href="/admin" target="_self">Administration</a></li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Board
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/board" target="_blank">Board Members</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://glcsd.msbapolicy.org/DistrictHome/tabid/10290/Default.aspx" target="_blank">Board Policies</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://content.myconnectsuite.com/api/documents/58502eef7adb49a29e4545433540260b" target="_blank">Board Schedule</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://boxcast.tv/channel/gea9l5bl5gbt1ot9jcng" target="_blank">Live Stream</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Departments
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/alternativeschool" target="_self">Alternative School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/gifted" target="_blank">Gifted Program</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/athletics" target="_self">GLCSD Athletics</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/officeofcurriculum" target="_self">Office of Curriculum</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/federalprograms" target="_blank">Office of Federal Programs</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://msgreenwoodleflorecsd.schoolinsites.com/food" target="_blank">Office of Food Services</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/hr" target="_blank">Office of Human Resources</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://msgreenwoodleflorecsd.schoolinsites.com/maintenance" target="_blank">Office of Maintenance &amp; Grounds</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/specialservices" target="_blank">Office of Special Education</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/safety" target="_blank">Office of School Safety</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://msgreenwoodleflorecsd.schoolinsites.com/transportation" target="_blank">Office of Transportation &amp; Warehouse</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/technology" target="_self">Technology</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Students
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="https://content.myconnectsuite.com/api/documents/bd4e4a420fd047878481ecc39c1d7bb5" target="_blank">Student Handbook</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://greenwood.activestudent.net/Login.aspx" target="_blank">Active Student</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://login.i-ready.com/" target="_blank">iReady</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.mobymax.com/signin" target="_blank">MobyMax</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://auth.edmentum.com/elf/login" target="_blank">Edmentum</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.mobymax.com/signin" target="_blank">Reading Plus</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://mkas.renlearn.com/TestingTimeNotValid.aspx" target="_blank">MKAS</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://global-zone51.renaissance-go.com/welcomeportal/90209" target="_blank">Renaissance: STAR/Accelerated Reader</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.thelearningodyssey.com/" target="_blank">Edgenuity</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.seaseducation.com/" target="_blank">SEAS Education Login</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Staff
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">District Email</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://content.myconnectsuite.com/api/documents/44fd2c6d800546af9b389ae9a72b6ac0" target="_blank">Personnel Handbook</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://greenwood.activeschool.net/Login.aspx?ReturnUrl=%2f" target="_blank">SAM Spectra</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://ar.glcsd.org/Login.aspx?ReturnUrl=%2f" target="_blank">ActiveResouces</a></li>
+                                        <li><a class="cs-link cs-item-title" href="http://10.73.1.11/marathonweb/Login.aspx" target="_blank">Marathon</a></li>
+                                        <li><a class="cs-link cs-item-title" href="#" target="_self">MSIS</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.lexercise.com/" target="_blank">Lexercise</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Parents/Community
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="https://content.myconnectsuite.com/api/documents/d4f6353acab84525894bf6ceb874553a" target="_blank">Right to Know</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://greenwood.activeparent.net/Login.aspx?ReturnUrl=%2f" target="_blank">ActiveParent</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://content.myconnectsuite.com/api/documents/57f7d1fe4514416a9e870c59a77054e3" target="_blank">Facility Use Request Form</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Employment
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/hr" target="_blank">Office of Human Resources</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://activeapplicant.glcsd.org/" target="_blank">Vacancies</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://content.myconnectsuite.com/api/documents/bc32dec20eab4c7bb13adce3e94f6d18" target="_blank">Certified Teacher Salary Scale</a></li>
+                            </ul>
+                        </li>
+            </ul>
+        </div>
+    </div>
+<script type="text/javascript">
+    $("#navMenuButton_0a01b6d8ec9e4f0caaffb2c542db0357").click(function () {
+        $("i", this).toggleClass("fa-bars");
+        $("i", this).toggleClass("fa-times");
+    });
+</script>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node bg-clean" style="padding-top:15px;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:15px;padding-bottom:15px;padding-left:15px;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="/" target="_self"><img src="https://content.myconnectsuite.com/api/documents/c43ca71db2b648e8add7e8a2419aeaad.png" class="img-responsive" alt="Greenwood Leflore Consolidated School District" title="Greenwood Leflore Consolidated School District" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:30px;padding-right:None;padding-bottom:5px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-12">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node links-lite cs-paddingheader" style="padding-top:None;padding-right:30px;padding-bottom:None;padding-left:30px;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <style>
+  .cs-social-icon {
+    color: #164286;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .cs-social-icon:hover,
+  .cs-social-icon:focus {
+    transform: scale(1.2);
+  }
+</style>
+
+<div style="text-align:right;" align="center">
+  <a href="https://www.facebook.com/greenwoodleflorecsd" target="_blank" aria-label="Facebook" rel="noopener noreferrer">
+    <em class="fa fa-facebook fa-3x cs-padding5 cs-social-icon"></em>
+  </a>
+  <a href="mailto:asibley@glcsd.org" target="_blank" aria-label="Email" rel="noopener noreferrer">
+    <em class="fa fa-envelope fa-3x cs-padding5 cs-social-icon"></em>
+  </a>
+</div>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:30px;padding-bottom:None;padding-left:30px;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <div style="text-align:right;"><span style="color:#000;">1901 Highway 82, West, Greenwood, MS 38930</span></div><div style="text-align:right;"><span style="color:#000;">PH: 1-662-453-4231 </span></div>
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:5px;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-12">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+    </div>
+</header>
+
+<div class="cs-page-bg">
+    <div class="cs-page">
+        <div class="cs-page-layout cs-page-layout-1">
+            <div class="cs-page-content">
+                <div class="page-content cs-main-content csc-content-tree" id="maincontent" role="main"><div class=" content-zone csc-content-zone" name="body">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget container csc-force-center" style="">
+                <div class="clearfix cs-title-widget">
+<h3 class="cs-page-title">Administration</h3>    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-3">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+    <div class="cs-image-widget">
+        <img src="https://content.myconnectsuite.com/api/documents/2cba3d8dab5343debbed0b7e80ec343e.jpg" class="img-responsive" alt="Superintendent" title="Superintendent" style="border-radius: 0px;max-width: 100%;max-height: auto" />
+    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            <div class="cs-html-widget">
+    <p><span style="font-family:Arial, Helvetica, sans-serif;">Dr. Kenneth Pulley</span></p><p><span style="font-family:Arial, Helvetica, sans-serif;">Superintendent</span></p><p><span style="font-family:Arial, Helvetica, sans-serif;">kpulley@glcsd.org</span><br></p>
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-9">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <p style="box-sizing:border-box;margin-bottom:26px;font-family:Verdana, Montserrat, sans-serif;font-size:15px;"><span style="font-family:Arial, Helvetica, sans-serif;font-size:medium;"></span></p><p data-start="67" data-end="204"><strong data-start="67" data-end="202">The Greenwood Leflore Consolidated School District Board of Trustees has named Dr. Kenneth Pulley as the District&rsquo;s Superintendent.</strong></p><p data-start="206" data-end="519">Dr. Kenneth Pulley is a dedicated educator and visionary leader with a strong background in advancing student achievement and fostering academic excellence. Throughout his career, he has demonstrated a passion for creating opportunities that empower both students and educators to reach their highest potential.</p><p data-start="521" data-end="787">Dr. Pulley&rsquo;s motto, <em data-start="541" data-end="576">&ldquo;Expecting Excellence Every Day,&rdquo;</em> is a testament to the high standards he upholds for the district. His commitment to excellence is rooted in a belief that every child deserves a quality education and every school has the potential to thrive.</p><p data-start="789" data-end="912">We welcome Dr. Pulley with open arms and look forward to his excellent leadership as he takes our schools to a new level.</p><div></div>
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="cs-footer">
+    <div class="cs-footer-content">
+        <div class=" content-zone csc-content-zone" name="footer">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <p style="text-align:center;"><span style="font-size:12px;color:#ffffff;">We are committed to providing a website that is accessible to the widest
+possible audience, regardless of technology or ability. This website endeavors
+to comply with best practices and standards defined by Section 504 of the U.S.
+Rehabilitation Act. If you would like additional assistance or have
+accessibility concerns, please visit the website accessibility page. We are
+always striving to improve the accessibility standards of our website.
+</span></p>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://www.schoolinsites.com/" target="_blank"><img src="https://content.schoolinsites.com/api/documents/1536a33f166240af9c3ef504396bff37.png" class="img-responsive" alt="SCHOOLinSITES" title="SCHOOLinSITES" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-2">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="/" target="_self"><img src="https://content.myconnectsuite.com/api/documents/06427f5cfd2841ff96bf27164b20fd77.png" class="img-responsive" alt="Greenwood Leflore Consolidated School District Footer" title="Greenwood Leflore Consolidated School District Footer" style="border-radius: 0px;max-width: 100%;max-height: 100px" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-10">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <div style="text-align:left;"><span style="color:#ffffff;">1901 Highway 82, West<br />Greenwood, MS 38930
+<br />PH: 1-662-453-4231</span></div>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+<div class="search-field search-field-lucene  " data-module="widgets/search">
+    <label for="q" class="hidden-sc">Search</label>
+    <input id="q" type="text" name="searchInput" placeholder="Search" />
+    <i name="searchGo" class="fa fa-search"></i>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            <googletranslate> 
+
+<div id='google_translate_element'></div>
+<script>
+        function googleTranslateElementInit()
+        {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,hy,bg,zh-CN,zh-TW,hr,cs,da,nl,fil,fi,fr,de,el,haw,he,hi,hu,is,id,ga,it,ja,kk,ko,la,mi,my,no,fa,pl,pt,ro,ru,sr,sl,so,es,sv,th,tr,uk,ur,vi,cy,yi',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            function changeGoogleStyles() {
+                if($('.goog-te-menu-frame').contents().find('.goog-te-menu2').length) {
+                    $('.goog-te-menu-frame').contents().find('.goog-te-menu2').css({
+                        'max-width':'100%',
+                        'overflow-x':'auto',
+                        'box-sizing':'border-box',
+                        'height':'auto'
+                    });
+                } else {
+                    setTimeout(changeGoogleStyles, 50);
+                }
+                $('.goog-te-gadget-simple > span > a > span').first().css('color', 'black' );
+                $('.goog-te-gadget-simple > span > a > span').first().css('background-color', 'white' );
+            }
+            function customGoogleTranslateBehaviour() {
+                $('.goog-te-gadget-simple').on('click', function(e) {
+                    e.preventDefault();
+                });
+                $('#goog-gt-votingHiddenPane').empty();
+            }
+            changeGoogleStyles();
+            customGoogleTranslateBehaviour();
+        }
+</script>
+<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+</googletranslate>
+<style>
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    .goog-te-menu-frame {
+        max-width: 100% !important;
+    }
+
+    .goog-te-menu2 {
+        max-width: 100% !important;
+        overflow-x: scroll !important;
+        box-sizing: border-box !important;
+        height: auto !important;
+    }
+</style>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+</div>
+    </div>
+    <div class="cs-footer-info">
+        <div class="copyright">Copyright &copy; 2026 Greenwood Leflore Consolidated School District
+</div>
+    </div>
+</footer>    </div>
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+    });
+</script>
+
+
+
+    
+
+    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+        </script>
+<script>(window.jQuery.fn.modal||document.write("\u003Cscript src=\u0022/lib/bootstrap/dist/js/bootstrap.min.js\u0022 crossorigin=\u0022anonymous\u0022\u003E\u003C/script\u003E"));</script>
+    
+
+    <script src="/js/site.js?v=SkBRGN1zKlr7I0XLYBhUxqVMJLRNhIC9PVzm86RqF18"></script>
+
+    <!-- MVC View Scripts-->
+    
+    <script src="/js/jquery-ui/jquery-ui-1.13.2.min.js"></script>
+    <script src="/js/jquery-ui/jquery.ui.touch-punch.js"></script>
+    <script src="/js/content.js?v=RFt2nsbRsk7ODh7fPKmVZRIRORp7F8xv1QG4MWVMed8"></script>
+
+
+    
+
+
+
+    <!-- Site Components: Render after MVC View Scripts -->
+    <script src="/js/dialog.js?v=U7x_P-RGJm34ojdh0-PjAyhUrO4K1c6FUIthBHbRHag"></script>
+    <script src="/js/toolbar.js?v=yA54fWzDkZnO2v4n0iJHqYZSPjpMOvJUc9HZIYnmthA"></script>
+    <script src="/js/siteform.js?v=OIo5tXKXkmF1uzC1k8prQNvijeHmO47G-G1lL8Jr2pI"></script>
+
+    <!-- Require Js -->
+    <script src="/lib/requirejs/require.js" data-main="/js/app001"></script>
+
+</body>
+</html>
