@@ -233,17 +233,26 @@ def tidy():
         if ours and file_away(M, num): moved += 1
     M.expunge(); M.logout(); log(f"tidy: {moved} messages labelled '{LABEL}' and archived"); return moved
 def part_text(msg):
-    texts = []; atts = []
+    texts = []; atts = []; hrefs = []
     for part in msg.walk():
         ct = part.get_content_type(); fn = part.get_filename()
         if fn: atts.append((str(make_header(decode_header(fn))), part.get_payload(decode=True) or b"", ct)); continue
+        if ct.startswith("image/"):   # an inline picture with no name (a pasted screenshot); OCR'd in file_documents
+            atts.append((f"inline-{len(atts) + 1}.{ct.split('/')[1].replace('jpeg', 'jpg')}", part.get_payload(decode=True) or b"", ct)); continue
         if ct == "text/plain": texts.append(part.get_payload(decode=True).decode(part.get_content_charset() or "utf-8", "ignore"))
-        elif ct == "text/html" and not texts:
+        elif ct == "text/html":
             h = part.get_payload(decode=True).decode(part.get_content_charset() or "utf-8", "ignore")
-            texts.append(htmlmod.unescape(re.sub(r"<[^>]+>", " ", re.sub(r"<(script|style)[\s\S]*?</\1>", "", h))))
+            # An iPhone mail is HTML only, and its attachment is an href behind a preview picture (Lake
+            # Hamilton AR, 2026-10-27: a 1.9 MB policy PDF went unread because the tags were stripped).
+            hrefs += [htmlmod.unescape(u) for u in re.findall(r'href="(https?://[^"]+)"', h) if "earthpilot" not in u and "mailto:" not in u]
+            if not texts:
+                h2 = re.sub(r"<br\s*/?>|</(p|div|li|tr|h[1-6]|blockquote)>", "\n", re.sub(r"<(script|style)[\s\S]*?</\1>", "", h), flags=re.I)
+                texts.append(htmlmod.unescape(re.sub(r"<[^>]+>", " ", h2)))
     t = re.sub(r"[ \t]+", " ", "\n".join(texts)).strip()
     # drop our quoted request from the bottom of a reply
     t = re.split(r"\n(On .{5,80} wrote:|From: Anthony Adams|-----Original Message-----)", t)[0].strip()
+    extra = [u for u in dict.fromkeys(hrefs) if u not in t and re.search(r"\.(pdf|docx?)(\?|$)|document|policy|handbook|drive\.google|dropbox|icloud", u, re.I)]
+    if extra: t += "\n" + "\n".join(extra[:6])
     return t, atts
 def find_request(msg, reqs):
     refs = (msg.get("In-Reply-To", "") + " " + msg.get("References", ""))
@@ -337,6 +346,13 @@ HEADING_NOISE = STATES_2 | {"URL", "BOE", "BOEP", "DESE", "SY", "JV", "CEO", "CF
 
 RULE_RE = re.compile(r"\b(shall|must|may not|will not|prohibit(s|ed)?|permitted|authoriz(es|ed)|the policy (does not|prohibits|allows|permits|states)|policy\s+[A-Z]{0,4}-?\d+)\b", re.I)
 FIRST_PERSON_RE = re.compile(r"\b(we|our|us|I|I'm|I've|my|me)\b")
+def ocr_text(path):
+    """What a picture says, by tesseract; empty when the tool is missing or the picture has no words."""
+    try:
+        out = subprocess.run(["tesseract", path, "-", "--psm", "6"], capture_output=True, text=True, timeout=120).stdout
+    except Exception as ex:
+        log("ocr failed", os.path.basename(path), repr(ex)[:80]); return ""
+    return out if len(re.findall(r"[A-Za-z]{3,}", out)) >= 20 else ""
 def policy_like(text):
     """True when pasted email text reads like a policy (a rule's verb or a policy code, not written in the first
     person), false when it is the superintendent's own word: "we do not use it" is a claim, never a policy.
@@ -503,10 +519,21 @@ def save_docs(r, atts, links, facts):
     got = []
     dd = os.path.join(INBOUND, r["state"]); os.makedirs(dd, exist_ok=True)
     tag = lambda u: f"{r.get('nces_id') or r['id']}-link-{hashlib.sha1(u.encode()).hexdigest()[:6]}"
-    for fn, payload, ct in atts:
+    for i, (fn, payload, ct) in enumerate(atts):
         if re.search(r"\.(pdf|docx?|txt)$", fn, re.I) and payload:
             p = os.path.join(dd, f"{r.get('nces_id') or r['id']}-{re.sub(r'[^A-Za-z0-9._-]', '_', fn)}")
             open(p, "wb").write(payload); got.append(file_document(r, p, "attached to the district's reply"))
+        elif (ct.startswith("image/") or re.search(r"\.(png|jpe?g|tiff?|bmp|webp)$", fn, re.I)) and len(payload) >= 20000:
+            # A screenshot of the policy (Erlanger-Elsmere KY sent 09.433 as a picture, 2026-10-28, and we
+            # answered that we cannot quote a picture). Signature icons are under 20 KB and are skipped.
+            p = os.path.join(dd, f"{r.get('nces_id') or r['id']}-screenshot-{i + 1}-{re.sub(r'[^A-Za-z0-9._-]', '_', fn)}")
+            open(p, "wb").write(payload); text = ocr_text(p)
+            if text and policy_like(text) and policy_code_in(text):
+                open(p + ".txt", "w").write(text); got.append(file_document(r, p + ".txt", "screenshot attached to the district's reply, read by OCR; the picture is kept beside the text"))
+            else:
+                log("screenshot is not a policy page:", r["name"], fn, (re.sub(r"\s+", " ", text)[:80] if text else "(no text)"))
+                try: os.remove(p)
+                except OSError: pass
     queue = list(dict.fromkeys((facts.get("document_links") or []) + links))[:4]
     hopped = 0
     while queue:
