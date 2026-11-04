@@ -14,15 +14,15 @@ table{border-collapse:collapse;width:100%;font-size:15px}td,th{padding:.3rem .5r
 details{margin-top:10px}summary{cursor:pointer;color:var(--mute)}pre{white-space:pre-wrap;word-break:break-word;color:var(--mute);font:12px/1.4 ui-monospace,Menlo,monospace;max-height:360px;overflow:auto;margin:.5rem 0 0}
 a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}p{margin:.5rem 0 0}
 </style></head><body>
-<h1>Safe Schools Project</h1><p class="meta">Status as of Wednesday November 4, 1:59 AM. Updates itself every few minutes. <a href="/kids/ops/crm.html">CRM</a> · <a href="/kids/ops/decisions.html">Decisions</a> · <a href="/kids/live/">Watch it live</a> · <a href="/kids/">The public record</a></p>
+<h1>Safe Schools Project</h1><p class="meta">Status as of Wednesday November 4, 8:19 AM. Updates itself every few minutes. <a href="/kids/ops/crm.html">CRM</a> · <a href="/kids/ops/decisions.html">Decisions</a> · <a href="/kids/live/">Watch it live</a> · <a href="/kids/">The public record</a></p>
 <div class="panel"><h2>Where we stand</h2><div class="big">
 <div><b class="r">1,689</b><span>districts still allow adults to hit children</span></div>
-<div><b class="g">1,216</b><span>districts have banned it</span></div>
-<div><b class="a">654</b><span>districts we haven't got an answer from yet</span></div></div>
+<div><b class="g">1,217</b><span>districts have banned it</span></div>
+<div><b class="a">653</b><span>districts we haven't got an answer from yet</span></div></div>
 <p class="m">We count a district only when we have its own written rule, word for word, with a link to the document. 204 of the "still allow" districts require a parent's permission first.</p></div>
 <div class="panel bad"><h2>Needs you</h2><div class="big"><div><b class="r">1</b><span>email threads waiting for your call</span></div></div><p class="m">Each one is a draft in Gmail with the suggested reply inside. <a href="/kids/ops/board.html">See which</a>.</p></div>
 <div class="panel"><h2>Today</h2><div class="big">
-<div><b>1</b><span>district rules found</span></div>
+<div><b>2</b><span>district rules found</span></div>
 <div><b>0</b><span>emails sent to districts</span></div>
 <div><b>0</b><span>replies that came in</span></div>
 <div><b>0</b><span>emails lined up to go</span></div></div></div>
@@ -34,7 +34,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}p{mar
 <p class="m">Emails are answered automatically within 15 minutes. If a district refuses, it gets a formal public-records request. 2 districts will only answer a resident of their state. <a href="/kids/ops/board.html">Every conversation</a>.</p></div>
 <div class="panel"><h2>By state</h2><table><tr><th>State</th><th class="n">Still allow it</th><th class="n">Banned it</th><th class="n">No answer yet</th><th class="n">Found today</th></tr>
 <tr><td><a href="/kids/state/TX/">TX</a></td><td class="n r">739</td><td class="n g">300</td><td class="n a">5</td><td class="n"></td></tr>
-<tr><td><a href="/kids/state/OK/">OK</a></td><td class="n r">237</td><td class="n g">47</td><td class="n a">119</td><td class="n"></td></tr>
+<tr><td><a href="/kids/state/OK/">OK</a></td><td class="n r">237</td><td class="n g">48</td><td class="n a">118</td><td class="n">1</td></tr>
 <tr><td><a href="/kids/state/MO/">MO</a></td><td class="n r">129</td><td class="n g">126</td><td class="n a">70</td><td class="n"></td></tr>
 <tr><td><a href="/kids/state/AR/">AR</a></td><td class="n r">147</td><td class="n g">18</td><td class="n a">27</td><td class="n"></td></tr>
 <tr><td><a href="/kids/state/GA/">GA</a></td><td class="n r">97</td><td class="n g">32</td><td class="n a">36</td><td class="n"></td></tr>
@@ -64,7 +64,7 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}p{mar
 </table></div>
 <div class="panel bad"><h2>Invariants, last 7 days</h2><table>
 <tr><td>bans records resting on an email or no quote</td><td class="n"><b class="">0</b></td><td class="m"></td></tr>
-<tr><td>certificates sent on open threads</td><td class="n"><b class="r">3</b></td><td class="m">LA Lafayette Parish Schools (open awaiting_link_since); KY Erlanger-Elsmere Independent (open awaiting_link_since); TN Millington Municipal Schools (open awaiting_link_since)</td></tr>
+<tr><td>certificates sent on open threads</td><td class="n"><b class="r">2</b></td><td class="m">KY Erlanger-Elsmere Independent (open awaiting_link_since); TN Millington Municipal Schools (open awaiting_link_since)</td></tr>
 <tr><td>nudges sent after a reply</td><td class="n"><b class="">0</b></td><td class="m"></td></tr>
 <tr><td>threads answered twice within ten minutes</td><td class="n"><b class="">0</b></td><td class="m"></td></tr>
 <tr><td>addresses written to twice in 24 hours</td><td class="n"><b class="r">1</b></td><td class="m">MO Neosho School District (certificate)</td></tr>
@@ -93,57 +93,47 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}p{mar
 <tr><td>KS</td><td class="m">kasb-harvest.mjs</td><td class="n">262</td><td class="m">nothing new since the first pass</td></tr>
 <tr><td>OK</td><td class="m">policy-harvest.mjs</td><td class="n">368</td><td class="m">nothing new since the first pass</td></tr>
 </table></details>
-<details><summary>Last night's run</summary><pre>  SC Dorchester School District 2 — 4: 0.94 Student and Parent Rights and Responsibilities - Dor
-[50/60] 47 found, $0.0094
-  SC Governor&#x27;S School For Science And Mathematics — 6: 0.95 Student Handbook | SC Governor&#x27;s School for Science
-  SC Greenwood School District 50 — 6: 0.91 Greenwood School District 50
-  SC Lexington School District 4 — 2: 0.91 2024-2025 Lex4 Student &amp; Parent Handbook | Lexington
-  SC Orangeburg — 4: 0.91 Code of Conduct
-  SC Richland School District 2 — 4: 0.92 Student Handbook - Richland School District 2
-  SC Spartanburg School District 2 — 1: 0.73 Spartanburg School District 2 Code of Conduct High S
-  SC Spartanburg School District 4 — 1: 0.92 Policy Manual - Spartanburg School District 4
-  SC York School District 1 — 4: 0.94 Code of Conduct - York School District 1
+<details><summary>Last night's run</summary><pre>NC: nothing new
+done: 0 with a rule, 0 silent, 0 errors; hosts {}; 0 web searches -&gt; /Users/anthony/end-school-corporal-punishment/data/handbooks/kasb-ks.jsonl
+KS: nothing new
+done: 0 districts with a rule, 0 silent, 0 errors -&gt; /Users/anthony/end-school-corporal-punishment/data/handbooks/boardpolicy-ok.jsonl
+OK: nothing new
+slice: 52 districts
+52 districts to search for
+  TN Arlington — 5: 0.79 Finalsite
+  TN Bedford County — 2: 0.95 Code of Student Conduct - Bedford County Public Scho
+  TN Bristol — 3: 0.89 I , 2024-2025 District Handbook for Students &amp; Paren
+  TN Cannon County — 3: 0.88 CCS-Student Handbook – Family Resources – Cannon Cou
+  TN Carter County — 3: 0.82 CARTER COUNTY SCHOOL DISTRICT Code of Acceptable Beh
+  TN Clay County — 3: 0.87 ‭Student and Family Handbook‬ ‭and Code of Student C
+  TN Collierville — 6: 0.94 Collierville Schools - Discipline
+  TN Crockett County — 4: 0.77 1 Student/Parent Handbook 2016-17 Crockett County Mi
+  TN Dickson County — 4: 0.91 Dickson County Schools STUDENT‐PARENT HANDBOOK AND
+  TN Dyer County — 5: 0.88 Documents - Board Policies - Dyer County Schools
+  TN Germantown — 6: 0.96 1 Germantown Municipal Schools 2025-2026 Germantown
+  TN Grainger County — 1: 0.62 Grainger County Board of Education Policy Manual – T
+  TN Grundy County — 2: 0.75 Grundy County Board of Education Policy Manual – TSB
+  TN Hamblen County — 6: 0.92 Student Handbook
+  TN Humboldt City Schools — 2: 0.82 Student &amp; Family Handbook
+  TN Jefferson County — 6: 0.84 Jefferson County Schools Student and Parent Handbook
+  TN Kingsport — 4: 0.87 Student Handbook - Kingsport City Schools
+  TN Knox County Schools — 4: 0.84 J-191 Misbehaviors and Disciplinary Options - Knox C
+  TN Lake County — 6: 0.82 Code of Conduct
+[25/52] 19 found, $0.0050
+  TN Lauderdale County — 4: 0.87 (Lauderdale County Schools) Code of Conduct for Fami
+  TN Lenoir City — 5: 0.78 The iLearn Institute - Student and Family Rights
+  TN Milan — 2: 0.63 Milan High School ATHLETIC HANDBOOK TABLE OF CONTENT
+  TN Monroe County — 5: 0.94 Policies &amp; Plans – for Parents – Monroe County Schoo
+  TN Newport — 5: 0.79 Newport High School Parent/Student Handbook Home of
+  TN Oak Ridge — 6: 0.94 OAK RIDGE SCHOOLS DISCIPLINE CODE A HANDBOOK FOR PAR
+  TN Rhea County — 5: 0.75 Rhea County Board of Education Policy Manual – TSBA
+  TN Rutherford County — 6: 0.94 RCS Student Handbook 2021-2022 - Flip eBook Pages 1-
+  TN Sullivan County — 2: 0.75 Families - Sullivan County Department of Education
 
-55/60 districts with a document, $0.0117
-55 districts with documents to read
-  OK Norwood — 2 sentences
-  OK Piedmont — 4 sentences
-  OK Prague — 2 sentences
-  OK Ringling — 59 sentences
-  OK Rush Springs — 2 sentences
-  OK Seminole — 6 sentences
-[25/55] 6 with the rule, 19 silent
-  OK Union — 35 sentences
-  OK Wayne — 50 sentences
-  OK White Rock — 2 sentences
-  SC Orangeburg — 2 sentences
-[50/55] 10 with the rule, 39 silent
-
-10/55 carry the rule | 44 real documents silent | 1 nothing readable (stubs, scans, dead links)
-10 districts with candidate sentences
-8 recorded (status &gt;= 0.95, quote &gt;= 0.9), 2 held for review, 0 errors
-statuses: {&quot;allows&quot;:5,&quot;bans&quot;:3,&quot;consent_required&quot;:2}
-cost: $0.0018  (0.000185 per district)
-records 8 | held 2 | no unique match 0: []
-  Counter({&#x27;allows&#x27;: 4, &#x27;bans&#x27;: 2, &#x27;consent_required&#x27;: 2}) Counter({&#x27;OK&#x27;: 7, &#x27;SC&#x27;: 1})
-held for review: 2
-added 0, updated 8, skipped 0
-filled 0 counties from the geocode file; 0 ids not in it
-built index, 51 state pages, resources, contribute
-pushed
-deployed
-=== 2026-11-03T10:05:09Z nightly done: 8 recorded, held in /Users/anthony/end-school-corporal-punishment/out/nightly/2026-11-03/held.json</pre></details>
-<details><summary>Email job, recent activity</summary><pre>17:35:07 document silent on corporal punishment: data/policies/inbound/TX/de456121cd-recheck-19194486.html
-17:35:07 discover: 1 looked at, 0 found, 314 still to look at
-17:35:17 ops page rebuilt
-17:35:20 inbox: 315 candidate messages in the last 60 days
-17:36:03 desk: 0 threads worked, 0 still parked
-17:51:04 followup: outside sending hours
-17:51:12 certificates (momentum): certificates sent: 0
-17:51:16 document silent on corporal punishment: data/policies/inbound/TX/aeb196c242-recheck-10715679.html
-17:51:16 document silent on corporal punishment: data/policies/inbound/TX/aeb196c242-recheck-27915801.html
-17:51:16 document silent on corporal punishment: data/policies/inbound/TX/aeb196c242-recheck-17034620.html
-17:51:16 document silent on corporal punishment: data/policies/inbound/TX/aeb196c242-recheck-95772559.html
+  Brave refused: 402 {&quot;type&quot;:&quot;ErrorResponse&quot;,&quot;error&quot;:{&quot;id&quot;:&quot;47474d06-d273-4c63-bbfc-f2784f699243&quot;,&quot;status&quot;:402,&quot;detail&quot;:&quot;Prepaid credit balance is insufficient for this request. Top
+  Stopping: every district after this would be recorded as searched-and-empty without being searched.
+find failed</pre></details>
+<details><summary>Email job, recent activity</summary><pre>17:51:16 document silent on corporal punishment: data/policies/inbound/TX/aeb196c242-recheck-95772559.html
 17:51:16 document silent on corporal punishment: data/policies/inbound/TX/aeb196c242-recheck-59531748.html
 17:51:17 document silent on corporal punishment: data/policies/inbound/TX/aeb196c242-recheck-45236106.html
 17:51:17 discover: 1 looked at, 0 found, 313 still to look at
@@ -162,5 +152,15 @@ deployed
 18:07:46 ops page rebuilt
 18:07:52 inbox: 315 candidate messages in the last 60 days
 18:08:41 desk: 0 threads worked, 0 still parked
-19:38:11 followup: outside sending hours</pre></details>
+19:38:11 followup: outside sending hours
+01:44:15 followup: outside sending hours
+01:44:24 certificates (momentum): certificates sent: 0
+01:59:30 document silent on corporal punishment: data/policies/inbound/AL/0100330-recheck-63070659.html
+01:59:31 document silent on corporal punishment: data/policies/inbound/AL/0100330-recheck-1625900.html
+02:00:59 built index, 51 state pages, resources, contribute
+deployed
+02:00:59 discover: found AL Bessemer City bans
+02:00:59 discover: 1 looked at, 1 found, 311 still to look at
+02:01:08 ops page rebuilt
+07:38:49 followup: outside sending hours</pre></details>
 </div></body></html>
