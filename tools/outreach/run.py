@@ -444,7 +444,7 @@ def inbox():
     # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
     # Every subject we have ever sent, not just the ones with "corporal" in them: the research and
     # agency requests would otherwise never have their replies read.
-    typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r.get("replies") or []]}
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\" OR subject:\\"Safe School\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r.get("replies") or []]}
     handled = 0; nums = data[0].split() if data and data[0] else []; t0 = time.time()
     log(f"inbox: {len(nums)} candidate messages in the last 60 days")
     # Gather first, answer second: a district that sent three emails in twenty minutes (Milan IN, 2026-10-27:
