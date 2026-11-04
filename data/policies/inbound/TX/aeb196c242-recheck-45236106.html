@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="cache-control" content="max-age=0" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+				<link type="text/css" rel="stylesheet" media="all" href="//fonts.googleapis.com/css?family=Ubuntu">
+		<link type="text/css" rel="stylesheet" media="all" href="https://apps.tylerisd.org/parentaccount/css/default.css">
+		
+		<link type="text/css" rel="stylesheet" media="all" href="https://apps.tylerisd.org/parentaccount/css/default.css">
+		<script type="text/javascript" src="https://apps.tylerisd.org/shared/js/jquery/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="https://apps.tylerisd.org/shared/js/jquery/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="https://apps.tylerisd.org/shared/js/jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://apps.tylerisd.org/parentaccount/js/jquery/modernizr-custom.js"></script>
+		<link type="text/css" rel="stylesheet" media="all" href="https://apps.tylerisd.org/parentaccount/css/jquery-ui.css">
+		<link type="text/css" rel="stylesheet" media="all" href="https://apps.tylerisd.org/parentaccount/css/jQuery.dataTables.min.css">
+		<link type="text/css" rel="stylesheet" media="all" href="https://apps.tylerisd.org/parentaccount/css/bootstrap.css">
+		<script type="text/javascript" src="https://apps.tylerisd.org/shared/js/bootstrap.js"></script>
+		<link type="text/css" rel="stylesheet" media="all" href="https://apps.tylerisd.org/parentaccount/css/parentaccount.css">
+
+		<script type="text/javascript" src="https://apps.tylerisd.org/shared/js/nice_r.js"></script>
+<link type="text/css" rel="stylesheet" media="all" href="https://apps.tylerisd.org/shared/css/nice_r.css">
+<script type="text/javascript" src="https://apps.tylerisd.org/shared/js/popper.min.js"></script>
+<script type="text/javascript" src="https://apps.tylerisd.org/shared/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+
+		<link type="text/css" rel="stylesheet" media="print" href="https://apps.tylerisd.org/shared/css/print.css">
+		<link rel="icon" type="image/png" href="https://apps.tylerisd.org/shared/images/logo_emblem.png">
+		<link rel="apple-touch-icon" href="https://apps.tylerisd.org/shared/images/apple-touch-icon.png">
+		<title>(Tyler ISD) Parent Account Management</title>
+	</head>
+
+	<body id="body_request_reset">
+				
+				
+		<div id="wrapper">
+			<!-- Display success and error messages -->
+						<div id="main" class="request_reset">
+				<div id="content">
+<div class="container">
+	<div class="register-box">
+		<div class="row">
+		</div>
+		<div class="row card">
+			<div class="col-md card-body ">
+				<div class='logo2-space-div'><embed class="col align-self-center logo2-space" src="https://apps.tylerisd.org/shared/images/logo.png" alt="TylerISD Logo"></div>
+				<h2 class="card-title"> Tyler ISD Parent Account Management </h2>
+				<h4 class="card-title"> Reset My Password </h4>
+				<form id="create_form" action="request_reset.php" method="post">
+					<p> To reset your password, please provide your User Name or Email Address below.</p>
+					<p style='font-weight:bold'> If you do not yet have a parent account, please create one <a href='create.php' class='btn btn-primary' style='color: white'>here</a>.</p>
+					<div class="form-group">
+						<div class='input-group'>
+							<label class='col-md-3'>Your User Name:</label>
+							<input id="username" name="username" type="text" class="form-control col-md-3" title="username" placeholder="username" required value="" maxlength='128'>
+							<label class='col-md-3'>- OR - Your Email Address:</label>
+							<input id="email" type="email" name="email" class="form-control col-md-3"  pattern='(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])' title="name@example.com" placeholder="name@example.com" required autocomplete="email" value="" autofocus>
+						</div>
+					</div>
+					<div class="form-group" hidden>
+						<label class='col-md-2'>Parent ID</label>
+						<input name="per_id" type="number" class="form-control" title="1234567890" pattern="^[0-9]{12}$" placeholder="3333333" required value="">
+					</div>
+					<div class="form-group">
+						<div class='input-group'>
+							<label class='col-md-3'>Confirmation Method</label>
+							<input name="conf_meth" type="radio" class="form-control col-md-1" title="Email" required value="Email" checked><label class='col-md-1 text-nowrap' style='font-weight: normal;'>Email</label>
+							<input name="conf_meth" type="radio" class="form-control col-md-1" title="Text" required value="Text"><label class='col-md-1 text-nowrap' style='font-weight: normal;'>Text</label>
+							<!--label class='col-md-2'><span class="tool-tip"  data-toggle="tooltip" title="If your phone provider is not listed, please contact us using the link at the bottom of the page.">Phone Provider:</span></label>
+							<select id="provider_ext" name="provider_ext" class="form-control col-md-3">
+								<option selected disabled></option>
+																<option value='@txt.att.net' >AT&T</option>
+																<option value='@message.alltel.com' >Alltel</option>
+																<option value='@sms.myboostmobile.com' >Boost</option>
+																<option value='@mobile.celloneusa.com' >Cellular One</option>
+																<option value='@csouth1.com' >Cellular South</option>
+																<option value='@mobile.mycingular.com' >Cingular</option>
+																<option value='@mmode.com' >Cingular Blue</option>
+																<option value='@mailmymobile.net' >Consumer Cellular</option>
+																<option value='@sms.cricketwireless.net' >Cricket</option>
+																<option value='@sms.edgewireless.com' >Edge</option>
+																<option value='@mymetropcs.com' >Metro PCS</option>
+																<option value='@m1.com.sg' >Mobile One</option>
+																<option value='@messaging.sprintpcs.com' >Sprint</option>
+																<option value='@tmomail.net' >T Mobile</option>
+																<option value='@msg.telus.com' >Telus</option>
+																<option value='@vtext.com' >TracFone</option>
+																<option value='@utext.com' >Unicel</option>
+																<option value='@vtext.com' >Verizon</option>
+																<option value='@vmobl.com' >Virgin Mobile</option>
+																<option value='@vtext.com' >Xfinity Mobile</option>
+															</select-->
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="g-recaptcha-container">
+							<div class="g-recaptcha" data-sitekey="6LfPMhsTAAAAAM3oatkGObgQhWCRYdPSrScM6pQz" data-callback="enableBtn" data-expired-callback="disableBtn"></div>
+						</div>
+					</div>
+					
+					<span class="tool-tip"  data-toggle="tooltip" title="No records match">
+						<button type="submit" id="ResetAccount" name="ResetAccount" class="btn btn-primary" disabled> <div id="loader" class="lds-dual-ring hidden"></div> Reset </button> * Will be clickable when valid parent/guardian info is input
+						<p style='font-weight:bold'> If you do not yet have a parent account, please create one <a href='create.php'>here</a>.</p>
+					</span>
+
+					<div class="modal fade" id="select_pg_Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-focus-on="input:first">
+					  <div class="modal-dialog" role="document">
+						<div class="modal-content">
+						  <div class="modal-body">
+							<div class="input-group">
+							  <span class="input-group-addon">There are multiple accounts linked to the information you have input. Please select yourself from the list below.</span>
+							  <ul id='pg_select_ul'>
+							  </ul>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>	
+var active_emp_id = 0;
+$(document).ready(function() {
+	if (!$('[name=per_id]').val().length) {
+		$('[data-toggle="tooltip"]').tooltip();
+	}
+	
+	// check that they match account, if match multiple, make them select which one they are
+	$("#email, #username").on('blur keyup change', function(){
+		if($("#email").val().length > 1 || $("#username").val().length > 1) {
+			$.ajax({
+				url: "accountExists.php",
+				method: "POST",
+				data: " email=" + $("#email").val()
+					+ "&username="	+ $("#username").val(),
+				beforeSend: function () { // Before we send the request, remove the .hidden class from the spinner and default to inline-block.
+					$('#loader').removeClass('hidden')
+				},
+				success: function(data) {
+					//TODO disable email or phone if one or the other is not in pg's record
+
+					var array = $.parseJSON(data);
+					console.log(data);
+					if(array[0].length > 1) {
+						// multiple parents/guardians; make list for user to select from
+						$('#pg_select_ul').empty();
+						for (var i = 0; i < array[0].length; ++i) {
+							$('#pg_select_ul').append("<li><input type='text' name='pg_per_id' value='"+array[0][i]['CONTACT_PER_ID']+"' hidden><input type='text' name='pg_email' value='"+array[0][i]['USER_EMAIL']+"' hidden><input type='text' name='pg_username' value='"+array[0][i]['USER_NAME']+"' hidden><input type='text' name='pg_active_emp' value='"+array[0][i]['CUR_EMP']+"' hidden><a href='#'>"+array[0][i]['CONTACT_LFM']+"</a></li>");
+						}
+						
+						$("#select_pg_Modal").modal('show');
+						$("#select_pg_Modal").addClass('show');
+						$('#pg_select_ul li > a').on('click', function() {
+							$('[name=per_id]').val($(this).closest('li').find('[name=pg_per_id]').val());
+							if ($('[name=username]').val().trim().toUpperCase() != $(this).closest('li').find('[name=pg_username]').val().trim().toUpperCase()) {
+								$('[name=username]').val('');
+							}
+							if ($('[name=email]').val().trim().toUpperCase() != $(this).closest('li').find('[name=pg_email]').val().trim().toUpperCase()) {
+								$('[name=email]').val('');
+							}
+							if ($(this).closest('li').find('[name=pg_active_emp]').val().trim().toUpperCase() == 'Y' && active_emp_id != $(this).closest('li').find('[name=pg_per_id]').val()) {
+								alert('Active employees should use their Tyler ISD username and password to sign into the Parent Self Serve Portal and Online Registration. If you need to reset your Canvas account, please continue to use this page.'); 
+								active_emp_id = $(this).closest('li').find('[name=pg_per_id]').val();
+							}
+							/*$('[name=username]').val($(this).closest('li').find('[name=pg_username]').val());
+							$('[name=email]').val($(this).closest('li').find('[name=pg_email]').val());*/
+						
+							$("#select_pg_Modal").modal('hide');
+							$("#select_pg_Modal").addClass('hide');
+
+							$('#ResetAccount').prop('disabled',false);
+							$('[data-toggle="tooltip"]').tooltip('disable');
+						});
+					} else if(array[0].length == 1) {
+						// one parent attached
+						$('[name=per_id]').val(array[0][0]['CONTACT_PER_ID'].toString());
+						$('#ResetAccount').prop('disabled',false);
+						$('[data-toggle="tooltip"]').tooltip('disable');
+						if (!array[0][0]['USER_EMAIL'] && array[0][0]['USER_SMS_TEXT_NUMBER']) {
+							$('[value="Email"]').prop("disabled",true);
+							$('[value="Text"]').prop("disabled",false);
+							$('[name=conf_meth][value=Text]').prop("checked",true);
+						} else if (array[0][0]['USER_EMAIL'] && !array[0][0]['USER_SMS_TEXT_NUMBER']) {
+							$('[value="Email"]').prop("disabled",false);
+							$('[value="Text"]').prop("disabled",true);
+							$('[name=conf_meth][value=Email]').prop("checked",true);
+						} else {
+							$('[value="Email"]').prop("disabled",false);
+							$('[value="Text"]').prop("disabled",false);
+						}
+						if (array[0][0]['CUR_EMP'] == 'Y' && active_emp_id != array[0][0]['CONTACT_PER_ID']) { 
+							alert('Active employees should use their Tyler ISD username and password to sign into the Parent Self Serve Portal and Online Registration. If you need to reset your Canvas account, please continue to use this page.'); 
+							active_emp_id = array[0][0]['CONTACT_PER_ID'];
+						}
+					} else {
+						$('[name=per_id]').val('');
+						$('#ResetAccount').prop('disabled',true);
+						$('[data-toggle="tooltip"]').tooltip('enable');
+					}
+				},
+				complete: function () { // Set our complete callback, adding the .hidden class and hiding the spinner.
+					$('#loader').addClass('hidden')
+				}
+			});
+		}
+
+		if ($('#email').val().length > 1) {
+			$('#email').prop("required",true);
+			$('#username').prop("required",false);
+		} else if ($('#username').val().length > 1) {
+			$('#email').prop("required",false);
+			$('#username').prop("required",true);
+		} else {
+			$('#email').prop("required",true);
+			$('#username').prop("required",true);
+		}
+	});
+
+	if ($('#email').val().length > 1) {
+		$('#email').prop("required",true);
+		$('#username').prop("required",false);
+	} else if ($('#username').val().length > 1) {
+		$('#email').prop("required",false);
+		$('#username').prop("required",true);
+	} else {
+		$('#email').prop("required",true);
+		$('#username').prop("required",true);
+	}
+		
+	/*$("form").submit(function(e){
+		if ($('input[name="conf_meth"]:checked').val() == 'Text') {
+			$('#provider_ext').prop("required",true);
+			if (!($('#provider_ext').val())) {
+				alert("You must select your cell phone provider so that we can properly send you an SMS message.")
+				e.preventDefault();
+			}
+		}
+	});*/
+});
+</script>
+	
+					</div> <!-- content -->
+				<div class="clear"></div>
+			</div> <!-- main -->
+
+			<div id="footer">
+				<div id="footer_inner">
+					<div id="footer_unauthorized">Unauthorized Use Prohibited</div>
+					<div id="footer_contact">Need Help? <a href="https://apps.tylerisd.org/parentaccount/manual.php" target="_blank">View Manual</a> or 
+										<a href="https://apps.tylerisd.org/parenthelp" target="_blank">Contact us</a>
+										</div>
+				</div>
+				<div id="footer_home"><a href="https://tylerisd.org" target="_blank">Tyler ISD 2026</a></div>
+								<div id="footer_home">If you are an employee trying to create/reset a parent's account for them, please log in <a href="https://apps.tylerisd.org/parentaccount/login.php">here</a>.</div>
+							</div>
+
+		</div> <!-- wrapper -->
+
+			</body>
+</html>
