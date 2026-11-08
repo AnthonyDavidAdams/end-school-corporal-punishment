@@ -1557,8 +1557,15 @@ if __name__ == "__main__":
         # only the inbox and never the follow-ups or the ops page (2026-10-26).
         send(25); followup(); tidy(); bounces()
         # A superintendent who just sent us a prohibiting policy gets the certificate the same day.
+        # send.py takes the same ledger lock per send, so the cycle lets go of it for the duration;
+        # holding it deadlocked every cycle from 2026-11-04 to 11-07 (the first day a district qualified
+        # after the per-send lock went in), and the watchdog aborted each one before the inbox ran.
         try:
-            out = subprocess.run([os.path.join(ROOT, "tools/.venv/bin/python"), os.path.join(ROOT, "tools/certificates/send.py"), "--momentum", "--limit", "20"], cwd=ROOT, capture_output=True, text=True, timeout=1500).stdout.strip().splitlines()
+            fcntl.flock(_LOCK, fcntl.LOCK_UN)
+            try:
+                out = subprocess.run([os.path.join(ROOT, "tools/.venv/bin/python"), os.path.join(ROOT, "tools/certificates/send.py"), "--momentum", "--limit", "3"], cwd=ROOT, capture_output=True, text=True, timeout=420).stdout.strip().splitlines()
+            finally:
+                fcntl.flock(_LOCK, fcntl.LOCK_EX)
             if out: log("certificates (momentum):", out[-1][:100])
         except Exception as ex:
             log("momentum certificates failed", repr(ex)[:100])
