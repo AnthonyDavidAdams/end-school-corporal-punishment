@@ -1327,13 +1327,13 @@ districts:
   - name: Gulf Shores City
     county: Baldwin
     nces_id: "0100202"
-    status: silent
-    source: https://www.gsboe.org/parents/student-handbooks
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0100202-recheck-82089366.html
+    quote: Prohibition of Corporal Punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-10
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -1360,8 +1360,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-10; the document is kept in the repository at data/policies/inbound/AL/0100202-recheck-82089366.html. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Prohibition of Corporal Punishment.
+      - No student shall be subjected to corporal punishment by a teacher, school official, law enforcement officer, school security guard, or program personnel.
+      - and relevant protection and advocacy system in the case of a student who is an individual with a disability Notwithstanding any immunity law, a student or parent of such student who has been subjected to corporal punishment in violation of subsection (a) of this Act may file a civil action in any State court of competent jurisdiction against the program under which the violation occurred for attorneys’ fees, expert fees, injunctive relief, and compensatory damages.
+      - restrict or limit state or local laws, regulations, or policies that provide for more stringent prohibitions or limitations on the use of corporal punishment than provided for in this Act;
   - name: Guntersville City Schools
     county: Marshall
     nces_id: "0101690"
