@@ -20301,14 +20301,13 @@ districts:
   - name: RISE ACADEMY
     county: Lubbock
     nces_id: "4800141"
-    status: bans
-    method: searched_document
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/3309/PPS/3214545/RISE_Academy_Student_Family_Handbook_23-24_SY.pdf
-    quote: Corporal punishment is prohibited.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a school in IL; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: risedirector@riseacademy.us

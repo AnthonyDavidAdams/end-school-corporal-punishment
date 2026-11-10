@@ -125,22 +125,13 @@ districts:
   - name: Madison District
     county: Madison
     nces_id: "1601920"
-    status: silent
-    source: https://www.madisondistrict.org/downloads/wms/student_code_of_conduct.pdf
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: code_of_conduct
-        url: https://www.madisondistrict.org/downloads/wms/student_code_of_conduct.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in MI; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Mccall-Donnelly Joint School District
     county: Valley
@@ -165,21 +156,13 @@ districts:
   - name: Mountain View School District
     county: Idaho
     nces_id: "1600139"
-    status: allows
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1221/MVSD/4661577/Discipline_Policy-_2024-2025.pdf
-    quote: Kindergarten- 2nd Grade Referral Disciplinary Action 1 ½ day in-school suspension or corporal … … punishment 4 3 days in-school suspension 5 5 days in-school suspension 6 Building Principal Discretion The list of above infractions is a limited list of offenses.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 ½ day in-school suspension or corporal … … punishment 4 3 days in-school suspension 5 5 days in-school suspension 6 Building Principal Discretion The list of above infractions is a limited list of offenses.
-      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal punishment 2 Building Principal Discretion 3rd Grade … … Principal Discretion The list of above infractions is a limited list of offenses.
-      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal punishment 2 Building Principal Discretion 3rd Grade – 6th Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal … … substantial disruption or interference with the operation of the school.
-      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal punishment 2 Building Principal Discretion 3rd … … Principal Discretion The list of above infractions is a limited list of offenses.
-      - Kindergarten- 2nd Grade Referral Disciplinary Action 1 3 days in-school suspension or corporal punishment 2 Building Principal Discretion 3rd Grade – 6th Grade Referral Disciplinary Action 1 3 days in-school suspension …
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of ID). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in AR; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Nampa School District
     county: Canyon
@@ -187,7 +170,7 @@ districts:
     status: bans
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031905&revid=Bfzg8OyswRGTa5ce5S0OAQ%3D%3D
     quote: No person who is employed or engaged by the District may inflict or cause to be inflicted corporal punishment on a student.
-    policy_code: "4.39"
+    policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-25
     method: vendor_manual
@@ -195,7 +178,7 @@ districts:
     quotes:
       - No person who is employed or engaged by the District may inflict or cause to be inflicted corporal punishment on a student.
       - Delegation of Authority Each teacher, and any other school personnel when students are under his or her charge, is authorized to impose any disciplinary measure (other than suspension, expulsion, corporal punishment, or in-school suspension) which is appropriate and in accordance with the policies and rules on student discipline.
-    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     policy_revised: 2022-10-24
     policy_dates_from: policy

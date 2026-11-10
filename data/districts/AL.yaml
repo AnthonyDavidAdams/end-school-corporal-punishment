@@ -187,27 +187,13 @@ districts:
   - name: Barbour County
     county: Barbour
     nces_id: "0100300"
-    status: bans
-    source: http://www.wvschools.com/barbourcountyschools/files/Handbooks/Student%20Handbook%202015.pdf
-    quote: • Corporal punishment of any student by a school employee is prohibited.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - • Corporal punishment of any student by a school employee is prohibited.
-      - corporal punishment abolished • Our county board shall provide for the implementation of a preventive discipline program including student involvement.
-      - corporal punishment abolished • The teacher shall stand in the place of the parent(s), guardian(s) or custodian(s) in exercising authority over the school and has control of all students enrolled in the school from the time they reach the school until they have returned to their respective homes, except that where transportation of students is provided, the driver in charge of the school bus or other mode of transportation shall exercise such authority and control over the students while they are in transit to and from the school.
-      - • Corporal punishment of any student by a school employee is prohibited.
-      - • Corporal punishment of any student by a school employee is prohibited.
-      - corporal punishment abolished • Our county board shall provide for the implementation of a preventive discipline program including student involvement.
-      - • Corporal punishment of any student by a school employee is prohibited.
-      - corporal punishment abolished • Our county board shall provide for the implementation of a preventive discipline program including student involvement.
-      - corporal punishment abolished • The teacher shall stand in the place of the parent(s), guardian(s) or custodian(s) in exercising authority over the school and has control of all students enrolled in the school from the time they reach the school until they have returned to their respective homes, except that where transportation of students is provided, the driver in charge of the school bus or other mode of transportation shall exercise such authority and control over the students while they are in transit to and from the school.
-      - • Corporal punishment of any student by a school employee is prohibited.
-      - 21.1 West Virginia Code §18A-5-1(e) prohibits school employees from using corporal (bodily) punishment on any student.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of AL). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in WV; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Bessemer City
     county: Jefferson
@@ -471,35 +457,22 @@ districts:
   - name: Cherokee County
     county: Cherokee
     nces_id: "0100630"
-    status: silent
-    source: https://www.cherokeek12.net/handbook
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0100630-recheck-18013684.pdf
+    quote: Corporal Punishment Corporal punishment is permitted in order to preserve an effective educational environment, free from disruption.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://www.cherokeek12.net/handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.cherokeek12.net/handbook/student-parent-handbook-web-version
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: board_policy
-        url: https://www.cherokeek12.net/board-of-education/online-policy-manual
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: 2026-11-10
+    notes: Received from the district by email in answer to a public records request, 2026-11-10; the document is kept in the repository at data/policies/inbound/AL/0100630-recheck-18013684.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: records_request
+    parent_control: unknown
+    quotes:
+      - Corporal Punishment Corporal punishment is permitted in order to preserve an effective educational environment, free from disruption.
+      - Corporal punishment shall be reasonable and moderate and may not be administered maliciously or for the purpose of revenge.
+      - Such factors as the size, age, and physical, mental, and emotional condition of the student, type of instrument, and the amount of force to be used shall be considered before administering corporal punishment.
+      - "Corporal punishment is limited to paddling the student and is governed by the following guidelines:"
+      - Coaches and physical education teachers may use reasonable physical exercises or activities as a measure to enforce class or team rules in their classes and activities, and these exercises or activities are not considered to be “corporal punishment
   - name: Chickasaw City
     county: Mobile
     nces_id: "0100188"
@@ -561,7 +534,7 @@ districts:
     status: allows
     source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36032006&revid=pnxHpfLKtK7Pcxd96jEiRg%3D%3D
     quote: The Board allows reasonable corporal punishment of students under the following terms and conditions.
-    policy_code: "4.39"
+    policy_code: null
     crdc_students_latest: null
     last_verified: 2026-09-25
     method: vendor_manual
@@ -569,7 +542,7 @@ districts:
     quotes:
       - The Board allows reasonable corporal punishment of students under the following terms and conditions.
       - Corporal punishment will be administered only as a disciplinary measure, with due regard for the age and physical condition of the student, and without excessive force.
-    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    notes: Board policy on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Clarke County
     county: Grove Hill
@@ -591,40 +564,20 @@ districts:
   - name: Clay County
     county: Clay
     nces_id: "0100750"
-    status: silent
-    source: http://agenda.oneclay.net/content/files/_draft_-2022-2023-ccds-student-and-family-handbook-and-code-of-student-conduct.pdf
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: null
     documents:
-      - kind: code_of_conduct
-        url: http://agenda.oneclay.net/content/files/_draft_-2022-2023-ccds-student-and-family-handbook-and-code-of-student-conduct.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
       - kind: board_policy
         url: https://www.claycoboe.org/en-US/school-board-of-education-833a3151/policies-0c93fdee
         says: silent
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-      - kind: code_of_conduct
-        url: https://agenda.oneclay.net/content/files/board-redline-copy-2024_2025-ccds-student-and-family-handbook-and-code-of-student-conduct_2.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.clayedu.com/student-handbooks
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in FL; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Cleburne County
     county: Cleburne
@@ -1369,12 +1322,6 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-      - kind: board_policy
-        url: https://www.greenek12.org/apps/pages/index.jsp?uREC_ID=1288564&type=d&pREC_ID=1497008
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
     notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Gulf Shores City
@@ -1479,21 +1426,13 @@ districts:
   - name: Henry County
     county: Henry
     nces_id: "0101740"
-    status: bans
-    source: https://resources.finalsite.net/images/v1659015500/henrykyschoolsus/fzub2swfolgxypypybcp/CodeofConduct221.pdf
-    quote: Corporal Punishment Employees shall not utilize corporal punishment as a penalty or punishment for student misbehavior.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal Punishment Employees shall not utilize corporal punishment as a penalty or punishment for student misbehavior.
-      - Corporal Punishment Employees shall not utilize corporal punishment as a penalty or punishment for student misbehavior.
-      - Corporal Punishment Employees shall not utilize corporal punishment as a penalty or punishment for student misbehavior.
-      - Corporal Punishment Employees shall not utilize corporal punishment as a penalty or punishment for student misbehavior.
-      - Corporal Punishment Employees shall not utilize corporal punishment as a penalty or punishment for student misbehavior.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of AL). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in KY; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Homewood City
     county: Jefferson
@@ -2184,28 +2123,20 @@ districts:
   - name: Oneonta City
     county: Blount
     nces_id: "0102550"
-    status: silent
-    source: https://www.oneontacsd.org/o/ocs/page/code-of-conduct
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: null
     documents:
-      - kind: code_of_conduct
-        url: https://www.oneontacsd.org/o/ocs/page/code-of-conduct
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
       - kind: other
         url: https://www.oneontacityschools.com/82638_3
         says: silent
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in NY; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Opelika City
     county: Lee
@@ -2487,14 +2418,13 @@ districts:
   - name: Russell County
     county: Russell
     nces_id: "0102880"
-    status: bans
-    method: searched_document
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3798/RCPS/5898163/Conduct_Code_2025-2026_II.pdf
-    quote: Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in VA; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Russellville City
     county: Franklin
@@ -2764,8 +2694,8 @@ districts:
     quote: In order to establish and maintain an educational climate conducive to learning, the Board permits reasonable corporal punishment of students in Talladega County schools.
     last_verified: 2026-09-25
     legacy_status: allows
-    notes: Board policy 4.39 (ASBA) on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
-    policy_code: "4.39"
+    notes: Board policy on Simbli, read 2026-09-25 by policy code in a sweep of Simbli sites. Identity is name and state matched against the federal LEA directory.
+    policy_code: null
     crdc_students_latest: null
     contact:
       phone: (256)315-5126

@@ -449,18 +449,13 @@ districts:
   - name: Bucklin
     county: Ford
     nces_id: "2004140"
-    status: bans
-    source: https://irp.cdn-website.com/dc754019/files/uploaded/2022-08-09%20Bucklin%20Student%20Parent%20Handbook%20(BOE%20adopted).pdf
-    quote: Corporal punishment is strictly prohibited as a method of discipline.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment is strictly prohibited as a method of discipline.
-      - Corporal punishment is strictly prohibited as a method of discipline.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in MO; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Buhler
     county: Reno
@@ -508,40 +503,20 @@ districts:
   - name: Burlington
     county: Coffey
     nces_id: "2004290"
-    status: silent
-    source: https://www.burlingtonpublicschools.org/district/student_discipline
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: null
     documents:
-      - kind: other
-        url: https://www.burlingtonpublicschools.org/district/student_discipline
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.burlingtonpublicschools.org/schools/student_handbooks
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://original.burltwpsch.org/uploads/173/files/Counseling/Student%20Handbook%202018-2019_doc%20(2)%20(1).pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
       - kind: handbook
         url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5475/Burlington/cee21171-3e47-4110-92e2-869d8c9ef1e4/25-26-Parent-Student-Handbook-For-Families-(1).pdf
         says: silent
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in MA; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Burrton
     county: Harvey
@@ -787,31 +762,6 @@ districts:
     last_verified: 2026-10-10
     method: portal_harvest
     parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://www.cherokeek12.net/handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.cherokeek12.net/handbook/student-parent-handbook-web-version
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: board_policy
-        url: https://www.cherokeek12.net/board-of-education/online-policy-manual
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://chs.cherokeek12.net/administration/student-handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
     notes: Read from the district's board policy manual (KASB policy JDA), 2026-10-10. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
@@ -897,31 +847,6 @@ districts:
     last_verified: 2026-10-10
     method: portal_harvest
     parent_control: unknown
-    documents:
-      - kind: code_of_conduct
-        url: https://agenda.oneclay.net/content/files/board-redline-draft-2025_2026-ccds-student-and-family-handbook-and-code-of-student-conduct.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: code_of_conduct
-        url: https://agenda.oneclay.net/content/files/board-redline-copy-2024_2025-ccds-student-and-family-handbook-and-code-of-student-conduct_2.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: other
-        url: https://www.clayschools.org/apps/pages/index.jsp?uREC_ID=2081036&type=d&pREC_ID=2132573
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: code_of_conduct
-        url: http://agenda.oneclay.net/content/files/2019_2020-student-handbook_cosc_draft-crosswalk-to-2018-29-material_18june2019.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
     notes: Read from the district's board policy manual (KASB policy JDA), 2026-10-10. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
@@ -1250,54 +1175,13 @@ districts:
   - name: Dexter
     county: Cowley
     nces_id: "2005520"
-    status: allows
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/269674/DHS_Student-_Parent_Handbook_2018-2019__board_approved_June_2018_.pdf
-    quote: Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-      - 1st Offense -Principal/Student conference, Detention, Corporal punishment, In-School-Suspension, 1-180 days Out-of-School- Suspension or Expulsion.
-      - Detention, Corporal Punishment, In-School-Suspension, or 1-180 days Out-of-School Suspension.
-      - Detention, Corporal Punishment, In-School-Suspension, 1-180 days Out-of-School Suspension or Expulsion.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in MO; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Dodge City
     county: Ford
@@ -1427,18 +1311,6 @@ districts:
     method: portal_harvest
     parent_control: unknown
     documents:
-      - kind: handbook
-        url: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/1578874/EHS_Student_Handbook_2021-22.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/1426146/ESD_District_Student_Handbook_2021-2022.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
       - kind: handbook
         url: https://d16k74nzx9emoe.cloudfront.net/b8252cd8-191d-43d7-be81-1d66b758d5f9/Handbook%202026-2027.pdf
         says: silent
@@ -1681,22 +1553,13 @@ districts:
   - name: Fairfield
     county: Reno
     nces_id: "2008310"
-    status: silent
-    source: https://fchs.fairfield1.org/students/student-code-of-conduct
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: code_of_conduct
-        url: https://fchs.fairfield1.org/students/student-code-of-conduct
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in SC; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Flinthills
     county: Butler
@@ -1841,46 +1704,13 @@ districts:
   - name: Garden City
     county: Finney
     nces_id: "2006390"
-    status: allows
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/865236/2020-21_Student_Handbook__edited_July__20____3_.pdf
-    quote: Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: opt_out
-    quotes:
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling the student—may be used as a discipline management technique in accordance with the Student Code of Conduct and policy FO(LOCAL) in the district’s policy manual.
-      - If you do not want corporal punishment to be administered to your child as a method of student discipline, please return the form included in the forms packet.
-      - However, district personnel may choose to use discipline methods other than corporal punishment even if the parent requests that this method be used on the student.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in TX; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Garden City USD
     county: Finney
@@ -2194,48 +2024,31 @@ districts:
   - name: Haviland
     county: Kiowa
     nces_id: "2006990"
-    status: silent
-    source: https://hms.hpcsd.org/about-us/student-handbook
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://hms.hpcsd.org/about-us/student-handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a different district in NY (Hyde Park Central, Haviland Middle School); reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Hays
     county: Ellis
     nces_id: "2007020"
-    status: silent
-    source: https://www.hayscisd.net/page/parent-student-handbook
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: null
     documents:
-      - kind: code_of_conduct
-        url: https://www.hayscisd.net/page/parent-student-handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
       - kind: handbook
         url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1196/Hays_Middle/e3bfe10d-f4c6-49d3-9aba-e788cd63fc05/2026-2027-HMS-Handbook-final%281%29.pdf?disposition=inline
         says: silent
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in TX; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Herington
     county: Dickinson
@@ -2513,22 +2326,13 @@ districts:
   - name: Independence
     county: Montgomery
     nces_id: "2007650"
-    status: bans
-    source: https://ihs.wcs.edu/resources/student-handbook
-    quote: Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
-      - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
-      - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
-      - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
-      - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
-      - Corporal punishment shall not be administered as a method of correcting inappropriate behavior in Williamson County Schools per WCSB Policy 6.314 .
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a different district in TN (Williamson County Schools, Independence High School); reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Ingalls
     county: Gray
@@ -2933,20 +2737,13 @@ districts:
   - name: Lincoln
     county: Lincoln
     nces_id: "2008790"
-    status: consent_required
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/732147/student_handbook_19-20.pdf
-    quote: The Board does permit use of corporal punishment as a disciplinary technique with written parental permission.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: opt_in
-    quotes:
-      - The Board does permit use of corporal punishment as a disciplinary technique with written parental permission.
-      - The Board does permit use of corporal punishment as a disciplinary technique with written parental permission.
-      - The Board does permit use of corporal punishment as a disciplinary technique with written parental permission.
-      - The Board does permit use of corporal punishment as a disciplinary technique with written parental permission.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in KY; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Louisburg
     county: Miami
@@ -3755,24 +3552,6 @@ districts:
         quote: null
         retrieved: 2026-09-29
         by: Mothership (search + read)
-      - kind: other
-        url: https://www.oxfordsd.org/departments/student-services/discipline-the-disciplinary-matrix
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-      - kind: other
-        url: https://www.oxfordsd.org/resources/code-of-conduct/introduction
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.oxfordsd.org/resources/family-resources/student-handbooks/elementary-handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
     notes: Read from the district's board policy manual (KASB policy JDA), 2026-10-10. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
@@ -4415,18 +4194,13 @@ districts:
   - name: Russell County
     county: Russell
     nces_id: "2011310"
-    status: bans
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3798/RCPS/5898163/Conduct_Code_2025-2026_II.pdf
-    quote: Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
-      - Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in VA; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Salina
     county: Saline
@@ -4451,34 +4225,13 @@ districts:
   - name: Scott County
     county: Scott
     nces_id: "2000017"
-    status: silent
-    source: https://www.scottschools.com/departments/policies___plans/division_policies
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: board_policy
-        url: https://www.scottschools.com/departments/policies___plans/division_policies
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.scottcounty.net/our_district/board_of_education/student_handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://wes.scottcounty.net/how_do_i/find_the_scott_county_schools_student_handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in VA; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Seaman
     county: Shawnee
@@ -4761,28 +4514,13 @@ districts:
   - name: Stafford
     county: Stafford
     nces_id: "2011970"
-    status: bans
-    source: https://resources.finalsite.net/images/v1663007036/staffordmsdorg/ituqxug9nf2m7ydbdfqv/District_Handbook_2022-23_Final_Copy_r.pdf
-    quote: Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct FO(LOCAL).
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct FO(LOCAL).
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct FO(LOCAL).
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct FO(LOCAL).
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct FO(LOCAL).
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subjected to other physical force as a means of discipline for violations of the Student Code of Conduct FO(LOCAL).
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in TX; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Sterling
     county: Rice
@@ -4827,28 +4565,13 @@ districts:
   - name: Stockton
     county: Rooks
     nces_id: "2012060"
-    status: silent
-    source: https://www.stocktonusd.net/student-conduct-code
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: other
-        url: https://www.stocktonusd.net/student-conduct-code
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: code_of_conduct
-        url: https://www.stocktonusd.net/student-code-of-conduct
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in CA; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Syracuse
     county: Hamilton
@@ -5192,86 +4915,13 @@ districts:
   - name: Wellington
     county: Sumner
     nces_id: "2012840"
-    status: allows
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1699365/2025_WISD_Student_Handbook.pdf
-    quote: Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: opt_out
-    quotes:
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-      - Prohibiting the Use of Corporal Punishment Corporal punishment — spanking or paddling a student — may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
-      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
-      - A parent who does not want corporal punishment administered to their child must electronically sign the form included in the online registration packet.
-      -  District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
-      -  If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in TX; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Wellsville
     county: Franklin
@@ -5336,34 +4986,13 @@ districts:
   - name: Wheatland
     county: Gove
     nces_id: "2006630"
-    status: silent
-    source: https://www.wheatlandsd.com/documents/Student%20Handbook%2015-16%20-2-.pdf
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://www.wheatlandsd.com/documents/Student%20Handbook%2015-16%20-2-.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2472/Wuhsd/18131bfd-c925-4503-87a9-e5345fe6a8b9/Wheatland-202627-ParentStudent-Handbook-FINAL_7.20.26.pdf?disposition=inline
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.wheatlandsd.com/documents/Parents-Community/WSD%20Parent%20Handbook.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in CA; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Wichita Public Schools
     county: Sedgwick

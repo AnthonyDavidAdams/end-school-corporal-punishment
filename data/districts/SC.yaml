@@ -87,22 +87,13 @@ districts:
   - name: Florence School District 1
     county: Florence
     nces_id: "4502130"
-    status: silent
-    source: https://www.florence.k12.sd.us/en-US/handbooks-00f880ee
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-29
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://www.florence.k12.sd.us/en-US/handbooks-00f880ee
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in SD; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Governor'S School For Science And Mathematics
     county: Darlington
@@ -156,20 +147,13 @@ districts:
   - name: Hampton
     county: Hampton
     nces_id: "4503912"
-    status: allows
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2248/hsd/4596952/24-25_HSD_Student_Handbook.pdf
-    quote: July 2021 133 4.39—CORPORAL PUNISHMENT The Hampton School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - July 2021 133 4.39—CORPORAL PUNISHMENT The Hampton School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
-      - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
-      - July 2021 133 4.39—CORPORAL PUNISHMENT The Hampton School Board authorizes the use of corporal punishment to be administered in accordance with this policy by the Superintendent or the superintendent’s designated staff members who are required to have a state-issued license as a condition of their employment.
-      - Corporal punishment shall not be used as a form of discipline for a student who is intellectually disabled, non-ambulatory, non-verbal, or autistic.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of SC). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in AR; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Horry County Schools
     county: Horry

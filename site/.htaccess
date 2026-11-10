@@ -1,5 +1,13 @@
+Options -Indexes
 RewriteEngine On
 RewriteBase /kids/
+# cache/ holds the first-party hit log (visitor IPs), the coach's counters and the decisions inbox. The PHP
+# beside it reads those files from disk; nothing is ever fetched from cache/ by URL. (Until 2026-11-10 the
+# folder was listable and hits.jsonl was readable by anyone.)
+RewriteRule ^cache(/|$) - [F,L]
+# the CRM, the decisions desk and the correspondence board carry officials' names and what they wrote to us:
+# ops/gate.php serves them to a device that has shown the ops token, and to nobody else
+RewriteRule ^(ops/(?:crm|decisions|board)\.html|data/crm\.json)$ ops/gate.php?f=$1 [L,QSA]
 # old PHP URLs
 RewriteCond %{QUERY_STRING} ^state=([A-Za-z]{2})
 RewriteRule ^(county|state)(\.php)?$ /kids/state/%1/? [R=301,L]
@@ -17,8 +25,8 @@ AddType image/svg+xml .svg
   ExpiresByType image/svg+xml "access plus 7 days"
   ExpiresByType application/json "access plus 1 hour"
 </IfModule>
-# CSS and JS are compressed by the host's defaults; JSON and SVG are not, and the district border
-# meshes are the largest thing this site serves. Texas goes from 297 KB to 84 KB.
+# Nothing is compressed by the host's defaults (checked 2026-11-10: the 700 KB Texas page went out whole),
+# so every text type is named here. The district border meshes are the largest thing this site serves.
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE application/json image/svg+xml text/plain
+  AddOutputFilterByType DEFLATE application/json image/svg+xml text/plain text/html text/css text/javascript application/javascript
 </IfModule>

@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie8" lang="en-US" class="no-js"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en-US" class="no-js"><!--<![endif]-->
+<head>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="utf-8" />
+	<script>
+		document.documentElement.setAttribute('class', document.documentElement.getAttribute('class').replace('no-js', 'js'));
+		var ione_tag_manager = [];
+	</script>
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<script>window.ionePrivacy = window.ionePrivacy || {};
+window.ionePrivacy.hasConsent = ( category ) => {
+	if ( ! category || ( Array.isArray( category ) && category.length === 0 ) ) {
+		return false;
+	}
+	let activeGroups = window.OnetrustActiveGroups;
+	if ( activeGroups === undefined || activeGroups === null ) {
+		return false;
+	}
+	if ( ! Array.isArray( activeGroups ) ) {
+		activeGroups = String( activeGroups ).split( ',' );
+	}
+	if ( Array.isArray( category ) ) {
+		return category.every( ( cat ) => activeGroups.includes( cat ) );
+	}
+	return activeGroups.includes( category );
+};</script>		<!-- Google Tag Manager -->
+		<script>
+			window.dataLayer = window.dataLayer || [];
+					( function () {
+			var SEGMENT_COOKIE = 'uo_seg';
+			var SEGMENT_STORAGE_KEY = 'segments';
+
+			// OneTrust Performance/Analytics. Deliberately not C0004 (Targeting).
+			var ANALYTICS_GROUP = 'C0002';
+
+			// GA4 rejects dimension values longer than 100 characters.
+			var MAX_VALUE_LENGTH = 100;
+
+			// Matches the cap the ad stack applies to the same segment list.
+			var MAX_SEGMENTS = 10;
+
+			// Last value pushed, so an unchanged list is never sent twice.
+			var lastPushed = null;
+
+			// Null means the cookie is absent. A present-but-empty cookie returns
+			// '', which readSegments() treats as a different answer entirely.
+			function readCookie( name ) {
+				var parts = ( '; ' + document.cookie ).split( '; ' + name + '=' );
+
+				if ( parts.length < 2 ) {
+					return null;
+				}
+
+				var raw = parts.pop().split( ';' ).shift();
+
+				try {
+					return decodeURIComponent( raw );
+				} catch ( e ) {
+					// Keep the raw value rather than losing it to a bad escape.
+					return raw;
+				}
+			}
+
+			// Consented OneTrust group IDs: the SDK global when it has booted,
+			// otherwise the OptanonConsent cookie.
+			function consentedGroups() {
+				var active = window.OnetrustActiveGroups;
+
+				if ( 'string' === typeof active && active.replace( /,/g, '' ).trim() ) {
+					return active.split( ',' ).map( function ( group ) {
+						return group.trim();
+					} );
+				}
+
+				// e.g. "...&groups=C0001:1,C0002:1,C0003:0&..." once decoded.
+				var consent = readCookie( 'OptanonConsent' );
+
+				if ( null === consent ) {
+					return [];
+				}
+
+				var groups = /(?:^|&)groups=([^&]*)/.exec( consent );
+
+				if ( ! groups ) {
+					return [];
+				}
+
+				return groups[1].split( ',' )
+					.filter( function ( pair ) {
+						// Only ":1" means granted; ":0" is an explicit refusal.
+						return /:1$/.test( pair.trim() );
+					} )
+					.map( function ( pair ) {
+						return pair.split( ':' )[0].trim();
+					} );
+			}
+
+			function hasAnalyticsConsent() {
+				return consentedGroups().indexOf( ANALYTICS_GROUP ) > -1;
+			}
+
+			// A list entry is a plain code, or a legacy object left in storage by
+			// releases that saved the identity-service response verbatim.
+			function segmentCode( item ) {
+				if ( 'string' === typeof item ) {
+					return item;
+				}
+
+				if ( ! item || 'object' !== typeof item || Array.isArray( item ) ) {
+					return '';
+				}
+
+				// Precedence matches device-id's reader, so both agree on an entry.
+				var keys = [ 'segment_code', 'targeting_value', 'code', 'name' ];
+
+				for ( var k = 0; k < keys.length; k++ ) {
+					if ( 'string' === typeof item[ keys[ k ] ] ) {
+						return item[ keys[ k ] ];
+					}
+				}
+
+				return '';
+			}
+
+			// Cookie string or stored array -> one comma-separated string.
+			function normalizeSegments( raw ) {
+				var items;
+
+				if ( Array.isArray( raw ) ) {
+					items = raw;
+				} else if ( 'string' === typeof raw ) {
+					items = [ raw ];
+				} else {
+					return '';
+				}
+
+				var seen = {};
+				var segments = [];
+
+				// Entries are split on the delimiter too, so no code can contain the
+				// comma that separates them. Both loops carry the cap, so a
+				// pathologically long stored list stops costing us once we have enough.
+				for ( var i = 0; i < items.length && segments.length < MAX_SEGMENTS; i++ ) {
+					var codes = segmentCode( items[ i ] ).split( ',' );
+
+					for ( var c = 0; c < codes.length && segments.length < MAX_SEGMENTS; c++ ) {
+						var segment = codes[ c ].trim();
+
+						// Prefixed to keep values like "constructor" out of prototype keys.
+						var key = '@' + segment;
+
+						if ( ! segment || seen[ key ] ) {
+							continue;
+						}
+
+						seen[ key ] = true;
+						segments.push( segment );
+					}
+				}
+
+				var value = segments.join( ',' );
+
+				// Whole segments, never a mid-code truncation.
+				while ( value.length > MAX_VALUE_LENGTH && segments.length > 0 ) {
+					segments.pop();
+					value = segments.join( ',' );
+				}
+
+				return value;
+			}
+
+			// A present cookie is the answer even when it is empty. Storage is
+			// consulted only when the cookie is absent entirely.
+			function readSegments() {
+				var cookie = readCookie( SEGMENT_COOKIE );
+
+				if ( null !== cookie ) {
+					return normalizeSegments( cookie );
+				}
+
+				var stored;
+
+				try {
+					stored = window.localStorage.getItem( SEGMENT_STORAGE_KEY );
+				} catch ( e ) {
+					// Storage is unavailable (private browsing, blocked cookies).
+					return '';
+				}
+
+				if ( 'string' !== typeof stored || ! stored.trim() ) {
+					return '';
+				}
+
+				try {
+					return normalizeSegments( JSON.parse( stored ) );
+				} catch ( e ) {
+					// Older values were written as a plain comma-separated string.
+					return normalizeSegments( stored );
+				}
+			}
+
+			// Safe to call repeatedly. An empty read is skipped only while nothing
+			// has been pushed yet: after that it must be sent, to clear GTM's copy.
+			function pushSegments() {
+				if ( ! hasAnalyticsConsent() ) {
+					return false;
+				}
+
+				var value = readSegments();
+
+				if ( value === lastPushed || ( ! value && null === lastPushed ) ) {
+					return false;
+				}
+
+				lastPushed = value;
+
+				// Empty string, not null, so the dimension arrives empty not unset.
+				window.dataLayer.push( { uo_segments: value } );
+
+				return true;
+			}
+
+			// First visit: no consent cookie exists yet, so the initial attempt
+			// below is refused and one of these is what actually delivers.
+			window.addEventListener( 'OneTrustGroupsUpdated', pushSegments );
+			window.addEventListener( 'OTConsentApplied', pushSegments );
+
+			// For device-id to re-push mid-session. Kept off window.iOneGA, which
+			// the footer module script reassigns wholesale.
+			window.iOneGASegments = {
+				push: pushSegments,
+				read: readSegments,
+				hasConsent: hasAnalyticsConsent,
+			};
+
+			pushSegments();
+		}() );
+					(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TPR8JL');
+
+			window.dataLayer.push( {"nlp_category":"not set","nlp_sub_category":"not set","nlp_sub_sub_category":"not set","author_name":"f6c591c814888a58844be881c47e7077","post_id":1071957,"publish_date":"08-24-2022","post_format":"regular","primary_category":"uncategorized","post_type":"post","grouping_categories":"Uncategorized","image_attribution_confirmed":"no","image_credit_status":"Unidentified Credit Exists","yoast_seo_score":"not-available","content_flag":"video","trending_desk":"no","embed_sources":"No Embeds","crosspost_originsite":"None","site_domain":"houstonseagle.com"} );
+			window.dataLayer.push( {
+				'event': 'ione-init',
+			} );
+		</script>
+		<!-- End Google Tag Manager -->
+		<script>(()=>{"use strict";const i=()=>"ontouchstart"in window||navigator.maxTouchPoints>0||navigator.msMaxTouchPoints>0;window.iOneUtils={isMobileDevice:()=>{var a;return void 0!==navigator?.userAgentData?.mobile?navigator.userAgentData.mobile:null!==(a=window?.matchMedia("only screen and (max-width: 768px)")?.matches)&&void 0!==a&&a&&i()},isTouchDevice:i}})();</script>
+	<title>Discipline in schools: What you should know about corporal punishment - The Eagle 106.9/107.5</title>
+	<link rel="canonical" href="https://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Discipline in schools: What you should know about corporal punishment" />
+	<meta property="og:description" content="The practice of striking students in public schools has been banned in most states, but some still use corporal punishment as a form of discipline." />
+	<meta property="og:url" content="https://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/" />
+	<meta property="og:site_name" content="The Eagle 106.9/107.5" />
+	<meta property="article:published_time" content="2022-08-24T19:12:27+00:00" />
+	<meta property="og:image" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IPIBSV6EDFHHJNTVDW2RYD6FLA.jpg?quality=80&strip=all&w=1680&crop=0,0,100,960px" />
+	<meta property="og:image:width" content="1680" />
+	<meta property="og:image:height" content="960" /><meta property="og:image" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IPIBSV6EDFHHJNTVDW2RYD6FLA.jpg?quality=80&strip=all&w=1680&crop=0,0,100,960px" />
+	<meta property="og:image:width" content="1680" />
+	<meta property="og:image:height" content="960" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="author" content="Cox Media Group National Content Desk" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IPIBSV6EDFHHJNTVDW2RYD6FLA.jpg?quality=80&strip=all&w=1680&crop=0,0,100,960px" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Cox Media Group National Content Desk" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="2 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"NewsArticle","@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/#article","isPartOf":{"@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/"},"author":{"name":"Cox Media Group National Content Desk","@id":"https:\/\/houstonseagle.com\/#\/schema\/person\/f80ad9a1828e9a3a357b72fd3957d9fb"},"headline":"Discipline in schools: What you should know about corporal punishment","datePublished":"2022-08-24T19:12:27+00:00","mainEntityOfPage":{"@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/"},"wordCount":401,"commentCount":0,"publisher":{"@id":"https:\/\/houstonseagle.com\/#organization"},"image":{"@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/#primaryimage"},"thumbnailUrl":"https:\/\/houstonseagle.com\/wp-content\/uploads\/sites\/105\/2023\/08\/IPIBSV6EDFHHJNTVDW2RYD6FLA.jpg?quality=80&strip=all&w=8205&crop=0,0,100,4615px","inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/#respond"]}],"dateModified":"2022-08-24T19:12:27+00:00","isAccessibleForFree":true,"subjectOf":{"@type":"VideoObject","description":"As of 2022, 19 states still allow the use of corporal punishment from preschool until 12th grade.","duration":"PT16H1M9S","name":"corporal-punishment-in-schools-what-you-need-to-know","uploadDate":"2023-08-16","thumbnailUrl":"https:\/\/image.c.cdn.zype.com\/60a50b154ef60900012d304e\/64dc55d517e075000123f7cd\/custom_thumbnail\/240.png?1721988580","contentUrl":"https:\/\/player.zype.com\/manifest\/64dc55d517e075000123f7cd.m3u8?api_key=7Y41xOu32BVdSqiGMF3j9FA7adrxz2RikG54rf7jiMoKhMlH9lQOznwUdBc4QPbP"}},{"@type":"WebPage","@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/","url":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/","name":"Discipline in schools: What you should know about corporal punishment - The Eagle 106.9\/107.5","isPartOf":{"@id":"https:\/\/houstonseagle.com\/#website"},"primaryImageOfPage":{"@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/#primaryimage"},"image":{"@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/#primaryimage"},"thumbnailUrl":"https:\/\/houstonseagle.com\/wp-content\/uploads\/sites\/105\/2023\/08\/IPIBSV6EDFHHJNTVDW2RYD6FLA.jpg?quality=80&strip=all&w=8205&crop=0,0,100,4615px","datePublished":"2022-08-24T19:12:27+00:00","breadcrumb":{"@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/#primaryimage","url":"https:\/\/houstonseagle.com\/wp-content\/uploads\/sites\/105\/2023\/08\/IPIBSV6EDFHHJNTVDW2RYD6FLA.jpg?quality=80&strip=all&w=8205&crop=0,0,100,4615px","contentUrl":"https:\/\/houstonseagle.com\/wp-content\/uploads\/sites\/105\/2023\/08\/IPIBSV6EDFHHJNTVDW2RYD6FLA.jpg?quality=80&strip=all&w=8205&crop=0,0,100,4615px","width":8205,"height":4615,"caption":"In school districts where corporal punishment is legal, a teacher or administrator can use a large wooden board or “paddle” to strike the buttocks of a child as a form of discipline."},{"@type":"BreadcrumbList","@id":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/houstonseagle.com\/"},{"@type":"ListItem","position":2,"name":"Discipline in schools: What you should know about corporal punishment"}]},{"@type":"WebSite","@id":"https:\/\/houstonseagle.com\/#website","url":"https:\/\/houstonseagle.com\/","name":"The Eagle 106.9\/107.5","description":"Houston&#039;s Classic Rock","publisher":{"@id":"https:\/\/houstonseagle.com\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/houstonseagle.com\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Organization","@id":"https:\/\/houstonseagle.com\/#organization","name":"The Eagle 106.9\/107.5","url":"https:\/\/houstonseagle.com\/","logo":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/houstonseagle.com\/#\/schema\/logo\/image\/","url":"https:\/\/houstonseagle.com\/wp-content\/uploads\/sites\/105\/2026\/01\/Urban-brand-Website-Logos-696x696-Houston-KGLK.png?strip=all&quality=80&w=696&crop=0,0,100,696px","contentUrl":"https:\/\/houstonseagle.com\/wp-content\/uploads\/sites\/105\/2026\/01\/Urban-brand-Website-Logos-696x696-Houston-KGLK.png?strip=all&quality=80&w=696&crop=0,0,100,696px","width":696,"height":696,"caption":"The Eagle 106.9\/107.5"},"image":{"@id":"https:\/\/houstonseagle.com\/#\/schema\/logo\/image\/"},"sameAs":["https:\/\/www.instagram.com\/houstonseagle"]},{"@type":"Person","@id":"https:\/\/houstonseagle.com\/#\/schema\/person\/f80ad9a1828e9a3a357b72fd3957d9fb","name":"Cox Media Group National Content Desk","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/secure.gravatar.com\/avatar\/?s=96&d=mm&r=g","url":"https:\/\/secure.gravatar.com\/avatar\/?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/?s=96&d=mm&r=g","caption":"Cox Media Group National Content Desk"},"url":"https:\/\/houstonseagle.com\/author\/f6c591c814888a58844be881c47e7077\/"}]}</script>
+
+
+<link rel='dns-prefetch' href='//cdn.parsely.com' />
+<link rel='dns-prefetch' href='//widgets.wp.com' />
+<link rel='dns-prefetch' href='//jetpack.wordpress.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//public-api.wordpress.com' />
+<link rel='dns-prefetch' href='//secure.gravatar.com' />
+<link rel='dns-prefetch' href='//0.gravatar.com' />
+<link rel='dns-prefetch' href='//1.gravatar.com' />
+<link rel='dns-prefetch' href='//2.gravatar.com' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel="alternate" type="application/rss+xml" title="The Eagle 106.9/107.5 &raquo; Feed" href="https://houstonseagle.com/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://houstonseagle.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhoustonseagle.com%2F1071957%2Fdiscipline-in-schools-what-you-should-know-about-corporal-punishment%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://houstonseagle.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhoustonseagle.com%2F1071957%2Fdiscipline-in-schools-what-you-should-know-about-corporal-punishment%2F&#038;format=xml" />
+	<script>
+		window.iOneScriptLoader = {
+			highPriority: function ( cb ) { cb() },
+			mediumPriority: function ( cb ) { this.defer( cb, 0 ) },
+			lowPriority: function ( cb ) { this.defer( cb, -1 ) },
+			defer: function ( cb, t ) {
+				window.requestIdleCallback instanceof Function
+					? requestIdleCallback( cb, t >= 0 ? { timeout: t } : undefined )
+					: setTimeout( cb, t >= 0 ? t : Math.floor( Math.random() * 250 ) );
+			},
+		}
+	</script>
+	<link href="/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-normal-v20.woff" type="font/woff" as="font" rel="preload" fetchpriority="high" crossorigin />
+<link href="/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-normalitalic-v20.woff" type="font/woff" as="font" rel="preload" fetchpriority="high" crossorigin />
+<link href="/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-bold-v20.woff" type="font/woff" as="font" rel="preload" fetchpriority="high" crossorigin />
+<link href="/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-bolditalic-v20.woff" type="font/woff" as="font" rel="preload" fetchpriority="high" crossorigin />
+<link rel="preload" href="https://houstonseagle.com/wp-content/themes/ione3/assets/css/single_stylesheet/sss.css?ver=8b6ff32" as="style" crossorigin>
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+
+<style id="ione-footer-style-inline-css">
+.wp-block-ione-footer{background-color:#fafafa;display:grid;grid:repeat(3,auto)/auto;padding:60px 30px 0;position:relative;row-gap:25px}@media(min-width:768px){.wp-block-ione-footer{grid:auto/repeat(4,1fr);padding:60px 30px 0}}@media(min-width:1240px){.wp-block-ione-footer{padding:60px 80px 0}}.wp-block-ione-footer .footer-logo-container{display:flex;flex-direction:column;grid-row:1;justify-content:center;margin-right:20px}@media(min-width:1024px){.wp-block-ione-footer .footer-logo-container{justify-content:start}}.wp-block-ione-footer .footer-logo-container .social-menu{text-align:left}.wp-block-ione-footer .footer-logo-container .social-menu li{margin-right:20px}.wp-block-ione-footer .footer-logo-container .social-menu a{background-color:#c4c4c4;height:24px;width:24px}.wp-block-ione-footer .footer-logo-container .social-menu a:before{height:24px;line-height:24px!important;width:24px}.wp-block-ione-footer .footer-logo{margin-bottom:10px;width:185px}.wp-block-ione-footer .footer-credits-container{border-top:2px solid #d9d9d9;display:flex;flex-direction:column;grid-column:1/-1;justify-content:center;padding:15px 0}@media(min-width:768px){.wp-block-ione-footer .footer-credits-container{flex-direction:row;justify-content:space-between}}.wp-block-ione-footer .footer-credits-container span{color:#737373;font-family:Source Sans Pro,Arial,sans-serif;font-size:16px;line-height:26px;text-align:center}.wp-block-ione-footer .footer-credits-container span a{color:#737373;text-decoration:underline}.wp-block-ione-footer .footer-credits-container span a:visited{color:#737373}.wp-block-ione-footer .footer-credits-container span a:active,.wp-block-ione-footer .footer-credits-container span a:focus,.wp-block-ione-footer .footer-credits-container span a:hover{color:#c5c5bb;text-decoration:none}.wp-block-ione-footer .social-menu{margin-bottom:20px}.wp-block-ione-footer .footer-menu-container{grid-column:1}@media(min-width:768px){.wp-block-ione-footer .footer-menu-container{grid-column:2/-1}}.wp-block-ione-footer .footer-menu{display:grid;grid:auto/repeat(2,1fr);margin-bottom:15px;row-gap:0;text-align:left}@media(min-width:576px){.wp-block-ione-footer .footer-menu{grid:auto/repeat(4,1fr);margin-bottom:30px}}@media(min-width:1024px){.wp-block-ione-footer .footer-menu{margin-left:auto;margin-right:auto;row-gap:18px;width:90%}}.wp-block-ione-footer .footer-menu li{display:inline-block;padding:0 5px;text-align:left;width:100%}.wp-block-ione-footer .footer-menu li a{color:#282828;display:block;font-family:Source Sans Pro,Arial,sans-serif;font-size:16px;font-weight:400;line-height:26px;padding:9px 0;text-transform:none}@media(min-width:1024px){.wp-block-ione-footer .footer-menu li a{padding:0}}@media(min-width:1240px){.wp-block-ione-footer .footer-menu li a{font-size:18px;line-height:26px}}
+
+/*# sourceURL=https://houstonseagle.com/wp-content/plugins/ione-modules/build/blocks-library/footer/style-index.css */
+</style>
+<style id="ione-share-button-style-inline-css">
+.wp-block-ione-share-button{display:inline-block;position:relative}.wp-block-ione-share-button .wp-block-ione-share-button__button{align-items:center;background-color:var(--ione4-color-primary);border:1px solid var(--ione4-color-primary);border-radius:10px;-moz-column-gap:10px;column-gap:10px;cursor:pointer;display:flex;height:38px;padding:0 15px;transition:background-color .2s}.wp-block-ione-share-button .wp-block-ione-share-button__button .wp-block-ione-share-button__button-text{color:#fff;font-family:var(--ione4-font-family-secondary);font-size:18px;font-weight:700;line-height:1;transition:color .2s}.wp-block-ione-share-button .wp-block-ione-share-button__button svg{fill:#fff;transition:fill .2s}.wp-block-ione-share-button .wp-block-ione-share-button__button:focus,.wp-block-ione-share-button .wp-block-ione-share-button__button:hover{background-color:#fff}.wp-block-ione-share-button .wp-block-ione-share-button__button:focus .wp-block-ione-share-button__button-text,.wp-block-ione-share-button .wp-block-ione-share-button__button:hover .wp-block-ione-share-button__button-text{color:var(--ione4-color-primary)}.wp-block-ione-share-button .wp-block-ione-share-button__button:focus svg,.wp-block-ione-share-button .wp-block-ione-share-button__button:hover svg{fill:var(--ione4-color-primary)}.wp-block-ione-share-button .wp-block-ione-share-button__popup{background-color:#fff;box-shadow:0 8px 16px rgba(0,0,0,.12);margin-top:19px;max-width:calc(100vw - 70px);padding:20px 16px;position:absolute;right:0;width:324px;z-index:2}.wp-block-ione-share-button .wp-block-ione-share-button__popup:not(.wp-block-ione-share-button__popup--visible){display:none}.wp-block-ione-share-button .wp-block-ione-share-button__popup-header{align-items:center;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;padding-bottom:14px}.wp-block-ione-share-button .wp-block-ione-share-button__popup-heading{color:var(--ione4-color-accent);font-family:var(--ione4-font-family-primary);font-size:18px;font-weight:500;line-height:1.2;margin:0;padding:0}.wp-block-ione-share-button .wp-block-ione-share-button__popup-subheading{color:#878787;font-family:var(--ione4-font-family-secondary);font-size:16px;font-weight:400;line-height:1.2;margin:24px 0 16px;padding:0}.wp-block-ione-share-button .wp-block-ione-share-button__popup-close{align-items:center;background-color:#424242;border:0;border-radius:100%;cursor:pointer;display:flex;height:30px;justify-content:center;transition:background-color .2s;width:30px}.wp-block-ione-share-button .wp-block-ione-share-button__popup-close:focus,.wp-block-ione-share-button .wp-block-ione-share-button__popup-close:hover{background-color:var(--ione4-color-accent)}.wp-block-ione-share-button .wp-block-ione-share-button__popup-social-icons.has-provider-embed{margin-top:-10px}.wp-block-ione-share-button .wp-block-ione-share-button__popup-social-icon{align-items:center;border:0;border-radius:50%;cursor:pointer;display:inline-flex;height:32px;justify-content:center;outline:none;text-align:center;transition:all .2s linear 0s;width:32px}.wp-block-ione-share-button .wp-block-ione-share-button__popup-social-icon svg{fill:#fff;height:18px;width:18px}.wp-block-ione-share-button .wp-block-ione-share-button__popup-social-icon[data-platform=facebook]{background:#3b5998}.wp-block-ione-share-button .wp-block-ione-share-button__popup-social-icon[data-platform=facebook]:hover{background:#5274bc}.wp-block-ione-share-button .wp-block-ione-share-button__popup-social-icon[data-platform=twitter]{background:#1da1f2}.wp-block-ione-share-button .wp-block-ione-share-button__popup-social-icon[data-platform=twitter]:hover{background:#56b8f5}.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link{align-items:center;-moz-column-gap:10px;column-gap:10px;display:flex}.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link-field{align-items:center;display:flex;flex:1;position:relative}.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link-field svg{left:10px;position:absolute}.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link-field input[type=text]{border:1px solid #e6e6e6;color:#636363;flex:1;font-family:var(--ione4-font-family-secondary);font-size:14px;font-weight:400;height:38px;line-height:1.2;padding:0 10px 0 33px;width:100px}.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link-button{background-color:rgba(var(--ione4-color-primary-rgb),.7);border:0;border-radius:4px;color:#fff;cursor:pointer;font-family:var(--ione4-font-family-secondary);font-size:16px;font-weight:500;height:38px;line-height:1.2;padding:0 16px;transition:background-color .2s}.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link-button:focus,.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link-button:hover{background-color:var(--ione4-color-primary)}.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link-button[data-state=copied] .wp-block-ione-share-button__popup-copy-link-button-text[data-visible-for=standby],.wp-block-ione-share-button .wp-block-ione-share-button__popup-copy-link-button[data-state=standby] .wp-block-ione-share-button__popup-copy-link-button-text[data-visible-for=copied]{display:none}
+
+/*# sourceURL=https://houstonseagle.com/wp-content/plugins/ione-modules/build/blocks-library/share-button/style-index.css */
+</style>
+<style id="ione-newsletter-sign-up-style-inline-css">
+.wp-block-ione-newsletter-sign-up{align-items:center;background-color:#f9f9f9;background-size:cover;display:flex;justify-content:center;padding:25px 0;position:relative;width:100%}.wp-block-ione-newsletter-sign-up.block-editor-block-list__block{display:inline;margin:0;padding:0}section.wp-block-ione-newsletter-sign-up.ione-block{margin-left:auto;margin-right:auto}@media(min-width:769px){.wp-block-ione-newsletter-sign-up{max-width:673px;padding:40px}}@media(min-width:1024px){.wp-block-ione-newsletter-sign-up{max-width:1068px;padding:30px!important}}.wp-block-ione-newsletter-sign-up.ione-block{margin:0 auto}.wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content{border:1px solid #e0e0e0;border-radius:6px;padding:16px!important}[role=main] .wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content{margin:2.5rem 0}.wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content .wp-block-ione-newsletter-sign-up__container{max-width:100%;transform:none}.wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content .wp-block-ione-newsletter-sign-up__heading{font-size:1.5rem;font-weight:700}.single .post .wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content .wp-block-ione-newsletter-sign-up__heading{margin-bottom:0}.wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content .wp-block-ione-newsletter-sign-up__form{-moz-column-gap:8px;column-gap:8px}.wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content .wp-block-ione-newsletter-sign-up__form input{border-radius:4px;height:auto;line-height:normal;padding:8px 12px}.wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content .wp-block-ione-newsletter-sign-up__form button{border-radius:4px;height:auto;line-height:normal;padding:9px 20px}.wp-block-ione-newsletter-sign-up.wp-block-ione-newsletter-sign-up--theme-in-content p.wp-block-ione-newsletter-sign-up__privacy{color:#666;font-size:.75rem;margin-bottom:0!important;margin-top:14px}.wp-block-ione-newsletter-sign-up--with-bg{aspect-ratio:13/5}.wp-block-ione-newsletter-sign-up--text-light,.wp-block-ione-newsletter-sign-up--text-light p.wp-block-ione-newsletter-sign-up__privacy{color:#f9f9f9}.wp-block-ione-newsletter-sign-up--text-dark,.wp-block-ione-newsletter-sign-up--text-dark p.wp-block-ione-newsletter-sign-up__privacy{color:var(--wp--preset--color--black)}.wp-block-ione-newsletter-sign-up--align-left{justify-content:left}.wp-block-ione-newsletter-sign-up--align-left h2.wp-block-ione-newsletter-sign-up__heading,.wp-block-ione-newsletter-sign-up--align-left h3.wp-block-ione-newsletter-sign-up__subheading,.wp-block-ione-newsletter-sign-up--align-right h2.wp-block-ione-newsletter-sign-up__heading,.wp-block-ione-newsletter-sign-up--align-right h3.wp-block-ione-newsletter-sign-up__subheading{text-align:left}.wp-block-ione-newsletter-sign-up--align-right{justify-content:right}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__container{max-width:520px;width:100%}@media(max-width:768px){.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__container{transform:scale(.75)}}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__heading{font-family:var(--ione4-font-family-primary);font-size:2.25rem;font-weight:400;letter-spacing:-.02em;line-height:normal;margin:0 0 20px;padding:0;text-align:center}@media(min-width:769px){.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__heading{margin:0 0 24px}}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__subheading{font-family:var(--ione4-font-family-primary);font-size:1.5rem;font-weight:300;text-align:center}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__privacy{color:#475467;font-family:var(--ione4-font-family-secondary);font-size:12px;font-weight:400;line-height:20px;margin:6px 0 0;padding:0}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__privacy a{color:inherit;text-decoration:none}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__privacy a:focus,.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__privacy a:hover{opacity:.5}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__form{align-items:center;-moz-column-gap:16px;column-gap:16px;display:flex;width:100%}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__subscription-form{align-items:flex-start;display:flex;flex-direction:column;row-gap:6px;width:100%}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__field{flex:1}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__status{font-family:var(--ione4-font-family-secondary);font-size:14px;line-height:1.4;margin:6px 0 0}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__status--error{color:#b42318}.wp-block-ione-newsletter-sign-up .wp-block-ione-newsletter-sign-up__status[hidden]{display:none}.wp-block-ione-newsletter-sign-up input[type=email]{background-color:#fff;border:1px solid #d0d5dd;border-radius:8px;box-shadow:0 1px 2px rgba(16,24,40,.05);font-family:var(--ione4-font-family-secondary);font-size:16px;height:48px;line-height:48px;padding:0 14px;width:100%}.wp-block-ione-newsletter-sign-up input[type=email]::-ms-input-placeholder,.wp-block-ione-newsletter-sign-up input[type=email]::placeholder{color:#667085;font-family:var(--ione4-font-family-secondary)}.wp-block-ione-newsletter-sign-up button[type=submit]{background-color:var(--ione4-color-primary);border:0;border-radius:8px;color:#fff;cursor:pointer;font-family:var(--ione4-font-family-secondary);font-size:16px;height:48px;line-height:48px;padding:0 20px}.wp-block-ione-newsletter-sign-up button[type=submit]:disabled{cursor:not-allowed;opacity:.65}.wp-block-ione-newsletter-sign-up button[type=submit]:focus,.wp-block-ione-newsletter-sign-up button[type=submit]:hover{background-color:var(--ione4-color-accent)}
+
+/*# sourceURL=https://houstonseagle.com/wp-content/plugins/ione-modules/build/newsletter-sign-up-blocks/newsletter-sign-up/style-index.css */
+</style>
+
+<link rel='stylesheet' id='ione__ione_modules__content_flags__style-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/content-flags/index.css?ver=78b63107b54c61a41be0' media='all' />
+<link rel='stylesheet' id='ione4-styles-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/ione4/css/style-index.css?ver=8b6ff32' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='ione4-styles-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/ione4/css/style-index.css?ver=8b6ff32' media='all' />
+</noscript><link rel='stylesheet' id='ione4_editor_css-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/ione4/css/style-index.css?ver=8b6ff32' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='ione4_editor_css-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/ione4/css/style-index.css?ver=8b6ff32' media='all' />
+</noscript><style id="ione4_editor_css-inline-css">
+:root {--ione4-color-primary: #D61A0C;--ione4-color-accent: #000000;--ione4-font-family-primary: "Nitti Grotesk";--ione4-font-family-secondary: "Helvetica Neue";--ione4-color-primary--darker: #961309;--ione4-color-primary--lighter: #e35f55;--ione4-color-accent--darker: #000000;--ione4-color-accent--lighter: #4d4d4d;--ione4-block-title-font-size: 2.5rem;--ione4-color-primary-rgb: 214, 26, 12;--ione4-color-secondary-rgb: 0, 0, 0;}
+/*# sourceURL=ione4_editor_css-inline-css */
+</style>
+<link rel='stylesheet' id='zype_shortcode_styles_handler-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/zype/shortcode-handler.css?ver=aeeedd04f45df606594d' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='zype_shortcode_styles_handler-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/zype/shortcode-handler.css?ver=aeeedd04f45df606594d' media='all' />
+</noscript><style id="ghostkit-typography-inline-css">
+ 
+/*# sourceURL=ghostkit-typography-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="wp-block-library-inline-css-extra">
+@font-face{font-family:"Nitti Grotesk";src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-normal-v20.woff) format('woff');font-weight:400;font-style:normal;font-display:swap;} @font-face{font-family:"Nitti Grotesk";src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-normalitalic-v20.woff) format('woff');font-weight:400;font-style:italic;font-display:swap;} @font-face{font-family:"Nitti Grotesk";src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-bold-v20.woff) format('woff');font-weight:700;font-style:normal;font-display:swap;} @font-face{font-family:"Nitti Grotesk";src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-bolditalic-v20.woff) format('woff');font-weight:700;font-style:italic;font-display:swap;}@font-face{font-family:ione3;src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/iOne/ione3.woff?-46jzw2) format('woff'), url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/iOne/ione3.ttf?-46jzw2) format('truetype');font-weight:normal;font-style:normal;font-display:swap;}
+/*# sourceURL=wp-block-library-inline-css */
+</style>
+
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #222222;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--ione-black: #333333;--wp--preset--color--theme-color-primary: #D61A0C;--wp--preset--color--theme-color-accent: #000000;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-ione-black-color{color: var(--wp--preset--color--ione-black) !important;}.has-theme-color-primary-color{color: var(--wp--preset--color--theme-color-primary) !important;}.has-theme-color-accent-color{color: var(--wp--preset--color--theme-color-accent) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-ione-black-background-color{background-color: var(--wp--preset--color--ione-black) !important;}.has-theme-color-primary-background-color{background-color: var(--wp--preset--color--theme-color-primary) !important;}.has-theme-color-accent-background-color{background-color: var(--wp--preset--color--theme-color-accent) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-ione-black-border-color{border-color: var(--wp--preset--color--ione-black) !important;}.has-theme-color-primary-border-color{border-color: var(--wp--preset--color--theme-color-primary) !important;}.has-theme-color-accent-border-color{border-color: var(--wp--preset--color--theme-color-accent) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<style id="jetpack-stats-inline-css">
+img#wpstats{display:none}
+/*# sourceURL=jetpack-stats-inline-css */
+</style>
+<link rel='stylesheet' id='ione-container-style-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/blocks-library/container/style-index.css?ver=7.1.4' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='ione-container-style-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/blocks-library/container/style-index.css?ver=7.1.4' media='all' />
+</noscript><link rel='stylesheet' id='sss-css' href='https://houstonseagle.com/wp-content/themes/ione3/assets/css/single_stylesheet/sss.css?ver=8b6ff32' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='sss-css' href='https://houstonseagle.com/wp-content/themes/ione3/assets/css/single_stylesheet/sss.css?ver=8b6ff32' media='all' />
+</noscript><style id="jetpack_likes-inline-css">
+#jp-post-flair{padding-top:.5em}#content div.sharedaddy,#main div.sharedaddy,div.sharedaddy{clear:both}div.sharedaddy h3.sd-title{display:inline-block;font-size:9pt;font-weight:700;line-height:1.2;margin:0 0 1em}div.sharedaddy h3.sd-title:before{border-top:1px solid #dcdcde;content:"";display:block;margin-bottom:1em;min-width:30px;width:100%}div.jetpack-likes-widget-wrapper{min-height:50px;position:relative;width:100%}div.jetpack-likes-widget-wrapper .sd-link-color{font-size:12px}div.jetpack-comment-likes-widget-wrapper{min-height:31px;position:relative;width:100%}div.jetpack-comment-likes-widget-wrapper iframe{margin-bottom:0}#likes-other-gravatars{background-color:#fff;border:1px solid #dcdcde;border-radius:4px;box-shadow:none;display:none;height:auto;max-height:240px;min-width:220px;overflow:auto;padding:9px 12px 10px;position:absolute;z-index:1000}#likes-other-gravatars *{line-height:normal}#likes-other-gravatars .likes-text{color:#101517;font-size:12px;font-weight:500;padding-bottom:8px}#likes-other-gravatars :is(li,ul){list-style-type:none;margin:0;padding:0;text-indent:0}#likes-other-gravatars li:before{content:""}#likes-other-gravatars ul.wpl-avatars{display:block;max-height:190px;overflow:auto}#likes-other-gravatars ul.wpl-avatars li{float:none;height:28px;margin:0 0 4px;width:196px}#likes-other-gravatars ul.wpl-avatars li a{align-items:center;border-bottom:none!important;display:flex;gap:8px;margin:0 2px 0 0;text-decoration:none}#likes-other-gravatars ul.wpl-avatars li a span{color:#2c3338;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#likes-other-gravatars ul.wpl-avatars li a img{background:none;border:none;border-radius:50%;box-sizing:border-box;margin:0!important;padding:1px!important;position:static}div.sd-box{border-top:1px solid #00000021}.jetpack-likes-widget-loaded iframe,.jetpack-likes-widget-loading .likes-widget-placeholder,.jetpack-likes-widget-unloaded .likes-widget-placeholder{display:block}.jetpack-likes-widget-loaded .likes-widget-placeholder,.jetpack-likes-widget-loading iframe,.jetpack-likes-widget-unloaded iframe{display:none}.comment-likes-widget,.entry-content .post-likes-widget,.post-likes-widget{border-width:0;margin:0}.comment-likes-widget-placeholder,.post-likes-widget-placeholder{border-width:0;margin:0;position:relative}.comment-likes-widget-placeholder{display:flex;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;height:18px;position:absolute}.comment-likes-widget-placeholder:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath fill='%232ea2cc' d='m12 2 2.582 6.953L22 9.257l-5.822 4.602L18.18 21 12 16.89 5.82 21l2.002-7.14L2 9.256l7.418-.304'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:16px 16px;color:#2ea2cc;content:"";display:inline-block;height:16px;padding-right:5px;position:relative;top:3px;width:16px}.post-likes-widget-placeholder .button{display:none}:is(.comment-likes-widget-placeholder,.post-likes-widget-placeholder) .loading{color:#999;font-size:12px}.comment-likes-widget-placeholder .loading{align-self:center;color:#4e4e4e;margin-top:4px;padding-left:5px}div.sharedaddy.sd-like-enabled .sd-like h3{display:none}div.sharedaddy.sd-like-enabled .sd-like .post-likes-widget{float:none;position:absolute;top:0;width:100%}.comment-likes-widget{width:100%}.cs-rating,.pd-rating{display:block!important}.sd-gplus .sd-title{display:none}@media print{.jetpack-likes-widget-wrapper{display:none}}
+/*# sourceURL=https://houstonseagle.com/wp-content/mu-plugins/jetpack-16.3/_inc/build/likes/style.min.css */
+</style>
+<link rel='stylesheet' id='ione4_enqueue_css_global-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/ione4/css/style-index.css?ver=8b6ff32' media='all' />
+<style id="lazy-load-styles-inline-css">
+.load-later { min-height:250px; vertical-align:middle; max-width:100%; }
+/*# sourceURL=lazy-load-styles-inline-css */
+</style>
+<link rel='stylesheet' id='ione__ione_modules__network_content_syndication__view-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/network-content-syndication/style-view.css?ver=5cab074f636a0c55defc' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='ione__ione_modules__network_content_syndication__view-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/network-content-syndication/style-view.css?ver=5cab074f636a0c55defc' media='all' />
+</noscript><link rel='stylesheet' id='ione__ione_modules__paid_political_content__style-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/paid-political-content/index.css?ver=f4f6f57b018426f728ec' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='ione__ione_modules__paid_political_content__style-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/paid-political-content/index.css?ver=f4f6f57b018426f728ec' media='all' />
+</noscript><link rel='stylesheet' id='ione__ione_modules__recirculation_widget-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/modules/recirculation-widget/css/style.css?ver=8b6ff32' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='ione__ione_modules__recirculation_widget-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/modules/recirculation-widget/css/style.css?ver=8b6ff32' media='all' />
+</noscript><link rel='stylesheet' id='ione-universal-ads-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/universal-ads/index.css?ver=9ac6352c3d6c78be42c9' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='ione-universal-ads-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/universal-ads/index.css?ver=9ac6352c3d6c78be42c9' media='all' />
+</noscript><link rel='stylesheet' id='ione__ione_modules__viafoura__styles-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/viafoura/index.css?ver=56949559abbd3d1bbb08' media='print' onload="this.media='all'; this.onload=null;" />
+<noscript><link rel='stylesheet' id='ione__ione_modules__viafoura__styles-css' href='https://houstonseagle.com/wp-content/plugins/ione-modules/build/viafoura/index.css?ver=56949559abbd3d1bbb08' media='all' />
+</noscript><link rel="https://api.w.org/" href="https://houstonseagle.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://houstonseagle.com/wp-json/wp/v2/posts/1071957" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://houstonseagle.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.4" />
+<link rel='shortlink' href='https://wp.me/peXbS6-4uRD' />
+		<style type="text/css">
+			.ghostkit-effects-enabled .ghostkit-effects-reveal {
+				pointer-events: none;
+				visibility: hidden;
+			}
+		</style>
+		<script>
+			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				document.documentElement.classList.add(
+					'ghostkit-effects-enabled'
+				);
+			}
+		</script>
+		<meta name="parsely-title" content="Discipline in schools: What you should know about corporal punishment" />
+<meta name="parsely-link" content="http://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/" />
+<meta name="parsely-type" content="post" />
+<meta name="parsely-image-url" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IPIBSV6EDFHHJNTVDW2RYD6FLA.jpg?quality=80&amp;strip=all&amp;w=150&amp;crop=0,0,100,150px" />
+<meta name="parsely-pub-date" content="2022-08-24T19:12:27Z" />
+<meta name="parsely-section" content="Uncategorized" />
+<meta name="parsely-author" content="Cox Media Group National Content Desk" />
+<meta name="msvalidate.01" content="30473C9E51B1FA7645F80C5736971CF1" /><style id="ione-custom-fonts-module">/*iOne Custom Fonts*/@font-face{font-family:"Nitti Grotesk";src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-normal-v20.woff) format('woff');font-weight:400;font-style:normal;font-display:swap;} @font-face{font-family:"Nitti Grotesk";src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-normalitalic-v20.woff) format('woff');font-weight:400;font-style:italic;font-display:swap;} @font-face{font-family:"Nitti Grotesk";src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-bold-v20.woff) format('woff');font-weight:700;font-style:normal;font-display:swap;} @font-face{font-family:"Nitti Grotesk";src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/NittiGrotesk/nittigrotesk-bolditalic-v20.woff) format('woff');font-weight:700;font-style:italic;font-display:swap;}@font-face{font-family:ione3;src:url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/iOne/ione3.woff?-46jzw2) format('woff'), url(/wp-content/plugins/ione-modules/modules/custom-fonts/assets/fonts/iOne/ione3.ttf?-46jzw2) format('truetype');font-weight:normal;font-style:normal;font-display:swap;}</style><meta name="vf:container_id" content="1071957" />		<script>
+			window.dataLayer = window.dataLayer || [];
+			window.dataLayer.push( { event: "ione-viafoura-sdk-load" } );
+		</script>
+						<!-- Theme Colors Styles -->
+				<style type="text/css">.has-theme-color-primary-background-color { background-color: #D61A0C !important; }
+				 .has-theme-color-primary-color { color: #D61A0C !important; }
+				 .has-theme-color-primary-border-color { border-color: #D61A0C !important; }
+				.has-theme-color-accent-background-color { background-color: #000000 !important; }
+				 .has-theme-color-accent-color { color: #000000 !important; }
+				 .has-theme-color-accent-border-color { border-color: #000000 !important; }
+				.has-ione-black-background-color { background-color: #333333 !important; }
+				 .has-ione-black-color { color: #333333 !important; }
+				 .has-ione-black-border-color { border-color: #333333 !important; }
+				</style>
+				<link rel="shortcut icon" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=32&#038;crop=0,0,100,32px" sizes="32x32" />
+<link rel="apple-touch-icon-precomposed" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=57&#038;crop=0,0,100,57px" sizes="57x57" />
+<link rel="apple-touch-icon-precomposed" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=114&#038;crop=0,0,100,114px" sizes="114x114" />
+<link rel="apple-touch-icon-precomposed" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=72&#038;crop=0,0,100,72px" sizes="72x72" />
+<link rel="apple-touch-icon-precomposed" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=144&#038;crop=0,0,100,144px" sizes="144x144" />
+<link rel="apple-touch-icon-precomposed" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=60&#038;crop=0,0,100,60px" sizes="60x60" />
+<link rel="apple-touch-icon-precomposed" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=120&#038;crop=0,0,100,120px" sizes="120x120" />
+<link rel="apple-touch-icon-precomposed" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=76&#038;crop=0,0,100,76px" sizes="76x76" />
+<link rel="apple-touch-icon-precomposed" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=152&#038;crop=0,0,100,152px" sizes="152x152" />
+<link rel="icon" type="image/png" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=196&#038;crop=0,0,100,196px" sizes="196x196" />
+<link rel="icon" type="image/png" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=96&#038;crop=0,0,100,96px" sizes="96x96" />
+<link rel="icon" type="image/png" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=32&#038;crop=0,0,100,32px" sizes="32x32" />
+<link rel="icon" type="image/png" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=16&#038;crop=0,0,100,16px" sizes="16x16" />
+<link rel="icon" type="image/png" href="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=128&#038;crop=0,0,100,128px" sizes="128x128" />
+<meta name="application-name" content="The Eagle 106.9/107.5" />
+<meta name="msapplication-TileColor" content="#000000" />
+<meta name="msapplication-TileImage" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=144&#038;crop=0,0,100,144px" />
+<meta name="msapplication-square70x70logo" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=70&#038;crop=0,0,100,70px" />
+<meta name="msapplication-square150x150logo" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=150&#038;crop=0,0,100,150px" />
+<meta name="msapplication-wide310x150logo" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=200&#038;crop=0,0,100,200px" />
+<meta name="msapplication-square310x310logo" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=310&#038;crop=0,0,100,310px" />
+<style id="wp-custom-css">
+.im-site-logo__svg,.im-site-logo svg{width:70%}.w-screen{width:100%}body,.super-wrapper>.container{background-color:#FFF}#traffic-iframe-sigalert-div{width:100%;min-height:800px;position:relative;overflow:hidden}#traffic-iframe-sigalert{position:absolute;top:-104px;width:100%;height:100%}
+</style>
+<style>/*iOne4 CSS Overrides*/:root{--ione4-color-primary: #D61A0C;--ione4-color-accent: #000000;--ione4-font-family-primary: "Nitti Grotesk";--ione4-font-family-secondary: "Helvetica Neue";--ione4-color-primary--darker: #961309;--ione4-color-primary--lighter: #e35f55;--ione4-color-accent--darker: #000000;--ione4-color-accent--lighter: #4d4d4d;--ione4-block-title-font-size: 2.5rem;--ione4-color-primary-rgb: 214, 26, 12;--ione4-color-secondary-rgb: 0, 0, 0;}</style>	</head>
+<body class="wp-singular post-template-default single single-post postid-1071957 single-format-standard wp-theme-ione3 has-push-menu uncategorized ione-font-primary-nittigrotesk ione-font-secondary-helveticaneue" style="">
+
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe role="presentation" src="https://www.googletagmanager.com/ns.html?id=GTM-TPR8JL" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		
+<div id="ione-container" class="push-content">
+	<div class="io-header-size-helper">
+	<header class="io-header io-header--style1 is-sticky has-border">
+		<div class="io-header__hamburger">
+			<button type="" class="ia-button ia-button--icon js-toggle-side-nav " aria-label="">
+				<svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg" data-type="open">
+					<title>Menu</title>
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.26712C0 0.56731 0.540702 0 1.20769 0H24.7923C25.4593 0 26 0.56731 26 1.26712C26 1.96693 25.4593 2.53424 24.7923 2.53424H1.20769C0.540702 2.53424 0 1.96693 0 1.26712Z" />
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.00003C0 8.30022 0.540702 7.73291 1.20769 7.73291H24.7923C25.4593 7.73291 26 8.30022 26 9.00003C26 9.69984 25.4593 10.2672 24.7923 10.2672H1.20769C0.540702 10.2672 0 9.69984 0 9.00003Z" />
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M0 16.7328C0 16.033 0.540702 15.4657 1.20769 15.4657H24.7923C25.4593 15.4657 26 16.033 26 16.7328C26 17.4326 25.4593 17.9999 24.7923 17.9999H1.20769C0.540702 17.9999 0 17.4326 0 16.7328Z" />
+				</svg>
+				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-type="close">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M19.6317 2.14607C20.1226 1.65512 20.1226 0.859149 19.6317 0.368207C19.1408 -0.122736 18.3448 -0.122736 17.8538 0.368207L10 8.22204L2.14617 0.368207C1.65522 -0.122736 0.85925 -0.122736 0.368308 0.368207C-0.122635 0.859149 -0.122635 1.65512 0.368308 2.14607L8.22214 9.9999L0.368207 17.8538C-0.122736 18.3448 -0.122736 19.1408 0.368207 19.6317C0.859149 20.1226 1.65513 20.1226 2.14607 19.6317L10 11.7778L17.8539 19.6317C18.3449 20.1226 19.1409 20.1226 19.6318 19.6317C20.1227 19.1408 20.1227 18.3448 19.6318 17.8538L11.7779 9.9999L19.6317 2.14607Z" />
+				</svg>
+			</button>
+		</div>
+
+		<div class="io-header__logo">
+			<div class="im-site-logo im-site-logo--style1">
+									<a class="im-site-logo__link" href="https://houstonseagle.com" aria-label="Navigate to homepage">
+						<div class="im-site-logo--default">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 671 272.9">
+  
+  <defs>
+    <style>
+      .st0 {
+        isolation: isolate;
+      }
+
+      .st1 {
+        fill: #d61a0c;
+      }
+
+      .st2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path d="M469.6,129.4h9.2v-8.4h3.2v21.4h-3.2v-10h-9.2v10h-3.2v-21.4h3.2v8.4h0Z" />
+    <path d="M486.1,131.6c0-3,1.1-5.6,3.3-7.7,2.2-2.2,4.8-3.2,7.9-3.2s5.7,1.1,7.8,3.3c2.2,2.2,3.3,4.8,3.3,7.8s-1.1,5.7-3.3,7.8c-2.2,2.1-4.9,3.2-8,3.2s-5.2-1-7.4-2.9c-2.4-2.1-3.6-4.9-3.6-8.3h0ZM489.4,131.7c0,2.4.8,4.3,2.4,5.8,1.6,1.5,3.4,2.3,5.5,2.3s4.1-.8,5.7-2.3c1.5-1.6,2.3-3.5,2.3-5.7s-.8-4.2-2.3-5.7c-1.5-1.5-3.4-2.3-5.6-2.3s-4.1.8-5.6,2.3c-1.5,1.5-2.3,3.4-2.3,5.7h0Z" />
+    <path d="M515.7,121v12.9c0,1.8.3,3.2.9,4,.9,1.2,2.1,1.8,3.8,1.8s2.9-.6,3.8-1.8c.6-.8.9-2.2.9-4v-12.9h3.2v13.8c0,2.2-.7,4.1-2.1,5.6-1.6,1.6-3.5,2.4-5.8,2.4s-4.2-.8-5.8-2.4c-1.4-1.5-2.1-3.3-2.1-5.6v-13.8h3.2,0Z" />
+    <path d="M545.5,124.2l-2.6,1.5c-.5-.8-1-1.4-1.4-1.7-.5-.3-1.1-.4-1.8-.4s-1.6.2-2.2.8c-.6.5-.9,1.1-.9,1.9s.8,1.9,2.3,2.5l2.1.9c1.7.7,3,1.6,3.8,2.6.8,1,1.2,2.2,1.2,3.7s-.7,3.6-2,4.9c-1.3,1.3-3,1.9-4.9,1.9s-3.4-.5-4.6-1.7c-1.2-1.1-1.9-2.6-2.2-4.6l3.3-.7c.1,1.3.4,2.1.8,2.6.7.9,1.6,1.4,2.9,1.4s1.8-.3,2.5-1c.7-.7,1-1.5,1-2.6s0-.8-.2-1.1-.3-.7-.5-.9c-.2-.3-.6-.6-.9-.8-.4-.2-.8-.5-1.4-.7l-2.1-.9c-2.9-1.2-4.4-3-4.4-5.4s.6-2.9,1.8-4c1.2-1.1,2.7-1.6,4.6-1.6s4.4,1.2,5.8,3.6h0Z" />
+    <path d="M556.3,124.1v18.3h-3.2v-18.3h-4.9v-3h13v3h-4.9Z" />
+    <path d="M562.3,131.6c0-3,1.1-5.6,3.3-7.7,2.2-2.2,4.8-3.2,7.9-3.2s5.7,1.1,7.8,3.3c2.2,2.2,3.3,4.8,3.3,7.8s-1.1,5.7-3.3,7.8c-2.2,2.1-4.9,3.2-8,3.2s-5.2-1-7.4-2.9c-2.4-2.1-3.6-4.9-3.6-8.3h0ZM565.5,131.7c0,2.4.8,4.3,2.4,5.8,1.6,1.5,3.4,2.3,5.5,2.3s4.1-.8,5.7-2.3c1.5-1.6,2.3-3.5,2.3-5.7s-.8-4.2-2.3-5.7c-1.5-1.5-3.4-2.3-5.6-2.3s-4.1.8-5.6,2.3c-1.5,1.5-2.3,3.4-2.3,5.7h0Z" />
+    <path d="M588.7,142.4v-22.8l15.6,16.3v-14.8h3.2v22.7l-15.6-16.3v15h-3.2Z" />
+    <path d="M614.9,120.1l2.8,1.1-3.9,7.9-2.1-.9,3.3-8.1h0Z" />
+    <path d="M633.9,124.2l-2.6,1.5c-.5-.8-1-1.4-1.4-1.7-.5-.3-1.1-.4-1.8-.4s-1.6.2-2.2.8c-.6.5-.9,1.1-.9,1.9s.8,1.9,2.3,2.5l2.1.9c1.7.7,3,1.6,3.8,2.6.8,1,1.2,2.2,1.2,3.7s-.7,3.6-2,4.9c-1.3,1.3-3,1.9-4.9,1.9s-3.4-.5-4.6-1.7c-1.2-1.1-1.9-2.6-2.2-4.6l3.3-.7c.1,1.3.4,2.1.8,2.6.7.9,1.6,1.4,2.9,1.4s1.8-.3,2.5-1,1-1.5,1-2.6,0-.8-.2-1.1c-.1-.3-.3-.7-.5-.9s-.6-.6-.9-.8c-.4-.2-.8-.5-1.4-.7l-2.1-.9c-2.9-1.2-4.4-3-4.4-5.4s.6-2.9,1.8-4c1.2-1.1,2.7-1.6,4.6-1.6s4.4,1.2,5.8,3.6h0Z" />
+  </g>
+  <g>
+    <path d="M457,153.5v4.2c-2-1.7-4.2-2.5-6.3-2.5s-4.4.9-6.1,2.6c-1.7,1.7-2.5,3.8-2.5,6.3s.8,4.5,2.5,6.2,3.7,2.5,6.1,2.5,2.3-.2,3.2-.6c.5-.2,1-.5,1.5-.8.5-.3,1.1-.7,1.6-1.2v4.2c-2,1.1-4.1,1.7-6.4,1.7-3.3,0-6.2-1.2-8.6-3.5-2.4-2.3-3.5-5.2-3.5-8.5s1-5.6,3-7.9c2.4-2.8,5.6-4.3,9.4-4.3s4.1.6,6.1,1.7h0Z" />
+    <path d="M465,152.2v20h6.9v3.3h-10.4v-23.3h3.5Z" />
+    <path d="M490.3,169.9h-10l-2.6,5.7h-3.8l11.6-24.7,11.2,24.7h-3.9l-2.5-5.7h0ZM488.9,166.6l-3.5-7.9-3.6,7.9h7.1Z" />
+    <path d="M512.9,155.7l-2.9,1.7c-.5-.9-1-1.5-1.5-1.8-.5-.3-1.2-.5-2-.5s-1.8.3-2.4.8c-.6.5-1,1.2-1,2s.8,2,2.5,2.7l2.3.9c1.9.8,3.3,1.7,4.2,2.8s1.3,2.4,1.3,4-.7,3.9-2.2,5.3c-1.4,1.4-3.2,2.1-5.4,2.1s-3.7-.6-5-1.8c-1.3-1.2-2.1-2.9-2.4-5.1l3.6-.8c.2,1.4.4,2.3.8,2.8.7,1,1.8,1.5,3.2,1.5s2-.4,2.7-1.1c.7-.7,1.1-1.7,1.1-2.8s0-.9-.2-1.2c-.1-.4-.3-.7-.6-1-.3-.3-.6-.6-1-.9-.4-.3-.9-.5-1.5-.8l-2.3-.9c-3.2-1.3-4.8-3.3-4.8-5.9s.7-3.2,2-4.4c1.3-1.2,3-1.8,5-1.8s4.8,1.3,6.3,3.9h0Z" />
+    <path d="M531,155.7l-2.9,1.7c-.5-.9-1-1.5-1.5-1.8-.5-.3-1.2-.5-2-.5s-1.8.3-2.4.8c-.6.5-1,1.2-1,2s.8,2,2.5,2.7l2.3.9c1.9.8,3.3,1.7,4.2,2.8s1.3,2.4,1.3,4-.7,3.9-2.2,5.3c-1.4,1.4-3.2,2.1-5.4,2.1s-3.7-.6-5-1.8c-1.3-1.2-2.1-2.9-2.4-5.1l3.6-.8c.2,1.4.4,2.3.8,2.8.7,1,1.8,1.5,3.2,1.5s2-.4,2.7-1.1c.7-.7,1.1-1.7,1.1-2.8s0-.9-.2-1.2c-.1-.4-.3-.7-.6-1-.3-.3-.6-.6-1-.9-.4-.3-.9-.5-1.5-.8l-2.3-.9c-3.2-1.3-4.8-3.3-4.8-5.9s.7-3.2,2-4.4c1.3-1.2,3-1.8,5-1.8s4.8,1.3,6.3,3.9h0Z" />
+    <path d="M539.4,152.2v23.3h-3.5v-23.3h3.5Z" />
+    <path d="M562.4,153.5v4.2c-2-1.7-4.2-2.5-6.3-2.5s-4.4.9-6.1,2.6c-1.7,1.7-2.5,3.8-2.5,6.3s.8,4.5,2.5,6.2,3.7,2.5,6.1,2.5,2.3-.2,3.2-.6c.5-.2,1-.5,1.5-.8s1.1-.7,1.6-1.2v4.2c-2,1.1-4.1,1.7-6.4,1.7-3.3,0-6.2-1.2-8.6-3.5-2.4-2.3-3.5-5.2-3.5-8.5s1-5.6,3-7.9c2.4-2.8,5.6-4.3,9.4-4.3s4.1.6,6.1,1.7h0Z" />
+    <path d="M584.4,165.6l7.3,9.9h-4.3l-6.7-9.5h-.6v9.5h-3.5v-23.3h4.1c3.1,0,5.3.6,6.7,1.7,1.5,1.3,2.3,3,2.3,5.1s-.5,3.1-1.4,4.2c-.9,1.2-2.2,1.9-3.8,2.3h0ZM580,162.9h1.1c3.3,0,5-1.3,5-3.8s-1.6-3.6-4.9-3.6h-1.3v7.4h0Z" />
+    <path d="M593.5,163.8c0-3.3,1.2-6.1,3.6-8.4,2.4-2.3,5.3-3.5,8.7-3.5s6.2,1.2,8.6,3.6c2.4,2.4,3.6,5.2,3.6,8.5s-1.2,6.2-3.6,8.5c-2.4,2.3-5.3,3.5-8.8,3.5s-5.7-1-8.2-3.1c-2.6-2.3-4-5.3-4-9h0ZM597.1,163.8c0,2.6.9,4.7,2.6,6.3,1.7,1.7,3.7,2.5,6,2.5s4.5-.8,6.2-2.5c1.7-1.7,2.5-3.8,2.5-6.2s-.8-4.6-2.5-6.2c-1.7-1.7-3.7-2.5-6.2-2.5s-4.5.8-6.2,2.5c-1.7,1.7-2.5,3.7-2.5,6.2h0Z" />
+    <path d="M639.8,153.5v4.2c-2-1.7-4.2-2.5-6.3-2.5s-4.4.9-6.1,2.6c-1.7,1.7-2.5,3.8-2.5,6.3s.8,4.5,2.5,6.2,3.7,2.5,6.1,2.5,2.3-.2,3.2-.6c.5-.2,1-.5,1.5-.8s1.1-.7,1.6-1.2v4.2c-2,1.1-4.1,1.7-6.4,1.7-3.3,0-6.2-1.2-8.6-3.5-2.4-2.3-3.5-5.2-3.5-8.5s1-5.6,3-7.9c2.4-2.8,5.6-4.3,9.4-4.3s4.1.6,6.1,1.7h0Z" />
+    <path d="M648.5,161.5l9.1-9.3h4.7l-10.6,10.5,10.7,12.7h-4.7l-8.4-10.4-.7.7v9.6h-3.5v-23.3h3.5v9.3h0Z" />
+  </g>
+  <g>
+    <g>
+      <polygon points="377.4 272.8 80.5 272.8 80.5 0 377.4 0 377.4 272.8 377.4 272.8" />
+      <path class="st1" d="M192.7,163.9c-4-4.4-4.2-9.6-4.2-11.2-29.7,10.1-54.1,13.7-73.6,13.7s-20.7-1.2-28.8-2.9c2.8,2.9,7.5,6.8,14.4,10.2,4.4,1.8,9.3,3.5,14.4,5.1,17.7,4.1,43.7,3.1,80.3-12.6-.9-.7-1.8-1.4-2.6-2.2h0q0,0,0,0Z" />
+      <path class="st1" d="M199.1,168.3c-23.6,10.4-43,14.9-58.8,15.8,13.3,4.9,44.9,11.7,80.4-14.3-3.2.4-6.2.7-8.9.7-5,0-9.2-.8-12.7-2.2h0Z" />
+      <path class="st1" d="M71.7,133.3c25.3,0,48.2-4.8,57.4-7-6.1-1.8-10.9-3.7-14.5-5.4-3.8-1.4-7.6-2.9-11.1-4.4h-7.7c-29.2,0-76.2-1-94.8-6.7,7,7.8,24.8,21.5,63.6,23.3,2.3,0,4.7,0,7.1,0h0q0,0,0,0Z" />
+      <path class="st1" d="M189.3,148.7c.9-5,.4-8.8-1.6-11.4-2.8-3.6-8-4.2-10.8-4.2s-.5,0-.8,0c-34.4,13-65.1,19.6-91.3,19.6s-16.2-.7-22.9-1.9c16.7,9,57,22.4,127.3-2.1h0Z" />
+      <path class="st1" d="M166.6,132.9c-9.4-.7-17.6-1.9-24.7-3.3l-5.1-.5c-23.5,5.2-44.9,7.9-63.7,7.9h0c-2.6,0-5.1,0-7.5-.2-1.1,0-2.2,0-3.4,0h-.7c-14.2-.7-27-3.1-38-7,5,4.6,14.1,11.2,29.1,15.5l.3-.3s.3.2.7.6c8.6,2.3,18.9,3.9,31.4,3.9,23.6,0,51.1-5.5,81.7-16.3h0v-.2q0,0,0,0Z" />
+      <path class="st1" d="M394.7,136.6c-1,0-1.9,0-2.9,0-2.5,0-5,.2-7.6.2-18.8,0-40.3-2.7-63.8-7.9l-5.1.5c-6.5,1.3-14,2.5-22.5,3.1,0,.3-.2.6-.3.8,29.8,10.4,56.6,15.7,79.8,15.7h0c12.5,0,22.9-1.6,31.4-3.9.4-.4.7-.6.7-.6l.3.3c15-4.3,24.2-10.9,29.1-15.5-11.1,3.9-23.8,6.3-38,7h-1.2v.2q0,0,0,0Z" />
+      <path class="st1" d="M245.4,170.5c-2.7,0-5.7-.2-8.9-.7,35.6,26,67.2,19.2,80.4,14.3-15.8-.9-35.3-5.4-58.8-15.8-3.5,1.5-7.7,2.2-12.7,2.2h0Z" />
+      <path class="st1" d="M268.7,152.7c0,1.6,0,6.8-4.2,11.2-.8.8-1.6,1.6-2.6,2.2,38.6,16.6,65.4,16.8,83.1,12,3.4-1.1,6.7-2.3,9.8-3.5,7.9-3.6,13.2-8,16.3-11.1-8.1,1.7-17.6,2.9-28.8,2.9-19.5,0-43.9-3.6-73.6-13.7h0Z" />
+      <path class="st1" d="M361.5,116.5h-7.6c-3.5,1.5-7.3,3-11,4.4-3.6,1.7-8.4,3.6-14.5,5.4,9.2,2.2,32.1,7,57.3,7s4.8,0,7.2,0c38.7-1.8,56.5-15.5,63.5-23.3-18.6,5.7-65.6,6.7-94.8,6.7h0s0,0,0,0Z" />
+      <path class="st1" d="M372.3,152.7c-23.6,0-50.9-5.4-81.2-15.9-.3.6-.5,1.1-.8,1.7l-2.3-.8s0-1-.2-2.1c-2.3-.8-4.5-1.6-6.8-2.5h-.8c-2.9,0-8,.5-10.8,4.2-2,2.6-2.5,6.4-1.6,11.4,70.4,24.5,110.7,11.2,127.4,2.1-6.8,1.2-14.4,1.9-23,1.9h0,0Z" />
+      <polygon class="st2" points="139.1 117.6 152.7 117.6 152.7 95.3 139.1 95.3 139.1 77.7 153.7 77.7 153.7 54.4 115 54.4 115 161.7 155.1 161.7 155.1 138.4 139.1 138.4 139.1 117.6 139.1 117.6" />
+      <path class="st2" d="M185,119.6c-3.4,3.1-5.3,5.6-5.8,7.7s-.8,5.1-.8,9,.2,7.3.7,8.6,1.4,1.9,2.8,1.9,2.2-.5,2.6-1.5c.4-1,.6-3.7.6-8v-17.7s0,0,0,0ZM178.4,107.8h-19.7v-5.8c0-6.7.6-11.8,1.8-15.4s3.7-6.8,7.4-9.6c3.7-2.8,8.5-4.1,14.4-4.1s12.4,1.6,16,4.7,5.8,7,6.5,11.5c.7,4.6,1.1,14,1.1,28.2v43.2h-20.4v-7.7c-1.3,3.1-2.9,5.4-5,6.9-2,1.5-4.4,2.3-7.2,2.3s-7-1.3-10.1-3.9c-3.1-2.6-4.6-8.2-4.6-16.9v-7.1c0-6.4.8-10.8,2.4-13.2,1.6-2.3,5.7-5.1,12.1-8.2,6.9-3.4,10.6-5.6,11.1-6.8.5-1.2.7-3.5.7-7.1s-.3-7.4-.8-8.8-1.4-2-2.7-2-2.3.6-2.6,1.7-.5,4.1-.5,8.9v9h0v.2Z" />
+      <path class="st2" d="M239.8,97.3c0-3.9-.2-6.4-.5-7.5-.4-1.1-1.2-1.6-2.4-1.6s-2.1.6-2.6,1.8c-.5,1.2-.8,3.7-.8,7.3v28.9c0,3.9.2,6.3.6,7.5.4,1.1,1.2,1.7,2.4,1.7s2.3-.7,2.7-2.1c.4-1.4.6-4.5.6-9.4v-26.7h0ZM260.8,74.5v66.3c0,9-.2,14.7-.5,17.4-.3,2.6-1.5,5.4-3.5,8.3-2,2.9-4.8,5.1-8.4,6.7-3.6,1.5-8.1,2.3-13.5,2.3s-12-1.4-16.1-4.3c-4-2.8-6.1-8.4-6.3-16.7h20.3c0,3.8,1.1,5.7,3.3,5.7s2.6-.6,3.2-1.8c.5-1.2.8-3.6.8-7.3v-6.5c-1.8,2-3.7,3.6-5.7,4.6s-4.1,1.6-6.3,1.6c-3.8,0-6.9-1-9.3-2.9-2.4-1.9-4.1-4.4-5-7.5s-1.4-7.5-1.4-13.2v-31.3c0-8.2,1.2-14.1,3.5-17.6,2.4-3.6,5.9-5.4,10.7-5.4s5,.7,7.2,2,4.1,3.4,5.8,6l1.5-6.5h19.7q0,0,0,0Z" />
+      <polygon class="st2" points="289.9 160.5 268.3 160.5 268.3 55.5 289.9 55.5 289.9 160.5 289.9 160.5" />
+      <path class="st2" d="M323.9,105v-6.3c0-4.5-.2-7.3-.6-8.6-.4-1.3-1.2-1.9-2.3-1.9s-2.4.6-2.7,1.7c-.3,1.1-.5,4.1-.5,8.9v6.3h6.1ZM344.9,119h-27.1v18.6c0,3.9.2,6.4.7,7.5s1.3,1.7,2.6,1.7,2.7-.7,3.2-2.2.8-4.4.8-8.7v-11.4h19.9v6.4c0,5.3-.3,9.4-.8,12.3-.5,2.9-1.8,5.9-3.8,9.1-2,3.2-4.5,5.7-7.5,7.3s-6.8,2.4-11.4,2.4-8.3-.8-11.7-2.4c-3.4-1.6-6-3.8-7.9-6.6s-3.2-5.9-3.9-9.2c-.7-3.4-1.1-8.2-1.1-14.6v-25.1c0-7.5.8-13.5,2.4-17.8,1.6-4.3,4.3-7.7,8-10s8-3.5,12.8-3.5,10.7,1.4,14.6,4.2c3.8,2.8,6.5,6.5,8,11.1s2.3,11.1,2.3,19.4v11.4h0q0,0,0,0Z" />
+      <path class="st2" d="M117.1,209.9v40.3h-9.8v-21.6c0-3.1,0-5-.2-5.6s-.5-1.1-1.2-1.4c-.7-.3-2.1-.5-4.4-.5h-1v-4.7c4.8-1,8.4-3.2,10.8-6.4h5.8s0,0,0,0Z" />
+      <path class="st2" d="M135.4,220.2c0-2.1,0-3.5-.3-4s-.7-.8-1.4-.8-1.2.3-1.4.9c-.2.6-.4,1.9-.4,4v19.7c0,2.3,0,3.7.3,4.2s.7.7,1.4.7,1.2-.3,1.4-.8c.2-.6.3-1.8.3-3.8v-20h0q0,0,0,0ZM145.2,223.5v13.4c0,3.1-.2,5.3-.5,6.7s-1,2.7-2,3.9-2.3,2.1-3.7,2.6-3.1.8-4.8.8-4.3-.3-5.9-.8c-1.6-.6-2.8-1.4-3.7-2.6-.9-1.2-1.6-2.4-2-3.7s-.6-3.4-.6-6.2v-14.1c0-3.7.3-6.5.9-8.3s1.9-3.3,3.7-4.4c1.9-1.1,4.1-1.7,6.8-1.7s4.1.4,5.8,1.2,3,1.7,3.8,2.8,1.4,2.4,1.7,3.8c.3,1.4.5,3.6.5,6.7h0q0,0,0,0Z" />
+      <path class="st2" d="M163.8,233.2c0-1.4-.2-2.4-.5-2.9s-.8-.8-1.5-.8-1.2.3-1.5.8-.5,1.5-.5,3v7.3c0,1.8,0,2.9.5,3.5.3.5.8.8,1.5.8s.9-.2,1.3-.6c.5-.4.7-1.6.7-3.4v-7.5h0v-.2h0ZM173.6,220.6h-9.8v-3.5c0-.5-.2-.9-.6-1.2-.4-.3-.8-.5-1.4-.5s-.9.2-1.2.5-.5.7-.6,1.2v9.4c.5-1.1,1.2-1.9,2.2-2.4s2.2-.8,3.6-.8,3.4.5,4.8,1.5c1.4,1,2.3,2.2,2.6,3.6.4,1.4.6,3.3.6,5.6v3.2c0,2.8,0,4.9-.3,6.3-.2,1.4-.8,2.7-1.7,3.8-.9,1.2-2.2,2.1-3.8,2.7-1.6.7-3.5,1-5.6,1s-4.8-.4-6.5-1.1c-1.7-.7-3-1.8-3.9-3.2s-1.5-2.9-1.6-4.4c-.2-1.5-.2-4.5-.2-9v-5.6c0-4.8,0-8,.2-9.6,0-1.6.7-3.1,1.7-4.6,1-1.4,2.3-2.5,4.1-3.2,1.7-.7,3.7-1.1,5.9-1.1s5,.5,6.8,1.4,3,2.2,3.8,3.9,1.1,3.7,1.1,6.3h0l-.2-.2h0Z" />
+      <polygon class="st2" points="184.8 250.1 177.4 250.1 177.4 242 184.8 242 184.8 250.1 184.8 250.1" />
+      <path class="st2" d="M198.5,226.9c0,1.7.2,2.7.6,3.1s.9.6,1.3.6c.7,0,1.2-.3,1.5-.8s.5-1.5.5-3v-7.3c0-1.8,0-2.9-.4-3.5-.3-.5-.8-.8-1.5-.8s-.9.2-1.3.6c-.5.4-.7,1.6-.7,3.4v7.5h0v.2h0ZM188.7,239.5h9.8v3.5c0,.5.2.9.6,1.2.3.3.8.5,1.4.5s.9-.2,1.2-.5.5-.7.5-1.2v-9.4c-.5,1.1-1.2,1.9-2.2,2.4s-2.2.8-3.6.8-3.4-.5-4.8-1.5c-1.4-1-2.3-2.2-2.6-3.6-.4-1.4-.6-3.3-.6-5.6v-3.2c0-2.8,0-4.9.3-6.3.2-1.4.8-2.7,1.7-3.8.9-1.2,2.2-2.1,3.8-2.7,1.6-.6,3.5-1,5.6-1s4.8.4,6.5,1.1c1.7.7,3,1.8,3.9,3.2s1.5,2.9,1.6,4.4.2,4.5.2,9v5.6c0,4.8,0,8-.2,9.6,0,1.6-.7,3.1-1.7,4.6-1,1.4-2.3,2.5-4.1,3.2-1.7.7-3.7,1.1-5.9,1.1s-5-.5-6.8-1.4-3-2.2-3.8-3.9-1.2-3.7-1.2-6.3h0l.4.2h0Z" />
+      <path class="st2" d="M117.1,209.9v40.3h-9.8v-21.6c0-3.1,0-5-.2-5.6s-.5-1.1-1.2-1.4c-.7-.3-2.1-.5-4.4-.5h-1v-4.7c4.8-1,8.4-3.2,10.8-6.4h5.8s0,0,0,0Z" />
+      <path class="st2" d="M135.4,220.2c0-2.1,0-3.5-.3-4s-.7-.8-1.4-.8-1.2.3-1.4.9c-.2.6-.4,1.9-.4,4v19.7c0,2.3,0,3.7.3,4.2s.7.7,1.4.7,1.2-.3,1.4-.8c.2-.6.3-1.8.3-3.8v-20h0q0,0,0,0ZM145.2,223.5v13.4c0,3.1-.2,5.3-.5,6.7s-1,2.7-2,3.9-2.3,2.1-3.7,2.6-3.1.8-4.8.8-4.3-.3-5.9-.8c-1.6-.6-2.8-1.4-3.7-2.6-.9-1.2-1.6-2.4-2-3.7s-.6-3.4-.6-6.2v-14.1c0-3.7.3-6.5.9-8.3s1.9-3.3,3.7-4.4c1.9-1.1,4.1-1.7,6.8-1.7s4.1.4,5.8,1.2,3,1.7,3.8,2.8,1.4,2.4,1.7,3.8c.3,1.4.5,3.6.5,6.7h0q0,0,0,0Z" />
+      <path class="st2" d="M163.8,233.2c0-1.4-.2-2.4-.5-2.9s-.8-.8-1.5-.8-1.2.3-1.5.8-.5,1.5-.5,3v7.3c0,1.8,0,2.9.5,3.5.3.5.8.8,1.5.8s.9-.2,1.3-.6c.5-.4.7-1.6.7-3.4v-7.5h0v-.2h0ZM173.6,220.6h-9.8v-3.5c0-.5-.2-.9-.6-1.2-.4-.3-.8-.5-1.4-.5s-.9.2-1.2.5-.5.7-.6,1.2v9.4c.5-1.1,1.2-1.9,2.2-2.4s2.2-.8,3.6-.8,3.4.5,4.8,1.5c1.4,1,2.3,2.2,2.6,3.6.4,1.4.6,3.3.6,5.6v3.2c0,2.8,0,4.9-.3,6.3-.2,1.4-.8,2.7-1.7,3.8-.9,1.2-2.2,2.1-3.8,2.7-1.6.7-3.5,1-5.6,1s-4.8-.4-6.5-1.1c-1.7-.7-3-1.8-3.9-3.2s-1.5-2.9-1.6-4.4c-.2-1.5-.2-4.5-.2-9v-5.6c0-4.8,0-8,.2-9.6,0-1.6.7-3.1,1.7-4.6,1-1.4,2.3-2.5,4.1-3.2,1.7-.7,3.7-1.1,5.9-1.1s5,.5,6.8,1.4,3,2.2,3.8,3.9,1.1,3.7,1.1,6.3h0l-.2-.2h0Z" />
+      <polygon class="st2" points="184.8 250.1 177.4 250.1 177.4 242 184.8 242 184.8 250.1 184.8 250.1" />
+      <path class="st2" d="M198.5,226.9c0,1.7.2,2.7.6,3.1s.9.6,1.3.6c.7,0,1.2-.3,1.5-.8s.5-1.5.5-3v-7.3c0-1.8,0-2.9-.4-3.5-.3-.5-.8-.8-1.5-.8s-.9.2-1.3.6c-.5.4-.7,1.6-.7,3.4v7.5h0v.2h0ZM188.7,239.5h9.8v3.5c0,.5.2.9.6,1.2.3.3.8.5,1.4.5s.9-.2,1.2-.5.5-.7.5-1.2v-9.4c-.5,1.1-1.2,1.9-2.2,2.4s-2.2.8-3.6.8-3.4-.5-4.8-1.5c-1.4-1-2.3-2.2-2.6-3.6-.4-1.4-.6-3.3-.6-5.6v-3.2c0-2.8,0-4.9.3-6.3.2-1.4.8-2.7,1.7-3.8.9-1.2,2.2-2.1,3.8-2.7,1.6-.6,3.5-1,5.6-1s4.8.4,6.5,1.1c1.7.7,3,1.8,3.9,3.2s1.5,2.9,1.6,4.4.2,4.5.2,9v5.6c0,4.8,0,8-.2,9.6,0,1.6-.7,3.1-1.7,4.6-1,1.4-2.3,2.5-4.1,3.2-1.7.7-3.7,1.1-5.9,1.1s-5-.5-6.8-1.4-3-2.2-3.8-3.9-1.2-3.7-1.2-6.3h0l.4.2h0Z" />
+      <path class="st2" d="M268.2,209.9v40.3h-9.8v-21.6c0-3.1,0-5-.2-5.6s-.5-1.1-1.2-1.4c-.7-.3-2.1-.5-4.4-.5h-1v-4.7c4.8-1,8.4-3.2,10.8-6.4h5.8q0,0,0,0Z" />
+      <path class="st2" d="M286.7,220.2c0-2.1,0-3.5-.3-4-.2-.5-.7-.8-1.4-.8s-1.2.3-1.4.9c-.2.6-.4,1.9-.4,4v19.7c0,2.3,0,3.7.3,4.2.2.5.7.7,1.4.7s1.2-.3,1.4-.8c.2-.6.3-1.8.3-3.8v-20h0q0,0,0,0ZM296.5,223.5v13.4c0,3.1-.2,5.3-.5,6.7s-1,2.7-2,3.9-2.3,2.1-3.7,2.6c-1.4.5-3.1.8-4.8.8s-4.3-.3-5.9-.8c-1.6-.6-2.8-1.4-3.7-2.6-.9-1.2-1.6-2.4-2-3.7s-.6-3.4-.6-6.2v-14.1c0-3.7.3-6.5.9-8.3s1.9-3.3,3.7-4.4c1.9-1.1,4.1-1.7,6.8-1.7s4.1.4,5.8,1.2c1.7.8,3,1.7,3.8,2.8s1.4,2.4,1.7,3.8c.3,1.4.5,3.6.5,6.7h0q0,0,0,0Z" />
+      <polygon class="st2" points="318.6 209.9 318.6 218.7 312.3 250.1 302.5 250.1 309.5 217.1 299.8 217.1 299.8 209.9 318.6 209.9 318.6 209.9" />
+      <polygon class="st2" points="328.6 250.1 321.2 250.1 321.2 242 328.6 242 328.6 250.1 328.6 250.1" />
+      <path class="st2" d="M353.9,209.9v6.4h-12.2v6.8c1.5-1.8,3.5-2.8,5.9-2.8s4.8.8,6.1,2.3c1.4,1.6,2.1,4.5,2.1,8.9v5.7c0,2.9,0,4.9-.4,6.3-.3,1.3-.8,2.6-1.7,3.7-.9,1.1-2.1,2-3.7,2.6s-3.5.9-5.7.9-4.8-.5-6.7-1.4c-1.9-.9-3.3-2.3-4.1-4-.8-1.8-1.2-4.6-1.2-8.3v-2.2h9.8v2.5c0,2.6,0,4.5.3,5.5.2,1.1.8,1.6,1.8,1.6s.9-.2,1.2-.5c.3-.3.5-.7.5-1v-12.7c0-1.5-.2-2.5-.5-3.1-.3-.5-.8-.8-1.5-.8s-.8,0-1.1.4c-.3.3-.5.6-.6.9,0,.3,0,1.1,0,2.3h-9.7l.4-20.3h21.1v.3h0Z" />
+      <path class="st2" d="M268.2,209.9v40.3h-9.8v-21.6c0-3.1,0-5-.2-5.6s-.5-1.1-1.2-1.4c-.7-.3-2.1-.5-4.4-.5h-1v-4.7c4.8-1,8.4-3.2,10.8-6.4h5.8q0,0,0,0Z" />
+      <path class="st2" d="M286.7,220.2c0-2.1,0-3.5-.3-4-.2-.5-.7-.8-1.4-.8s-1.2.3-1.4.9c-.2.6-.4,1.9-.4,4v19.7c0,2.3,0,3.7.3,4.2.2.5.7.7,1.4.7s1.2-.3,1.4-.8c.2-.6.3-1.8.3-3.8v-20h0q0,0,0,0ZM296.5,223.5v13.4c0,3.1-.2,5.3-.5,6.7s-1,2.7-2,3.9-2.3,2.1-3.7,2.6c-1.4.5-3.1.8-4.8.8s-4.3-.3-5.9-.8c-1.6-.6-2.8-1.4-3.7-2.6-.9-1.2-1.6-2.4-2-3.7s-.6-3.4-.6-6.2v-14.1c0-3.7.3-6.5.9-8.3s1.9-3.3,3.7-4.4c1.9-1.1,4.1-1.7,6.8-1.7s4.1.4,5.8,1.2c1.7.8,3,1.7,3.8,2.8s1.4,2.4,1.7,3.8c.3,1.4.5,3.6.5,6.7h0q0,0,0,0Z" />
+      <polygon class="st2" points="318.6 209.9 318.6 218.7 312.3 250.1 302.5 250.1 309.5 217.1 299.8 217.1 299.8 209.9 318.6 209.9 318.6 209.9" />
+      <polygon class="st2" points="328.6 250.1 321.2 250.1 321.2 242 328.6 242 328.6 250.1 328.6 250.1" />
+      <path class="st2" d="M353.9,209.9v6.4h-12.2v6.8c1.5-1.8,3.5-2.8,5.9-2.8s4.8.8,6.1,2.3c1.4,1.6,2.1,4.5,2.1,8.9v5.7c0,2.9,0,4.9-.4,6.3-.3,1.3-.8,2.6-1.7,3.7-.9,1.1-2.1,2-3.7,2.6s-3.5.9-5.7.9-4.8-.5-6.7-1.4c-1.9-.9-3.3-2.3-4.1-4-.8-1.8-1.2-4.6-1.2-8.3v-2.2h9.8v2.5c0,2.6,0,4.5.3,5.5.2,1.1.8,1.6,1.8,1.6s.9-.2,1.2-.5c.3-.3.5-.7.5-1v-12.7c0-1.5-.2-2.5-.5-3.1-.3-.5-.8-.8-1.5-.8s-.8,0-1.1.4c-.3.3-.5.6-.6.9,0,.3,0,1.1,0,2.3h-9.7l.4-20.3h21.1v.3h0Z" />
+      <path class="st2" d="M233.9,227.6c.6-.8.9-1.6.9-2.3s0-.6-.3-.9c-.2-.3-.4-.4-.7-.4s-.5,0-.6.3c0,.2-.2.5-.2.9,0,.8.3,1.6,1,2.4h0,0ZM235.1,236l-1.7-2.9c-.6.6-1,1.3-1,2s0,.9.3,1.2c.2.3.5.4.9.4s.9-.2,1.4-.6h0q0,0,0,0ZM241.8,231.4v3.7l-1.4,1,1.8,3.7h-4.7l-.6-1.2c-1.6,1.1-3.1,1.7-4.5,1.7s-2.6-.5-3.4-1.6c-.8-1.1-1.2-2.3-1.2-3.8s.2-2.1.7-2.8,1.2-1.2,2.1-1.6c-1.4-1-2-2.4-2-4.2s.5-2.7,1.4-3.7c1-.9,2.3-1.4,4-1.4s2.7.5,3.6,1.4c.9.9,1.3,2.1,1.3,3.5s-.5,2.8-1.6,3.9l1.8,3.5,2.8-1.9h0v-.2q0,0,0,0Z" />
+      <path class="st2" d="M233.9,227.6c.6-.8.9-1.6.9-2.3s0-.6-.3-.9c-.2-.3-.4-.4-.7-.4s-.5,0-.6.3c0,.2-.2.5-.2.9,0,.8.3,1.6,1,2.4h0,0ZM235.1,236l-1.7-2.9c-.6.6-1,1.3-1,2s0,.9.3,1.2c.2.3.5.4.9.4s.9-.2,1.4-.6h0q0,0,0,0ZM241.8,231.4v3.7l-1.4,1,1.8,3.7h-4.7l-.6-1.2c-1.6,1.1-3.1,1.7-4.5,1.7s-2.6-.5-3.4-1.6c-.8-1.1-1.2-2.3-1.2-3.8s.2-2.1.7-2.8,1.2-1.2,2.1-1.6c-1.4-1-2-2.4-2-4.2s.5-2.7,1.4-3.7c1-.9,2.3-1.4,4-1.4s2.7.5,3.6,1.4c.9.9,1.3,2.1,1.3,3.5s-.5,2.8-1.6,3.9l1.8,3.5,2.8-1.9h0v-.2q0,0,0,0Z" />
+    </g>
+    <g>
+      <g>
+        <path class="st2" d="M172.2,66v-26.3h-12v-6.5h30.4v6.5h-12v26.3h-6.4Z" />
+        <path class="st2" d="M215.8,66v-16.3c0-2.6-.9-4-3.5-4h-8.3c-1.9,0-2.7.8-3.2,2.5v17.7h-6.3v-33.7l6.3-2.1v13.8c1.4-2.7,3.1-3.7,6.1-3.7h5.3c7.5,0,9.9,3.3,9.9,10.3v15.4h-6.4,0Z" />
+        <path class="st2" d="M237.7,66c-6.2,0-9.9-2.6-9.9-9.1v-7.6c0-6.4,3.7-9.1,9.9-9.1h8.5c6.2,0,9.9,2.6,9.9,9.1v6.1h-22v1.6c0,2.6,1.3,3.5,3.5,3.5h17.9l-.8,5.5h-17.1ZM249.8,49.7c0-2.8-1-3.9-3.5-3.9h-8.5c-2.5,0-3.5,1.1-3.5,3.5v2h15.6v-1.7h0Z" />
+      </g>
+    </g>
+  </g>
+</svg></div>					</a>
+								</div>
+		</div>
+
+		<div class="io-header__navbar">
+			<nav class="im-primary-nav im-primary-nav--style1 " role="navigation" aria-label="Main navigation">
+				<ul id="menu-1-main" class="menu im-primary-nav__list"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1112436 im-primary-nav__item"><a href="/schedule/" class=" im-primary-nav__link">On Air</a>
+<ul class="sub-menu im-primary-nav__sub-list">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1714509 im-primary-nav__sub-item"><a href="https://houstonseagle.com/add-eagle-to-amazon-echo-with-alexa/" class=" im-primary-nav__sub-link">Listen with Alexa</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1134297 im-primary-nav__item"><a href="https://houstonseagle.com/category/events/" class=" im-primary-nav__link">Events</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1112435 im-primary-nav__item"><a href="https://houstonseagle.com/category/contests/" class=" im-primary-nav__link">Contests</a>
+<ul class="sub-menu im-primary-nav__sub-list">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1120646 im-primary-nav__sub-item"><a target="_blank" href="https://urban1.com/contest-rules" class=" im-primary-nav__sub-link">General Rules</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1150883 im-primary-nav__sub-item"><a href="https://urban1.com/contest-promotions-disclaimer" class=" im-primary-nav__sub-link">Disclaimer</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1545026 im-primary-nav__item"><a href="https://houstonseagle.com/houston-weather/" class=" im-primary-nav__link">Weather</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1528126 im-primary-nav__item"><a href="https://houstonseagle.com/category/ranking-series/ranking-every-song/" class=" im-primary-nav__link">Ranking Every Song</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1528127 im-primary-nav__item"><a href="https://houstonseagle.com/category/setlist-series/" class=" im-primary-nav__link">Setlists</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1459913 im-primary-nav__item"><a href="https://houstonseagle.com/bmw-hou/" class=" im-primary-nav__link">BMW Studio</a></li>
+</ul>			</nav>
+		</div>
+				<div class="io-header__actions">
+					<div class="viafoura"><vf-tray-trigger></vf-tray-trigger></div>
+		<a href="/listen-live" class="io-header__listen-live-button" target="_blank" rel="noopener noreferrer" onclick="window.iOneGA.sendEventDirectly( 'ui_js_click', { ui_element: 'listen_live_nav' } )">
+						<div class="io-header__listen-live-button-circle">
+							<div class="io-header__listen-live-button-arrow"></div>
+							<div class="io-header__listen-live-button-arrow io-header__listen-live-button-trail io-header__listen-live-button-trail--1"></div>
+							<div class="io-header__listen-live-button-arrow io-header__listen-live-button-trail io-header__listen-live-button-trail--2"></div>
+							<div class="io-header__listen-live-button-arrow io-header__listen-live-button-trail io-header__listen-live-button-trail--3"></div>
+						</div>
+						<div class="io-header__listen-live-button-text">
+							Listen Live
+						</div>
+					</a>			<button type="submit" class="ia-button ia-button--icon io-header__search-icon js-toggle-search has-search-icon " aria-label="">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+					<title>Toggle search</title>
+					<path d="M19.427 20.427c-1.39 0.99-3.090 1.573-4.927 1.573-4.694 0-8.5-3.806-8.5-8.5s3.806-8.5 8.5-8.5c4.694 0 8.5 3.806 8.5 8.5 0 1.837-0.583 3.537-1.573 4.927l5.585 5.585c0.55 0.55 0.546 1.431-0 1.976l-0.023 0.023c-0.544 0.544-1.431 0.546-1.976 0l-5.585-5.585zM14.5 20c3.59 0 6.5-2.91 6.5-6.5s-2.91-6.5-6.5-6.5c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5v0z"></path>
+				</svg>
+			</button>
+			<form role="search" action="/" method="get" class="io-search-form ">
+				<label for="search" class="sr-only">Search</label>
+				<input type="search" placeholder="Type to search" aria-label="Type to search" spellcheck="false" autocomplete="off" class="io-search-input" name="s" />
+				<button type="submit" class="ia-button ia-button--primary">
+					Search
+				</button>
+				<button type="button" class="ia-button ia-button--icon js-toggle-search " aria-label="">
+					<span aria-hidden="true">✕</span>
+				</button>
+			</form>
+		</div>
+	</header>
+</div>
+	<!-- default-single -->
+
+		<div class="wallpaper-ad" id="ione3-wallpaper"></div>
+		<div class="post-super-wrapper" data-id="1071957" data-permalink="https://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/" data-title="Discipline in schools: What you should know about corporal punishment" role="main">
+
+			
+			<div class="post-wrapper" itemscope itemtype="https://schema.org/NewsArticle">
+
+					<meta
+		itemscope
+		itemprop="mainEntityOfPage"
+		itemType="https://schema.org/WebPage"
+		itemid="https://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/"
+	>
+
+	<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+		<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+			<meta itemprop="url" content="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/cropped-KHTP-KGLK_TheEagle_Logo-favicon.png?strip=all&#038;quality=80&#038;w=128&#038;crop=0,0,100,128px">
+			<meta itemprop="width" content="128">
+			<meta itemprop="height" content="128">
+		</div>
+		<meta itemprop="name" content="The Eagle 106.9/107.5">
+	</div>
+	
+				<div class="ad-top ad-single-top">
+			<div class="gpt-ad-container " style="min-height: 250px">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_top" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[728,90],[970,250],[970,90],[2,2],[3,3],[4,4]],"mobile":[[2,2],[300,250],[320,50],[320,100],[336,280]]},"targeting":{"pos":"top"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+			<div class="ione-ad-top-close" role="button" tabindex="0" aria-label="Close advertisement">
+		<span class="close-text">Close</span><i class="icon-arrow-right" aria-hidden="true"></i>
+	</div>
+</div>
+				<div class="post">
+											<header class="post-meta" itemscope>
+							<meta itemprop="url" content="https://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/">
+							<meta itemprop="datePublished" content="2022-08-24T19:12:27-05:00">
+							<meta itemprop="dateModified" content="2022-08-24T19:12:27-05:00">
+							<h1 class="post-meta__title" itemprop="headline">Discipline in schools: What you should know about corporal punishment</h1>								<div class="post-meta__sponsor">
+																	</div>
+								<div class="post-meta__author-share">
+	<div class="post-meta__author-date">
+		<div class="post-author__name" itemprop="author" itemscope itemtype="https://schema.org/Person">
+			<span class="post-meta__label">Written by</span>
+							<a href="https://houstonseagle.com/author/f6c591c814888a58844be881c47e7077/" class="post-link link-hover" itemprop="name">
+					Cox Media Group National Content Desk				</a>
+						</div>
+
+		<div class="post-meta__date">
+			<span class="post-meta__label">Published on</span>
+
+			August 24, 2022		</div><!--.post-meta__date -->
+
+				<div class="post-meta__comments">
+			<a href="#comments" class="comment-count" onclick="window.iOneGA.sendEventDirectly( 'ui_js_click', { ui_element: 'comment_button' } );">
+				<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mr-1 mt-[3px] h-5 w-5" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 7h10v2H7zm0 4h7v2H7z"></path><path d="M20 2H4c-1.103 0-2 .897-2 2v18l5.333-4H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14H6.667L4 18V4h16v12z"></path></svg>
+				<div class="viafoura"><vf-conversations-count ></vf-conversations-count></div> Comments
+			</a>
+		</div>
+		
+				<div class="wp-block-ione-share-button ione-block">
+			<button type="button" role="button" aria-label="Share" class="wp-block-ione-share-button__button">
+				<svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M1.125 15.3124C1.08211 15.3124 1.0388 15.3075 0.995906 15.2977C0.742078 15.2372 0.5625 15.0108 0.5625 14.7499C0.5625 9.63849 1.20909 5.3874 9 5.19404V1.24993C9 1.02633 9.13233 0.824255 9.3368 0.734677C9.54056 0.645662 9.77948 0.684193 9.9443 0.836911L17.2568 7.58691C17.3721 7.6928 17.4375 7.84285 17.4375 7.99993C17.4375 8.15701 17.3721 8.30705 17.2568 8.41308L9.9443 15.1631C9.78005 15.3158 9.54112 15.3553 9.3368 15.2653C9.13233 15.1756 9 14.9735 9 14.7499V10.819C3.65569 10.947 2.66963 12.9186 1.62816 15.0015C1.53155 15.1954 1.33425 15.3124 1.125 15.3124ZM9.5625 9.68743C9.87342 9.68743 10.125 9.939 10.125 10.2499V13.465L16.0456 7.99993L10.125 2.53482V5.74993C10.125 6.06085 9.87342 6.31243 9.5625 6.31243C3.34856 6.31243 2.01052 8.71571 1.74741 12.5543C2.91248 10.9893 4.89825 9.68743 9.5625 9.68743Z" />
+				</svg>
+				<span class="wp-block-ione-share-button__button-text">Share</span>
+			</button>
+			<div class="wp-block-ione-share-button__popup">
+				<header class="wp-block-ione-share-button__popup-header">
+					<h2 class="wp-block-ione-share-button__popup-heading">
+						Share the post					</h2>
+					<button class="wp-block-ione-share-button__popup-close">
+						<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M11.5235 9.75589C12.0122 10.2448 12.0122 11.0346 11.5235 11.5235C11.2798 11.7673 10.9598 11.8898 10.6396 11.8898C10.3196 11.8898 9.99965 11.7673 9.75589 11.5235L5.99971 7.76713L2.24353 11.5235C1.99977 11.7673 1.67979 11.8898 1.35981 11.8898C1.03961 11.8898 0.719631 11.7673 0.475872 11.5235C-0.0127907 11.0346 -0.0127907 10.2448 0.475872 9.75589L4.23228 5.99971L0.475872 2.24353C-0.0127907 1.75463 -0.0127907 0.964764 0.475872 0.475872C0.964764 -0.0127907 1.75463 -0.0127907 2.24353 0.475872L5.99971 4.23228L9.75589 0.475872C10.2448 -0.0127907 11.0346 -0.0127907 11.5235 0.475872C12.0122 0.964764 12.0122 1.75463 11.5235 2.24353L7.76713 5.99971L11.5235 9.75589Z" fill="#FAFAFA" />
+						</svg>
+					</button>
+				</header>
+				<section class="wp-block-ione-share-button__popup-content">
+					<h3 class="wp-block-ione-share-button__popup-subheading">Share this link via</h3>
+					<div class="wp-block-ione-share-button__popup-social-icons has-provider-embed" data-shareable-link="https://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/">
+								<div class="viafoura inline-block">
+			<div class="vf-widget vf-share-button-default vf-share-bar-default vf-share-bar-bw"
+			data-widget="sharebar"
+			data-button-view="false"
+			data-show-labels="false"
+			data-show-counters="false"
+			data-show-total="false">
+			</div>
+		</div>
+							</div>
+					<h3 class="wp-block-ione-share-button__popup-subheading">Or copy link</h3>
+					<div class="wp-block-ione-share-button__popup-copy-link">
+						<div class="wp-block-ione-share-button__popup-copy-link-field">
+							<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M11.3258 13.9348C11.5524 14.1614 11.5686 14.5187 11.3743 14.764L9.11641 17.0279C7.65216 18.4921 5.27815 18.4921 3.81391 17.0279C2.38294 15.5969 2.35042 13.2971 3.71634 11.8266L6.02328 9.51603C6.26732 9.27198 6.66299 9.27198 6.90703 9.51603C7.13364 9.74263 7.14983 10.1 6.95559 10.3453L4.69766 12.6092C3.72149 13.5853 3.72149 15.168 4.69766 16.1442C5.64424 17.0907 7.16113 17.1194 8.14228 16.2302L10.442 13.9348C10.6861 13.6907 11.0817 13.6907 11.3258 13.9348ZM16.1864 4.6554C17.6174 6.08637 17.6499 8.38622 16.284 9.85668L13.977 12.1673C13.733 12.4113 13.3373 12.4113 13.0933 12.1673C12.8667 11.9407 12.8505 11.5833 13.0447 11.338L15.3027 9.07415C16.2788 8.09799 16.2788 6.51531 15.3027 5.53915C14.3561 4.59257 12.8392 4.56388 11.858 5.4531L9.55828 7.74853C9.31424 7.99257 8.91857 7.99257 8.67453 7.74853C8.44792 7.52192 8.43174 7.16457 8.62597 6.91928L10.8839 4.6554C12.3482 3.19116 14.7222 3.19116 16.1864 4.6554Z" fill="#636363" />
+								<path d="M13.0932 7.74852C13.3199 7.97512 13.336 8.33247 13.1418 8.57776L7.79074 13.9348C7.5467 14.1788 7.15103 14.1788 6.90699 13.9348C6.68038 13.7082 6.6642 13.3508 6.85843 13.1055L12.2095 7.74852C12.4535 7.50447 12.8492 7.50447 13.0932 7.74852Z" fill="#636363" />
+							</svg>
+							<input type="text" value="https://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/" name="ione-share-button-link" aria-label="Sharing Link"/>
+						</div>
+						<button type="button" class="wp-block-ione-share-button__popup-copy-link-button" data-state="standby">
+							<span class="wp-block-ione-share-button__popup-copy-link-button-text" data-visible-for="standby">Copy</span>
+							<span class="wp-block-ione-share-button__popup-copy-link-button-text" data-visible-for="copied">Copied</span>
+						</button>
+					</div>
+				</section>
+			</div>
+		</div>
+			</div>
+</div>
+						</header>
+											<!-- .post-meta -->
+					<div class="post-wrapper-content">
+						<div class="post-content" itemprop="articleBody">
+							<aside id="zype-shortcode-wrapper" class="ione-video">
+			<div id="zype-shortcode-player" class="ione-video__player">
+				<div id="zype_64dc55d517e075000123f7cd" class="zype-shortcode" data-videoid="64dc55d517e075000123f7cd" data-url="https://player.zype.com/embed/64dc55d517e075000123f7cd.js?api_key=7Y41xOu32BVdSqiGMF3j9FA7adrxz2RikG54rf7jiMoKhMlH9lQOznwUdBc4QPbP&amp;autoplay=true&amp;controls=true" data-is-playlist="false" data-adoberequired="0"></div>		<div class="ione-video__contents ione-video__contents--no-show">
+							<header class="ione-video__header">
+										<h5 class="ione-video__video-title"></h5>
+					<button class="ione-video__close-button">&#10005;</button>
+				</header>
+						</div>
+					</div>
+			<div id="zype-shortcode-cls-helper"></div>
+		</aside><p>The practice of striking students in public schools has been banned in most states, but some still use corporal punishment as a form of discipline.</p><p>Corporal punishment uses physical force to cause a child to experience pain to correct misbehavior. In school districts where corporal punishment is legal, a teacher or administrator can use a large wooden board, or paddle, to strike a child’s buttocks as a form of discipline.</p><p>In 1977, the U.S. Supreme Court ruled in its <a href="https://www.loc.gov/item/usrep430651/" target="_blank" rel="noopener">Ingraham v. Wright decision</a> that school corporal punishment was constitutional. This ruling left the states to decide whether to allow the practice. As of 2022, nineteen states allow public school personnel to use corporal punishment to discipline children from the time they start preschool until they graduate 12th grade.</p>
+
+<div class="ione-incontent-sticky-ad-wrapper"><div class="ione-incontent-sticky-ad">		<div class="gpt-ad-container " style="min-height: 90px">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_incontent1" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[1,1],[5,5],[728,90]],"mobile":[[1,1],[300,250],[320,50],[320,100],[336,280],[5,5],[6,6]]},"targeting":{"pos":"incontent1"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+		</div></div><p>According to a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5766273/" target="_blank" rel="noopener">study</a> on <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5766273/" target="_blank" rel="noopener">corporal punishment by the National Center for Biotechnology Information</a>, some school districts specify the exact dimensions of the paddles to be used. For instance, the Board of Education in Pickens County, Alabama, recommended that schools use a “wooden paddle approximately 24 inches in length, 3 inches wide and ½ inch thick” that does not have holes, cracks, splinters, tape or other foreign material.</p><p>School corporal punishment has been steadily declining since the late 1970s, decreasing from 4% of all school children in 1978 to less than 0.5% as of 2018.</p><p><a href="https://houstonseagle.com/list/news/national/more-news-headlines/aJz4/" target="_blank" rel="noopener"><i><b>&gt;&gt; Read more trending news</b></i></a></p><p>The <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5766273/" target="_blank" rel="noopener">study</a> also said that “states that allow corporal punishment have a greater percentage of children in the general population, higher rates of child poverty and child mortality, lower college graduation rates, and lower per-pupil education expenditures than states that have banned school corporal punishment.”</p>
+
+<div class="ione-incontent-sticky-ad-wrapper"><div class="ione-incontent-sticky-ad">		<div class="gpt-ad-container " style="min-height: 90px">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_incontent2" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[1,1],[5,5],[728,90]],"mobile":[[1,1],[300,250],[320,50],[320,100],[336,280],[5,5],[6,6]]},"targeting":{"pos":"incontent2"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+		</div></div><p>According to the <a href="https://www.splcenter.org/20190611/striking-outlier-persistent-painful-and-problematic-practice-corporal-punishment-schools" target="_blank" rel="noopener">Southern Poverty Law Center</a>, corporal punishment is used more often in Southern states. Mississippi, Alabama, Arkansas and Texas account for over 70% of all corporal punishments given at U.S. public schools.</p><p>The states that allow corporal punishment include: Alabama, Arizona, Arkansas, Colorado, Florida, Georgia, Idaho, Indiana, Kansas, Kentucky, Louisiana, Mississippi, Missouri, North Carolina, Oklahoma, South Carolina, Tennessee, Texas and Wyoming, <a href="https://www.aacap.org/aacap/Policy_Statements/1988/Corporal_Punishment_in_Schools.aspx" target="_blank" rel="noopener">according to the American Academy of Child &amp; Adolescent Psychiatry.</a></p><p>New Mexico was the most recent state to ban the practice in 2011.</p><p>The disciplinary practice is legal in private schools in every state except New Jersey and Iowa.</p><p>According to <a href="https://theconversation.com/school-spankings-are-banned-just-about-everywhere-around-the-world-except-in-us-118236" target="_blank" rel="noopener">The Conversation</a>, corporal punishment has been banned in 128 countries, including Canada and New Zealand.</p>
+
+<div class="viafoura">
+			<vf-conversation-starter target="vf-conversations"></vf-conversation-starter>
+		</div>						</div>
+						<!-- .post-content -->
+						<p class="page-numbers"></p><div class="post-sharing bottom-sharing">
+	<div class="viafoura inline-block">
+			<div class="vf-widget vf-share-button-default vf-share-bar-default vf-share-bar-bw"
+			data-widget="sharebar"
+			data-button-view="false"
+			data-show-labels="false"
+			data-show-counters="false"
+			data-show-total="false">
+			</div>
+		</div></div>
+<a name="comments"></a>
+		<div class="gpt-ad-container " style="min-height: 90px">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_abovecomment" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[728,90]],"mobile":[[1,1],[300,250],[320,50],[320,100],[336,280]]},"targeting":{"pos":"abovecomment"},"lazyload":true,"is_out_of_page":false}'></div>
+		</div>
+		<div class="viafoura">
+	<vf-conversations></vf-conversations>
+</div>
+						<div id="btfad">
+													</div>
+
+								<div class="ione-widget-container ione-widget-recirculation-widget">
+			<div class="module-container generic-list">
+				<div class="module__title">
+					More from The Eagle 106.9/107.5				</div>
+			</div>
+			<div>
+				<ul class="ione-widget-recirculation-widget__items ione-widget-recirculation-widget__items--well">
+											<li class="ione-widget-recirculation-widget__item">
+														<a class="ione-widget-recirculation-widget__link" href="https://houstonseagle.com/1740175/notable-deaths-2026-famous-people-we-lost/?itm_source=houstonseagle.com&#038;itm_medium=no_below_the_fold&#038;itm_campaign=recirc_widget&#038;itm_content=well" target="_blank" data-post-id="1740175">
+								<div class="ione-widget-recirculation-widget__image">
+									<img loading="lazy" src="https://i0.wp.com/93qcountry.com/wp-content/uploads/sites/106/2026/08/17860414490196.png?quality=80&#038;strip=all&#038;ssl=1" srcset="https://i0.wp.com/93qcountry.com/wp-content/uploads/sites/106/2026/08/17860414490196.png?quality=80&#038;strip=all&#038;ssl=1 400w, https://i0.wp.com/93qcountry.com/wp-content/uploads/sites/106/2026/08/17860414490196.png?quality=80&#038;strip=all&#038;ssl=1 700w, https://i2.wp.com/93qcountry.com/wp-content/uploads/sites/106/2026/08/17860414490196.png?quality=80&#038;strip=all&#038;ssl=1 900w" alt="" class="" width="2100" height="1200" sizes="auto"/>								</div>
+								<p class="ione-widget-recirculation-widget__title">
+									Notable Deaths of 2026: Famous Figures We’ve Lost								</p>
+							</a>
+						</li>
+												<li class="ione-widget-recirculation-widget__item">
+														<a class="ione-widget-recirculation-widget__link" href="https://houstonseagle.com/1743434/a-womans-career-ruined-by-flatulence/?itm_source=houstonseagle.com&#038;itm_medium=no_below_the_fold&#038;itm_campaign=recirc_widget&#038;itm_content=well" target="_blank" data-post-id="1743434">
+								<div class="ione-widget-recirculation-widget__image">
+									<img width="150" height="150" src="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IEQ2KPTAI5ANZKZFG7SADKNYV4.jpg?quality=80&amp;strip=all&amp;w=150&amp;crop=0,0,100,150px" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Photos: Natalie Imbruglia through the years" decoding="async" srcset="https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IEQ2KPTAI5ANZKZFG7SADKNYV4.jpg?resize=150%2C150&amp;strip=all&amp;quality=80 150w, https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IEQ2KPTAI5ANZKZFG7SADKNYV4.jpg?resize=200%2C200&amp;strip=all&amp;quality=80 200w, https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IEQ2KPTAI5ANZKZFG7SADKNYV4.jpg?resize=100%2C100&amp;strip=all&amp;quality=80 100w, https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IEQ2KPTAI5ANZKZFG7SADKNYV4.jpg?resize=300%2C300&amp;strip=all&amp;quality=80 300w, https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IEQ2KPTAI5ANZKZFG7SADKNYV4.jpg?resize=80%2C80&amp;strip=all&amp;quality=80 80w, https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IEQ2KPTAI5ANZKZFG7SADKNYV4.jpg?resize=120%2C120&amp;strip=all&amp;quality=80 120w, https://houstonseagle.com/wp-content/uploads/sites/105/2023/08/IEQ2KPTAI5ANZKZFG7SADKNYV4.jpg?resize=240%2C240&amp;strip=all&amp;quality=80 240w" sizes="(max-width: 150px) 100vw, 150px" />								</div>
+								<p class="ione-widget-recirculation-widget__title">
+									A Woman&#039;s Career Ruined By Flatulence								</p>
+							</a>
+						</li>
+												<li class="ione-widget-recirculation-widget__item">
+														<a class="ione-widget-recirculation-widget__link" href="https://houstonseagle.com/playlist/ranking-every-song-by-journey-steve-perry-era/?itm_source=houstonseagle.com&#038;itm_medium=no_below_the_fold&#038;itm_campaign=recirc_widget&#038;itm_content=well" target="_blank" data-post-id="1494766">
+								<div class="ione-widget-recirculation-widget__image">
+									<img width="150" height="150" src="https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?strip=all&amp;quality=80&amp;w=150&amp;crop=0,0,100,150px" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Ranking Every Song by Journey: the Steve Perry Era" decoding="async" srcset="https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=150%2C150&amp;strip=all&amp;quality=80 150w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=200%2C200&amp;strip=all&amp;quality=80 200w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=400%2C400&amp;strip=all&amp;quality=80 400w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=600%2C600&amp;strip=all&amp;quality=80 600w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=100%2C100&amp;strip=all&amp;quality=80 100w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=300%2C300&amp;strip=all&amp;quality=80 300w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=80%2C80&amp;strip=all&amp;quality=80 80w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=120%2C120&amp;strip=all&amp;quality=80 120w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/03/17418952275371.png?resize=240%2C240&amp;strip=all&amp;quality=80 240w" sizes="(max-width: 150px) 100vw, 150px" />								</div>
+								<p class="ione-widget-recirculation-widget__title">
+									Ranking Every Song by Journey: the Steve Perry Era								</p>
+							</a>
+						</li>
+												<li class="ione-widget-recirculation-widget__item">
+														<a class="ione-widget-recirculation-widget__link" href="https://houstonseagle.com/playlist/rock-legends-not-in-the-rock-and-roll-hall-of-fame/?itm_source=houstonseagle.com&#038;itm_medium=no_below_the_fold&#038;itm_campaign=recirc_widget&#038;itm_content=well" target="_blank" data-post-id="1484034">
+								<div class="ione-widget-recirculation-widget__image">
+									<img width="150" height="150" src="https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?quality=80&amp;strip=all&amp;w=150&amp;crop=0,0,100,150px" class="attachment-thumbnail size-thumbnail wp-post-image" alt="2002 MTV Video Music Awards - Show" decoding="async" srcset="https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?resize=150%2C150&amp;strip=all&amp;quality=80 150w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?resize=200%2C200&amp;strip=all&amp;quality=80 200w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?resize=400%2C400&amp;strip=all&amp;quality=80 400w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?resize=100%2C100&amp;strip=all&amp;quality=80 100w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?resize=300%2C300&amp;strip=all&amp;quality=80 300w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?resize=80%2C80&amp;strip=all&amp;quality=80 80w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?resize=120%2C120&amp;strip=all&amp;quality=80 120w, https://houstonseagle.com/wp-content/uploads/sites/105/2025/02/17406918050162.jpg?resize=240%2C240&amp;strip=all&amp;quality=80 240w" sizes="(max-width: 150px) 100vw, 150px" />								</div>
+								<p class="ione-widget-recirculation-widget__title">
+									50 Rock Legends Not in the Rock &amp; Roll Hall of Fame That Should Be								</p>
+							</a>
+						</li>
+										</ul>
+			</div>
+		</div>
+		
+						<div id="btfad2">
+													</div>
+
+													<div class="under-post-area">
+								<!-- Showing sidebar: under_post_region_widget_area | has widgets -->		<div id="zergnet-widget-92061" class="zergnet_widget" data-widgetid="92061" style="min-height: 1px;"></div>
+									</div>
+													<!-- Recirculation End -->
+					</div>
+
+					<div class="sidebar ad-single-side">
+			<div class="gpt-ad-container " style="min-height: 250px">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_1" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[300,250],[300,600]],"mobile":[]},"targeting":{"pos":"1"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+		
+			<!-- Showing sidebar: in_content_ad_widget_area | has widgets -->		<div id="zergnet-widget-92064" class="zergnet_widget" data-widgetid="92064" style="min-height: 1px;"></div>
+			
+			<div class="gpt-ad-container " style="">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_videowidget" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[1,1]],"mobile":[[1,1]]},"targeting":{"pos":"videowidget"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+				<div class="gpt-ad-container ione-sticky-widget" style="min-height: 250px">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_2" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[300,250],[300,600]],"mobile":[]},"targeting":{"pos":"2"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+		</div>
+
+
+				</div>
+				<!-- .post -->
+			</div>
+			<!-- .post-wrapper -->
+		</div>
+		<!-- .post-super-wrapper -->
+
+
+	<!-- Showing sidebar: ione3-footer | has widgets -->		<div class="widget" data-sidebar-id="ione3-footer">
+					<section class="wp-block-ione-newsletter-sign-up ione-block wp-block-ione-newsletter-sign-up--theme-footer wp-block-ione-newsletter-sign-up--text-dark wp-block-ione-newsletter-sign-up--align-center" style="">
+			<div class="wp-block-ione-newsletter-sign-up__container">
+				<h2 class="wp-block-ione-newsletter-sign-up__heading">
+					Love The Eagle 106.9/107.5? Get more! Join the The Eagle 106.9/107.5 Newsletter				</h2>
+								<form class="wp-block-ione-newsletter-sign-up__subscription-form" action="https://houstonseagle.com/wp-json/ione/v1/newsletter-sign-up/subscribe" method="post">
+					<div class="wp-block-ione-newsletter-sign-up__form">
+						<div class="wp-block-ione-newsletter-sign-up__field">
+							<label class="screen-reader-text" for="ione-newsletter-email-1">
+								Email address							</label>
+							<input
+								class="wp-block-ione-newsletter-sign-up__email"
+								id="ione-newsletter-email-1"
+								name="email_address"
+								type="email"
+								placeholder="Enter your Email Address Here"
+								autocomplete="email"
+								required
+							>
+						</div>
+						<button class="wp-block-ione-newsletter-sign-up__submit" type="submit" data-default-text="Subscribe">
+							Subscribe						</button>
+					</div>
+					<input type="hidden" name="theme" value="footer">
+					<p class="wp-block-ione-newsletter-sign-up__status" role="status" aria-live="polite" hidden></p>
+				</form>
+								<p class="wp-block-ione-newsletter-sign-up__privacy">
+					We care about your data. See our <a href="https://urban1.com/privacy/" target="_blank" rel="noopener">privacy policy</a>.				</p>
+			</div>
+		</section>
+				</div>
+				<div class="gpt-ad-container " style="min-height: 250px">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_bottom" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[728,90],[970,250]],"mobile":[[300,250],[320,100],[320,50],[336,280]]},"targeting":{"pos":"bottom"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+		<section class="im-navbar-side">
+	<form role="search" action="https://houstonseagle.com/" method="get" class="im-navbar-side__search">
+		<input type="search" placeholder="What are you looking for..." aria-label="What are you looking for..." spellcheck="false" autocomplete="off" name="s">
+		<button type="submit" aria-label="Submit search">
+			<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M7.49547 0.5C3.36472 0.5 0 3.86472 0 7.99547C0 12.1262 3.36472 15.4909 7.49547 15.4909C9.29177 15.4909 10.9414 14.8531 12.2343 13.7942L16.7096 18.2695C16.7787 18.3415 16.8614 18.3989 16.953 18.4385C17.0445 18.478 17.143 18.4989 17.2428 18.5C17.3425 18.501 17.4414 18.4821 17.5337 18.4444C17.626 18.4067 17.7099 18.351 17.7804 18.2804C17.851 18.2099 17.9067 18.126 17.9444 18.0337C17.9821 17.9414 18.001 17.8425 18 17.7427C17.9989 17.643 17.978 17.5445 17.9385 17.453C17.8989 17.3614 17.8415 17.2787 17.7695 17.2096L13.2942 12.7343C14.3531 11.4414 14.9909 9.79177 14.9909 7.99547C14.9909 3.86472 11.6262 0.5 7.49547 0.5ZM7.49547 1.99909C10.8161 1.99909 13.4919 4.67489 13.4919 7.99547C13.4919 11.3161 10.8161 13.9919 7.49547 13.9919C4.17489 13.9919 1.49909 11.3161 1.49909 7.99547C1.49909 4.67489 4.17489 1.99909 7.49547 1.99909Z" />
+			</svg>
+		</button>
+	</form>
+	<div class="im-navbar-side__elements">
+		<div class="im-navbar-side__menus-container">
+			<div class="im-navbar-side__element">
+				<h2 class="io-secondary-nav-title">The Eagle 106.9/107.5</h2>
+				<nav class="im-secondary-nav im-secondary-nav--primary" role="navigation" aria-label="Navigation">
+					<ul id="menu-1-main-1" class="menu im-secondary-nav__list"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1112436 im-secondary-nav__item"><a href="/schedule/" class=" im-secondary-nav__link">On Air</a>
+<ul class="sub-menu im-secondary-nav__sub-list">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1714509 im-secondary-nav__sub-item"><a href="https://houstonseagle.com/add-eagle-to-amazon-echo-with-alexa/" class=" im-secondary-nav__sub-link">Listen with Alexa</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1134297 im-secondary-nav__item"><a href="https://houstonseagle.com/category/events/" class=" im-secondary-nav__link">Events</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1112435 im-secondary-nav__item"><a href="https://houstonseagle.com/category/contests/" class=" im-secondary-nav__link">Contests</a>
+<ul class="sub-menu im-secondary-nav__sub-list">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1120646 im-secondary-nav__sub-item"><a target="_blank" href="https://urban1.com/contest-rules" class=" im-secondary-nav__sub-link">General Rules</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1150883 im-secondary-nav__sub-item"><a href="https://urban1.com/contest-promotions-disclaimer" class=" im-secondary-nav__sub-link">Disclaimer</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1545026 im-secondary-nav__item"><a href="https://houstonseagle.com/houston-weather/" class=" im-secondary-nav__link">Weather</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1528126 im-secondary-nav__item"><a href="https://houstonseagle.com/category/ranking-series/ranking-every-song/" class=" im-secondary-nav__link">Ranking Every Song</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1528127 im-secondary-nav__item"><a href="https://houstonseagle.com/category/setlist-series/" class=" im-secondary-nav__link">Setlists</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1459913 im-secondary-nav__item"><a href="https://houstonseagle.com/bmw-hou/" class=" im-secondary-nav__link">BMW Studio</a></li>
+</ul>				</nav>
+			</div>
+			<div class="im-navbar-side__secondary-menus-container">
+				<div class="im-navbar-side__element">
+					<h2 class="io-secondary-nav-title">Quick Links</h2>
+					<nav class="im-secondary-nav" role="navigation" aria-label="Navigation">
+						<ul id="menu-3-quick-links" class="menu im-secondary-nav__list"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1112419 im-secondary-nav__item"><a href="https://houstonseagle.com/contact-us/" class=" im-secondary-nav__link">Contact Us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112420 im-secondary-nav__item"><a target="_blank" href="https://246807996.hs-sites-na2.com/radio1-advertise-with-us" class=" im-secondary-nav__link">Advertise With Us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112421 im-secondary-nav__item"><a target="_blank" href="https://urban1.com/careers/" class=" im-secondary-nav__link">Careers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112422 im-secondary-nav__item"><a target="_blank" href="https://urban1.com/vtq-portfolio/r1-digital/" class=" im-secondary-nav__link">R1 Digital</a></li>
+</ul>					</nav>
+				</div>
+				<div class="im-navbar-side__element">
+					<h2 class="io-secondary-nav-title">Legal</h2>
+					<nav class="im-secondary-nav" role="navigation" aria-label="Navigation">
+						<ul id="menu-4-legal" class="menu im-secondary-nav__list"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112413 im-secondary-nav__item"><a target="_blank" href="https://urban1.com/privacy/" class=" im-secondary-nav__link">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112415 ione-ad-choices im-secondary-nav__item"><a target="_blank" href="https://ionedigital.com/ad-choice/" class=" im-secondary-nav__link">Ad Choice</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112416 im-secondary-nav__item"><a target="_blank" href="https://urban1.com/terms-of-service/" class=" im-secondary-nav__link">Terms of Service</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1112418 im-secondary-nav__item"><a href="https://houstonseagle.com/eeo/" class=" im-secondary-nav__link">EEO</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112417 im-secondary-nav__item"><a target="_blank" href="https://publicfiles.fcc.gov/fm-profile/kglk" class=" im-secondary-nav__link">FCC Public File</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1641537 im-secondary-nav__item"><a href="#" class=" im-secondary-nav__link">Do Not Sell My Personal Information</a></li>
+</ul>					</nav>
+				</div>
+			</div>
+		</div>
+		<div class="im-navbar-side__element">
+			<a href="/listen-live" class="io-header__listen-live-button im-navbar-side__listen-live-button" target="_blank" rel="noopener noreferrer">
+						<div class="io-header__listen-live-button-circle">
+							<div class="io-header__listen-live-button-arrow"></div>
+							<div class="io-header__listen-live-button-arrow io-header__listen-live-button-trail io-header__listen-live-button-trail--1"></div>
+							<div class="io-header__listen-live-button-arrow io-header__listen-live-button-trail io-header__listen-live-button-trail--2"></div>
+							<div class="io-header__listen-live-button-arrow io-header__listen-live-button-trail io-header__listen-live-button-trail--3"></div>
+						</div>
+						<div class="io-header__listen-live-button-text">
+							Listen Live
+						</div>
+					</a>			<nav class="im-secondary-nav im-secondary-nav--social" role="navigation" aria-label="Navigation">
+							</nav>
+		</div>
+	</div>
+	<div class="im-navbar-side__credits">
+		<footer class="im-side-footer">
+			<p><a href="https://urban1.com" target="_blank" class="urban-one">An Urban One Brand</a></p><p>Copyright &copy; 2026 <a href="https://interactiveone.com">Interactive One, LLC</a>. All Rights Reserved.</p>		</footer>
+	</div>
+</section>
+		<footer id="footer" class="wp-block-ione-footer main-footer" role="contentinfo">
+			<div class="footer-logo-container">
+				<div class="footer-logo">
+											<a href="https://houstonseagle.com" aria-label="The Eagle 106.9/107.5">
+							
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 671 272.9">
+  
+  <defs>
+    <style>
+      .st0 {
+        isolation: isolate;
+      }
+
+      .st1 {
+        fill: #d61a0c;
+      }
+
+      .st2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g>
+    <path d="M469.6,129.4h9.2v-8.4h3.2v21.4h-3.2v-10h-9.2v10h-3.2v-21.4h3.2v8.4h0Z" />
+    <path d="M486.1,131.6c0-3,1.1-5.6,3.3-7.7,2.2-2.2,4.8-3.2,7.9-3.2s5.7,1.1,7.8,3.3c2.2,2.2,3.3,4.8,3.3,7.8s-1.1,5.7-3.3,7.8c-2.2,2.1-4.9,3.2-8,3.2s-5.2-1-7.4-2.9c-2.4-2.1-3.6-4.9-3.6-8.3h0ZM489.4,131.7c0,2.4.8,4.3,2.4,5.8,1.6,1.5,3.4,2.3,5.5,2.3s4.1-.8,5.7-2.3c1.5-1.6,2.3-3.5,2.3-5.7s-.8-4.2-2.3-5.7c-1.5-1.5-3.4-2.3-5.6-2.3s-4.1.8-5.6,2.3c-1.5,1.5-2.3,3.4-2.3,5.7h0Z" />
+    <path d="M515.7,121v12.9c0,1.8.3,3.2.9,4,.9,1.2,2.1,1.8,3.8,1.8s2.9-.6,3.8-1.8c.6-.8.9-2.2.9-4v-12.9h3.2v13.8c0,2.2-.7,4.1-2.1,5.6-1.6,1.6-3.5,2.4-5.8,2.4s-4.2-.8-5.8-2.4c-1.4-1.5-2.1-3.3-2.1-5.6v-13.8h3.2,0Z" />
+    <path d="M545.5,124.2l-2.6,1.5c-.5-.8-1-1.4-1.4-1.7-.5-.3-1.1-.4-1.8-.4s-1.6.2-2.2.8c-.6.5-.9,1.1-.9,1.9s.8,1.9,2.3,2.5l2.1.9c1.7.7,3,1.6,3.8,2.6.8,1,1.2,2.2,1.2,3.7s-.7,3.6-2,4.9c-1.3,1.3-3,1.9-4.9,1.9s-3.4-.5-4.6-1.7c-1.2-1.1-1.9-2.6-2.2-4.6l3.3-.7c.1,1.3.4,2.1.8,2.6.7.9,1.6,1.4,2.9,1.4s1.8-.3,2.5-1c.7-.7,1-1.5,1-2.6s0-.8-.2-1.1-.3-.7-.5-.9c-.2-.3-.6-.6-.9-.8-.4-.2-.8-.5-1.4-.7l-2.1-.9c-2.9-1.2-4.4-3-4.4-5.4s.6-2.9,1.8-4c1.2-1.1,2.7-1.6,4.6-1.6s4.4,1.2,5.8,3.6h0Z" />
+    <path d="M556.3,124.1v18.3h-3.2v-18.3h-4.9v-3h13v3h-4.9Z" />
+    <path d="M562.3,131.6c0-3,1.1-5.6,3.3-7.7,2.2-2.2,4.8-3.2,7.9-3.2s5.7,1.1,7.8,3.3c2.2,2.2,3.3,4.8,3.3,7.8s-1.1,5.7-3.3,7.8c-2.2,2.1-4.9,3.2-8,3.2s-5.2-1-7.4-2.9c-2.4-2.1-3.6-4.9-3.6-8.3h0ZM565.5,131.7c0,2.4.8,4.3,2.4,5.8,1.6,1.5,3.4,2.3,5.5,2.3s4.1-.8,5.7-2.3c1.5-1.6,2.3-3.5,2.3-5.7s-.8-4.2-2.3-5.7c-1.5-1.5-3.4-2.3-5.6-2.3s-4.1.8-5.6,2.3c-1.5,1.5-2.3,3.4-2.3,5.7h0Z" />
+    <path d="M588.7,142.4v-22.8l15.6,16.3v-14.8h3.2v22.7l-15.6-16.3v15h-3.2Z" />
+    <path d="M614.9,120.1l2.8,1.1-3.9,7.9-2.1-.9,3.3-8.1h0Z" />
+    <path d="M633.9,124.2l-2.6,1.5c-.5-.8-1-1.4-1.4-1.7-.5-.3-1.1-.4-1.8-.4s-1.6.2-2.2.8c-.6.5-.9,1.1-.9,1.9s.8,1.9,2.3,2.5l2.1.9c1.7.7,3,1.6,3.8,2.6.8,1,1.2,2.2,1.2,3.7s-.7,3.6-2,4.9c-1.3,1.3-3,1.9-4.9,1.9s-3.4-.5-4.6-1.7c-1.2-1.1-1.9-2.6-2.2-4.6l3.3-.7c.1,1.3.4,2.1.8,2.6.7.9,1.6,1.4,2.9,1.4s1.8-.3,2.5-1,1-1.5,1-2.6,0-.8-.2-1.1c-.1-.3-.3-.7-.5-.9s-.6-.6-.9-.8c-.4-.2-.8-.5-1.4-.7l-2.1-.9c-2.9-1.2-4.4-3-4.4-5.4s.6-2.9,1.8-4c1.2-1.1,2.7-1.6,4.6-1.6s4.4,1.2,5.8,3.6h0Z" />
+  </g>
+  <g>
+    <path d="M457,153.5v4.2c-2-1.7-4.2-2.5-6.3-2.5s-4.4.9-6.1,2.6c-1.7,1.7-2.5,3.8-2.5,6.3s.8,4.5,2.5,6.2,3.7,2.5,6.1,2.5,2.3-.2,3.2-.6c.5-.2,1-.5,1.5-.8.5-.3,1.1-.7,1.6-1.2v4.2c-2,1.1-4.1,1.7-6.4,1.7-3.3,0-6.2-1.2-8.6-3.5-2.4-2.3-3.5-5.2-3.5-8.5s1-5.6,3-7.9c2.4-2.8,5.6-4.3,9.4-4.3s4.1.6,6.1,1.7h0Z" />
+    <path d="M465,152.2v20h6.9v3.3h-10.4v-23.3h3.5Z" />
+    <path d="M490.3,169.9h-10l-2.6,5.7h-3.8l11.6-24.7,11.2,24.7h-3.9l-2.5-5.7h0ZM488.9,166.6l-3.5-7.9-3.6,7.9h7.1Z" />
+    <path d="M512.9,155.7l-2.9,1.7c-.5-.9-1-1.5-1.5-1.8-.5-.3-1.2-.5-2-.5s-1.8.3-2.4.8c-.6.5-1,1.2-1,2s.8,2,2.5,2.7l2.3.9c1.9.8,3.3,1.7,4.2,2.8s1.3,2.4,1.3,4-.7,3.9-2.2,5.3c-1.4,1.4-3.2,2.1-5.4,2.1s-3.7-.6-5-1.8c-1.3-1.2-2.1-2.9-2.4-5.1l3.6-.8c.2,1.4.4,2.3.8,2.8.7,1,1.8,1.5,3.2,1.5s2-.4,2.7-1.1c.7-.7,1.1-1.7,1.1-2.8s0-.9-.2-1.2c-.1-.4-.3-.7-.6-1-.3-.3-.6-.6-1-.9-.4-.3-.9-.5-1.5-.8l-2.3-.9c-3.2-1.3-4.8-3.3-4.8-5.9s.7-3.2,2-4.4c1.3-1.2,3-1.8,5-1.8s4.8,1.3,6.3,3.9h0Z" />
+    <path d="M531,155.7l-2.9,1.7c-.5-.9-1-1.5-1.5-1.8-.5-.3-1.2-.5-2-.5s-1.8.3-2.4.8c-.6.5-1,1.2-1,2s.8,2,2.5,2.7l2.3.9c1.9.8,3.3,1.7,4.2,2.8s1.3,2.4,1.3,4-.7,3.9-2.2,5.3c-1.4,1.4-3.2,2.1-5.4,2.1s-3.7-.6-5-1.8c-1.3-1.2-2.1-2.9-2.4-5.1l3.6-.8c.2,1.4.4,2.3.8,2.8.7,1,1.8,1.5,3.2,1.5s2-.4,2.7-1.1c.7-.7,1.1-1.7,1.1-2.8s0-.9-.2-1.2c-.1-.4-.3-.7-.6-1-.3-.3-.6-.6-1-.9-.4-.3-.9-.5-1.5-.8l-2.3-.9c-3.2-1.3-4.8-3.3-4.8-5.9s.7-3.2,2-4.4c1.3-1.2,3-1.8,5-1.8s4.8,1.3,6.3,3.9h0Z" />
+    <path d="M539.4,152.2v23.3h-3.5v-23.3h3.5Z" />
+    <path d="M562.4,153.5v4.2c-2-1.7-4.2-2.5-6.3-2.5s-4.4.9-6.1,2.6c-1.7,1.7-2.5,3.8-2.5,6.3s.8,4.5,2.5,6.2,3.7,2.5,6.1,2.5,2.3-.2,3.2-.6c.5-.2,1-.5,1.5-.8s1.1-.7,1.6-1.2v4.2c-2,1.1-4.1,1.7-6.4,1.7-3.3,0-6.2-1.2-8.6-3.5-2.4-2.3-3.5-5.2-3.5-8.5s1-5.6,3-7.9c2.4-2.8,5.6-4.3,9.4-4.3s4.1.6,6.1,1.7h0Z" />
+    <path d="M584.4,165.6l7.3,9.9h-4.3l-6.7-9.5h-.6v9.5h-3.5v-23.3h4.1c3.1,0,5.3.6,6.7,1.7,1.5,1.3,2.3,3,2.3,5.1s-.5,3.1-1.4,4.2c-.9,1.2-2.2,1.9-3.8,2.3h0ZM580,162.9h1.1c3.3,0,5-1.3,5-3.8s-1.6-3.6-4.9-3.6h-1.3v7.4h0Z" />
+    <path d="M593.5,163.8c0-3.3,1.2-6.1,3.6-8.4,2.4-2.3,5.3-3.5,8.7-3.5s6.2,1.2,8.6,3.6c2.4,2.4,3.6,5.2,3.6,8.5s-1.2,6.2-3.6,8.5c-2.4,2.3-5.3,3.5-8.8,3.5s-5.7-1-8.2-3.1c-2.6-2.3-4-5.3-4-9h0ZM597.1,163.8c0,2.6.9,4.7,2.6,6.3,1.7,1.7,3.7,2.5,6,2.5s4.5-.8,6.2-2.5c1.7-1.7,2.5-3.8,2.5-6.2s-.8-4.6-2.5-6.2c-1.7-1.7-3.7-2.5-6.2-2.5s-4.5.8-6.2,2.5c-1.7,1.7-2.5,3.7-2.5,6.2h0Z" />
+    <path d="M639.8,153.5v4.2c-2-1.7-4.2-2.5-6.3-2.5s-4.4.9-6.1,2.6c-1.7,1.7-2.5,3.8-2.5,6.3s.8,4.5,2.5,6.2,3.7,2.5,6.1,2.5,2.3-.2,3.2-.6c.5-.2,1-.5,1.5-.8s1.1-.7,1.6-1.2v4.2c-2,1.1-4.1,1.7-6.4,1.7-3.3,0-6.2-1.2-8.6-3.5-2.4-2.3-3.5-5.2-3.5-8.5s1-5.6,3-7.9c2.4-2.8,5.6-4.3,9.4-4.3s4.1.6,6.1,1.7h0Z" />
+    <path d="M648.5,161.5l9.1-9.3h4.7l-10.6,10.5,10.7,12.7h-4.7l-8.4-10.4-.7.7v9.6h-3.5v-23.3h3.5v9.3h0Z" />
+  </g>
+  <g>
+    <g>
+      <polygon points="377.4 272.8 80.5 272.8 80.5 0 377.4 0 377.4 272.8 377.4 272.8" />
+      <path class="st1" d="M192.7,163.9c-4-4.4-4.2-9.6-4.2-11.2-29.7,10.1-54.1,13.7-73.6,13.7s-20.7-1.2-28.8-2.9c2.8,2.9,7.5,6.8,14.4,10.2,4.4,1.8,9.3,3.5,14.4,5.1,17.7,4.1,43.7,3.1,80.3-12.6-.9-.7-1.8-1.4-2.6-2.2h0q0,0,0,0Z" />
+      <path class="st1" d="M199.1,168.3c-23.6,10.4-43,14.9-58.8,15.8,13.3,4.9,44.9,11.7,80.4-14.3-3.2.4-6.2.7-8.9.7-5,0-9.2-.8-12.7-2.2h0Z" />
+      <path class="st1" d="M71.7,133.3c25.3,0,48.2-4.8,57.4-7-6.1-1.8-10.9-3.7-14.5-5.4-3.8-1.4-7.6-2.9-11.1-4.4h-7.7c-29.2,0-76.2-1-94.8-6.7,7,7.8,24.8,21.5,63.6,23.3,2.3,0,4.7,0,7.1,0h0q0,0,0,0Z" />
+      <path class="st1" d="M189.3,148.7c.9-5,.4-8.8-1.6-11.4-2.8-3.6-8-4.2-10.8-4.2s-.5,0-.8,0c-34.4,13-65.1,19.6-91.3,19.6s-16.2-.7-22.9-1.9c16.7,9,57,22.4,127.3-2.1h0Z" />
+      <path class="st1" d="M166.6,132.9c-9.4-.7-17.6-1.9-24.7-3.3l-5.1-.5c-23.5,5.2-44.9,7.9-63.7,7.9h0c-2.6,0-5.1,0-7.5-.2-1.1,0-2.2,0-3.4,0h-.7c-14.2-.7-27-3.1-38-7,5,4.6,14.1,11.2,29.1,15.5l.3-.3s.3.2.7.6c8.6,2.3,18.9,3.9,31.4,3.9,23.6,0,51.1-5.5,81.7-16.3h0v-.2q0,0,0,0Z" />
+      <path class="st1" d="M394.7,136.6c-1,0-1.9,0-2.9,0-2.5,0-5,.2-7.6.2-18.8,0-40.3-2.7-63.8-7.9l-5.1.5c-6.5,1.3-14,2.5-22.5,3.1,0,.3-.2.6-.3.8,29.8,10.4,56.6,15.7,79.8,15.7h0c12.5,0,22.9-1.6,31.4-3.9.4-.4.7-.6.7-.6l.3.3c15-4.3,24.2-10.9,29.1-15.5-11.1,3.9-23.8,6.3-38,7h-1.2v.2q0,0,0,0Z" />
+      <path class="st1" d="M245.4,170.5c-2.7,0-5.7-.2-8.9-.7,35.6,26,67.2,19.2,80.4,14.3-15.8-.9-35.3-5.4-58.8-15.8-3.5,1.5-7.7,2.2-12.7,2.2h0Z" />
+      <path class="st1" d="M268.7,152.7c0,1.6,0,6.8-4.2,11.2-.8.8-1.6,1.6-2.6,2.2,38.6,16.6,65.4,16.8,83.1,12,3.4-1.1,6.7-2.3,9.8-3.5,7.9-3.6,13.2-8,16.3-11.1-8.1,1.7-17.6,2.9-28.8,2.9-19.5,0-43.9-3.6-73.6-13.7h0Z" />
+      <path class="st1" d="M361.5,116.5h-7.6c-3.5,1.5-7.3,3-11,4.4-3.6,1.7-8.4,3.6-14.5,5.4,9.2,2.2,32.1,7,57.3,7s4.8,0,7.2,0c38.7-1.8,56.5-15.5,63.5-23.3-18.6,5.7-65.6,6.7-94.8,6.7h0s0,0,0,0Z" />
+      <path class="st1" d="M372.3,152.7c-23.6,0-50.9-5.4-81.2-15.9-.3.6-.5,1.1-.8,1.7l-2.3-.8s0-1-.2-2.1c-2.3-.8-4.5-1.6-6.8-2.5h-.8c-2.9,0-8,.5-10.8,4.2-2,2.6-2.5,6.4-1.6,11.4,70.4,24.5,110.7,11.2,127.4,2.1-6.8,1.2-14.4,1.9-23,1.9h0,0Z" />
+      <polygon class="st2" points="139.1 117.6 152.7 117.6 152.7 95.3 139.1 95.3 139.1 77.7 153.7 77.7 153.7 54.4 115 54.4 115 161.7 155.1 161.7 155.1 138.4 139.1 138.4 139.1 117.6 139.1 117.6" />
+      <path class="st2" d="M185,119.6c-3.4,3.1-5.3,5.6-5.8,7.7s-.8,5.1-.8,9,.2,7.3.7,8.6,1.4,1.9,2.8,1.9,2.2-.5,2.6-1.5c.4-1,.6-3.7.6-8v-17.7s0,0,0,0ZM178.4,107.8h-19.7v-5.8c0-6.7.6-11.8,1.8-15.4s3.7-6.8,7.4-9.6c3.7-2.8,8.5-4.1,14.4-4.1s12.4,1.6,16,4.7,5.8,7,6.5,11.5c.7,4.6,1.1,14,1.1,28.2v43.2h-20.4v-7.7c-1.3,3.1-2.9,5.4-5,6.9-2,1.5-4.4,2.3-7.2,2.3s-7-1.3-10.1-3.9c-3.1-2.6-4.6-8.2-4.6-16.9v-7.1c0-6.4.8-10.8,2.4-13.2,1.6-2.3,5.7-5.1,12.1-8.2,6.9-3.4,10.6-5.6,11.1-6.8.5-1.2.7-3.5.7-7.1s-.3-7.4-.8-8.8-1.4-2-2.7-2-2.3.6-2.6,1.7-.5,4.1-.5,8.9v9h0v.2Z" />
+      <path class="st2" d="M239.8,97.3c0-3.9-.2-6.4-.5-7.5-.4-1.1-1.2-1.6-2.4-1.6s-2.1.6-2.6,1.8c-.5,1.2-.8,3.7-.8,7.3v28.9c0,3.9.2,6.3.6,7.5.4,1.1,1.2,1.7,2.4,1.7s2.3-.7,2.7-2.1c.4-1.4.6-4.5.6-9.4v-26.7h0ZM260.8,74.5v66.3c0,9-.2,14.7-.5,17.4-.3,2.6-1.5,5.4-3.5,8.3-2,2.9-4.8,5.1-8.4,6.7-3.6,1.5-8.1,2.3-13.5,2.3s-12-1.4-16.1-4.3c-4-2.8-6.1-8.4-6.3-16.7h20.3c0,3.8,1.1,5.7,3.3,5.7s2.6-.6,3.2-1.8c.5-1.2.8-3.6.8-7.3v-6.5c-1.8,2-3.7,3.6-5.7,4.6s-4.1,1.6-6.3,1.6c-3.8,0-6.9-1-9.3-2.9-2.4-1.9-4.1-4.4-5-7.5s-1.4-7.5-1.4-13.2v-31.3c0-8.2,1.2-14.1,3.5-17.6,2.4-3.6,5.9-5.4,10.7-5.4s5,.7,7.2,2,4.1,3.4,5.8,6l1.5-6.5h19.7q0,0,0,0Z" />
+      <polygon class="st2" points="289.9 160.5 268.3 160.5 268.3 55.5 289.9 55.5 289.9 160.5 289.9 160.5" />
+      <path class="st2" d="M323.9,105v-6.3c0-4.5-.2-7.3-.6-8.6-.4-1.3-1.2-1.9-2.3-1.9s-2.4.6-2.7,1.7c-.3,1.1-.5,4.1-.5,8.9v6.3h6.1ZM344.9,119h-27.1v18.6c0,3.9.2,6.4.7,7.5s1.3,1.7,2.6,1.7,2.7-.7,3.2-2.2.8-4.4.8-8.7v-11.4h19.9v6.4c0,5.3-.3,9.4-.8,12.3-.5,2.9-1.8,5.9-3.8,9.1-2,3.2-4.5,5.7-7.5,7.3s-6.8,2.4-11.4,2.4-8.3-.8-11.7-2.4c-3.4-1.6-6-3.8-7.9-6.6s-3.2-5.9-3.9-9.2c-.7-3.4-1.1-8.2-1.1-14.6v-25.1c0-7.5.8-13.5,2.4-17.8,1.6-4.3,4.3-7.7,8-10s8-3.5,12.8-3.5,10.7,1.4,14.6,4.2c3.8,2.8,6.5,6.5,8,11.1s2.3,11.1,2.3,19.4v11.4h0q0,0,0,0Z" />
+      <path class="st2" d="M117.1,209.9v40.3h-9.8v-21.6c0-3.1,0-5-.2-5.6s-.5-1.1-1.2-1.4c-.7-.3-2.1-.5-4.4-.5h-1v-4.7c4.8-1,8.4-3.2,10.8-6.4h5.8s0,0,0,0Z" />
+      <path class="st2" d="M135.4,220.2c0-2.1,0-3.5-.3-4s-.7-.8-1.4-.8-1.2.3-1.4.9c-.2.6-.4,1.9-.4,4v19.7c0,2.3,0,3.7.3,4.2s.7.7,1.4.7,1.2-.3,1.4-.8c.2-.6.3-1.8.3-3.8v-20h0q0,0,0,0ZM145.2,223.5v13.4c0,3.1-.2,5.3-.5,6.7s-1,2.7-2,3.9-2.3,2.1-3.7,2.6-3.1.8-4.8.8-4.3-.3-5.9-.8c-1.6-.6-2.8-1.4-3.7-2.6-.9-1.2-1.6-2.4-2-3.7s-.6-3.4-.6-6.2v-14.1c0-3.7.3-6.5.9-8.3s1.9-3.3,3.7-4.4c1.9-1.1,4.1-1.7,6.8-1.7s4.1.4,5.8,1.2,3,1.7,3.8,2.8,1.4,2.4,1.7,3.8c.3,1.4.5,3.6.5,6.7h0q0,0,0,0Z" />
+      <path class="st2" d="M163.8,233.2c0-1.4-.2-2.4-.5-2.9s-.8-.8-1.5-.8-1.2.3-1.5.8-.5,1.5-.5,3v7.3c0,1.8,0,2.9.5,3.5.3.5.8.8,1.5.8s.9-.2,1.3-.6c.5-.4.7-1.6.7-3.4v-7.5h0v-.2h0ZM173.6,220.6h-9.8v-3.5c0-.5-.2-.9-.6-1.2-.4-.3-.8-.5-1.4-.5s-.9.2-1.2.5-.5.7-.6,1.2v9.4c.5-1.1,1.2-1.9,2.2-2.4s2.2-.8,3.6-.8,3.4.5,4.8,1.5c1.4,1,2.3,2.2,2.6,3.6.4,1.4.6,3.3.6,5.6v3.2c0,2.8,0,4.9-.3,6.3-.2,1.4-.8,2.7-1.7,3.8-.9,1.2-2.2,2.1-3.8,2.7-1.6.7-3.5,1-5.6,1s-4.8-.4-6.5-1.1c-1.7-.7-3-1.8-3.9-3.2s-1.5-2.9-1.6-4.4c-.2-1.5-.2-4.5-.2-9v-5.6c0-4.8,0-8,.2-9.6,0-1.6.7-3.1,1.7-4.6,1-1.4,2.3-2.5,4.1-3.2,1.7-.7,3.7-1.1,5.9-1.1s5,.5,6.8,1.4,3,2.2,3.8,3.9,1.1,3.7,1.1,6.3h0l-.2-.2h0Z" />
+      <polygon class="st2" points="184.8 250.1 177.4 250.1 177.4 242 184.8 242 184.8 250.1 184.8 250.1" />
+      <path class="st2" d="M198.5,226.9c0,1.7.2,2.7.6,3.1s.9.6,1.3.6c.7,0,1.2-.3,1.5-.8s.5-1.5.5-3v-7.3c0-1.8,0-2.9-.4-3.5-.3-.5-.8-.8-1.5-.8s-.9.2-1.3.6c-.5.4-.7,1.6-.7,3.4v7.5h0v.2h0ZM188.7,239.5h9.8v3.5c0,.5.2.9.6,1.2.3.3.8.5,1.4.5s.9-.2,1.2-.5.5-.7.5-1.2v-9.4c-.5,1.1-1.2,1.9-2.2,2.4s-2.2.8-3.6.8-3.4-.5-4.8-1.5c-1.4-1-2.3-2.2-2.6-3.6-.4-1.4-.6-3.3-.6-5.6v-3.2c0-2.8,0-4.9.3-6.3.2-1.4.8-2.7,1.7-3.8.9-1.2,2.2-2.1,3.8-2.7,1.6-.6,3.5-1,5.6-1s4.8.4,6.5,1.1c1.7.7,3,1.8,3.9,3.2s1.5,2.9,1.6,4.4.2,4.5.2,9v5.6c0,4.8,0,8-.2,9.6,0,1.6-.7,3.1-1.7,4.6-1,1.4-2.3,2.5-4.1,3.2-1.7.7-3.7,1.1-5.9,1.1s-5-.5-6.8-1.4-3-2.2-3.8-3.9-1.2-3.7-1.2-6.3h0l.4.2h0Z" />
+      <path class="st2" d="M117.1,209.9v40.3h-9.8v-21.6c0-3.1,0-5-.2-5.6s-.5-1.1-1.2-1.4c-.7-.3-2.1-.5-4.4-.5h-1v-4.7c4.8-1,8.4-3.2,10.8-6.4h5.8s0,0,0,0Z" />
+      <path class="st2" d="M135.4,220.2c0-2.1,0-3.5-.3-4s-.7-.8-1.4-.8-1.2.3-1.4.9c-.2.6-.4,1.9-.4,4v19.7c0,2.3,0,3.7.3,4.2s.7.7,1.4.7,1.2-.3,1.4-.8c.2-.6.3-1.8.3-3.8v-20h0q0,0,0,0ZM145.2,223.5v13.4c0,3.1-.2,5.3-.5,6.7s-1,2.7-2,3.9-2.3,2.1-3.7,2.6-3.1.8-4.8.8-4.3-.3-5.9-.8c-1.6-.6-2.8-1.4-3.7-2.6-.9-1.2-1.6-2.4-2-3.7s-.6-3.4-.6-6.2v-14.1c0-3.7.3-6.5.9-8.3s1.9-3.3,3.7-4.4c1.9-1.1,4.1-1.7,6.8-1.7s4.1.4,5.8,1.2,3,1.7,3.8,2.8,1.4,2.4,1.7,3.8c.3,1.4.5,3.6.5,6.7h0q0,0,0,0Z" />
+      <path class="st2" d="M163.8,233.2c0-1.4-.2-2.4-.5-2.9s-.8-.8-1.5-.8-1.2.3-1.5.8-.5,1.5-.5,3v7.3c0,1.8,0,2.9.5,3.5.3.5.8.8,1.5.8s.9-.2,1.3-.6c.5-.4.7-1.6.7-3.4v-7.5h0v-.2h0ZM173.6,220.6h-9.8v-3.5c0-.5-.2-.9-.6-1.2-.4-.3-.8-.5-1.4-.5s-.9.2-1.2.5-.5.7-.6,1.2v9.4c.5-1.1,1.2-1.9,2.2-2.4s2.2-.8,3.6-.8,3.4.5,4.8,1.5c1.4,1,2.3,2.2,2.6,3.6.4,1.4.6,3.3.6,5.6v3.2c0,2.8,0,4.9-.3,6.3-.2,1.4-.8,2.7-1.7,3.8-.9,1.2-2.2,2.1-3.8,2.7-1.6.7-3.5,1-5.6,1s-4.8-.4-6.5-1.1c-1.7-.7-3-1.8-3.9-3.2s-1.5-2.9-1.6-4.4c-.2-1.5-.2-4.5-.2-9v-5.6c0-4.8,0-8,.2-9.6,0-1.6.7-3.1,1.7-4.6,1-1.4,2.3-2.5,4.1-3.2,1.7-.7,3.7-1.1,5.9-1.1s5,.5,6.8,1.4,3,2.2,3.8,3.9,1.1,3.7,1.1,6.3h0l-.2-.2h0Z" />
+      <polygon class="st2" points="184.8 250.1 177.4 250.1 177.4 242 184.8 242 184.8 250.1 184.8 250.1" />
+      <path class="st2" d="M198.5,226.9c0,1.7.2,2.7.6,3.1s.9.6,1.3.6c.7,0,1.2-.3,1.5-.8s.5-1.5.5-3v-7.3c0-1.8,0-2.9-.4-3.5-.3-.5-.8-.8-1.5-.8s-.9.2-1.3.6c-.5.4-.7,1.6-.7,3.4v7.5h0v.2h0ZM188.7,239.5h9.8v3.5c0,.5.2.9.6,1.2.3.3.8.5,1.4.5s.9-.2,1.2-.5.5-.7.5-1.2v-9.4c-.5,1.1-1.2,1.9-2.2,2.4s-2.2.8-3.6.8-3.4-.5-4.8-1.5c-1.4-1-2.3-2.2-2.6-3.6-.4-1.4-.6-3.3-.6-5.6v-3.2c0-2.8,0-4.9.3-6.3.2-1.4.8-2.7,1.7-3.8.9-1.2,2.2-2.1,3.8-2.7,1.6-.6,3.5-1,5.6-1s4.8.4,6.5,1.1c1.7.7,3,1.8,3.9,3.2s1.5,2.9,1.6,4.4.2,4.5.2,9v5.6c0,4.8,0,8-.2,9.6,0,1.6-.7,3.1-1.7,4.6-1,1.4-2.3,2.5-4.1,3.2-1.7.7-3.7,1.1-5.9,1.1s-5-.5-6.8-1.4-3-2.2-3.8-3.9-1.2-3.7-1.2-6.3h0l.4.2h0Z" />
+      <path class="st2" d="M268.2,209.9v40.3h-9.8v-21.6c0-3.1,0-5-.2-5.6s-.5-1.1-1.2-1.4c-.7-.3-2.1-.5-4.4-.5h-1v-4.7c4.8-1,8.4-3.2,10.8-6.4h5.8q0,0,0,0Z" />
+      <path class="st2" d="M286.7,220.2c0-2.1,0-3.5-.3-4-.2-.5-.7-.8-1.4-.8s-1.2.3-1.4.9c-.2.6-.4,1.9-.4,4v19.7c0,2.3,0,3.7.3,4.2.2.5.7.7,1.4.7s1.2-.3,1.4-.8c.2-.6.3-1.8.3-3.8v-20h0q0,0,0,0ZM296.5,223.5v13.4c0,3.1-.2,5.3-.5,6.7s-1,2.7-2,3.9-2.3,2.1-3.7,2.6c-1.4.5-3.1.8-4.8.8s-4.3-.3-5.9-.8c-1.6-.6-2.8-1.4-3.7-2.6-.9-1.2-1.6-2.4-2-3.7s-.6-3.4-.6-6.2v-14.1c0-3.7.3-6.5.9-8.3s1.9-3.3,3.7-4.4c1.9-1.1,4.1-1.7,6.8-1.7s4.1.4,5.8,1.2c1.7.8,3,1.7,3.8,2.8s1.4,2.4,1.7,3.8c.3,1.4.5,3.6.5,6.7h0q0,0,0,0Z" />
+      <polygon class="st2" points="318.6 209.9 318.6 218.7 312.3 250.1 302.5 250.1 309.5 217.1 299.8 217.1 299.8 209.9 318.6 209.9 318.6 209.9" />
+      <polygon class="st2" points="328.6 250.1 321.2 250.1 321.2 242 328.6 242 328.6 250.1 328.6 250.1" />
+      <path class="st2" d="M353.9,209.9v6.4h-12.2v6.8c1.5-1.8,3.5-2.8,5.9-2.8s4.8.8,6.1,2.3c1.4,1.6,2.1,4.5,2.1,8.9v5.7c0,2.9,0,4.9-.4,6.3-.3,1.3-.8,2.6-1.7,3.7-.9,1.1-2.1,2-3.7,2.6s-3.5.9-5.7.9-4.8-.5-6.7-1.4c-1.9-.9-3.3-2.3-4.1-4-.8-1.8-1.2-4.6-1.2-8.3v-2.2h9.8v2.5c0,2.6,0,4.5.3,5.5.2,1.1.8,1.6,1.8,1.6s.9-.2,1.2-.5c.3-.3.5-.7.5-1v-12.7c0-1.5-.2-2.5-.5-3.1-.3-.5-.8-.8-1.5-.8s-.8,0-1.1.4c-.3.3-.5.6-.6.9,0,.3,0,1.1,0,2.3h-9.7l.4-20.3h21.1v.3h0Z" />
+      <path class="st2" d="M268.2,209.9v40.3h-9.8v-21.6c0-3.1,0-5-.2-5.6s-.5-1.1-1.2-1.4c-.7-.3-2.1-.5-4.4-.5h-1v-4.7c4.8-1,8.4-3.2,10.8-6.4h5.8q0,0,0,0Z" />
+      <path class="st2" d="M286.7,220.2c0-2.1,0-3.5-.3-4-.2-.5-.7-.8-1.4-.8s-1.2.3-1.4.9c-.2.6-.4,1.9-.4,4v19.7c0,2.3,0,3.7.3,4.2.2.5.7.7,1.4.7s1.2-.3,1.4-.8c.2-.6.3-1.8.3-3.8v-20h0q0,0,0,0ZM296.5,223.5v13.4c0,3.1-.2,5.3-.5,6.7s-1,2.7-2,3.9-2.3,2.1-3.7,2.6c-1.4.5-3.1.8-4.8.8s-4.3-.3-5.9-.8c-1.6-.6-2.8-1.4-3.7-2.6-.9-1.2-1.6-2.4-2-3.7s-.6-3.4-.6-6.2v-14.1c0-3.7.3-6.5.9-8.3s1.9-3.3,3.7-4.4c1.9-1.1,4.1-1.7,6.8-1.7s4.1.4,5.8,1.2c1.7.8,3,1.7,3.8,2.8s1.4,2.4,1.7,3.8c.3,1.4.5,3.6.5,6.7h0q0,0,0,0Z" />
+      <polygon class="st2" points="318.6 209.9 318.6 218.7 312.3 250.1 302.5 250.1 309.5 217.1 299.8 217.1 299.8 209.9 318.6 209.9 318.6 209.9" />
+      <polygon class="st2" points="328.6 250.1 321.2 250.1 321.2 242 328.6 242 328.6 250.1 328.6 250.1" />
+      <path class="st2" d="M353.9,209.9v6.4h-12.2v6.8c1.5-1.8,3.5-2.8,5.9-2.8s4.8.8,6.1,2.3c1.4,1.6,2.1,4.5,2.1,8.9v5.7c0,2.9,0,4.9-.4,6.3-.3,1.3-.8,2.6-1.7,3.7-.9,1.1-2.1,2-3.7,2.6s-3.5.9-5.7.9-4.8-.5-6.7-1.4c-1.9-.9-3.3-2.3-4.1-4-.8-1.8-1.2-4.6-1.2-8.3v-2.2h9.8v2.5c0,2.6,0,4.5.3,5.5.2,1.1.8,1.6,1.8,1.6s.9-.2,1.2-.5c.3-.3.5-.7.5-1v-12.7c0-1.5-.2-2.5-.5-3.1-.3-.5-.8-.8-1.5-.8s-.8,0-1.1.4c-.3.3-.5.6-.6.9,0,.3,0,1.1,0,2.3h-9.7l.4-20.3h21.1v.3h0Z" />
+      <path class="st2" d="M233.9,227.6c.6-.8.9-1.6.9-2.3s0-.6-.3-.9c-.2-.3-.4-.4-.7-.4s-.5,0-.6.3c0,.2-.2.5-.2.9,0,.8.3,1.6,1,2.4h0,0ZM235.1,236l-1.7-2.9c-.6.6-1,1.3-1,2s0,.9.3,1.2c.2.3.5.4.9.4s.9-.2,1.4-.6h0q0,0,0,0ZM241.8,231.4v3.7l-1.4,1,1.8,3.7h-4.7l-.6-1.2c-1.6,1.1-3.1,1.7-4.5,1.7s-2.6-.5-3.4-1.6c-.8-1.1-1.2-2.3-1.2-3.8s.2-2.1.7-2.8,1.2-1.2,2.1-1.6c-1.4-1-2-2.4-2-4.2s.5-2.7,1.4-3.7c1-.9,2.3-1.4,4-1.4s2.7.5,3.6,1.4c.9.9,1.3,2.1,1.3,3.5s-.5,2.8-1.6,3.9l1.8,3.5,2.8-1.9h0v-.2q0,0,0,0Z" />
+      <path class="st2" d="M233.9,227.6c.6-.8.9-1.6.9-2.3s0-.6-.3-.9c-.2-.3-.4-.4-.7-.4s-.5,0-.6.3c0,.2-.2.5-.2.9,0,.8.3,1.6,1,2.4h0,0ZM235.1,236l-1.7-2.9c-.6.6-1,1.3-1,2s0,.9.3,1.2c.2.3.5.4.9.4s.9-.2,1.4-.6h0q0,0,0,0ZM241.8,231.4v3.7l-1.4,1,1.8,3.7h-4.7l-.6-1.2c-1.6,1.1-3.1,1.7-4.5,1.7s-2.6-.5-3.4-1.6c-.8-1.1-1.2-2.3-1.2-3.8s.2-2.1.7-2.8,1.2-1.2,2.1-1.6c-1.4-1-2-2.4-2-4.2s.5-2.7,1.4-3.7c1-.9,2.3-1.4,4-1.4s2.7.5,3.6,1.4c.9.9,1.3,2.1,1.3,3.5s-.5,2.8-1.6,3.9l1.8,3.5,2.8-1.9h0v-.2q0,0,0,0Z" />
+    </g>
+    <g>
+      <g>
+        <path class="st2" d="M172.2,66v-26.3h-12v-6.5h30.4v6.5h-12v26.3h-6.4Z" />
+        <path class="st2" d="M215.8,66v-16.3c0-2.6-.9-4-3.5-4h-8.3c-1.9,0-2.7.8-3.2,2.5v17.7h-6.3v-33.7l6.3-2.1v13.8c1.4-2.7,3.1-3.7,6.1-3.7h5.3c7.5,0,9.9,3.3,9.9,10.3v15.4h-6.4,0Z" />
+        <path class="st2" d="M237.7,66c-6.2,0-9.9-2.6-9.9-9.1v-7.6c0-6.4,3.7-9.1,9.9-9.1h8.5c6.2,0,9.9,2.6,9.9,9.1v6.1h-22v1.6c0,2.6,1.3,3.5,3.5,3.5h17.9l-.8,5.5h-17.1ZM249.8,49.7c0-2.8-1-3.9-3.5-3.9h-8.5c-2.5,0-3.5,1.1-3.5,3.5v2h15.6v-1.7h0Z" />
+      </g>
+    </g>
+  </g>
+</svg>						</a>
+										</div>
+							</div>
+			<div class="footer-menu-container">
+				<ul id="menu-2-footer" class="secondary-menu footer-menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112423"><a target="_blank" href="https://urban1.com/privacy/">Privacy Policy</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1735497"><a target="_blank" href="https://urban1.com/cookies-policy/">Cookies Policy</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1654126"><a href="#" class="ot-sdk-show-settings">Cookies Setting</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112425 ione-ad-choices"><a target="_blank" href="https://ionedigital.com/ad-choice/">Ad Choice</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112426"><a target="_blank" href="https://urban1.com/terms-of-service/">Terms of Service</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1112427"><a href="https://houstonseagle.com/contact-us/">Contact Us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112428"><a target="_blank" href="https://246807996.hs-sites-na2.com/radio1-advertise-with-us">Advertise With Us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112429"><a target="_blank" href="https://urban1.com/careers/">Careers</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112430"><a target="_blank" href="https://urban1.com/vtq-portfolio/r1-digital/">R1 Digital</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1112431"><a href="https://houstonseagle.com/eeo/">EEO</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1112432"><a target="_blank" href="https://publicfiles.fcc.gov/fm-profile/kglk">FCC Public File</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1740598"><a href="https://urban1.com/advertising-sales-terms-and-conditions/">Advertising Sales Terms and Conditions</a></li>
+</ul>			</div>
+			<div class="footer-credits-container">
+				<span>
+		Copyright &copy; 2026		<a href="https://interactiveone.com">Interactive One, LLC</a>.
+		All Rights Reserved.
+	</span>
+<span class="footer-credits-vip">
+	<span>Powered by <a href="https://wpvip.com/?utm_source=vip_powered_wpcom&#038;utm_medium=web&#038;utm_campaign=VIP%20Footer%20Credit&#038;utm_term=houstonseagle.com" rel="generator nofollow" class="powered-by-wpcom">WordPress VIP</a></span>
+	&nbsp;
+	|
+	&nbsp;
+			<span>
+			<a href="https://urban1.com" class="urban-one" target="_blank">
+				An Urban One Brand			</a>
+		</span>
+		</span>
+			</div>
+		</footer>
+		</div>
+		<div class="footer-share-bar">
+			<div class="fsb-desktop">
+				<div class="fsb-ad">
+							<div class="gpt-ad-container " style="min-height: 50px">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_anchor" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[320,50],[7,7]],"mobile":[[320,50],[7,7]]},"targeting":{"pos":"anchor"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+						</div>
+			</div>
+			<div class="fsb-close">
+				<span class="fsb-text">
+					Close				</span>
+				<i class="icon-close"></i>
+			</div>
+		</div>
+				<div class="gpt-ad-container interstitial-ad" style="">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_inimage" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":[[1,1]],"mobile":[[1,1]]},"targeting":{"pos":"inimage"},"lazyload":false,"is_out_of_page":false}'></div>
+		</div>
+				<div class="gpt-ad-container " style="">
+			<div id="ad-tag-_4052_r1.ra.hou.kglkfm_desktop_skin" class="gpt-ad" data-config='{"ad_unit":"\/4052\/r1.ra.hou.kglkfm\/desktop","sizes":{"desktop":["oop"],"mobile":[]},"targeting":{"pos":"skin"},"lazyload":false,"is_out_of_page":true}'></div>
+		</div>
+		<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/sites/105/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/ione3/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+
+<style>.widget_eu_cookie_law_widget {
+	bottom: 77px;
+}
+
+html.ot-banner-open {
+	overflow: hidden;
+}
+
+#onetrust-consent-sdk #onetrust-banner-sdk {
+	bottom: 150px !important;
+	max-height: 75% !important;
+}
+
+@media (min-width: 1024px) {
+
+	#onetrust-consent-sdk #onetrust-banner-sdk {
+		bottom: 77px !important;
+		max-height: 90% !important;
+	}
+}
+</style>
+<script>const CONSENT_SDK_ID = 'onetrust-consent-sdk';
+const PANEL_IDS = [ 'onetrust-banner-sdk', 'onetrust-pc-sdk' ];
+
+const isVisible = ( element ) =>
+	!! element && 'none' !== window.getComputedStyle( element ).display;
+
+/**
+ * Lock scrolling while either the banner or the preference center is on screen.
+ *
+ * OneTrust exposes no "closed" event for either panel, so visibility remains
+ * the only reliable source of truth. Dismissing the preference center without
+ * changing consent fires nothing at all.
+ */
+const syncScrollLock = () => {
+	const isOpen = PANEL_IDS.some( ( id ) =>
+		isVisible( document.getElementById( id ) )
+	);
+
+	document.documentElement.classList.toggle( 'ot-banner-open', isOpen );
+};
+
+// Watches the banner and preference center for show/hide changes.
+const panelObserver = new MutationObserver( syncScrollLock );
+
+const observePanels = () => {
+	panelObserver.disconnect();
+
+	PANEL_IDS.forEach( ( id ) => {
+		const panel = document.getElementById( id );
+
+		if ( panel ) {
+			panelObserver.observe( panel, {
+				attributes: true,
+				attributeFilter: [ 'class', 'style', 'hidden' ],
+			} );
+		}
+	} );
+
+	syncScrollLock();
+};
+
+// Watches for the panels being added to or removed from the consent SDK wrapper.
+const consentSdkObserver = new MutationObserver( observePanels );
+let observedConsentSdk = null;
+let bodyObserver = null;
+
+const observeConsentSdk = () => {
+	const consentSdk = document.getElementById( CONSENT_SDK_ID );
+
+	if ( ! consentSdk || consentSdk === observedConsentSdk ) {
+		return;
+	}
+
+	consentSdkObserver.disconnect();
+	observedConsentSdk = consentSdk;
+	consentSdkObserver.observe( consentSdk, { childList: true } );
+	observePanels();
+};
+
+// Fires on every OneTrust script load, by which point the consent SDK wrapper exists.
+window.addEventListener( 'OneTrustGroupsUpdated', observeConsentSdk );
+
+// Fires when the preference center is surfaced, before its open animation completes.
+window.addEventListener( 'OneTrustPCLoaded', observePanels );
+
+// Fires once consent has been saved, as the banner or preference center closes.
+window.addEventListener( 'OTConsentApplied', syncScrollLock );
+
+// Fallback for the wrapper being appended after the events above have fired.
+bodyObserver = new MutationObserver( observeConsentSdk );
+bodyObserver.observe( document.body, {
+	childList: true,
+} );
+
+observeConsentSdk();
+syncScrollLock();
+</script>		<div class="viafoura">
+			<vf-tray></vf-tray>
+		</div>
+		<script id="ione__ione_modules__google_analytics-js-after">
+window.iOneGA={"analyticsId":"GTM-TPR8JL","siteDomain":"houstonseagle.com","currentUrl":"https:\/\/houstonseagle.com\/1071957\/discipline-in-schools-what-you-should-know-about-corporal-punishment"};
+(()=>{"use strict";const e=[],n=()=>{a()&&console.info(`events queue size: ${e.length}`);for(const n of e)t(n.type,n.event)};"complete"===document.readyState||"interactive"===document.readyState?n():document.addEventListener("DOMContentLoaded",n);const t=(e,n)=>{const t=(e=>{const n={};void 0!==e.eventAction&&delete e.eventAction;const t={eventCategory:"event_category",eventLabel:"event_label",hitType:"hit_type",nonInteraction:"non_interaction"};for(const[o,a]of Object.entries(t))void 0!==e[o]&&(n[a]=e[o],delete e[o]);return n})(Object.assign({},n));switch(window.dataLayer=window?.dataLayer||[],e){case"pageview":window.dataLayer.push({event:"page_view",...t}),a()&&console.info('"page_view" event sent to GA4:',t);break;case"event":window.dataLayer.push({event:n.eventAction,...t}),a()&&console.info(`"${n.eventAction}" event sent to GA4:`,t)}},o=()=>{const e=new URL(window.location.href).searchParams.get("ga-debug");return null!==e&&"true"===e},a=()=>{const e=new URL(window.location.href).searchParams.get("ga-verbose");return null!==e&&"true"===e},i=(e,n=1)=>{void 0!==window?.dataLayer?(window.dataLayer.push({user_id:e}),a()&&console.info(`user id set for GA4: ${e}`)):10>=n?(setTimeout(()=>{i(e,n+1)},200),a()&&console.info("user id not set because dataLayer is unknown; retrying in 200ms...")):a()&&console.info("user id not set because dataLayer is unknown; too many attempts, skipping.")};window.addEventListener("ione_device_id",e=>{const{deviceID:n}=e.detail;n&&(window.dataLayer=window.dataLayer||[],window.dataLayer.push({device_id:n}))}),window.iOneGA={...window.iOneGA,getPageUrl:()=>window.iOneGA.currentUrl||window.location.origin+window.location.pathname,isDebugMode:o,isVerboseMode:a,sendEvent:(n,i,d,s={})=>{const r={hitType:"event",eventCategory:n,eventAction:i,eventLabel:d,nonInteraction:!0,...s};o()?console.info("window.iOneGA.sendEvent",r):void 0!==window?.dataLayer?(t("event",r),a()&&console.info(`"${i}" event sent to GA4:`,r)):(e.push({type:"event",event:r}),a()&&console.info('event queued due to "window.dataLayer" object not available yet:',r))},sendEventDirectly:(e,n={})=>{o()?console.info("window.iOneGA.sendEventDirectly",{eventAction:e,eventData:n}):window?.dataLayer?(window.dataLayer.push({event:e,...n}),a()&&console.info(`"${e}" event pushed to "dataLayer":`,n)):a()&&console.warn(`"${e}" event dropped - "dataLayer" not available:`,n)},setUserId:i}})();
+//# sourceURL=ione__ione_modules__google_analytics-js-after
+</script>
+<script id="wp-dom-ready-js" defer src="https://houstonseagle.com/wp-includes/js/dist/dom-ready.min.js?ver=3fe927cab37bf38d6a23"></script>
+<script id="ione__ione_modules__google_analytics-audio-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/google-analytics/audio_analytics.js?ver=16435037237ef5950ed7"></script>
+<script id="ione__ione_modules__google_analytics-triton-podcast-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/google-analytics/triton_podcast_analytics.js?ver=8a3bb0ccb93ef266b65d"></script>
+<script id="react-js" defer src="https://houstonseagle.com/wp-includes/js/dist/vendor/react.min.js?ver=18.3.1.1"></script>
+<script id="react-jsx-runtime-js" defer src="https://houstonseagle.com/wp-includes/js/dist/vendor/react-jsx-runtime.min.js?ver=18.3.1"></script>
+<script id="react-dom-js" defer src="https://houstonseagle.com/wp-includes/js/dist/vendor/react-dom.min.js?ver=18.3.1.1"></script>
+<script id="wp-escape-html-js" defer src="https://houstonseagle.com/wp-includes/js/dist/escape-html.min.js?ver=87ebe53e97bba59805a5"></script>
+<script id="wp-element-js" defer src="https://houstonseagle.com/wp-includes/js/dist/element.min.js?ver=4a4370b2b349066fd440"></script>
+<script id="wp-html-entities-js" defer src="https://houstonseagle.com/wp-includes/js/dist/html-entities.min.js?ver=a976ff3a0f00bc2999a3"></script>
+<script id="wp-hooks-js" src="https://houstonseagle.com/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://houstonseagle.com/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="wp-url-js" defer src="https://houstonseagle.com/wp-includes/js/dist/url.min.js?ver=7b0de086d4ae11d55704"></script>
+<script id="zype_shortcode_handler-js-extra">
+var videoBridge = {"postId":"1071957","categories":["uncategorized"],"tags":[],"eventCat":"zype_shortcode","read_only_key":"Vu9Q0wAaQC1lMBDZCbew20gJQ7NXPFjvdxuq2lFp2XWzT5edicw80T6qAmX7YYlG","options":{"autoplay":"true","ad_tag":"https://pubads.g.doubleclick.net/gampad/ads?sz=602x400&iu=/4052/r1.ra.hou.kglkfm/videopreroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=houstonseagle.com&correlator=[timestamp]&cmsid=2461249&vid=ANV_ANV_[[VIDEO_ID]]","ad_tag_midroll":"https://pubads.g.doubleclick.net/gampad/ads?sz=602x400&iu=/4052/r1.ra.hou.kglkfm/videomidroll&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&url=[referrer_url]&description_url=houstonseagle.com&correlator=[timestamp]&cmsid=2461249&vid=ANV_ANV_[[VIDEO_ID]]","wibbitz_ad_tag":"","ad_exclusions":[],"disablesticky":false}};
+//# sourceURL=zype_shortcode_handler-js-extra
+</script>
+<script id="zype_shortcode_handler-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/zype/shortcode-handler.js?ver=aeeedd04f45df606594d"></script>
+<script id="wp-parsely-loader-js-before">
+window.wpParselySiteId = 'houstonseagle.com';
+//# sourceURL=wp-parsely-loader-js-before
+</script>
+<script class="optanon-category-C0002" type="text/plain" id="wp-parsely-loader-js" defer src="https://houstonseagle.com/wp-content/mu-plugins/wp-parsely-3.24/build/loader.js?ver=ecf94842061bea03d54b"></script>
+<script class="optanon-category-C0002" type="text/plain" id="parsely-cfg" data-parsely-site="houstonseagle.com" defer src="https://cdn.parsely.com/keys/houstonseagle.com/p.js?ver=3.24.4"></script>
+<script id="ione3-js-extra">
+var ione3Gallery = {"baseURL":"https://houstonseagle.com/1071957/discipline-in-schools-what-you-should-know-about-corporal-punishment/","gallery_type":"post"};
+var ione3Theme = {"stylesheet":"https://houstonseagle.com/wp-content/themes/ione3/assets/css/single_stylesheet/sss.css","admin_bar":""};
+var ione3SmartHeader = {"enabled":"1","threshold":"300","hideTolerance":"10","showTolerance":"5"};
+var ione_video_grid_settings = {"ajax_url":"https://houstonseagle.com/wp-admin/admin-ajax.php","categoryid":"","max_pages":"0","current_page":"0","security":"83b41879d1"};
+//# sourceURL=ione3-js-extra
+</script>
+<script id="ione3-js-before">
+const ione3DefaultImageData = {"url":"https:\/\/houstonseagle.com\/wp-content\/uploads\/sites\/105\/2023\/08\/KHTP-KGLK_TheEagle_Logo_RGB-16x9-1.png","rest_url":"https:\/\/houstonseagle.com\/wp-json\/wp\/v2\/media\/1112332"};
+//# sourceURL=ione3-js-before
+</script>
+<script id="ione3-js" defer src="https://houstonseagle.com/wp-content/themes/ione3/assets/js/ione3.min.js?ver=8b6ff32"></script>
+<script id="ione__ione_modules__accessibility__runtime_autofixer-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/accessibility/index.js?ver=34fe2dc1e5e2185f3465"></script>
+
+<script data-wp-strategy="defer" defer id="ione__ione_modules__network_content_syndication__view-js" src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/network-content-syndication/view.js?ver=5cab074f636a0c55defc"></script>
+<script id="ione__ione_modules__recirculation_widget-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/recirculation-widget/index.js?ver=25088b2ae1953b67e785"></script>
+<script id="ione__ione_modules__refresh_rates-js-before">
+window.ione=window.ione||{};ione.refreshRates={"homePage":300000,"homePageRefreshOnRefocusOnly":false,"categoryPage":null,"postPage":null}
+//# sourceURL=ione__ione_modules__refresh_rates-js-before
+</script>
+<script id="ione__ione_modules__refresh_rates-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/refresh-rates/index.js?ver=6c512daf0fd3db6e4f13"></script>
+<script id="ad_utils-js-extra">
+var adUtilsHelper = {"home_url":"https://houstonseagle.com"};
+//# sourceURL=ad_utils-js-extra
+</script>
+<script id="ad_utils-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/modules/universal-ads/js/ione-ad-utils.js?ver=8b6ff32"></script>
+<script id="ione-device-id-js-before">
+window.deviceIdVars={"restUrl":"https:\/\/houstonseagle.com\/wp-json\/ione-device-id\/v1\/user\/create","nonce":"24008a4f93"}
+//# sourceURL=ione-device-id-js-before
+</script>
+<script id="ione-device-id-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/device-id/index.js?ver=8b6ff32"></script>
+<script id="gam_handler-js-extra">
+var ionegpt = {"aps_pub_id":"","mobile_breakpoint":[1024,500],"viewableRefreshInterval":"30","pubmatic_profile_id":"7378","targeting":{"postname":"","category":["uncategorized"],"pg":"discipline-in-schools-what-you-should-know-about-corporal-punishment","tag":"","postID":"1071957","page":"1","content":["post","video"],"exclude-list":["coca-cola","target","disney","amazon","general-motors","pnc"],"nlp_category":"not set","nlp_sub_category":"not set","nlp_sub_sub_category":"not set"},"enableAdaptiveLazyLoad":"1","enableAdaptiveAdLoadEvents":"0"};
+var viafoura_ads = {"active_conversations_ad_data":{"ad_unit":"/4052/r1.ra.hou.kglkfm/desktop","sizes":{"desktop":[[300,250]],"mobile":[[300,250]]},"targeting":{"pos":"widget"},"lazyload":false,"is_out_of_page":false},"in_comment_ad_data":{"ad_unit":"/4052/r1.ra.hou.kglkfm/desktop","sizes":{"desktop":[[728,90]],"mobile":[[1,1],[300,250],[320,50],[320,100],[336,280]]},"targeting":{"pos":"incomment"},"lazyload":false,"is_out_of_page":false}};
+//# sourceURL=gam_handler-js-extra
+</script>
+<script id="gam_handler-js" defer src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/universal-ads/index.js?ver=9ac6352c3d6c78be42c9"></script>
+<script data-wp-strategy="defer" defer id="ione__ione_modules__viafoura__single_script-js" src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/viafoura/single.js?ver=5af96e13725bd045314f"></script>
+<script id="jetpack-stats-js-before">
+_stq = window._stq || [];
+_stq.push([ "view", {"v":"ext","blog":"220975694","post":"1071957","tz":"-6","srv":"houstonseagle.com","hp":"vip","j":"1:16.3.1"} ]);
+_stq.push([ "clickTrackerInit", "220975694", "1071957" ]);
+//# sourceURL=jetpack-stats-js-before
+</script>
+<script class="optanon-category-C0002" type="text/plain" data-wp-strategy="defer" defer fetchpriority="low" id="jetpack-stats-js" src="https://stats.wp.com/e-202646.js"></script>
+<script id="script-queue-js" defer src="https://houstonseagle.com/wp-content/themes/ione3/assets/js/ione3_script_queue.min.js?ver=8b6ff32"></script>
+<script data-wp-strategy="defer" defer id="ione-share-button-view-script-js" src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/blocks-library/share-button/view.js?ver=4fa2e3e01c70b244b337"></script>
+
+<script data-wp-strategy="defer" defer id="ione-newsletter-sign-up-view-script-js" src="https://houstonseagle.com/wp-content/plugins/ione-modules/build/newsletter-sign-up-blocks/newsletter-sign-up/view.js?ver=263e1471f6680f1a83e4"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://houstonseagle.com/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://houstonseagle.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script>var scriptQueueData = {"is_mobile":false,"scripts":{"lazy-load-js":{"is_sequenced":true,"loaded":false,"delay":3200,"deps":[],"src":"https:\/\/houstonseagle.com\/wp-content\/plugins\/ione-modules\/build\/lazy-loader\/lazy-loader-handler.js?ver=8b6ff32"},"ione__ione_modules__google_analytics":{"loaded":true,"deps":[]},"ione__ione_modules__google_analytics-audio":{"loaded":true,"deps":["wp-dom-ready"]},"wp-dom-ready":{"loaded":true,"deps":[]},"ione__ione_modules__google_analytics-triton-podcast":{"loaded":true,"deps":["wp-dom-ready"]},"zype_shortcode_handler":{"loaded":true,"deps":["wp-hooks","react","react-dom","wp-escape-html","react-jsx-runtime","wp-element","wp-html-entities","wp-i18n","wp-url"]},"wp-hooks":{"loaded":true,"deps":[]},"react":{"loaded":true,"deps":[]},"react-dom":{"loaded":true,"deps":["react"]},"wp-escape-html":{"loaded":true,"deps":[]},"react-jsx-runtime":{"loaded":true,"deps":["react"]},"wp-element":{"loaded":true,"deps":["react","react-dom","wp-escape-html"]},"wp-html-entities":{"loaded":true,"deps":[]},"wp-i18n":{"loaded":true,"deps":["wp-hooks"]},"wp-url":{"loaded":true,"deps":[]},"wp-parsely-loader":{"loaded":true,"deps":["wp-hooks","wp-i18n"]},"wp-parsely-tracker":{"loaded":true,"deps":[]},"ione3":{"loaded":true,"deps":[]},"ione__ione_modules__accessibility__runtime_autofixer":{"loaded":true,"deps":[]},"ione__ione_modules__network_content_syndication__view":{"loaded":true,"deps":[]},"ione__ione_modules__recirculation_widget":{"loaded":true,"deps":[]},"ione__ione_modules__refresh_rates":{"loaded":true,"deps":[]},"ad_utils":{"loaded":true,"deps":[]},"gam_handler":{"loaded":true,"deps":["ad_utils","ione-device-id","wp-hooks"]},"ione-device-id":{"loaded":true,"deps":[]},"ione__ione_modules__viafoura__single_script":{"loaded":true,"deps":[]},"milestone":{"loaded":true,"deps":[]},"jetpack-stats":{"loaded":true,"deps":[]},"script-queue":{"loaded":true,"deps":[]},"underscore":{"loaded":true,"deps":[]},"ione__ione_modules__zergnet__loader":{"is_sequenced":true,"loaded":false,"delay":2200,"deps":["ad_utils"],"src":"https:\/\/houstonseagle.com\/wp-content\/plugins\/ione-modules\/build\/zergnet\/zergnet-loader.js?ver=1579d752a91b4ecb7e6c"},"ione-share-button-view-script":{"loaded":true,"deps":[]},"ione-newsletter-sign-up-view-script":{"loaded":true,"deps":["wp-hooks","wp-i18n","wp-url"]}}};</script></body>
+</html>

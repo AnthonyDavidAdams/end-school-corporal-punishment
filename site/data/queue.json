@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-08",
+ "generated": "2026-11-10",
  "tasks": [
   {
    "id": "contact-capture",
@@ -7,7 +7,7 @@
    "priority": 1,
    "unit": "districts in the record with no published email, so nothing can be sent to them",
    "scopes": 11,
-   "count": 2186
+   "count": 2076
   },
   {
    "id": "record-completion",
@@ -15,7 +15,7 @@
    "priority": 1,
    "unit": "districts whose handbook was read and says nothing, or that nobody could read: the board policy manual's own sentence is wanted",
    "scopes": null,
-   "count": 652
+   "count": 733
   },
   {
    "id": "district-policy-scan",
@@ -23,7 +23,7 @@
    "priority": 1,
    "unit": "districts that reported striking a student and whose policy nobody has read",
    "scopes": 57,
-   "count": 501,
+   "count": 577,
    "where": "/kids/worklist/"
   },
   {
@@ -40,7 +40,7 @@
    "priority": 2,
    "unit": "districts that prohibit it with no date on the policy, so they cannot be placed on the timeline",
    "scopes": null,
-   "count": 867,
+   "count": 817,
    "where": "/kids/timeline/"
   },
   {
@@ -49,15 +49,15 @@
    "priority": 2,
    "unit": "permitting districts next door to one that moved to a ban: who to ask and when the board meets, with sources",
    "scopes": null,
-   "count": 298
+   "count": 300
   },
   {
    "id": "recover-blocked-source",
    "title": "Recover a source the server cannot read",
    "priority": 2,
    "unit": "districts left unknown after a real search, most of them behind a vendor wall",
-   "scopes": 94,
-   "count": 63
+   "scopes": 100,
+   "count": 183
   },
   {
    "id": "verify-claim",

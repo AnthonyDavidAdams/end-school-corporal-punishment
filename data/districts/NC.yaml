@@ -1157,12 +1157,6 @@ districts:
     method: portal_harvest
     parent_control: unknown
     documents:
-      - kind: board_policy
-        url: https://www.greenek12.org/apps/pages/index.jsp?uREC_ID=1288564&type=d&pREC_ID=1497008
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
       - kind: other
         url: https://www.gcsedu.org/en-US/parent-resources-601384f5
         says: silent
@@ -1497,22 +1491,13 @@ districts:
   - name: Lee County Schools
     county: Lee
     nces_id: "3702560"
-    status: bans
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/986/Lee_County/73d376a3-f12e-4b1d-a2d3-0241b60592f4/Code-of-Conduct-25-26-(Web-version).pdf?disposition=inline
-    quote: The Board of Education of Lee County does not allow for corporal punishment.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - The Board of Education of Lee County does not allow for corporal punishment.
-      - The Board of Education of Lee County does not allow for corporal punishment.
-      - The Board of Education of Lee County does not allow for corporal punishment.
-      - The Board of Education of Lee County does not allow for corporal punishment.
-      - The Board of Education of Lee County does not allow for corporal punishment.
-      - The Board of Education of Lee County does not allow for corporal punishment.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of NC). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in KY; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Lexington City Schools
     county: Davidson
@@ -1671,18 +1656,13 @@ districts:
   - name: Montgomery County Schools
     county: Montgomery
     nces_id: "3703060"
-    status: bans
-    source: https://resources.finalsite.net/images/v1678323655/montgomeryk12kyus/nbmjsmpz4jg3pddkdzq5/moco-19code.pdf
-    quote: Corporal punishment is prohibited and loss of physical activity periods shall not be used as a disciplinary consequence.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment is prohibited and loss of physical activity periods shall not be used as a disciplinary consequence.
-      - Corporal punishment is prohibited and loss of physical activity periods shall not be used as a disciplinary consequence.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of NC). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in KY; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Moore County Schools
     county: Moore

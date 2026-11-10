@@ -3535,28 +3535,13 @@ districts:
   - name: Marshall
     county: Saline
     nces_id: "2920410"
-    status: bans
-    source: https://www.marshallschools.org/mhs/handbooks/2021-2022%20HS%20Handbook%20Final.pdf
-    quote: The School District of Marshall does not believe in the use of corporal punishment.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - The School District of Marshall does not believe in the use of corporal punishment.
-      - "Although corporal punishment is not used, 14 reasonable and necessary force may be used:"
-      - The School District of Marshall does not believe in the use of corporal punishment.
-      - "Although corporal punishment is not used, 14 reasonable and necessary force may be used:"
-      - The School District of Marshall does not believe in the use of corporal punishment.
-      - "Although corporal punishment is not used, 14 reasonable and necessary force may be used:"
-      - The School District of Marshall does not believe in the use of corporal punishment.
-      - "Although corporal punishment is not used, 14 reasonable and necessary force may be used:"
-      - The School District of Marshall does not believe in the use of corporal punishment.
-      - "Although corporal punishment is not used, 14 reasonable and necessary force may be used:"
-      - The School District of Marshall does not believe in the use of corporal punishment.
-      - "Although corporal punishment is not used, 14 reasonable and necessary force may be used:"
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MO). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in WI; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Marshfield R-I
     county: Webster
@@ -6225,22 +6210,13 @@ districts:
   - name: Washington
     county: Franklin
     nces_id: "2931110"
-    status: silent
-    source: https://wfis.washk12.org/wp-content/uploads/sites/93/2023/07/Current-WFIS-Student-Handbook-2032-2024.docx_.pdf
+    status: unknown
+    source: null
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://wfis.washk12.org/wp-content/uploads/sites/93/2023/07/Current-WFIS-Student-Handbook-2032-2024.docx_.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in UT; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
   - name: Waynesville R-VI
     county: Pulaski

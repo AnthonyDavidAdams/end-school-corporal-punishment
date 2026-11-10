@@ -1,27 +1,28 @@
 {
- "generated": "2026-11-08",
+ "generated": "2026-11-10",
  "source": "US Department of Education, Civil Rights Data Collection 2023-24, computed by this project; see data/crdc/2023-24/SOURCE.md",
  "total_districts_in_federal_count": 832,
- "unchecked": 501,
+ "unchecked": 577,
  "ban_state_filing_anomalies": 18,
- "students_in_unchecked": 779,
+ "students_in_unchecked": 858,
  "by_state": {
-  "OK": 118,
-  "MO": 69,
-  "KS": 61,
-  "TN": 39,
-  "GA": 38,
+  "OK": 143,
+  "MO": 70,
+  "KS": 69,
+  "TN": 59,
+  "GA": 43,
   "IN": 36,
   "LA": 26,
   "AR": 24,
-  "AL": 20,
-  "FL": 19,
+  "AL": 22,
+  "FL": 21,
+  "NC": 15,
   "WY": 14,
-  "NC": 13,
-  "SC": 11,
-  "MS": 8,
-  "KY": 4,
-  "AZ": 1
+  "KY": 12,
+  "SC": 12,
+  "MS": 9,
+  "AZ": 1,
+  "TX": 1
  },
  "districts": [
   {
@@ -87,6 +88,15 @@
    "city": "WINONA"
   },
   {
+   "state": "FL",
+   "nces_id": "1200960",
+   "name": "JACKSON",
+   "students": 23,
+   "website": "http://www.jcsb.org",
+   "city": "MARIANNA",
+   "read": "nothing read yet"
+  },
+  {
    "state": "OK",
    "nces_id": "4031020",
    "name": "VELMA-ALMA",
@@ -148,6 +158,24 @@
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
+   "state": "OK",
+   "nces_id": "4033601",
+   "name": "ROCK CREEK",
+   "students": 10,
+   "website": "http://www.rockcreekisd.net",
+   "city": "Bokchito",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703060",
+   "name": "Moore County",
+   "students": 9,
+   "website": "http://moore.k12.tn.us/",
+   "city": "Lynchburg",
+   "read": "nothing read yet"
+  },
+  {
    "state": "AR",
    "nces_id": "0503480",
    "name": "BRADFORD SCHOOL DISTRICT",
@@ -157,13 +185,22 @@
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
+   "state": "FL",
+   "nces_id": "1200570",
+   "name": "FRANKLIN",
+   "students": 8,
+   "website": "http://www.franklincountyschools.org",
+   "city": "EASTPOINT",
+   "read": "nothing read yet"
+  },
+  {
    "state": "OK",
    "nces_id": "4030300",
    "name": "TURNER",
    "students": 8,
    "website": "http://www.turnerisd.org",
    "city": "Burneyville",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -173,6 +210,15 @@
    "website": "http://www.sweetwater.k12.ok.us",
    "city": "Sweetwater",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702490",
+   "name": "Lincoln County",
+   "students": 7,
+   "website": "http://www.lcdoe.org/",
+   "city": "Fayetteville",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -194,12 +240,30 @@
   },
   {
    "state": "OK",
+   "nces_id": "4013830",
+   "name": "HARMONY",
+   "students": 6,
+   "website": "http://www.harmonyps.org",
+   "city": "Atoka",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4018240",
    "name": "LONE STAR",
    "students": 6,
    "website": "http://www.lonestar.k12.ok.us",
    "city": "Sapulpa",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TX",
+   "nces_id": "4800141",
+   "name": "RISE ACADEMY",
+   "students": 6,
+   "website": "http://www.riseacademy.org/",
+   "city": "LUBBOCK",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -218,6 +282,15 @@
    "website": "",
    "city": "Leesville",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0102880",
+   "name": "Russell County",
+   "students": 3,
+   "website": "http://myrcsd.org",
+   "city": "Phenix City",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -245,6 +318,24 @@
    "website": "http://moyersisd.org",
    "city": "MOYERS",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701590",
+   "name": "Hamilton County",
+   "students": 3,
+   "website": "http://www.hcde.org/",
+   "city": "Chattanooga",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4028590",
+   "name": "STERLING",
+   "students": 2,
+   "website": "http://www.sterlingtigers.org/",
+   "city": "Sterling",
+   "read": "nothing read yet"
   },
   {
    "state": "FL",
@@ -279,6 +370,24 @@
    "students": 1,
    "website": "http://www.alex.k12.ok.us/",
    "city": "Alex",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4006150",
+   "name": "CADDO",
+   "students": 1,
+   "website": "http://www.caddoisd.org",
+   "city": "Caddo",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4008040",
+   "name": "CLEVELAND",
+   "students": 1,
+   "website": "http://www.clevelandtigers.com/",
+   "city": "Cleveland",
    "read": "nothing read yet"
   },
   {
@@ -328,20 +437,20 @@
   },
   {
    "state": "AL",
+   "nces_id": "0100300",
+   "name": "Barbour County",
+   "students": 0,
+   "website": "http://www.barbourcountyschools.org",
+   "city": "Clayton",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "AL",
    "nces_id": "0100012",
    "name": "Boaz City",
    "students": 0,
    "website": "http://www.boazk12.org",
    "city": "Boaz",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
-  },
-  {
-   "state": "AL",
-   "nces_id": "0100630",
-   "name": "Cherokee County",
-   "students": 0,
-   "website": "http://www.cherokeek12.org",
-   "city": "Centre",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
@@ -360,7 +469,7 @@
    "students": 0,
    "website": "http://www.claycoboe.org",
    "city": "Ashland",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "AL",
@@ -388,6 +497,15 @@
    "website": "http://www.gsboe.org",
    "city": "Gulf Shores",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0101740",
+   "name": "Henry County",
+   "students": 0,
+   "website": "http://www.henrycountyboe.org",
+   "city": "Abbeville",
+   "read": "nothing read yet"
   },
   {
    "state": "AL",
@@ -423,7 +541,7 @@
    "students": 0,
    "website": "http://www.oneontacityschools.com",
    "city": "Oneonta",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "AL",
@@ -576,7 +694,7 @@
    "students": 0,
    "website": "http://harrison.k12.ar.us",
    "city": "HARRISON",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "AR",
@@ -603,7 +721,7 @@
    "students": 0,
    "website": "http://www.magnliaschools.net",
    "city": "MAGNOLIA",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "AR",
@@ -832,6 +950,15 @@
   },
   {
    "state": "GA",
+   "nces_id": "1300210",
+   "name": "Baldwin County",
+   "students": 0,
+   "website": "http://www.baldwin-county-schools.com",
+   "city": "Milledgeville",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "GA",
    "nces_id": "1300240",
    "name": "Banks County",
    "students": 0,
@@ -940,6 +1067,15 @@
   },
   {
    "state": "GA",
+   "nces_id": "1301860",
+   "name": "Douglas County",
+   "students": 0,
+   "website": "",
+   "city": "Douglasville",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "GA",
    "nces_id": "1302220",
    "name": "Forsyth County Schools",
    "students": 0,
@@ -1003,12 +1139,30 @@
   },
   {
    "state": "GA",
+   "nces_id": "1302820",
+   "name": "Henry County Schools",
+   "students": 0,
+   "website": "",
+   "city": "McDonough",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "GA",
    "nces_id": "1303060",
    "name": "Jefferson County",
    "students": 0,
    "website": "http://jefferson.k12.ga.us",
    "city": "Louisville",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303270",
+   "name": "Lee County",
+   "students": 0,
+   "website": "http://www.lee.k12.ga.us",
+   "city": "Leesburg",
+   "read": "nothing read yet"
   },
   {
    "state": "GA",
@@ -1021,12 +1175,21 @@
   },
   {
    "state": "GA",
+   "nces_id": "1303330",
+   "name": "Lincoln County",
+   "students": 0,
+   "website": "http://lincolncountyschools.org",
+   "city": "Lincolnton",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "GA",
    "nces_id": "1303390",
    "name": "Lowndes County",
    "students": 0,
    "website": "",
    "city": "Valdosta",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "GA",
@@ -1116,7 +1279,7 @@
    "students": 0,
    "website": "http://www.seminole.k12.ga.us",
    "city": "Donalsonville",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "GA",
@@ -1516,12 +1679,21 @@
   },
   {
    "state": "KS",
+   "nces_id": "2004140",
+   "name": "Bucklin",
+   "students": 0,
+   "website": "http://www.bucklinschools.com",
+   "city": "Bucklin",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KS",
    "nces_id": "2004290",
    "name": "Burlington",
    "students": 0,
    "website": "http://www.usd244ks.org",
    "city": "Burlington",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1606,6 +1778,15 @@
   },
   {
    "state": "KS",
+   "nces_id": "2005520",
+   "name": "Dexter",
+   "students": 0,
+   "website": "http://www.usd471.org",
+   "city": "Dexter",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KS",
    "nces_id": "2005870",
    "name": "Ellsworth",
    "students": 0,
@@ -1620,7 +1801,7 @@
    "students": 0,
    "website": "http://www.usd310.org",
    "city": "Langdon",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1639,6 +1820,15 @@
    "website": "http://usd499.org",
    "city": "Galena",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2006390",
+   "name": "Garden City",
+   "students": 0,
+   "website": "http://www.gckschools.com",
+   "city": "Garden City",
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1692,7 +1882,7 @@
    "students": 0,
    "website": "http://www.usd474.org",
    "city": "Haviland",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1701,7 +1891,7 @@
    "students": 0,
    "website": "http://www.usd489.com",
    "city": "Hays",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1720,6 +1910,15 @@
    "website": "http://www.usd227.org",
    "city": "Jetmore",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2007650",
+   "name": "Independence",
+   "students": 0,
+   "website": "http://www.indyschools.com",
+   "city": "Independence",
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1747,6 +1946,15 @@
    "website": "http://www.usd243ks.org",
    "city": "Waverly",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KS",
+   "nces_id": "2008790",
+   "name": "Lincoln",
+   "students": 0,
+   "website": "http://www.usd298.com",
+   "city": "Lincoln",
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1903,6 +2111,15 @@
   },
   {
    "state": "KS",
+   "nces_id": "2011310",
+   "name": "Russell County",
+   "students": 0,
+   "website": "http://www.usd407.org",
+   "city": "Russell",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KS",
    "nces_id": "2011370",
    "name": "Salina",
    "students": 0,
@@ -1917,7 +2134,7 @@
    "students": 0,
    "website": "http://www.usd466.com/",
    "city": "Scott City",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1930,12 +2147,21 @@
   },
   {
    "state": "KS",
+   "nces_id": "2011970",
+   "name": "Stafford",
+   "students": 0,
+   "website": "http://stafford349.com",
+   "city": "Stafford",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KS",
    "nces_id": "2012060",
    "name": "Stockton",
    "students": 0,
    "website": "http://www.usd271.com",
    "city": "Stockton",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -1984,6 +2210,15 @@
   },
   {
    "state": "KS",
+   "nces_id": "2012840",
+   "name": "Wellington",
+   "students": 0,
+   "website": "http://www.usd353.com/",
+   "city": "Wellington",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KS",
    "nces_id": "2012870",
    "name": "Wellsville",
    "students": 0,
@@ -2016,7 +2251,7 @@
    "students": 0,
    "website": "http://www.thunderhawks.net",
    "city": "Grainfield",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "KS",
@@ -2047,6 +2282,15 @@
   },
   {
    "state": "KY",
+   "nces_id": "2102940",
+   "name": "Jackson County",
+   "students": 0,
+   "website": "http://www.jackson.k12.ky.us/",
+   "city": "McKee",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KY",
    "nces_id": "2103240",
    "name": "Lawrence County",
    "students": 0,
@@ -2056,12 +2300,75 @@
   },
   {
    "state": "KY",
+   "nces_id": "2103720",
+   "name": "Madison County Schools",
+   "students": 0,
+   "website": "http://www.madison.kyschools.us/",
+   "city": "Richmond",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2103810",
+   "name": "Marshall County",
+   "students": 0,
+   "website": "http://www.marshall.kyschools.us/",
+   "city": "Benton",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2104020",
+   "name": "Mclean County",
+   "students": 0,
+   "website": "http://www.mclean.k12.ky.us/",
+   "city": "Calhoun",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KY",
    "nces_id": "2104860",
    "name": "Pineville Independent",
    "students": 0,
    "website": "http://pineville.kyschools.us/",
    "city": "Pineville",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2105160",
+   "name": "Russell County",
+   "students": 0,
+   "website": "http://www.russell.kyschools.us/",
+   "city": "Jamestown",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2105520",
+   "name": "Taylor County",
+   "students": 0,
+   "website": "http://www.taylor.k12.ky.us/",
+   "city": "Campbellsville",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2105640",
+   "name": "Union County",
+   "students": 0,
+   "website": "http://www.union.kyschools.us/",
+   "city": "Morganfield",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "KY",
+   "nces_id": "2105760",
+   "name": "Washington County",
+   "students": 0,
+   "website": "http://www.washington.kyschools.us",
+   "city": "Springfield",
+   "read": "nothing read yet"
   },
   {
    "state": "LA",
@@ -2632,6 +2939,15 @@
   },
   {
    "state": "MO",
+   "nces_id": "2920410",
+   "name": "Marshall",
+   "students": 0,
+   "website": "http://www.marshallschools.com",
+   "city": "MARSHALL",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "MO",
    "nces_id": "2923460",
    "name": "Meramec Valley R-III",
    "students": 0,
@@ -2862,7 +3178,7 @@
    "students": 0,
    "website": "http://www.washington.k12.mo.us",
    "city": "WASHINGTON",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "MO",
@@ -2926,6 +3242,15 @@
    "website": "http://www.columbiaschools.org",
    "city": "Columbia",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "MS",
+   "nces_id": "2801740",
+   "name": "Hancock County School District",
+   "students": 0,
+   "website": "http://www.hancockschools.net",
+   "city": "Kiln",
+   "read": "nothing read yet"
   },
   {
    "state": "MS",
@@ -3019,6 +3344,15 @@
   },
   {
    "state": "NC",
+   "nces_id": "3702560",
+   "name": "Lee County Schools",
+   "students": 0,
+   "website": "http://www.lee.k12.nc.us/",
+   "city": "Sanford",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "NC",
    "nces_id": "3702640",
    "name": "Lexington City Schools",
    "students": 0,
@@ -3034,6 +3368,15 @@
    "website": "http://www.mcdowell.k12.nc.us",
    "city": "Marion",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "NC",
+   "nces_id": "3703060",
+   "name": "Montgomery County Schools",
+   "students": 0,
+   "website": "http://montgomery.k12.nc.us",
+   "city": "Troy",
+   "read": "nothing read yet"
   },
   {
    "state": "NC",
@@ -3078,7 +3421,7 @@
    "students": 0,
    "website": "http://www.albion.k12.ok.us",
    "city": "Albion",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3106,6 +3449,15 @@
    "website": "http://www.balko.k12.ok.us/",
    "city": "Balko",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4004230",
+   "name": "Bethel",
+   "students": 0,
+   "website": "http://bethel.k12.ok.us",
+   "city": "Shawnee",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3172,6 +3524,15 @@
   },
   {
    "state": "OK",
+   "nces_id": "4006330",
+   "name": "Cameron",
+   "students": 0,
+   "website": "http://www.cameronps.org",
+   "city": "Cameron",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4007320",
    "name": "Chattanooga",
    "students": 0,
@@ -3186,7 +3547,7 @@
    "students": 0,
    "website": "http://www.chelseadragons.net",
    "city": "Chelsea",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3226,6 +3587,15 @@
   },
   {
    "state": "OK",
+   "nces_id": "4008310",
+   "name": "Coleman",
+   "students": 0,
+   "website": "http://www.coleman.k12.ok.us/",
+   "city": "Coleman",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4008610",
    "name": "Copan",
    "students": 0,
@@ -3241,6 +3611,15 @@
    "website": "http://www.crookedoak.org",
    "city": "Oklahoma City",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4009240",
+   "name": "Cushing",
+   "students": 0,
+   "website": "http://www.cushingtigers.com",
+   "city": "Cushing",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3294,7 +3673,7 @@
    "students": 0,
    "website": "http://www.dover.k12.ok.us",
    "city": "Dover",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3397,6 +3776,15 @@
   },
   {
    "state": "OK",
+   "nces_id": "4013260",
+   "name": "Grandview",
+   "students": 0,
+   "website": "http://grandviewschool.k12.ok.us",
+   "city": "Comanche",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4013530",
    "name": "Grove",
    "students": 0,
@@ -3412,6 +3800,24 @@
    "website": "http://www.guthrieps.net",
    "city": "Guthrie",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4014100",
+   "name": "Haywood",
+   "students": 0,
+   "website": "http://www.haywood.k12.ok.us",
+   "city": "MCAlester",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4014850",
+   "name": "Hollis",
+   "students": 0,
+   "website": "http://www.hollis.k12.ok.us",
+   "city": "Hollis",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3474,7 +3880,7 @@
    "students": 0,
    "website": "http://www.kingston.k12.ok.us/",
    "city": "Kingston",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3493,6 +3899,15 @@
    "website": "http://www.leedey.k12.ok.us",
    "city": "Leedey",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4017580",
+   "name": "Lexington",
+   "students": 0,
+   "website": "http://www.lexington.k12.ok.us/",
+   "city": "Lexington",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3519,7 +3934,7 @@
    "students": 0,
    "website": "http://www.mason.k12.ok.us/",
    "city": "Mason",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3538,6 +3953,24 @@
    "website": "http://www.millwoodps.org",
    "city": "Oklahoma City",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4020190",
+   "name": "Monroe",
+   "students": 0,
+   "website": "http://www.monroe.k12.ok.us",
+   "city": "Monroe",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4020250",
+   "name": "Moore Public Schools",
+   "students": 0,
+   "website": "http://www.mooreschools.com",
+   "city": "Moore",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3604,6 +4037,15 @@
   },
   {
    "state": "OK",
+   "nces_id": "4022160",
+   "name": "Oak Grove",
+   "students": 0,
+   "website": "http://www.oakgrove.k12.ok.us",
+   "city": "Cushing",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4022770",
    "name": "Oklahoma City School District",
    "students": 0,
@@ -3667,6 +4109,15 @@
   },
   {
    "state": "OK",
+   "nces_id": "4023610",
+   "name": "Pawnee",
+   "students": 0,
+   "website": "http://www.pawnee.k12.ok.us/",
+   "city": "Pawnee",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4023700",
    "name": "Peckham",
    "students": 0,
@@ -3691,6 +4142,15 @@
    "website": "http://pioneerk8.k12.ok.us",
    "city": "Chickasha",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4024330",
+   "name": "Pleasant Grove",
+   "students": 0,
+   "website": "http://www.pleasantgroveschools.com",
+   "city": "Shawnee",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3735,7 +4195,7 @@
    "students": 0,
    "website": "http://www.quintonschools.com",
    "city": "Quinton",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3775,6 +4235,15 @@
   },
   {
    "state": "OK",
+   "nces_id": "4027300",
+   "name": "Seminole",
+   "students": 0,
+   "website": "http://www.sps.k12.ok.us/",
+   "city": "Seminole",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4027540",
    "name": "Shattuck",
    "students": 0,
@@ -3789,7 +4258,7 @@
    "students": 0,
    "website": "http://www.snyder.k12.ok.us",
    "city": "Snyder",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3807,7 +4276,7 @@
    "students": 0,
    "website": "http://www.sulphurk12.org",
    "city": "Sulphur",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3826,6 +4295,15 @@
    "website": "http://www.tannehill.k12.ok.us",
    "city": "McAlester",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4030060",
+   "name": "Tishomingo",
+   "students": 0,
+   "website": "http://www.tishomingo.k12.ok.us",
+   "city": "Tishomingo",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3856,6 +4334,15 @@
   },
   {
    "state": "OK",
+   "nces_id": "4030600",
+   "name": "Union",
+   "students": 0,
+   "website": "http://www.unionps.org/",
+   "city": "Tulsa",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4030630",
    "name": "Union City",
    "students": 0,
@@ -3883,6 +4370,24 @@
   },
   {
    "state": "OK",
+   "nces_id": "4031710",
+   "name": "Washington",
+   "students": 0,
+   "website": "http://www.wps-isd.com",
+   "city": "Washington",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4032010",
+   "name": "Wayne",
+   "students": 0,
+   "website": "http://www.wayne.k12.ok.us",
+   "city": "Wayne",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4032220",
    "name": "Weleetka",
    "students": 0,
@@ -3901,12 +4406,21 @@
   },
   {
    "state": "OK",
+   "nces_id": "4032730",
+   "name": "Whitesboro",
+   "students": 0,
+   "website": "http://whitesboro.k12.ok.us",
+   "city": "Whitesboro",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "OK",
    "nces_id": "4032760",
    "name": "Wickliffe",
    "students": 0,
    "website": "http://www.wickliffeschool.com",
    "city": "Salina",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -3963,6 +4477,15 @@
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
+   "state": "OK",
+   "nces_id": "4033600",
+   "name": "Zion",
+   "students": 0,
+   "website": "http://www.zionjets.com",
+   "city": "Stilwell",
+   "read": "nothing read yet"
+  },
+  {
    "state": "SC",
    "nces_id": "4501080",
    "name": "Barnwell School District 45",
@@ -3987,7 +4510,7 @@
    "students": 0,
    "website": "http://www.f1s.org/",
    "city": "Florence",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "SC",
@@ -4006,6 +4529,15 @@
    "website": "http://www.gwd50.org/",
    "city": "Greenwood",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "SC",
+   "nces_id": "4503912",
+   "name": "Hampton",
+   "students": 0,
+   "website": "http://www.hampton1.org/",
+   "city": "Varnville",
+   "read": "nothing read yet"
   },
   {
    "state": "SC",
@@ -4090,12 +4622,39 @@
   },
   {
    "state": "TN",
+   "nces_id": "4700240",
+   "name": "Benton County",
+   "students": 0,
+   "website": "http://www.bcos.org",
+   "city": "Camden",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700300",
+   "name": "Blount County",
+   "students": 0,
+   "website": "http://www.blountk12.org/",
+   "city": "Maryville",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701390",
+   "name": "Bradford",
+   "students": 0,
+   "website": "",
+   "city": "Bradford",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
    "nces_id": "4700360",
    "name": "Bristol",
    "students": 0,
    "website": "http://www.btcs.org/",
    "city": "Bristol",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4122,7 +4681,16 @@
    "students": 0,
    "website": "http://www.clayedu.com",
    "city": "Celina",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700690",
+   "name": "Cleveland",
+   "students": 0,
+   "website": "http://www.clevelandschools.org",
+   "city": "Cleveland",
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4131,7 +4699,7 @@
    "students": 0,
    "website": "http://www.clintonschools.org/",
    "city": "Clinton",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4141,6 +4709,15 @@
    "website": "http://cockecountyschools.org/",
    "city": "Newport",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700780",
+   "name": "Coffee County Schools",
+   "students": 0,
+   "website": "http://www.coffeecountyschools.com/",
+   "city": "Manchester",
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4168,6 +4745,15 @@
    "website": "",
    "city": "Dayton",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700990",
+   "name": "Dekalb County",
+   "students": 0,
+   "website": "http://www.dekalbschools.net/",
+   "city": "Smithville",
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4225,12 +4811,30 @@
   },
   {
    "state": "TN",
+   "nces_id": "4701620",
+   "name": "Hancock County",
+   "students": 0,
+   "website": "http://www.hancockcountyschools.com",
+   "city": "Sneedville",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
    "nces_id": "4701650",
    "name": "Hardeman County Schools",
    "students": 0,
    "website": "http://www.hcsedu.org",
    "city": "Bolivar",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4701830",
+   "name": "Henry County",
+   "students": 0,
+   "website": "http://www.henryk12.net",
+   "city": "Paris",
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4252,12 +4856,21 @@
   },
   {
    "state": "TN",
+   "nces_id": "4702070",
+   "name": "Jackson County",
+   "students": 0,
+   "website": "http://www.jacksoncoschools.com",
+   "city": "Gainesboro",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
    "nces_id": "4702100",
    "name": "Jefferson County",
    "students": 0,
    "website": "http://www.jc-tn.net",
    "city": "Dandridge",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4284,7 +4897,16 @@
    "students": 0,
    "website": "http://www.lcfalcons.net",
    "city": "Tiptonville",
-   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4700154",
+   "name": "Lakeland",
+   "students": 0,
+   "website": "http://www.lakelandk12.org",
+   "city": "Lakeland",
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4297,12 +4919,39 @@
   },
   {
    "state": "TN",
+   "nces_id": "4702370",
+   "name": "Lebanon",
+   "students": 0,
+   "website": "http://www.lssd.org",
+   "city": "Lebanon",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
    "nces_id": "4702400",
    "name": "Lenoir City",
    "students": 0,
    "website": "http://www.lenoircityschools.com",
    "city": "Lenoir City",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702460",
+   "name": "Lexington",
+   "students": 0,
+   "website": "http://www.caywood.org/",
+   "city": "Lexington",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4702580",
+   "name": "Madison County",
+   "students": 0,
+   "website": "http://www.jmcss.net/",
+   "city": "Jackson",
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4330,6 +4979,15 @@
    "website": "http://www.monroe.k12.tn.us",
    "city": "Madisonville",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4703090",
+   "name": "Morgan County",
+   "students": 0,
+   "website": "http://mcs.k12tn.net/index.html",
+   "city": "Wartburg",
+   "read": "nothing read yet"
   },
   {
    "state": "TN",
@@ -4387,6 +5045,15 @@
   },
   {
    "state": "TN",
+   "nces_id": "4704100",
+   "name": "Trenton",
+   "students": 0,
+   "website": "http://trentonssd.org/",
+   "city": "Trenton",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
    "nces_id": "4704170",
    "name": "Trousdale County",
    "students": 0,
@@ -4402,6 +5069,24 @@
    "website": "http://www.tullahomacityschools.net/",
    "city": "Tullahoma",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4704290",
+   "name": "Union County",
+   "students": 0,
+   "website": "http://www.ucps.org/",
+   "city": "Maynardville",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "TN",
+   "nces_id": "4704380",
+   "name": "Washington County",
+   "students": 0,
+   "website": "http://www.wcde.org",
+   "city": "Jonesborough",
+   "read": "nothing read yet"
   },
   {
    "state": "WY",

@@ -1056,12 +1056,12 @@ districts:
   - name: Hancock County School District
     county: Hancock
     nces_id: "2801740"
-    status: bans
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1878/Hcs/3c499012-5459-4016-aeba-ba9fb7186a56/FY20_Hancock_County_Schools_Student_Handbook-_.pdf?disposition=inline
-    quote: The Hancock County School District does not employ the use of corporal punishment.
-    last_verified: 2026-09-25
+    status: unknown
+    source: null
+    quote: null
+    last_verified: null
     legacy_status: allows
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of MS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in GA; reset pending a re-read."
     policy_code: null
     crdc_students_latest: null
     contact:
@@ -1070,17 +1070,6 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - The Hancock County School District does not employ the use of corporal punishment.
-      - The use of corporal punishment by any employee of the district is prohibited and will not be allowed or tolerated.
-      - The Hancock County School District does not employ the use of corporal punishment.
-      - The use of corporal punishment by any employee of the district is prohibited and will not be allowed or tolerated.
-      - The Hancock County School District does not employ the use of corporal punishment.
-      - The use of corporal punishment by any employee of the district is prohibited and will not be allowed or tolerated.
-      - The Hancock County School District does not employ the use of corporal punishment.
-      - The use of corporal punishment by any employee of the district is prohibited and will not be allowed or tolerated.
   - name: Harrison County School District
     county: Harrison
     nces_id: "2801770"
