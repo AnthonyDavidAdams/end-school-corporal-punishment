@@ -442,9 +442,11 @@ def neighbor_ask(r, user, anchor):
     """A friendly first note to a district that still permits it, naming the neighbor that already moved.
     The norm message from persuasion.md: what districts like yours are already doing."""
     who = addressed_name(r); d = nice(r["name"]); a = nice(anchor); dp = d + ("'" if d.endswith("s") else "'s")
+    # "next door" only when the two share a county; the list also pairs districts one county apart
+    where = {"same_county": "next door to you", "next_county": "one county over from you", "other_state": "one county over, across the state line"}.get(r.get("anchor_where"), "not far from you")
     return f"""Hey {who},
 
-I keep a public record of what each school district's written policy says on corporal punishment, at earthpilot.org/kids. {a}, next door to you, has ended it in policy, and I noticed {dp} policy still permits it on paper. Could you point me to the current board policy, or let me know whether the board has looked at it recently?
+I keep a public record of what each school district's written policy says on corporal punishment, at earthpilot.org/kids. {a}, {where}, has ended it in policy, and I noticed {dp} policy still permits it on paper. Could you point me to the current board policy, or let me know whether the board has looked at it recently?
 
 If it is something the board might take up, the one-sentence language boards use to end it is in a free two-page brief, and I am glad to send it.
 

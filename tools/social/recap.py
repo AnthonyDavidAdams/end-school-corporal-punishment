@@ -117,7 +117,7 @@ if "--no-text" not in sys.argv:
     # What the daily plan queued, so a quiet day and a broken plan do not look the same.
     try:
         ap = json.load(open(os.path.join(ROOT, "out/outreach/autopilot-state.json"))); last = ap.get("last_run"); d = (ap.get("days") or {}).get(last) or {}
-        q = ", ".join(f"{d[k]} {label}" for k, label in (("neighbor", "neighbor asks"), ("align", "Safe School invitations"), ("formal_request", "formal records requests"), ("board_note", "board notes")) if isinstance(d.get(k), int))
+        q = ", ".join(f"{d[k]} {label}" for k, label in (("first_ask", "first asks"), ("neighbor", "neighbor asks"), ("align", "Safe School invitations"), ("formal_request", "formal records requests"), ("board_note", "board notes")) if isinstance(d.get(k), int))
         bad = "; ".join(f"{k} {v}" for k, v in d.items() if isinstance(v, str) and v.startswith("failed"))
         fresh = last and (now.date() - datetime.date.fromisoformat(last)).days <= (3 if now.weekday() == 0 else 1)
         pline = (f"Daily plan {last}: queued {q or 'nothing'}" + (f"; {d['formal_due']} unanswered asks are due a formal request, {d.get('needs_resident', 0)} more need a resident requester" if isinstance(d.get("formal_due"), int) else "") + (f". PROBLEM: {bad}" if bad else "") + ".\n\n") if fresh else f"DAILY PLAN DID NOT RUN (last {last or 'never'}).\n\n"

@@ -1451,12 +1451,15 @@ def queue_neighbors(n=25, quiet_days=14):
         to = t.get("contact_email") or c.get("district_email") or c.get("email")
         if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
         # same county first, then the same state: "next door" should not usually mean across a state line
-        anchor = sorted(t["anchors"], key=lambda a: (not a.get("same_county"), str(a.get("district_id"))[:2] != nid[:2], a["name"]))[0]["name"]
+        best = sorted(t["anchors"], key=lambda a: (not a.get("same_county"), str(a.get("district_id"))[:2] != nid[:2], a["name"]))[0]
+        anchor = best["name"]
+        # the note says where the neighbor is, and only says "next door" when it shares the county
+        where = "same_county" if best.get("same_county") else ("next_county" if str(best.get("district_id"))[:2] == nid[:2] else "other_state")
         rid = hashlib.sha1(f"neighbor|{t['state']}|{nid}".encode()).hexdigest()[:10]
-        reqs.append({"id": rid, "state": t["state"], "name": t["name"], "nces_id": nid, "kids": 0, "kind": "neighbor", "to": to, "superintendent": c.get("superintendent"), "anchor": anchor,
+        reqs.append({"id": rid, "state": t["state"], "name": t["name"], "nces_id": nid, "kids": 0, "kind": "neighbor", "to": to, "superintendent": c.get("superintendent"), "anchor": anchor, "anchor_where": where,
                      "status": "held" if HOLD_NEW else "pending", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
         added += 1
-    save(reqs); log(f"queue-neighbors: {added} queued (held)"); return added
+    save(reqs); log(f"queue-neighbors: {added} queued" + (" (held)" if HOLD_NEW else "")); return added
 
 def release(kind, states=None):
     """Flip held requests of one kind to pending (optionally only some states) once Anthony has seen the batch."""
@@ -1538,7 +1541,7 @@ def queue_formal(n=15):
 
 AUTOPILOT = os.path.join(ROOT, "data/outreach/autopilot.json")        # the caps; edit the numbers, or set "enabled": false
 AUTOPILOT_STATE = os.path.join(LOGDIR, "autopilot-state.json")        # what each day's run did
-AUTOPILOT_DEFAULT = {"enabled": True, "caps": {"neighbor": 10, "align": 5, "formal_request": 15, "board_note": 0}, "hours": [8, 12]}
+AUTOPILOT_DEFAULT = {"enabled": True, "caps": {"first_ask": 15, "neighbor": 10, "align": 5, "formal_request": 15, "board_note": 0}, "hours": [8, 15]}   # Central; wide enough that a laptop opened at 10 Pacific still gets its day
 
 def autopilot(force=False):
     """The daily plan: once each weekday morning (Central), refresh the target lists and queue that day's
@@ -1578,6 +1581,9 @@ def autopilot(force=False):
                 raise RuntimeError(f"{label} rebuild looked wrong (exit {r.returncode}, {before} -> {after}); old list restored. {(r.stderr or '')[-80:]}")
             notes.append(f"{label} {after}")
         return ", ".join(notes)
+    # First asks need no list: queue() reads the record as it stands. A district whose record was reset, or that
+    # turned up silent overnight, gets its first ask the next morning instead of waiting for someone to run `queue`.
+    if caps.get("first_ask"): step("first_ask", lambda: queue(caps["first_ask"]))
     step("refresh", refresh)
     if str(did.get("refresh", "")).startswith("failed"):
         # A stale list is how a district that already changed its policy gets asked to change it. No refresh, no new mail.
