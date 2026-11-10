@@ -1387,7 +1387,15 @@ def followup():
     for r in reqs:
         if r.get("kind", "policy") == "policy" and r.get("status") == "answered":
             answered_in_state[r["state"]] = answered_in_state.get(r["state"], 0) + 1
+    # Only an ask for the policy gets the "still after your policy" nudge. An apology, certificate, board note,
+    # neighbor note or invitation is not an ask and must never be nudged: 24 apologies were, on 2026-11-10,
+    # 10 of them to districts that had already sent their policy ("Are you needing me to respond again?").
+    NUDGE_KINDS = {"policy", "nothing on file", "handbook silent"}
+    heard_from = {(r["state"], r["name"]) for r in reqs if r.get("status") == "answered" or r.get("last_reply_at")
+                  or any(e.get("kind") != "auto_reply_or_bounce" for e in r.get("replies") or [])}
     def due(r):
+        if r.get("kind", "policy") not in NUDGE_KINDS: return False
+        if (r["state"], r["name"]) in heard_from: return False   # the district answered on another thread
         if r["status"] not in ("sent", "promised") or r.get("followup_sent_at"): return False
         if r.get("last_reply_at") or any(e.get("kind") != "auto_reply_or_bounce" for e in r.get("replies") or []): return False   # a thread with a reply never gets a nudge (39 did before 2026-10-27)
         ours = max([r.get("sent_at") or ""] + [str(o.get("at") or "") for o in r.get("our_messages") or []], key=when_ts)
