@@ -249,7 +249,9 @@ def send(limit=25):
         try: delete_draft(M, subject); record_move(r)
         except Exception as e: log("after-send bookkeeping failed", r["name"], repr(e)[:100])
         time.sleep(8)
-    M.logout(); log(f"send: {n} sent, {sum(1 for r in reqs if r['status']=='pending')} still pending" + (f", {cooled} waiting on the 24-hour cooldown" if cooled else "") + (f", {stopped} withheld (district asked us to stop, or Anthony holds the thread)" if stopped else ""))
+    try: M.logout()   # the mailbox sometimes hangs up first after a long batch; every send above is already saved
+    except Exception: pass
+    log(f"send: {n} sent, {sum(1 for r in reqs if r['status']=='pending')} still pending" + (f", {cooled} waiting on the 24-hour cooldown" if cooled else "") + (f", {stopped} withheld (district asked us to stop, or Anthony holds the thread)" if stopped else ""))
 
 # ---------------------------------------------------------------- inbox
 
@@ -1441,11 +1443,17 @@ def queue_neighbors(n=25, quiet_days=14):
     kinds = {}
     for r in reqs: kinds.setdefault(str(r.get("nces_id")), set()).add(r.get("kind"))
     records = district_records()
+    # The note asks where the policy is. A district that has already written back, on any thread and under any
+    # spelling or missing id, must never get it: Fayetteville AR had answered nine times when this queued one.
+    flat = lambda st, nm: (st, re.sub(r"[^a-z0-9]", "", str(nm).lower()))
+    heard = {flat(*k) for k in heard_from_set(reqs)}
+    had = {flat(r["state"], r["name"]) for r in reqs if r.get("kind") == "neighbor"}
     added = 0
     for t in T["ranked"]:
         if added >= n: break
         nid = str(t["district_id"])
         if nid in recent or "neighbor" in kinds.get(nid, set()) or not t.get("anchors"): continue
+        if flat(t["state"], t["name"]) in heard or flat(t["state"], t["name"]) in had: continue
         if (records.get(nid) or {}).get("status") not in ("allows", "consent_required"): continue   # the record moved since the list was built
         c = contacts.get(("id", nid)) or contacts.get((t["state"], re.sub(r"[^a-z0-9]", "", t["name"].lower()))) or {}
         to = t.get("contact_email") or c.get("district_email") or c.get("email")
