@@ -16,6 +16,7 @@ import { readFileSync, appendFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, dirname, isAbsolute } from "node:path";
 import { fileURLToPath } from "node:url";
 import { reportOps } from "../lib/ops.mjs";
+import { relaySearch } from "../lib/relay-search.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
@@ -23,14 +24,33 @@ const BRAVE = process.env.BRAVE_API_KEY, JEV = process.env.OPENROUTER_API_KEY;
 const OUT = (isAbsolute(arg("out", "data/handbooks/found-by-search.jsonl")) ? arg("out", "data/handbooks/found-by-search.jsonl") : join(root, arg("out", "data/handbooks/found-by-search.jsonl")));
 const KEEP = Number(arg("keep", 0.6));
 
+// Brave first. When Brave refuses for credit or rate (402/429), the rest of the run goes through the
+// relay (tools/lib/relay-search.mjs): the same queries through Claude Code's web search on the Max plan.
+// The run only stops when both are down, because then every district after this one would be recorded
+// as searched-and-empty without being searched.
+let braveDown = !BRAVE, relayed = 0;
+const relayCache = new Map();
+function relay(queries) {
+  const need = queries.filter((q) => !relayCache.has(q));
+  if (need.length) {
+    let per;
+    try { per = relaySearch(need); }
+    catch (e) { throw Object.assign(new Error(`Brave is refusing and the relay failed too: ${e.message}`), { fatal: true }); }
+    need.forEach((q, i) => relayCache.set(q, per[i] || []));
+    relayed += need.length;
+  }
+}
 async function search(q) {
+  if (braveDown) { relay([q]); return relayCache.get(q); }
   const r = await fetch(`https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(q)}&count=15&country=us`,
     { headers: { Accept: "application/json", "X-Subscription-Token": BRAVE }, signal: AbortSignal.timeout(30_000) });
   // A quota or billing refusal is not "no results". Recorded as an empty search it silently marks a
   // district as looked-at-and-empty when nothing ever looked, which is what happened to 99 of them.
   if (r.status === 402 || r.status === 429) {
     const body = await r.text().catch(() => "");
-    throw Object.assign(new Error(`Brave refused: ${r.status} ${body.slice(0, 160)}`), { fatal: true });
+    console.error(`  Brave refused: ${r.status} ${body.slice(0, 120)}\n  Continuing through the search relay.`);
+    braveDown = true;
+    relay([q]); return relayCache.get(q);
   }
   if (!r.ok) throw new Error(`Brave ${r.status}`);
   const j = await r.json();
@@ -105,6 +125,8 @@ const QUERIES = (d, s) => (QUERY_SETS[arg("queries", "handbook")] ?? QUERY_SETS.
 export async function findDocuments(district, state) {
   const seen = new Map();
   let cost = 0;
+  // On the relay, one call carries all of this district's queries.
+  if (braveDown) { try { relay(QUERIES(district, state)); } catch (e) { console.error(`\n  ${e.message}\n  Stopping: every district after this would be recorded as searched-and-empty without being searched.`); process.exit(2); } }
   for (const q of QUERIES(district, state)) {
     let results;
     try { results = await search(q); }
@@ -117,13 +139,13 @@ export async function findDocuments(district, state) {
     const r = await rank(district, state, results);
     cost += r.cost;
     for (const k of r.kept) if (!seen.has(k.url)) seen.set(k.url, k);
-    await new Promise((s2) => setTimeout(s2, 1100));   // Brave free tier: one query a second.
+    if (!braveDown) await new Promise((s2) => setTimeout(s2, 1100));   // Brave free tier: one query a second.
   }
   return { district, state, documents: [...seen.values()].sort((a, b) => b.p - a.p).slice(0, 6), cost };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  if (!BRAVE || !JEV) { console.error("Needs BRAVE_API_KEY and OPENROUTER_API_KEY."); process.exit(1); }
+  if (!JEV) { console.error("Needs OPENROUTER_API_KEY (and BRAVE_API_KEY, or the search relay is used)."); process.exit(1); }
   const targets = JSON.parse(readFileSync((isAbsolute(arg("in", "data/handbooks/unread.json")) ? arg("in", "data/handbooks/unread.json") : join(root, arg("in", "data/handbooks/unread.json"))), "utf8"));
   mkdirSync(dirname(OUT), { recursive: true });
   const done = new Set(existsSync(OUT) ? readFileSync(OUT, "utf8").trim().split("\n").filter(Boolean).map((l) => { try { return JSON.parse(l).district; } catch { return null; } }) : []);
@@ -137,6 +159,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     appendFileSync(OUT, JSON.stringify({ ...r, students: t.students }) + "\n");
     if (n % 25 === 0) console.log(`[${n}/${queue.length}] ${hit} found, $${cost.toFixed(4)}`);
   }
-  console.log(`\n${hit}/${n} districts with a document, $${cost.toFixed(4)}`);
+  console.log(`\n${hit}/${n} districts with a document, $${cost.toFixed(4)}${relayed ? `; ${relayed} queries went through the search relay because Brave refused` : ""}`);
   await reportOps({ summary: `Mothership searched ${n} districts for their own discipline documents; found documents for ${hit}`, units: n, produced: hit, cost });
 }

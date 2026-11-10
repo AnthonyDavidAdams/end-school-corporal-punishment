@@ -22,13 +22,28 @@ for (const f of readdirSync(join(root, "data/states")).filter(f => f.endsWith(".
   if (doc?.code && `${doc.code}.yaml` !== f) report(`data/states/${f}`, false, [{ message: `code ${doc.code} does not match filename` }]);
   codes.add(doc?.code);
 }
+// One document cannot be the policy of districts in two states. A name search finds "Henry County Schools" in
+// Kentucky as readily as in Alabama, and 121 records were carrying a same-named district's document from another
+// state before this rule (2026-11-10). Every URL a record cites, as its source or in documents[], is collected
+// here and checked once all the state files are read.
+const urlKey = u => String(u).trim().replace(/#.*$/, "").replace(/\/+$/, "").replace(/^http:/, "https:");
+const urlStates = new Map();
 for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith(".yaml"))) {
   const doc = parse(readFileSync(join(root, "data/districts", f), "utf8"));
   report(`data/districts/${f}`, vDistrict(doc), vDistrict.errors || []);
   if (doc?.state && !codes.has(doc.state)) report(`data/districts/${f}`, false, [{ message: `unknown state ${doc.state}` }]);
-  const names = new Set();
+  const names = new Set(), ncesIds = new Map();
   for (const d of doc?.districts || []) {
     if (names.has(d.name)) report(`data/districts/${f}`, false, [{ message: `duplicate district ${d.name}` }]); names.add(d.name);
+    // Two rows under one federal id are two readings of one district, or an id on the wrong row. A warning, not a
+    // failure: which row is right takes a person, and the rows are not merged here.
+    if (d.nces_id && ncesIds.has(d.nces_id)) console.warn(`WARNING data/districts/${f}: duplicate nces_id ${d.nces_id} (${ncesIds.get(d.nces_id)} / ${d.name})`);
+    else if (d.nces_id) ncesIds.set(d.nces_id, d.name);
+    for (const u of [d.source, ...(Array.isArray(d.documents) ? d.documents.map(x => x?.url) : [])]) {
+      if (typeof u !== "string" || !/^https?:\/\//.test(u)) continue;
+      const seen = urlStates.get(urlKey(u)) || urlStates.set(urlKey(u), new Map()).get(urlKey(u));
+      if (!seen.has(doc.state)) seen.set(doc.state, d.name);
+    }
     // A "bans" record built from an email needs a policy code, and its quote must be the board's words, never a
     // sentence somebody wrote to us. Eighteen certificates went out on "we do not use it" before this (2026-10-27).
     if (d.status === "bans") {
@@ -39,6 +54,7 @@ for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith
     }
   }
 }
+for (const [u, seen] of urlStates) if (seen.size > 1) report("data/districts", false, [{ message: `one source URL under records in ${seen.size} states (${[...seen].map(([st, n]) => `${st} ${n}`).join("; ")}): ${u}` }]);
 const ids = new Set();
 for (const f of readdirSync(join(root, "facts/claims")).filter(f => f.endsWith(".md"))) {
   const text = readFileSync(join(root, "facts/claims", f), "utf8");

@@ -4,17 +4,19 @@ import { statSync, readFileSync, readdirSync, writeFileSync, mkdirSync, existsSy
 import { createHash } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { certificateHtml, certifiable } from "./certificate.mjs";
+import { certificateHtml, certifiable, FILING_CUTOFF } from "./certificate.mjs";
 import { toll as buildToll } from "./toll.mjs";
 import { connectSections, mdToHtml } from "./connect-page.mjs";
 import { guideBody } from "./lib/after-a-paddling.mjs";
 import { guideBody as christiansGuideBody } from "./lib/a-christians-guide.mjs";
+// The shared <head>: canonical, icon, Open Graph, Twitter Card and the tracking tags are written in
+// lib/head.mjs, so certificate.mjs and kit/build.sh put the same tags on their pages that this file does.
+import { BASE, metaHead, trackingHead } from "./lib/head.mjs";
 // A district's name becomes its certificate URL, so the rule has to be stable: the same district must
 // get the same address on every rebuild or a printed link stops working.
 const slug = (x) => String(x).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const site = join(root, "site");
-const BASE = "https://earthpilot.org/kids";
 const REPO = "https://github.com/AnthonyDavidAdams/end-school-corporal-punishment";
 // The one address. Everything on the site that tells somebody where to point an agent uses this.
 const MCP_URL = "https://escp-mcp-production.up.railway.app/mcp";
@@ -168,38 +170,19 @@ const COLOR = { banned: "#2D6A4F", partial: "#C05621", legal: "#9B2C2C" };
 const claim = id => claims.find(c => c.id === id);
 const md = t => esc(t).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`(.+?)`/g, "<code>$1</code>");
 
-const TRACK = (() => { try { return JSON.parse(readFileSync(join(root, "data/site/tracking.json"), "utf8")); } catch { return {}; } })();
-function trackingHead() {
-  let h = `<script>window.__escpNoAds = (navigator.globalPrivacyControl === true);</script>\n`;
-  if (TRACK.meta_pixel_id) h += `<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');if(!window.__escpNoAds){fbq('init','${TRACK.meta_pixel_id}');fbq('track','PageView');}</script>\n`;
-  const g = TRACK.ga4_measurement_id || TRACK.google_ads_id;
-  if (g) h += `<script async src="https://www.googletagmanager.com/gtag/js?id=${g}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());if(window.__escpNoAds){gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'})}${TRACK.ga4_measurement_id ? `gtag('config','${TRACK.ga4_measurement_id}');` : ""}${TRACK.google_ads_id ? `gtag('config','${TRACK.google_ads_id}');` : ""}</script>\n`;
-  if (TRACK.linkedin_partner_id) h += `<script>if(!window.__escpNoAds){_linkedin_partner_id="${TRACK.linkedin_partner_id}";window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];window._linkedin_data_partner_ids.push(_linkedin_partner_id);(function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";s.parentNode.insertBefore(b,s)})(window.lintrk);}</script>\n`;
-  // First-party: remember a tagged link (?r=) for the session and log the visit; tell the ad tags who came, by district only
-  h += `<script>(function(){try{var q=new URLSearchParams(location.search),r=q.get("r");if(r){localStorage.setItem("escp_r",r);localStorage.setItem("escp_r_at",String(Date.now()))}r=r||localStorage.getItem("escp_r");if(!r&&!/\\/kids\\/board\\//.test(location.pathname))return;var p=location.pathname;navigator.sendBeacon?navigator.sendBeacon("/kids/hit.php",new Blob([new URLSearchParams({r:r||"",p:p})],{type:"application/x-www-form-urlencoded"})):fetch("/kids/hit.php?r="+encodeURIComponent(r||"")+"&p="+encodeURIComponent(p),{keepalive:true});if(r&&window.fbq)fbq("trackCustom","TaggedVisit",{page:p});if(r&&window.gtag)gtag("event","tagged_visit",{page:p});if(r&&window.lintrk)lintrk("track",{conversion_id:"tagged_visit"})}catch(e){}})();</script>\n`;
-  return h;
-}
+// trackingHead() lives in lib/head.mjs (imported above) and reads data/site/tracking.json there.
+// Every path handed to shell() is collected here; the live board, the kit, the share page and the
+// certificates add their own. sitemap.xml is written from this set at the end of the build.
+const PAGES = new Set();
 function shell({ title, description, path, body, image = `${BASE}/assets/og-image.png`, extraHead = "", app = false }) {
-  const url = `${BASE}${path}`;
+  PAGES.add(path);
   extraHead = trackingHead() + extraHead;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)}</title>
-<meta name="description" content="${esc(description)}">
-<link rel="canonical" href="${url}">
-<meta property="og:title" content="${esc(title)}">
-<meta property="og:description" content="${esc(description)}">
-<meta property="og:image" content="${image}">
-<meta property="og:url" content="${url}">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="End School Corporal Punishment">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(title)}">
-<meta name="twitter:description" content="${esc(description)}">
-<meta name="twitter:image" content="${image}">
+${metaHead({ title, description, path, image })}
 <link rel="stylesheet" href="/kids/site.css?v=${ver("site.css")}">\n<script>document.addEventListener("click",function(e){var a=e.target.closest("a[href]");if(!a)return;var h=a.getAttribute("href")||"";if(/^(https?:)?\\/\\//.test(h)&&a.hostname!==location.hostname){a.target="_blank";a.rel="noopener";}});</script>\n<script defer src="/kids/news.js?v=${ver("news.js")}"></script>\n<script defer src="/kids/activity.js?v=${ver("activity.js")}"></script>
 ${extraHead}
 </head>
@@ -503,9 +486,17 @@ const legalStates = Object.values(states).filter(s => s.status === "legal").sort
 const partialStates = Object.values(states).filter(s => s.status === "partial");
 const bannedStates = Object.values(states).filter(s => s.status === "banned").sort((a, b) => a.name.localeCompare(b.name));
 const stateLink = s => `<a href="/kids/state/${s.code}/">${esc(s.name)}</a>`;
+// The newest year in data/crdc/national.csv, and the four states with the most students struck in that
+// year's states.csv. The description and the four-state tile are both written from these, so neither can
+// fall a release behind the tiles beside them.
+const latestNat = national.filter(r => Number(r.students) > 0).sort((a, b) => a.year.localeCompare(b.year)).at(-1);
+const top4Latest = (crdc[latestNat.year] || []).slice().sort((a, b) => Number(b.students) - Number(a.students)).slice(0, 4);
+const top4Share = top4Latest.length === 4 ? (100 * top4Latest.reduce((a, r) => a + Number(r.students), 0) / Number(latestNat.students)).toFixed(1) : null;
+// Districts whose own written policy still permits it, with or without a parent's consent.
+const stillAllow = Object.values(districts).flat().filter(d => d.status === "allows" || d.status === "consent_required").length;
 writeFileSync(join(site, "index.html"), shell({
   title: "Where a teacher may still legally hit a student", path: "/",
-  description: "The open map of corporal punishment in US public schools: 15 states still use it, 24,534 students struck in 2021-22. Every figure sourced. Bring an agent and help end it.",
+  description: `The open map of corporal punishment in US public schools. In ${legalStates.length} states schools still use it; in ${partialStates.length} more it is legal but unused. ${n(latestNat.students)} students struck in ${latestNat.year}. Every figure sourced. Bring an agent and help end it.`,
   extraHead: `<script defer src="/kids/map.js?v=${ver("map.js")}"></script>`,
   body: `<section class="hero"><div class="wrap"><h1>Where a teacher may still legally hit a student</h1>
 <p class="lede">In ${legalStates.length} states a public school employee may paddle a child as punishment, and does. In ${partialStates.length} more it is legal but no district uses it, though a few boards never took it off paper. Hover or tap a state. Every status links to its statute and every number to its source.</p></div></section>
@@ -523,7 +514,7 @@ writeFileSync(join(site, "index.html"), shell({
 <div class="stats">
   <div class="stat"><b>${n(total2122.figure)}</b><span>students received corporal punishment in 2021-22, the newest year the Department of Education has analyzed</span></div>
   <div class="stat"><b>${n(c2324.figure)}</b><span>in 2023-24, computed by this project from the raw file released August 31, 2026</span></div>
-  <div class="stat"><b>${top4.figure}%</b><span>of them in four states: Texas, Alabama, Mississippi, Arkansas</span></div>
+  <div class="stat"><b>${top4Share || top4.figure}%</b><span>${top4Share ? `of the ${latestNat.year} total in four states: ${top4Latest.map(r => esc(states[r.state].name)).join(", ")}` : `of the ${esc(top4.as_of)} total in four states: Texas, Alabama, Mississippi, Arkansas`}</span></div>
   <div class="stat"><b>${Math.round(boys.figure)}%</b><span>boys. Black students are ${Math.round(black.figure)}% of those struck and 15% of enrollment</span></div>
   <div class="stat"><b>36 of 38</b><span>OECD countries prohibit it in schools. The exceptions: the United States and one Australian state</span></div>
 </div>
@@ -749,6 +740,7 @@ mkdirSync(join(site, "stopped"), { recursive: true });
       const dir = join(site, "stopped", `${code.toLowerCase()}-${rec.slug}`);
       mkdirSync(dir, { recursive: true });
       writeFileSync(join(dir, "index.html"), certificateHtml({ d: rec, stateName: states[code].name, esc, n, base: BASE }));
+      PAGES.add(`/stopped/${code.toLowerCase()}-${rec.slug}/`);
       certs.push(rec);
     }
   }
@@ -762,6 +754,22 @@ mkdirSync(join(site, "stopped"), { recursive: true });
   const rows = stopped.map(d => `<tr><td>${n(d.crdc_students_latest)}</td><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${d.policy_code && d.policy_code.length <= 16 ? esc(d.policy_code) : ""}</td><td><a href="${esc(d.source)}" rel="noopener">policy</a></td><td><a href="${certLink({ ...d, code: d.code })}">certificate</a></td></tr>`).join("");
   const certRows = certs.map(d => `<tr><td>${esc(d.name)}, ${esc(states[d.code].name)}</td><td>${(d.policy_revised || d.policy_adopted || "").slice(0, 10) || '<span class="meta">date not printed on the policy</span>'}</td><td><a href="${certLink(d)}">certificate</a></td></tr>`).join("");
   const quotes = stopped.map(d => `<blockquote><p>${esc(d.quote)}</p><footer>${esc(d.name)}${d.policy_code && d.policy_code.length <= 16 ? `, policy ${esc(d.policy_code)}` : ""} &middot; ${n(d.crdc_students_latest)} student${d.crdc_students_latest === 1 ? "" : "s"} struck in 2023-24 &middot; read ${esc(d.last_verified || "")}</p></footer></blockquote>`).join("");
+  // The two reasons, and which rows on this page are which, worked out from the rows themselves. The cutoff
+  // is the one the certificates use: a policy dated from June 2024 on post-dates the 2023-24 school year.
+  const actedOn = d => d.policy_revised || d.policy_adopted || "";
+  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const when = iso => { const [y, m, day] = iso.slice(0, 10).split("-").map(Number); return day ? `on ${day} ${MONTHS[m - 1]} ${y}` : m ? `in ${MONTHS[m - 1]} ${y}` : `in ${y}`; };
+  const who = d => `${esc(d.name)} in ${esc(states[d.code].name)}`;
+  const kids = d => `${n(d.crdc_students_latest)} student${d.crdc_students_latest === 1 ? "" : "s"}`;
+  const others = list => list.length > 1 ? ` ${list.length - 1} other district${list.length === 2 ? "" : "s"} on this page ${list.length === 2 ? "is" : "are"} in the same position.` : "";
+  const after = stopped.filter(d => actedOn(d) >= FILING_CUTOFF), before = stopped.filter(d => actedOn(d) && actedOn(d) < FILING_CUTOFF), undated = stopped.filter(d => !actedOn(d));
+  const afterLi = `<li><b>The district changed its policy after the filing.</b> ${after.length
+    ? `${who(after[0])} ${after[0].policy_revised ? "revised" : "adopted"} ${after[0].policy_code && after[0].policy_code.length <= 16 ? `policy ${esc(after[0].policy_code)}` : "its policy"} ${when(actedOn(after[0]))}, after the school year in which it reported ${kids(after[0])} struck. That is a district that stopped.${others(after)}`
+    : "No district on this page is in that position today."}</li>`;
+  const beforeLi = `<li><b>The filing does not match a policy that was already in place.</b> ${before.length
+    ? `${who(before[0])} has had its prohibition in place since ${when(actedOn(before[0])).replace(/^(on|in) /, "")} and its 2023-24 filing still shows ${kids(before[0])} struck.${others(before)} That is a reporting question, not a change of heart, and it is on this page because hiding it would make the other rows less believable.`
+    : "No district on this page is in that position today. One that is would be listed here as a reporting question, not a change of heart, because hiding it would make the other rows less believable."}</li>`;
+  const undatedLi = undated.length ? `<li><b>The policy does not print a date.</b> ${undated.map(who).join("; ")} ${undated.length === 1 ? "prohibits" : "prohibit"} corporal punishment in current policy, but the policy does not say when the board acted, so this record cannot yet say which of the two reasons applies.</li>` : "";
   writeFileSync(join(site, "stopped", "index.html"), shell({
     title: "Districts that used to paddle and stopped",
     path: "/stopped/",
@@ -772,10 +780,11 @@ mkdirSync(join(site, "stopped"), { recursive: true });
 ${quotes}
 <div class="tablewrap"><table><tr><th>Struck 2023-24</th><th>District</th><th>Policy</th><th>Source</th><th></th></tr>${rows}</table></div>
 <h2>What a row here means, and what it does not</h2>
-<p>A district appears here because its own current policy prohibits corporal punishment and its own federal filing for 2023-24 reported students struck. Those two facts can both be true for two different reasons, and the record for each district says which:</p>
+<p>A district appears here because its own current policy prohibits corporal punishment and its own federal filing for 2023-24 reported students struck. Those two facts can both be true for two different reasons, and where the policy prints the date the board acted, the record says which:</p>
 <ul>
-<li><b>The district changed its policy after the filing.</b> Pike County, Alabama revised policy 5.30.1 on 17 June 2024, after the school year in which it reported 252 students struck. That is a district that stopped.</li>
-<li><b>The filing does not match a policy that was already in place.</b> Lubbock ISD removed corporal punishment in 2020 and its 2023-24 filing still shows two students. That is a reporting question, not a change of heart, and it is on this page because hiding it would make the other rows less believable.</li>
+${afterLi}
+${beforeLi}
+${undatedLi}
 </ul>
 <h2>Every district in this record that prohibits it</h2>
 <p>${n(certs.length)} districts, ${n(certs.filter(c => c.policy_revised || c.policy_adopted).length)} of them with a date the board acted. Each has a certificate it can print, download or be sent. They are granted on the district's own published policy and they link to it, so anyone can check the claim in one click.</p>
@@ -799,11 +808,10 @@ mkdirSync(join(site, "live"), { recursive: true });
   const dark = wall.totals.bricks - wall.totals.placed;
   const title = "Live: the fleet over the fog";
   const description = `${n(dark)} school districts under fog: a teacher may still hit a child and nobody has read the district's own rule. Ships are agents; every flight is real. Watch the fog lift, or send your own ship.`;
+  PAGES.add("/live/");
   writeFileSync(join(site, "live", "index.html"), `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>${esc(title)} — End School Corporal Punishment</title><meta name="description" content="${esc(description)}">
-<meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:image" content="${BASE}/assets/og-live.png"><meta property="og:url" content="${BASE}/live/"><meta property="og:type" content="website"><meta property="og:site_name" content="End School Corporal Punishment">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${BASE}/assets/og-live.png">
-<link rel="icon" href="/kids/icon.php"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IBM+Plex+Mono:wght@400;600&display=swap">
+${metaHead({ title: `${title} | End School Corporal Punishment`, socialTitle: title, description, path: "/live/", image: `${BASE}/assets/og-live.png` })}
+${trackingHead()}<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
 :root{--bg:#020604;--ph:#33FF99;--ph-dim:#0F4D33;--ph-faint:#0A2A1D;--amber:#FFB000;--cyan:#4FD1FF;--red:#FF4D4D;--green:#43E08A;--ink:#CFFFE6;--muted:#5E9B7C;--mono:'Share Tech Mono','IBM Plex Mono',ui-monospace,Menlo,monospace;--mono2:'IBM Plex Mono',ui-monospace,Menlo,monospace}
 *{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--mono2);font-size:13px}
@@ -871,7 +879,7 @@ mkdirSync(join(site, "live"), { recursive: true });
     <div id="flBriefing" class="briefing" hidden>
       <div class="brief-box">
         <div class="brief-kicker">Mission briefing</div>
-        <h1>In 17 states a teacher may still hit a child. This map shows every school district where that is legal, and whether anyone has read the district's own rule.</h1>
+        <h1>In ${legalStates.length + partialStates.length} states a teacher may still hit a child. This map shows every school district where that is legal, and whether anyone has read the district's own rule.</h1>
         <ul>
           <li><i class="sq fog"></i><b>Dark squares</b> are districts nobody has read. ${n(dark)} of them. The rule may say anything.</li>
           <li><i class="sq" style="background:#FF4D4D"></i><b>Red</b> means the district's own policy says teachers may hit students. <i class="sq" style="background:#43E08A;margin-left:.4rem"></i><b>Green</b> means it says they may not.</li>
@@ -1108,15 +1116,19 @@ ${tables}
   const modelLang = JSON.parse(readFileSync(join(root, "data/states/model-language.json"), "utf8"));
   const lagRows = existsSync(join(root, "data/outreach/policy-lag.json")) ? JSON.parse(readFileSync(join(root, "data/outreach/policy-lag.json"), "utf8")) : [];
   const permitting = Object.values(states).filter(x => x.status === "legal" || x.status === "partial");
+  // A state with no common sentence of its own is shown the one the most boards anywhere have adopted,
+  // and is told whose it is and how many use it.
+  const [leadCode, leadLang] = Object.entries(modelLang).filter(([k, v]) => states[k] && v && v.modal_quote).sort((a, b) => Number(b[1].used_by || 0) - Number(a[1].used_by || 0))[0];
+  const leadSentence = String(leadLang.modal_quote).replace(/^Corporal Punishment\s+/, "").trim();
   for (const s of permitting) {
     const code = s.code, m = modelLang[code] || {}, ds = districts[code] || [];
     const c24 = (crdc["2023-24"] || []).find(r => r.state === code) || {}, c17 = (crdc["2017-18"] || []).find(r => r.state === code) || {};
     const bans = ds.filter(d => d.status === "bans").length, lag = lagRows.filter(d => d.state === code).length, onRecord = ds.filter(d => d.status && d.status !== "unknown").length;
     const used = Number(m.used_by || 0), own = used >= 5 && m.modal_quote;
-    const sentence = own ? String(m.modal_quote).replace(/^Corporal Punishment\s+/, "").trim() : "The Board prohibits the use of corporal punishment in the District.";
-    const sentenceNote = own ? `${used} ${s.name} boards already use this sentence${m.modal_code ? `, in policy ${esc(m.modal_code)}` : ""}.` : `The sentence most Texas boards use. ${bans} ${s.name} boards prohibit the practice in their own words.`;
+    const sentence = own ? String(m.modal_quote).replace(/^Corporal Punishment\s+/, "").trim() : leadSentence;
+    const sentenceNote = own ? `${used} ${s.name} boards already use this sentence${m.modal_code ? `, in policy ${esc(m.modal_code)}` : ""}.` : `${s.name} has no single common sentence on this record yet; this is the one ${n(leadLang.used_by)} ${states[leadCode].name} boards use.${bans ? ` ${bans === 1 ? `One ${s.name} board prohibits the practice in its` : `${n(bans)} ${s.name} boards prohibit the practice in their`} own words.` : ""}`;
     const struck = c24.students ? `${n(c24.students)} students were struck in ${s.name} public schools in 2023-24` : `${s.name} reported no corporal punishment in 2023-24`;
-    const trend = c17.students && c24.students ? ` In 2017-18 it was ${n(c17.students)}: the practice is already leaving.` : (s.status === "partial" ? " No district in the state has used it since 2018." : "");
+    const trend = c17.students && c24.students ? ` In 2017-18 it was ${n(c17.students)}: the practice is already leaving.` : (s.practice_ended ? ` No district in the state has used it since ${esc(s.practice_ended)}.` : "");
     const shares = c24.students ? `Of the students struck, ${Math.round(100 * (c24.boys || 0) / c24.students)} percent were boys and ${Math.round(100 * (c24.with_disabilities || 0) / c24.students)} percent had a disability.` : "";
     const limits = Array.isArray(s.limits) ? s.limits : (s.limits ? [s.limits] : []);
     const film = "one-sentence-national", poster = "one-sentence-national-poster.jpg";   // one film everywhere since 2026-10-30; the Texas cut is retired
@@ -1179,7 +1191,7 @@ ${pickups.length ? `<p><b>Wanted now:</b></p><ul class="pickups">${pickups.map((
 
 <div class="actcard"><div class="n">4</div><h2>Share the record</h2>
 <p>Every state and district page is built to be shared: the number, the quote, the source. The share kit has a post and an image for each audience.</p>
-<div class="share-row"><a href="/kids/share/">Share kit</a><a href="https://twitter.com/intent/tweet?text=${encodeURIComponent("1,600 US school districts still allow adults to hit children, in their own written policies. See yours: https://earthpilot.org/kids/")}" rel="noopener">Post on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://earthpilot.org/kids/")}" rel="noopener">Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://earthpilot.org/kids/")}" rel="noopener">LinkedIn</a><a href="mailto:?subject=${encodeURIComponent("Which school districts still paddle children")}&body=${encodeURIComponent("Every district's own written rule, quoted and linked: https://earthpilot.org/kids/")}">Email a friend</a></div></div>
+<div class="share-row"><a href="/kids/share/">Share kit</a><a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(`${stillAllow % 100 ? "More than " : ""}${n(Math.floor(stillAllow / 100) * 100)} US school districts still allow adults to hit children, in their own written policies. See yours: ${BASE}/`)}" rel="noopener">Post on X</a><a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://earthpilot.org/kids/")}" rel="noopener">Facebook</a><a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent("https://earthpilot.org/kids/")}" rel="noopener">LinkedIn</a><a href="mailto:?subject=${encodeURIComponent("Which school districts still paddle children")}&body=${encodeURIComponent("Every district's own written rule, quoted and linked: https://earthpilot.org/kids/")}">Email a friend</a></div></div>
 
 <div class="actcard"><div class="n">5</div><h2>Know a reporter?</h2>
 <p>Local reporters cover this when it is their district and the quote is on the page. Send them the state page and one line: "Here is every district in our county, in its own words." If you have a contact at an outlet, introduce us.</p>
@@ -1362,8 +1374,16 @@ writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8
 `);
 
 // ---------- htaccess ----------
-writeFileSync(join(site, ".htaccess"), `RewriteEngine On
+writeFileSync(join(site, ".htaccess"), `Options -Indexes
+RewriteEngine On
 RewriteBase /kids/
+# cache/ holds the first-party hit log (visitor IPs), the coach's counters and the decisions inbox. The PHP
+# beside it reads those files from disk; nothing is ever fetched from cache/ by URL. (Until 2026-11-10 the
+# folder was listable and hits.jsonl was readable by anyone.)
+RewriteRule ^cache(/|$) - [F,L]
+# the CRM, the decisions desk and the correspondence board carry officials' names and what they wrote to us:
+# ops/gate.php serves them to a device that has shown the ops token, and to nobody else
+RewriteRule ^(ops/(?:crm|decisions|board)\\.html|data/crm\\.json)$ ops/gate.php?f=$1 [L,QSA]
 # old PHP URLs
 RewriteCond %{QUERY_STRING} ^state=([A-Za-z]{2})
 RewriteRule ^(county|state)(\\.php)?$ /kids/state/%1/? [R=301,L]
@@ -1381,10 +1401,10 @@ AddType image/svg+xml .svg
   ExpiresByType image/svg+xml "access plus 7 days"
   ExpiresByType application/json "access plus 1 hour"
 </IfModule>
-# CSS and JS are compressed by the host's defaults; JSON and SVG are not, and the district border
-# meshes are the largest thing this site serves. Texas goes from 297 KB to 84 KB.
+# Nothing is compressed by the host's defaults (checked 2026-11-10: the 700 KB Texas page went out whole),
+# so every text type is named here. The district border meshes are the largest thing this site serves.
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE application/json image/svg+xml text/plain
+  AddOutputFilterByType DEFLATE application/json image/svg+xml text/plain text/html text/css text/javascript application/javascript
 </IfModule>
 `);
 writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8") + `
@@ -1401,5 +1421,56 @@ table.exp{border-collapse:collapse;width:100%;font-size:.92rem;margin:.4rem 0 1.
 
 // The Behavior Coach's styles live beside its builder so the page and its CSS change together.
 writeFileSync(join(site, "site.css"), readFileSync(join(site, "site.css"), "utf8") + "\n" + readFileSync(join(root, "tools/coach/coach.css"), "utf8"));
+
+// ---------- the share page ----------
+// site/share/index.html was built by hand on 2026-09-26 and no generator writes it, but the header of
+// every page links to it. Its body is left as it is. Its head is brought in line with the rest of the
+// site on every build: the hand-written title and social tags come out and the shared ones go in,
+// between two marker comments so the next build can find and replace its own work.
+{
+  const p = join(site, "share", "index.html");
+  if (existsSync(p)) {
+    const START = "<!--escp:head-->", END = "<!--/escp:head-->";
+    const h = readFileSync(p, "utf8"), cut = h.indexOf("</head>");
+    const head = h.slice(0, cut)
+      .replace(new RegExp(`${START}[\\s\\S]*?${END}\\n?`), "")
+      .replace(/<title>[^<]*<\/title>\n?/, "")
+      .replace(/<meta (?:name="(?:description|twitter:[a-z:]+)"|property="og:[a-z_:]+") content="[^"]*">\n?/g, "")
+      .replace(/<link rel="(?:canonical|icon)"[^>]*>\n?/g, "");
+    const tags = `${START}\n${metaHead({
+      title: "Share kit", path: "/share/", image: `${BASE}/share/img/live-board.png`,
+      description: "Ready-to-post text and images for every audience, every figure sourced to a verified claim. Copy the post, download the image, sign it earthpilot.org/kids.",
+      socialDescription: "Posts and images for parents' groups, teachers' groups, LinkedIn, Instagram and church bulletins, every figure sourced.",
+    })}\n${trackingHead()}${END}\n`;
+    if (cut > 0 && /<meta name="viewport"[^>]*>/.test(head)) {
+      writeFileSync(p, head.replace(/(<meta name="viewport"[^>]*>)\n?/, (m, v) => `${v}\n${tags}`) + h.slice(cut));
+      PAGES.add("/share/");
+    } else console.log("share page: head not recognised, left as it was");
+  }
+}
+// The kit page is written by tools/kit/build.sh, which takes its tags from lib/head.mjs as well.
+if (existsSync(join(site, "kit", "index.html"))) PAGES.add("/kit/");
+
+// ---------- robots.txt and sitemap.xml ----------
+// Everything public is open to crawlers; the operations pages and the hit-log folder are not. A crawler
+// reads robots.txt only at the root of a host, so this file at /kids/robots.txt is not the one that
+// governs earthpilot.org: the two Disallow lines and the Sitemap line have to be in the host's own
+// /robots.txt for a crawler to see them. It is written here so the rules have one source to copy from.
+writeFileSync(join(site, "robots.txt"), `User-agent: *
+Allow: /
+Disallow: /kids/ops/
+Disallow: /kids/cache/
+
+Sitemap: ${BASE}/sitemap.xml
+`);
+{
+  const paths = [...PAGES].filter(p => !p.startsWith("/ops/")).sort();
+  writeFileSync(join(site, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${paths.map(p => `<url><loc>${esc(BASE + p)}</loc></url>`).join("\n")}
+</urlset>
+`);
+  console.log(`sitemap: ${paths.length} pages`);
+}
 
 console.log(`built index, ${Object.keys(states).length} state pages, resources, contribute`);

@@ -29,6 +29,14 @@ for (const f of readdirSync(join(root, "data/states")).filter((f) => f.endsWith(
 }
 const struck = new Set(readFileSync(join(root, "data/crdc/2023-24/districts.csv"), "utf8").trim().split("\n").slice(1).map((l) => l.split(",")[1]));
 
+// What each district answered, from tools/crdc/reported.py. Not being named among the districts with a
+// student struck is not the same as reporting none: a district missing from the federal file, or with
+// missing-data codes, has told nobody anything. Only a positive "No" earns the sentence "the district
+// reported no use".
+const reportedNoUse = new Set(readFileSync(join(root, "data/crdc/2023-24/lea-reported.csv"), "utf8").trim().split(/\r?\n/).slice(1).map((l) => l.trim().split(",")).filter((c) => c[c.length - 1] === "1").map((c) => c[1]));
+// A file read wrong yields an empty set and an empty list, and the daily plan would then have nobody to write to.
+if (reportedNoUse.size < 1000) { console.error(`build-policy-lag: only ${reportedNoUse.size} districts read as reporting no use; refusing to write the list`); process.exit(1); }
+
 const lea = new Map();
 for (const line of readFileSync(join(root, "data/nces/lea-directory-2023-24.csv"), "utf8").split("\n").slice(1)) {
   const c = splitCsv(line); if (c.length > 6) lea.set(c[0], { website: c[4], city: c[6] });
@@ -68,7 +76,7 @@ for (const f of readdirSync(join(root, "data/districts")).filter((f) => f.endsWi
   for (const d of doc.districts) {
     if (!["allows", "consent_required", "permitted_with_guidance"].includes(d.status) || !d.nces_id) continue;
     const id = String(d.nces_id);
-    if (struck.has(id) || (d.crdc_students_latest || 0) > 0) continue;
+    if (struck.has(id) || (d.crdc_students_latest || 0) > 0 || !reportedNoUse.has(id)) continue;
     const l = lea.get(id) || {};
     const em = d.contact?.district_email;
     // Last resort: a policy document the district hosts on its own domain names the domain.

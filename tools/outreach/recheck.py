@@ -51,10 +51,13 @@ class SearchDown(RuntimeError):
     pass
 
 
-def search(q, count=12):
+_brave_down = False      # set for the life of the process the first time Brave refuses
+
+
+def _brave(q, count=12):
     key = brave_key()
     if not key:
-        return []
+        raise SearchDown("no Brave key")
     url = f"https://api.search.brave.com/res/v1/web/search?q={urllib.parse.quote(q)}&count={count}&country=us"
     req = urllib.request.Request(url, headers={"Accept": "application/json", "X-Subscription-Token": key})
     try:
@@ -67,6 +70,45 @@ def search(q, count=12):
         return []
     return [{"title": x.get("title", ""), "url": x.get("url", ""), "snippet": (x.get("description") or "")[:200]}
             for x in (j.get("web", {}).get("results") or [])]
+
+
+def _relay(queries):
+    """The same queries through tools/lib/relay-search.mjs (the Claude CLI's web search, on the plan,
+    no API spend). One call carries every query. Raises SearchDown when the relay itself fails, so a
+    caller still cannot mistake "could not search" for "searched and found nothing"."""
+    try:
+        r = subprocess.run(["node", os.path.join(ROOT, "tools", "lib", "relay-search.mjs"), *queries],
+                           capture_output=True, text=True, timeout=300)
+    except Exception as e:
+        raise SearchDown(f"Brave is refusing and the relay failed too: {e}")
+    if r.returncode != 0:
+        raise SearchDown(f"Brave is refusing and the relay failed too: {(r.stderr or r.stdout)[:120]}")
+    try:
+        per = json.loads(r.stdout)
+    except Exception:
+        raise SearchDown("Brave is refusing and the relay returned something unreadable")
+    return [[{"title": x.get("title", ""), "url": x.get("url", ""), "snippet": (x.get("snippet") or "")[:200]}
+             for x in (per[i] if i < len(per) else [])] for i in range(len(queries))]
+
+
+def search_many(queries):
+    """One result list per query. Brave first; when it refuses (402, 429) the rest go through the relay."""
+    global _brave_down
+    out = []
+    for i, q in enumerate(queries):
+        if not _brave_down:
+            try:
+                out.append(_brave(q))
+                continue
+            except SearchDown:
+                _brave_down = True
+        out.extend(_relay(queries[i:]))
+        break
+    return out
+
+
+def search(q, count=12):
+    return search_many([q])[0]
 
 
 def candidates(district, state, domain):
@@ -84,8 +126,8 @@ def candidates(district, state, domain):
         f'site:{domain} "code of conduct" OR "student discipline"',
         f'site:{domain} "state required information"',
     ]
-    for q in queries:
-        for r in search(q):
+    for results in search_many(queries):
+        for r in results:
             u = r["url"]
             if not u or u in seen:
                 continue

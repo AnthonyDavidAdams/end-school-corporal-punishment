@@ -1,37 +1,37 @@
 {
- "as_of": "2026-10-26T22:25:23",
+ "as_of": "2026-11-08T07:30:08",
  "how": "students covered by a written ban (state law, or the district's own policy where the law permits it), over every public school student in the CRDC 2023-24 count",
  "national": {
   "law": null,
   "districts": {
-   "silent": 649,
-   "bans": 1179,
-   "consent_required": 194,
-   "allows": 1473,
-   "unknown": 64
+   "silent": 589,
+   "bans": 1217,
+   "consent_required": 205,
+   "allows": 1485,
+   "unknown": 63
   },
   "students": {
-   "silent": 3513048,
-   "bans": 10020118,
-   "consent_required": 275937,
-   "allows": 2628962,
+   "silent": 3348158,
+   "bans": 10152514,
+   "consent_required": 295943,
+   "allows": 2651614,
    "unknown": 124093
   },
-  "enrollment_unknown_districts": 163,
-  "covered": 37709661,
+  "enrollment_unknown_districts": 162,
+  "covered": 37842057,
   "covered_by_state_law": 27777140,
-  "covered_by_district_ban": 9932521,
-  "exposed": 2902910,
-  "unmapped": 3329747,
-  "unrecorded": 3970261,
-  "policy_lag_districts": 827,
-  "policy_lag_students": 1515222,
+  "covered_by_district_ban": 10064917,
+  "exposed": 2945568,
+  "unmapped": 3164857,
+  "unrecorded": 3960097,
+  "policy_lag_districts": 826,
+  "policy_lag_students": 1510436,
   "conflict_districts": 3,
-  "total_students": 16562158,
+  "total_students": 16572322,
   "universe_students": 47888244,
   "states_banned": 34,
   "states_permitting": 17,
-  "covered_share": 0.7875
+  "covered_share": 0.7902
  },
  "states": {
   "AK": {
@@ -55,60 +55,60 @@
   "AL": {
    "law": "legal",
    "districts": {
-    "silent": 21,
-    "bans": 27,
+    "silent": 20,
+    "bans": 28,
     "consent_required": 6,
     "allows": 73
    },
    "students": {
-    "silent": 67359,
-    "bans": 307818,
+    "silent": 64143,
+    "bans": 311034,
     "consent_required": 34399,
     "allows": 294853
    },
    "enrollment_unknown_districts": 4,
-   "covered": 307818,
+   "covered": 311034,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 307818,
+   "covered_by_district_ban": 311034,
    "exposed": 329252,
-   "unmapped": 67359,
+   "unmapped": 64143,
    "unrecorded": 25935,
    "policy_lag_districts": 18,
    "policy_lag_students": 81550,
    "conflict_districts": 0,
    "total_students": 704429,
    "universe_students": 730364,
-   "covered_share": 0.4215
+   "covered_share": 0.4259
   },
   "AR": {
    "law": "legal",
    "districts": {
-    "bans": 15,
-    "allows": 137,
-    "silent": 29,
-    "unknown": 4,
-    "consent_required": 7
+    "bans": 18,
+    "allows": 140,
+    "silent": 24,
+    "consent_required": 7,
+    "unknown": 3
    },
    "students": {
-    "bans": 78955,
-    "allows": 168115,
-    "silent": 98021,
-    "unknown": 0,
-    "consent_required": 8038
+    "bans": 73759,
+    "allows": 181769,
+    "silent": 99727,
+    "consent_required": 8038,
+    "unknown": 0
    },
-   "enrollment_unknown_districts": 6,
-   "covered": 78955,
+   "enrollment_unknown_districts": 5,
+   "covered": 73759,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 78955,
-   "exposed": 176153,
-   "unmapped": 98021,
-   "unrecorded": 118596,
+   "covered_by_district_ban": 73759,
+   "exposed": 189807,
+   "unmapped": 99727,
+   "unrecorded": 108432,
    "policy_lag_districts": 23,
    "policy_lag_students": 36533,
    "conflict_districts": 0,
-   "total_students": 353129,
+   "total_students": 363293,
    "universe_students": 471725,
-   "covered_share": 0.1674
+   "covered_share": 0.1564
   },
   "AZ": {
    "law": "legal",
@@ -377,118 +377,118 @@
   "IN": {
    "law": "legal",
    "districts": {
-    "bans": 141,
+    "bans": 144,
     "allows": 46,
-    "silent": 39,
+    "silent": 36,
     "unknown": 2,
     "consent_required": 1
    },
    "students": {
-    "bans": 525908,
+    "bans": 546252,
     "allows": 83964,
-    "silent": 190133,
+    "silent": 169789,
     "unknown": 0,
     "consent_required": 4943
    },
    "enrollment_unknown_districts": 5,
-   "covered": 525908,
+   "covered": 546252,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 525908,
+   "covered_by_district_ban": 546252,
    "exposed": 88907,
-   "unmapped": 190133,
+   "unmapped": 169789,
    "unrecorded": 199163,
    "policy_lag_districts": 47,
    "policy_lag_students": 88907,
    "conflict_districts": 0,
    "total_students": 804948,
    "universe_students": 1004111,
-   "covered_share": 0.5238
+   "covered_share": 0.544
   },
   "KS": {
    "law": "legal",
    "districts": {
-    "bans": 136,
-    "silent": 74,
+    "bans": 149,
+    "silent": 61,
     "allows": 11,
     "unknown": 3,
     "consent_required": 1
    },
    "students": {
-    "bans": 232126,
-    "silent": 144991,
+    "bans": 242246,
+    "silent": 134871,
     "allows": 21213,
     "unknown": 0,
     "consent_required": 338
    },
    "enrollment_unknown_districts": 3,
-   "covered": 232126,
+   "covered": 242246,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 232126,
+   "covered_by_district_ban": 242246,
    "exposed": 21551,
-   "unmapped": 144991,
+   "unmapped": 134871,
    "unrecorded": 60713,
    "policy_lag_districts": 12,
    "policy_lag_students": 21551,
    "conflict_districts": 0,
    "total_students": 398668,
    "universe_students": 459381,
-   "covered_share": 0.5053
+   "covered_share": 0.5273
   },
   "KY": {
    "law": "partial",
    "districts": {
-    "bans": 156,
-    "silent": 5,
+    "bans": 157,
+    "silent": 4,
     "allows": 5,
     "consent_required": 1
    },
    "students": {
-    "bans": 618392,
-    "silent": 9654,
+    "bans": 620761,
+    "silent": 7285,
     "allows": 12126,
     "consent_required": 1961
    },
    "enrollment_unknown_districts": 0,
-   "covered": 618392,
+   "covered": 620761,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 618392,
+   "covered_by_district_ban": 620761,
    "exposed": 14087,
-   "unmapped": 9654,
+   "unmapped": 7285,
    "unrecorded": 4851,
    "policy_lag_districts": 6,
    "policy_lag_students": 14087,
    "conflict_districts": 0,
    "total_students": 642133,
    "universe_students": 646984,
-   "covered_share": 0.9558
+   "covered_share": 0.9595
   },
   "LA": {
    "law": "legal",
    "districts": {
     "allows": 13,
-    "silent": 28,
+    "silent": 26,
     "consent_required": 7,
-    "bans": 9
+    "bans": 11
    },
    "students": {
     "allows": 87989,
-    "silent": 257217,
+    "silent": 183281,
     "consent_required": 33663,
-    "bans": 155091
+    "bans": 229027
    },
    "enrollment_unknown_districts": 1,
-   "covered": 155091,
+   "covered": 229027,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 155091,
+   "covered_by_district_ban": 229027,
    "exposed": 121652,
-   "unmapped": 257217,
+   "unmapped": 183281,
    "unrecorded": 106378,
    "policy_lag_districts": 14,
    "policy_lag_students": 78881,
    "conflict_districts": 0,
    "total_students": 533960,
    "universe_students": 640338,
-   "covered_share": 0.2422
+   "covered_share": 0.3577
   },
   "MA": {
    "law": "banned",
@@ -593,32 +593,32 @@
   "MO": {
    "law": "legal",
    "districts": {
-    "silent": 84,
-    "allows": 47,
-    "bans": 112,
-    "consent_required": 81,
+    "bans": 126,
+    "allows": 46,
+    "silent": 68,
+    "consent_required": 84,
     "unknown": 1
    },
    "students": {
-    "silent": 207909,
-    "allows": 38081,
-    "bans": 302734,
-    "consent_required": 61886,
+    "bans": 333145,
+    "allows": 33295,
+    "silent": 181652,
+    "consent_required": 62518,
     "unknown": 0
    },
    "enrollment_unknown_districts": 4,
-   "covered": 302734,
+   "covered": 333145,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 302734,
-   "exposed": 99967,
-   "unmapped": 207909,
+   "covered_by_district_ban": 333145,
+   "exposed": 95813,
+   "unmapped": 181652,
    "unrecorded": 258531,
-   "policy_lag_districts": 72,
-   "policy_lag_students": 58615,
+   "policy_lag_districts": 71,
+   "policy_lag_students": 53829,
    "conflict_districts": 0,
    "total_students": 610610,
    "universe_students": 869141,
-   "covered_share": 0.3483
+   "covered_share": 0.3833
   },
   "MS": {
    "law": "legal",
@@ -863,32 +863,32 @@
   "OK": {
    "law": "legal",
    "districts": {
-    "allows": 155,
-    "bans": 49,
-    "consent_required": 66,
-    "silent": 132,
+    "allows": 163,
+    "bans": 48,
+    "consent_required": 74,
+    "silent": 117,
     "unknown": 1
    },
    "students": {
-    "allows": 91672,
-    "bans": 191985,
-    "consent_required": 44302,
-    "silent": 208535,
+    "allows": 94058,
+    "bans": 181514,
+    "consent_required": 63676,
+    "silent": 197246,
     "unknown": 283
    },
    "enrollment_unknown_districts": 2,
-   "covered": 191985,
+   "covered": 181514,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 191985,
-   "exposed": 135974,
-   "unmapped": 208818,
+   "covered_by_district_ban": 181514,
+   "exposed": 157734,
+   "unmapped": 197529,
    "unrecorded": 129837,
    "policy_lag_districts": 141,
    "policy_lag_students": 88839,
    "conflict_districts": 0,
    "total_students": 536777,
    "universe_students": 666614,
-   "covered_share": 0.288
+   "covered_share": 0.2723
   },
   "OR": {
    "law": "banned",
@@ -948,22 +948,22 @@
    "law": "legal",
    "districts": {
     "bans": 1,
-    "silent": 12,
+    "silent": 11,
     "unknown": 7,
-    "allows": 1
+    "allows": 2
    },
    "students": {
     "bans": 10564,
-    "silent": 120331,
+    "silent": 110232,
     "unknown": 0,
-    "allows": 0
+    "allows": 10099
    },
    "enrollment_unknown_districts": 8,
    "covered": 10564,
    "covered_by_state_law": 0,
    "covered_by_district_ban": 10564,
-   "exposed": 0,
-   "unmapped": 120331,
+   "exposed": 10099,
+   "unmapped": 110232,
    "unrecorded": 592399,
    "policy_lag_districts": 1,
    "policy_lag_students": 0,
@@ -993,30 +993,30 @@
   "TN": {
    "law": "legal",
    "districts": {
-    "silent": 42,
-    "allows": 43,
-    "bans": 26,
+    "silent": 39,
+    "allows": 44,
+    "bans": 28,
     "consent_required": 5
    },
    "students": {
-    "silent": 297996,
-    "allows": 190536,
-    "bans": 475964,
+    "silent": 289030,
+    "allows": 191835,
+    "bans": 483631,
     "consent_required": 20755
    },
    "enrollment_unknown_districts": 0,
-   "covered": 475964,
+   "covered": 483631,
    "covered_by_state_law": 0,
-   "covered_by_district_ban": 475964,
-   "exposed": 211291,
-   "unmapped": 297996,
+   "covered_by_district_ban": 483631,
+   "exposed": 212590,
+   "unmapped": 289030,
    "unrecorded": 0,
    "policy_lag_districts": 15,
    "policy_lag_students": 67108,
    "conflict_districts": 0,
    "total_students": 985251,
    "universe_students": 960916,
-   "covered_share": 0.4831
+   "covered_share": 0.4909
   },
   "TX": {
    "law": "legal",
@@ -1204,8 +1204,8 @@
   "KS",
   "NC",
   "KY",
-  "AZ",
   "SC",
+  "AZ",
   "WY"
  ]
 }

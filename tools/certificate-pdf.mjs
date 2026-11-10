@@ -36,7 +36,10 @@ for (const s of slugs) {
   const pdf = join(out, `${s}.pdf`);
   try {
     // --headless=new prints with CSS paged media honoured; the older headless ignored @page size.
-    await run(CHROME, ["--headless=new", "--disable-gpu", "--no-pdf-header-footer", `--print-to-pdf=${pdf}`, file], { timeout: 60000 });
+    // The pages carry the site's ad and analytics tags. The certificate itself needs nothing from the
+    // network (its styles are inline and its fonts are the system's), so name resolution is switched off
+    // for the print: a batch of PDFs must not be counted as a thousand page views.
+    await run(CHROME, ["--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--host-resolver-rules=MAP * ~NOTFOUND", `--print-to-pdf=${pdf}`, file], { timeout: 60000 });
     ok++;
     process.stdout.write(`${ok + failed}/${slugs.length} ${s}\r`);
   } catch (e) { failed++; console.error(`\nFAILED ${s}: ${String(e.message).slice(0, 120)}`); }

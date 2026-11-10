@@ -1,7 +1,7 @@
 // Merges district-scan results (JSON arrays) into data/districts/<XX>.yaml.
 // Usage: node tools/merge-scan.mjs scan1.json scan2.json ...
 // Matches existing entries by NCES id, else by normalized name; adds new entries otherwise. Keeps files sorted by name.
-import { readFileSync, writeFileSync, existsSync, appendFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, appendFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { reportOps } from "./lib/ops.mjs";
@@ -25,10 +25,34 @@ function countiesOf(state) {
 }
 const VALID = new Set(["allows", "bans", "consent_required", "unknown", "silent"]);
 let added = 0, updated = 0, skipped = 0;
+// A document belongs to one district. A scan that searched by name and came back with the same-named district
+// in another state would otherwise put that district's policy on this one: 121 records had to be reset for it on
+// 2026-11-10. Every URL already on file, as a source or in documents[], is remembered with its state; a record
+// whose source is on file under a different state is refused, and a documents[] entry that is, is dropped.
+// validate.mjs fails on the same condition, so letting one through here would stop the nightly publish.
+const urlKey = u => String(u).trim().replace(/#.*$/, "").replace(/\/+$/, "").replace(/^http:/, "https:");
+let URL_STATE = null;
+function urlState() {
+  if (!URL_STATE) {
+    URL_STATE = new Map();
+    for (const f of readdirSync(join(root, "data/districts")).filter(f => f.endsWith(".yaml"))) {
+      const doc = parse(readFileSync(join(root, "data/districts", f), "utf8"));
+      for (const d of doc?.districts || []) for (const u of [d.source, ...(Array.isArray(d.documents) ? d.documents.map(x => x?.url) : [])]) if (typeof u === "string" && /^https?:\/\//.test(u) && !URL_STATE.has(urlKey(u))) URL_STATE.set(urlKey(u), doc.state);
+    }
+  }
+  return URL_STATE;
+}
 for (const f of process.argv.slice(2)) {
   for (const r of JSON.parse(readFileSync(f, "utf8"))) {
     if (r.status === undefined && (r.phone_policy || r.ai_policy)) { r.status = null; } else if (!VALID.has(r.status)) { console.error(`skip ${r.name}: bad status ${r.status}`); skipped++; continue; }
     if (r.status !== null && r.status !== "unknown" && !(r.source && /^https?:\/\//.test(r.source) && (r.quote || r.status === "silent"))) { console.error(`skip ${r.name}: ${r.status} without source+quote`); skipped++; continue; }
+    const elsewhere = u => { const st = typeof u === "string" ? urlState().get(urlKey(u)) : null; return st && st !== r.state ? st : null; };
+    if (elsewhere(r.source)) { console.error(`skip ${r.name} (${r.state}): its source is already the source of a record in ${elsewhere(r.source)}: ${r.source}`); skipped++; continue; }
+    if (Array.isArray(r.documents) && r.documents.some(x => elsewhere(x?.url))) {
+      for (const x of r.documents) if (elsewhere(x?.url)) console.error(`${r.name} (${r.state}): dropping a document already on file under ${elsewhere(x.url)}: ${x.url}`);
+      r.documents = r.documents.filter(x => !elsewhere(x?.url));
+    }
+    for (const u of [r.source, ...(Array.isArray(r.documents) ? r.documents.map(x => x?.url) : [])]) if (typeof u === "string" && /^https?:\/\//.test(u) && !urlState().has(urlKey(u))) urlState().set(urlKey(u), r.state);
     // Contributors are asked for the district's published contact and it was being dropped on the
     // floor here, which wasted the one moment when someone is already on the district's own site.
     // Empty strings and all-null blocks are discarded so a record is not given a contact it does not

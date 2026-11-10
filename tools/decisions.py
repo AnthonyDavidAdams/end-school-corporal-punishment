@@ -55,7 +55,7 @@ for r in sorted([x for x in reqs if x["status"] == "needs_review"], key=lambda x
 held = collections.defaultdict(list)
 for r in reqs:
     if r["status"] == "held": held[r.get("kind", "policy")].append(r)
-LABEL = {"align": "Safe School invitations to superintendents", "board_note": "Board-member notes with the film link", "neighbor": "Neighbor asks (next to a district that moved)", "policy": "First asks", "apology": "Apologies"}
+LABEL = {"align": "Safe School invitations to superintendents", "board_note": "Board-member notes with the film link", "neighbor": "Neighbor asks (next to a district that moved)", "policy": "First asks", "apology": "Apologies", "formal_request": "Formal records requests (third touch, after the nudge drew no answer)"}
 for k, rs in held.items():
     rs.sort(key=lambda x: (x["state"], x["name"]))
     by_state = collections.Counter(x["state"] for x in rs)
@@ -63,7 +63,14 @@ for k, rs in held.items():
     it = {"id": f"batch:{k}", "kind": "batch", "title": f"{len(rs)} {LABEL.get(k, k)} held ({', '.join(f'{s} {c}' for s, c in sorted(by_state.items()))}; variants {dict(variants)})", "since": min(x.get("queued_at") or "" for x in rs)[:10],
           "why": "A new message kind or batch waits until you have seen it.", "draft": preview(rs[0]), "list": [f"{x['state']} {x['name']}" + (f" ({x.get('member')})" if x.get("member") else "") + f" -> {x['to']}" + (f" [{x.get('variant')}]" if x.get("variant") else "") for x in rs],
           "actions": [f"release {k}", f"release {k} <STATES>", "edit the text", "drop"], "batch": k}
-    it["auto_at"] = clock(it, True); it["auto_what"] = f"release all {len(rs)}" if it["auto_at"] else None; it["waits"] = None
+    # A kind that has never gone out is the one thing a batch waits for without a clock: the first of anything
+    # is read by a person before a district sees it. After that first release the usual clock applies.
+    first = not any(x.get("kind", "policy") == k and x.get("sent_at") for x in reqs)
+    if first:
+        clock(it, False); it["auto_at"] = None; it["auto_what"] = None; it["waits"] = "your first look: nothing of this kind has gone out yet"
+        it["why"] = "A new message kind. It goes nowhere until you release it; there is no clock on this one."
+    else:
+        it["auto_at"] = clock(it, True); it["auto_what"] = f"release all {len(rs)}" if it["auto_at"] else None; it["waits"] = None
     items.append(it)
 # 3. standing items: a person's to-do, no clock
 for e in extra:
@@ -72,9 +79,36 @@ for e in extra:
     if state.get(it["id"], {}).get("go"): it["why"] = f"GO given {state[it['id']]['go'][:16]}; Claude picks it up. " + it["why"]
     items.append(it)
 
+# 4. threads Anthony is handling himself where the district wrote last. The machine stays out of these, so
+# without a line here the reply sits in the ledger and nobody is told (2026-11-10 review: five such threads).
+def _when(v):
+    v = str(v or "").strip()
+    if not v: return None
+    try:
+        from email.utils import parsedate_to_datetime
+        d = parsedate_to_datetime(v) if "," in v else datetime.datetime.fromisoformat(v[:19])
+    except Exception:
+        try: d = datetime.datetime.fromisoformat(v[:19])
+        except Exception: return None
+    return d.astimezone(datetime.timezone.utc) if d.tzinfo else d.astimezone().astimezone(datetime.timezone.utc)
+listed = " ".join(e["title"] for e in extra).lower()
+for r in reqs:
+    if not r.get("hold_replies") or r["status"] in ("anthony_replied", "dropped", "bounced") or not r.get("replies"): continue
+    m = r["replies"][-1]
+    if "no reply needed" in (m.get("action") or "") or m.get("kind") == "auto_reply_or_bounce": continue
+    theirs = _when(m.get("date")); ours = max([d for d in (_when(e.get("at")) for e in r.get("our_messages") or []) if d] or [None], key=lambda d: d or datetime.datetime.min.replace(tzinfo=datetime.timezone.utc))
+    if not theirs or (ours and ours > theirs): continue
+    if r["name"].split()[0].lower() in listed: continue   # already a standing item of its own
+    it = {"id": f"standing:thread-{r['id']}-{hashlib.sha1((m.get('message_id') or m.get('file') or '').encode()).hexdigest()[:6]}", "kind": "standing",
+          "title": f"{r['name']}, {r['state']}: {m.get('from', 'the district')} wrote back on a thread you are handling", "since": theirs.astimezone().strftime("%Y-%m-%d"),
+          "why": (m.get("why") or "").replace("Anthony is in this thread; ", "")[:400], "draft": m.get("suggested") or "", "actions": ["go", "skip"]}
+    if state.get(it["id"], {}).get("skipped"): continue
+    clock(it, False); it["auto_at"] = None; it["auto_what"] = None; it["waits"] = "yours: the machine does not answer this thread"
+    items.append(it)
+
 # forget state for items no longer listed
 live = {it["id"] for it in items}
-state = {k: v for k, v in state.items() if k in live}
+state = {k: v for k, v in state.items() if k in live or (k.startswith("standing:thread-") and v.get("skipped"))}   # a skipped thread stays skipped until the district writes again
 json.dump(state, open(STATE, "w"), indent=1)
 
 lines = [f"{i+1}. {it['title']}" for i, it in enumerate(items)]

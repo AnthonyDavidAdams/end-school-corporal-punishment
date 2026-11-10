@@ -10,12 +10,17 @@ for f in $ORDER; do
   sed -E 's#\[([^]]+)\]\([0-9]{2}-[a-z-]+\.md\)#\1#g; s#\[([^]]+)\]\(\.\./[^)]+\)#\1#g; s#`\.\./training/modules/`#the training modules#g; s#`\.\./training/evidence\.md`#the evidence base#g; s#`\.\./facts/claims/`#the facts registry#g; s#`\.\./facts/README\.md`#the facts registry index#g; s#`\.\./training/modules/([0-9]+)-[a-z-]+\.md`#Module \1#g; s#`\.\./templates/[a-z-]+\.md`#the templates#g' "kit/$f.md" | pandoc --from gfm --to html5 --wrap=none >> "$TMP/body.html"
   echo '<div class="pagebreak"></div>' >> "$TMP/body.html"
 done
+# Title, description, canonical, icon, Open Graph and Twitter Card tags come from the one helper the rest of
+# the site uses (tools/lib/head.mjs), so this page cannot drift from the others.
+HEAD_TAGS=$(node tools/lib/head.mjs meta --type article --path /kit/ \
+  --title "The Safe Discipline Program kit | End School Corporal Punishment" \
+  --social-title "The Safe Discipline Program kit" \
+  --description "Everything a district needs to end corporal punishment well: the policy, the board motion, the words for staff, families and students, the history, the training and the ninety-day transition. An in-kind grant from EarthPilot.org." \
+  --social-description "The policy, the motion, the words for staff, families and students, the history, the training and the transition. Free, as an in-kind grant from EarthPilot.org.")
 cat > "$TMP/final.html" <<HTML
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Safe Discipline Program kit — End School Corporal Punishment</title>
-<meta name="description" content="Everything a district needs to end corporal punishment well: the policy, the board motion, the words for staff, families and students, the history, the training and the ninety-day transition. An in-kind grant from EarthPilot.org.">
-<meta property="og:title" content="The Safe Discipline Program kit"><meta property="og:description" content="The policy, the motion, the words for staff, families and students, the history, the training and the transition. Free, as an in-kind grant from EarthPilot.org."><meta property="og:image" content="https://earthpilot.org/kids/assets/og-image.png"><meta property="og:url" content="https://earthpilot.org/kids/kit/"><meta property="og:type" content="article"><meta property="og:site_name" content="End School Corporal Punishment">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="The Safe Discipline Program kit"><meta name="twitter:description" content="The policy, the motion, the words for staff, families and students, the history, the training and the transition."><meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
+$HEAD_TAGS
+<!--escp:tracking-->
 <style>
 @page{size:Letter;margin:0.9in 0.9in 1in}
 :root{--ink:#1B2A41;--muted:#5E6A8A;--rule:#D9DCE3;--accent:#9B2C2C}
@@ -45,7 +50,9 @@ $(cat "$TMP/body.html")
 <div class="foot">The Safe Discipline Program · EarthPilot · earthpilot.org/kids · The coach that answers questions about this kit is at galley.so/safe-discipline</div>
 </div></body></html>
 HTML
-cp "$TMP/final.html" site/kit/index.html
+# The published page gets the site's tracking tags in place of the marker comment. The PDF below is printed
+# from the copy without them, so a build never reports a page view.
+node tools/lib/head.mjs inject "$TMP/final.html" > site/kit/index.html
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --no-pdf-header-footer --print-to-pdf="$PWD/kit/safe-discipline-program.pdf" --virtual-time-budget=10000 "file://$TMP/final.html" 2>/dev/null
 cp kit/safe-discipline-program.pdf site/kit/safe-discipline-program.pdf
 echo "html $(wc -c < site/kit/index.html) bytes; pdf $(wc -c < kit/safe-discipline-program.pdf) bytes, $(pdfinfo kit/safe-discipline-program.pdf 2>/dev/null | grep Pages)"

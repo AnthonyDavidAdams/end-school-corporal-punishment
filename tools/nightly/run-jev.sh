@@ -51,7 +51,9 @@ ops "nightly-$DAY" "Mothership on station: reading $(node -e 'console.log(requir
 [ "$(node -e 'console.log(require(process.argv[1]).length)' "$LOG/slice.json")" -gt 0 ] || portals_only "nothing to do on the open web"
 
 # 2. Find, read, classify. Each is deterministic apart from Jev's typed decisions.
-node tools/tasb/find-document.mjs --in "$LOG/slice.json" --out "$LOG/found.jsonl" || { echo "find failed"; ops "nightly-$DAY" "Mothership pass aborted: the document search failed" 0 0 0; exit 1; }
+# A search that stops part-way (no credit on Brave and no relay) is not the end of the night: the districts
+# it never reached go back on the list, and whatever it did find, and whatever the portals read, still ships.
+node tools/tasb/find-document.mjs --in "$LOG/slice.json" --out "$LOG/found.jsonl" || { echo "find stopped early"; node tools/nightly/unstamp.mjs "$LOG"; ops "nightly-$DAY" "Mothership: the document search stopped early; unsearched districts go back on the list" 0 0 0; [ -s "$LOG/found.jsonl" ] || portals_only "the search was unavailable tonight"; }
 node tools/tasb/read-found.mjs --in "$LOG/found.jsonl" --out "$LOG/read.jsonl" --workers 4 || { echo "read failed"; exit 1; }
 grep '"rule"' "$LOG/read.jsonl" > "$LOG/rule.jsonl" || true
 [ -s "$LOG/rule.jsonl" ] || portals_only "no document carried the rule tonight"
@@ -67,6 +69,6 @@ npm --prefix tools run build-site 2>&1 | tail -1
 git add data/districts data/handbooks site && git commit -q -m "Nightly $DAY: $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/records.json") districts recorded by the Mothership
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>" && git push -q origin main && echo pushed
-if [ -n "${DEPLOY_PASS:-}" ]; then sshpass -p "$DEPLOY_PASS" rsync -az --delete --exclude documents --exclude og.html --exclude news.php --exclude icon.php -e "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no" site/ "$DEPLOY_HOST:$DEPLOY_PATH" && echo deployed; fi
+if [ -n "${DEPLOY_PASS:-}" ]; then sshpass -p "$DEPLOY_PASS" rsync -az --delete --exclude documents --exclude media --exclude cache --exclude og.html --exclude news.php --exclude icon.php -e "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no" site/ "$DEPLOY_HOST:$DEPLOY_PATH" && echo deployed; fi
 N=$(node -e 'console.log(require(process.argv[1]).length)' "$LOG/records.json"); ops "nightly-$DAY" "Mothership pass complete: $N districts lifted from the fog, $(node -e 'console.log(require(process.argv[1]).length)' "$LOG/held.json") held for a person" "$SLICE" "$N" 0
 echo "=== $(date -u +%FT%TZ) nightly done: $N recorded, held in $LOG/held.json"

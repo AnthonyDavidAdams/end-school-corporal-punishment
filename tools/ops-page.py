@@ -44,10 +44,25 @@ def portals():
     return rows
 
 
+_UUID = r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+
+
+def scrub(l):
+    """What a job log may say on a page anyone can open: no path that names the machine or its owner,
+    and no error id handed back by somebody else's API (it identifies our account's request to them and
+    tells a reader nothing)."""
+    l = l.replace(ROOT + "/", "").replace(ROOT, ".")
+    l = re.sub(r"/(?:Users|home)/[^/\s\"']+/", "~/", l)
+    l = re.sub(r'"(?:id|request_id|requestId|request-id)"\s*:\s*"[^"]*"\s*,?\s*', "", l)
+    l = re.sub(r"\breq_[A-Za-z0-9]{6,}", "[id]", l)
+    l = re.sub(_UUID, "[id]", l)
+    return l
+
+
 def nightly_tail():
     p = "/tmp/escp-nightly.out"
     if not os.path.exists(p): return []
-    lines = [l.rstrip() for l in open(p, errors="ignore").read().splitlines()[-40:]]
+    lines = [scrub(l.rstrip()) for l in open(p, errors="ignore").read().splitlines()[-40:]]
     return lines
 
 
@@ -59,7 +74,7 @@ def outreach_tail():
         if re.search(r"0 sent, 0 still|0 new replies|0 nudges|tidy: 0|sent-mail scan", l): continue
         # addresses are not published
         l = re.sub(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+", "[address]", l)
-        keep.append(l)
+        keep.append(scrub(l))
     return keep[-30:]
 
 
@@ -89,8 +104,8 @@ def main():
     agencies_asked = len({r["state"] for r in agencies}) + len({f["state"] for f in forms if f.get("submitted_at")} - {r["state"] for r in agencies})
     H = []
     H.append(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Safe Schools Project · status</title><meta name="robots" content="noindex">
-<meta property="og:title" content="Safe Schools Project · status"><meta property="og:description" content="How many school districts still let adults hit children, how many have stopped, and what we did today."><meta property="og:type" content="website"><meta property="og:url" content="https://earthpilot.org/kids/ops/"><meta property="og:site_name" content="End School Corporal Punishment"><meta property="og:image" content="https://earthpilot.org/kids/assets/og.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Safe Schools Project · status"><meta name="twitter:description" content="How many school districts still let adults hit children, how many have stopped, and what we did today."><meta name="twitter:image" content="https://earthpilot.org/kids/assets/og.png">
+<title>Safe Schools Project · status</title><meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Safe Schools Project · status"><meta property="og:description" content="How many school districts still let adults hit children, how many have stopped, and what we did today."><meta property="og:type" content="website"><meta property="og:url" content="https://earthpilot.org/kids/ops/"><meta property="og:site_name" content="End School Corporal Punishment"><meta property="og:image" content="https://earthpilot.org/kids/assets/og-image.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Safe Schools Project · status"><meta name="twitter:description" content="How many school districts still let adults hit children, how many have stopped, and what we did today."><meta name="twitter:image" content="https://earthpilot.org/kids/assets/og-image.png">
 <meta http-equiv="refresh" content="300">
 <style>
 :root{{--bg:#0B0F1E;--panel:#121832;--line:#232B4A;--ink:#E8ECF1;--mute:#8B95A5;--dim:#5E6A8A;--gold:#FDE68A;--green:#43E08A;--red:#FF6B6B;--amber:#FFB000;--blue:#7DD3FC}}
@@ -147,7 +162,7 @@ a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}p
         sys.path.insert(0, os.path.join(ROOT, "tools/outreach")); import invariants
         H.append(invariants.html(reqs))
     except Exception as ex:
-        H.append(f'<div class="panel bad"><h2>Invariants</h2><p class="m">check failed: {esc(repr(ex)[:120])}</p></div>')
+        H.append(f'<div class="panel bad"><h2>Invariants</h2><p class="m">check failed: {esc(scrub(repr(ex))[:120])}</p></div>')
 
     # 6. Everything else, folded away
     H.append('<div class="panel"><h2>Under the hood</h2>')
@@ -175,6 +190,10 @@ a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}p
     a, b = track.html(reqs)
     board = open(a).read()
     board = re.sub(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+", "[address]", board).replace('href="../../data/outreach/replies/', 'data-thread="')
+    # track.html() writes the board's head with no robots tag (tools/outreach/track.py, the literal that
+    # opens `out`). The copy that is published gets one here.
+    if 'name="robots"' not in board:
+        board = board.replace('<meta charset="utf-8">', '<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">', 1)
     open(os.path.join(ROOT, "site/ops/board.html"), "w").write(board)
     print("wrote site/ops/index.html and site/ops/board.html")
 

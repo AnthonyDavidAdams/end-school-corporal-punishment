@@ -15,11 +15,20 @@ def env():
     return d
 
 def fetch():
-    e = env()
+    # The server's log is fetched beside the local copy and merged in, never copied over it: if the
+    # server file is ever rotated, emptied or lost, the visits already pulled stay on this side.
+    e = env(); tmp = HITS + ".fetch"
     cmd = ["sshpass", "-p", e["DEPLOY_PASS"], "rsync", "-az", "-e", "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no -o StrictHostKeyChecking=no",
-           f"{e['DEPLOY_HOST']}:{e['DEPLOY_PATH']}cache/hits.jsonl", HITS]
+           f"{e['DEPLOY_HOST']}:{e['DEPLOY_PATH']}cache/hits.jsonl", tmp]
     r = subprocess.run(cmd, capture_output=True, text=True)
-    if r.returncode: print("fetch failed:", r.stderr.strip()[:200])
+    if r.returncode: print("fetch failed:", r.stderr.strip()[:200]); return
+    have = [l for l in open(HITS).read().splitlines() if l.strip()] if os.path.exists(HITS) else []
+    seen = set(have)
+    fresh = [l for l in open(tmp).read().splitlines() if l.strip() and l not in seen]
+    if fresh:
+        with open(HITS + ".tmp", "w") as f: f.write("\n".join(have + fresh) + "\n")
+        os.replace(HITS + ".tmp", HITS)
+    os.remove(tmp)
 
 if __name__ == "__main__":
     if "--local" not in sys.argv: fetch()

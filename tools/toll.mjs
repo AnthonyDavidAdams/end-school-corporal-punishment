@@ -73,7 +73,13 @@ export function toll() {
       districts_sourced: summary.districts_sourced,
       districts_recorded: summary.districts_recorded,
       states_prohibiting: summary.states.banned,
-      states_permitting: summary.states.legal,
+      // "Permitting" means the law allows it, whether or not any district still does: legal + partial.
+      // That is the meaning data/game/score.json gives the same name (tools/game/score.py). Until
+      // 2026-11-10 this field held the legal states alone and the two files disagreed, 15 against 17.
+      // The two parts are published beside it so a reader never has to guess which count it has.
+      states_permitting: summary.states.legal + summary.states.partial,
+      states_legal_in_use: summary.states.legal,
+      states_legal_unused: summary.states.partial,
       unchecked_districts: worklist.unchecked,
       children_in_unchecked: worklist.students_in_unchecked,
     },

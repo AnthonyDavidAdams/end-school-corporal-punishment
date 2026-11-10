@@ -1,0 +1,11 @@
+{
+  "_note": "The daily plan (tools/outreach/run.py autopilot). Once each weekday morning, Central time, the engine refreshes its target lists and queues this many new messages of each kind. 0 switches a stage off. \"enabled\": false switches the whole plan off; replies, nudges and certificates keep running either way.",
+  "enabled": true,
+  "hours": [8, 12],
+  "caps": {
+    "neighbor": 10,
+    "align": 5,
+    "formal_request": 15,
+    "board_note": 0
+  }
+}

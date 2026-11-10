@@ -53,6 +53,8 @@ def candidates(reqs):
     states = json.load(open(os.path.join(ROOT, "site/data/states.json")))
     permitting = {k for k, v in states.items() if v.get("status") in ("legal", "partial")}
     done = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "certificate"}
+    # A district that asked us to stop, or a thread Anthony has taken over by hand, gets nothing automatic.
+    stop = {str(r.get("nces_id")) for r in reqs if r.get("nces_id") and (r.get("do_not_contact") or r.get("hold_replies"))}
     by_id, by_name = contacts(); enr = enrollment(); out = []
     for f in sorted(os.listdir(os.path.join(ROOT, "data/districts"))):
         if not f.endswith(".yaml"): continue
@@ -64,7 +66,7 @@ def candidates(reqs):
             # is not a policy, and a record built from an email needs a policy code before it is certified.
             if "-email-" in str(x.get("source") or "") and not x.get("policy_code"): continue
             if re.search(r"\b(we|our|us|I|I'm|I've|my|me|Anthony|Mr\.? Adams)\b", x["quote"]): continue
-            if str(x["nces_id"]) in done: continue
+            if str(x["nces_id"]) in done or str(x["nces_id"]) in stop: continue
             c = by_id.get(str(x["nces_id"])) or by_name.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
             to = c.get("district_email") or c.get("email") or (x.get("contact") or {}).get("district_email")
             if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue

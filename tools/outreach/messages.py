@@ -118,6 +118,25 @@ Electronic copies by reply are fine; where a record is kept electronically, plea
 """
 
 
+def formal_request(r, user, statute):
+    """The third touch on an ask that drew no answer to the first note or the one nudge: the request itself,
+    made formally, never another reminder. Unlike records_request it does not open with "Understood", because
+    nobody has declined anything; it says plainly that the policy still is not in hand and that a link ends it."""
+    who = first_name(r.get("superintendent"))
+    d = nice(r["name"])
+    return f"""Hi {who},
+
+I still don't have {possessive(d)} policy on corporal punishment, so I'm making this a formal request. Under {statute}, please send copies of:
+
+  1. {possessive(d)} current board policy on corporal punishment (and the student discipline policy it sits in), as adopted; and
+  2. the current student handbook or code of conduct.
+
+A link to where each is posted is all it takes. If they are not posted, electronic copies by reply are fine. This request is in the public interest, not commercial, so please tell me before any charge is incurred. If any part is withheld, please cite the exemption.
+
+{sig(user, formal=True)}
+"""
+
+
 def ask_link(r, user, checked):
     """They said it is on the website. We looked again and it is not where they think it is."""
     who = first_name(r.get("superintendent"))
@@ -376,7 +395,7 @@ def peers_sentence(r):
     'peers' counts queue_align stores on the request."""
     p = r.get("peers") or {}; st = state_name(r.get("state")); d = nice(r["name"])
     if p.get("stopped_statewide") and p.get("bans"):
-        return f" The rest of {st} is already there too: no district in the state has used it since 2018, {p['bans']} of the {p['total']} boards on our record prohibit it in writing, and {d} is one of the last whose manual still says it may be done."
+        return f" The rest of {st} is already there too: no district in the state has used it since {p.get('stopped_year') or 2018}, {p['bans']} of the {p['total']} boards on our record prohibit it in writing, and {d} is one of the last whose manual still says it may be done."
     if p.get("bans", 0) >= 10:
         return f" You'd be in good company: {p['bans']} {st} boards already prohibit it in writing."
     return ""
@@ -393,7 +412,7 @@ def align_policy(r, user, quote=None, code=None):
 
 I'd like to invite {d} to be recognized as a Safe School for 2026-27. In practice you're already there: in the most recent federal civil rights count (2023-24), the district reported no use of corporal punishment. {line}, so the paper lags the practice.{peers}
 
-Would the board consider adopting language that says what the district already does? That is the whole ask. The science on this is settled: no study has found a benefit, and on average the practice increases the behavior it is meant to stop, along with anxiety, depression, lower grades, and the odds a child grows up to hit their own children. A Kansas superintendent who just took his board through it told me it was easy: "a great way to harvest litigation, not to mention that zero research supports it." The attached two-page brief has the sentence most boards in your state already use, in a form the board can adopt as written. When it's adopted, the district gets the Safe School certificate and a press release it can use.
+Would the board consider adopting language that says what the district already does? That is the whole ask. The research on this is settled: the largest review of it (Gershoff and Grogan-Kaylor, 2016, covering 160,927 children) found thirteen of seventeen outcomes worse for children who were physically punished, and none better. A Kansas superintendent who just took his board through it told me it was easy: "a great way to harvest litigation, not to mention that zero research supports it." The attached two-page brief has the sentence boards use to end it, in a form the board can adopt as written. When it's adopted, the district gets the Safe School certificate and a press release it can use.
 
 Happy to talk it through with whoever handles policy.
 
@@ -427,7 +446,7 @@ def neighbor_ask(r, user, anchor):
 
 I keep a public record of what each school district's written policy says on corporal punishment, at earthpilot.org/kids. {a}, next door to you, has ended it in policy, and I noticed {dp} policy still permits it on paper. Could you point me to the current board policy, or let me know whether the board has looked at it recently?
 
-If it is something the board might take up, the one-sentence language {a} and most districts in your state use is in a free two-page brief, and I am glad to send it.
+If it is something the board might take up, the one-sentence language boards use to end it is in a free two-page brief, and I am glad to send it.
 
 {sig(user)}
 """

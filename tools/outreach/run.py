@@ -42,7 +42,13 @@ def log(*a):
     s = f"{datetime.datetime.now().strftime('%H:%M:%S')} " + " ".join(str(x) for x in a); print(s); LOG.write(s + "\n"); LOG.flush()
 
 def load(): return json.load(open(REQ))
-def save(reqs): json.dump(reqs, open(REQ, "w"), indent=1)
+def save(reqs):
+    # Written beside the ledger and renamed over it: a kill mid-write (the 13-minute watchdog, a reboot)
+    # used to be able to leave a truncated 5 MB file, and the ledger is the only record of what was sent.
+    tmp = REQ + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(reqs, f, indent=1); f.flush(); os.fsync(f.fileno())
+    os.replace(tmp, REQ)
 def business_days_since(iso):
     if not iso: return 0
     d = datetime.date.fromisoformat(iso[:10]); n = 0; today = datetime.date.today()
@@ -59,6 +65,9 @@ def smtp_send(msg):
 def imap():
     M = imaplib.IMAP4_SSL("imap.gmail.com"); M.login(USER, PW); return M
 def delete_draft(M, subject):
+    # The job stopped writing drafts on 2026-10-31. Since then the only drafts under these subjects are
+    # the ones Anthony wrote by hand, and a substring match on the subject would delete them.
+    if not GMAIL_DRAFTS: return
     M.select('"[Gmail]/Drafts"'); typ, data = M.search(None, "SUBJECT", f'"{subject}"')
     for num in (data[0].split() if data and data[0] else []):
         M.store(num, "+FLAGS", "\\Deleted")
@@ -72,6 +81,32 @@ def text_anthony(line):
     try:
         subprocess.run(["osascript", "-e", f'tell application "Messages" to send {json.dumps(line)} to buddy {json.dumps(SMS)} of (service 1 whose service type is iMessage)'], timeout=20, capture_output=True)
     except Exception as e: log("text failed", e)
+
+def alert(key, line):
+    """Tell Anthony once a day per key, however many cycles see the same thing. Search being down texted
+    him every fifteen minutes for three days (258 times) before this; most other failures told him nothing."""
+    log("ALERT", key + ":", line)
+    path = os.path.join(LOGDIR, "alerts.json"); today = datetime.date.today().isoformat()
+    try: seen = json.load(open(path))
+    except Exception: seen = {}
+    if seen.get(key) == today: return
+    seen[key] = today
+    try:
+        with open(path + ".tmp", "w") as f: json.dump(seen, f)
+        os.replace(path + ".tmp", path)
+    except Exception as e: log("alert memory failed", e)
+    text_anthony(line)
+
+def stop_sets(reqs):
+    """Districts and addresses nothing new may go to: a district that asked us to stop, and a thread
+    Anthony has taken over by hand. desk.py set do_not_contact and nothing ever read it."""
+    ids, addrs = set(), set()
+    for r in reqs:
+        if r.get("do_not_contact") or r.get("hold_replies"):
+            if r.get("nces_id"): ids.add(str(r["nces_id"]))
+            for a in (r.get("to"), r.get("answered_from")):
+                if a: addrs.add(a.lower())
+    return ids, addrs
 
 # ---------------------------------------------------------------- the messages
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -107,6 +142,7 @@ def subject_for(r):
         "neighbor": f"{d} corporal punishment policy",
         "apology": "Sorry for the repeat emails",
         "certificate_correction": f"A correction on the {d} certificate",
+        "formal_request": f"Records request: {d} corporal punishment policy",   # only when the first ask's thread is gone; it normally goes out as "Re:" on that thread
     }.get(r.get("kind", "policy"), f"Can't find {d}'s corporal punishment policy")
 
 def body_for(r):
@@ -134,6 +170,8 @@ def body_for(r):
         return messages.certificate_correction(r, USER)
     if k == "neighbor":
         return messages.neighbor_ask(r, USER, r.get("anchor") or "a neighboring district")
+    if k == "formal_request":
+        return messages.formal_request(r, USER, statute)
     return messages.ask_policy(r, USER, r.get("compliment"))
 
 # ---------------------------------------------------------------- send
@@ -167,18 +205,25 @@ HOLD_NEW = False   # 2026-10-30, Anthony: "I don't want anything really on my de
 COOLDOWN_EXEMPT = ("apology", "certificate_correction")   # these answer a thread of ours and must not wait
 
 def send(limit=25):
-    reqs = load(); M = imap(); n = 0; cooled = 0
+    reqs = load(); M = imap(); n = 0; cooled = 0; stop_ids, stop_addrs = stop_sets(reqs); stopped = 0
     for r in reqs:
         if r["status"] != "pending" or n >= limit: continue
+        if r.get("kind") not in COOLDOWN_EXEMPT and (str(r.get("nces_id") or "") in stop_ids or (r.get("to") or "").lower() in stop_addrs):
+            stopped += 1; continue   # stays pending and unsent; cleared only when the stop or the hold is lifted
         if r.get("kind") not in COOLDOWN_EXEMPT and time.time() - last_contact(r.get("to"), reqs, exclude=r["id"]) < 24 * 3600:
             cooled += 1; continue   # stays pending; the next cycle after the day is up sends it
+        if r.get("kind") == "formal_request":
+            parent = next((p for p in reqs if p["id"] == r.get("parent_request")), None)
+            why = formal_moot(parent, reqs) if parent else "the first ask is no longer on file"
+            if why:   # the district answered, or the policy turned up, while this waited: a formal request now would be wrong
+                r["status"] = "dropped"; r["dropped_why"] = why; save(reqs); log("formal request dropped", r["state"], r["name"], "-", why); continue
         subject = r.get("subject") or subject_for(r)
         r["subject"] = subject; r.setdefault("kind", "policy")
-        ensure_compliment(r)
+        if r["kind"] != "formal_request": ensure_compliment(r)
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
-        if r.get("kind") in ("apology", "certificate_correction") and r.get("parent_request"):   # lands in the thread it corrects
+        if r.get("kind") in ("apology", "certificate_correction", "formal_request") and r.get("parent_request"):   # lands in the thread it corrects or continues
             parent = next((p for p in reqs if p["id"] == r["parent_request"]), None)
             if parent and parent.get("message_id"):
                 m["In-Reply-To"] = parent["message_id"]; m["References"] = parent["message_id"]
@@ -188,11 +233,23 @@ def send(limit=25):
             if os.path.exists(pth):
                 m.add_attachment(open(pth, "rb").read(), maintype="application", subtype="pdf" if pth.endswith(".pdf") else "octet-stream", filename=os.path.basename(pth))
         try:
-            smtp_send(m); r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["message_id"] = mid; n += 1
-            delete_draft(M, subject); log("sent", r["state"], r["name"], "->", r["to"]); save(reqs); record_move(r); time.sleep(8)
+            smtp_send(m)
         except Exception as e:
             log("SEND FAILED", r["name"], e); r["status"] = "error"; r["error"] = str(e)[:200]; save(reqs)
-    M.logout(); log(f"send: {n} sent, {sum(1 for r in reqs if r['status']=='pending')} still pending" + (f", {cooled} waiting on the 24-hour cooldown" if cooled else ""))
+            alert("send-failed", f"ESCP: a send failed ({str(e)[:80]}). The request is marked error and will not retry by itself."); continue
+        # Delivered. Saved before anything else can fail: a draft cleanup that threw here used to mark a
+        # delivered email "error".
+        r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["message_id"] = mid; n += 1; save(reqs)
+        log("sent", r["state"], r["name"], "->", r["to"])
+        if r.get("kind") == "formal_request":   # the first ask's thread carries the fact, so the desk never sends a second one and a reply is read against it
+            parent = next((p for p in reqs if p["id"] == r.get("parent_request")), None)
+            if parent:
+                parent["formal_requested_at"] = datetime.date.today().isoformat()
+                parent.setdefault("our_messages", []).append({"at": r["sent_at"], "kind": "formal_request", "text": r["body"]}); save(reqs)
+        try: delete_draft(M, subject); record_move(r)
+        except Exception as e: log("after-send bookkeeping failed", r["name"], repr(e)[:100])
+        time.sleep(8)
+    M.logout(); log(f"send: {n} sent, {sum(1 for r in reqs if r['status']=='pending')} still pending" + (f", {cooled} waiting on the 24-hour cooldown" if cooled else "") + (f", {stopped} withheld (district asked us to stop, or Anthony holds the thread)" if stopped else ""))
 
 # ---------------------------------------------------------------- inbox
 
@@ -257,7 +314,11 @@ def part_text(msg):
 def find_request(msg, reqs):
     refs = (msg.get("In-Reply-To", "") + " " + msg.get("References", ""))
     m = re.search(r"escp-([0-9a-f]{10})@", refs)
-    if m: return next((r for r in reqs if r["id"] == m.group(1)), None)
+    if m:
+        hit = next((r for r in reqs if r["id"] == m.group(1)), None)
+        if hit and hit.get("kind") == "formal_request" and hit.get("parent_request"):   # an answer to the formal request is an answer on the first ask's thread
+            hit = next((r for r in reqs if r["id"] == hit["parent_request"]), None) or hit
+        return hit
     # No thread header: the subject must be a reply to one of the exact subjects we sent. Nothing else counts.
     subj = re.sub(r"^\s*((re|fw|fwd|aw)\s*:\s*|unmonitored account\s*)+", "", str(make_header(decode_header(msg.get("Subject", "")))), flags=re.I).strip().lower()
     frm = email.utils.parseaddr(msg.get("From", ""))[1].lower(); dom = frm.split("@")[-1]
@@ -431,11 +492,19 @@ def anthony_threads(M, reqs):
             if not r: continue
             done.add(r["id"])
             text, _ = part_text(h)
+            # The ledger is a public file. Anthony gave a superintendent his cell number in a reply and it
+            # was published with the thread (2026-10); phone numbers in his own mail stay out of it.
+            text = re.sub(r"\(?\b\d{3}\)?[\s.\-]\d{3}[\s.\-]\d{4}\b", "[phone number]", text)
             r.setdefault("our_messages", []).append({"at": h.get("Date"), "to": email.utils.parseaddr(h.get("To", ""))[1], "text": text, "message_id": mid, "by": "anthony"})
         if want: log(f"sent-mail scan: {len(want)} new messages of Anthony's read")
         json.dump(sorted(scanned), open(SENT_SCANNED, "w"))
     except Exception as e: log("sent-mail scan failed", repr(e)[:120])
     return done
+# Every phrase a subject of ours can carry. The Gmail search below is built from this list, and inbox()
+# alerts when a sent subject matches none of them: the 86 board notes of 2026-10-28 ("a four-minute film
+# for the board") matched nothing, so three board members' replies sat unread for two weeks.
+INBOX_SUBJECT_TERMS = ["corporal", "records request", "relied on", "handbook", "discipline data", "Safe School", "Safe Schools",
+                       "film for the board", "reported zero", "repeat emails", "certificate"]
 def inbox():
     reqs = load(); M = imap(); ensure_label(M); mine = anthony_threads(M, reqs)
     for r in reqs:
@@ -444,7 +513,9 @@ def inbox():
     # Gmail's own search: only mail that could be a reply to us, instead of walking the whole inbox
     # Every subject we have ever sent, not just the ones with "corporal" in them: the research and
     # agency requests would otherwise never have their replies read.
-    typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (subject:corporal OR subject:\\"records request\\" OR subject:\\"relied on\\" OR subject:\\"handbook\\" OR subject:\\"discipline data\\" OR subject:\\"Safe School\\")"'); seen = {m for r in reqs for m in [x["message_id"] for x in r.get("replies") or []]}
+    deaf = sorted({r["subject"] for r in reqs if r.get("subject") and r["status"] != "pending" and not any(t.lower() in r["subject"].lower() for t in INBOX_SUBJECT_TERMS)})
+    if deaf: alert("inbox-deaf", f"ESCP: {len(deaf)} sent subjects are invisible to the inbox search, e.g. '{deaf[0][:50]}'. Add a term to INBOX_SUBJECT_TERMS.")
+    typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (' + " OR ".join(("subject:" + t) if " " not in t else ('subject:\\"' + t + '\\"') for t in INBOX_SUBJECT_TERMS) + ')"'); seen = {m for r in reqs for m in [x["message_id"] for x in r.get("replies") or []]}
     handled = 0; nums = data[0].split() if data and data[0] else []; t0 = time.time()
     log(f"inbox: {len(nums)} candidate messages in the last 60 days")
     # Gather first, answer second: a district that sent three emails in twenty minutes (Milan IN, 2026-10-27:
@@ -656,6 +727,11 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     """
     if mid in (r.get("answered_message_ids") or []):
         log("already answered", r["state"], r["name"], mid[:40]); return
+    if r.get("kind") == "board_note" and not r.get("hold_replies"):
+        # A board member is an elected official answering a personal note, and the triage and the writer
+        # are built for records-request replies. These are filed and handed to Anthony, never auto-answered.
+        r["hold_replies"] = True
+        alert("board-reply-" + r["id"], f"ESCP: a board member replied ({nice(r['name'])}, {frm}). Filed and left for you; nothing was sent back.")
     quiet = quiet or bool(r.get("hold_replies"))   # a thread Anthony has taken over by hand
     d = os.path.join(REPLIES, r["id"]); os.makedirs(d, exist_ok=True); h = hashlib.sha1(mid.encode()).hexdigest()[:8]
     open(os.path.join(d, h + ".eml"), "wb").write(rawbytes)
@@ -730,12 +806,19 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     # 2. "It's on our website": look before asking.
     recheck = None
     if kind == "website_no_link" and not filed:
+        looked_ok = True
         try:
             status, tried = recheck_mod.recheck(r, file_document, log=log)
+        except recheck_mod.SearchDown as ex:
+            # Could not search is not "searched and found nothing": the writer must not tell a
+            # superintendent we looked at a site we never reached.
+            log("recheck: search is down, not run for", r["name"], str(ex)[:100]); status, tried, looked_ok = None, [], False
+            alert("search-down", f"ESCP: web search is down ({str(ex)[:70]}). Re-checks are skipped until it is back.")
         except Exception as ex:
-            log("recheck failed", r["name"], repr(ex)[:140]); status, tried = None, []
-        r["rechecked_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["recheck_tried"] = tried[:6]
-        recheck = {"found": status, "looked_at": tried[:6]}
+            log("recheck failed", r["name"], repr(ex)[:140]); status, tried, looked_ok = None, [], False
+        if looked_ok:
+            r["rechecked_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["recheck_tried"] = tried[:6]
+            recheck = {"found": status, "looked_at": tried[:6]}
         if status and status != "held": filed.append(status)
     record = record_status(r)
     recorded = [g for g in filed if g != "held"]
@@ -1227,7 +1310,9 @@ def peers_for(state):
         bans = sum(1 for x in rows if x.get("status") == "bans"); total = len(rows)
         import yaml
         st = yaml.safe_load(open(os.path.join(ROOT, "data/states", f"{state}.yaml")))
-        return {"bans": bans, "total": total, "stopped_statewide": st.get("status") == "partial"}
+        # "No district has used it since" is a claim about one state and one year, so it comes from that
+        # state's own file. Kentucky is 'partial' too and reported use as late as 2022-23.
+        return {"bans": bans, "total": total, "stopped_statewide": bool(st.get("practice_ended")), "stopped_year": st.get("practice_ended")}
     except Exception: return None
 
 def signs_as(pol):
@@ -1263,7 +1348,7 @@ def queue_corrections():
             added += 1
     save(reqs); log(f"queued {added} held certificate corrections")
 
-def queue_align(n=25, states=None):
+def queue_align(n=25, states=None, quiet_days=None):
     """Districts whose written policy permits corporal punishment but which reported no use of it: the
     invitation to become a Safe School by aligning the policy with the practice, with the board brief
     attached. Largest districts first; Texas and Oklahoma lead by weight of numbers."""
@@ -1279,10 +1364,18 @@ def queue_align(n=25, states=None):
                 if c.get("nces_id"): contacts[("id", str(c["nces_id"]))] = c
                 if c.get("state") and c.get("name"): contacts[(c["state"], re.sub(r"[^a-z0-9]", "", c["name"].lower()))] = c
     statutes = {r["state"]: r["statute"] for r in reqs if r.get("statute")}
+    # The daily plan passes quiet_days: a district we wrote to in the last two weeks, on any thread, is left alone.
+    recent = set()
+    if quiet_days:
+        cutoff = datetime.datetime.now() - datetime.timedelta(days=quiet_days)
+        recent = {str(r.get("nces_id")) for r in reqs if r.get("sent_at") and datetime.datetime.fromisoformat(r["sent_at"][:19]) > cutoff}
+    records = district_records()
     added = 0
     for d in lag:
         if added >= n: break
-        if d["nces_id"] in have or (states and d["state"] not in states): continue
+        if d["nces_id"] in have or d["nces_id"] in recent or (states and d["state"] not in states): continue
+        rec = records.get(str(d["nces_id"])) or {}
+        if rec.get("status") not in ("allows", "consent_required") or not rec.get("quote"): continue   # the record moved since the list was built
         c = contacts.get(("id", d["nces_id"])) or contacts.get((d["state"], re.sub(r"[^a-z0-9]", "", d["name"].lower()))) or {}
         to = c.get("district_email") or c.get("email")
         if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
@@ -1347,15 +1440,18 @@ def queue_neighbors(n=25, quiet_days=14):
     recent = {str(r.get("nces_id")) for r in reqs if r.get("sent_at") and datetime.datetime.fromisoformat(r["sent_at"][:19]) > cutoff}
     kinds = {}
     for r in reqs: kinds.setdefault(str(r.get("nces_id")), set()).add(r.get("kind"))
+    records = district_records()
     added = 0
     for t in T["ranked"]:
         if added >= n: break
         nid = str(t["district_id"])
         if nid in recent or "neighbor" in kinds.get(nid, set()) or not t.get("anchors"): continue
+        if (records.get(nid) or {}).get("status") not in ("allows", "consent_required"): continue   # the record moved since the list was built
         c = contacts.get(("id", nid)) or contacts.get((t["state"], re.sub(r"[^a-z0-9]", "", t["name"].lower()))) or {}
         to = t.get("contact_email") or c.get("district_email") or c.get("email")
         if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
-        anchor = sorted(t["anchors"], key=lambda a: (not a.get("same_county"), a["name"]))[0]["name"]
+        # same county first, then the same state: "next door" should not usually mean across a state line
+        anchor = sorted(t["anchors"], key=lambda a: (not a.get("same_county"), str(a.get("district_id"))[:2] != nid[:2], a["name"]))[0]["name"]
         rid = hashlib.sha1(f"neighbor|{t['state']}|{nid}".encode()).hexdigest()[:10]
         reqs.append({"id": rid, "state": t["state"], "name": t["name"], "nces_id": nid, "kids": 0, "kind": "neighbor", "to": to, "superintendent": c.get("superintendent"), "anchor": anchor,
                      "status": "held" if HOLD_NEW else "pending", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None, "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
@@ -1369,15 +1465,152 @@ def release(kind, states=None):
         if r.get("kind") == kind and r["status"] == "held" and (not states or r["state"] in states): r["status"] = "pending"; k += 1
     save(reqs); log(f"release {kind}: {k} released"); return k
 
+# ---------------------------------------------------------------- escalation and the daily plan
+RESIDENT_ONLY = {"AR", "TN", "AL"}   # the records law serves residents only (~/foia-exchange/data/states.json): those go to the Request Exchange, never a formal email from out of state
+FORMAL_KINDS = {"policy", "nothing on file", "handbook silent"}
+FORMAL_AFTER = 10   # business days after the one nudge with no answer
+
+def district_records():
+    """Every district record by NCES id, read only (PyYAML never writes these files)."""
+    import yaml
+    L = getattr(yaml, "CSafeLoader", yaml.SafeLoader); out = {}
+    for f in sorted(os.listdir(os.path.join(ROOT, "data/districts"))):
+        if not f.endswith(".yaml"): continue
+        try: d = yaml.load(open(os.path.join(ROOT, "data/districts", f)), Loader=L)
+        except Exception as ex: log("district_records could not read", f, repr(ex)[:80]); continue
+        for x in (d if isinstance(d, list) else d.get("districts", [])):
+            if x.get("nces_id"): out[str(x["nces_id"])] = x
+    return out
+
+def heard_from_set(reqs):
+    """(state, name) of every district that has written back on any thread."""
+    return {(r["state"], r["name"]) for r in reqs if r.get("status") == "answered" or r.get("last_reply_at")
+            or any(e.get("kind") != "auto_reply_or_bounce" for e in r.get("replies") or [])}
+
+def formal_moot(parent, reqs, record=None, heard=None):
+    """Why a formal request on this ask would now be wrong, or None when it still stands. Checked when one is
+    queued and again at the moment of sending, because a held request can wait days."""
+    if parent.get("status") != "sent": return f"the thread is now {parent.get('status')}"
+    if parent.get("formal_requested_at"): return "a formal request already went out on this thread"
+    if ((parent["state"], parent["name"]) in (heard if heard is not None else heard_from_set(reqs))): return "the district has written back"
+    rec = record if record is not None else record_status(parent)
+    if rec.get("quote") and rec.get("status") in ("bans", "allows", "consent_required"): return "the policy is on the record now"
+    return None
+
+def formal_cohort(reqs=None):
+    """The asks that drew no answer to the first note or the nudge, split into those a formal request can go
+    to and those in a state whose law serves residents only. One row per district."""
+    reqs = reqs if reqs is not None else load()
+    laws = json.load(open(os.path.join(ROOT, "data/states/records-laws.json")))
+    records = district_records(); heard = heard_from_set(reqs); stop_ids, stop_addrs = stop_sets(reqs)
+    have = {r.get("parent_request") for r in reqs if r.get("kind") == "formal_request"}
+    due, resident, seen = [], [], set()
+    for r in sorted(reqs, key=lambda r: -(r.get("kids") or 0)):   # most children struck first
+        if r.get("kind", "policy") not in FORMAL_KINDS or not r.get("followup_sent_at") or r["id"] in have or not r.get("message_id"): continue
+        if not re.match(r"\d{4}-\d\d-\d\d", str(r["followup_sent_at"])) or business_days_since(r["followup_sent_at"]) < FORMAL_AFTER: continue   # "n/a" marks an ask that was never nudged
+        if str(r.get("nces_id") or "") in stop_ids or (r.get("to") or "").lower() in stop_addrs: continue
+        if formal_moot(r, reqs, records.get(str(r.get("nces_id") or ""), {}), heard): continue
+        key = str(r.get("nces_id") or (r["state"], r["name"]))
+        if key in seen: continue
+        seen.add(key)
+        if r["state"] in RESIDENT_ONLY: resident.append(r)
+        elif laws.get(r["state"]): due.append((r, laws[r["state"]]))
+    return due, resident
+
+def queue_formal(n=15):
+    """The formal records request as the third touch. The first batch is queued held and waits for Anthony
+    with no clock (tools/decisions.py); once one has gone out with his release, later batches go pending."""
+    reqs = load(); due, resident = formal_cohort(reqs)
+    released = any(r.get("kind") == "formal_request" and r.get("sent_at") for r in reqs)
+    waiting = sum(1 for r in reqs if r.get("kind") == "formal_request" and r["status"] == "held")
+    if not released and waiting:
+        log(f"queue-formal: {waiting} held for Anthony's first look; nothing added ({len(due)} more due, {len(resident)} need a resident requester)"); return 0
+    added = 0
+    for r, statute in due[:n]:
+        rid = hashlib.sha1(f"formal|{r['id']}".encode()).hexdigest()[:10]
+        if any(x["id"] == rid for x in reqs): continue
+        reqs.append({"id": rid, "state": r["state"], "name": r["name"], "nces_id": r.get("nces_id"), "kids": r.get("kids") or 0, "kind": "formal_request", "to": r["to"],
+                     "superintendent": r.get("superintendent"), "statute": statute, "parent_request": r["id"],
+                     "status": "pending" if released else "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": None,
+                     "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        added += 1
+    save(reqs); log(f"queue-formal: {added} queued {'pending' if released else 'held for the first look'} ({len(due) - added} more due, {len(resident)} need a resident requester)"); return added
+
+AUTOPILOT = os.path.join(ROOT, "data/outreach/autopilot.json")        # the caps; edit the numbers, or set "enabled": false
+AUTOPILOT_STATE = os.path.join(LOGDIR, "autopilot-state.json")        # what each day's run did
+AUTOPILOT_DEFAULT = {"enabled": True, "caps": {"neighbor": 10, "align": 5, "formal_request": 15, "board_note": 0}, "hours": [8, 12]}
+
+def autopilot(force=False):
+    """The daily plan: once each weekday morning (Central), refresh the target lists and queue that day's
+    share of each campaign stage, so the pipeline moves without anyone running a command. Each stage has a
+    cap in data/outreach/autopilot.json; 0 switches a stage off, "enabled": false or ESCP_AUTOPILOT=0 switches
+    the whole plan off. It only queues: send() does the sending, with its stop list and its one-a-day cooldown."""
+    cfg = dict(AUTOPILOT_DEFAULT)
+    if os.path.exists(AUTOPILOT):
+        try: cfg.update(json.load(open(AUTOPILOT)))
+        except Exception as ex: log("autopilot: could not read the caps; nothing queued", repr(ex)[:80]); return None
+    caps = {**AUTOPILOT_DEFAULT["caps"], **(cfg.get("caps") or {})}
+    if not cfg.get("enabled") or os.environ.get("ESCP_AUTOPILOT") == "0": return None
+    office = office_now(); today = datetime.date.today().isoformat()
+    state = json.load(open(AUTOPILOT_STATE)) if os.path.exists(AUTOPILOT_STATE) else {}
+    if not force:
+        if office.weekday() >= 5 or not (cfg["hours"][0] <= office.hour < cfg["hours"][1]): return None
+        if state.get("last_run") == today: return None
+    did = {"at": datetime.datetime.now().isoformat(timespec="seconds")}
+    def step(name, fn):
+        try: did[name] = fn()
+        except Exception as ex: did[name] = f"failed: {repr(ex)[:100]}"; log(f"autopilot: {name} failed", repr(ex)[:160])
+    def refresh():
+        # Both lists are rebuilt from the record as it stands this morning, so nobody is written to on last month's status.
+        # A rebuilt list that comes back empty or at under half its size is a broken build, not news (2026-11-10:
+        # a CRLF in one input file produced a list of 0): the old list goes back and the day queues nothing.
+        notes = []
+        def size(path):
+            try: d = json.load(open(os.path.join(ROOT, path))); return len(d) if isinstance(d, list) else len(d.get("ranked") or [])
+            except Exception: return 0
+        for label, path, cmd in (("policy-lag", "data/outreach/policy-lag.json", ["node", "tools/contacts/build-policy-lag.mjs"]),
+                                 ("neighbors", "data/game/next-targets.json", ["/opt/homebrew/bin/python3", "tools/game/neighbors.py"])):
+            full = os.path.join(ROOT, path); before = size(path); keep = open(full).read() if os.path.exists(full) else None
+            r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=240, env={**os.environ, "PATH": "/opt/homebrew/bin:/usr/local/bin:" + os.environ.get("PATH", "")})
+            after = size(path)
+            if r.returncode != 0 or after == 0 or after < before / 2:
+                if keep is not None: open(full, "w").write(keep)
+                raise RuntimeError(f"{label} rebuild looked wrong (exit {r.returncode}, {before} -> {after}); old list restored. {(r.stderr or '')[-80:]}")
+            notes.append(f"{label} {after}")
+        return ", ".join(notes)
+    step("refresh", refresh)
+    if str(did.get("refresh", "")).startswith("failed"):
+        # A stale list is how a district that already changed its policy gets asked to change it. No refresh, no new mail.
+        alert("autopilot-refresh", "ESCP: the daily plan could not refresh its target lists, so it queued nothing today.")
+    else:
+        if caps.get("neighbor"): step("neighbor", lambda: queue_neighbors(caps["neighbor"]))
+        if caps.get("align"): step("align", lambda: queue_align(caps["align"], quiet_days=14))
+        if caps.get("board_note"): step("board_note", lambda: queue_board(caps["board_note"]))
+    if caps.get("formal_request"): step("formal_request", lambda: queue_formal(caps["formal_request"]))
+    try:
+        due, resident = formal_cohort(); did["formal_due"] = len(due); did["needs_resident"] = len(resident)
+    except Exception as ex: log("autopilot: cohort count failed", repr(ex)[:100])
+    state["last_run"] = today; state.setdefault("days", {})[today] = did
+    state["days"] = dict(sorted(state["days"].items())[-60:])
+    tmp = AUTOPILOT_STATE + ".tmp"; json.dump(state, open(tmp, "w"), indent=1); os.replace(tmp, AUTOPILOT_STATE)
+    log("autopilot:", ", ".join(f"{k} {v}" for k, v in did.items() if k != "at")); return did
+
 # ---------------------------------------------------------------- follow-up
 NUDGE_PER_CYCLE = 3     # about one every twenty minutes through the working day
 NUDGE_PER_DAY = 60      # 502 went out on 2026-10-27, from midnight on, when the whole 10-10 batch came due at once
-NUDGE_HOURS = (8, 17)   # local time, Monday to Friday; nothing at 2 a.m. signed "Sent from my iPhone"
+NUDGE_HOURS = (8, 17)   # Central time, Monday to Friday; nothing at 2 a.m. signed "Sent from my iPhone"
+def office_now():
+    """The hour where most of the districts are. The laptop's own clock moved to Pacific in November 2026 and
+    'working hours' had quietly become 10 to 7 Central, 11 to 8 Eastern."""
+    try:
+        import zoneinfo; return datetime.datetime.now(zoneinfo.ZoneInfo("America/Chicago")).replace(tzinfo=None)
+    except Exception:
+        return datetime.datetime.now()
 
 def followup():
     reqs = load(); n = 0
-    now = datetime.datetime.now()
-    if now.weekday() >= 5 or not (NUDGE_HOURS[0] <= now.hour < NUDGE_HOURS[1]):
+    now = datetime.datetime.now(); office = office_now()
+    if office.weekday() >= 5 or not (NUDGE_HOURS[0] <= office.hour < NUDGE_HOURS[1]):
         log("followup: outside sending hours"); return
     today = now.date().isoformat()
     sent_today = sum(1 for r in reqs if str(r.get("followup_sent_at") or "").startswith(today))
@@ -1440,7 +1673,7 @@ def discover(n=1):
             r["recorded_status"] = rec["status"]; continue
         looked += 1
         try: status, tried = recheck_mod.recheck(r, file_document, log=log)
-        except recheck_mod.SearchDown as ex: log("discover: search is down, stopping; nothing recorded:", str(ex)[:120]); text_anthony(f"ESCP discover: {str(ex)[:80]}") if looked == 1 else None; break
+        except recheck_mod.SearchDown as ex: log("discover: search is down, stopping; nothing recorded:", str(ex)[:120]); alert("search-down", f"ESCP: web search is down ({str(ex)[:70]}). Discovery is skipped until it is back."); break
         except Exception as ex: log("discover: recheck failed", r["name"], repr(ex)[:100]); status, tried = None, []
         r["rechecked_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["recheck_tried"] = tried[:6]
         if status and status != "held": r["recorded_status"] = status; found += 1; log("discover: found", r["state"], r["name"], status)
@@ -1546,6 +1779,13 @@ if __name__ == "__main__":
     if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-board": queue_board(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-neighbors": queue_neighbors(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "queue-formal": queue_formal(int(sys.argv[2]) if len(sys.argv) > 2 else 15); sys.exit()
+    if cmd == "formal-dry":   # who a formal request would go to today; changes nothing
+        due, resident = formal_cohort()
+        print(f"{len(due)} due for a formal request, {len(resident)} in resident-only states (AR, TN, AL) need a resident requester")
+        for r, statute in due[:int(sys.argv[2]) if len(sys.argv) > 2 else 15]: print(f"  {r['state']} {r['name'][:38]:38} kids {r.get('kids') or 0:>4}  nudged {r['followup_sent_at'][:10]}  {statute[:50]}")
+        sys.exit()
+    if cmd == "autopilot": print(json.dumps(autopilot(force="--force" in sys.argv), indent=1)); sys.exit()
     if cmd == "release": release(sys.argv[2], sys.argv[3].split(",") if len(sys.argv) > 3 else None); sys.exit()
     if cmd == "queue-dry":
         import io, contextlib
@@ -1563,7 +1803,13 @@ if __name__ == "__main__":
         # Order matters under the watchdog: the quick, capped steps and the health line ("ops page rebuilt")
         # come first, and the inbox pass, the one step that can stall on Gmail, runs last so a stall costs
         # only the inbox and never the follow-ups or the ops page (2026-10-26).
-        send(25); followup(); tidy(); bounces()
+        # Each step on its own: a Gmail login failure in send() used to end the whole cycle with a
+        # traceback in /tmp and no word to anyone (2026-11-09 04:31).
+        for step in (lambda: send(25), followup, tidy, bounces):
+            try: step()
+            except Exception as ex:
+                name = getattr(step, "__name__", "send"); name = "send" if name == "<lambda>" else name
+                log(f"{name} failed", repr(ex)[:160]); alert("cycle-" + name, f"ESCP: the {name} step failed ({repr(ex)[:80]}). The rest of the cycle ran.")
         # A superintendent who just sent us a prohibiting policy gets the certificate the same day.
         # send.py takes the same ledger lock per send, so the cycle lets go of it for the duration;
         # holding it deadlocked every cycle from 2026-11-04 to 11-07 (the first day a district qualified
@@ -1577,12 +1823,18 @@ if __name__ == "__main__":
             if out: log("certificates (momentum):", out[-1][:100])
         except Exception as ex:
             log("momentum certificates failed", repr(ex)[:100])
+        # The daily plan: once each weekday morning it queues that day's share of each campaign stage.
+        # It returns at once on every other cycle of the day.
+        try: autopilot()
+        except Exception as ex: log("autopilot failed", repr(ex)[:160]); alert("cycle-autopilot", f"ESCP: the daily plan failed ({repr(ex)[:80]}). Nothing new was queued today.")
         try: decide()
         except Exception as ex: log("decide failed", repr(ex)[:100])
         try: discover(1)
         except Exception as ex: log("discover failed", repr(ex)[:100])
-        ops_page()
-        inbox()
+        try: ops_page()
+        except Exception as ex: log("ops page failed", repr(ex)[:100])
+        try: inbox()
+        except Exception as ex: log("inbox failed", repr(ex)[:160]); alert("cycle-inbox", f"ESCP: the inbox step failed ({repr(ex)[:80]}). Replies wait for the next cycle.")
         # The parked threads, two a cycle, after the inbox so a slow model call never starves it.
         try: desk_pass()
         except Exception as ex: log("desk failed", repr(ex)[:100])

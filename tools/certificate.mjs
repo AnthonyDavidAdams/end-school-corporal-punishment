@@ -10,6 +10,13 @@
 //   - it never says "you stopped" to a district whose prohibition predates the federal filing it is
 //     being congratulated over. Lubbock ISD removed corporal punishment in 2020 and still filed two
 //     students for 2023-24; the honest sentence there is about 2020.
+import { metaHead, trackingHead } from "./lib/head.mjs";
+
+// The 2023-24 collection covers a school year that ends in late May or June 2024, so a policy dated from
+// this day on post-dates the conduct that year's filing reports. build-site.mjs uses the same line to
+// say which rows on /stopped/ are districts that changed their policy after the filing.
+export const FILING_CUTOFF = "2024-06-01";
+
 export const certifiable = (d) => d.status === "bans" && d.source && d.quote && !(/-email-/.test(d.source) && !d.policy_code) && !/\b(we|our|us|I|I'm|I've|my|me|Anthony|Mr\.? Adams)\b/.test(d.quote);
 
 const fmt = (iso) => {
@@ -26,7 +33,7 @@ export function certificateHtml({ d, stateName, esc, n, base }) {
   // from June 2024 onward post-dates the conduct being reported. Pike County revised its ban on
   // 17 June 2024, after the year in which it reported 252 students struck, and a later cutoff put it
   // on the wrong side of this line.
-  const changedSince = year !== null && acted >= "2024-06-01";
+  const changedSince = year !== null && acted >= FILING_CUTOFF;
   const struck = d.crdc_students_latest > 0 ? d.crdc_students_latest : null;
 
   const line = changedSince && struck
@@ -42,19 +49,14 @@ export function certificateHtml({ d, stateName, esc, n, base }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(d.name)}: certificate of recognition</title>
-<meta name="description" content="${esc(d.name)}, ${esc(stateName)} prohibits corporal punishment in its schools. Recognition from EarthPilot's End School Corporal Punishment project.">
-<meta property="og:title" content="${esc(d.name)} prohibits corporal punishment">
-<meta property="og:description" content="${esc(line)}">
-<meta property="og:image" content="${base}/assets/og-image.png">
-<meta property="og:url" content="${base}/stopped/${d.code.toLowerCase()}-${d.slug}/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="End School Corporal Punishment">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(d.name)} prohibits corporal punishment">
-<meta name="twitter:description" content="${esc(line)}">
-<meta name="twitter:image" content="${base}/assets/og-image.png">
-<style>
+${metaHead({
+    title: `${d.name}: certificate of recognition`,
+    description: `${d.name}, ${stateName} prohibits corporal punishment in its schools. Recognition from EarthPilot's End School Corporal Punishment project.`,
+    path: `/stopped/${d.code.toLowerCase()}-${d.slug}/`,
+    socialTitle: `${d.name} prohibits corporal punishment`,
+    socialDescription: line,
+  })}
+${trackingHead()}<style>
   :root { --ink:#0D132D; --green:#2D6A4F; --rule:#C9A227; --paper:#FCFBF7; }
   * { box-sizing:border-box; }
   body { margin:0; background:#E9E7E0; color:var(--ink);

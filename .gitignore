@@ -33,3 +33,15 @@ data/outreach/clicks.json
 data/outreach/decisions.json
 data/outreach/requests.json.lock
 data/contacts/board-members.jsonl
+
+# private pages and maps: built every cycle and served behind the ops device cookie (site/ops/gate.php),
+# never published in git. Untracked 2026-11-10; earlier copies remain in history until it is rewritten.
+site/data/crm.json
+site/ops/crm.html
+site/ops/decisions.html
+site/ops/board.html
+data/outreach/links.jsonl
+data/outreach/decisions-state.json
+data/outreach/sent-scanned.json
+data/outreach/requests.json.tmp
+data/outreach/*.tmp
