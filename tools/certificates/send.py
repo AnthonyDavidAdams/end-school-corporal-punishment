@@ -93,7 +93,8 @@ def clean_name(n):
     MACON CO. R-I); the certificate prints Marietta and Macon Co. R-I."""
     n = re.sub(r"\s*\(\d+\)\s*$", "", n).strip()
     if n.isupper(): n = " ".join("-".join(_proper(h) for h in w.split("-")) for w in n.split())
-    return n
+    # The federal directory flattens McLean to Mclean; Mclean County KY got its certificate that way (2026-11-11).
+    return re.sub(r"\bMc([a-z])", lambda m: "Mc" + m.group(1).upper(), n)
 
 
 def tidy_name(s):
@@ -164,7 +165,10 @@ def prior(d, reqs):
             toks = [t for t in re.findall(r"[a-z]{3,}", re.sub(r"\b(dr|mr|mrs|ms|jr|sr)\b", " ", r["superintendent"].lower()))]
             if not any(t in frm.lower().split("@")[0] for t in toks):
                 who = messages.first_name(theirs[-1].get("name") or theirs[-1].get("from_name") or "") if (theirs[-1].get("name") or theirs[-1].get("from_name")) else messages.first_name(frm.split("@")[0].replace(".", " ").replace("_", " ").split()[0]) if "." in frm.split("@")[0] or "_" in frm.split("@")[0] else "there"
-        return {"who": who, "did": did, "when": when, "from": frm, "thread_id": r.get("message_id"), "thread_subject": r.get("subject") or messages_subject(r)}
+        # A sentence we owe them first: an earlier reply of ours on this thread said something the record has since
+        # shown to be wrong (Fox C-6 MO was told JGA-2 does not put the ban in writing; it does). Set by hand on the row.
+        owe = next((x["cover_correction"] for x in reqs if str(x.get("nces_id")) == d["nces_id"] and x.get("cover_correction")), None)
+        return {"who": who, "did": did, "when": when, "from": frm, "owe": owe, "thread_id": r.get("message_id"), "thread_subject": r.get("subject") or messages_subject(r)}
     return None
 
 
@@ -214,7 +218,7 @@ def in_thread_cover(d, p):
     if who.lower() in ("superintendent",): who = "there"
     code = d["code"]; cited = f"policy {code}" if code and code != "as sent by the district" else "the board's own policy"
     paras = [
-        f"Hey {who}, thanks for {p['did']} {ago(p.get('when'))}. With {cited} in writing, {name} goes on the Safe Schools list, and the certificate for the {yr} school year is attached, print-ready, with the policy's own sentence on it and a QR code to the district's entry at earthpilot.org/kids. Hang it if you like.",
+        f"Hey {who}, thanks for {p['did']} {ago(p.get('when'))}. " + (p["owe"].strip() + " " if p.get("owe") else "") + f"With {cited} in writing, {name} goes on the Safe Schools list, and the certificate for the {yr} school year is attached, print-ready, with the policy's own sentence on it and a QR code to the district's entry at earthpilot.org/kids. Hang it if you like.",
         "There's also a short press release attached as a Word file, written so your office can send it to the local paper with one edit, in case you want the good version of the story out first.",
         "One ask, only if you're willing: a thirty-second phone video from you or a principal on what the district does instead. No script. earthpilot.org/kids/video",
         messages.sig(run.USER),
