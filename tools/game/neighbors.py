@@ -52,7 +52,7 @@ def anchors():
         if c.get("to") == "bans" and not c.get("retracted"): add(c, "record_correction", c.get("at"), f"was {c.get('from')}")
     for r in load_requests():
         if r.get("recorded_status") == "bans": add(r, "recorded_ban", r.get("rechecked_at") or r.get("last_reply_at") or r.get("sent_at"))
-        if r.get("kind") == "certificate" and r.get("sent_at"): add(r, "certified", r.get("sent_at"), r.get("notes"))
+        if r.get("kind") == "certificate" and r.get("sent_at") and not r.get("retracted_at"): add(r, "certified", r.get("sent_at"), r.get("notes"))
     return sorted(out.values(), key=lambda a: (BASIS_RANK[a["basis"]], -(a["enrollment"] or 0)))
 
 def compute():

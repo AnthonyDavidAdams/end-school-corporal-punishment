@@ -471,6 +471,41 @@ def apology(r, user):
 """
 
 
+def retraction(r, user, now=None):
+    """Something we sent rested on a record that was wrong: on 2026-11-10 a re-check filed pages from other
+    websites under 74 districts, and certificates, neighbor notes and an invitation went out on them before it
+    was caught. One note on the thread it corrects: what was wrong, whose fault, what the record holds now
+    (read at send time, never remembered), and the one thing that would put it right."""
+    who = addressed_name(r); d = nice(r["name"]); dp = d + ("'" if d.endswith("s") else "'s"); when = ago(r.get("sent_on"))
+    status = (now or {}).get("status")
+    have = " What I have from the district's own site doesn't address corporal punishment either way." if status == "silent" else ""
+    cause = "My search filed a page from another website under your district"
+    if r.get("reason") == "certificate":
+        ask = f" If the board has a written policy that prohibits it, send me the policy number or a link and I'll reissue the certificate on the board's own words." if status in ("silent", "unknown", None) else ""
+        return f"""Hey {who}, I owe you a correction. The Safe School certificate I sent {when} quotes text that isn't from {dp} policy. {cause}, and the certificate went out on it. That's on me. Please don't hang or announce that one.
+
+I've taken it off the public record.{have}{ask}
+
+{sig(user)}
+"""
+    ask = " If you can point me to where the board's policy on it lives, I'll record what it actually says." if status in ("silent", "unknown", None) else ""
+    if r.get("reason") == "invitation":
+        said = f' ("{tidy_quote(r["quoted"]).rstrip(".")}")' if r.get("quoted") else ""
+        return f"""Hey {who}, I owe you a correction on the invitation I sent {when}. It quoted a sentence as {dp} policy{said}. That sentence isn't yours. {cause}, and the invitation went out on it. That's on me. Please disregard it.
+
+I've taken it off the public record.{have}{ask}
+
+{sig(user)}
+"""
+    also = f" The same goes for what it said about {nice(r['anchor'])}." if r.get("anchor") and r.get("anchor_wrong") else ""
+    return f"""Hey {who}, I owe you a correction on the note I sent {when}. It said {dp} policy still permits corporal punishment on paper. I can't back that up. {cause}, and the note went out on it.{also} That's on me.
+
+I've taken it off the public record.{have}{ask}
+
+{sig(user)}
+"""
+
+
 def certificate_correction(r, user):
     """A Safe School certificate went out on the superintendent's own sentence ("we do not use it") instead of a
     board policy (Milan IN and 17 others, 2026-10-27). Own it in one line, say what the record now says, and

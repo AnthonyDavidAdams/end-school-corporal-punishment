@@ -77,7 +77,7 @@ def from_requests(reqs):
             if r.get("variant"): variant = r["variant"]; experiment = r.get("experiment") or experiment
             moves.append(move_row(r, kind, sent, variant=variant, experiment=experiment, by="pipeline",
                                   extra={"attachment": bool(r.get("attachments"))} if kind in ("align_policy", "certificate") else None))
-            if kind in ("certificate",): outs.append(outcome_row(r, "certificate", sent, detail=r.get("notes"), source=r.get("certificate_pdf")))
+            if kind in ("certificate",) and not r.get("retracted_at"): outs.append(outcome_row(r, "certificate", sent, detail=r.get("notes"), source=r.get("certificate_pdf")))
         fu = _iso(parse_dt(r.get("followup_sent_at")))
         if fu: moves.append(move_row(r, "followup", fu, by="pipeline"))
         for m in r.get("our_messages") or []:

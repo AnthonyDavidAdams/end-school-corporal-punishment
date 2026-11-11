@@ -1,8 +1,8 @@
 {
- "as_of": "2026-11-10T12:20:16",
+ "as_of": "2026-11-11T13:17:52",
  "how": "permitting districts in the same or an adjacent county as a district that moved to a ban, ranked by enrollment",
- "anchor_count": 827,
- "target_count": 1173,
+ "anchor_count": 828,
+ "target_count": 1177,
  "ranked": [
   {
    "district_id": "2801320",
@@ -15,7 +15,11 @@
    "band": "large",
    "policy_lag": false,
    "crdc_students": 92,
-   "last_move": null,
+   "last_move": {
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:34:21",
+    "variant": null
+   },
    "contact_email": "cory.uselton@dcsms.org",
    "anchors": [
     {
@@ -814,9 +818,9 @@
    "policy_lag": true,
    "crdc_students": null,
    "last_move": {
-    "kind": "align_policy",
-    "sent_at": "2026-10-12T22:57:59",
-    "variant": "A"
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:34:34",
+    "variant": null
    },
    "contact_email": "alee@newcaneyisd.org",
    "anchors": [
@@ -1087,7 +1091,11 @@
    "band": "mid",
    "policy_lag": false,
    "crdc_students": 29,
-   "last_move": null,
+   "last_move": {
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:34:48",
+    "variant": null
+   },
    "contact_email": "wibentz@harrison.k12.ms.us",
    "anchors": [
     {
@@ -1286,9 +1294,9 @@
    "policy_lag": true,
    "crdc_students": null,
    "last_move": {
-    "kind": "align_policy",
-    "sent_at": "2026-10-12T22:58:48",
-    "variant": "A"
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:35:03",
+    "variant": null
    },
    "contact_email": "joseph.waldron@abileneisd.org",
    "anchors": [
@@ -1337,7 +1345,11 @@
    "band": "mid",
    "policy_lag": false,
    "crdc_students": 10,
-   "last_move": null,
+   "last_move": {
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:35:17",
+    "variant": null
+   },
    "contact_email": "abrown@madison-schools.com",
    "anchors": [
     {
@@ -1541,7 +1553,11 @@
    "band": "mid",
    "policy_lag": false,
    "crdc_students": null,
-   "last_move": null,
+   "last_move": {
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:35:30",
+    "variant": null
+   },
    "contact_email": "sheila.collazo@visd.net",
    "anchors": [
     {
@@ -2141,6 +2157,12 @@
      "same_county": false
     },
     {
+     "district_id": "0507140",
+     "name": "Guy-Perkins School District",
+     "basis": "recorded_ban",
+     "same_county": false
+    },
+    {
      "district_id": "0511850",
      "name": "Pulaski County Special School District",
      "basis": "certified",
@@ -2344,9 +2366,9 @@
    "policy_lag": true,
    "crdc_students": null,
    "last_move": {
-    "kind": "align_policy",
-    "sent_at": "2026-10-12T17:30:03",
-    "variant": "A"
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:35:42",
+    "variant": null
    },
    "contact_email": null,
    "anchors": [
@@ -2420,9 +2442,9 @@
    "policy_lag": true,
    "crdc_students": null,
    "last_move": {
-    "kind": "align_policy",
-    "sent_at": "2026-10-12T23:11:24",
-    "variant": "A"
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:35:55",
+    "variant": null
    },
    "contact_email": "aperez@sbcisd.net",
    "anchors": [
@@ -2529,7 +2551,11 @@
    "band": "mid",
    "policy_lag": false,
    "crdc_students": 8,
-   "last_move": null,
+   "last_move": {
+    "kind": "neighbor",
+    "sent_at": "2026-11-10T12:36:08",
+    "variant": null
+   },
    "contact_email": "brjones@jonesk12.org",
    "anchors": [
     {
@@ -2589,7 +2615,11 @@
    "band": "mid",
    "policy_lag": true,
    "crdc_students": null,
-   "last_move": null,
+   "last_move": {
+    "kind": "align_policy",
+    "sent_at": "2026-11-10T12:36:35",
+    "variant": "A"
+   },
    "contact_email": "sscott@weatherfordisd.com",
    "anchors": [
     {
@@ -3021,7 +3051,11 @@
    "band": "mid",
    "policy_lag": true,
    "crdc_students": null,
-   "last_move": null,
+   "last_move": {
+    "kind": "align_policy",
+    "sent_at": "2026-11-10T12:36:49",
+    "variant": "A"
+   },
    "contact_email": "info@eanesisd.net",
    "anchors": [
     {
@@ -3199,7 +3233,11 @@
    "band": "mid",
    "policy_lag": true,
    "crdc_students": null,
-   "last_move": null,
+   "last_move": {
+    "kind": "align_policy",
+    "sent_at": "2026-11-10T12:37:02",
+    "variant": "A"
+   },
    "contact_email": "courtney.morawski@granburyisd.org",
    "anchors": [
     {
@@ -4683,6 +4721,12 @@
    "contact_email": null,
    "anchors": [
     {
+     "district_id": "1806090",
+     "name": "Maconaquah School Corp",
+     "basis": "recorded_ban",
+     "same_county": false
+    },
+    {
      "district_id": "1804470",
      "name": "Western School Corporation",
      "basis": "certified",
@@ -4703,12 +4747,6 @@
     {
      "district_id": "1806240",
      "name": "Madison-Grant United School Corp",
-     "basis": "certified",
-     "same_county": false
-    },
-    {
-     "district_id": "1806090",
-     "name": "Maconaquah School Corp",
      "basis": "certified",
      "same_county": false
     },
@@ -5421,6 +5459,12 @@
    "contact_email": null,
    "anchors": [
     {
+     "district_id": "1806090",
+     "name": "Maconaquah School Corp",
+     "basis": "recorded_ban",
+     "same_county": false
+    },
+    {
      "district_id": "1804470",
      "name": "Western School Corporation",
      "basis": "certified",
@@ -5429,12 +5473,6 @@
     {
      "district_id": "1811580",
      "name": "Twin Lakes School Corp",
-     "basis": "certified",
-     "same_county": false
-    },
-    {
-     "district_id": "1806090",
-     "name": "Maconaquah School Corp",
      "basis": "certified",
      "same_county": false
     },
@@ -6227,6 +6265,12 @@
     {
      "district_id": "0509060",
      "name": "Lonoke School District",
+     "basis": "recorded_ban",
+     "same_county": false
+    },
+    {
+     "district_id": "0507140",
+     "name": "Guy-Perkins School District",
      "basis": "recorded_ban",
      "same_county": false
     },
@@ -9205,6 +9249,12 @@
     {
      "district_id": "0509060",
      "name": "Lonoke School District",
+     "basis": "recorded_ban",
+     "same_county": false
+    },
+    {
+     "district_id": "0507140",
+     "name": "Guy-Perkins School District",
      "basis": "recorded_ban",
      "same_county": false
     }
@@ -14021,6 +14071,12 @@
      "name": "Conway School District",
      "basis": "recorded_ban",
      "same_county": false
+    },
+    {
+     "district_id": "0507140",
+     "name": "Guy-Perkins School District",
+     "basis": "recorded_ban",
+     "same_county": false
     }
    ]
   },
@@ -17175,7 +17231,7 @@
     {
      "district_id": "1806090",
      "name": "Maconaquah School Corp",
-     "basis": "certified",
+     "basis": "recorded_ban",
      "same_county": true
     },
     {
@@ -20237,6 +20293,25 @@
    "note": null,
    "targets": [
     {
+     "district_id": "4008040",
+     "state": "OK",
+     "name": "CLEVELAND",
+     "county": "Pawnee",
+     "county_fips": "40117",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 1516,
+     "band": "small",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "ask_policy",
+      "sent_at": "2026-11-10T12:33:26",
+      "variant": "A"
+     },
+     "contact_email": "solbayouth@clevelandtigers.com"
+    },
+    {
      "district_id": "4023800",
      "state": "OK",
      "name": "PERKINS-TRYON",
@@ -20249,6 +20324,25 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": null,
+     "contact_email": null
+    },
+    {
+     "district_id": "4023610",
+     "state": "OK",
+     "name": "Pawnee",
+     "county": "Pawnee",
+     "county_fips": "40117",
+     "same_county": false,
+     "status": "consent_required",
+     "enrollment": 600,
+     "band": "tiny",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "ask_policy",
+      "sent_at": "2026-11-11T06:18:45",
+      "variant": "A"
+     },
      "contact_email": null
     },
     {
@@ -20410,6 +20504,25 @@
      "contact_email": "dmeador@jennings.k12.ok.us"
     },
     {
+     "district_id": "4022160",
+     "state": "OK",
+     "name": "Oak Grove",
+     "county": "Payne",
+     "county_fips": "40119",
+     "same_county": true,
+     "status": "allows",
+     "enrollment": 143,
+     "band": "tiny",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "ask_policy",
+      "sent_at": "2026-11-11T06:18:35",
+      "variant": "A"
+     },
+     "contact_email": null
+    },
+    {
      "district_id": "4032640",
      "state": "OK",
      "name": "White Rock",
@@ -20429,7 +20542,7 @@
      "contact_email": null
     }
    ],
-   "target_count": 12
+   "target_count": 15
   },
   {
    "district_id": "4007620",
@@ -20962,7 +21075,7 @@
    "county_fips": "01073",
    "enrollment": 3216,
    "quote": "Corporal Punishment The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior, provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.",
-   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0100330-recheck-7241537.html",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0100330-recheck-7241537.html.pdf",
    "note": null,
    "targets": [
     {
@@ -21644,6 +21757,25 @@
      "contact_email": null
     },
     {
+     "district_id": "4008040",
+     "state": "OK",
+     "name": "CLEVELAND",
+     "county": "Pawnee",
+     "county_fips": "40117",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 1516,
+     "band": "small",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "ask_policy",
+      "sent_at": "2026-11-10T12:33:26",
+      "variant": "A"
+     },
+     "contact_email": "solbayouth@clevelandtigers.com"
+    },
+    {
      "district_id": "4015480",
      "state": "OK",
      "name": "INOLA",
@@ -21770,6 +21902,25 @@
      "crdc_students": null,
      "last_move": null,
      "contact_email": "scantrell@caneyvalleyschool.org"
+    },
+    {
+     "district_id": "4023610",
+     "state": "OK",
+     "name": "Pawnee",
+     "county": "Pawnee",
+     "county_fips": "40117",
+     "same_county": false,
+     "status": "consent_required",
+     "enrollment": 600,
+     "band": "tiny",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "ask_policy",
+      "sent_at": "2026-11-11T06:18:45",
+      "variant": "A"
+     },
+     "contact_email": null
     },
     {
      "district_id": "4025050",
@@ -21966,43 +22117,9 @@
      "crdc_students": 75,
      "last_move": null,
      "contact_email": "drown@dbcschool.org"
-    },
-    {
-     "district_id": "4033330",
-     "state": "OK",
-     "name": "WYNONA",
-     "county": "Osage",
-     "county_fips": "40113",
-     "same_county": false,
-     "status": "allows",
-     "enrollment": 131,
-     "band": "tiny",
-     "policy_lag": true,
-     "crdc_students": null,
-     "last_move": null,
-     "contact_email": null
-    },
-    {
-     "district_id": "4000772",
-     "state": "OK",
-     "name": "SANKOFA MIDDLE SCHL (CHARTER)",
-     "county": "Tulsa",
-     "county_fips": "40143",
-     "same_county": true,
-     "status": "allows",
-     "enrollment": 86,
-     "band": "tiny",
-     "policy_lag": false,
-     "crdc_students": null,
-     "last_move": {
-      "kind": "reply",
-      "sent_at": "2026-10-09T15:36:50",
-      "variant": null
-     },
-     "contact_email": null
     }
    ],
-   "target_count": 26
+   "target_count": 28
   },
   {
    "district_id": "4007560",
@@ -22534,6 +22651,105 @@
     }
    ],
    "target_count": 2
+  },
+  {
+   "district_id": "1806090",
+   "state": "IN",
+   "name": "Maconaquah School Corp",
+   "basis": "recorded_ban",
+   "at": "2026-10-10T18:06:45",
+   "county": "Miami",
+   "county_fips": "18103",
+   "enrollment": 1859,
+   "quote": "The policy does not allow for use of corporal punishment.",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1806090-email-19031296.txt",
+   "note": null,
+   "targets": [
+    {
+     "district_id": "1805370",
+     "state": "IN",
+     "name": "Kokomo School Corporation",
+     "county": "Howard",
+     "county_fips": "18067",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 5561,
+     "band": "mid",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-10-28T11:20:24",
+      "variant": null
+     },
+     "contact_email": null
+    },
+    {
+     "district_id": "1806030",
+     "state": "IN",
+     "name": "Logansport Community School Corp",
+     "county": "Cass",
+     "county_fips": "18017",
+     "same_county": false,
+     "status": "consent_required",
+     "enrollment": 4943,
+     "band": "small",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-10-28T11:21:02",
+      "variant": null
+     },
+     "contact_email": null
+    },
+    {
+     "district_id": "1808850",
+     "state": "IN",
+     "name": "Peru Community Schools",
+     "county": "Miami",
+     "county_fips": "18103",
+     "same_county": true,
+     "status": "allows",
+     "enrollment": 1838,
+     "band": "small",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": null
+    },
+    {
+     "district_id": "1810680",
+     "state": "IN",
+     "name": "Lewis Cass Schools",
+     "county": "Cass",
+     "county_fips": "18017",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 1292,
+     "band": "small",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": null
+    },
+    {
+     "district_id": "1808940",
+     "state": "IN",
+     "name": "Pioneer Regional School Corp",
+     "county": "Cass",
+     "county_fips": "18017",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 916,
+     "band": "tiny",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": null
+    }
+   ],
+   "target_count": 5
   },
   {
    "district_id": "0513930",
@@ -24988,6 +25204,320 @@
    "target_count": 0
   },
   {
+   "district_id": "0507140",
+   "state": "AR",
+   "name": "Guy-Perkins School District",
+   "basis": "recorded_ban",
+   "at": "2026-10-31T21:50:05",
+   "county": "Faulkner",
+   "county_fips": "05045",
+   "enrollment": 313,
+   "quote": "4.39—CORPORAL PUNISHMENT The Guy-Perkins School Board prohibits the use of corporal punishment by any employee of the District against any student.",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AR/0507140-2026-27_Section_4_-_STUDENT_POLICY_4.39_CORPORAL_PUNISHMENT.pdf",
+   "note": null,
+   "targets": [
+    {
+     "district_id": "0503750",
+     "state": "AR",
+     "name": "Cabot School District",
+     "county": "Lonoke",
+     "county_fips": "05085",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 10334,
+     "band": "mid",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-10-28T13:47:11",
+      "variant": null
+     },
+     "contact_email": null
+    },
+    {
+     "district_id": "0500419",
+     "state": "AR",
+     "name": "JACKSONVILLE NORTH PULASKI SCHOOL DISTRICT",
+     "county": "Pulaski",
+     "county_fips": "05119",
+     "same_county": false,
+     "status": "consent_required",
+     "enrollment": 4387,
+     "band": "small",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "followup",
+      "sent_at": "2026-10-09T00:24:10",
+      "variant": null
+     },
+     "contact_email": null
+    },
+    {
+     "district_id": "0502880",
+     "state": "AR",
+     "name": "Beebe School District",
+     "county": "White",
+     "county_fips": "05145",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 3317,
+     "band": "small",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": null
+    },
+    {
+     "district_id": "0512520",
+     "state": "AR",
+     "name": "SOUTH CONWAY COUNTY SCHOOL DISTRICT",
+     "county": "Conway",
+     "county_fips": "05029",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 2232,
+     "band": "small",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": "blackj@conwayschools.info"
+    },
+    {
+     "district_id": "0507560",
+     "state": "AR",
+     "name": "HEBER SPRINGS SCHOOL DISTRICT",
+     "county": "Cleburne",
+     "county_fips": "05023",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 1557,
+     "band": "small",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": "joel.linn@heberschools.org"
+    },
+    {
+     "district_id": "0504410",
+     "state": "AR",
+     "name": "CLINTON SCHOOL DISTRICT",
+     "county": "Van Buren",
+     "county_fips": "05141",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 1228,
+     "band": "small",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": "smitht@clintonsd.org"
+    },
+    {
+     "district_id": "0502700",
+     "state": "AR",
+     "name": "Bald Knob School District",
+     "county": "White",
+     "county_fips": "05145",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 1072,
+     "band": "small",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": null
+    },
+    {
+     "district_id": "0509540",
+     "state": "AR",
+     "name": "MAYFLOWER SCHOOL DISTRICT",
+     "county": "Faulkner",
+     "county_fips": "05045",
+     "same_county": true,
+     "status": "allows",
+     "enrollment": 992,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": "achisum@mayflowerschools.org"
+    },
+    {
+     "district_id": "0511880",
+     "state": "AR",
+     "name": "QUITMAN SCHOOL DISTRICT",
+     "county": "Cleburne",
+     "county_fips": "05023",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 870,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": "stacksm@quitman.k12.ar.us"
+    },
+    {
+     "district_id": "0511070",
+     "state": "AR",
+     "name": "PANGBURN SCHOOL DISTRICT",
+     "county": "White",
+     "county_fips": "05145",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 772,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "reply",
+      "sent_at": "2026-10-09T15:37:07",
+      "variant": null
+     },
+     "contact_email": null
+    },
+    {
+     "district_id": "0512000",
+     "state": "AR",
+     "name": "ROSE BUD SCHOOL DISTRICT",
+     "county": "White",
+     "county_fips": "05145",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 721,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "reply",
+      "sent_at": "2026-10-15T10:18:00",
+      "variant": null
+     },
+     "contact_email": "ablackwell@rbsd.k12.ar.us"
+    },
+    {
+     "district_id": "0503960",
+     "state": "AR",
+     "name": "Carlisle School District",
+     "county": "Carlisle",
+     "county_fips": "05085",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 603,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": 40,
+     "last_move": null,
+     "contact_email": "bgreene@carlisle.k12.ar.us"
+    },
+    {
+     "district_id": "0514040",
+     "state": "AR",
+     "name": "SOUTH SIDE SCHOOL DISTRICT",
+     "county": "Van Buren",
+     "county_fips": "05023",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 474,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "followup",
+      "sent_at": "2026-10-09T00:23:41",
+      "variant": null
+     },
+     "contact_email": "suzanne.lankford@southsidebb.org"
+    },
+    {
+     "district_id": "0514040",
+     "state": "AR",
+     "name": "WEST SIDE SCHOOL DISTRICT",
+     "county": "Cleburne",
+     "county_fips": "05023",
+     "same_county": false,
+     "status": "consent_required",
+     "enrollment": 474,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "followup",
+      "sent_at": "2026-10-09T00:23:41",
+      "variant": null
+     },
+     "contact_email": null
+    },
+    {
+     "district_id": "0510410",
+     "state": "AR",
+     "name": "Nemo Vista School District",
+     "county": "Conway",
+     "county_fips": "05029",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 465,
+     "band": "tiny",
+     "policy_lag": true,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": null
+    },
+    {
+     "district_id": "0514370",
+     "state": "AR",
+     "name": "Wonderview School District",
+     "county": "Conway",
+     "county_fips": "05029",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 436,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": "jamie.stacks@wonderviewschools.org"
+    },
+    {
+     "district_id": "0504560",
+     "state": "AR",
+     "name": "Concord School District",
+     "county": "Cleburne",
+     "county_fips": "05023",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": 376,
+     "band": "tiny",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": {
+      "kind": "reply",
+      "sent_at": "2026-10-09T19:26:31",
+      "variant": null
+     },
+     "contact_email": null
+    },
+    {
+     "district_id": "AR|perryville-school-district",
+     "state": "AR",
+     "name": "PERRYVILLE SCHOOL DISTRICT",
+     "county": "Perry",
+     "county_fips": "05105",
+     "same_county": false,
+     "status": "allows",
+     "enrollment": null,
+     "band": "unknown",
+     "policy_lag": false,
+     "crdc_students": null,
+     "last_move": null,
+     "contact_email": "kevin.campbell@perryvilleschool.org"
+    }
+   ],
+   "target_count": 18
+  },
+  {
    "district_id": "2006570",
    "state": "KS",
    "name": "Goessel",
@@ -26780,9 +27310,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -28013,7 +28543,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -28176,7 +28710,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -29043,9 +29581,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -29446,7 +29984,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -29812,9 +30354,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -30487,9 +31029,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -31704,9 +32246,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -32050,7 +32592,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -33072,7 +33618,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -33704,9 +34254,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -34710,7 +35260,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -35111,9 +35665,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -35398,7 +35952,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -35764,9 +36322,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -36525,9 +37083,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -39251,7 +39809,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -39357,7 +39919,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -39438,9 +40004,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -40305,9 +40871,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -40751,9 +41317,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -41022,7 +41588,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -42209,9 +42779,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -42655,9 +43225,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -43748,7 +44318,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 10,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:17",
+      "variant": null
+     },
      "contact_email": "abrown@madison-schools.com"
     },
     {
@@ -44105,7 +44679,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -44950,9 +45528,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -45803,9 +46381,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -47451,7 +48029,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -48032,9 +48614,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -48811,7 +49393,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -48986,9 +49572,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -49465,9 +50051,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -51077,7 +51663,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -51516,9 +52106,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -52489,7 +53079,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -52615,9 +53209,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -53396,9 +53990,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -53767,7 +54361,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -54070,9 +54668,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -54497,9 +55095,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -54711,7 +55309,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -55188,9 +55790,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -55535,9 +56137,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -55739,9 +56341,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -56006,7 +56608,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -56849,7 +57455,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -56929,7 +57539,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -56944,7 +57558,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:37:02",
+      "variant": "A"
+     },
      "contact_email": "courtney.morawski@granburyisd.org"
     },
     {
@@ -57700,7 +58318,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -59243,7 +59865,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -60128,7 +60754,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -60143,7 +60773,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:37:02",
+      "variant": "A"
+     },
      "contact_email": "courtney.morawski@granburyisd.org"
     },
     {
@@ -60524,9 +61158,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -61513,7 +62147,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -61879,9 +62517,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -62471,7 +63109,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 29,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:48",
+      "variant": null
+     },
      "contact_email": "wibentz@harrison.k12.ms.us"
     },
     {
@@ -62487,9 +63129,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T17:30:03",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:42",
+      "variant": null
      },
      "contact_email": null
     },
@@ -63095,7 +63737,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -64498,7 +65144,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 29,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:48",
+      "variant": null
+     },
      "contact_email": "wibentz@harrison.k12.ms.us"
     },
     {
@@ -64514,9 +65164,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T17:30:03",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:42",
+      "variant": null
      },
      "contact_email": null
     },
@@ -65324,7 +65974,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 29,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:48",
+      "variant": null
+     },
      "contact_email": "wibentz@harrison.k12.ms.us"
     },
     {
@@ -65340,9 +65994,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T17:30:03",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:42",
+      "variant": null
      },
      "contact_email": null
     },
@@ -66520,7 +67174,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -68117,7 +68775,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 10,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:17",
+      "variant": null
+     },
      "contact_email": "abrown@madison-schools.com"
     },
     {
@@ -68348,7 +69010,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -69598,9 +70264,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -70753,7 +71419,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 8,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:36:08",
+      "variant": null
+     },
      "contact_email": "brjones@jonesk12.org"
     },
     {
@@ -72414,7 +73084,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -72429,7 +73103,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:37:02",
+      "variant": "A"
+     },
      "contact_email": "courtney.morawski@granburyisd.org"
     },
     {
@@ -74031,7 +74709,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 8,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:36:08",
+      "variant": null
+     },
      "contact_email": "brjones@jonesk12.org"
     },
     {
@@ -74675,9 +75357,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -75021,7 +75703,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -75334,7 +76020,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -76407,7 +77097,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 10,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:17",
+      "variant": null
+     },
      "contact_email": "abrown@madison-schools.com"
     },
     {
@@ -76566,7 +77260,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -76852,7 +77550,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 29,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:48",
+      "variant": null
+     },
      "contact_email": "wibentz@harrison.k12.ms.us"
     },
     {
@@ -77061,7 +77763,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -77076,7 +77782,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:37:02",
+      "variant": "A"
+     },
      "contact_email": "courtney.morawski@granburyisd.org"
     },
     {
@@ -78069,7 +78779,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -78537,7 +79251,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -80242,7 +80960,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -81258,9 +81980,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -81518,7 +82240,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 8,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:36:08",
+      "variant": null
+     },
      "contact_email": "brjones@jonesk12.org"
     },
     {
@@ -82023,7 +82749,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -82160,7 +82890,11 @@
      "band": "large",
      "policy_lag": false,
      "crdc_students": 92,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:21",
+      "variant": null
+     },
      "contact_email": "cory.uselton@dcsms.org"
     },
     {
@@ -83635,7 +84369,7 @@
      "contact_email": "webbj@eraisd.net"
     }
    ],
-   "target_count": 32
+   "target_count": 33
   },
   {
    "district_id": "2101740",
@@ -86985,9 +87719,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:57:59",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:34",
+      "variant": null
      },
      "contact_email": "alee@newcaneyisd.org"
     },
@@ -88596,105 +89330,6 @@
    "target_count": 11
   },
   {
-   "district_id": "1806090",
-   "state": "IN",
-   "name": "Maconaquah School Corp",
-   "basis": "certified",
-   "at": "2026-10-12T14:18:43",
-   "county": "Miami",
-   "county_fips": "18103",
-   "enrollment": 1859,
-   "quote": "The policy does not allow for use of corporal punishment.",
-   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1806090-email-19031296.txt",
-   "note": "Safe School certificate 2026–27; board policy as sent by the district.",
-   "targets": [
-    {
-     "district_id": "1805370",
-     "state": "IN",
-     "name": "Kokomo School Corporation",
-     "county": "Howard",
-     "county_fips": "18067",
-     "same_county": false,
-     "status": "allows",
-     "enrollment": 5561,
-     "band": "mid",
-     "policy_lag": true,
-     "crdc_students": null,
-     "last_move": {
-      "kind": "neighbor",
-      "sent_at": "2026-10-28T11:20:24",
-      "variant": null
-     },
-     "contact_email": null
-    },
-    {
-     "district_id": "1806030",
-     "state": "IN",
-     "name": "Logansport Community School Corp",
-     "county": "Cass",
-     "county_fips": "18017",
-     "same_county": false,
-     "status": "consent_required",
-     "enrollment": 4943,
-     "band": "small",
-     "policy_lag": true,
-     "crdc_students": null,
-     "last_move": {
-      "kind": "neighbor",
-      "sent_at": "2026-10-28T11:21:02",
-      "variant": null
-     },
-     "contact_email": null
-    },
-    {
-     "district_id": "1808850",
-     "state": "IN",
-     "name": "Peru Community Schools",
-     "county": "Miami",
-     "county_fips": "18103",
-     "same_county": true,
-     "status": "allows",
-     "enrollment": 1838,
-     "band": "small",
-     "policy_lag": true,
-     "crdc_students": null,
-     "last_move": null,
-     "contact_email": null
-    },
-    {
-     "district_id": "1810680",
-     "state": "IN",
-     "name": "Lewis Cass Schools",
-     "county": "Cass",
-     "county_fips": "18017",
-     "same_county": false,
-     "status": "allows",
-     "enrollment": 1292,
-     "band": "small",
-     "policy_lag": true,
-     "crdc_students": null,
-     "last_move": null,
-     "contact_email": null
-    },
-    {
-     "district_id": "1808940",
-     "state": "IN",
-     "name": "Pioneer Regional School Corp",
-     "county": "Cass",
-     "county_fips": "18017",
-     "same_county": false,
-     "status": "allows",
-     "enrollment": 916,
-     "band": "tiny",
-     "policy_lag": true,
-     "crdc_students": null,
-     "last_move": null,
-     "contact_email": null
-    }
-   ],
-   "target_count": 5
-  },
-  {
    "district_id": "4818900",
    "state": "TX",
    "name": "Fabens ISD",
@@ -88961,7 +89596,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -89097,7 +89736,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": 29,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:34:48",
+      "variant": null
+     },
      "contact_email": "wibentz@harrison.k12.ms.us"
     },
     {
@@ -89113,9 +89756,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T17:30:03",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:42",
+      "variant": null
      },
      "contact_email": null
     },
@@ -90301,7 +90944,7 @@
      "contact_email": "josh.ballinger@tiogaisd.net"
     }
    ],
-   "target_count": 34
+   "target_count": 35
   },
   {
    "district_id": "4828650",
@@ -90873,7 +91516,7 @@
      "contact_email": "webbj@eraisd.net"
     }
    ],
-   "target_count": 32
+   "target_count": 33
   },
   {
    "district_id": "1807900",
@@ -91418,9 +92061,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -94261,9 +94904,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -95649,7 +96292,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -96923,9 +97570,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -97725,7 +98372,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -100300,7 +100951,7 @@
      "contact_email": "webbj@eraisd.net"
     }
    ],
-   "target_count": 32
+   "target_count": 33
   },
   {
    "district_id": "2104170",
@@ -100950,7 +101601,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -101225,7 +101880,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -101240,7 +101899,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:37:02",
+      "variant": "A"
+     },
      "contact_email": "courtney.morawski@granburyisd.org"
     },
     {
@@ -101677,7 +102340,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -111785,7 +112452,7 @@
      "contact_email": "josh.ballinger@tiogaisd.net"
     }
    ],
-   "target_count": 34
+   "target_count": 35
   },
   {
    "district_id": "2913770",
@@ -114792,9 +115459,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T23:11:24",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:55",
+      "variant": null
      },
      "contact_email": "aperez@sbcisd.net"
     },
@@ -115087,7 +115754,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -117342,9 +118013,9 @@
      "policy_lag": true,
      "crdc_students": null,
      "last_move": {
-      "kind": "align_policy",
-      "sent_at": "2026-10-12T22:58:48",
-      "variant": "A"
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:03",
+      "variant": null
      },
      "contact_email": "joseph.waldron@abileneisd.org"
     },
@@ -118553,7 +119224,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -119687,7 +120362,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {
@@ -121465,7 +122144,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -121480,7 +122163,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:37:02",
+      "variant": "A"
+     },
      "contact_email": "courtney.morawski@granburyisd.org"
     },
     {
@@ -122220,7 +122907,7 @@
      "contact_email": "josh.ballinger@tiogaisd.net"
     }
    ],
-   "target_count": 34
+   "target_count": 35
   },
   {
    "district_id": "4012570",
@@ -123672,7 +124359,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:35",
+      "variant": "A"
+     },
      "contact_email": "sscott@weatherfordisd.com"
     },
     {
@@ -123687,7 +124378,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:37:02",
+      "variant": "A"
+     },
      "contact_email": "courtney.morawski@granburyisd.org"
     },
     {
@@ -125854,7 +126549,11 @@
      "band": "mid",
      "policy_lag": false,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "neighbor",
+      "sent_at": "2026-11-10T12:35:30",
+      "variant": null
+     },
      "contact_email": "sheila.collazo@visd.net"
     },
     {
@@ -128384,7 +129083,11 @@
      "band": "mid",
      "policy_lag": true,
      "crdc_students": null,
-     "last_move": null,
+     "last_move": {
+      "kind": "align_policy",
+      "sent_at": "2026-11-10T12:36:49",
+      "variant": "A"
+     },
      "contact_email": "info@eanesisd.net"
     },
     {

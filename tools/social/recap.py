@@ -34,10 +34,10 @@ for i in range(days + 1):
     if os.path.exists(lf):
         for l in open(lf, errors="ignore"):
             if "reply from" in l and ts(day + "T" + l[:8]) and ts(day + "T" + l[:8]) > since: replies += 1
-certs = sum(1 for r in rs if r.get("kind") in ("certificate", "certificate_state") and r["status"] == "sent" and ts(r.get("sent_at")) and ts(r["sent_at"]) > since)
-certs_total = sum(1 for r in rs if r.get("kind") in ("certificate", "certificate_state") and r["status"] == "sent")
+certs = sum(1 for r in rs if r.get("kind") in ("certificate", "certificate_state") and r["status"] == "sent" and not r.get("retracted_at") and ts(r.get("sent_at")) and ts(r["sent_at"]) > since)
+certs_total = sum(1 for r in rs if r.get("kind") in ("certificate", "certificate_state") and r["status"] == "sent" and not r.get("retracted_at"))
 # Every figure in the copy is counted here, from the record, at the moment the draft is written.
-districts_recognized = len({r.get("nces_id") or r["name"] for r in rs if r.get("kind") == "certificate" and r["status"] == "sent"})   # districts only: governors' certificates are not districts
+districts_recognized = len({r.get("nces_id") or r["name"] for r in rs if r.get("kind") == "certificate" and r["status"] == "sent" and not r.get("retracted_at")})   # districts only: governors' certificates are not districts
 ASK_KINDS = ("policy", "nothing on file", "handbook silent", "neighbor")
 asked_total = len({r.get("nces_id") or (r["state"], r["name"]) for r in rs if r.get("kind", "policy") in ASK_KINDS and r.get("sent_at")})
 asked_answered = len({r.get("nces_id") or (r["state"], r["name"]) for r in rs if r.get("kind", "policy") in ASK_KINDS and r.get("sent_at") and r.get("replies")})   # answers to that question only, not thanks for a certificate
@@ -59,7 +59,7 @@ replied_total = sum(1 for r in rs if r.get("replies"))
 # a recent win: the newest district whose record says bans and who wrote to us
 wins = []
 for r in rs:
-    if r.get("kind") == "certificate" and r["status"] == "sent" and ts(r.get("sent_at")) and ts(r["sent_at"]) > since: wins.append(f"{r['name'].title() if r['name'].isupper() else r['name']}, {r['state']}")
+    if r.get("kind") == "certificate" and r["status"] == "sent" and not r.get("retracted_at") and ts(r.get("sent_at")) and ts(r["sent_at"]) > since: wins.append(f"{r['name'].title() if r['name'].isupper() else r['name']}, {r['state']}")
 # Health line for Anthony's copy only: the cycle hung for a week in October and nobody noticed for seven days.
 last_cycle = None
 for lf in sorted(glob.glob(os.path.join(ROOT, "out/outreach/20*.log")))[-3:]:

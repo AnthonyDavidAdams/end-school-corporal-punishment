@@ -16,7 +16,7 @@ import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, "tools/outreach"))
-import run, messages  # noqa: E402
+import run, messages, evidence  # noqa: E402
 
 OUT = os.path.join(ROOT, "out/certificates/sent"); os.makedirs(OUT, exist_ok=True)
 STATE_NAMES = messages.STATE_NAMES
@@ -49,10 +49,13 @@ def enrollment():
     return m
 
 
+HELD = []   # (state, name, why) for every district the evidence gate stopped on this run
+
+
 def candidates(reqs):
     states = json.load(open(os.path.join(ROOT, "site/data/states.json")))
     permitting = {k for k, v in states.items() if v.get("status") in ("legal", "partial")}
-    done = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "certificate"}
+    done = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "certificate" and not r.get("retracted_at")}   # a withdrawn certificate does not stand in the way of a real one
     # A district that asked us to stop, or a thread Anthony has taken over by hand, gets nothing automatic.
     stop = {str(r.get("nces_id")) for r in reqs if r.get("nces_id") and (r.get("do_not_contact") or r.get("hold_replies"))}
     by_id, by_name = contacts(); enr = enrollment(); out = []
@@ -70,8 +73,12 @@ def candidates(reqs):
             c = by_id.get(str(x["nces_id"])) or by_name.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
             to = c.get("district_email") or c.get("email") or (x.get("contact") or {}).get("district_email")
             if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
+            # The sentence has to be a rule a board could have written, and a file found by search has to be
+            # this district's own (2026-11-11: five certificates quoted pages from other states' websites).
+            why = evidence.certificate_problem(x, st, read_text=run.doc_text, jev=False)
+            if why: HELD.append((st, x["name"], why)); continue
             out.append({"state": st, "name": x["name"], "nces_id": str(x["nces_id"]), "to": to, "superintendent": c.get("superintendent") or (x.get("contact") or {}).get("superintendent"),
-                        "quote": x["quote"], "code": str(x.get("policy_code") or "as sent by the district"), "source": x.get("source"), "permitting": st in permitting, "enrollment": enr.get(str(x["nces_id"]), 0)})
+                        "quote": evidence.print_sentence(x["quote"]), "code": str(x.get("policy_code") or "as sent by the district"), "source": x.get("source"), "permitting": st in permitting, "enrollment": enr.get(str(x["nces_id"]), 0)})
     out.sort(key=lambda d: (not d["permitting"], d["state"], -d["enrollment"], d["name"]))
     return out
 
@@ -278,7 +285,8 @@ def main():
         docx_path = press_release_docx(d, pdf[:-4] + "-press-release.docx")
         m.add_attachment(open(docx_path, "rb").read(), maintype="application", subtype="vnd.openxmlformats-officedocument.wordprocessingml.document", filename=f"Press release - {clean_name(d['name'])} Safe School {YEAR.replace('–', '-')}.docx")
         run.smtp_send(m); print("test sent to", a.test, "for", clean_name(d["name"]), "| would have gone to", d["to"]); return
-    print(f"qualifying with an address: {len(cands)} · this batch: {len(batch)}")
+    for st, name, why in HELD: print(f"held  {st}  {clean_name(name)}: {why}")
+    print(f"qualifying with an address: {len(cands)} · this batch: {len(batch)} · held by the evidence gate: {len(HELD)}")
     if a.dry:
         for d in batch: print(f"  {d['state']}  {clean_name(d['name'])[:40]:<40}  {d['code']:<8}  {(d.get('superintendent') or '')[:26]:<26}  {d['to']:<40}  {'(prior exchange)' if prior(d, reqs) else ''}")
         return
@@ -289,12 +297,17 @@ def main():
         # save over each other, so the ledger is re-read and written under the lock for every send.
         with open(run.REQ + ".lock", "w") as L:
             fcntl.flock(L, fcntl.LOCK_EX); reqs = run.load()
-            if any(r.get("kind") == "certificate" and str(r.get("nces_id")) == d["nces_id"] for r in reqs): print("already certified", d["name"]); continue
+            if any(r.get("kind") == "certificate" and not r.get("retracted_at") and str(r.get("nces_id")) == d["nces_id"] for r in reqs): print("already certified", d["name"]); continue
+        # A second, independent reading of the sentence before it is printed and signed. No answer is not a yes.
+        score = evidence.second_reading(d["quote"], d["name"], d["state"])
+        if score is None or score < 0.5:
+            print(f"held  {d['state']}  {clean_name(d['name'])}: " + ("the second reading could not be reached" if score is None else f"a second reading does not take the sentence as a board's prohibition ({score:.2f})")); continue
         try:
             pdf = render(d)
         except Exception as ex:
             print("render failed", d["name"], str(ex)[:120]); continue
         rid = hashlib.sha1(f"certificate|{d['state']}|{d['nces_id']}".encode()).hexdigest()[:10]
+        if any(r.get("id") == rid for r in reqs): rid = hashlib.sha1(f"certificate|{d['state']}|{d['nces_id']}|{datetime.date.today().isoformat()}".encode()).hexdigest()[:10]   # a withdrawn one holds the first id
         subject = f"{clean_name(d['name'])} recognized as a Safe School for {YEAR.replace('–', '-')}"
         pr = prior(d, reqs) if a.momentum else None
         if pr and pr.get("thread_id") and pr.get("thread_subject"):

@@ -27,7 +27,7 @@ def check(reqs):
     out = []
     by_nces = {}
     for r in reqs:
-        if r.get("nces_id") and r.get("kind") not in ("certificate", "certificate_correction", "apology", "board_note"):
+        if r.get("nces_id") and r.get("kind") not in ("certificate", "certificate_correction", "retraction", "apology", "board_note"):
             by_nces.setdefault(str(r["nces_id"]), []).append(r)
 
     # 1. A bans record with no policy behind it (the published rule, mirrored from validate.mjs)
@@ -72,7 +72,7 @@ def check(reqs):
 
     # 5. One address written to twice in a day by messages that open a new topic
     hits = []; last = {}
-    sends = sorted(((ts(r.get("sent_at")), (r.get("to") or "").lower(), r) for r in reqs if r.get("sent_at") and r.get("kind") not in ("apology", "certificate_correction")), key=lambda x: x[0])
+    sends = sorted(((ts(r.get("sent_at")), (r.get("to") or "").lower(), r) for r in reqs if r.get("sent_at") and r.get("kind") not in ("apology", "certificate_correction", "retraction")), key=lambda x: x[0])
     for t, to, r in sends:
         if not recent(t): continue
         if to in last and t - last[to] < 86400: hits.append(f"{r['state']} {r['name']} ({r.get('kind')})")

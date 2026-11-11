@@ -55,7 +55,7 @@ for r in sorted([x for x in reqs if x["status"] == "needs_review"], key=lambda x
 held = collections.defaultdict(list)
 for r in reqs:
     if r["status"] == "held": held[r.get("kind", "policy")].append(r)
-LABEL = {"align": "Safe School invitations to superintendents", "board_note": "Board-member notes with the film link", "neighbor": "Neighbor asks (next to a district that moved)", "policy": "First asks", "apology": "Apologies", "formal_request": "Formal records requests (third touch, after the nudge drew no answer)"}
+LABEL = {"align": "Safe School invitations to superintendents", "board_note": "Board-member notes with the film link", "neighbor": "Neighbor asks (next to a district that moved)", "policy": "First asks", "apology": "Apologies", "retraction": "Corrections for emails sent on a wrong record", "formal_request": "Formal records requests (third touch, after the nudge drew no answer)"}
 for k, rs in held.items():
     rs.sort(key=lambda x: (x["state"], x["name"]))
     by_state = collections.Counter(x["state"] for x in rs)

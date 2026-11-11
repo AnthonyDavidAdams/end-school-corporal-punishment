@@ -199,12 +199,12 @@ districts:
     county: Jefferson
     nces_id: "0100330"
     status: bans
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0100330-recheck-7241537.html
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0100330-recheck-7241537.html.pdf
     quote: Corporal Punishment The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior, provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
     policy_code: "2.10"
     crdc_students_latest: null
     last_verified: 2026-11-04
-    method: records_request
+    method: searched_document
     parent_control: unknown
     documents:
       - kind: other
@@ -219,7 +219,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-11-04; the document is kept in the repository at data/policies/inbound/AL/0100330-recheck-7241537.html. Identity is name and state matched against the federal LEA directory.
+    notes: Found by a search of the district's own website on 2026-11-04, not sent by the district; the document is kept in the repository at data/policies/inbound/AL/0100330-recheck-7241537.html.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
       - Corporal Punishment The Board does not permit the use of corporal punishment as a consequence for inappropriate behavior, provided that school personnel are not prohibited from using appropriate physical contact or intervention in response to emergencies or other circumstances reasonably requiring such action.
@@ -457,22 +457,14 @@ districts:
   - name: Cherokee County
     county: Cherokee
     nces_id: "0100630"
-    status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0100630-recheck-18013684.pdf
-    quote: Corporal Punishment Corporal punishment is permitted in order to preserve an effective educational environment, free from disruption.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-10
-    notes: Received from the district by email in answer to a public records request, 2026-11-10; the document is kept in the repository at data/policies/inbound/AL/0100630-recheck-18013684.pdf. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-11 review: the documents on file came from the website of a same-named district in GA; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
-    method: records_request
-    parent_control: unknown
-    quotes:
-      - Corporal Punishment Corporal punishment is permitted in order to preserve an effective educational environment, free from disruption.
-      - Corporal punishment shall be reasonable and moderate and may not be administered maliciously or for the purpose of revenge.
-      - Such factors as the size, age, and physical, mental, and emotional condition of the student, type of instrument, and the amount of force to be used shall be considered before administering corporal punishment.
-      - "Corporal punishment is limited to paddling the student and is governed by the following guidelines:"
-      - Coaches and physical education teachers may use reasonable physical exercises or activities as a measure to enforce class or team rules in their classes and activities, and these exercises or activities are not considered to be “corporal punishment
   - name: Chickasaw City
     county: Mobile
     nces_id: "0100188"
@@ -1327,13 +1319,13 @@ districts:
   - name: Gulf Shores City
     county: Baldwin
     nces_id: "0100202"
-    status: bans
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0100202-recheck-82089366.html
-    quote: Prohibition of Corporal Punishment.
+    status: silent
+    source: https://www.gsboe.org/parents/student-handbooks
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-10
-    method: records_request
+    last_verified: 2026-09-26
+    method: searched_document
     parent_control: unknown
     documents:
       - kind: handbook
@@ -1360,13 +1352,8 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-11-10; the document is kept in the repository at data/policies/inbound/AL/0100202-recheck-82089366.html. Identity is name and state matched against the federal LEA directory.
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - Prohibition of Corporal Punishment.
-      - No student shall be subjected to corporal punishment by a teacher, school official, law enforcement officer, school security guard, or program personnel.
-      - and relevant protection and advocacy system in the case of a student who is an individual with a disability Notwithstanding any immunity law, a student or parent of such student who has been subjected to corporal punishment in violation of subsection (a) of this Act may file a civil action in any State court of competent jurisdiction against the program under which the violation occurred for attorneys’ fees, expert fees, injunctive relief, and compensatory damages.
-      - restrict or limit state or local laws, regulations, or policies that provide for more stringent prohibitions or limitations on the use of corporal punishment than provided for in this Act;
   - name: Guntersville City Schools
     county: Marshall
     nces_id: "0101690"
@@ -1442,13 +1429,13 @@ districts:
   - name: Homewood City
     county: Jefferson
     nces_id: "0101760"
-    status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0101760-recheck-34774916.pdf
-    quote: Corporal Punishment Corporal punishment is permitted in order to preserve an effective educational environment, free from disruption.
+    status: silent
+    source: https://www.homewood.k12.al.us/132258_2
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-10
-    method: records_request
+    last_verified: 2026-09-26
+    method: searched_document
     parent_control: unknown
     documents:
       - kind: code_of_conduct
@@ -1469,14 +1456,8 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-11-10; the document is kept in the repository at data/policies/inbound/AL/0101760-recheck-34774916.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - Corporal Punishment Corporal punishment is permitted in order to preserve an effective educational environment, free from disruption.
-      - Corporal punishment shall be reasonable and moderate and may not be administered maliciously or for the purpose of revenge.
-      - Such factors as the size, age, and physical, mental, and emotional condition of the student, type of instrument, and the amount of force to be used shall be considered before administering corporal punishment.
-      - "Corporal punishment is limited to paddling the student and is governed by the following guidelines:"
-      - Coaches and physical education teachers may use reasonable physical exercises or activities as a measure to enforce class or team rules in their classes and activities, and these exercises or activities are not considered to be “corporal punishment
   - name: Hoover City
     county: Jefferson
     nces_id: "0100007"
@@ -1593,13 +1574,13 @@ districts:
   - name: Jacksonville City
     county: Calhoun
     nces_id: "0101860"
-    status: bans
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0101860-recheck-8356470.html
-    quote: YCSD Board of Education - 5314 Corporal Punishment Search this site Embedded Files Skip to main content Skip to navigation YCSD Board of Education Home 2026-27 Board Meeting Calendar District Homepage Agendas Archived BOE Minutes Audit Committee Meeting Minutes BOE Policies Budget Vote and Election Information Committees FOIL Requests Important Links Meeting Videos YCSD Board of Education 5314 Corporal Punishment Back to Board Policies No teacher, administrator, officer, employee, or agent in the District shall use corporal punishment against a student.
-    policy_code: YCSD
+    status: silent
+    source: https://www.jcsboe.org/link-two
+    quote: null
+    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-10
-    method: records_request
+    last_verified: 2026-09-26
+    method: searched_document
     parent_control: unknown
     documents:
       - kind: code_of_conduct
@@ -1608,11 +1589,8 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-11-10; the document is kept in the repository at data/policies/inbound/AL/0101860-recheck-8356470.html. Identity is name and state matched against the federal LEA directory.
+    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - YCSD Board of Education - 5314 Corporal Punishment Search this site Embedded Files Skip to main content Skip to navigation YCSD Board of Education Home 2026-27 Board Meeting Calendar District Homepage Agendas Archived BOE Minutes Audit Committee Meeting Minutes BOE Policies Budget Vote and Election Information Committees FOIL Requests Important Links Meeting Videos YCSD Board of Education 5314 Corporal Punishment Back to Board Policies No teacher, administrator, officer, employee, or agent in the District shall use corporal punishment against a student.
-      - As used in this section, corporal punishment is defined as the use of physical force for the purpose of punishing a student, except to protect oneself or others from physical injury or imminent serious physical harm.
   - name: Jasper City
     county: Walker
     nces_id: "0101890"
@@ -2137,12 +2115,12 @@ districts:
   - name: Oneonta City
     county: Blount
     nces_id: "0102550"
-    status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/AL/0102550-recheck-79515401.html
-    quote: The plaintiffs also maintained that the FOURTEENTH AMENDMENT required DUE PROCESS before corporal punishment could be administered.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-10
+    last_verified: null
     documents:
       - kind: other
         url: https://www.oneontacityschools.com/82638_3
@@ -2150,14 +2128,8 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-11-10; the document is kept in the repository at data/policies/inbound/AL/0102550-recheck-79515401.html. Identity is name and state matched against the federal LEA directory.
+    notes: "2026-11-10 review: the document on file came from the website of a same-named district in NY; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
-    method: records_request
-    parent_control: unknown
-    quotes:
-      - The plaintiffs also maintained that the FOURTEENTH AMENDMENT required DUE PROCESS before corporal punishment could be administered.
-      - The Court rejected the Eighth Amendment claim, holding that the prohibition against cruel and unusual punishment was designed to protect persons who were convicted of crimes, not students who were paddled as a form of discipline.
-      - The Court also held that although corporal punishment did implicate a constitutionally protected liberty interest, traditional COMMON LAW remedies, such as filing an action in TORT , were "fully adequate to afford due process." Thus, the Court concluded, teachers could use "reasonable but not excessive" corporal punishment to discipline students.
   - name: Opelika City
     county: Lee
     nces_id: "0102580"

@@ -133,6 +133,12 @@ def candidates(district, state, domain):
                 continue
             if re.search(r"/(login|signin|calendar|athletics|sports|lunch|menu|staff-directory)\b", u, re.I):
                 continue
+            # The relay does not enforce site: the way Brave does. A page on any other host is not the
+            # district's own document, whatever it says: a Yahoo story about Kentucky was filed as
+            # Fayette County, Indiana's board policy on 2026-11-11.
+            host = (urllib.parse.urlparse(u).hostname or "").lower()
+            if not (host == domain or host.endswith("." + domain)):
+                continue
             seen.add(u)
             score = 0
             hay = (r["title"] + " " + r["snippet"] + " " + u).lower()

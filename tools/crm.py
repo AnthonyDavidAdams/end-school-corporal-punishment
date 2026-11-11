@@ -51,7 +51,7 @@ def stage(g):
     reqs = g["requests"]; kinds = {r.get("kind") or "policy" for r in reqs}; statuses = {r["status"] for r in reqs}
     d = rec.get(str(g.get("nces_id")), {})
     if "needs_review" in statuses: return "Needs you"
-    if any(r.get("kind") == "certificate" and r["status"] == "sent" for r in reqs): return "Certified"
+    if any(r.get("kind") == "certificate" and r["status"] == "sent" and not r.get("retracted_at") for r in reqs): return "Certified"
     if d.get("status") == "bans" and any(r.get("kind") == "align" for r in reqs): return "Adopted"
     if "align" in kinds: return "Invited"
     if d.get("status") in ("bans", "allows", "consent_required") and any(r.get("replies") for r in reqs): return "Recorded"

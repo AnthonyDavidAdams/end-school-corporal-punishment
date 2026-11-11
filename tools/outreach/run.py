@@ -142,6 +142,7 @@ def subject_for(r):
         "neighbor": f"{d} corporal punishment policy",
         "apology": "Sorry for the repeat emails",
         "certificate_correction": f"A correction on the {d} certificate",
+        "retraction": f"A correction on {d}",   # only when the thread it corrects is gone; it normally goes out as "Re:" on that thread
         "formal_request": f"Records request: {d} corporal punishment policy",   # only when the first ask's thread is gone; it normally goes out as "Re:" on that thread
     }.get(r.get("kind", "policy"), f"Can't find {d}'s corporal punishment policy")
 
@@ -168,6 +169,8 @@ def body_for(r):
         return messages.apology(r, USER)
     if k == "certificate_correction":
         return messages.certificate_correction(r, USER)
+    if k == "retraction":
+        return messages.retraction(r, USER, record_status(r))
     if k == "neighbor":
         return messages.neighbor_ask(r, USER, r.get("anchor") or "a neighboring district")
     if k == "formal_request":
@@ -202,13 +205,14 @@ def last_contact(address, reqs, exclude=None):
     return best
 
 HOLD_NEW = False   # 2026-10-30, Anthony: "I don't want anything really on my desk". New batches go pending; only an unapproved experiment variant is held.
-COOLDOWN_EXEMPT = ("apology", "certificate_correction")   # these answer a thread of ours and must not wait
+STOP_EXEMPT = ("apology", "certificate_correction")   # these answer a thread of ours, even one a district has closed
+COOLDOWN_EXEMPT = STOP_EXEMPT + ("retraction",)   # these must not wait a day; a retraction still honors a stop request
 
 def send(limit=25):
     reqs = load(); M = imap(); n = 0; cooled = 0; stop_ids, stop_addrs = stop_sets(reqs); stopped = 0
     for r in reqs:
         if r["status"] != "pending" or n >= limit: continue
-        if r.get("kind") not in COOLDOWN_EXEMPT and (str(r.get("nces_id") or "") in stop_ids or (r.get("to") or "").lower() in stop_addrs):
+        if r.get("kind") not in STOP_EXEMPT and (str(r.get("nces_id") or "") in stop_ids or (r.get("to") or "").lower() in stop_addrs):
             stopped += 1; continue   # stays pending and unsent; cleared only when the stop or the hold is lifted
         if r.get("kind") not in COOLDOWN_EXEMPT and time.time() - last_contact(r.get("to"), reqs, exclude=r["id"]) < 24 * 3600:
             cooled += 1; continue   # stays pending; the next cycle after the day is up sends it
@@ -217,13 +221,20 @@ def send(limit=25):
             why = formal_moot(parent, reqs) if parent else "the first ask is no longer on file"
             if why:   # the district answered, or the policy turned up, while this waited: a formal request now would be wrong
                 r["status"] = "dropped"; r["dropped_why"] = why; save(reqs); log("formal request dropped", r["state"], r["name"], "-", why); continue
+        if r.get("kind", "policy") == "policy":
+            # Asking "where does your policy live" when we already hold it reads as not having looked. A harvest
+            # can land between the queue and the send (five Kansas and Kentucky asks on 2026-11-11 did this).
+            now = record_status(r)
+            if now.get("quote") and now.get("status") in ("bans", "allows", "consent_required"):
+                r["status"] = "dropped"; r["dropped_why"] = f"the policy turned up before this was sent (record: {now['status']}, {now.get('policy_code') or 'no code'})"; save(reqs)
+                log("policy ask dropped", r["state"], r["name"], "- the record already has the policy"); continue
         subject = r.get("subject") or subject_for(r)
         r["subject"] = subject; r.setdefault("kind", "policy")
-        if r["kind"] != "formal_request": ensure_compliment(r)
+        if r["kind"] not in ("formal_request", "retraction"): ensure_compliment(r)
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
-        if r.get("kind") in ("apology", "certificate_correction", "formal_request") and r.get("parent_request"):   # lands in the thread it corrects or continues
+        if r.get("kind") in ("apology", "certificate_correction", "retraction", "formal_request") and r.get("parent_request"):   # lands in the thread it corrects or continues
             parent = next((p for p in reqs if p["id"] == r["parent_request"]), None)
             if parent and parent.get("message_id"):
                 m["In-Reply-To"] = parent["message_id"]; m["References"] = parent["message_id"]
@@ -437,14 +448,34 @@ def file_document(r, path, how):
         r["district_says"] = (cands[0].strip()[:300] if cands else None); r["district_says_on"] = datetime.date.today().isoformat()
         return None
     rel = os.path.relpath(path, ROOT); url = RAW + rel
+    # A page we found by searching is not a page the district sent. It has to prove whose it is, its
+    # sentences have to be rules and not menus or news, and the record says where it was found. On
+    # 2026-11-10 and 11 a search relay returned pages from other websites and 74 of them were filed here
+    # as answers to records requests; five certificates went out on them.
+    found = how.split(": ", 1)[1] if how.startswith("re-checked") and ": " in how else None
+    if found:
+        import evidence
+        dom = recheck_mod.domain_of(r.get("answered_from") or r.get("to")) or recheck_mod.domain_of(r.get("website"))
+        why = None if evidence.own_host(found, dom) else f"{evidence.host_of(found)} is not the district's own site"
+        why = why or evidence.document_problem(text, r["name"], r["state"])
+        if why:
+            log("re-check: not filed,", r["name"], "|", why, "|", found[:100])
+            try: os.remove(path)
+            except OSError: pass
+            return None
+        cands = [c for c in cands if not evidence.quote_problem(c, r["state"], r["name"])]
     if not cands:
         log("document silent on corporal punishment:", rel); return None
-    row = {"site": None, "district": r["name"], "_state": r["state"], "verdict": "rule", "policies": [{"code": policy_code_in(text), "title": f"document received by records request ({how})", "url": url, "candidates": cands[:40], "last_revised": None}]}
+    title = f"document found on the district's own website ({found})" if found else f"document received by records request ({how})"
+    row = {"site": None, "district": r["name"], "_state": r["state"], "verdict": "rule", "policies": [{"code": policy_code_in(text), "title": title, "url": url, "candidates": cands[:40], "last_revised": None}]}
     tmp = os.path.join(LOGDIR, f"inbound-{r['id']}.jsonl"); open(tmp, "w").write(json.dumps(row) + "\n")
     cls = os.path.join(LOGDIR, f"inbound-{r['id']}-classified.json"); rec = os.path.join(LOGDIR, f"inbound-{r['id']}-records.json")
     env = dict(os.environ, OPENROUTER_API_KEY=jev_key())
     subprocess.run(["node", "tools/tasb/classify.mjs", "--in", tmp, "--out", cls], cwd=ROOT, env=env, capture_output=True)
-    out = subprocess.run(["python3", "tools/tasb/records-from-classified.py", cls, rec, "records_request", "", f"Received from the district by email in answer to a public records request, {datetime.date.today().isoformat()}; the document is kept in the repository at {rel}."], cwd=ROOT, capture_output=True, text=True)
+    today = datetime.date.today().isoformat()
+    method, note = ("searched_document", f"Found on the district's own website at {found} on {today}, after the district said its policy is published there; a copy is kept in the repository at {rel}.") if found else \
+                   ("records_request", f"Received from the district by email in answer to a public records request, {today}; the document is kept in the repository at {rel}.")
+    out = subprocess.run(["python3", "tools/tasb/records-from-classified.py", cls, rec, method, "", note], cwd=ROOT, capture_output=True, text=True)
     recs = json.load(open(rec)) if os.path.exists(rec) else []
     for x in recs:
         if not x.get("nces_id") and r.get("nces_id"): x["nces_id"] = r["nces_id"]
@@ -452,7 +483,7 @@ def file_document(r, path, how):
     if not recs:
         log("held for review (below threshold):", rel); return "held"
     subprocess.run(["node", "tools/merge-scan.mjs", rec], cwd=ROOT, capture_output=True)
-    publish(f"Records request answered: {nice(r['name'])}, {r['state']}")
+    publish(f"{'Found on the district site' if found else 'Records request answered'}: {nice(r['name'])}, {r['state']}")
     return recs[0]["status"]
 def publish(message):
     r = subprocess.run(["bash", "tools/publish.sh", message], cwd=ROOT, capture_output=True, text=True); log(r.stdout.strip()[-300:])
@@ -684,7 +715,7 @@ def thread_of(r, reqs=None):
     2026-10-27 by re-correcting a mistake the correction email had already owned up to, two hours earlier."""
     msgs = []
     for s in (reqs if reqs is not None else load()):
-        if s is r or s.get("id") == r.get("id") or not s.get("sent_at") or s.get("kind") not in ("certificate", "certificate_correction", "apology"): continue
+        if s is r or s.get("id") == r.get("id") or not s.get("sent_at") or s.get("kind") not in ("certificate", "certificate_correction", "retraction", "apology"): continue
         if (r.get("nces_id") and str(s.get("nces_id")) == str(r["nces_id"])) or ((s.get("to") or "").lower() == (r.get("to") or "").lower() and r.get("to")):
             msgs.append({"who": "us", "date": s["sent_at"], "text": f"[{s['kind'].replace('_', ' ')}, sent on its own thread]\n" + (s.get("body") or f"(the {s['kind']} email)"), "links": []})
     first = r.get("body") or body_for(r)   # older requests did not keep their text; the template is what was sent
