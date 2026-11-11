@@ -3450,13 +3450,13 @@ districts:
   - name: Trion City
     county: Chattooga
     nces_id: "1305130"
-    status: silent
-    source: https://ths.trionschools.org/students
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/GA/1305130-recheck-58573758.html
+    quote: Although corporal punishment is no longer tolerated in the military, prisons, or mental institutions, 17 states still allow corporal punishment in full or in part, according to the National Education Association (2024).
+    policy_code: NPA
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: other
@@ -3471,8 +3471,16 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-11; the document is kept in the repository at data/policies/inbound/GA/1305130-recheck-58573758.html. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Although corporal punishment is no longer tolerated in the military, prisons, or mental institutions, 17 states still allow corporal punishment in full or in part, according to the National Education Association (2024).
+      - Wright (1977) that school corporal punishment is constitutional, leaving the decision to ban or permit it up to individual states.
+      - National Principals Association Position The National Principals Association is opposed to the practice of corporal punishment in schools and supports alternative forms of discipline.
+      - Department of Education should consistently reject corporal punishment in guidance provided to states and school districts and offer guidance for evidence-based alternative discipline practices.
+      - State lawmakers should enact legislation to prohibit the use of corporal punishment in schools and provide funding to assist schools in recruiting and retaining school counselors, social workers, and psychologists to support school-based interventions and the coordination of services.
+      - Recommendations for District Leaders Prohibit the use of corporal punishment as a form of discipline if it is still legally permitted in the state.
+      - Recommendations for School Leaders Prohibit the use of corporal punishment as a form of discipline if it is still legally permitted in the state and district.
   - name: Troup County Schools
     county: Troup
     nces_id: "1300001"
