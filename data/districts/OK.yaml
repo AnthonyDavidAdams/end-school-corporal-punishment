@@ -7915,13 +7915,13 @@ districts:
   - name: STERLING
     county: Comanche
     nces_id: "4028590"
-    status: bans
-    source: https://sterling.schoolboard.net/sites/sterling-d9.schoolboard.net/files/7.190_062626%20.pdf
-    quote: Corporal punishment is prohibited.
+    status: unknown
+    source: null
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-11
-    notes: Found by searching for the district's policy document and read 2026-11-11 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    last_verified: null
+    notes: "2026-11-10 review: the document on file belonged to a same-named district in IL; reset pending a re-read."
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: tparrish@sterling.k12.ok.us
@@ -7929,24 +7929,6 @@ districts:
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment is prohibited.
-      - Corporal punishment does not include reasonable force as permitted by 105 ILCS 5/10-20.33.
-      - Corporal punishment is prohibited.
-      - Corporal punishment does not include reasonable force as permitted by 105 ILCS 5/10-20.33.
-      - Corporal punishment is prohibited.
-      - Corporal punishment does not include reasonable force as permitted by 105 ILCS 5/10-20.33.
-      - Corporal punishment is prohibited.
-      - Corporal punishment does not include reasonable force as permitted by 105 ILCS 5/10-20.33.
-      - Corporal punishment is prohibited.
-      - Corporal punishment does not include reasonable force as permitted by 105 ILCS 5/10-20.33.
-      - Corporal punishment is prohibited.
-      - Corporal punishment does not include reasonable force as permitted by 105 ILCS 5/10-20.33.
-      - Delegation of Authority Each teacher, and any other school personnel when students are under his or her charge, is authorized to impose any disciplinary measure, other than suspension, expulsion, corporal punishment, or in-school suspension, that is appropriate and in accordance with the policies and rules on student discipline.
-      - Corporal punishment is prohibited.
-      - Corporal punishment does not include reasonable force as permitted by 105 ILCS 5/10-20.33.
   - name: Stigler
     county: Haskell
     nces_id: "4028650"
@@ -8170,15 +8152,15 @@ districts:
   - name: SWEETWATER
     county: Beckham
     nces_id: "4029310"
-    status: allows
-    source: https://sweetwatercityschools.com/uploads/1/3/3/4/13345056/code_of_behavior_short.pdf
-    quote: Teacher/schedule change Modified probation Behavior modification Social probation Peer counseling Referral to outside agency In-school suspension Detention Suspension from school-sponsored activities and/or from riding school bus Corporal punishment Restricting school related honors student is otherwise due Out-of-school suspension not to exceed ten (10) days.
+    status: silent
+    source: https://files.smartsites.parentsquare.com/6204/high_school_handbook_.pdf
+    quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-11
+    last_verified: 2026-09-25
     method: searched_document
     parent_control: unknown
-    notes: Found by searching for the district's policy document and read 2026-11-11 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 7 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: creed@sweetwater.k12.ok.us
@@ -8186,13 +8168,6 @@ districts:
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
-    quotes:
-      - Teacher/schedule change Modified probation Behavior modification Social probation Peer counseling Referral to outside agency In-school suspension Detention Suspension from school-sponsored activities and/or from riding school bus Corporal punishment Restricting school related honors student is otherwise due Out-of-school suspension not to exceed ten (10) days.
-      - Teacher/schedule change Modified probation Behavior modification Social probation Peer counseling Referral to outside agency In-school suspension Detention Suspension from school-sponsored activities and/or from riding school bus Corporal punishment Restricting school related honors student is otherwise due Out-of-school suspension not to exceed ten (10) days.
-      - In-school suspension Detention Corporal punishment Restitution from loss, damage or stolen property Out-of-school- suspension not to exceed ten (10) days Social adjustment classes Long term out-of-school suspension Alternative … … modification Social probation Peer counseling Referral to outside agency In-school suspension Detention Suspension from school-sponsored activities and/or from riding school bus Corporal punishment Restricting school related honors student is otherwise due Out-of-school suspension not to exceed ten (10) days.
-      - Teacher/schedule change Modified probation Behavior modification Social probation Peer counseling Referral to outside agency In-school suspension Detention Suspension from school-sponsored activities and/or from riding school bus Corporal punishment Restricting school related honors student is otherwise due Out-of-school suspension not to exceed ten (10) days.
-      - Teacher/schedule change Modified probation Behavior modification Social probation Peer counseling Referral to outside agency In-school suspension Detention Suspension from school-sponsored activities and/or from riding school bus Corporal punishment Restricting school related honors student is otherwise due Out-of-school suspension not to exceed ten (10) days.
-      - In-school suspension Detention Corporal punishment Restitution from loss, damage or stolen property Out-of-school- suspension not to exceed ten (10) days Social adjustment classes Long term out-of-school suspension Alternative … … modification Social probation Peer counseling Referral to outside agency In-school suspension Detention Suspension from school-sponsored activities and/or from riding school bus Corporal punishment Restricting school related honors student is otherwise due Out-of-school suspension not to exceed ten (10) days.
   - name: Tahlequah
     county: Cherokee
     nces_id: "4029380"
