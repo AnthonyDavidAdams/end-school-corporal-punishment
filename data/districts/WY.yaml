@@ -249,13 +249,13 @@ districts:
   - name: "Niobrara County School District #1"
     county: Niobrara
     nces_id: "5604230"
-    status: silent
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1173/Ncsd/f85546c0-c287-4c8d-af24-1e634b3dd5f6/2026-2027-NCMHS-Student-Handbook-(7-12th).docx-(1).pdf?disposition=inline
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031919&revid=bMdfHXyZpcq7KDKhCCpQaw%3D%3D
+    quote: Corporal punishment will be used only as a last resort in the most unusual circumstances and after all other corrective measures have been used without success.
+    policy_code: JKAA
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -264,8 +264,19 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031919&revid=bMdfHXyZpcq7KDKhCCpQaw%3D%3D
+        says: allows
+        quote: Corporal punishment will be used only as a last resort in the most unusual circumstances and after all other corrective measures have been used without success.
+        retrieved: 2026-11-11
+        by: the district's own policy manual (JKAA, Corporal Punishment)
+    notes: "Received from the district by email in answer to a public records request, 2026-10-28: the district sent the link to its online policy manual, where board policy JKAA, Corporal Punishment (adopted 1994-01-10 and not revised since), was read on 2026-11-11. The district wrote the same day that it does not support or use corporal punishment in any capacity for any reason, and that the policy will be updated in December 2026. Until 2026-11-11 this record rested on 1 document found by search in September, which did not mention the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Corporal punishment will be used only as a last resort in the most unusual circumstances and after all other corrective measures have been used without success.
+      - No corporal punishment may be administered without consultation with the principal, nor may any corporal punishment be administered without some other staff member acting as a witness.
+    policy_adopted: 1994-01-10
+    policy_revised: 1994-01-10
   - name: "Park County School District # 1"
     county: Park
     nces_id: "5605160"

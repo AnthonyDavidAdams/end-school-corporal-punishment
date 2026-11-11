@@ -1057,11 +1057,11 @@ districts:
     county: Hancock
     nces_id: "2801740"
     status: unknown
-    source: null
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031714&revid=AS2fBIa2J5aYgTUUMoSZ8A%3D%3D
     quote: null
-    last_verified: null
+    last_verified: 2026-11-11
     legacy_status: allows
-    notes: "2026-11-10 review: the document on file belonged to a same-named district in GA; reset pending a re-read."
+    notes: "Received from the district by email in answer to a public records request, 2026-11-11: the district sent the link to its online policy manual. None of its 472 policies is titled for corporal punishment. Five were read in full on 2026-11-11: JD, Student Discipline; JCD(2), Discipline Plan; JCA, Student Conduct; JCB, Code of Conduct; and JCBA, Student Restraint and Seclusion. None mentions the practice. JCB says the code of conduct is published in the student handbook, which has not been read, and the district has been asked which policy covers the practice. Until one of those is read, what the district permits is not known. An earlier entry here rested on a document that belonged to a district of the same name in Georgia; it was withdrawn on 2026-11-10. Identity is name and state matched against the federal LEA directory."
     policy_code: null
     crdc_students_latest: null
     contact:
@@ -1070,6 +1070,39 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+    method: records_request
+    parent_control: unknown
+    documents:
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031714&revid=AS2fBIa2J5aYgTUUMoSZ8A%3D%3D
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: the district's own policy manual (JD, Student Discipline)
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031714&revid=Wkpd6R6agOU9TpywJEbItA%3D%3D
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: the district's own policy manual (JCD(2), Student Conduct, Discipline Plan)
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031714&revid=BEFIpjwslshGpBXx1E2omxTrA%3D%3D
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: the district's own policy manual (JCA, Student Conduct)
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031714&revid=onqQZPslsh24dBucLIAcVgfQw%3D%3D
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: the district's own policy manual (JCB, Code of Conduct)
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=36031714&revid=O61plusYDplusRlMJag9Rg41Bplusplusg%3D%3D
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: the district's own policy manual (JCBA, Student Restraint and Seclusion)
   - name: Harrison County School District
     county: Harrison
     nces_id: "2801770"

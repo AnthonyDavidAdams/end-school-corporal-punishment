@@ -2826,12 +2826,12 @@ districts:
     county: Floyd
     nces_id: "1304440"
     status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/2288/RMS/4669125/RCS_Middle_School_Student_Handbook_SY_2025__ENG_.pdf
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4139&revid=EZV7hs0nplusmn6p0I7vvU9fQ%3D%3D
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -2846,7 +2846,19 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4139&revid=EZV7hs0nplusmn6p0I7vvU9fQ%3D%3D
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: sent by the district
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4139&revid=ZPMZup4YE6EvApMMTkjitg%3D%3D
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-27: the district sent links to board policies JCDA, Student Code of Conduct (adopted 2006-07-11, last revised 2024-09-10), and JCEB, Student Hearing Procedure (adopted 2019-06-11, last revised 2024-09-10), in its online policy manual. Both were read in full on 2026-11-11; neither mentions corporal punishment. The district wrote the same day that it does not have a policy on corporal punishment, and on 2026-10-28 that under O.C.G.A. 20-2-731 the practice is allowed only where the school board has first adopted a written policy authorizing it. Until then this record rested on 2 documents found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
   - name: Savannah-Chatham County Public Schools
     county: Chatham

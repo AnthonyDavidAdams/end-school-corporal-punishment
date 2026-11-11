@@ -1883,13 +1883,13 @@ districts:
   - name: Fox C-6
     county: Jefferson
     nces_id: "2912300"
-    status: silent
-    source: https://www.foxc6.org/departments/transportation/school-bus-rules-and-parent-student-handbook
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=245&revid=jTXKtkjdmykGYkLwF12f5A%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-2
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -1904,8 +1904,24 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=245&revid=jTXKtkjdmykGYkLwF12f5A%3D%3D
+        says: bans
+        quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+        retrieved: 2026-11-11
+        by: sent by the district
+      - kind: code_of_conduct
+        url: https://resources.finalsite.net/images/v1787234788/foxc6org/dvf86now0chfuu0mhfxf/26-27FoxC6K-12StudentCodeofConduct.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-27: the district sent the link to board policy JGA-2, Corporal Punishment (adopted 2015-10-20, last revised 2022-06-21), in its online policy manual. It was read there on 2026-11-11. The district also sent its K-12 Student Code of Conduct for 2026-27, which lists JGA-2 among the board policies families should know and says nothing further about the practice. Until then this record rested on 2 documents found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_adopted: 2015-10-20
+    policy_revised: 2022-06-21
   - name: Fredericktown R-I
     county: Madison
     nces_id: "2912540"
