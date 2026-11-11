@@ -58,6 +58,9 @@ node tools/tasb/read-found.mjs --in "$LOG/found.jsonl" --out "$LOG/read.jsonl" -
 grep '"rule"' "$LOG/read.jsonl" > "$LOG/rule.jsonl" || true
 [ -s "$LOG/rule.jsonl" ] || portals_only "no document carried the rule tonight"
 node tools/tasb/classify.mjs --in "$LOG/rule.jsonl" --out "$LOG/classified.json" || { echo "classify failed"; exit 1; }
+# Whose document is it? The search was given a name; this is where the document has to answer to it.
+# A row that cannot prove it is held for review, and the next step refuses any row without the stamp.
+python3 tools/tasb/identity.py "$LOG/classified.json" "$LOG/slice.json" || { echo "identity check failed"; exit 1; }
 python3 tools/tasb/records-from-classified.py "$LOG/classified.json" "$LOG/records.json" searched_document "" "Found by searching for the district's policy document and read $DAY (nightly). \`quotes\` carries every rule-bearing sentence in document order." || { echo "records failed"; exit 1; }
 node -e 'const c=require(process.argv[1]);const h=c.filter(x=>x.decision!=="record");require("fs").writeFileSync(process.argv[2],JSON.stringify(h,null,1));console.log(`held for review: ${h.length}`)' "$LOG/classified.json" "$LOG/held.json"
 

@@ -45,7 +45,7 @@ node -e 'const fs=require("fs");const [L,st]=process.argv.slice(1);const rows=fs
 echo "=== $ST read $(date +%T)"; node tools/tasb/read-found.mjs --in "$L/found.jsonl" --out "$L/read.jsonl" --workers 4 || echo "read failed"
 grep '"rule"' "$L/read.jsonl" > "$L/rule.jsonl" || true
 echo "=== $ST classify $(date +%T) rule rows: $(wc -l < "$L/rule.jsonl")"
-[ -s "$L/rule.jsonl" ] && { node tools/tasb/classify.mjs --in "$L/rule.jsonl" --out "$L/classified.json" || echo "classify failed"; python3 tools/tasb/records-from-classified.py "$L/classified.json" "$L/records.json" searched_document "" "Found by searching for the district's policy document and read $DAY (Mothership sweep of $ST). \`quotes\` carries every rule-bearing sentence in document order." || echo "records failed"; }
+[ -s "$L/rule.jsonl" ] && { node tools/tasb/classify.mjs --in "$L/rule.jsonl" --out "$L/classified.json" || echo "classify failed"; python3 tools/tasb/identity.py "$L/classified.json" "$L/slice.json" || echo "identity check failed"; python3 tools/tasb/records-from-classified.py "$L/classified.json" "$L/records.json" searched_document "" "Found by searching for the district's policy document and read $DAY (Mothership sweep of $ST). \`quotes\` carries every rule-bearing sentence in document order." || echo "records failed"; }
 [ -f "$L/records.json" ] || echo "[]" > "$L/records.json"
 # silent rows, with the documents that were read
 node - "$L" "$ST" "$DAY" <<'JS'

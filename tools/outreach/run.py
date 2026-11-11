@@ -488,6 +488,12 @@ def file_document(r, path, how):
     cls = os.path.join(LOGDIR, f"inbound-{r['id']}-classified.json"); rec = os.path.join(LOGDIR, f"inbound-{r['id']}-records.json")
     env = dict(os.environ, OPENROUTER_API_KEY=jev_key())
     subprocess.run(["node", "tools/tasb/classify.mjs", "--in", tmp, "--out", cls], cwd=ROOT, env=env, capture_output=True)
+    if found:   # whose page it is was proven above; the record step refuses a searched document without this stamp
+        try:
+            rows = json.load(open(cls))
+            for x in rows: x["identity"] = {"ok": True, "how": f"on the district's own website ({evidence.host_of(found)}), and the page names the district"}
+            json.dump(rows, open(cls, "w"), indent=1)
+        except Exception as ex: log("re-check: could not stamp whose document it is:", repr(ex)[:100])
     today = datetime.date.today().isoformat()
     method, note = ("searched_document", f"Found on the district's own website at {found} on {today}, after the district said its policy is published there; a copy is kept in the repository at {rel}.") if found else \
                    ("records_request", f"Received from the district by email in answer to a public records request, {today}; the document is kept in the repository at {rel}.")
