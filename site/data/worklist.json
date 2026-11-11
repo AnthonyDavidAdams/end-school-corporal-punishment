@@ -2,24 +2,24 @@
  "generated": "2026-11-11",
  "source": "US Department of Education, Civil Rights Data Collection 2023-24, computed by this project; see data/crdc/2023-24/SOURCE.md",
  "total_districts_in_federal_count": 832,
- "unchecked": 491,
+ "unchecked": 561,
  "ban_state_filing_anomalies": 18,
- "students_in_unchecked": 831,
+ "students_in_unchecked": 847,
  "by_state": {
-  "OK": 137,
+  "OK": 139,
   "MO": 70,
   "KS": 66,
   "TN": 58,
+  "GA": 43,
+  "IN": 36,
   "LA": 26,
+  "AL": 23,
   "AR": 23,
-  "IN": 20,
-  "AL": 18,
+  "FL": 21,
   "NC": 14,
   "WY": 14,
   "SC": 12,
-  "GA": 10,
   "MS": 9,
-  "FL": 7,
   "KY": 5,
   "AZ": 1,
   "TX": 1
@@ -158,6 +158,15 @@
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
+   "state": "OK",
+   "nces_id": "4033601",
+   "name": "ROCK CREEK",
+   "students": 10,
+   "website": "http://www.rockcreekisd.net",
+   "city": "Bokchito",
+   "read": "nothing read yet"
+  },
+  {
    "state": "AR",
    "nces_id": "0503480",
    "name": "BRADFORD SCHOOL DISTRICT",
@@ -219,6 +228,15 @@
    "website": "http://www.glover.k12.ok.us",
    "city": "Broken Bow",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "OK",
+   "nces_id": "4013830",
+   "name": "HARMONY",
+   "students": 6,
+   "website": "http://www.harmonyps.org",
+   "city": "Atoka",
+   "read": "nothing read yet"
   },
   {
    "state": "OK",
@@ -410,6 +428,15 @@
   },
   {
    "state": "AL",
+   "nces_id": "0100630",
+   "name": "Cherokee County",
+   "students": 0,
+   "website": "http://www.cherokeek12.org",
+   "city": "Centre",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "AL",
    "nces_id": "0100188",
    "name": "Chickasaw City",
    "students": 0,
@@ -446,6 +473,15 @@
   },
   {
    "state": "AL",
+   "nces_id": "0100202",
+   "name": "Gulf Shores City",
+   "students": 0,
+   "website": "http://www.gsboe.org",
+   "city": "Gulf Shores",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
    "nces_id": "0101740",
    "name": "Henry County",
    "students": 0,
@@ -455,12 +491,39 @@
   },
   {
    "state": "AL",
+   "nces_id": "0101760",
+   "name": "Homewood City",
+   "students": 0,
+   "website": "http://www.homewood.k12.al.us",
+   "city": "Homewood",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
    "nces_id": "0100007",
    "name": "Hoover City",
    "students": 0,
    "website": "http://www.hoovercityschools.net",
    "city": "Hoover",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0101860",
+   "name": "Jacksonville City",
+   "students": 0,
+   "website": "http://www.jcsboe.org",
+   "city": "Jacksonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "AL",
+   "nces_id": "0102550",
+   "name": "Oneonta City",
+   "students": 0,
+   "website": "http://www.oneontacityschools.com",
+   "city": "Oneonta",
+   "read": "nothing read yet"
   },
   {
    "state": "AL",
@@ -725,6 +788,132 @@
   },
   {
    "state": "FL",
+   "nces_id": "1200330",
+   "name": "Collier County School District",
+   "students": 0,
+   "website": "http://www.CollierSchools.com",
+   "city": "NAPLES",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200480",
+   "name": "Duval County School District",
+   "students": 0,
+   "website": "http://www.duvalschools.org",
+   "city": "JACKSONVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200540",
+   "name": "Flagler County School District",
+   "students": 0,
+   "website": "http://www.flaglerschools.com",
+   "city": "BUNNELL",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200810",
+   "name": "Hernando County School District",
+   "students": 0,
+   "website": "http://www.hernandoschools.org",
+   "city": "BROOKSVILLE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1200930",
+   "name": "Indian River County School District",
+   "students": 0,
+   "website": "http://www.indianriverschools.org",
+   "city": "VERO BEACH",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201230",
+   "name": "Manatee County School District",
+   "students": 0,
+   "website": "http://www.manateeschools.net/",
+   "city": "BRADENTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201320",
+   "name": "Monroe County School District",
+   "students": 0,
+   "website": "http://www.keysschools.com",
+   "city": "KEY WEST",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201410",
+   "name": "Okeechobee County School District",
+   "students": 0,
+   "website": "http://www.okee.k12.fl.us",
+   "city": "OKEECHOBEE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201470",
+   "name": "Osceola County School District",
+   "students": 0,
+   "website": "http://www.osceolaschools.net",
+   "city": "KISSIMMEE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201500",
+   "name": "Palm Beach County School District",
+   "students": 0,
+   "website": "http://www.palmbeachschools.org",
+   "city": "WEST PALM BEACH",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201530",
+   "name": "Pasco County School District",
+   "students": 0,
+   "website": "http://WWW.PASCO.K12.FL.US",
+   "city": "LAND O LAKES",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201650",
+   "name": "Santa Rosa County School District",
+   "students": 0,
+   "website": "http://www.santarosa.k12.fl.us/",
+   "city": "MILTON",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201710",
+   "name": "Seminole County School District",
+   "students": 0,
+   "website": "http://www.scps.k12.fl.us/",
+   "city": "SANFORD",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
+   "nces_id": "1201770",
+   "name": "St. Lucie County School District",
+   "students": 0,
+   "website": "http://www.stlucieschools.org",
+   "city": "PORT ST LUCIE",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "FL",
    "nces_id": "1201800",
    "name": "Sumter County School District",
    "students": 0,
@@ -740,6 +929,114 @@
    "website": "http://www.baldwin-county-schools.com",
    "city": "Milledgeville",
    "read": "nothing read yet"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1300240",
+   "name": "Banks County",
+   "students": 0,
+   "website": "",
+   "city": "Homer",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1300290",
+   "name": "Barrow County",
+   "students": 0,
+   "website": "",
+   "city": "Winder",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1300420",
+   "name": "Bibb County",
+   "students": 0,
+   "website": "http://www.bibb.k12.ga.us",
+   "city": "Macon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1300870",
+   "name": "Carrollton City",
+   "students": 0,
+   "website": "",
+   "city": "Carrollton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301050",
+   "name": "Chattahoochee County",
+   "students": 0,
+   "website": "",
+   "city": "Cusseta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301110",
+   "name": "Cherokee County Schools",
+   "students": 0,
+   "website": "",
+   "city": "Canton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301170",
+   "name": "Clarke County",
+   "students": 0,
+   "website": "http://clarke.k12.ga.us",
+   "city": "Athens",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301410",
+   "name": "Columbia County",
+   "students": 0,
+   "website": "",
+   "city": "Evans",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301470",
+   "name": "Cook County",
+   "students": 0,
+   "website": "",
+   "city": "Adel",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301500",
+   "name": "Coweta County",
+   "students": 0,
+   "website": "http://cowetaschools.org",
+   "city": "Newnan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301620",
+   "name": "Dalton Public Schools",
+   "students": 0,
+   "website": "",
+   "city": "Dalton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1301650",
+   "name": "Dawson County",
+   "students": 0,
+   "website": "",
+   "city": "Dawsonville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
    "state": "GA",
@@ -770,6 +1067,42 @@
   },
   {
    "state": "GA",
+   "nces_id": "1302430",
+   "name": "Gordon County",
+   "students": 0,
+   "website": "http://gcbe.org",
+   "city": "Calhoun",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302490",
+   "name": "Greene County",
+   "students": 0,
+   "website": "http://www.greene.k12.ga.us",
+   "city": "Greensboro",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302670",
+   "name": "Haralson County",
+   "students": 0,
+   "website": "",
+   "city": "Tallapoosa",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1302700",
+   "name": "Harris County",
+   "students": 0,
+   "website": "",
+   "city": "Hamilton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
    "nces_id": "1302730",
    "name": "Hart County",
    "students": 0,
@@ -788,6 +1121,15 @@
   },
   {
    "state": "GA",
+   "nces_id": "1303060",
+   "name": "Jefferson County",
+   "students": 0,
+   "website": "http://jefferson.k12.ga.us",
+   "city": "Louisville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
    "nces_id": "1303270",
    "name": "Lee County",
    "students": 0,
@@ -797,12 +1139,228 @@
   },
   {
    "state": "GA",
+   "nces_id": "1303300",
+   "name": "Liberty County",
+   "students": 0,
+   "website": "",
+   "city": "Hinesville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
    "nces_id": "1303330",
    "name": "Lincoln County",
    "students": 0,
    "website": "http://lincolncountyschools.org",
    "city": "Lincolnton",
    "read": "nothing read yet"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303390",
+   "name": "Lowndes County",
+   "students": 0,
+   "website": "",
+   "city": "Valdosta",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303510",
+   "name": "Marietta City",
+   "students": 0,
+   "website": "",
+   "city": "Marietta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303600",
+   "name": "Mcintosh County",
+   "students": 0,
+   "website": "",
+   "city": "Darien",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303630",
+   "name": "Meriwether County",
+   "students": 0,
+   "website": "http://www.meriwether.k12.ga.us",
+   "city": "Greenville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1303780",
+   "name": "Morgan County",
+   "students": 0,
+   "website": "",
+   "city": "Madison",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304020",
+   "name": "Paulding County",
+   "students": 0,
+   "website": "",
+   "city": "Dallas",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304200",
+   "name": "Polk County",
+   "students": 0,
+   "website": "",
+   "city": "Cedartown",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304320",
+   "name": "Rabun County",
+   "students": 0,
+   "website": "http://www.rabun.k12.ga.us",
+   "city": "Clayton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304380",
+   "name": "Richmond County",
+   "students": 0,
+   "website": "",
+   "city": "Augusta",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304440",
+   "name": "Rome City",
+   "students": 0,
+   "website": "http://www.rcs.rome.ga.us",
+   "city": "Rome",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304530",
+   "name": "Seminole County",
+   "students": 0,
+   "website": "http://www.seminole.k12.ga.us",
+   "city": "Donalsonville",
+   "read": "nothing read yet"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1304680",
+   "name": "Taliaferro County",
+   "students": 0,
+   "website": "",
+   "city": "Crawfordville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1305280",
+   "name": "Thomaston-Upson County",
+   "students": 0,
+   "website": "http://www.upson.k12.ga.us",
+   "city": "Thomaston",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1305130",
+   "name": "Trion City",
+   "students": 0,
+   "website": "http://www.trionschools.org",
+   "city": "Trion",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "GA",
+   "nces_id": "1305700",
+   "name": "Whitfield County",
+   "students": 0,
+   "website": "",
+   "city": "Dalton",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1800270",
+   "name": "Avon Community School Corp",
+   "students": 0,
+   "website": "http://www.avon-schools.org",
+   "city": "Avon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1801890",
+   "name": "Clark-Pleasant Community School Corp",
+   "students": 0,
+   "website": "http://www.cpcsc.k12.in.us/",
+   "city": "Whiteland",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803660",
+   "name": "Community Schools Of Frankfort",
+   "students": 0,
+   "website": "http://www.frankfortschools.org/",
+   "city": "Frankfort",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1802550",
+   "name": "Danville Community School Corp",
+   "students": 0,
+   "website": "http://www.danville.k12.in.us/",
+   "city": "Danville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1802850",
+   "name": "East Allen County Schools",
+   "students": 0,
+   "website": "http://www.eacs.k12.in.us/",
+   "city": "New Haven",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1809000",
+   "name": "East Porter County School Corp",
+   "students": 0,
+   "website": "http://www.eastporter.k12.in.us",
+   "city": "Kouts",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803510",
+   "name": "Fayette County School Corporation",
+   "students": 0,
+   "website": "http://www.fayette.k12.in.us/",
+   "city": "Connersville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1803570",
+   "name": "Flat Rock-Hawcreek School Corp",
+   "students": 0,
+   "website": "http://www.flatrock.k12.in.us",
+   "city": "Hope",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
    "state": "IN",
@@ -824,11 +1382,83 @@
   },
   {
    "state": "IN",
+   "nces_id": "1805400",
+   "name": "Lafayette School Corporation",
+   "students": 0,
+   "website": "http://www.lsc.k12.in.us/",
+   "city": "Lafayette",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1805460",
+   "name": "Lake Ridge New Tech Schools",
+   "students": 0,
+   "website": "http://www.lakeridge.k12.in.us/",
+   "city": "Gary",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1805520",
+   "name": "Lakeland School Corporation",
+   "students": 0,
+   "website": "http://www.lakelandlakers.org/",
+   "city": "LaGrange",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1805790",
+   "name": "Lebanon Community School Corp",
+   "students": 0,
+   "website": "http://www.leb.k12.in.us",
+   "city": "Lebanon",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1801230",
+   "name": "Medora Community School Corp",
+   "students": 0,
+   "website": "http://www.medora.k12.in.us/",
+   "city": "Medora",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1809690",
+   "name": "Merrillville Community School Corp",
+   "students": 0,
+   "website": "http://www.mvsc.k12.in.us/index.htm",
+   "city": "Merrillville",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
    "nces_id": "1806630",
    "name": "Milan Community Schools",
    "students": 0,
    "website": "http://www.milan.k12.in.us",
    "city": "Milan",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1807080",
+   "name": "Monroe Central School Corp",
+   "students": 0,
+   "website": "http://www.monroecentral.org",
+   "city": "Parker City",
+   "read": "handbook or site read, no rule found; the board policy manual is the document to find"
+  },
+  {
+   "state": "IN",
+   "nces_id": "1812720",
+   "name": "Msd Washington Township",
+   "students": 0,
+   "website": "http://www.msdwt.k12.in.us",
+   "city": "Indianapolis",
    "read": "handbook or site read, no rule found; the board policy manual is the document to find"
   },
   {
