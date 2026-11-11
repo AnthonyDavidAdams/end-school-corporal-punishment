@@ -108,6 +108,15 @@ for (const f of process.argv.slice(2)) {
         entry.handbook_conflict = conflict;
         entry.notes = `${prev.notes || ""} Handbook conflict noted ${conflict.noted}: ${conflict.source} says "${conflict.quote}" (${conflict.status}); the board policy governs and sets the status.`.trim();
       }
+      // What the district sent us itself is not replaced by a copy we found on our own. Oak Grove OK,
+      // 2026-11-11: the office emailed its discipline policy that morning, and a harvest that had started
+      // at 02:00, when the record was still blank, merged a rougher read of the posted copy over it that
+      // afternoon. A scan that agrees with the sent document changes nothing; one that brings the board's
+      // own policy code where the sent document had none still takes its place.
+      if (prev.method === "records_request" && prev.quote && entry.quote && entry.method !== "records_request" && prev.status === entry.status && !(entry.policy_code && !prev.policy_code)) {
+        console.error(`KEPT ${r.state} ${prev.name}: the document the district sent stays the source; the scan agrees (${entry.status}).`);
+        for (const k of ["source", "quote", "policy_code", "parent_control", "quotes", "method", "last_verified", "notes"]) if (prev[k] !== undefined) entry[k] = prev[k];
+      }
       if (prev.source && entry.source && prev.source !== entry.source && prev.status === entry.status) {
         console.error(`NOTE ${prev.name}: source replaced, status unchanged (${prev.status})\n  was ${prev.source}\n  now ${entry.source}`);
       }
