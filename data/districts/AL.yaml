@@ -1299,12 +1299,12 @@ districts:
   - name: Greene County
     county: Greene
     nces_id: "0101680"
-    status: silent
-    source: https://greenecoboe.greene.k12.al.us/students-families/handbook-policies
-    quote: null
+    status: bans
+    source: https://go.neola.com/greens-in/policy/administrative-guideline-manual/ag5630a
+    quote: … PROHIBITION OF CORPORAL PUNISHMENT AND ALTERNATIVES TO CORPORAL PUNISHMENT | Administrative Guideline Manual | Greensburg Comm.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
+    last_verified: 2026-11-11
     method: searched_document
     parent_control: unknown
     documents:
@@ -1314,8 +1314,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Found by searching for the district's policy document and read 2026-11-11 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - … PROHIBITION OF CORPORAL PUNISHMENT AND ALTERNATIVES TO CORPORAL PUNISHMENT | Administrative Guideline Manual | Greensburg Comm.
   - name: Gulf Shores City
     county: Baldwin
     nces_id: "0100202"
@@ -2410,14 +2412,19 @@ districts:
   - name: Russell County
     county: Russell
     nces_id: "0102880"
-    status: unknown
-    source: null
-    quote: null
+    status: bans
+    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3798/RCPS/5898163/Conduct_Code_2025-2026_II.pdf
+    quote: Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
     policy_code: null
     crdc_students_latest: null
-    last_verified: null
-    notes: "2026-11-10 review: the document on file belonged to a same-named district in VA; reset pending a re-read."
+    last_verified: 2026-11-11
+    notes: Found by searching for the district's policy document and read 2026-11-11 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: searched_document
+    parent_control: unknown
+    quotes:
+      - Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
+      - Identify non-academic activities (drama, art, music, etc.) that can help motivate your child’s interest in school and learning and seek out schools that can offer those experiences DISCIPLINARY ACTIONS Corporal Punishment may not be used as a means of discipline (22.1-279.1).
   - name: Russellville City
     county: Franklin
     nces_id: "0102910"
