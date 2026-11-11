@@ -1327,8 +1327,8 @@ districts:
     nces_id: "4006240"
     status: bans
     source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4006240-FOB_Corporal_Punishement.pdf
-    quote: CALUMET BOARD OFEDUCATION -—_—sYLFOB CORPORAL PUNISHMENT It is the policy of the Calumet Board of Education to not administer corporal punishment.
-    policy_code: null
+    quote: It is the policy of the Calumet Board of Education to not administer corporal punishment.
+    policy_code: FOB
     crdc_students_latest: null
     last_verified: 2026-11-04
     method: records_request
@@ -1346,10 +1346,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-11-04; the document is kept in the repository at data/policies/inbound/OK/4006240-FOB_Corporal_Punishement.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-04; the document is kept in the repository at data/policies/inbound/OK/4006240-FOB_Corporal_Punishement.pdf. It is a scan; the header the text recognition garbled was taken off the quote on 2026-11-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
-      - CALUMET BOARD OFEDUCATION -—_—sYLFOB CORPORAL PUNISHMENT It is the policy of the Calumet Board of Education to not administer corporal punishment.
+      - It is the policy of the Calumet Board of Education to not administer corporal punishment.
   - name: CALVIN
     county: Hughes
     nces_id: "4006270"
@@ -3358,8 +3358,8 @@ districts:
     nces_id: "4012570"
     status: bans
     source: https://www.gearyschools.org/vimages/shared/vnews/stories/6a9b05c2b238a/MS_HS%20Handbook%20Approved%20.pdf
-    quote: GMS/GHS + 12 GEARY MIDDLE SCHOOL / HIGH SCHOOL | 2026-2027 Corporal Punishment and Physical Intervention This handbook does not authorize corporal punishment.
-    policy_code: MS
+    quote: This handbook does not authorize corporal punishment.
+    policy_code: null
     crdc_students_latest: null
     last_verified: 2026-10-10
     method: portal_harvest
@@ -3377,10 +3377,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Read from the district's own posted board policy or handbook, 2026-10-10. Identity is name and state matched against the federal LEA directory.
+    notes: "Read from the district's 2026-27 middle and high school handbook, 2026-10-10. This is a handbook statement for grades 6 to 12, not a board policy: no board policy on corporal punishment has been read, and no elementary handbook. The record earlier carried the page header in the quote and the header's letters (MS) as a policy code; both were taken off on 2026-11-11. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
     quotes:
-      - GMS/GHS + 12 GEARY MIDDLE SCHOOL / HIGH SCHOOL | 2026-2027 Corporal Punishment and Physical Intervention This handbook does not authorize corporal punishment.
+      - This handbook does not authorize corporal punishment.
+      - Physical restraint or intervention may be used only as permitted by law and board policy to protect a person from imminent harm or for another lawful safety purpose, and never as punishment.
   - name: GERONIMO
     county: Comanche
     nces_id: "4012630"
@@ -5163,17 +5164,17 @@ districts:
     nces_id: "4018990"
     status: bans
     source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/977/Marietta_Ps/13928ca9-beb9-49c8-81c5-04118132816e/FOB_-_Corporal_Punishment.pdf?disposition=inline
-    quote: MARIETTA PUBLIC SCHOOL - Policy FOB CORPORAL PUNISHMENT any student.
+    quote: It is the policy of the Marietta Board of Education that corporal punishment will not be used for disciplinary action on any student.
     policy_code: FOB
     crdc_students_latest: null
     last_verified: 2026-10-10
     method: portal_harvest
     parent_control: unknown
     quotes:
-      - MARIETTA PUBLIC SCHOOL - Policy FOB CORPORAL PUNISHMENT any student.
-      - "§13-116 Accreditation Standard 210:15-=13-9 It is the policy of the Marietta Board of Education that corporal punishment will not be used for disciplinary action on Adoption Date:"
-    notes: Read from the district's own posted board policy or handbook, 2026-10-10. Identity is name and state matched against the federal LEA directory.
+      - It is the policy of the Marietta Board of Education that corporal punishment will not be used for disciplinary action on any student.
+    notes: Read from the district's own posted board policy FOB (adopted 2017-10-02, revised 2023-08-07), 2026-10-10. The first reading cut the sentence in two across a line break; the whole sentence was read from the same document on 2026-11-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    policy_revised: 2023-08-07
   - name: Marlow
     county: Stephens
     nces_id: "4019080"

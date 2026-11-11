@@ -33,7 +33,7 @@ FURNITURE = re.compile(r"search this site|skip to (main )?content|embedded files
                        r"subscribe|newsletter|cookie|javascript|click here|read more|share this|facebook|twitter|©|https?://|www\.|\bhome\s*[|>»/]|[|»›●■◆▪]", re.I)
 ABOUT = re.compile(r"corporal punishment|corporal|paddl|spank", re.I)
 BAN = re.compile(r"prohibit|forbid|disallow|\bban(s|ned)?\b|abolish|\b(shall|will|may|must|is|are|does|do|should|can)( not|n't|not)\b|\bnot (be )?(permitted|allowed|used|administered|authorized|tolerated|condoned|an? (acceptable|option))|"
-                 r"\bno\b.{0,160}\b(shall|may|will|is|are)\b|\bno (form|use) of\b|\bnever\b|\bunder no circumstances\b|\brefrain\b|\bexclud(es|ing) corporal", re.I)
+                 r"\bno\b.{0,160}\b(shall|may|will|is|are)\b|\bno (form|use) of\b|\bnever\b|\bunder no circumstances\b|\brefrain\b|\bexclud(es|ing) corporal|\bexcluded from\b|\b(to not|not to) (use|administer|permit|allow|inflict)\b", re.I)
 
 
 def host_of(url):
