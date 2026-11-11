@@ -74,13 +74,13 @@ districts:
   - name: Avon Community School Corp
     county: Hendricks
     nces_id: "1800270"
-    status: silent
-    source: https://resources.finalsite.net/images/v1691003494/avonschoolsorg/wfihenag0ewunqfl4jsd/2023-2024HighSchoolStudentHandbook_1.pdf
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1800270-recheck-2748324.html
+    quote: Unlimited AFP, FPM, and FP Essentials articles Membership forums to connect with other members Tools to take and report CME Become a member Close & return My account Dashboard CME Journal subscriptions Payments & donations Profile Log out My account Dashboard CME Journal subscriptions Payments & donations Profile Log out About the AAFP Policies Abolish Corporal Punishment in Schools The American Academy of Family Physicians supports the abolishment of corporal punishment in schools.
+    policy_code: AAFP
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -107,8 +107,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-11; the document is kept in the repository at data/policies/inbound/IN/1800270-recheck-2748324.html. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Unlimited AFP, FPM, and FP Essentials articles Membership forums to connect with other members Tools to take and report CME Become a member Close & return My account Dashboard CME Journal subscriptions Payments & donations Profile Log out My account Dashboard CME Journal subscriptions Payments & donations Profile Log out About the AAFP Policies Abolish Corporal Punishment in Schools The American Academy of Family Physicians supports the abolishment of corporal punishment in schools.
+      - Physical force or restraint which is used by a school official to protect someone from physical injury, to disarm a student, or to protect property from damage is not considered corporal punishment.
   - name: Barr-Reeve Community Schools Inc
     county: Daviess
     nces_id: "1800330"
