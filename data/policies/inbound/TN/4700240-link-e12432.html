@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en-us" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+	
+<script>fetch("/client-info.js").then(r=>r.text()).then(r=>{try{let t=JSON.parse(r);window.sdl=window.sdl||[],window.sdl.push(t)}catch(e){console.error("parse error:",e)}}).catch(r=>console.error("fetch error:",r));</script>
+		
+	<script src="https://dc.avg.com/script/631cdc06fb8485e6660727b13b2826eb.experiment.js"></script>
+<script>
+	window.genDL = window.genDL || [];
+</script>
+	
+	<script type="text/javascript">
+	(function(a,b,c,d){
+	 a="//tags.tiqcdn.com/utag/gendigital/avg/prod/utag.js";
+	 b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+	 a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+	 })();
+	</script>
+
+<script>
+	(function () {
+		'use strict';
+
+		function getCookie(name) {
+			var match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/+^])/g, '\\$1') + '=([^;]*)'));
+			return match ? decodeURIComponent(match[1]) : undefined;
+		}
+
+		function getPrivacySettings() {
+			var categories = ['Performance', 'Preference', 'Advertising'];
+			var optedIn = true;
+			var optedOut = true;
+			var hasUnknown = false;
+
+			for (var i = 0; i < categories.length; i++) {
+				var value = getCookie('SYMANTEC_ENSIGHTEN_PRIVACY_' + categories[i]);
+				if (typeof value === 'undefined') {
+					hasUnknown = true;
+				} else if (value === '1') {
+					optedOut = false;
+				} else {
+					optedIn = false;
+				}
+			}
+
+			if (hasUnknown) {
+				return 'pending';
+			}
+			if (optedIn) {
+				return 'opted_in';
+			}
+			if (optedOut) {
+				return 'opted_out';
+			}
+			return 'partial';
+		}
+
+		var fired = false;
+		function checkBanner() {
+			if (fired) {
+				return;
+			}
+			var banner = document.getElementById('ensNotifyBanner');
+			if (!banner || getComputedStyle(banner).display === 'none') {
+				return;
+			}
+			fired = true;
+			observer.disconnect();
+
+			window.genDL = window.genDL || [];
+			window.genDL.push({
+				event: 'consent_banner_impression',
+				privacy_settings: getPrivacySettings()
+			});
+		}
+
+		var observer = new MutationObserver(checkBanner);
+		observer.observe(document.documentElement, {
+			childList: true,
+			subtree: true,
+			attributes: true,
+			attributeFilter: ['style', 'class']
+		});
+
+		// In case the banner is already present/visible by the time this script runs
+		checkBanner();
+	})();
+</script>
+    
+	<script src="https://nexus.ensighten.com/symantec/avg/Bootstrap.js" data-script-info="CHEQ Cookie Consent -- Brand: AVG -- Script Type: PRODUCTION"></script>
+
+    
+
+
+
+<script>
+/*! Declare GTM dataLayer */
+window.dataLayer = window.dataLayer || [];
+window.sdl = window.sdl || []; 
+
+
+	
+/*! Dimensions to dataLayer */
+(function(){
+	var dataObj = {
+		'contentLocale': 'en-us',
+		'pageName': 'en-us | en-us/lp-safe-emailing-mac',
+        'pageId': '26e5d0a6d90de39b7e54701116feac5b'
+	};
+	var contentGroup = 'Consumer';
+	if (contentGroup != '') {
+		dataObj.contentGroup = contentGroup;
+	}
+  
+  	var pageGroup = 'Landing page - ACQ';
+    if (pageGroup != '') {
+        dataObj.pageGroup = pageGroup;
+    }
+
+	dataLayer.push(dataObj);
+})();
+	var countryCode = 'en-us'
+	
+	var sdlObj = {
+		'session': {
+			'countryCode': countryCode.substring(3).toUpperCase()
+		},
+		'screen': {
+			'locale': 'en-us',
+			'screenCategory': 'core',
+			'type': 'Landing page - ACQ',
+			'fileName': 'lp-safe-emailing-mac',
+			'screenId': '26e5d0a6d90de39b7e54701116feac5b',
+			'lineOfBusiness': 'Consumer',
+			'path': 'lp-safe-emailing-mac',
+			'hostname': 'www.avg.com',
+			'name': 'en-us | en-us/lp-safe-emailing-mac'
+		},
+		'event': 'screen'
+	}
+</script>
+
+
+
+
+
+
+<script>
+	(function () {
+		'use strict';
+		function getCookie(name) {
+			var match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/+^])/g, '\\$1') + '=([^;]*)'));
+			return match ? decodeURIComponent(match[1]) : undefined;
+		}
+		var properties = {
+			site_domain: 'avg.com',
+			site_property: 'avg',
+			environment: "prod",
+			site_section: "others",
+			page_country: "us",
+			page_language: 'en'
+		};
+		properties.page_name_ext = "lp-safe-emailing-mac";
+		var genId = getCookie('gd_id');
+		if (genId) {
+			properties.gen_id = genId;
+		}
+		properties.event = 'page_viewed';
+		window.genDL = window.genDL || [];
+		window.genDL.push(properties);
+	})();
+</script>
+<script>
+	window.nortonAnalytics = window.nortonAnalytics || {};
+	nortonAnalytics = {
+		'account': "symanteccom",
+		'site_country': "us",
+		'site_language': 'en',
+		'content_format': 'html',
+		'content_page': 'page',
+		'site_section': 'avg.com',
+		'page_name': "lp-safe-emailing-mac",
+		'site_sub_section': "others"
+	}
+</script>
+
+	  
+	
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','sdl','GTM-WPC6R3K');</script>
+
+	
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;j.setAttributeNode(d.createAttribute('data-ot-ignore'));f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PQL2XC');</script>
+
+		<script src=https://assets.adobedtm.com/b29989a14bed/fb232d48b52a/launch-6a58c8f8d4cd.min.js async></script>
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="msvalidate.01" content="F523541C02FD305D452DFEB76276B106" />
+    <meta name="yandex-verification" content="a5879e85dfab123e" />
+    
+    <meta name="google-site-verification" content="_fAOKZ0pl5SoE-J403ROOL3ij6Jl_MrOYtTzTwfs3So" />
+    
+    <meta name="google-site-verification" content="DKdOVEob-a2xTessHpy7H3IO2I1n4wc80n4lrkZxNqk" />
+    	
+    <meta name="google-site-verification" content="pJ2yb8cUzce9KAR0BROr6WF6Q67QFvMLZyPDUWHHEGc" />
+    	
+    <meta name="google-site-verification" content="HhZa3WSVcn36Khyh4HMKdrraf5FM_Pl0B58Uoaxhufc" />
+
+    <link rel="canonical" href="https://www.avg.com/en-us/lp-safe-emailing-mac">
+    <link rel="dns-prefetch" href="4331387.fls.doubleclick.net"/>
+<link rel="dns-prefetch" href="avgtechnologiescyltd.tt.omtrdc.net"/>
+<link rel="dns-prefetch" href="dis.ny.us.criteo.com"/>
+<link rel="dns-prefetch" href="googleads.g.doubleclick.net"/>
+<link rel="dns-prefetch" href="leadback.advertising.com"/>
+<link rel="dns-prefetch" href="omni.avg.com"/>
+<link rel="dns-prefetch" href="static.criteo.net"/>
+<link rel="dns-prefetch" href="stats.g.doubleclick.net"/>
+<link rel="dns-prefetch" href="widget.criteo.com"/>
+<link rel="dns-prefetch" href="www.adobetag.com"/>
+<link rel="dns-prefetch" href="www.avg.com"/>
+<link rel="dns-prefetch" href="www.google.com"/>
+<link rel="dns-prefetch" href="www.googleadservices.com"/>
+<link rel="dns-prefetch" href="s.clicktale.net"/>
+    <link rel="icon" type="image/png" href="https://static2.avg.com/10005043/web/i/favicons/favicon.ico" sizes="32x32">
+
+<link rel="apple-touch-icon-precomposed" href="https://static2.avg.com/10005043/web/i/favicons/apple-touch-avg.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://static2.avg.com/10005043/web/i/favicons/apple-touch-avg-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://static2.avg.com/10005043/web/i/favicons/apple-touch-avg-152x152.png">
+<link rel="apple-touch-icon" sizes="167x167" href="https://static2.avg.com/10005043/web/i/favicons/apple-touch-avg-167x167.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://static2.avg.com/10005043/web/i/favicons/apple-touch-avg-180x180.png">
+<link rel="apple-touch-icon" sizes="192x192" href="https://static2.avg.com/10005043/web/i/favicons/apple-touch-avg-192x192.png">
+    <link rel="stylesheet" href="https://static2.avg.com/10005043/web/c/common-v2.css" type="text/css">
+    <link rel="stylesheet" href="https://static2.avg.com/10005043/web/c/notificationDifferentProduct.css" type="text/css">
+    
+    
+      
+		
+		
+    
+    <title>AVG Free Antivirus Download | Virus Protection Software</title>
+<meta content="Download FREE AVG antivirus software. Get protection against viruses, malware and spyware. Easy-to-use virus scanner for PC, Mac & mobile. Download TODAY." name="description" />
+<meta property="og:title" content="AVG Free Antivirus Download | Virus Protection Software">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.avg.com/en-us/lp-safe-emailing-mac">
+<meta property="og:site_name" content="AVG.com">
+<meta property="og:description" content="&lt;#Download FREE AVG antivirus software. Get protection against viruses, malware and spyware. Easy-to-use virus scanner for PC, Mac & mobile. Download TODAY.">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:title" content="AVG Free Antivirus Download | Virus Protection Software">
+<meta property="twitter:description" content="&lt;#Download FREE AVG antivirus software. Get protection against viruses, malware and spyware. Easy-to-use virus scanner for PC, Mac & mobile. Download TODAY.">
+<meta name="robots" content="noindex, follow">
+
+		<link rel="stylesheet" href="https://static2.avg.com/10005043/web/c/page/lp-safe-emailing.css" media="all"/>
+    <meta http-equiv="content-language" content="en-us"/>
+    <script type="text/javascript" src="https://static2.avg.com/10005043/web/j/jquery.js"></script>
+    <script>
+	window.avastGlobals = window.avastGlobals || {};	
+	window.avastGlobals.web = {
+		domain: "www.avg.com",
+		pathFromRoot: "en-us/lp-safe-emailing-mac",
+      	fileName: "lp-safe-emailing-mac",
+		lang: 'en',
+		locale: "en-us",
+      	contentGroup: 'Consumer',
+		pageName: 'en-us | en-us/lp-safe-emailing-mac',
+		'notification-overlay-for-wrong-download': {
+			'free-antivirus-download': {
+				'button-selector': '[href*="download-thank-you.php?product=freegsr&variant=1606"],[href*="download-thank-you.php?product=freegsr"],[href*="download-thank-you.php?product=FREEGSR"],[href*="download-thank-you.php?product=freegsr&variant=698"]',
+				'supported-platform': 'windows',
+				'product-id': 'freegsr',
+				'alternative-links': {
+					mac: '/download-thank-you.php?product=AVM-FAD',
+					android: 'market://details?id=com.antivirus&referrer=utm_source%3Davg_com%26utm_medium%3Dgavp_pp-mobile%26utm_content%3Dfree-download%26utm_campaign%3Dgavp_pp-mobile_gavp',
+					ios: 'https://apps.apple.com/us/app/avg-mobile-security/id1473934066'
+				},
+				'alternative-tracking': {
+					mac: 'AVM-FAD',
+					android: 'mob',
+					ios: 'appstore'
+				}
+			},
+			'free-antivirus-download-t1': {
+				'button-selector': '[href*="download-thank-you.php?product=freegsr&variant=1606"],[href*="download-thank-you.php?product=freegsr"],[href*="download-thank-you.php?product=freegsr&variant=698"]',
+				'supported-platform': 'windows',
+				'product-id': 'freegsr',
+				'alternative-links': {
+					mac: '/download-thank-you.php?product=AVM',
+					android: 'market://details?id=com.antivirus&referrer=utm_source%3Davg_com%26utm_medium%3Dgavp_pp-mobile%26utm_content%3Dfree-download%26utm_campaign%3Dgavp_pp-mobile_gavp',
+					ios: 'https://apps.apple.com/us/app/avg-mobile-security/id1473934066'
+				},
+				'alternative-tracking': {
+					mac: 'avm',
+					android: 'mob',
+					ios: 'appstore'
+				}
+			},		
+			'free-antivirus-download-t2': {
+				'button-selector': '[href*="download-thank-you.php?product=freegsr&variant=1606"],[href*="download-thank-you.php?product=freegsr"],[href*="download-thank-you.php?product=freegsr&variant=698"]',
+				'supported-platform': 'windows',
+				'product-id': 'freegsr',
+				'alternative-links': {
+					mac: '/download-thank-you.php?product=AVM',
+					android: 'market://details?id=com.antivirus&referrer=utm_source%3Davg_com%26utm_medium%3Dgavp_pp-mobile%26utm_content%3Dfree-download%26utm_campaign%3Dgavp_pp-mobile_gavp',
+					ios: 'https://apps.apple.com/us/app/avg-mobile-security/id1473934066'
+				},
+				'alternative-tracking': {
+					mac: 'avm',
+					android: 'mob',
+					ios: 'appstore'
+				}
+			},			
+			'internet-security': {
+				'button-selector': '[href*="download-thank-you.php?product=gsr&variant=755"],[href*="download-thank-you.php?product=GSR"]',
+				'supported-platform': 'windows',
+				'product-id': 'gsr',
+				'alternative-links': {
+					mac: '/download-thank-you.php?product=AVM',
+					android: 'market://details?id=com.antivirus&referrer=utm_source%3Davg_com%26utm_medium%3Dgavp_pp-mobile%26utm_content%3Dfree-download%26utm_campaign%3Dgavp_pp-mobile_gavp',
+					ios: 'https://apps.apple.com/us/app/avg-mobile-security/id1473934066'
+				},
+				'alternative-tracking': {
+					mac: 'avm',
+					android: 'mob',
+					ios: 'appstore'
+				}
+			},
+			'avg-pctuneup': {
+				'button-selector': '[href*="download-thank-you.php?product=GSE-2019"]',
+				'supported-platform': 'windows',
+				'product-id': 'gse-2019',
+				'alternative-links': {
+					mac: '/download-thank-you.php?product=TMP',
+					android: 'market://details?id=com.avg.cleaner&referrer=utm_source%3Dwww.avg.com%26utm_medium%3Davg-memory-cleaner%26utm_campaign%3DTopButton'
+				},
+				'alternative-tracking': {
+					mac: 'tmp',
+					android: 'mcc'
+				},
+				'alternative-text': 'b'
+			},
+			'avg-driver-updater': {
+				'button-selector': '[href*="download-thank-you.php?product=duw&variant=duw-pp"]',
+				'supported-platform': 'windows',
+				'product-id': 'duw'
+			},
+			'secure-vpn': {
+				'button-selector': '[href*="download-thank-you.php?product=GSV"]',
+				'supported-platform': 'windows',
+				'product-id': 'gsv',
+				'alternative-links': {
+					mac: '/download-thank-you.php?product=VPM',
+					android: '/download-thank-you.php?product=VPA-P',
+					ios: '/download-thank-you.php?product=VPI'
+				},
+				'alternative-tracking': {
+					mac: 'vpm',
+					android: 'vpa',
+					ios: 'vpi'
+				},
+				'alternative-text': 'c'
+			},
+			'avg-tuneup-for-mac': {
+				'button-selector': '[href*="download-thank-you.php?product=TMP"]',
+				'supported-platform': 'mac',
+				'product-id': 'tmp',
+				'alternative-links': {
+					windows: '/download-thank-you.php?product=GSE-2019',
+					android: 'market://details?id=com.avg.cleaner&referrer=utm_source%3Dwww.avg.com%26utm_medium%3Davg-memory-cleaner%26utm_campaign%3DTopButton'
+				},
+				'alternative-tracking': {
+					windows: 'gse-2019',
+					android: 'mcc'
+				},
+				'alternative-text': 'b'
+			},
+			'avg-antivirus-for-mac': {
+				'button-selector': '[href*="download-thank-you.php?product=AVM"]',
+				'supported-platform': 'mac',
+				'product-id': 'avm',
+				'alternative-links': {
+					windows: '/download-thank-you.php?product=FREEGSR-AFM',
+					android: 'market://details?id=com.antivirus&referrer=utm_source%3Davg_com%26utm_medium%3Dgavp_pp-mobile%26utm_content%3Dfree-download%26utm_campaign%3Dgavp_pp-mobile_gavp',
+					ios: 'https://apps.apple.com/us/app/avg-mobile-security/id1473934066'
+				},
+				'alternative-tracking': {
+					windows: 'FREEGSR-AFM',
+					android: 'mob',
+					ios: 'appstore'
+				}
+			},
+			'download-secure-vpn-mac': {
+				'button-selector': '[href*="download-thank-you.php?product=VPM"]',
+				'supported-platform': 'mac',
+				'product-id': 'vpm',
+				'alternative-links': {
+					windows: '/download-thank-you.php?product=GSV',
+					android: '/download-thank-you.php?product=VPA-P',
+					ios: '/download-thank-you.php?product=VPI'
+				},
+				'alternative-tracking': {
+					windows: 'gsv',
+					android: 'vpa',
+					ios: 'vpi'
+				},
+				'alternative-text': 'c'
+			}
+		}
+	};
+	window.avastGlobals.texts = {
+		chromeUnsupportedOS: 'You are running an unsupported OS. In order to download the latest Secure Browser version, please update your OS to Windows 10 or newer.'
+	};
+</script>
+    <script> 
+      document.documentElement.className = 
+        document.documentElement.className.replace("no-js","js"); 
+    </script>
+	<script src="https://static2.avg.com/10005043/web/j/components/userAgentDetect.js"></script>
+	  
+	
+	<script src="https://static2.avg.com/10005043/web/j/components/singleDL-primary.js"></script>
+  
+                                <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="9K3EU-JY7U6-TD3RC-2KCEC-AH4A8",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"9K3EU-JY7U6-TD3RC-2KCEC-AH4A8",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="zz6buwiximqr42xu32ga-f-bede495e3-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"41","ak.cp":"96151","ak.ai":parseInt("59953",10),"ak.ol":"0","ak.cr":14,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"2a9a7ae8","ak.r":44793,"ak.a2":e,"ak.m":"dsca","ak.n":"essl","ak.cport":48320,"ak.gh":"23.67.78.21","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1794432652","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==cUm8EpqXwDLWFYGwfCvvxjjsP6W7tEVv3pnEjGWsYF3EFmJ/uco8JmhzYnAxOUMNl+asdoaRUdaoDC4Vx9PzUDhxRwMLGiBOb0/FaJ1bXzyoi2WOY8OEQukQG5YBuhMjzyaRNxcCSKXsgoTABcM3bFzZ5NCw4PMxiF/dvebaAlkvZIPWnoAVCus5Dq/rrAPIFt+T4kFMtKFcIaJLTzAVVrm91I0H2IpQQPPzo3TgS4/yLe8lCfql34AhiC/w36lU7cSwWIglbm6klPxLYr8OxShu8ZFCmzqJk7ckMhF0j1MMUoaqjZu4n11SwXqUq1opbPFysHehMLj5EhJrSZNV7aT/MOxqKYytLKjt6rEReiMqvhxLC4CC/KU8/7+SyAPCxx+Nhc3aj7Z2TBaaan64zLIHRP58lhDz0wVYghYGEyY=","ak.pv":"340","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+  
+  <body id="lp-safe-emailing-mac" class="en-us lng-en">
+    
+    <noscript>
+    	<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQL2XC" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    
+	
+    
+    
+    
+	  
+    
+    
+
+    
+    
+	
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+	
+
+	
+
+	
+
+
+	
+	
+
+	
+
+
+ 
+
+    
+
+
+
+
+
+<nav id="menu" class="navigation global-navigation">
+	<div class="container">
+			<div class="navigation-top visible-lg-block pull-lg-right">
+					<a href="https://account.avg.com/?migration&utm_campaign=myaccount_web_menu" class="bi-nav-login loginLink link-only ">
+						Log in to AVG MyAccount
+					</a>
+
+						<a href="https://www.avg.com/en/signal" class="bi-nav-login loginLink link-only ">Blog</a>
+
+				<a
+	href="javascript:void();"
+
+	 data-toggle="modal" data-target="#language-selector" aria-label="Change language" class="icon-href">
+		<span class="icon-flag icon-flag-us"></span>
+		
+		<img src="https://static2.avg.com/10005043/web/i/avg/img/components/languageselector/arrow-down.svg" alt="">
+</a>
+				<div class="clearfix"></div>
+			</div>
+		<div class="clearfix"></div>
+		<div class="navigation-header">
+			
+				
+				<div class="bg-image-sni-0">
+						<a class="bi-nav-toplink" href="/en-us/homepage" data-platform='{"platform_pc":"/en-us/homepage","platform_android":"","platform_ios":"","platform_mac":""}'>
+							<img class="avg-logo-desktop " src="https://static2.avg.com/10005043/web/i/other/avg-logo-v2.png" alt="AVG logo" width="104">
+						</a>
+				</div>
+				<style>
+					.bg-image-sni-0 img {
+					}
+				</style>
+				
+			
+			<a href="#body-inner" accesskey="0" class="sr-only sr-only-focusable">Skip to content</a>
+		</div>
+		
+	</div>
+	<div class="header-parsys"></div>
+</nav>
+
+    <div id="body-inner">
+    <section id="top">
+	<div class="container">
+		<div class="row">
+			<div class="text-center">
+				<h1>Click on emails with added confidence today</h1>
+				<p class="subheader">Download AVG AntiVirus Free for Mac to get protection against email-based cyberthreats and online scams. Keep your inbox safer from harmful attachments and fake web links on your web browsers or desktop email apps.</p>
+				<div class="hero-features">
+						<div class="hero-feature">
+							<img class="hero-feature-icon" src="https://static2.avg.com/10005043/web/i/ico/24/check-oval-green.svg" alt="">
+							<div>Install in seconds</div>
+						</div>
+						<div class="hero-feature">
+							<img class="hero-feature-icon" src="https://static2.avg.com/10005043/web/i/ico/24/check-oval-green.svg" alt="">
+							<div> 99.6% detection rate</div>
+						</div>
+						<div class="hero-feature">
+							<img class="hero-feature-icon" src="https://static2.avg.com/10005043/web/i/ico/24/check-oval-green.svg" alt="">
+							<div>Defend against online scams </div>
+						</div>
+				</div>	
+				
+				
+			<div class="button-wrapper">
+				<a href="/en-us/download-thank-you.php?product=AVM" data-role="download-link" data-download-name="AVM" data-platform='{"platform_pc":""}' class="button primary large green icon-mac icon-left shadow bi-download-link"><span>FREE Download</span></a>
+			</div>
+		
+		
+			
+			<div class="top-hint top-awards">
+				<div class="top-hint-wrapper">
+					<div class="top-hint-award">
+						<img src="https://static2.avg.com/10005043/web/i/awards/2024/image47.png" alt="" width="50" height="50">
+						<p class="top-award-text body-5">2024 <br><strong>Best MacOS Security</strong></p>
+					</div>
+					<div class="top-hint-award">
+						<img src="https://static2.avg.com/10005043/web/i/awards/2024/image39.png" alt="" width="50" height="50">
+						<p class="top-award-text body-5">2023 <br><strong>MacOS Home User<br/>Protection Test</strong></p>
+					</div>
+					
+					<div class="trustpilot">
+						<div class="logo">
+							<img src="https://static2.avg.com/10005043/web/i/other/avg-logo-v2.png" alt="" width="64" height="26">
+						</div>
+						<div class="trustpilot-widget trustpilot-widget--sm " data-locale="en-us" data-template-id="5419b6ffb0d04a076446a9af" data-businessunit-id="47d5a1990000640005022131" data-theme="light" data-style-width="100%" data-stars="1,2,3,4,5" data-no-reviews="hide" data-scroll-to-list="true">
+	<a href="https://www.trustpilot.com/review/www.avg.com" target="_blank" rel="noopener">Trustpilot</a>
+</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="illustration">
+	<div class="container">
+		<div class="row">
+			<img src="https://static2.avg.com/10005043/web/i/lp/lp-safe-emailing/product-ui-image-mac.png" alt="">
+		</div>
+	</div>
+</section>
+
+<section id="features">
+	<div class="container">
+		<div class="row">
+			<div class="content">
+				<h2>Less fuss, just safer emailing every day</h2>
+				<p class="subheader">We can all get emails we’re unsure about. If a suspicious link or file turns up in an email, we check it for hidden problems and help block<br/> anything we find before it can cause you trouble.</p>
+				<div class=feature-items>
+					<div class="feature-item">
+						<img class="feature-icon" src="https://static2.avg.com/10005043/web/i/ico/80/stop-block-hand.svg" alt="" width="80" height="80">
+						<h4>Intercept hidden cyberthreats</h4>
+						<div>We look inside each message for many different kinds of digital threats and help stop them before they can reach you.</div>
+					</div>
+					<div class="feature-item">
+						<img class="feature-icon" src="https://static2.avg.com/10005043/web/i/ico/80/notes-check--document-page.svg" alt="" width="80" height="80">
+						<h4>Stop unsafe downloads</h4>
+						<div>Our software scans attachments in real time and helps block anything that seems unsafe, keeping you ahead of potential problems.</div>
+					</div>
+					<div class="feature-item">
+						<img class="feature-icon" src="https://static2.avg.com/10005043/web/i/ico/80/checkmark--circle-tick.svg" alt="" width="80" height="80">
+						<h4>Avoid online scams</h4>
+						<div>We can identify website addresses or links in emails that could be dangerous and help block them so you don’t get scammed. </div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="bft">
+	<div class="container">
+		<div class="row">
+			<div class="text-center">
+				<div class="header">
+					<img src="https://static2.avg.com/10005043/web/i/product-icons/free-antivirus-icon.svg" alt="" width="48" height="48">
+					<h2>Feel more at ease about every email you open </h2>
+				</div>
+				<p class="subheader">That extra bit of confidence every time you click, send, or open an email is just a download away. </p>
+				
+			<div class="button-wrapper">
+				<a href="/en-us/download-thank-you.php?product=AVM" data-role="download-link" data-download-name="AVM" data-platform='{"platform_pc":""}' class="button primary large green icon-mac icon-left bi-download-link"><span>FREE Download</span></a>
+			</div>
+		</div>
+	</div>
+</section>
+      
+    
+
+
+
+
+<div id="bottom" class="lp">
+	<div class="container full">
+		<div class="row">
+			
+			<div class="login-section lp">
+				<img src="https://static2.avg.com/10005043/web/i/components/avg-logo-white-v3.svg" alt="AVG Logo" class="avg-logo">
+
+				<div class="row footer-top-row">
+					<div>
+						<div class="footer-top">
+							
+							<div class="language-selector">
+								<a data-toggle="modal" data-target="#language-selector"  class="button">
+	<span class="gap-8">
+		<div class="icon-flag icon-flag-us"></div> 
+      	
+		<div class="body-5 color-white">
+United States</div>
+		<img alt="icon arrow down" src="https://static2.avg.com/10005043/web/i/components/arrow-down-v3.svg">
+	</span>
+</a>
+							</div>
+							
+							
+							<div class="my-account">
+								<a href="https://account.avg.com/?migration&utm_campaign=myaccount_web_footer" class="bi-nav-login loginLink pull-md-left">
+									<div class="body-5 color-white">
+										Log in to AVG MyAccount
+									</div>
+								</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+		</div>
+	</div>
+</div>
+
+
+
+<div id="footer">
+	<div class="container full">
+		
+		<div class="row copyright-row">
+			<div class="copyright">
+				
+				<div class="copyright-logo">
+					<img src="https://static2.avg.com/10005043/web/i/components/gen-logo.svg" alt="GEN Logo" class="gen-logo">
+					<div class="body-4 color-white">AVG is part of Gen - a global company with a family of trusted brands.</div>
+				</div>
+				<div class="copyright-content">
+					<div class="body-5 color-gray4">Copyright © 2026 Gen Digital Inc. All rights reserved. Gen trademarks or registered trademarks are property of Gen Digital Inc. or its affiliates. Firefox is a trademark of Mozilla Foundation. Android, Google Chrome, Google Play and the Google Play logo are trademarks of Google, LLC. Mac, iPhone, iPad, Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Alexa and all related logos are trademarks of Amazon.com, Inc. or its affiliates. Microsoft and the Window logo are trademarks of Microsoft Corporation in the U.S. and other countries. The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License. Other names may be trademarks of their respective owners.</div>
+				</div>
+				<div class="copyright-links">
+					<a class="body-5" href="https://www.gendigital.com/">About Gen</a>
+					 | <a class="body-5" href="https://newsroom.gendigital.com/avg">Newsroom</a>
+					 | <a class="body-5" href="https://www.gendigital.com/us/en/life-gen/">Careers</a>
+					 | <a class="body-5" href="/en-us/policies">Legal</a>
+					 | <a class="body-5" href="/en-us/privacy">Privacy</a>
+					 | <a class="body-5" href="https://www.gendigital.com/us/en/contact-us/report-a-potential-security-vulnerability/">Security</a>
+					 | <a class="body-5" href="https://www.gendigital.com/us/en/legal/accessibility-policy/">Accessibility</a>
+					 | <a href="#" id="cheq__cookie-preferences--footer-link" class="body-5">Cookie Settings</a>
+					 | <a class="body-5" href="/en-us/do-not-sell">Your Privacy Choices</a>
+				</div>
+			</div>
+		 </div>
+	 </div>
+	</div>
+</div>
+
+
+<div class="language-selector modal fade" id="language-selector" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" data-dimension-action="fullHeight" data-dimension-target="window" data-dimension-options='{"property": "height", "sizes": {"xs": true, "lg": false}}'>
+            <div class="modal-header">
+                <a aria-label="Close" href="#" class="selector-close" data-dismiss="modal"></a>
+                <h4 class="text-large modal-title" id="myModalLabel">Change language</h4>
+            </div>
+            <div class="modal-body-outer" data-dimension-action="fullHeight" data-dimension-target="window" data-dimension-options='{"property": "height", "minus": 99, "sizes": {"xs": true, "lg": false}}'>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4 span4">
+                                <ul>
+                                    <li class="hidden-lg"> <span class="icon-flag icon-flag-ww"></span> Global Website:
+                                      <a href="/es-ww/lp-safe-emailing-mac">Español</a>
+                                      /
+                                      <a href="/en-ww/lp-safe-emailing-mac">Worldwide (English)</a>
+                                      /
+                                      <a href="/en-eu/lp-safe-emailing-mac">Europe (English)</a>
+                                    </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-ar"></span>Argentina: <a href="/es-ar/lp-safe-emailing-mac">Español</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-au"></span>Australia: <a href="/en-au/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-be"></span>België: <a href="/nl-be/lp-safe-emailing-mac">Nederlands</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-be"></span>Belgique: <a href="/fr-be/lp-safe-emailing-mac">Français</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-br"></span>Brasil: <a href="/pt-br/lp-safe-emailing-mac">Português do Brasil</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-ca"></span>Canada: <a href="/en-ca/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-ca"></span>Canada: <a href="/fr-ca/lp-safe-emailing-mac">Français</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-cz"></span>Česká republika: <a href="/cs-cz/lp-safe-emailing-mac">Čeština</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-cl"></span>Chile: <a href="/es-cl/lp-safe-emailing-mac">Español</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-co"></span>Colombia: <a href="/es-co/lp-safe-emailing-mac">Español</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-dk"></span>Denmark: <a href="/en-dk/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-de"></span>Deutschland: <a href="/de-de/lp-safe-emailing-mac">Deutsch</a> </li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-4 span4">
+                                  <ul>                                    
+                                    <li class="country-item"> <span class="icon-flag icon-flag-es"></span>España: <a href="/es-es/lp-safe-emailing-mac">Español</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-fr"></span>France: <a href="/fr-fr/lp-safe-emailing-mac">Français</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-in"></span>India: <a href="/en-in/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-id"></span>Indonesia: <a href="/id-id/lp-safe-emailing-mac">Bahasa Indonesia</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-it"></span>Italia: <a href="/it-it/lp-safe-emailing-mac">Italiano</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-my"></span>Malaysia: <a href="/ms-my/lp-safe-emailing-mac">Bahasa Melayu</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-mx"></span>México: <a href="/es-mx/lp-safe-emailing-mac">Español</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-nl"></span>Nederland: <a href="/nl-nl/lp-safe-emailing-mac">Nederlands</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-nz"></span>New Zealand: <a href="/en-nz/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-no"></span>Norge: <a href="/no-no/lp-safe-emailing-mac">Norsk</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-pl"></span>Polska: <a href="/pl-pl/lp-safe-emailing-mac">Polski</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-pt"></span>Portugal: <a href="/pt-pt/lp-safe-emailing-mac">Português</a> </li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-4 span4">
+                                  <ul>                                    
+                                    <li class="country-item"> <span class="icon-flag icon-flag-ru"></span>Россия: <a href="/ru-ru/lp-safe-emailing-mac">Русский</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-ch"></span>Schweiz: <a href="/de-ch/lp-safe-emailing-mac">Deutsch</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-sk"></span>Slovensko: <a href="/sk-sk/lp-safe-emailing-mac">Slovenčina</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-za"></span>South Africa: <a href="/en-za/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-ch"></span>Suisse: <a href="/fr-ch/lp-safe-emailing-mac">Français</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-se"></span>Sweden: <a href="/en-se/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-tr"></span>Türkiye: <a href="/tr-tr/lp-safe-emailing-mac">Türkçe</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-gb"></span>United Kingdom: <a href="/en-gb/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-us"></span>United States: <a href="/en-us/lp-safe-emailing-mac">English</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-tw"></span>臺灣: <a href="/zh-tw/lp-safe-emailing-mac">繁體中文</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-jp"></span>日本: <a href="/ja-jp/lp-safe-emailing-mac">日本語</a> </li>
+                                    <li class="country-item"> <span class="icon-flag icon-flag-kr"></span>대한민국: <a href="/ko-kr/lp-safe-emailing-mac">한국어</a> </li>
+                                </ul>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p> <span class="icon-flag icon-flag-ww"></span> Global Website: 
+                  <a href="/es-ww/lp-safe-emailing-mac">Español</a>
+                  /
+                  <a href="/en-ww/lp-safe-emailing-mac">Worldwide (English)</a>
+                  /
+                  <a href="/en-eu/lp-safe-emailing-mac">Europe (English)</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="cheq-dev" role="dialog" style="display: none;">
+	<div class="cheq-dev__label" id="cheq-dev__environment">
+		<span>Environment:</span>
+		<b id="cheq-dev__environment-name">________</b>
+	</div>
+	<div class="cheq-dev__label" id="cheq-dev__template">
+		<span>Template:</span>
+		<b id="cheq-dev__template-name">________</b>		
+	</div>
+
+	
+	<div id="cheq-dev__consent-status"></div>
+	
+	
+	<div id="cheq-dev__controls">
+		<button type="button" id="cheq-dev__controls--show-banner">Show Banner</button>
+		<button type="button" id="cheq-dev__controls--show-modal">Show Modal</button>
+	</div>
+</div>
+    <script type="text/javascript" src="https://static2.avg.com/10005043/web/j/global.js"></script>
+    <script type="text/javascript" src="https://static2.avg.com/10005043/web/j/freegsr-detect.js"></script>
+		
+	
+	<script src="https://static2.avg.com/10005043/web/j/components/singleDL-secondary.js"></script>
+	<script src="https://static2.avg.com/10005043/web/j/components/genDL.js"></script>
+	<script src="https://static2.avg.com/10005043/web/j/components/aa-helper.js"></script>
+		
+    
+	<script type='text/javascript'>(function(){var g=function(e,h,f,g){this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)}};this.start=function(){var t=this;"complete"!==document.readyState?window.addEventListener?window.addEventListener("load",function(){t.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){t.go()}):t.go()};};try{(new g(100,"r","QSI_S_ZN_8ksX2qGJaVxaYw6","https://zn8ksx2qgjavxayw6-gendigital.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_8ksX2qGJaVxaYw6")).start()}catch(i){}})();</script><div id='ZN_8ksX2qGJaVxaYw6'></div>
+    
+<script src="https://static2.avg.com/10005043/web/j/v2/components/cmp-trustpilot.js"></script>
+
+
+
+   </div>
+
+  </body>
+<!-- cached: 2026-11-11 22:30:52, 32.778978347778, 30.693054199219, 0.32711029052734, 71b13ede0b5b; pricingVersion: 6145 --></html>
