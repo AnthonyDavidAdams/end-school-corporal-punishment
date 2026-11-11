@@ -3072,13 +3072,13 @@ districts:
   - name: Nemaha Central
     county: Nemaha
     nces_id: "2000353"
-    status: silent
-    source: https://www.usd115.org/o/ncems/page/emergency-safety-intervention/
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2000353-JDA_Corporal_Punishment.pdf
+    quote: Corporal punishment shall not be permitted in the school district.
+    policy_code: JDA
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: other
@@ -3087,8 +3087,17 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2000353-JDA_Corporal_Punishment.pdf
+        says: bans
+        quote: Corporal punishment shall not be permitted in the school district.
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-28: the district sent board policy JDA, Corporal Punishment (approved by the USD 115 Board of Education on 2011-06-20), as an attachment. It is kept in the repository at data/policies/inbound/KS/2000353-JDA_Corporal_Punishment.pdf and was read on 2026-11-11. Until then this record rested on 1 document found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Corporal punishment shall not be permitted in the school district.
+    policy_adopted: 2011-06-20
   - name: Ness City
     county: Ness
     nces_id: "2009930"

@@ -1320,13 +1320,13 @@ districts:
   - name: Fayette County School Corporation
     county: Fayette
     nces_id: "1803510"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1673/Frazee/3957933/Student_Code_of_Conduct.docx.pdf
-    quote: null
+    status: allows
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1673/Fcsc/dd1bfba3-ad30-4885-ae1a-2f186cacbd00/Student-Code-of-Conduct-26-27.pdf?disposition=inline
+    quote: "Disciplinary actions may include but are not limited to: reprimand; counseling with a student or group of students; conferences with student and parent/guardian; assigning additional work; rearranging class schedules; behavior contract; requiring a student to be in school before and/or after regular school hours to do additional school work or for counseling; restricting extracurricular activities; payment for damages to property; assignment by the principal/director to a special course of study or an alternative education program; assignment by the principal/director of not more than one hundred twenty (120) hours of community service (with agreement of the parent/guardian); removal of a student from school-sponsored transportation; corporal punishment; referral to the juvenile court having jurisdiction over the student; suspension; or expulsion."
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: other
@@ -1353,8 +1353,16 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: code_of_conduct
+        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/1673/Fcsc/dd1bfba3-ad30-4885-ae1a-2f186cacbd00/Student-Code-of-Conduct-26-27.pdf?disposition=inline
+        says: allows
+        quote: "Disciplinary actions may include but are not limited to: reprimand; counseling with a student or group of students; conferences with student and parent/guardian; assigning additional work; rearranging class schedules; behavior contract; requiring a student to be in school before and/or after regular school hours to do additional school work or for counseling; restricting extracurricular activities; payment for damages to property; assignment by the principal/director to a special course of study or an alternative education program; assignment by the principal/director of not more than one hundred twenty (120) hours of community service (with agreement of the parent/guardian); removal of a student from school-sponsored transportation; corporal punishment; referral to the juvenile court having jurisdiction over the student; suspension; or expulsion."
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-13: the district sent the link to its Student Code of Conduct for 2026-27, which lists corporal punishment among the disciplinary actions a school may take. It was read on 2026-11-11 and a copy is kept in the repository at data/policies/inbound/IN/1803510-link-febf54.pdf. The district wrote the same day that it found nothing in board policy, that the code of conduct still lists the practice, and that staff who have been there longest say it has not been used in more than 15 years. Until 2026-11-11 this record said the district's documents did not mention the practice; that rested on 4 documents found by search in September, and the code of conduct the district sent had not been read. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - "Disciplinary actions may include but are not limited to: reprimand; counseling with a student or group of students; conferences with student and parent/guardian; assigning additional work; rearranging class schedules; behavior contract; requiring a student to be in school before and/or after regular school hours to do additional school work or for counseling; restricting extracurricular activities; payment for damages to property; assignment by the principal/director to a special course of study or an alternative education program; assignment by the principal/director of not more than one hundred twenty (120) hours of community service (with agreement of the parent/guardian); removal of a student from school-sponsored transportation; corporal punishment; referral to the juvenile court having jurisdiction over the student; suspension; or expulsion."
   - name: Flat Rock-Hawcreek School Corp
     county: Bartholomew
     nces_id: "1803570"
@@ -2253,12 +2261,12 @@ districts:
     county: LaGrange
     nces_id: "1805520"
     status: silent
-    source: https://go.boarddocs.com/in/lsc/Board.nsf/Public?open=&id=policies
+    source: https://go.neola.com/lsc-in/policy/policy-manual/po5600
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -2267,7 +2275,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://go.neola.com/lsc-in/policy/policy-manual/po5600
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-10: the district sent the link to its online board policy manual. Policy 5600, Student Discipline, was read there on 2026-11-11 with 216 of the manual's 411 policies, before the site stopped answering; none of those read mentions corporal punishment. The district wrote on 2026-10-14 that the practice is not mentioned in its policies, its student handbooks or its progressive discipline manual, and that it is not an option the district chooses to use. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. Until then this record rested on 1 document found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
   - name: Lanesville Community School Corp
     county: Harrison
@@ -3183,7 +3197,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. The district wrote on 2026-10-16, in answer to a public records request, that corporal punishment is not referenced in its board policy. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: North Adams Community Schools
     county: Adams
@@ -3503,13 +3517,13 @@ districts:
   - name: Northwestern School Corp
     county: Howard
     nces_id: "1802040"
-    status: silent
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/956/Northwestern_School_Corporation/3273140/NES_Student_Handbook_2023-2024.pdf
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://go.neola.com/nwscd-in/policy/policy-manual/po5600
+    quote: "The Superintendent will designate sanctions for the infractions of rules, excluding corporal punishment, which: relate in kind and degree to the infraction; help the student learn to take responsibility for his/her actions; are directed, where possible, to reduce the effects of any harm which may have been caused by the student's misconduct."
+    policy_code: "5600"
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -3518,8 +3532,24 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://go.neola.com/nwscd-in/policy/policy-manual/po5600
+        says: bans
+        quote: "The Superintendent will designate sanctions for the infractions of rules, excluding corporal punishment, which: relate in kind and degree to the infraction; help the student learn to take responsibility for his/her actions; are directed, where possible, to reduce the effects of any harm which may have been caused by the student's misconduct."
+        retrieved: 2026-11-11
+        by: sent by the district
+      - kind: board_policy
+        url: https://go.neola.com/nwscd-in/policy/policy-manual/po5630
+        says: bans
+        quote: In these circumstances, the staff member shall use no more force than the force that is necessary to accomplish the objective of the use of force and shall not use force for the purpose of deterring or punishing misconduct.
+        retrieved: 2026-11-11
+        by: the district's own policy manual
+    notes: "Received from the district by email in answer to a public records request, 2026-10-27: the district named board policy 5600, Student Discipline (adopted 1993-05-13, revised 2008-03-13), as the relevant policy. It was read in the district's online policy manual on 2026-11-11; it leaves corporal punishment out of the sanctions the superintendent may set. Policy 5630 in the same manual says staff shall not use force to deter or punish misconduct. Until then this record rested on 1 document found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - "The Superintendent will designate sanctions for the infractions of rules, excluding corporal punishment, which: relate in kind and degree to the infraction; help the student learn to take responsibility for his/her actions; are directed, where possible, to reduce the effects of any harm which may have been caused by the student's misconduct."
+    policy_adopted: 1993-05-13
+    policy_revised: 2008-03-13
   - name: Oak Hill United School Corp
     county: Grant
     nces_id: "1808340"

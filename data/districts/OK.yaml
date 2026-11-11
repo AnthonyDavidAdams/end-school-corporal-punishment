@@ -465,14 +465,14 @@ districts:
   - name: Balko
     county: Beaver
     nces_id: "4003510"
-    status: silent
-    source: https://www.balko.k12.ok.us/events
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4003510-Corporal_Punishment_Policy.pdf
+    quote: It is the policy of the Balko Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+    policy_code: FOB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-11-11
+    method: records_request
+    parent_control: opt_out
     documents:
       - kind: other
         url: https://www.balko.k12.ok.us/events
@@ -480,8 +480,18 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4003510-Corporal_Punishment_Policy.pdf
+        says: allows
+        quote: It is the policy of the Balko Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-28: the district sent board policy FOB, Corporal Punishment (last revised 2023-03-29), as an attachment. It is kept in the repository at data/policies/inbound/OK/4003510-Corporal_Punishment_Policy.pdf and was read on 2026-11-11; the file is a scan, so the sentences were read from the page image. A parent may ask in writing that it not be used on their child. Until then this record rested on 1 document found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - It is the policy of the Balko Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to request the nonadministration of corporal punishment to their children.
+    policy_revised: 2023-03-29
   - name: BANNER
     county: Canadian
     nces_id: "4003540"
@@ -2838,14 +2848,14 @@ districts:
   - name: Elgin
     county: Comanche
     nces_id: "4010710"
-    status: silent
-    source: https://cdnsm5-ss2.sharpschool.com/UserFiles/Servers/Server_27080093/File/Elgin%20Elem%20Handbook%2023-24.pdf
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4010710-link-6c3960.pdf
+    quote: It is the policy of the Elgin Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+    policy_code: FOB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-11-11
+    method: records_request
+    parent_control: opt_out
     documents:
       - kind: handbook
         url: https://cdnsm5-ss2.sharpschool.com/UserFiles/Servers/Server_27080093/File/Elgin%20Elem%20Handbook%2023-24.pdf
@@ -2853,8 +2863,18 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4010710-link-6c3960.pdf
+        says: allows
+        quote: It is the policy of the Elgin Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-12: the district named policy FOB and sent the link to its board policy manual. The manual as it was fetched from that link is kept in the repository at data/policies/inbound/OK/4010710-link-6c3960.pdf (539 scanned pages); policy FOB, Corporal Punishment (adopted 2010-06-10), is on page 511 and was read from the page image on 2026-11-11. A parent may ask in writing that it not be used on their child. The link itself no longer opens. Until then this record rested on 1 document found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - It is the policy of the Elgin Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to request the nonadministration of corporal punishment to their children.
+    policy_adopted: 2010-06-10
   - name: Elmore City-Pernell
     county: Garvin
     nces_id: "4010860"
@@ -3601,12 +3621,12 @@ districts:
     county: Logan
     nces_id: "4013560"
     status: silent
-    source: https://www.guthrieps.net/school-policies-handbooks
+    source: https://policies.assemblemeetings.com/OSSBA/browse/guthrieset
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -3621,7 +3641,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://policies.assemblemeetings.com/OSSBA/browse/guthrieset
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-10 and 2026-10-27: the district sent the link to its online board policy manual. All 602 documents in the manual were read on 2026-11-11, along with the six 2026-27 handbooks posted at https://www.guthrieps.net/handbooks-policies; none mentions corporal punishment, paddling or swats. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. Until then this record rested on 2 documents found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
   - name: Guymon
     county: Texas
@@ -3868,12 +3894,12 @@ districts:
     county: Carter
     nces_id: "4014130"
     status: consent_required
-    source: https://s3.amazonaws.com/scschoolfiles/62/2014-15_student_handbook.pdf
-    quote: • The seriousness of the offense • The effect of the offense on other students • Whether the offense is physically or mentally injurious to other people • Whether the incident is isolated or habitual behavior • The manifestation of a disability • Any other circumstances which may be appropriately considered CORPORAL PUNISHMENT - Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the studentʼs parent/guardian on file in the principalʼs office.
+    source: https://files.smartsites.parentsquare.com/10710/2025-2026_hps_handbook_approved_08-11-25.pdf
+    quote: Corporal Punishment shall only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-01
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: opt_in
     documents:
       - kind: other
@@ -3900,16 +3926,18 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Found by searching for the district's policy document and read 2026-11-01 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+      - kind: handbook
+        url: https://files.smartsites.parentsquare.com/10710/2025-2026_hps_handbook_approved_08-11-25.pdf
+        says: consent_required
+        quote: Corporal Punishment shall only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-28: the district sent the link to its 2025-2026 student handbook (approved 2025-08-11). It was read in full on 2026-11-11 and a copy is kept in the repository at data/policies/inbound/OK/4014130-2025-2026_hps_handbook.pdf. Until then this record rested on the district's 2014-15 handbook, found by search. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
     quotes:
-      - • The seriousness of the offense • The effect of the offense on other students • Whether the offense is physically or mentally injurious to other people • Whether the incident is isolated or habitual behavior • The manifestation of a disability • Any other circumstances which may be appropriately considered CORPORAL PUNISHMENT - Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the studentʼs parent/guardian on file in the principalʼs office.
-      - • The seriousness of the offense • The effect of the offense on other students • Whether the offense is physically or mentally injurious to other people • Whether the incident is isolated or habitual behavior • The manifestation of a disability • Any other circumstances which may be appropriately considered CORPORAL PUNISHMENT - Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the studentʼs parent/guardian on file in the principalʼs office.
-      - • The seriousness of the offense • The effect of the offense on other students • Whether the offense is physically or mentally injurious to other people • Whether the incident is isolated or habitual behavior • The manifestation of a disability • Any other circumstances which may be appropriately considered CORPORAL PUNISHMENT - Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the studentʼs parent/guardian on file in the principalʼs office.
-      - • The seriousness of the offense • The effect of the offense on other students • Whether the offense is physically or mentally injurious to other people • Whether the incident is isolated or habitual behavior • The manifestation of a disability • Any other circumstances which may be appropriately considered CORPORAL PUNISHMENT - Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the studentʼs parent/guardian on file in the principalʼs office.
-      - • The seriousness of the offense • The effect of the offense on other students • Whether the offense is physically or mentally injurious to other people • Whether the incident is isolated or habitual behavior • The manifestation of a disability • Any other circumstances which may be appropriately considered CORPORAL PUNISHMENT - Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the studentʼs parent/guardian on file in the principalʼs office.
-      - • The seriousness of the offense • The effect of the offense on other students • Whether the offense is physically or mentally injurious to other people • Whether the incident is isolated or habitual behavior • The manifestation of a disability • Any other circumstances which may be appropriately considered CORPORAL PUNISHMENT - Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the studentʼs parent/guardian on file in the principalʼs office.
-      - • The seriousness of the offense • The effect of the offense on other students • Whether the offense is physically or mentally injurious to other people • Whether the incident is isolated or habitual behavior • The manifestation of a disability • Any other circumstances which may be appropriately considered CORPORAL PUNISHMENT - Corporal Punishment may only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the studentʼs parent/guardian on file in the principalʼs office.
+      - Corporal Punishment shall only be given to a student who has a “Parental Consent to Administer Corporal Punishment” form signed by the student’s parent/guardian on file in the principal’s office.
+      - No more than 3 swats shall be given to a student in a school day.
+      - The swats shall be given with reasonable force by a wooden paddle on the buttocks of the student.
   - name: Heavener
     county: Le Flore
     nces_id: "4014160"
@@ -5564,14 +5592,14 @@ districts:
   - name: Mounds
     county: Creek
     nces_id: "4020550"
-    status: silent
-    source: https://s3.amazonaws.com/scschoolfiles/2556/7-11-22_regular_meeting.pdf
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4020550-Corporal_Punishment.pdf
+    quote: It is the policy of the Mounds Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+    policy_code: FOB
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-11-11
+    method: records_request
+    parent_control: opt_out
     documents:
       - kind: other
         url: https://s3.amazonaws.com/scschoolfiles/2556/7-11-22_regular_meeting.pdf
@@ -5591,8 +5619,17 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4020550-Corporal_Punishment.pdf
+        says: allows
+        quote: It is the policy of the Mounds Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-19 and again 2026-11-02: the district sent board policy FOB, Corporal Punishment, as an attachment. It is kept in the repository at data/policies/inbound/OK/4020550-Corporal_Punishment.pdf and was read on 2026-11-11; the file is a scan, so the sentences were read from the page image. A parent may ask in writing that it not be used on their child. The district wrote on 2026-10-27 that its principals do not use the practice now and that it expects no change to the policy. Until then this record rested on 3 documents found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - It is the policy of the Mounds Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to request the nonadministration of corporal punishment to their children.
   - name: MOUNTAIN VIEW-GOTEBO
     county: Kiowa
     nces_id: "4029886"
@@ -8997,14 +9034,14 @@ districts:
   - name: White Rock
     county: Lincoln
     nces_id: "4032640"
-    status: allows
-    source: https://s3.amazonaws.com/scschoolfiles/623/student_handbookfy22docx.pdf
-    quote: Corporal Punishment (1 to 3 swats according to offense committed) 4.
-    policy_code: null
+    status: consent_required
+    source: https://drive.google.com/file/d/1oc_vcHdsLmxhBMoADKyXsxV80Q77lukW/view
+    quote: Under no circumstances will the administration administer corporal punishment to a student where written consent was not provided.
+    policy_code: FOB
     crdc_students_latest: null
-    last_verified: 2026-11-03
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-11-11
+    method: records_request
+    parent_control: opt_in
     documents:
       - kind: other
         url: https://www.whiterock.k12.ok.us/parentsstudents-2
@@ -9012,11 +9049,19 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://drive.google.com/file/d/1oc_vcHdsLmxhBMoADKyXsxV80Q77lukW/view
+        says: consent_required
+        quote: Under no circumstances will the administration administer corporal punishment to a student where written consent was not provided.
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-27: the district sent board policy FOB, Corporal Punishment, as a link that asks for a sign-in. The same policy (adoption date 2026-09-08) is posted in the public policy folder linked from the district's own website; it was read there on 2026-11-11 and a copy is kept in the repository at data/policies/inbound/OK/4032640-FOB-Corporal-Punishment.doc. The district wrote on 2026-10-10 that it does not use corporal punishment. Until then this record rested on the district's FY22 student handbook, found by search, which lists one to three swats among its consequences. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
     quotes:
-      - Corporal Punishment (1 to 3 swats according to offense committed) 4.
-      - Corporal Punishment (1 to 3 swats according to offense committed) 4.
+      - It is the policy of the White Rock Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to allow the administration of corporal punishment to their child(ren).
+      - Under no circumstances will the administration administer corporal punishment to a student where written consent was not provided.
+    policy_adopted: 2026-09-08
   - name: Whitefield
     county: Haskell
     nces_id: "4032700"

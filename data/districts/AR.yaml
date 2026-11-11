@@ -1896,7 +1896,7 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. The district wrote on 2026-10-10, in answer to a public records request, that it has no written policy on corporal punishment and does not use it. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Hoxie School District
     county: Hoxie
@@ -3674,12 +3674,12 @@ districts:
     county: Union
     nces_id: "0512930"
     status: silent
-    source: https://www.strong.k12.ar.us/school-board-policy
+    source: https://files.smartsites.parentsquare.com/10522/26-27_student_handbook_-_copy_1_1.pdf
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -3688,7 +3688,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: handbook
+        url: https://files.smartsites.parentsquare.com/10522/26-27_student_handbook_-_copy_1_1.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-27: the district sent the link to its 2026-27 student handbook (83 pages). It was read in full on 2026-11-11 and does not mention corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. Until then this record rested on 1 document found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
   - name: STUTTGART SCHOOL DISTRICT
     county: Arkansas

@@ -1616,12 +1616,12 @@ districts:
     county: Greene
     nces_id: "1302490"
     status: silent
-    source: https://resources.finalsite.net/images/v1726871272/greenek12gaus/ej170cyirk4njsl7jpk1/gcps2324handbook.pdf
+    source: https://resources.finalsite.net/images/v1782154328/greenek12gaus/az1d9lbp81wjutnrqllz/FormattedGCSS2026-2027COC3rdedit51826-PDF_2021425u0iyjcdzffvov00fum5tliyp.pdf
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -1630,7 +1630,25 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: code_of_conduct
+        url: https://resources.finalsite.net/images/v1782154328/greenek12gaus/az1d9lbp81wjutnrqllz/FormattedGCSS2026-2027COC3rdedit51826-PDF_2021425u0iyjcdzffvov00fum5tliyp.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: sent by the district
+      - kind: code_of_conduct
+        url: https://resources.finalsite.net/images/v1792967346/greenek12gaus/evl8epxqohzemf87fkww/GCESCodeofConduct2026-2027v2.pdf
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: sent by the district
+      - kind: board_policy
+        url: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=4078&revid=PtMnslshMx86RnOgK76NJEZQw%3D%3D
+        says: silent
+        quote: null
+        retrieved: 2026-11-11
+        by: the district's own policy manual (JCDA, Student Code of Conduct)
+    notes: "Received from the district by email in answer to a public records request, 2026-10-27: the district sent links to its codes of conduct for 2026-27. Both were read in full on 2026-11-11, along with board policy JCDA, Student Code of Conduct (adopted 2000-06-13, revised 2016-10-17), in the district's online policy manual; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. Until then this record rested on 2 documents found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
   - name: Griffin-Spalding County School System
     county: Spalding

@@ -886,13 +886,13 @@ districts:
   - name: Okeechobee County School District
     county: Okeechobee
     nces_id: "1201410"
-    status: silent
-    source: https://www.okeeschools.org/documents/district-info/policies-and-manuals/635580
+    status: unknown
+    source: https://go.boarddocs.com/fl/okee/Board.nsf/goto?open&id=DGDG7S4278B7
     quote: null
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -913,7 +913,14 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read, Florida sweep)
-    notes: 3 documents found by searching for the district's code of student conduct and board policy (student handbook, code of conduct, or policy pages) read in full on 2026-09-26; none mentions corporal punishment. Florida law (s. 1003.32) leaves the practice to school board policy, and since July 2025 a board that permits it must require parental consent; the board policy on the practice was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+      - kind: board_policy
+        url: https://go.boarddocs.com/fl/okee/Board.nsf/goto?open&id=DGDG7S4278B7
+        policy_code: "5.40"
+        says: null
+        quote: The School Board shall review the provisions for corporal punishment at a School Board meeting every three (3) years and shall take public testimony at the meeting.
+        retrieved: 2026-11-11
+        by: sent by the district
+    notes: "Received from the district by email in answer to a public records request, 2026-10-12: the district sent the link to board policy 5.40, Student Control (adopted 1998-07-14, last revised 2023-07-20), which was read on 2026-11-11; a copy is kept in the repository at data/policies/inbound/FL/1201410-link-ad3989.html. The policy says the School Board reviews its provisions for corporal punishment every three years; it does not set those provisions out. The Code of Student Conduct, where they would be, could not be opened from the district's website or its policy portal. Until that code is read, what the district permits is not known. Florida law (s. 1003.32) leaves the practice to school board policy, and since July 2025 a board that permits it must require parental consent. An earlier entry here said the district's documents did not mention the practice; it rested on three policy pages found by search in September, and the board policy that speaks to the practice had not been located. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
   - name: Orange County Public Schools
     county: Orange

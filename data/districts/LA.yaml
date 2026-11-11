@@ -1147,15 +1147,15 @@ districts:
   - name: Ouachita Parish Schools
     county: Ouachita
     nces_id: "2201200"
-    status: silent
-    source: https://www.opsb.net/uploaded/OPSB_CAPS_Policy_Manual_4-2-25/Policies/JD-24.htm
-    quote: null
-    last_verified: 2026-09-26
+    status: allows
+    source: https://app.forethoughtconsulting.com/kb/ouachita-parish-school-board/manual?doc=0bcde670-76fa-4808-825b-1ac18dfd6952
+    quote: The Ouachita Parish School Board shall allow reasonable corporal punishment of unruly pupils.
+    last_verified: 2026-11-11
     legacy_status: allows
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    policy_code: null
+    notes: "Received from the district by email in answer to a public records request, 2026-10-19: the district sent the link to board policy JDA, Corporal Punishment (last revised 2026-02-10), in its online policy manual. It was read there on 2026-11-11. Until then this record rested on 4 documents found by search in September, none of which mentioned the practice. Identity is name and state matched against the federal LEA directory."
+    policy_code: JDA
     crdc_students_latest: null
-    method: searched_document
+    method: records_request
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -1182,6 +1182,17 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
+      - kind: board_policy
+        url: https://app.forethoughtconsulting.com/kb/ouachita-parish-school-board/manual?doc=0bcde670-76fa-4808-825b-1ac18dfd6952
+        says: allows
+        quote: The Ouachita Parish School Board shall allow reasonable corporal punishment of unruly pupils.
+        retrieved: 2026-11-11
+        by: sent by the district
+    quotes:
+      - The Ouachita Parish School Board shall allow reasonable corporal punishment of unruly pupils.
+      - If such punishment is required, it shall be administered with extreme care, tact and caution, and then only by the principal, assistant principal, or the principal's designated representative in the presence of another adult school employee.
+      - Corporal punishment shall be administered by paddling the buttocks only.
+    policy_revised: 2026-02-10
   - name: Plaquemines Parish
     county: Plaquemines Parish
     nces_id: "2201230"
