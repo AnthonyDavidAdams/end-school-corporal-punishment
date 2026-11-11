@@ -2301,13 +2301,13 @@ districts:
   - name: Lakeland School Corporation
     county: LaGrange
     nces_id: "1805520"
-    status: silent
-    source: https://go.boarddocs.com/in/lsc/Board.nsf/Public?open=&id=policies
-    quote: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1805520-recheck-18235347.html
+    quote: 09/29/2014 5000 - Students Welfare 5144.1 Corporal Punishment and Emergency Interventions Corporal Punishment and Emergency Interventions The Board of Education of the Lakeland Central School District prohibits the use of corporal punishment against a student by any teacher, administrator, officer, employee or agent of this School District.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -2316,8 +2316,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-11; the document is kept in the repository at data/policies/inbound/IN/1805520-recheck-18235347.html. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - 09/29/2014 5000 - Students Welfare 5144.1 Corporal Punishment and Emergency Interventions Corporal Punishment and Emergency Interventions The Board of Education of the Lakeland Central School District prohibits the use of corporal punishment against a student by any teacher, administrator, officer, employee or agent of this School District.
   - name: Lanesville Community School Corp
     county: Harrison
     nces_id: "1803720"
