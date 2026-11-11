@@ -378,6 +378,21 @@ def jev_kind(subject, frm, body, atts, links):
 ANCH = re.compile(r"corporal punishment|corporal|paddl|spank|swat|licks", re.I)
 NOT = ["physical restraint", "restraint and seclusion", "seclusion", "mechanical restraint", "chemical restraint", "self-defense", "imminent bodily harm"]
 def clip(t): return [s for s in (re.sub(r"\s+", " ", x).strip() for x in re.split(r"(?<=[.:;])\s+", t)) if 30 < len(s) < 600 and ANCH.search(s) and not any(n in s.lower() for n in NOT)]
+CORE = re.compile(r"corporal|paddl|spank", re.I)
+def layer_problem(t):
+    """Why a PDF's own text layer cannot be trusted, or None. Nemaha Central KS sent policy JDA and its layer
+    read "Corpora l punishment sha ll not be per mitted"; Hancock Place MO sent JGA and its layer was control
+    characters. Both were logged "document silent" (2026-10-27 and 28), both superintendents were thanked,
+    and neither record was filled until the pages were read by eye on 2026-11-11."""
+    s = (t or "").strip()
+    if len(s) < 500: return "almost no text"
+    body = re.sub(r"\s+", "", s)
+    if sum(ch.isascii() and ch.isalpha() for ch in body) < 0.6 * len(body): return "the layer is not words"
+    if len(CORE.findall(body)) > len(CORE.findall(s)): return "words split by stray spaces"
+    return None
+def pdf_pages(path):
+    m = re.search(r"^Pages:\s+(\d+)", subprocess.run(["pdfinfo", path], capture_output=True, text=True).stdout, re.M)
+    return int(m.group(1)) if m else 0
 def doc_text(path):
     head = open(path, "rb").read(5)
     if head == b"%PDF-" and not path.lower().endswith(".pdf"):
@@ -389,9 +404,19 @@ def doc_text(path):
         return htmlmod.unescape(re.sub(r"<[^>]+>", " ", raw))
     if path.lower().endswith(".pdf"):
         t = subprocess.run(["pdftotext", "-layout", path, "-"], capture_output=True, text=True).stdout
-        if len(t.strip()) < 500:
-            subprocess.run(["ocrmypdf", "--force-ocr", "--sidecar", path + ".txt", "--quiet", path, "/dev/null"], capture_output=True, timeout=1200)
-            t = open(path + ".txt").read() if os.path.exists(path + ".txt") else t
+        why = layer_problem(t)
+        if why:
+            # The page as printed outranks a layer that fails the check. A long document whose layer has text
+            # is left alone (a 120-page handbook of tables is not worth ten minutes of a 13-minute cycle).
+            thin = len(t.strip()) < 500; pages = pdf_pages(path)
+            if not thin and pages > 60:
+                log(f"pdf layer suspect ({why}), {pages} pages, too long to read by OCR:", os.path.basename(path)); return t
+            side = path + ".txt"
+            try: subprocess.run(["ocrmypdf", "--force-ocr", "--sidecar", side, "--quiet", path, "/dev/null"], capture_output=True, timeout=1200 if thin else 600)
+            except subprocess.TimeoutExpired: log("pdf OCR timed out:", os.path.basename(path))
+            o = open(side, encoding="utf-8", errors="ignore").read() if os.path.exists(side) else ""
+            if o.strip() and (thin or len(ANCH.findall(o)) > len(ANCH.findall(t))):
+                log(f"pdf read by OCR ({why}):", os.path.basename(path)); return o
         return t
     if path.lower().endswith((".docx", ".doc")):
         return subprocess.run(["textutil", "-convert", "txt", "-stdout", path], capture_output=True, text=True).stdout
@@ -419,6 +444,9 @@ def policy_code_in(text):
     # A heading form: the code on the line of, or just above, the title ('JDA Corporal Punishment JDA',
     # 'STUDENTS 09.433' two lines above 'Corporal Punishment').
     lines = [re.sub(r"[\u200b\u00a0\ufeff]", " ", l) for l in (text or "")[:4000].splitlines()[:60]]
+    for l in lines[:8]:   # the Missouri Consultants for Education layout: the code alone on the first line ('S-170-P', Clinton MO)
+        m = re.fullmatch(r"\s*([A-Z]-\d{3}-[A-Z])\s*", l)
+        if m: return m.group(1)
     m = re.search(r"Descriptor Code:?\s*\n(?:\s*\n)*\s*(\d{1,4}(?:\.\d{1,4})?|[A-Z]{2,5}(?:-\d{1,4})?)\b", "\n".join(lines))   # the TSBA layout (Tennessee)
     if m: return m.group(1)
     for i, l in enumerate(lines):
@@ -432,10 +460,23 @@ def policy_code_in(text):
             return c
     return None
 STATES_2 = {"AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC"}
-HEADING_NOISE = STATES_2 | {"URL", "BOE", "BOEP", "DESE", "SY", "JV", "CEO", "CFO", "COO", "HR", "IT", "FYI", "ASAP", "LLC", "INC", "ADA", "IEP", "FERPA", "FOIA", "DOE", "SB", "HB", "RSMO", "KSA", "AND", "THE", "FOR", "OUR", "NOT", "OF", "TO", "IN", "BY", "ON", "ANY", "ALL", "NO", "IS", "BE", "OR", "AS", "AT", "WILL", "SHALL", "MAY", "MUST", "USE", "USD", "ISD", "CPS", "PDF", "FAX", "EXT", "RE", "FW", "FWD", "AM", "PM", "EDT", "CDT", "EST", "CST", "MST", "PST", "MDT", "PDT", "II", "III", "IV", "VI", "VII", "VIII", "USA", "FROM", "SENT", "DATE", "EMAIL"}
+HEADING_NOISE = STATES_2 | {"DHS", "DCS", "CPS", "OSSB", "BIP", "LEA", "IDEA", "URL", "BOE", "BOEP", "DESE", "SY", "JV", "CEO", "CFO", "COO", "HR", "IT", "FYI", "ASAP", "LLC", "INC", "ADA", "IEP", "FERPA", "FOIA", "DOE", "SB", "HB", "RSMO", "KSA", "AND", "THE", "FOR", "OUR", "NOT", "OF", "TO", "IN", "BY", "ON", "ANY", "ALL", "NO", "IS", "BE", "OR", "AS", "AT", "WILL", "SHALL", "MAY", "MUST", "USE", "USD", "ISD", "CPS", "PDF", "FAX", "EXT", "RE", "FW", "FWD", "AM", "PM", "EDT", "CDT", "EST", "CST", "MST", "PST", "MDT", "PDT", "II", "III", "IV", "VI", "VII", "VIII", "USA", "FROM", "SENT", "DATE", "EMAIL"}
 
 RULE_RE = re.compile(r"\b(shall|must|may not|will not|prohibit(s|ed)?|permitted|authoriz(es|ed)|the policy (does not|prohibits|allows|permits|states)|policy\s+[A-Z]{0,4}-?\d+)\b", re.I)
 FIRST_PERSON_RE = re.compile(r"\b(we|our|us|I|I'm|I've|my|me)\b")
+def code_in_name(fn):
+    """The policy code when the district put it in the file's name and the document does not print it
+    ('fob-corporal-punishment.doc' from Yale OK, 'Policy_FOB_-_Corporal_Punishment.pdf', 'S-170-P.pdf').
+    Capitals beside the word policy, or any two to four letters right before the word corporal."""
+    base = re.sub(r"^[0-9A-Za-z]+?-(?=\D)", "", os.path.basename(fn), count=1) if re.match(r"^\d{7}-", os.path.basename(fn)) else os.path.basename(fn)
+    m = re.match(r"([A-Z]-\d{3}-[A-Z])\.", base)
+    if m: return m.group(1)
+    t = [x for x in re.split(r"[^A-Za-z0-9]+", os.path.splitext(base)[0]) if x]
+    for i, x in enumerate(t):
+        if not re.fullmatch(r"[A-Za-z]{2,4}", x) or x.upper() in HEADING_NOISE or x.lower() in ("new", "old", "copy", "the", "our", "pdf", "doc", "rev", "form"): continue
+        if i + 1 < len(t) and t[i + 1].lower() == "corporal": return x.upper()
+        if x.isupper() and ((i and t[i - 1].lower() == "policy") or (i + 1 < len(t) and t[i + 1].lower() == "policy")): return x
+    return None
 def ocr_text(path):
     """What a picture says, by tesseract; empty when the tool is missing or the picture has no words."""
     try:
@@ -452,8 +493,24 @@ def policy_like(text):
         if re.search(r"corporal punishment", s, re.I) and RULE_RE.search(s) and not FIRST_PERSON_RE.search(s):
             return True
     return False
+FILING = []          # what became of each document in the reply being handled; handle_one hands it to the writer
+WHY_NOT = [None]     # why the last document was not recorded
+NOT_RECORDED = {"held": "it mentions corporal punishment but the reader was not sure what the rule is; NOT recorded",
+                "unreadable": "no usable text came out of the file; NOT read, NOT recorded",
+                "nothing": "read in full; no sentence about corporal punishment in it; nothing recorded from it",
+                "nothing_at_link": "the link opened, but the page we got has no sentence about corporal punishment (a policy portal often shows its text only in a browser); NOT recorded",
+                "unopened": "the link could not be opened; NOT read, NOT recorded"}
 def file_document(r, path, how):
-    """Clip -> Jev classify -> record -> merge -> publish. Returns the status recorded, or None."""
+    """Clip -> Jev classify -> record -> merge -> publish. Returns the status recorded, "held", or None.
+    Whatever happens is also noted in FILING, because None used to mean four different things and the
+    writer was told none of them."""
+    WHY_NOT[0] = None
+    got = _file_document(r, path, how)
+    kind = "link" if how.startswith("link in") else "page" if how.startswith("re-checked") else "pasted" if how.startswith("pasted") else "attached"
+    what = how.split(": ", 1)[1] if kind in ("link", "page") and ": " in how else re.sub(r"^[0-9A-Za-z]+-(screenshot-\d+-)?", "", os.path.basename(path))
+    FILING.append({"what": what, "kind": kind, "outcome": got or WHY_NOT[0] or "nothing"})
+    return got
+def _file_document(r, path, how):
     scrub(path)
     text = doc_text(path); cands = clip(text)
     if how.startswith("pasted into") and (not policy_like(text) or not policy_code_in(text)):   # a pasted policy without its code is unpublishable as bans (validate.mjs); kept as the district's word until the code or a link arrives (Millington TN blocked every publish for two days)
@@ -462,7 +519,7 @@ def file_document(r, path, how):
         try: os.remove(path)
         except OSError: pass
         r["district_says"] = (cands[0].strip()[:300] if cands else None); r["district_says_on"] = datetime.date.today().isoformat()
-        return None
+        WHY_NOT[0] = "statement"; return None
     rel = os.path.relpath(path, ROOT); url = RAW + rel
     # A page we found by searching is not a page the district sent. It has to prove whose it is, its
     # sentences have to be rules and not menus or news, and the record says where it was found. On
@@ -478,12 +535,16 @@ def file_document(r, path, how):
             log("re-check: not filed,", r["name"], "|", why, "|", found[:100])
             try: os.remove(path)
             except OSError: pass
-            return None
+            WHY_NOT[0] = "not_theirs"; return None
         cands = [c for c in cands if not evidence.quote_problem(c, r["state"], r["name"])]
     if not cands:
-        log("document silent on corporal punishment:", rel); return None
+        # A web page with no rule on it is an index we could not get past; a file we could not read is
+        # unreadable; a file read in full that never mentions it is silent, and that is an answer.
+        WHY_NOT[0] = "nothing_at_link" if how.startswith("link in") and path.lower().endswith((".html", ".htm")) else \
+                     "unreadable" if len(text.strip()) < 200 or (path.lower().endswith(".pdf") and layer_problem(text)) else "nothing"
+        log("document silent on corporal punishment:" if WHY_NOT[0] == "nothing" else f"nothing read from the document ({WHY_NOT[0]}):", rel); return None
     title = f"document found on the district's own website ({found})" if found else f"document received by records request ({how})"
-    row = {"site": None, "district": r["name"], "_state": r["state"], "verdict": "rule", "policies": [{"code": policy_code_in(text), "title": title, "url": url, "candidates": cands[:40], "last_revised": None}]}
+    row = {"site": None, "district": r["name"], "_state": r["state"], "verdict": "rule", "policies": [{"code": policy_code_in(text) or (code_in_name(path) if not how.startswith(("link in", "re-checked", "pasted")) else None), "title": title, "url": url, "candidates": cands[:40], "last_revised": None}]}
     tmp = os.path.join(LOGDIR, f"inbound-{r['id']}.jsonl"); open(tmp, "w").write(json.dumps(row) + "\n")
     cls = os.path.join(LOGDIR, f"inbound-{r['id']}-classified.json"); rec = os.path.join(LOGDIR, f"inbound-{r['id']}-records.json")
     env = dict(os.environ, OPENROUTER_API_KEY=jev_key())
@@ -504,6 +565,10 @@ def file_document(r, path, how):
     json.dump(recs, open(rec, "w"), indent=1)
     if not recs:
         log("held for review (below threshold):", rel); return "held"
+    if recs[0].get("status") == "bans" and not recs[0].get("policy_code"):
+        log("held for review (a prohibition with no policy code cannot be published):", rel, "|", (recs[0].get("quote") or "")[:120]); return "held"
+    if os.environ.get("ESCP_DRY"):   # a rehearsal: everything up to the record, nothing merged or published
+        log("dry: would record", r["state"], r["name"], recs[0].get("status"), recs[0].get("policy_code"), "|", (recs[0].get("quote") or "")[:160]); return recs[0]["status"]
     subprocess.run(["node", "tools/merge-scan.mjs", rec], cwd=ROOT, capture_output=True)
     publish(f"{'Found on the district site' if found else 'Records request answered'}: {nice(r['name'])}, {r['state']}")
     return recs[0]["status"]
@@ -611,6 +676,13 @@ def inbox():
             text_anthony(track.digest(load()))
         except Exception as e:
             log("digest failed", repr(e)[:120])
+UNFILED_NOTE = ("Something they sent with this message has NOT been read into the record. DOCUMENTS THIS THREAD PRODUCED says what became of each item. "
+                "The RECORD NOW line is what the record held before this message, not what their document says. Do not say or imply that the record was updated, "
+                "that their policy is now on the record, or what their document says, prohibits or permits. Do not choose thank_recorded. Do not ask them to send it "
+                "again, do not ask for a link, and do not file a formal request: they answered. Choose answer: thank them, say it arrived, and say it will be read "
+                "and the record updated from it. If a link could not be opened or showed no policy text, you may say that in one plain sentence. Ask for nothing.")
+SAYS_RECORDED = re.compile(r"\b(record (now )?(shows|reads|says|lists|reflects|has)|(is|are|it'?s|been|was) (now )?(recorded|on (the|our) record|listed|added|posted)|"
+                           r"(I'?ve|I have|we'?ve|we have|I|we) (now |just |already )?(recorded|updated|added|listed|posted|marked|corrected)|now on (the|our) record)\b", re.I)
 HARD_BLOCK = re.compile(r"attorney|lawyer|legal action|cease|desist|stop (contacting|emailing|writing)|do not contact|harass|complaint against|report you|unsubscribe", re.I)
 NOTE_MARKS = re.compile(r"\[(HELD|DRAFT)[^\]]*\]|They wrote:|^WHY:|^MOVE:", re.M)
 def reply_to(r, frm, mid, subject, text, to=None, attachments=None):
@@ -663,12 +735,13 @@ def save_docs(r, atts, links, facts):
     queue = list(dict.fromkeys((facts.get("document_links") or []) + links))[:4]
     hopped = 0
     while queue:
-        u = queue.pop(0)
+        u = queue.pop(0); opened = False
         for variant in recheck_mod.expand(u):
             ext = ".pdf" if re.search(r"\.pdf|format=pdf", variant, re.I) else ".txt" if "format=txt" in variant else ".html"
             p = os.path.join(dd, tag(variant) + ext)
             if not recheck_mod.fetch(variant, p):
                 continue
+            opened = True
             head = open(p, "rb").read(5)
             if head[:5] != b"%PDF-" and ext == ".pdf":
                 ext = ".html"
@@ -682,10 +755,11 @@ def save_docs(r, atts, links, facts):
                 got.append(status); queue = []; break
             # A page, not a document: take the one or two links on it that look like the policy.
             if hopped < 2 and head[:5] != b"%PDF-":
-                inner = recheck_mod.links_inside(p, variant)
+                inner = recheck_mod.links_inside(p, variant) or recheck_mod.gdoc_links(variant, p)
                 if inner:
                     hopped += 1; queue = inner[:3] + queue
             break
+        if not opened: FILING.append({"what": u, "kind": "link", "outcome": "unopened"})
     return [g for g in got if g]
 
 _LEA = {}
@@ -713,14 +787,27 @@ def sane_record(x):
     y = dict(x); y["status"] = "silent"; y["district_says"] = y.get("district_says") or x.get("quote"); y["quote"] = None; y["policy_code"] = None
     log("record read as silent (bans without a policy behind it):", x.get("name")); return y
 
+_DISTRICTS = {}
+def state_records(state):
+    """One state's records by nces_id, parsed again only when the file changes. The plain loader took 0.6 s
+    a call on Missouri, and every reply, desk pass and refile asks once per thread."""
+    import yaml
+    path = os.path.join(ROOT, "data/districts", f"{state}.yaml"); stamp = os.path.getmtime(path)
+    hit = _DISTRICTS.get(state)
+    if not hit or hit[0] != stamp:
+        d = yaml.load(open(path), Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader)); by = {}
+        for x in (d if isinstance(d, list) else d.get("districts", [])):
+            if x.get("nces_id"): by.setdefault(str(x["nces_id"]), x)
+        hit = _DISTRICTS[state] = (stamp, by)
+    return hit[1]
+
 def record_status(r):
     """What the record says for this district right now (after any merge), with its source and code."""
     try:
-        import yaml
-        d = yaml.safe_load(open(os.path.join(ROOT, "data/districts", f"{r['state']}.yaml")))
-        for x in (d if isinstance(d, list) else d.get("districts", [])):
-            if r.get("nces_id") and str(x.get("nces_id")) == str(r["nces_id"]):
-                return sane_record(x)
+        x = state_records(r["state"]).get(str(r.get("nces_id") or "")) if r.get("nces_id") else None
+        if x: return sane_record(dict(x))
+    except FileNotFoundError:
+        pass   # a request to a state office or a researcher has no district file behind it
     except Exception as ex:
         log("record_status failed", repr(ex)[:80])
     return {}
@@ -829,7 +916,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     # 1. Everything the reply carries, filed. The merge decides what the record says afterwards.
     # Policy text pasted straight into the email (Anderson County KY pasted 09.433 in full) is a document:
     # the email itself is kept in the repository as the source.
-    filed = []
+    filed = []; del FILING[:]
     pasted = [x for x in clip(triage_mod.strip_quoted(body)) if len(x) > 40]
     if pasted and not atts:
         try:
@@ -881,15 +968,28 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         r["recorded_status"] = record.get("status") or recorded[0]
         entry["action"] = f"recorded {r['recorded_status']}" + (f" (document said {recorded[0]}; board policy governs)" if record.get("status") and record["status"] != recorded[0] else "")
     if facts.get("claims_no_practice"): r["claims_no_practice"] = True
+    # What they sent, and what became of each item: an attachment, a link the triage read as the document,
+    # or anything that was recorded. A signature link that led nowhere is not a document and is left out.
+    sent_us = [f for f in FILING if f["outcome"] not in ("statement", "not_theirs")
+               and (f["kind"] in ("attached", "pasted") or f["what"] in (facts.get("document_links") or []) or f["outcome"] not in NOT_RECORDED)]
+    if recorded: sent_us = [f for f in sent_us if f["outcome"] != "nothing_at_link"]   # the index page that led to the policy
+    unfiled = [f for f in sent_us if f["outcome"] in ("held", "unreadable", "unopened", "nothing_at_link")] if not recorded else []
+    desk_note = None
+    if unfiled:
+        r["unfiled_since"] = r.get("unfiled_since") or datetime.date.today().isoformat()
+        entry["unfiled"] = [{"what": f["what"][:200], "outcome": f["outcome"]} for f in unfiled[:6]]
+        desk_note = UNFILED_NOTE
+        log("arrived and not recorded:", r["state"], r["name"], "|", "; ".join(f"{f['what'][:60]} ({f['outcome']})" for f in unfiled[:4]))
+    elif recorded: r.pop("unfiled_since", None)
     if fold:
         entry["action"] = (entry.get("action") or "") + "; filed, answered with their later message in the same batch"; entry["move"] = "fold"
         log("folded", r["state"], r["name"], mid[:40]); finish(); return
 
     # 3. The whole thread, read by the writer. Then one move.
     thread = thread_of(r, reqs) + [{"who": "them", "date": msg.get("Date"), "text": triage_mod.strip_quoted(body), "links": links[:10], "attachments": [a[0] for a in atts], "kind": kind}]
-    filed_desc = [{"what": x, "says": y} for x, y in zip((facts.get("document_links") or []) + [a[0] for a in atts], filed)] or ([{"says": f} for f in filed] if filed else [])
-    decision = writer_mod.decide(r, thread, record, filed_desc, facts, recheck, quiet)
-    decision = writer_mod.unstock(decision, r, thread, record, filed_desc, facts, recheck, quiet)   # one redraft if it opened with a stock line
+    filed_desc = [{"what": f["what"], "says": NOT_RECORDED.get(f["outcome"], f["outcome"])} for f in sent_us] or ([{"says": f} for f in filed] if filed else [])
+    decision = writer_mod.decide(r, thread, record, filed_desc, facts, recheck, quiet, note=desk_note)
+    decision = writer_mod.unstock(decision, r, thread, record, filed_desc, facts, recheck, quiet, note=desk_note)   # one redraft if it opened with a stock line
     move = decision["move"] if decision else "hold"
     text = decision["reply"] if decision else None
     why = decision["why"] if decision else f"the writer returned nothing usable ({writer_mod.LAST_ERROR[0]})"
@@ -913,6 +1013,16 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
         amts = [float(a.replace(",", "")) for a in re.findall(r"\$\s*(\d[\d,]*(?:\.\d+)?)", triage_mod.strip_quoted(body))]
         if max(amts) > 5:
             move, why = "hold", f"a fee of ${max(amts):g} is quoted; over the $5 line; " + why
+    # Nothing was recorded, so nothing is said to have been. Ten superintendents were thanked for a policy
+    # "now on the record" between 2026-10-27 and 11-10 while the reader had logged their document as silent.
+    if unfiled and move == "thank_recorded":
+        move, why = "answer", "their document is not on the record yet, so this is a thank-you and not a confirmation; " + why
+    if unfiled and text and move != "hold" and SAYS_RECORDED.search(text):
+        again = writer_mod.decide(r, thread, record, filed_desc, facts, recheck, quiet, note=desk_note + " REDRAFT: your last draft said the record was updated. It was not. Take that out.")
+        if again and again.get("reply") and not SAYS_RECORDED.search(again["reply"]):
+            move, text, why = "answer", again["reply"], "redrafted (the first draft said the record was updated); " + why
+        else:
+            move, why, text = "hold", "the draft says the record was updated and nothing was recorded; " + why, None
     if quiet:
         move, why = "hold", "Anthony is in this thread; " + why
     # Anthony sends nothing by hand: a hold that still has a usable reply goes out as an answer unless
@@ -937,7 +1047,7 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     elif move != "hold":
         if reply_to(r, frm, mid, subject, text):
             entry["our_reply"] = text; entry["action"] = (entry.get("action") or "") + f"; replied ({move})"
-            if move == "thank_recorded": r["status"] = "answered"
+            if move == "thank_recorded" or (unfiled and move == "answer"): r["status"] = "answered"   # they answered; reading it is on us (unfiled_since)
             elif move == "ask_link": r["awaiting_link_since"] = datetime.date.today().isoformat(); r["status"] = "sent"
             elif move == "ask_residency_proof": r["residency_asked_at"] = datetime.date.today().isoformat(); r["status"] = "sent"
             elif move == "ask_minutes": r["minutes_requested_at"] = datetime.date.today().isoformat(); r["status"] = "sent"; r["claim"] = "the district does not use corporal punishment"
@@ -1319,13 +1429,16 @@ def bounces():
     save(reqs); log(f"bounces: {retried} resent of {len(todo)}"); return retried
 
 
-def refile(names=None):
+def refile(names=None, ids=None, strict=False):
     """Threads where a document was sent but nothing recorded: try again with the current readers (Drive
     open?id links, pasted policy text, one-hop pages), across every reply in the thread. We told these
-    superintendents the record would be updated; this is how it gets done."""
+    superintendents the record would be updated; this is how it gets done. strict (the cycle's own pass)
+    follows attachments and the links triage read as the document, never a link from a signature."""
     reqs = load(); done = 0
     for r in reqs:
         if names and r["name"] not in names: continue
+        if ids and r["id"] not in ids: continue
+        if not r.get("nces_id"): continue
         if record_status(r).get("quote"): continue
         theirs = [e for e in r.get("replies") or [] if e.get("from") != "us"]
         if not theirs: continue
@@ -1335,7 +1448,8 @@ def refile(names=None):
             if not os.path.exists(path): continue
             msg = email.message_from_bytes(open(path, "rb").read()); body, atts = part_text(msg); frm = email.utils.parseaddr(msg.get("From"))[1]
             pasted = [x for x in clip(triage_mod.strip_quoted(body)) if len(x) > 40]
-            if not pasted and not atts and not e.get("links"): continue
+            links = [] if strict else (e.get("links") or [])
+            if not pasted and not atts and not links and not (e.get("facts") or {}).get("document_links"): continue
             tried = True
             if pasted and not atts:
                 dd = os.path.join(INBOUND, r["state"]); os.makedirs(dd, exist_ok=True)
@@ -1343,18 +1457,45 @@ def refile(names=None):
                 open(pth, "w").write(f"Policy text as sent by email from {frm} on {msg.get('Date')}:\n\n{triage_mod.strip_quoted(body)}\n")
                 try: got = file_document(r, pth, f"pasted into the district's email reply of {str(msg.get('Date'))[:16]}"); filed += [got] if got else []
                 except Exception as ex: log("refile pasted failed", r["name"], repr(ex)[:100])
-            if e.get("links") or atts:
-                try: filed += [g for g in save_docs(r, atts, e.get("links") or [], e.get("facts") or {}) if g]
+            if links or atts or (e.get("facts") or {}).get("document_links"):
+                try: filed += [g for g in save_docs(r, atts, links, e.get("facts") or {}) if g]
                 except Exception as ex: log("refile links failed", r["name"], repr(ex)[:100])
             e["filed"] = [f for f in filed if f] or ["nothing"]
             if record_status(r).get("quote"): break
         if not tried: continue
         rec = record_status(r)
         if rec.get("quote"):
-            r["recorded_status"] = rec.get("status"); r.pop("unreadable", None); done += 1; log("refiled", r["state"], r["name"], "->", rec.get("status"), (rec.get("source") or "")[:70])
+            r["recorded_status"] = rec.get("status"); r.pop("unreadable", None); r.pop("unfiled_since", None); done += 1; log("refiled", r["state"], r["name"], "->", rec.get("status"), (rec.get("source") or "")[:70])
         else:
             r["unreadable"] = datetime.date.today().isoformat(); log("refile: still nothing readable for", r["state"], r["name"])
     save(reqs); log(f"refile: {done} records filled"); return done
+
+
+def refile_pass(n=1):
+    """The cycle's share of the unread documents: a thread whose document arrived and was not recorded is
+    read again, three times at most and two days apart (a portal that was down, a reader that has since
+    learned the format). What is still unread after that stays on `run.py unfiled` for a person."""
+    today = datetime.date.today(); reqs = load(); cleared = 0
+    for r in reqs:
+        if r.get("unfiled_since") and record_status(r).get("quote"): r.pop("unfiled_since", None); cleared += 1   # filed some other way since
+    if cleared: save(reqs)
+    due = [r["id"] for r in sorted(reqs, key=lambda r: r.get("refile_tried") or "") if r.get("unfiled_since") and (r.get("refile_tries") or 0) < 3
+           and (not r.get("refile_tried") or (today - datetime.date.fromisoformat(r["refile_tried"])).days >= 2)]
+    for rid in due[:n]:
+        # Counted before the reading, not after: a scan that outlasts the watchdog would otherwise be tried every cycle.
+        reqs = load(); r = next(x for x in reqs if x["id"] == rid)
+        r["refile_tries"] = (r.get("refile_tries") or 0) + 1; r["refile_tried"] = today.isoformat(); save(reqs)
+        refile(ids={rid}, strict=True)
+    left = sum(1 for r in load() if r.get("unfiled_since"))
+    if due or left: log(f"refile pass: {min(n, len(due))} read again, {left} documents received and not yet on the record")
+
+def unfiled_list():
+    """Every thread where the district sent something that is not on the record yet, oldest first."""
+    rows = sorted((r for r in load() if r.get("unfiled_since")), key=lambda r: r["unfiled_since"])
+    for r in rows:
+        last = next((e for e in reversed(r.get("replies") or []) if e.get("unfiled")), {})
+        print(f"  {r['unfiled_since']}  {r['state']}  {nice(r['name'])[:34]:<34} tries {r.get('refile_tries') or 0}  " + "; ".join(f"{u['what'][:70]} ({u['outcome']})" for u in last.get("unfiled") or []))
+    print(f"\n  {len(rows)} threads with a document received and not yet on the record")
 
 
 def peers_for(state):
@@ -1862,6 +2003,8 @@ if __name__ == "__main__":
         save(reqs0); print("(dry: nothing kept)"); sys.exit()
     if cmd == "board":
         import track; track.cli(load()); sys.exit()
+    if cmd == "unfiled": unfiled_list(); sys.exit()
+    if cmd == "refile": refile(names=set(sys.argv[2:]) or None); sys.exit()
     if cmd == "send": send(int(sys.argv[2]) if len(sys.argv) > 2 else 25)
     elif cmd == "inbox": inbox()
     elif cmd == "followup": followup()
@@ -1905,6 +2048,10 @@ if __name__ == "__main__":
         # The parked threads, two a cycle, after the inbox so a slow model call never starves it.
         try: desk_pass()
         except Exception as ex: log("desk failed", repr(ex)[:100])
+        # Last, and only with time in hand: one document that arrived and was not recorded is read again.
+        try:
+            if time.time() < CYCLE_DEADLINE - 300: refile_pass(1)
+        except Exception as ex: log("refile pass failed", repr(ex)[:100])
     elif cmd == "compliments":
         # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
         reqs = load(); n = 0

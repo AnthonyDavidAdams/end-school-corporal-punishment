@@ -139,7 +139,8 @@ a{{color:var(--blue);text-decoration:none}}a:hover{{text-decoration:underline}}p
 <div><b>{sum(v['today'] for _, v in by):,}</b><span>district rules found</span></div>
 <div><b>{sent_today}</b><span>emails sent to districts</span></div>
 <div><b>{replies_today}</b><span>replies that came in</span></div>
-<div><b>{pending}</b><span>emails lined up to go</span></div></div></div>""")
+<div><b>{pending}</b><span>emails lined up to go</span></div>
+<div><b>{sum(1 for r in reqs if r.get('unfiled_since'))}</b><span>documents a district sent that we have not read into the record yet</span></div></div></div>""")
 
     # 4. Who we've asked
     waiting = districts_asked - replied

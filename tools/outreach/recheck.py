@@ -13,6 +13,7 @@ different and much better email than "I can't find it".
 
     python3 tools/outreach/recheck.py <nces_id|name> [domain]     # try one, print what happened
 """
+import html as htmllib
 import json, os, re, subprocess, sys, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -234,6 +235,38 @@ def expand(url):
         out.append(f"https://docs.google.com/{m.group(1)}/d/{m.group(2)}/export?format={kind}")
     out.append(url)
     return out
+
+
+def gdoc_links(url, path):
+    """A Google Doc that is the district's index of policies: the files linked from the rows that name
+    corporal punishment. Harrison AR sent its index twice (2026-10-12 and 11-10) and was asked twice for
+    "the direct link to 4.39", which was one click away in the document the superintendent had sent.
+    The text export drops hyperlinks, so the page export is read for them. One hop, the district's own
+    document, and only the rows that name the practice."""
+    m = DOCS.search(url)
+    if not m or m.group(1) != "document":
+        return []
+    try:
+        if not re.search(r"corporal", open(path, encoding="utf-8", errors="ignore").read(400_000), re.I):
+            return []
+        page = path + ".index.html"
+        if not fetch(f"https://docs.google.com/document/d/{m.group(2)}/export?format=html", page):
+            return []
+        html = open(page, encoding="utf-8", errors="ignore").read(3_000_000)
+        os.remove(page)
+    except Exception:
+        return []
+    out = []
+    for row in re.findall(r"<tr\b.*?</tr>", html, re.I | re.S):
+        if not re.search(r"corporal", re.sub(r"<[^>]+>", " ", row), re.I):
+            continue
+        for u in re.findall(r'href="([^"]+)"', row):
+            u = htmllib.unescape(u)
+            q = urllib.parse.parse_qs(urllib.parse.urlparse(u).query).get("q")
+            u = q[0] if q and "google.com/url" in u else u
+            if (DRIVE.search(u) or DRIVE_OPEN.search(u) or DOCS.search(u) or re.search(r"\.(pdf|docx?)(\?|$)", u, re.I)) and u not in out:
+                out.append(u)
+    return out[:2]
 
 
 def links_inside(path, base, want=r"corporal|polic|handbook|conduct|discipline|manual"):

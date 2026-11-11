@@ -242,18 +242,19 @@ def decide(r, thread, record, filed, facts, recheck, quiet, note=None):
 STOCK_RE = re.compile("|".join(re.escape(x) for x in STOCK), re.I)
 
 
-def unstock(decision, r, thread, record, filed, facts, recheck, quiet):
+def unstock(decision, r, thread, record, filed, facts, recheck, quiet, note=None):
     """The brief bans the stock openers, but the thread itself is full of them (every earlier reply of ours
     said "that's a straight answer and I appreciate it"), and the model imitates the thread over the rule.
     One redraft with the offending phrase named; the second draft is taken as it comes."""
     text = (decision or {}).get("reply") or ""
     m = STOCK_RE.search(text[:220])
     if not m: return decision
+    desk = f"\n\nDESK NOTE (rules that apply to this thread; follow them): {note}" if note else ""
     note = (f"\n\nREDRAFT. Your previous draft opened with \"{m.group(0)}\", which is on the banned list. Keep the same move ({decision.get('move')}) and content, "
             "but rewrite so the first sentence refers to one specific thing they said and none of the banned phrases appear anywhere.")
     second = None
     if USE_CLI:
-        t = ask_cli(BRIEF, situation(r, thread, record, filed, facts, recheck, quiet) + note)
+        t = ask_cli(BRIEF, situation(r, thread, record, filed, facts, recheck, quiet) + desk + note)
         if t: second = parse(t)
     if second and second.get("reply") and not STOCK_RE.search(second["reply"][:220]):
         second["why"] = (second.get("why") or "") + " (redrafted: the first draft opened with a stock line)"; return second
