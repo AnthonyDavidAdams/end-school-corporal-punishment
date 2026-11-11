@@ -1656,14 +1656,21 @@ districts:
   - name: Montgomery County Schools
     county: Montgomery
     nces_id: "3703060"
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://v3.boardpolicyonline.com/b/montgomery/s/2103465
+    quote: No school plan for managing student behavior may authorize the use of corporal punishment.
+    policy_code: "4302"
     crdc_students_latest: null
-    last_verified: null
-    notes: "2026-11-10 review: the document on file belonged to a same-named district in KY; reset pending a re-read."
+    last_verified: 2026-11-11
+    notes: Read from the district's board policy manual on the NCSBA policy portal (boardpolicyonline.com), 2026-11-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - No school plan for managing student behavior may authorize the use of corporal punishment.
+      - The board prohibits corporal punishment, believing that other consequences are more appropriate and effective for teaching self-control.
+      - No teacher, substitute teacher, student teacher, bus driver, or other employee, contractor or volunteer may use corporal punishment to discipline any student.
+      - Reasonable force that is necessary to protect oneself or others is not considered corporal punishment.
   - name: Moore County Schools
     county: Moore
     nces_id: "3703090"

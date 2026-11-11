@@ -449,14 +449,18 @@ districts:
   - name: Bucklin
     county: Ford
     nces_id: "2004140"
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://files.smartsites.parentsquare.com/1515/student_personnel.pdf
+    quote: Corporal punishment is prohibited from being used in the Bucklin USD 459 school district.
+    policy_code: manual
     crdc_students_latest: null
-    last_verified: null
-    notes: "2026-11-10 review: the document on file belonged to a same-named district in MO; reset pending a re-read."
+    last_verified: 2026-11-11
+    notes: Read from the district's board policy manual (KASB policy JDA), 2026-11-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - Corporal punishment is prohibited from being used in the Bucklin USD 459 school district.
   - name: Buhler
     county: Reno
     nces_id: "2004200"
@@ -2326,14 +2330,18 @@ districts:
   - name: Independence
     county: Montgomery
     nces_id: "2007650"
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/2706/Iusd/891140e4-d988-4b17-947a-317e370cf7c5/J_--_STUDENTS.pdf?disposition=inline
+    quote: Corporal punishment shall not be permitted in the school district.
+    policy_code: JDA
     crdc_students_latest: null
-    last_verified: null
-    notes: "2026-11-10 review: the document on file came from the website of a different district in TN (Williamson County Schools, Independence High School); reset pending a re-read."
+    last_verified: 2026-11-11
+    notes: Read from the district's board policy manual (KASB policy JDA), 2026-11-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - Corporal punishment shall not be permitted in the school district.
   - name: Ingalls
     county: Gray
     nces_id: "2007680"
@@ -4915,14 +4923,18 @@ districts:
   - name: Wellington
     county: Sumner
     nces_id: "2012840"
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://policy.kasb.org/Kansas/browse/Wellingtonusd353/Wellingtonusd353/sop0000168798
+    quote: Corporal punishment shall not be permitted in the school district.
+    policy_code: JDA
     crdc_students_latest: null
-    last_verified: null
-    notes: "2026-11-10 review: the document on file belonged to a same-named district in TX; reset pending a re-read."
+    last_verified: 2026-11-11
+    notes: Read from the district's board policy manual (KASB policy JDA), 2026-11-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - Corporal punishment shall not be permitted in the school district.
   - name: Wellsville
     county: Franklin
     nces_id: "2012870"
