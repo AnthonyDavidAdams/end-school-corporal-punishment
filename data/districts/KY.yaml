@@ -3302,25 +3302,14 @@ districts:
   - name: Robertson County
     county: Robertson
     nces_id: "2105040"
-    status: bans
-    source: https://cdnsm5-ss9.sharpschool.com/Userfiles/DBFiles/server_7522/202301/47024418.pdf
-    quote: Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-      - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-      - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-      - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-      - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-      - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-      - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-      - Corporal Punishment Corporal punishment is not used in the Robertson County School System.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KY). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kentucky (it says Tennessee 45 times)); reset pending a re-read."
   - name: Rockcastle County
     county: Rockcastle
     nces_id: "2105070"

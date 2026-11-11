@@ -5,14 +5,7 @@ districts:
   - name: ALMA SCHOOL DISTRICT
     county: Crawford
     nces_id: "0502250"
-    status: bans
-    method: searched_document
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/1531646/Student_Handbook_.pdf
-    quote: 25 CORPORAL PUNISHMENT Using physical force to discipline students is not permitted.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    notes: Found by searching for, walking to, or OCR-reading the district's own discipline document, read 2026-09-25. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: khesslen@almasd.net
@@ -20,6 +13,12 @@ districts:
       phone: (479) 632-4791
       contact_source: ADE Data Center Superintendent Contact List, 2026-09-25
       as_of: 2026-09-25
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Arkansas (it says Michigan 11 times)); reset pending a re-read."
   - name: ALPENA SCHOOL DISTRICT
     county: Boone
     nces_id: "0502280"
@@ -1733,19 +1732,14 @@ districts:
   - name: Harrisburg School District
     county: Poinsett
     nces_id: "0507350"
-    status: bans
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5858/Hcsd/d19a46ec-1943-4be1-bcbe-57a4dbb1c45a/Official_2026-2027-Family-and-Student-Code-of-Conduct-Handbook.pdf?disposition=inline
-    quote: Corporal punishment is not an authorized disciplinary measure of the District.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment is not an authorized disciplinary measure of the District.
-      - Corporal punishment is not an authorized disciplinary measure of the District.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of AR). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Arkansas (it says Pennsylvania 35 times)); reset pending a re-read."
   - name: Harrison School District
     county: Boone
     nces_id: "0507380"
@@ -2644,23 +2638,14 @@ districts:
   - name: Mountain Home School District
     county: Baxter
     nces_id: "0500043"
-    status: silent
-    source: https://www.mtnhomesd.org/departments/policies-and-procedures
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: board_policy
-        url: https://www.mtnhomesd.org/departments/policies-and-procedures
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Arkansas (it says Idaho 4 times)); reset pending a re-read."
   - name: MOUNTAIN PINE SCHOOL DISTRICT
     county: Garland
     nces_id: "0510170"

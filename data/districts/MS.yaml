@@ -2019,14 +2019,7 @@ districts:
   - name: NORTH BOLIVAR CONS SCHOOL DIST
     county: Bolivar
     nces_id: "2800186"
-    status: allows
-    method: searched_document
-    source: https://content.myconnectsuite.com/api/documents/44f3d272693542658a6dfd67e8b1c34b
-    quote: "CORPORAL PUNISHMENT – POLICY JDB Reasonable corporal punishment of a non-disabled student is permitted as a disciplinary measure with the following requirements:"
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for the district's board policy on corporal punishment and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory; an ambiguous name was not recorded.
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: amiller@nbcsd.k12.ms.us
@@ -2034,6 +2027,12 @@ districts:
       phone: null
       contact_source: MDE District Directory mdek12.org/dd, 2026-09-25
       as_of: 2026-09-25
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (it is the handbook of the West Bolivar Consolidated School District); reset pending a re-read."
   - name: NORTH PANOLA SCHOOL DISTRICT
     county: Panola
     nces_id: "2803210"

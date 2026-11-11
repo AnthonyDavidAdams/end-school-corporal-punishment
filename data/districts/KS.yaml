@@ -359,25 +359,20 @@ districts:
     notes: Read from the district's board policy manual (KASB policy JDA), 2026-10-10. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
   - name: Blue Valley School District
-    county: Johnson
+    county: Riley
     nces_id: "2010980"
-    status: silent
-    source: https://www.bluevalleyk12.org/families/code-of-conduct
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2010980-email-597ee96c.txt
+    quote: Corporal punishment shall not be permitted in the school district.
+    policy_code: JDA
     crdc_students_latest: null
-    last_verified: 2026-09-29
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
-    documents:
-      - kind: code_of_conduct
-        url: https://www.bluevalleyk12.org/families/code-of-conduct
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Policy JDA, Corporal Punishment, pasted in full by the superintendent by email in answer to a public records request, 2026-10-27; the email is kept in the repository at data/policies/inbound/KS/2010980-email-597ee96c.txt. The superintendent wrote the same day that the district's policies are not posted on a website. This is USD 384 at Randolph in Riley County. Until 2026-11-11 this record carried the code of conduct of Blue Valley USD 229 in Overland Park, a different district, and that district's county. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Corporal punishment shall not be permitted in the school district.
   - name: Bluestem
     county: Butler
     nces_id: "2008550"
@@ -433,19 +428,14 @@ districts:
   - name: Brewster
     county: Thomas
     nces_id: "2004080"
-    status: bans
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5054/Bsd/c141910a-fa16-4711-8922-6e8c46dabb04/24-25_Student_Handbook_High_school.pdf?disposition=inline
-    quote: Every teacher and principal shall have the authority to discipline any pupil for disruptive or disorderly conduct while under his/her supervision or control, provided that no teacher, administrator, or other school employee shall mistreat or abuse any pupil by administering any unreasonable or corporal punishment.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Every teacher and principal shall have the authority to discipline any pupil for disruptive or disorderly conduct while under his/her supervision or control, provided that no teacher, administrator, or other school employee shall mistreat or abuse any pupil by administering any unreasonable or corporal punishment.
-      - Every teacher and principal shall have the authority to discipline any pupil for disruptive or disorderly conduct while under his/her supervision or control, provided that no teacher, administrator, or other school employee shall mistreat or abuse any pupil by administering any unreasonable or corporal punishment.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Washington 16 times)); reset pending a re-read."
   - name: Bucklin
     county: Ford
     nces_id: "2004140"
@@ -540,23 +530,14 @@ districts:
   - name: Caldwell School District
     county: Sumner
     nces_id: "2004380"
-    status: silent
-    source: https://chs.caldwellschools.org/
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-29
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: other
-        url: https://chs.caldwellschools.org/
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Idaho 2 times)); reset pending a re-read."
   - name: Caney Valley
     county: Montgomery
     nces_id: "2004410"
@@ -603,29 +584,14 @@ districts:
   - name: Central Heights
     county: Franklin
     nces_id: "2000014"
-    status: allows
-    source: http://s3.amazonaws.com/scschoolfiles/883/student_handbook_2019-2020.pdf
-    quote: "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-      - "CORPORAL PUNISHMENT Corporal punishment is limited to spanking or paddling the student, and is governed by the following guidelines:"
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Texas 48 times)); reset pending a re-read."
   - name: Central Plains
     county: Barton
     nces_id: "2000349"
@@ -1035,23 +1001,14 @@ districts:
   - name: Copeland
     county: Gray
     nces_id: "2005190"
-    status: silent
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/1490/CMS/2670625/Middle__School_Handbook__1_.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/1490/CMS/2670625/Middle__School_Handbook__1_.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says New Jersey 2 times)); reset pending a re-read."
   - name: Crest
     county: Anderson
     nces_id: "2008040"
@@ -1093,23 +1050,18 @@ districts:
   - name: De Soto School District
     county: Johnson
     nces_id: "2005490"
-    status: silent
-    source: https://files-backend.assets.thrillshare.com/0rqdyl76lt8j7bn3mlul0izvb3tv?disposition=inline
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://www.usd232.org/policy-details/~board/boe-policies/post/jda-corporal-punishment
+    quote: Corporal punishment shall not be permitted in the school district.
+    policy_code: JDA
     crdc_students_latest: null
-    last_verified: 2026-09-29
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://files-backend.assets.thrillshare.com/0rqdyl76lt8j7bn3mlul0izvb3tv?disposition=inline
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "Received from the district by email in answer to a public records request, 2026-10-11: the superintendent sent the link to board policy JDA, Corporal Punishment (board approved 06/2005 and 12/2008), on the district's own website. It was read there on 2026-11-11 and a copy of the page is kept in the repository at data/policies/inbound/KS/2005490-link-jda.html. Until then this record rested on a handbook found by search that belonged to a De Soto in Missouri. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Corporal punishment shall not be permitted in the school district.
   - name: Deerfield
     county: Kearny
     nces_id: "2005400"
@@ -1408,29 +1360,14 @@ districts:
   - name: Ellsworth
     county: Ellsworth
     nces_id: "2005870"
-    status: silent
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/216722/2018_-_2019_EHS_Student_Handbook_-_Google_Docs.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/216722/2018_-_2019_EHS_Student_Handbook_-_Google_Docs.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1192720/EMS_Student_Handbook_.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Maine 9 times)); reset pending a re-read."
   - name: Emporia
     county: Lyon
     nces_id: "2005940"
@@ -3072,29 +3009,14 @@ districts:
   - name: Montezuma
     county: Gray
     nces_id: "2009630"
-    status: silent
-    source: https://campussuite-storage.s3.amazonaws.com/prod/1558643/58fee358-3e9d-11e9-a230-125a10eb9994/2461307/fc22598c-1d6c-11ed-8990-0e126915f5a3/file/22-23%20Student%20Parent%20Handbook%20Updated%208.4.2022.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://campussuite-storage.s3.amazonaws.com/prod/1558643/58fee358-3e9d-11e9-a230-125a10eb9994/2461307/fc22598c-1d6c-11ed-8990-0e126915f5a3/file/22-23%20Student%20Parent%20Handbook%20Updated%208.4.2022.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/73/District/4672056/Montezuma_Elementary_School_2024-2025_Student_Handbook.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Colorado 21 times)); reset pending a re-read."
   - name: Morris County
     county: Morris
     nces_id: "2005280"
@@ -3633,37 +3555,14 @@ districts:
   - name: Perry Public Schools
     county: Jefferson
     nces_id: "2010620"
-    status: bans
-    source: https://core-docs.s3.amazonaws.com/documents/asset/uploaded_file/591413/PHS_Student_Handbook__v_1.2_.pdf
-    quote: Corporal punishment is illegal and will not be used.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-      - Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include physical pain caused by reasonable physical activities associated with athletic training.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Michigan 37 times)); reset pending a re-read."
   - name: Phillipsburg
     county: Phillips
     nces_id: "2010650"
@@ -3830,25 +3729,14 @@ districts:
   - name: Prairie Hills
     county: Nemaha
     nces_id: "2000350"
-    status: bans
-    source: https://resources.finalsite.net/images/v1709008366/phsd144net/gnwvk9nbvvxcqe4c0hoj/2223studenthandbook-updated.pdf
-    quote: Corporal punishment is prohibited.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment is prohibited.
-      - Corporal punishment is prohibited.
-      - Delegation of Authority Each teacher, and any other school personnel when students are under his or her charge, is authorized to impose any disciplinary measure, other than suspension, expulsion, corporal punishment, or in-school suspension, that is appropriate and in accordance with the policies and rules on student discipline.
-      - Corporal punishment is prohibited.
-      - Corporal punishment is prohibited.
-      - Corporal punishment is prohibited.
-      - Delegation of Authority Each teacher, and any other school personnel when students are under his or her charge, is authorized to impose any disciplinary measure, other than suspension, expulsion, corporal punishment, or in-school suspension, that is appropriate and in accordance with the policies and rules on student discipline.
-      - Corporal punishment is prohibited.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Illinois 40 times)); reset pending a re-read."
   - name: Prairie View
     county: Linn
     nces_id: "2008250"
@@ -4476,19 +4364,14 @@ districts:
   - name: Spring Hill
     county: Johnson
     nces_id: "2011850"
-    status: allows
-    source: https://www.shc.edu/wp-content/uploads/2025/08/SHC-Student-Handbook-07.2025.pdf
-    quote: The term hazing does not include corporal punishment administered by officials or employees of public schools when in accordance with policies adopted by local boards of education.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - The term hazing does not include corporal punishment administered by officials or employees of public schools when in accordance with policies adopted by local boards of education.
-      - The term hazing does not include corporal punishment administered by officials or employees of public schools when in accordance with policies adopted by local boards of education.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of KS). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Alabama 23 times)); reset pending a re-read."
   - name: St Francis Comm Sch
     county: Cheyenne
     nces_id: "2011880"

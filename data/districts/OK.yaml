@@ -104,25 +104,14 @@ districts:
   - name: Afton
     county: Ottawa
     nces_id: "4002520"
-    status: bans
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3394/ACSD/2608533/Student_Handbook_2023-2024_WITH_Code_of_Conduct.pdf
-    quote: Corporal punishment of any student by any district employee is strictly forbidden.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment of any student by any district employee is strictly forbidden.
-      - Corporal punishment of any student by any district employee is strictly forbidden.
-      - Corporal punishment of any student by any district employee is strictly forbidden.
-      - Corporal punishment of any student by any district employee is strictly forbidden.
-      - Corporal punishment of any student by any district employee is strictly forbidden.
-      - Corporal punishment of any student by any district employee is strictly forbidden.
-      - Corporal punishment of any student by any district employee is strictly forbidden.
-      - Corporal punishment of any student by any district employee is strictly forbidden.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says New York 10 times)); reset pending a re-read."
   - name: AGRA
     county: Lincoln
     nces_id: "4002550"
@@ -572,41 +561,14 @@ districts:
   - name: Bearden School District
     county: Okfuskee
     nces_id: "4003690"
-    status: allows
-    source: https://s3.amazonaws.com/scschoolfiles/192/2022-23_hanbook.pdf
-    quote: Penalties will be left up to the discretion of the principal based upon the severity of the infraction and may include, but are not limited to verbal warnings, parent contact, detention, Saturday school, corporal punishment, suspensions, and expulsions.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-10-11
-    method: searched_document
-    parent_control: none
-    documents:
-      - kind: board_policy
-        url: https://www.beardenschools.org/bearden-school-district-board-of-ed
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-      - kind: other
-        url: https://www.beardenschools.org/district-information
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-      - kind: other
-        url: https://www.beardenschools.org/board-minutes
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-    notes: Document located by a searching model and read by us; the quote is verbatim from the fetched document, 2026-10-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - Penalties will be left up to the discretion of the principal based upon the severity of the infraction and may include, but are not limited to verbal warnings, parent contact, detention, Saturday school, corporal punishment, suspensions, and expulsions.
-      - Corporal Punishment The Bearden School Board recognizes the need for firmness in disciplinary action to deal with problems which occur in the classrooms and during other school activities, whether on or off school premises.
-      - Accordingly, the Bearden School Board authorizes the administration of corporal punishment as part of the disciplinary process.
-      - Corporal punishment may be administered by any certified employee of the district to any pupil for disruptive or unmanageable conduct as outlined in the behavior code, or other conduct that would tend to disrupt the educational process.
-      - Refusal to take corporal punishment will result in other consequences that may range up to ISS, OSS or recommendationfor expulsion.
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Arkansas 39 times)); reset pending a re-read."
   - name: BEAVER
     county: Beaver
     nces_id: "4003750"
@@ -1080,23 +1042,14 @@ districts:
   - name: Bristow
     county: Creek
     nces_id: "4005460"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3938/bms/5894620/25-26_Bristow_Student_Handbook_English.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/3938/bms/5894620/25-26_Bristow_Student_Handbook_English.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says California 4 times)); reset pending a re-read."
   - name: Broken Arrow Public Schools
     county: Tulsa
     nces_id: "4005490"
@@ -1573,21 +1526,20 @@ districts:
   - name: CENTRAL
     county: Sequoyah
     nces_id: "4007140"
-    status: consent_required
-    source: https://caps.centralcss.org/Policies/H-03-05a.23_(JDA).htm
-    quote: The use of any form of corporal punishment is prohibited in any public school unless the student's parent or legal guardian provides written consent for the use of corporal punishment in a document created by the state Department of Education solely for such purpose.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: "The classifier held this at 0.82; a frontier agent read the clipped sentences and settled it at 0.90. Its reasoning: Hard for two reasons. (1) The policy contains two rule sentences that pull opposite ways: the board's own grant (\"shall allow reasonable corporal punishment of unruly students\") and a blanket prohibition-unless-written-consent. The second is Louisiana's statute (La. R.S. 17:416.1 as amended 2023) reproduced in the board's policy F-11.3, and it conditions the grant: the board allows the practice, b"
     county_source: nces_edge_geocode_2023_24
-    method: searched_document
     contact:
       district_email: deads@centralps.k12.ok.us
       superintendent: David Eads
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (it is a policy of the Central Community School System in Louisiana); reset pending a re-read."
   - name: Central High
     county: Stephens
     nces_id: "4007170"
@@ -2135,32 +2087,14 @@ districts:
   - name: Collinsville
     county: Tulsa
     nces_id: "4008370"
-    status: allows
-    source: https://cdnsm5-ss18.sharpschool.com/UserFiles/Servers/Server_57273/File/Resources/Parents/Handbooks/23-24%20Student%20Handbook.pdf
-    quote: 5.3.3 Corporal Punishment Moderate use of physical force or physical contact by an Administrator as may be necessary to maintain discipline or to enforce school rules.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: none
-    quotes:
-      - 5.3.3 Corporal Punishment Moderate use of physical force or physical contact by an Administrator as may be necessary to maintain discipline or to enforce school rules.
-      - (State law does not forbid corporal punishment.
-      - The DeKalb County Board of Education does not recognize a “no paddle” list.
-      - 5.3.3 Corporal Punishment Moderate use of physical force or physical contact by an Administrator as may be necessary to maintain discipline or to enforce school rules.
-      - (State law does not forbid corporal punishment.
-      - The DeKalb County Board of Education does not recognize a “no paddle” list.
-      - 5.3.3 Corporal Punishment Moderate use of physical force or physical contact by an Administrator as may be necessary to maintain discipline or to enforce school rules.
-      - (State law does not forbid corporal punishment.
-      - The DeKalb County Board of Education does not recognize a “no paddle” list.
-      - 5.3.3 Corporal Punishment Moderate use of physical force or physical contact by an Administrator as may be necessary to maintain discipline or to enforce school rules.
-      - (State law does not forbid corporal punishment.
-      - The DeKalb County Board of Education does not recognize a “no paddle” list.
-      - 5.3.3 Corporal Punishment Moderate use of physical force or physical contact by an Administrator as may be necessary to maintain discipline or to enforce school rules.
-      - (State law does not forbid corporal punishment.
-      - The DeKalb County Board of Education does not recognize a “no paddle” list.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Alabama 54 times)); reset pending a re-read."
   - name: Comanche
     county: Stephens
     nces_id: "4008460"
@@ -2518,46 +2452,25 @@ districts:
   - name: Davenport
     county: Lincoln
     nces_id: "4009450"
-    status: silent
-    source: https://cdnsm5-ss10.sharpschool.com/UserFiles/Servers/Server_21064228/File/2024-2025%20MS%20&%20HS%20Handbook%20(1).pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://cdnsm5-ss10.sharpschool.com/UserFiles/Servers/Server_21064228/File/2024-2025%20MS%20&%20HS%20Handbook%20(1).pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Washington 21 times)); reset pending a re-read."
   - name: Davis
     county: Murray
     nces_id: "4009510"
-    status: bans
-    source: https://cdnsm5-ss18.sharpschool.com/UserFiles/Servers/Server_1997375/File/Student%20Life/DSHS%20Student_Family%20Handbook%20(25-26).pdf
-    quote: DJUSD does not allow corporal punishment at our district under any circumstances.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-01
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://online.flippingbook.com/view/965688587/
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: Found by searching for the district's policy document and read 2026-11-01 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - DJUSD does not allow corporal punishment at our district under any circumstances.
-      - DJUSD does not allow corporal punishment at our district under any circumstances.
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says California 12 times)); reset pending a re-read."
   - name: Deborah Brown (Charter)
     county: Tulsa
     nces_id: "4000751"
@@ -2753,23 +2666,14 @@ districts:
   - name: Drummond
     county: Garfield
     nces_id: "4010170"
-    status: silent
-    source: https://drummondhigh.org/information/school-policies/
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: board_policy
-        url: https://drummondhigh.org/information/school-policies/
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (it is the website of Drummond Community High School, a school of that name outside Oklahoma); reset pending a re-read."
   - name: Duncan
     county: Stephens
     nces_id: "4010290"
@@ -3142,23 +3046,14 @@ districts:
   - name: Forest Grove School District
     county: McCurtain
     nces_id: "4011850"
-    status: silent
-    source: https://policy.osba.org/forestg/index.asp
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-29
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: other
-        url: https://policy.osba.org/forestg/index.asp
-        says: silent
-        quote: null
-        retrieved: 2026-09-29
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-29; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Oregon 2 times)); reset pending a re-read."
   - name: Forgan
     county: Beaver
     nces_id: "4011880"
@@ -3808,34 +3703,14 @@ districts:
   - name: Hanna
     county: McIntosh
     nces_id: "4013680"
-    status: allows
-    source: https://www.slideserve.com/wyome/c-e-hanna-student-handbook
-    quote: fighting, harassment, verbal threats, disrespect to school employees, or any other class II or III offenses listed in the OCS Code of Conduct Corporal Punishment • See Oxford City Code of Conduct ISI • In-school intervention • Counted present;
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-01
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: other
-        url: https://hanna.k12.ok.us/policy
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.hanna.k12.ok.us/159910_2
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: Found by searching for the district's policy document and read 2026-11-01 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - fighting, harassment, verbal threats, disrespect to school employees, or any other class II or III offenses listed in the OCS Code of Conduct Corporal Punishment • See Oxford City Code of Conduct ISI • In-school intervention • Counted present;
-      - fighting, harassment, verbal threats, disrespect to school employees, or any other class II or III offenses listed in the OCS Code of Conduct Corporal Punishment • See Oxford City Code of Conduct ISI • In-school intervention • Counted present;
-      - fighting, harassment, verbal threats, disrespect to school employees, or any other class II or III offenses listed in the OCS Code of Conduct Corporal Punishment • See Oxford City Code of Conduct ISI • In-school intervention • Counted present;
-      - fighting, harassment, verbal threats, disrespect to school employees, or any other class II or III offenses listed in the OCS Code of Conduct Corporal Punishment • See Oxford City Code of Conduct ISI • In-school intervention • Counted present;
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Georgia 1 time)); reset pending a re-read."
   - name: Hardesty
     county: Texas
     nces_id: "4013740"
@@ -4627,23 +4502,14 @@ districts:
   - name: Ketchum
     county: Craig
     nces_id: "4016380"
-    status: silent
-    source: https://catalog.ketchum.edu/university-student-handbook/student-conduct/student-conduct-process/
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://catalog.ketchum.edu/university-student-handbook/student-conduct/student-conduct-process/
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says California 1 time)); reset pending a re-read."
   - name: Keystone
     county: Tulsa
     nces_id: "4016470"
@@ -5500,49 +5366,25 @@ districts:
   - name: Midway
     county: Muskogee
     nces_id: "4014670"
-    status: bans
-    source: https://uploads-ssl.webflow.com/6310b4318e12aace44047630/63beb641bd2de3498183fe04_MISD%20Student%20Handbook.pdf
-    quote: Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subject to other physical force as a means of discipline for violations of the Student Code of Conduct.
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subject to other physical force as a means of discipline for violations of the Student Code of Conduct.
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subject to other physical force as a means of discipline for violations of the Student Code of Conduct.
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subject to other physical force as a means of discipline for violations of the Student Code of Conduct.
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subject to other physical force as a means of discipline for violations of the Student Code of Conduct.
-      - Prohibiting the Use of Corporal Punishment The Board prohibits the use of corporal punishment in the District.
-      - Students shall not be spanked, paddled, or subject to other physical force as a means of discipline for violations of the Student Code of Conduct.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Texas 81 times)); reset pending a re-read."
   - name: Millwood
     county: Oklahoma
     nces_id: "4020080"
-    status: silent
-    source: https://www.millwoodschool.org/editoruploads/files/Back-to-School/Student%20and%20Family%20Handbook%2024-25.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://www.millwoodschool.org/editoruploads/files/Back-to-School/Student%20and%20Family%20Handbook%2024-25.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (it is the handbook of Millwood School, a private school); reset pending a re-read."
   - name: Minco
     county: Grady
     nces_id: "4020100"
@@ -5657,23 +5499,14 @@ districts:
   - name: Morris
     county: Okmulgee
     nces_id: "4020310"
-    status: silent
-    source: https://www.morriscs.org/district/code_of_conduct/v_i_i_i__prohibited_school_conduct
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: other
-        url: https://www.morriscs.org/district/code_of_conduct/v_i_i_i__prohibited_school_conduct
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the address was never shown to be this district's and now serves an unrelated commercial page); reset pending a re-read."
   - name: Morrison
     county: Noble
     nces_id: "4020340"
@@ -5869,29 +5702,14 @@ districts:
   - name: Nashoba
     county: Pushmataha
     nces_id: "4021120"
-    status: silent
-    source: https://nashobanrhs.ss8.sharpschool.com/families/student_handbook
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://nashobanrhs.ss8.sharpschool.com/families/student_handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://cdnsm5-ss8.sharpschool.com/UserFiles/Servers/Server_1160004/File/NRHS%20Student%20Handbook%20publish_9_17.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Massachusetts 2 times)); reset pending a re-read."
   - name: NEW LIMA
     county: Seminole
     nces_id: "4021360"
@@ -6040,29 +5858,14 @@ districts:
   - name: Norwood
     county: Cherokee
     nces_id: "4021900"
-    status: silent
-    source: https://campussuite-storage.s3.amazonaws.com/prod/1213978/583ade96-581b-11e7-99ef-124f7febbf4a/2914252/23f0305c-e8b7-11ef-b981-0a58a9feac02/file/NHS%20Student%20Handbook%2024-25%20Final%20Winter%202025.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://campussuite-storage.s3.amazonaws.com/prod/1213978/583ade96-581b-11e7-99ef-124f7febbf4a/2914252/23f0305c-e8b7-11ef-b981-0a58a9feac02/file/NHS%20Student%20Handbook%2024-25%20Final%20Winter%202025.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://campussuite-storage.s3.amazonaws.com/prod/1213978/583ade96-581b-11e7-99ef-124f7febbf4a/2309391/279c2ff2-0b4e-11ec-967b-0e2b5f74362d/file/NHSStudentHandbook2021-2022.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Massachusetts 25 times)); reset pending a re-read."
   - name: NOWATA
     county: Nowata
     nces_id: "4021930"
@@ -6421,35 +6224,14 @@ districts:
   - name: Panola
     county: Latimer
     nces_id: "4023400"
-    status: silent
-    source: https://www.panola.edu/sites/default/files/2024-07/2024-2025%20Student%20Handbook.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://www.panola.edu/sites/default/files/2024-07/2024-2025%20Student%20Handbook.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.panola.edu/sites/default/files/2021-07/2020springpathfinderupdated_2-11-5-2020.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.panola.edu/sites/default/files/2024-07/2024-2025%20Student%20Handbook%20(1).pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Texas 43 times)); reset pending a re-read."
   - name: Paoli School District
     county: Garvin
     nces_id: "4023430"
@@ -6669,72 +6451,25 @@ districts:
   - name: Piedmont
     county: Canadian
     nces_id: "4023970"
-    status: bans
-    source: https://content.myconnectsuite.com/api/documents/811f55ab2d094c09b0e44b465a5c70ad.pdf
-    quote: 10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-11-03
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://resources.finalsite.net/images/v1632929134/piedmontschoolsorg/jongqfd1krz8bxr67t3a/PiedmontPublicSchoolsStudentHandbook21-222.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: board_policy
-        url: https://www.piedmontschools.org/district/board-of-education/board-policies
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://content.myconnectsuite.com/api/documents/08307b8e5d74485796246af9e8804669
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: Found by searching for the district's policy document and read 2026-11-03 (nightly). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - 10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.
-      - 10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.
-      - 10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.
-      - 10 CORPORAL PUNISHMENT Piedmont City Schools does not utilize corporal punishment administered by school personnel.
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Alabama 35 times)); reset pending a re-read."
   - name: Pioneer
     county: Grady
     nces_id: "4024150"
-    status: silent
-    source: https://www.ppv.k12.ok.us/
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: other
-        url: https://www.ppv.k12.ok.us/
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://campussuite-storage.s3.amazonaws.com/prod/3059/7610d33a-0c90-11e6-b537-22000bd8490f/3066832/5721e8f4-007f-11f1-8fad-0a58a9feac02/file/_2025-26%20Pioneer%20Handbook.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://pioneerchristian.org/wp-content/uploads/2024/08/20240502-24-25-Handbook.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (ppv.k12.ok.us is the website of Pioneer-Pleasant Vale, OK); reset pending a re-read."
   - name: Pioneer-Pleasant Vale
     county: Garfield
     nces_id: "4024510"
@@ -7260,29 +6995,14 @@ districts:
   - name: Ripley
     county: Payne
     nces_id: "4025950"
-    status: silent
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1141/RIHS/4798657/Ripley_High_School_Student_Handbook.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1141/RIHS/4798657/Ripley_High_School_Student_Handbook.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/1141/RIHS/5900203/Ripley_High_School_Student_Handbook_2025-2026.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says West Virginia 11 times)); reset pending a re-read."
   - name: Riverside
     county: Canadian
     nces_id: "4026010"
@@ -7329,19 +7049,14 @@ districts:
   - name: Rocky Mountain
     county: Adair
     nces_id: "4026250"
-    status: bans
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5679/Rmds/e47c52a0-9b80-4487-a0ef-650061566e7a/2025--2026-RMDS-Family-Handbook-.pdf?disposition=inline
-    quote: Corporal punishment or other humiliation or frightening techniques are prohibited.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - Corporal punishment or other humiliation or frightening techniques are prohibited.
-      - Corporal punishment or other humiliation or frightening techniques are prohibited.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Colorado 23 times)); reset pending a re-read."
   - name: Roff
     county: Pontotoc
     nces_id: "4026280"
@@ -7917,11 +7632,11 @@ districts:
     nces_id: "4028590"
     status: allows
     source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4028590-Policy_FOB.pdf
-    quote: POLICY FOB CORPORAL PUNISHMENT It is the policy of the Sterling Board of Education to administer corporal punishment only as a last resort after other reason-able corrective measures have been used without success.
-    policy_code: DHS
+    quote: It is the policy of the Sterling Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+    policy_code: FOB
     crdc_students_latest: null
     last_verified: 2026-11-11
-    notes: Received from the district by email in answer to a public records request, 2026-11-11; the document is kept in the repository at data/policies/inbound/OK/4028590-Policy_FOB.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-11; the document is kept in the repository at data/policies/inbound/OK/4028590-Policy_FOB.pdf. It is board policy FOB, Corporal Punishment (adopted 2017-10-10, revised 2022-05-10). The first filing carried the policy's heading in the quote, a line-break hyphen inside a word, and the letters DHS from the text as the policy code; all three were corrected against the document on 2026-11-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: tparrish@sterling.k12.ok.us
@@ -7932,13 +7647,14 @@ districts:
     method: records_request
     parent_control: opt_out
     quotes:
-      - POLICY FOB CORPORAL PUNISHMENT It is the policy of the Sterling Board of Education to administer corporal punishment only as a last resort after other reason-able corrective measures have been used without success.
+      - It is the policy of the Sterling Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
       - However, under no circumstances shall any child in DHS custody be administered corporal punishment.
       - School district personnel are prohibited from using corporal punishment on students identified with the most significant cognitive disabilities according to criteria established by the State Department of Education unless the punishment is addressed in the student´s individualized education program (IEP).
-      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to request the nonadministration of corporal punishment to their chil-dren.
+      - At the beginning of the school year, parents and legal guardians will be provided the opportunity to request the nonadministration of corporal punishment to their children.
       - If a request for the nonadministration of corporal punishment has not been signed, the administration shall notify a parent or legal guardian that corporal punishment is being planned.
       - At that time, the parent or legal guardian may request that corporal punishment not be administered.
       - If a parent or legal guardian has requested that corporal punishment not be administered to the student, alternative discipline will be considered and may include suspension from school.
+    policy_revised: 2022-05-10
   - name: Stigler
     county: Haskell
     nces_id: "4028650"
@@ -9201,35 +8917,14 @@ districts:
   - name: Westville
     county: Adair
     nces_id: "4032400"
-    status: bans
-    source: https://core-docs.s3.us-east-1.amazonaws.com/documents/asset/uploaded_file/330/WJH/4757808/WJHS_Student_Handbook_2024-2025.pdf
-    quote: • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-      - • Vandalism • Possession of Weapons • Repeated violation of rules in student handbook • Initiation, Harassment or Hazing of Freshmen • Ten or more referrals - for chronic misconduct • Smoking including electronic cigarettes - 3rd offense • Truancy - 3rd offense • Striking another student- 2nd offense • Threatening and/or Intimidating Act • Harassment and/or Bullying • Possession or Distribution of Drug Use Paraphernalia • Gangs or Unsanctioned Organization insignias and/or activities • Gross Insubordination Corporal Punishment Corporal punishment is illegal and will not be used.
-      - Corporal punishment does not include reasonable force as needed to maintain safety for students, staff, or other persons, or for the purpose of self- defense or defense of property.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of OK). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Illinois 21 times)); reset pending a re-read."
   - name: Wetumka
     county: Hughes
     nces_id: "4032430"

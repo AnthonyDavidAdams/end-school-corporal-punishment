@@ -37,49 +37,25 @@ districts:
   - name: Arlington
     county: Shelby
     nces_id: "4700152"
-    status: silent
-    source: https://arlington.novusagenda.com/agendapublic/AttachmentViewer.ashx?AttachmentID=21974&ItemID=18553
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://arlington.novusagenda.com/agendapublic/AttachmentViewer.ashx?AttachmentID=21974&ItemID=18553
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Tennessee (it says Massachusetts 25 times)); reset pending a re-read."
   - name: Bedford County
     county: Bedford
     nces_id: "4700180"
-    status: silent
-    source: https://bedford.sharpschool.net/families_students/code_of_conduct
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: code_of_conduct
-        url: https://bedford.sharpschool.net/families_students/code_of_conduct
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: other
-        url: https://www.bedfordk12tn.com/apps/pages/index.jsp?uREC_ID=1708650&type=d&pREC_ID=1872492
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Tennessee (it says Virginia 12 times)); reset pending a re-read."
   - name: Benton County
     county: Benton
     nces_id: "4700240"
@@ -1119,21 +1095,14 @@ districts:
   - name: Johnson City
     county: Washington
     nces_id: "4702130"
-    status: bans
-    source: https://cdnsm5-ss10.sharpschool.com/UserFiles/Servers/Server_18540992/File/District/Board%20Policy%20Manual/5300.pdf
-    quote: 75 Corporal punishment of any student by any district employee is prohibited in accordance with and subject to the provisions of Policy 5314.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
-    parent_control: unknown
-    quotes:
-      - 75 Corporal punishment of any student by any district employee is prohibited in accordance with and subject to the provisions of Policy 5314.
-      - 75 Corporal punishment of any student by any district employee is prohibited in accordance with and subject to the provisions of Policy 5314.
-      - 75 Corporal punishment of any student by any district employee is prohibited in accordance with and subject to the provisions of Policy 5314.
-      - 75 Corporal punishment of any student by any district employee is prohibited in accordance with and subject to the provisions of Policy 5314.
-    notes: Found by searching for the district's policy document and read 2026-09-26 (Mothership sweep of TN). `quotes` carries every rule-bearing sentence in document order. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Tennessee (it says New York 4 times)); reset pending a re-read."
   - name: Kingsport
     county: Sullivan
     nces_id: "4702190"
@@ -1449,15 +1418,14 @@ districts:
   - name: McNairy County
     county: McNairy
     nces_id: "4702880"
-    status: allows
-    method: searched_document
-    source: https://4.files.edl.io/f9c9/09/01/22/181934-66e0dfd2-2dd9-463c-af06-1e203457a345.pdf
-    quote: Within forty-eight (48) hours of the imposition of corporal punishment of a pupil within the special school district, the pupil shall have the right to be examined by a physician to determine if the punishment was excessive.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Found by searching for, or walking to, the district's own discipline document and read 2026-09-24. `quotes` carries every rule-bearing sentence in document order. Identity is the district's name and state matched against the federal LEA directory; a name matching more than one district was not recorded.
     county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (it is a Tennessee Department of Education report that never names the district); reset pending a re-read."
   - name: Meigs County
     county: Meigs
     nces_id: "4702910"
@@ -1675,23 +1643,14 @@ districts:
   - name: Newport
     county: Cocke
     nces_id: "4703210"
-    status: silent
-    source: https://newporthigh.bsd405.org/student-life/student-handbook
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://newporthigh.bsd405.org/student-life/student-handbook
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Tennessee (it says Washington 8 times)); reset pending a re-read."
   - name: Oak Ridge
     county: Anderson
     nces_id: "4703240"

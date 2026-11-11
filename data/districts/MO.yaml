@@ -489,25 +489,14 @@ districts:
   - name: Branson R-IV
     county: Taney
     nces_id: "2905760"
-    status: bans
-    source: https://docs.google.com/document/d/1aVXEOibW40jwHsVCW5hVeeD5lnMWzGBwiwWKi58D34M/mobilebasic
-    quote: Physical force and corporal punishment shall not be used as disciplinary methods.
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-10-11
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://www.branson.k12.mo.us/parents/handbooks
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: Document located by a searching model and read by us; the quote is verbatim from the fetched document, 2026-10-11. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
-    quotes:
-      - Physical force and corporal punishment shall not be used as disciplinary methods.
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (it is the policy manual of MSAD 60 in Maine); reset pending a re-read."
   - name: BRAYMER C-4
     county: Caldwell
     nces_id: "2905820"
@@ -526,41 +515,20 @@ districts:
   - name: Brentwood
     county: St. Louis
     nces_id: "2905880"
-    status: silent
-    source: https://filecabinet9.eschoolview.com/ED17BF81-9CBA-43CE-A758-035A72751686/52f1d899-dfc6-4fb8-bb21-3a55264c5dbe.pdf
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://simbli.eboardsolutions.com/Policy/ViewPolicy.aspx?S=437&revid=dfdwglbr1fplusv00ujCWXerA%3D%3D
+    quote: No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_code: JGA-2
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://filecabinet9.eschoolview.com/ED17BF81-9CBA-43CE-A758-035A72751686/52f1d899-dfc6-4fb8-bb21-3a55264c5dbe.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://filecabinet9.eschoolview.com/ED17BF81-9CBA-43CE-A758-035A72751686/b22b3505-c710-41e9-b07b-4ab7b7a8c6e5.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.bb-sd.com/ElementaryHandbook.aspx
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-      - kind: handbook
-        url: https://www.bb-sd.com/Downloads/BMS%20Handbook%202023-24.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 4 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "Received from the district by email in answer to a public records request, 2026-10-27: the superintendent sent the link to board policy JGA-2, Corporal Punishment (adopted 1999-01-19, last revised 2022-04-19), in the district's online policy manual. It was read there on 2026-11-11. Until then this record rested on handbooks found by search that belonged to a Brentwood in Pennsylvania. Identity is name and state matched against the federal LEA directory."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - No person employed by or volunteering on behalf of the district shall administer corporal punishment or cause corporal punishment to be administered upon a student attending district schools.
+    policy_adopted: 1999-01-19
+    policy_revised: 2022-04-19
   - name: Bronaugh R-VII
     county: Vernon
     nces_id: "2905910"
@@ -1056,23 +1024,14 @@ districts:
   - name: Clayton
     county: St. Louis
     nces_id: "2909720"
-    status: silent
-    source: https://www.clayton.edu/academic-catalog/docs/2017-2018-Undergraduate-Handbook-Catalog.pdf
+    crdc_students_latest: null
+    county_source: nces_edge_geocode_2023_24
+    status: unknown
+    source: null
     quote: null
     policy_code: null
-    crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://www.clayton.edu/academic-catalog/docs/2017-2018-Undergraduate-Handbook-Catalog.pdf
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    county_source: nces_edge_geocode_2023_24
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document is about Georgia (172 mentions; Missouri 1)); reset pending a re-read."
   - name: CLEARWATER R-I
     county: Wayne
     nces_id: "2909750"

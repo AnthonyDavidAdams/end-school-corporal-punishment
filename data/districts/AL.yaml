@@ -1636,13 +1636,7 @@ districts:
   - name: Lamar County
     county: Lamar County
     nces_id: "0101950"
-    status: silent
-    method: searched_document
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3500/Lchs/2c20045d-11bb-4464-b124-d4837d262d88/LCHS-Student-HB-26-27---Final-7_6_26.pdf?disposition=inline
-    quote: null
-    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
     contact:
       board_email: fbradford@lamarcountyboe.com
       phone: 205-695-7615
@@ -1650,15 +1644,12 @@ districts:
       superintendent: Vance Herron
       contact_page: http://www.lamarcountyk12.com/en-US
       as_of: 2026-09-20
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
-    parent_control: unknown
-    documents:
-      - kind: handbook
-        url: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3500/Lchs/2c20045d-11bb-4464-b124-d4837d262d88/LCHS-Student-HB-26-27---Final-7_6_26.pdf?disposition=inline
-        says: silent
-        quote: null
-        retrieved: 2026-09-26
-        by: Mothership (search + read)
+    status: unknown
+    source: null
+    quote: null
+    policy_code: null
+    last_verified: null
+    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Alabama (it says Georgia 74 times)); reset pending a re-read."
   - name: Lauderdale County Schools
     county: Florence
     nces_id: "0102010"
