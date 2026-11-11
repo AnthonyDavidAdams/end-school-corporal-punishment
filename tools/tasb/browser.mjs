@@ -37,10 +37,17 @@ async function ready() {
   return context;
 }
 
+// Nothing here may wait for ever. goto has its own timeout, but content(), $$eval() and close() have none,
+// and a renderer that wedges (a download that never starts, a script that never yields) held the Oklahoma
+// harvest, and the whole nightly behind it, for eleven hours on 2026-11-11. So the read runs against one
+// deadline, and a page that will not close is left for closeBrowser() rather than waited on.
+const within = (p, ms) => { let t; return Promise.race([p, new Promise((_, no) => { t = setTimeout(() => no(new Error("browser deadline")), ms); })]).finally(() => clearTimeout(t)); };
+
 export async function fetchWithBrowser(url, { settleMs = 4000, timeoutMs = 45_000 } = {}) {
-  const ctx = await ready();
-  const page = await ctx.newPage();
-  try {
+  let page = null;
+  const read = async () => {
+    const ctx = await ready();
+    page = await ctx.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: timeoutMs });
     // The challenge resolves itself and reloads; wait for the page that comes after it.
     await page.waitForTimeout(settleMs);
@@ -54,11 +61,14 @@ export async function fetchWithBrowser(url, { settleMs = 4000, timeoutMs = 45_00
       text: (a.textContent || a.getAttribute("aria-label") || a.getAttribute("title") || "").replace(/\s+/g, " ").trim().slice(0, 90),
     })).filter((l) => l.url && !/^(mailto|tel|javascript)/i.test(l.url)));
     return { html, url: page.url(), links };
-  } catch { return null; } finally { await page.close().catch(() => {}); }
+  };
+  try { return await within(read(), timeoutMs + settleMs + 30_000); }
+  catch { return null; }
+  finally { if (page) await within(page.close(), 5000).catch(() => {}); }
 }
 
 export async function closeBrowser() {
-  await context?.close().catch(() => {});
-  await browser?.close().catch(() => {});
+  await within(Promise.resolve(context?.close()), 15_000).catch(() => {});
+  await within(Promise.resolve(browser?.close()), 15_000).catch(() => {});
   context = browser = null;
 }

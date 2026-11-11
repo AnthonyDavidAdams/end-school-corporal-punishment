@@ -22,7 +22,8 @@ echo "$MANIFEST" | grep -v '^\s*$' | while IFS='|' read -r ST HARV JSONL CODE NO
   [ -n "${1:-}" ] && [ "$1" != "$ST" ] && continue
   [ -f "$HARV" ] || { echo "$ST: no harvester at $HARV"; continue; }
   before=$( [ -f "$JSONL" ] && wc -l < "$JSONL" || echo 0 )
-  node "$HARV" 2>&1 | tail -1
+  # Two hours a portal and no more: a harvester that wedges must not hold the night (2026-11-11, eleven hours).
+  perl -e 'alarm shift; exec @ARGV' "${ESCP_PORTAL_CAP:-7200}" node "$HARV" 2>&1 | tail -1
   after=$( [ -f "$JSONL" ] && wc -l < "$JSONL" || echo 0 )
   new=$(( after - before ))
   if [ "$new" -le 0 ]; then echo "$ST: nothing new"; continue; fi
