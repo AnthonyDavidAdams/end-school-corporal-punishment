@@ -504,6 +504,12 @@ def retraction(r, user, now=None):
     cause = "My search filed a page from another website under your district"
     if r.get("reason") == "certificate":
         ask = f" If the board has a written policy that prohibits it, send me the policy number or a link and I'll reissue the certificate on the board's own words." if status in ("silent", "unknown", None) else ""
+        if status in ("allows", "consent_required"):   # their own document permits it (Fayette County IN, 2026-11-11): say so, and say what would earn the certificate
+            kinds = [x.get("kind") for x in (now.get("documents") or []) if x.get("url") == now.get("source")]
+            what = {"board_policy": "board policy", "handbook": "student handbook", "code_of_conduct": "code of conduct"}.get(kinds[-1] if kinds else None, "document")
+            consent = " with a parent's written consent" if status == "consent_required" else ""
+            have = f" What the record holds now is the district's own {what}, which still allows corporal punishment{consent}."
+            ask = " If the board takes it out, or adopts a policy against it, send me the text and I'll issue the certificate on the board's own words."
         return f"""Hey {who}, I owe you a correction. The Safe School certificate I sent {when} quotes text that isn't from {dp} policy. {cause}, and the certificate went out on it. That's on me. Please don't hang or announce that one.
 
 I've taken it off the public record.{have}{ask}
