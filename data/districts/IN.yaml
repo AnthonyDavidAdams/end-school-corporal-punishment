@@ -1394,13 +1394,13 @@ districts:
   - name: Flat Rock-Hawcreek School Corp
     county: Bartholomew
     nces_id: "1803570"
-    status: silent
-    source: https://www.flatrock.k12.in.us/board_of_education/board_policy/d_-_administration_and_personnel
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/IN/1803570-recheck-26787453.pdf
+    quote: Thursday, May 5, 2022 Newsletter It’s Time to End Corporal Punishment In 19 states, educators are allowed to inflict physical punishment on children in schools.
+    policy_code: "16.8"
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-11
+    method: records_request
     parent_control: unknown
     documents:
       - kind: other
@@ -1409,8 +1409,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-11; the document is kept in the repository at data/policies/inbound/IN/1803570-recheck-26787453.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Thursday, May 5, 2022 Newsletter It’s Time to End Corporal Punishment In 19 states, educators are allowed to inflict physical punishment on children in schools.
+      - 2029) is a federal proposal that prohibits the use of corporal punishment in any school in receipt of federal funds, provides a right of action to the families of children who experience corporal punishment, and allocates grants to schools seeking to implement research-based strategies to discipline and school safety.
   - name: Fort Wayne Community Schools
     county: Allen
     nces_id: "1803630"
