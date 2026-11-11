@@ -83,8 +83,17 @@ def candidates(reqs):
     return out
 
 
+KEEP_CAPS = re.compile(r"^(ISD|CISD|MSD|USD|RSD|II|III|IV|VI|VII|VIII|IX|XI|XII|XIII)$")
+def _proper(w):
+    if KEEP_CAPS.match(w) or re.search(r"\d", w) or re.fullmatch(r"[A-Z]", w): return w
+    if re.fullmatch(r"MC[A-Z]{3,}", w): return "Mc" + w[2:].capitalize()
+    return re.sub(r"(?<=[A-Za-z]')[a-z](?=[a-z]{2})", lambda m: m.group(0).upper(), w.capitalize())
 def clean_name(n):
-    return re.sub(r"\s*\(\d+\)\s*$", "", n).strip()
+    """The name as it is printed and signed. Federal and state directories shout some names (MARIETTA,
+    MACON CO. R-I); the certificate prints Marietta and Macon Co. R-I."""
+    n = re.sub(r"\s*\(\d+\)\s*$", "", n).strip()
+    if n.isupper(): n = " ".join("-".join(_proper(h) for h in w.split("-")) for w in n.split())
+    return n
 
 
 def tidy_name(s):

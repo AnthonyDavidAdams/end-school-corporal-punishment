@@ -142,6 +142,7 @@ def subject_for(r):
         "neighbor": f"{d} corporal punishment policy",
         "apology": "Sorry for the repeat emails",
         "certificate_correction": f"A correction on the {d} certificate",
+        "certificate_reissue": f"A clean copy of the {d} certificate",   # only when the certificate's thread is gone; it normally goes out as "Re:" on that thread
         "retraction": f"A correction on {d}",   # only when the thread it corrects is gone; it normally goes out as "Re:" on that thread
         "formal_request": f"Records request: {d} corporal punishment policy",   # only when the first ask's thread is gone; it normally goes out as "Re:" on that thread
     }.get(r.get("kind", "policy"), f"Can't find {d}'s corporal punishment policy")
@@ -171,6 +172,8 @@ def body_for(r):
         return messages.certificate_correction(r, USER)
     if k == "retraction":
         return messages.retraction(r, USER, record_status(r))
+    if k == "certificate_reissue":
+        return messages.certificate_reissue(r, USER)
     if k == "neighbor":
         return messages.neighbor_ask(r, USER, r.get("anchor") or "a neighboring district")
     if k == "formal_request":
@@ -206,7 +209,7 @@ def last_contact(address, reqs, exclude=None):
 
 HOLD_NEW = False   # 2026-10-30, Anthony: "I don't want anything really on my desk". New batches go pending; only an unapproved experiment variant is held.
 STOP_EXEMPT = ("apology", "certificate_correction")   # these answer a thread of ours, even one a district has closed
-COOLDOWN_EXEMPT = STOP_EXEMPT + ("retraction",)   # these must not wait a day; a retraction still honors a stop request
+COOLDOWN_EXEMPT = STOP_EXEMPT + ("retraction", "certificate_reissue")   # these must not wait a day; a retraction or a reissue still honors a stop request
 
 def send(limit=25):
     reqs = load(); M = imap(); n = 0; cooled = 0; stop_ids, stop_addrs = stop_sets(reqs); stopped = 0
@@ -228,21 +231,31 @@ def send(limit=25):
             if now.get("quote") and now.get("status") in ("bans", "allows", "consent_required"):
                 r["status"] = "dropped"; r["dropped_why"] = f"the policy turned up before this was sent (record: {now['status']}, {now.get('policy_code') or 'no code'})"; save(reqs)
                 log("policy ask dropped", r["state"], r["name"], "- the record already has the policy"); continue
+        if r.get("kind") == "certificate_reissue":
+            # The note says a clean copy is attached. If the file is not on this machine (out/ is not in git),
+            # nothing goes: the row waits on the desk instead of sending a promise with nothing behind it.
+            gone = [a["path"] if isinstance(a, dict) else a for a in r.get("attachments") or [] if not os.path.exists(os.path.join(ROOT, a["path"] if isinstance(a, dict) else a))]
+            parent = next((p for p in reqs if p["id"] == r.get("parent_request")), None)
+            why = "no clean certificate is attached" if not r.get("attachments") else f"the clean certificate file is missing ({gone[0]})" if gone else "the certificate it replaces was withdrawn" if (parent or {}).get("retracted_at") else None
+            if why:
+                r["status"] = "error"; r["error"] = why; save(reqs); log("reissue not sent", r["state"], r["name"], "-", why)
+                alert("reissue-blocked", f"ESCP: a clean certificate for {r['name']} was not sent ({why}). The row is marked error and will not retry by itself."); continue
         subject = r.get("subject") or subject_for(r)
         r["subject"] = subject; r.setdefault("kind", "policy")
-        if r["kind"] not in ("formal_request", "retraction"): ensure_compliment(r)
+        if r["kind"] not in ("formal_request", "retraction", "certificate_reissue"): ensure_compliment(r)
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
-        if r.get("kind") in ("apology", "certificate_correction", "retraction", "formal_request") and r.get("parent_request"):   # lands in the thread it corrects or continues
+        if r.get("kind") in ("apology", "certificate_correction", "retraction", "certificate_reissue", "formal_request") and r.get("parent_request"):   # lands in the thread it corrects or continues
             parent = next((p for p in reqs if p["id"] == r["parent_request"]), None)
             if parent and parent.get("message_id"):
                 m["In-Reply-To"] = parent["message_id"]; m["References"] = parent["message_id"]
                 del m["Subject"]; subject = "Re: " + re.sub(r"^(re:\s*)+", "", parent.get("subject") or subject_for(parent), flags=re.I); m["Subject"] = subject; r["subject"] = subject
-        for att in r.get("attachments") or []:
-            pth = os.path.join(ROOT, att)
+        for att in r.get("attachments") or []:   # a path under the project, or {"path", "name"} when the file should arrive under a readable name
+            pth = os.path.join(ROOT, att["path"] if isinstance(att, dict) else att)
             if os.path.exists(pth):
-                m.add_attachment(open(pth, "rb").read(), maintype="application", subtype="pdf" if pth.endswith(".pdf") else "octet-stream", filename=os.path.basename(pth))
+                sub = "pdf" if pth.endswith(".pdf") else "vnd.openxmlformats-officedocument.wordprocessingml.document" if pth.endswith(".docx") else "octet-stream"
+                m.add_attachment(open(pth, "rb").read(), maintype="application", subtype=sub, filename=(isinstance(att, dict) and att.get("name")) or os.path.basename(pth))
         try:
             smtp_send(m)
         except Exception as e:
@@ -252,6 +265,9 @@ def send(limit=25):
         # delivered email "error".
         r["status"] = "sent"; r["sent_at"] = datetime.datetime.now().isoformat(timespec="seconds"); r["message_id"] = mid; n += 1; save(reqs)
         log("sent", r["state"], r["name"], "->", r["to"])
+        if r.get("kind") == "certificate_reissue":   # the certificate's own row says a clean copy followed, and a bounce retry attaches the clean file
+            parent = next((p for p in reqs if p["id"] == r.get("parent_request")), None)
+            if parent: parent["reissued_at"] = datetime.date.today().isoformat(); save(reqs)
         if r.get("kind") == "formal_request":   # the first ask's thread carries the fact, so the desk never sends a second one and a reply is read against it
             parent = next((p for p in reqs if p["id"] == r.get("parent_request")), None)
             if parent:
@@ -715,7 +731,7 @@ def thread_of(r, reqs=None):
     2026-10-27 by re-correcting a mistake the correction email had already owned up to, two hours earlier."""
     msgs = []
     for s in (reqs if reqs is not None else load()):
-        if s is r or s.get("id") == r.get("id") or not s.get("sent_at") or s.get("kind") not in ("certificate", "certificate_correction", "retraction", "apology"): continue
+        if s is r or s.get("id") == r.get("id") or not s.get("sent_at") or s.get("kind") not in ("certificate", "certificate_correction", "certificate_reissue", "retraction", "apology"): continue
         if (r.get("nces_id") and str(s.get("nces_id")) == str(r["nces_id"])) or ((s.get("to") or "").lower() == (r.get("to") or "").lower() and r.get("to")):
             msgs.append({"who": "us", "date": s["sent_at"], "text": f"[{s['kind'].replace('_', ' ')}, sent on its own thread]\n" + (s.get("body") or f"(the {s['kind']} email)"), "links": []})
     first = r.get("body") or body_for(r)   # older requests did not keep their text; the template is what was sent

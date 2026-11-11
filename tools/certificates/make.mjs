@@ -6,7 +6,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { chromium } from "playwright";
 const arg = (n, d) => { const i = process.argv.indexOf(`--${n}`); return i > 0 ? process.argv[i + 1] : d; };
 const state = arg("state", "KS"), name = arg("name", "Derby"), code = arg("code", "JDA"), year = arg("year", "2026–27");
-const quote = arg("quote", "Corporal punishment shall not be permitted in the school district.");
+const esc = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const quote = esc(arg("quote", "Corporal punishment shall not be permitted in the school district."));
 const sup = arg("superintendent", "");
 const level = arg("level", "district");            // district (board policy), school (a school's own handbook) or state (a statute)
 const governor = arg("governor", ""), year_banned = arg("since", "");
@@ -123,6 +124,20 @@ ${background}
 writeFileSync(`${out}.html`, html);
 const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1056, height: 816 }, deviceScaleFactor: 2 });
 await p.setContent(html, { waitUntil: "networkidle" }); await p.waitForTimeout(800);
+// A long sentence must not push the signature, seal and QR code off the sheet (2026-11-11: Gulfport's 581
+// characters did). The quote steps down in size and widens until the sheet holds everything; if it never
+// does, nothing is written and the caller holds the certificate.
+const fits = await p.evaluate(async () => {
+  await document.fonts.ready;
+  const inner = document.querySelector(".inner"), q = document.querySelector("blockquote"), foot = document.querySelector(".foot");
+  const ok = () => inner.scrollHeight <= inner.clientHeight + 1 && foot.getBoundingClientRect().bottom <= inner.getBoundingClientRect().bottom + 1;
+  for (let size = 18; size >= 11; size -= 0.5) {
+    q.style.fontSize = size + "px"; q.style.maxWidth = size < 16 ? "7.6in" : "6.6in"; q.style.lineHeight = size < 14 ? "1.3" : "1.4";
+    if (ok()) return true;
+  }
+  return false;
+});
+if (!fits) { await b.close(); console.error("the quote is too long to print on the certificate"); process.exit(2); }
 await p.pdf({ path: `${out}.pdf`, width: "11in", height: "8.5in", printBackground: true, preferCSSPageSize: true });
 await p.screenshot({ path: `${out}.png`, fullPage: false }); await b.close();
 console.log(`wrote ${out}.html, ${out}.pdf, ${out}.png`);

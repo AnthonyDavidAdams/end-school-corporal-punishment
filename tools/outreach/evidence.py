@@ -110,6 +110,7 @@ def quote_problem(q, state=None, name=""):
 
 HEADING = re.compile(r"^(?P<junk>.{0,140}?\b(?:CORPORAL PUNISHMENT|Corporal Punishment)(?:\s*\([^)]{0,40}\))?[\s:.\-–—]+(?:[A-Z]{2,5}\s+)?)"
                      r"(?=[\"“]?(?:The|A|An|No|Corporal|It|In|Students?|School|Employees?|Teachers?|District|Board|Under|Use|Any|All|Staff|Physical)\b)")
+CROSSREF = re.compile(r"^(?:\[(?:For|See)\b[^\]]{0,400}\]|\((?:For|See)\b[^)]{0,300}\))[.\s]*")
 TAIL = re.compile(r"[\s,;(\[]*\b(Approved|Adopted|Revised|Reviewed|Legal Ref(erence)?s?|Cross Ref(erence)?s?|Reference|Date Adopted)\b\s*:.*$", re.S)
 
 
@@ -120,7 +121,7 @@ def print_sentence(q):
     and nothing is cut from the middle: what comes back is the quote with the heading and the adoption
     line taken off, or the quote itself when taking them off leaves less than a rule."""
     q0 = re.sub(r"[\u200b\u00a0\s]+", " ", str(q or "")).strip()
-    pick = q0
+    pick = CROSSREF.sub("", q0)   # "[For provisions regarding students with disabilities, see FOF(LEGAL) ...] Corporal Punishment The Board prohibits ..."
     for _ in range(3):
         m = HEADING.match(pick)
         if not m or BAN.search(re.sub(r"(?i)corporal punishment", "", m.group("junk"))): break

@@ -471,6 +471,28 @@ def apology(r, user):
 """
 
 
+def certificate_reissue(r, user):
+    """A certificate that went out on a true ban and printed it badly, found 2026-11-11: the board's sentence
+    garbled when the policy file was read (North Ottawa KS, Calumet and Marietta OK), an unrelated sentence ahead of
+    it (Leeton MO), a handbook line where the board policy belonged (Pilot Grove MO), or a long sentence that
+    pushed the signature off the frame (Gulfport MS). The district did nothing wrong and the record stands,
+    so this is short: what was off, whose fault, and the clean copy attached."""
+    who = addressed_name(r); when = ago(r.get("sent_on")); code = r.get("policy_code")
+    src = f"Policy {code}" if code else "the board's policy"
+    what = {
+        "garbled": "The board's sentence came through garbled on it. My system misread the policy file and I didn't catch it.",
+        "extra": "It printed an unrelated sentence ahead of the board's own line.",
+        "wrong_document": "It quoted a handbook line where the board's own policy belongs.",
+        "layout": "The board's sentence ran long and crowded the signature and seal out of the frame.",
+    }.get(r.get("reason"), "The policy line on it didn't print the way the board wrote it.")
+    return f"""Hey {who}, a fix on the Safe School certificate I sent {when}. {what} That's on me.
+
+A clean copy is attached, quoting {src} as the board wrote it, with the press release to match. If you printed the first one, please swap it for this.
+
+{sig(user)}
+"""
+
+
 def retraction(r, user, now=None):
     """Something we sent rested on a record that was wrong: on 2026-11-10 a re-check filed pages from other
     websites under 74 districts, and certificates, neighbor notes and an invitation went out on them before it
