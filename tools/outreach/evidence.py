@@ -57,14 +57,19 @@ def name_tokens(name):
     return [w for w in re.findall(r"[a-z][a-z'.]+", n.lower().replace(".", "")) if w not in GENERIC and len(w) > 2]
 
 
+STREET = r"(?!\s+(?:Ave(?:nue)?|St(?:reet)?|Road|Rd|Blvd|Boulevard|Drive|Dr|Way|Lane|Ln|Hwy|Highway|Elem(?:entary)?)\b)"
+
+
 def state_counts(text, skip=()):
     """How often each state is named in the text. 'West Virginia' is not Virginia, and a state word that is
-    part of the district's own name (Washington Township, Indiana) is not counted against it."""
+    part of the district's own name (Washington Township, Indiana) is not counted against it. A street or a
+    school named for a state (400 Maryland Avenue, Michigan Avenue Elementary) is not that state, and a
+    postal address (Owenton, KY 40359) is."""
     t = re.sub(r"\s+", " ", text or "")
     out = {}
     for ab, nm in STATE_NAMES.items():
         if nm.lower() in skip: continue
-        out[ab] = len(re.findall(r"\b" + re.escape(nm) + r"\b", t))
+        out[ab] = len(re.findall(r"\b" + re.escape(nm) + r"\b" + STREET, t)) + len(re.findall(r"(?<=[, ])" + ab + r"\.? \d{5}\b", t))
     out["VA"] = max(0, out.get("VA", 0) - out.get("WV", 0))
     out["WA"] = max(0, out.get("WA", 0) - len(re.findall(r"\bWashington,? D\.?C\b", t)))
     return out
@@ -80,7 +85,7 @@ def document_problem(text, name, state, strict=False):
     if not toks: return "the district's name has no word of its own to look for"
     missing = [w for w in toks if not re.search(r"\b" + re.escape(w), low)]
     if missing: return f"the document never says '{' '.join(missing)}'"
-    c = state_counts(text, skip={w for w in name.lower().split()} | {name.lower()})
+    c = state_counts(text, skip=set(re.findall(r"[a-z]+", name.lower())) | {name.lower()})
     own = c.get(state, 0); other, n = max(((k, v) for k, v in c.items() if k != state), key=lambda kv: kv[1], default=(None, 0))
     if n >= 2 and n > own: return f"the document is about {STATE_NAMES[other]} ({n} mentions; {STATE_NAMES.get(state, state)} {own})"
     if strict and own == 0: return f"the document never says {STATE_NAMES.get(state, state)}"

@@ -146,7 +146,7 @@ def whose(row, d, by_id, owners, names_on_file, read=full_text, today=None, sent
         names = [n for n in dict.fromkeys([names_on_file.get(d.get("nces_id")), (by_id.get(d.get("nces_id")) or {}).get("name"), name]) if n]
         why = names_it(text, names)
         if why: return False, why
-        c = evidence.state_counts(text, skip={w for n in names for w in n.lower().split()})
+        c = evidence.state_counts(text, skip={w for n in names for w in re.findall(r"[a-z]+", n.lower())})
         own = c.get(state, 0); other, n = max(((k, v) for k, v in c.items() if k != state), key=lambda kv: kv[1], default=(None, 0))
         nm = evidence.STATE_NAMES
         if own == 0: return False, f"the document never says {nm.get(state, state)}" + (f" (it says {nm[other]} {n} time{'s' if n != 1 else ''})" if n else "")
@@ -158,10 +158,11 @@ def whose(row, d, by_id, owners, names_on_file, read=full_text, today=None, sent
     return True, how
 
 
-def audit(out_path, workers=6):
+def audit(out_path, workers=6, again=False):
     """Every searched document already on file, put to the same question. Reads; changes nothing.
 
         tools/.venv/bin/python tools/tasb/identity.py --audit out/audit/identity-2026-11-11.json
+        ... --again     re-checks only the rows that file could not prove, and rewrites it
     """
     import glob, gzip, yaml
     from concurrent.futures import ThreadPoolExecutor
@@ -182,6 +183,10 @@ def audit(out_path, workers=6):
         st = os.path.basename(f)[:2]
         for d in yaml.safe_load(open(f)).get("districts", []):
             if d.get("method") == "searched_document" and str(d.get("source") or "").startswith("http"): todo.append((st, d))
+    before = json.load(open(out_path)) if again and os.path.exists(out_path) else []
+    if before:
+        failed = {r["nces_id"] for r in before if not r["ok"]}
+        todo = [(st, d) for st, d in todo if str(d.get("nces_id") or "") in failed]
     def one(item):
         st, d = item; nces = str(d.get("nces_id") or "")
         row = {"_state": st, "district": d["name"], "source": d["source"], "quote": d.get("quote"), "status": d.get("status")}
@@ -190,6 +195,9 @@ def audit(out_path, workers=6):
         except Exception as ex: ok, how = False, f"check failed: {ex!r}"[:160]
         return {"state": st, "name": d["name"], "nces_id": nces, "status": d.get("status"), "last_verified": str(d.get("last_verified")), "source": d["source"], "ok": ok, "how": how}
     with ThreadPoolExecutor(workers) as ex: res = list(ex.map(one, todo))
+    if before:
+        fresh = {r["nces_id"]: r for r in res}
+        res = [fresh.get(r["nces_id"], r) for r in before]
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     json.dump(res, open(out_path, "w"), indent=1)
     bad = [r for r in res if not r["ok"]]
@@ -197,7 +205,7 @@ def audit(out_path, workers=6):
 
 
 def main():
-    if "--audit" in sys.argv: return audit(sys.argv[sys.argv.index("--audit") + 1])
+    if "--audit" in sys.argv: return audit(sys.argv[sys.argv.index("--audit") + 1], again="--again" in sys.argv)
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     dry = "--dry" in sys.argv
     rows = json.load(open(args[0]))
