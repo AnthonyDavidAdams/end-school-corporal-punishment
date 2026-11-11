@@ -1183,13 +1183,13 @@ districts:
   - name: Santa Rosa County School District
     county: Santa Rosa
     nces_id: "1201650"
-    status: silent
-    source: https://www.santarosaschools.org/documents/our-school-board/school-board-policies/734207
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/FL/1201650-recheck-45738895.html
+    quote: In fact, 31 states have banned public schools from use of corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-10
+    method: records_request
     parent_control: unknown
     documents:
       - kind: board_policy
@@ -1204,8 +1204,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read, Florida sweep)
-    notes: 2 documents found by searching for the district's code of student conduct and board policy (student handbook, code of conduct, or policy pages) read in full on 2026-09-26; none mentions corporal punishment. Florida law (s. 1003.32) leaves the practice to school board policy, and since July 2025 a board that permits it must require parental consent; the board policy on the practice was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-10; the document is kept in the repository at data/policies/inbound/FL/1201650-recheck-45738895.html. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - In fact, 31 states have banned public schools from use of corporal punishment.
+      - The district defines corporal punishment in its code of conduct as "the moderate use of physical force or physical contact by a Principal or Assistant Principal to maintain discipline or to enforce rules." Under the district's code of conduct, corporal punishment is limited to a maximum of two strokes for kindergarten through third-grade students, a maximum of three strokes for fourth through sixth-graders, and no more than four strokes for seventh through 12th-graders with a 19-inch wooden paddle, no more than ⅜ inches thick and 4 inches wide.
   - name: Sarasota County School District
     county: Sarasota
     nces_id: "1201680"
