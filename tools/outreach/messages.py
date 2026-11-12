@@ -517,6 +517,9 @@ I've taken it off the public record.{have}{ask}
 {sig(user)}
 """
     ask = " If you can point me to where the board's policy on it lives, I'll record what it actually says." if status in ("silent", "unknown", None) else ""
+    if status == "bans" and now.get("quote"):   # the record now holds their own ban (Spring Hill KS, JDA, 2026-11-12): the note had it backwards
+        code = f"Policy {now['policy_code']}" if now.get("policy_code") else "Your board policy"
+        have = f' {code} says the opposite, in plain words: "{tidy_quote(now["quote"]).rstrip(".")}." That is what the record shows now.'
     if r.get("reason") == "invitation":
         said = f' ("{tidy_quote(r["quoted"]).rstrip(".")}")' if r.get("quoted") else ""
         return f"""Hey {who}, I owe you a correction on the invitation I sent {when}. It quoted a sentence as {dp} policy{said}. That sentence isn't yours. {cause}, and the invitation went out on it. That's on me. Please disregard it.

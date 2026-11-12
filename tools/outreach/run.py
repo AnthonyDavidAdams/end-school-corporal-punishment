@@ -624,7 +624,7 @@ def anthony_threads(M, reqs):
 # alerts when a sent subject matches none of them: the 86 board notes of 2026-10-28 ("a four-minute film
 # for the board") matched nothing, so three board members' replies sat unread for two weeks.
 INBOX_SUBJECT_TERMS = ["corporal", "records request", "relied on", "handbook", "discipline data", "Safe School", "Safe Schools",
-                       "film for the board", "reported zero", "repeat emails", "certificate"]
+                       "film for the board", "reported zero", "repeat emails", "certificate", "a correction on"]
 def inbox():
     reqs = load(); M = imap(); ensure_label(M); mine = anthony_threads(M, reqs)
     for r in reqs:
