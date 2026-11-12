@@ -599,7 +599,7 @@
             })
         </script>
             <script>
-        window.FeatureFlags = {"SS_1500":true,"SS_2341":true,"SS_2625":false,"SS_2678":false,"CRO_4438":true,"SS-3067":false,"SiteAdmin.SyncSharedComponentESRefactor":true,"GqlPostFeeds":true,"PdfParser.Pagecount":false,"Calendar.EventsNoEndDate":true,"BulkProfilePic.ReactConversion":false,"ES.SearchQueryOptimization":true,"ES.Timeout":true,"Calendar.AsynchronousEventSlider":true,"Site.SocialMediaPreviewImg":true,"Page.LegacyLockedPages":false,"UserFavorites.ComponentMarkingSystem":true,"PostFeedGroups":true,"Admin.ParentSquare.Styles":true,"Components.CommunityGroups":true,"Spotlight.SmallWithComponentBody":true,"PageValidation.Calendar":true,"Chatbot.Enabled":false,"Security.Cro12871LoadStackItemsGuard":true,"Admin.PSQLogoRebrand":true,"StaffDirectory.ReactContactForm":true,"Documents.DownloadTracking":true,"LinkChecker.API.Check":true,"Chatbot.Dashboard":true,"Chatbot.Settings":true,"CmsMigration.API.ImportContent":true,"HorizontalPictureSeries.SwapReorder":true,"IconMatrix.ComponentBodyHeading":true,"ResourceCalendars.ContrastGuardrails":true,"Components.SinglePsqPost":false,"Assets.LegacyCleanup":true,"RecycleBin.Refactoring":false,"SmartAdmin.RedirectBulkImport":true,"ComponentFavorites.API":false,"ProfilePicture.API.FetchDelete":false,"PagePro.ImportSingleComponent":false,"decompose_stack_type_64":false,"Components.ColumnsContentStyles":true,"PhotoDrawer.ImageVariants":true,"Resource.Spotlight.ImageVariants":true,"Resource.UploadImageCap":true,"Components.Duplicate":false,"Resource.ScrollOverImage.ImageVariants":true,"Calendar.UpcomingEventsPostFeed":false};
+        window.FeatureFlags = {"SS_1500":true,"SS_2341":true,"SS_2625":false,"SS_2678":false,"CRO_4438":true,"SS-3067":false,"SiteAdmin.SyncSharedComponentESRefactor":true,"GqlPostFeeds":true,"PdfParser.Pagecount":false,"Calendar.EventsNoEndDate":true,"BulkProfilePic.ReactConversion":false,"ES.SearchQueryOptimization":true,"ES.Timeout":true,"Calendar.AsynchronousEventSlider":true,"Site.SocialMediaPreviewImg":true,"Page.LegacyLockedPages":false,"UserFavorites.ComponentMarkingSystem":true,"PostFeedGroups":true,"Admin.ParentSquare.Styles":true,"Components.CommunityGroups":true,"Spotlight.SmallWithComponentBody":true,"PageValidation.Calendar":true,"Chatbot.Enabled":false,"Security.Cro12871LoadStackItemsGuard":true,"Admin.PSQLogoRebrand":true,"StaffDirectory.ReactContactForm":true,"Documents.DownloadTracking":true,"LinkChecker.API.Check":true,"Chatbot.Dashboard":true,"Chatbot.Settings":true,"CmsMigration.API.ImportContent":true,"HorizontalPictureSeries.SwapReorder":true,"IconMatrix.ComponentBodyHeading":true,"ResourceCalendars.ContrastGuardrails":true,"Components.SinglePsqPost":false,"Assets.LegacyCleanup":true,"RecycleBin.Refactoring":false,"SmartAdmin.RedirectBulkImport":true,"ComponentFavorites.API":false,"ProfilePicture.API.FetchDelete":false,"PagePro.ImportSingleComponent":false,"decompose_stack_type_64":false,"Components.ColumnsContentStyles":true,"PhotoDrawer.ImageVariants":true,"Resource.Spotlight.ImageVariants":true,"Resource.UploadImageCap":true,"Components.Duplicate":false,"Resource.ScrollOverImage.ImageVariants":true,"Calendar.UpcomingEventsPostFeed":false,"AI.PageCreator":false,"Resource.ImageOptimization":true,"ContentApproval.V2":false};
     </script>
     <link rel="modulepreload" href="/dist/assets/documentTracking-D0cSWl7z.js" /><script type="module" src="/dist/assets/documentTracking-D0cSWl7z.js"></script>            <script
         type="text/javascript"
@@ -672,7 +672,7 @@
     <link rel="stylesheet" type="text/css" href="/includes/css/slick.css"/>
     <!-- Slick Slider JS -->
     <script src="/includes/js/slick.min.js"></script>
-    <script src="/js/slick-a11y.js?v=20261027210219"></script>
+    <script src="/js/slick-a11y.js?v=20261111203323"></script>
     <script src="/includes/js/enquire.min.js"></script>
 
     <link href="/css/bootstrap-select.css" rel="stylesheet">
@@ -805,18 +805,18 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/main-sass.css?v=20261027210219">
-        <script src="/js/classes/ColorContrast.js?v=20261027210219"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main-sass.css?v=20261111203323">
+        <script src="/js/classes/ColorContrast.js?v=20261111203323"></script>
     <script
         type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"
         integrity="sha384-L2MNADX6uJTVkbDNELTUeRjzdfJToVbpmubYJ2C74pwn8FHtJeXa+3RYkDRX43zQ"
         crossorigin="anonymous"
     ></script>
-    <script src="/js/stack_items.js?v=20261027210219"></script>
-    <script type="module" src="/js/components.js?v=20261027210219"></script>
-    <script src="/js/general.js?v=20261027210219"></script>
-    <script src="/js/deviceDetector.js?v=20261027210219"></script>
+    <script src="/js/stack_items.js?v=20261111203323"></script>
+    <script type="module" src="/js/components.js?v=20261111203323"></script>
+    <script src="/js/general.js?v=20261111203323"></script>
+    <script src="/js/deviceDetector.js?v=20261111203323"></script>
         <script src="https://use.typekit.net/ynn5aia.js"
         crossorigin="anonymous"
         rel="preload"
@@ -978,13 +978,13 @@
     }
 
     /** Columns per-column headings (SS-4812): inherit Component Heading font
-        and size. Color comes from Site Design unless the component sets an
-        alternate heading color. Never render accent lines. */
+        family and color. Size is fixed at 36px for both h2 and h3 headings,
+        independent of the Component Heading size (SS-5459). Never render
+        accent lines. */
     .ss-column-heading {
         font-family: "Sofia Sans Semi Condensed", sans-serif;
-    font-weight: 700;        font-size: clamp(26px, 8vw, 48px);        color: #214E82;    }
-    h3.ss-column-heading {
-        font-size: clamp(26px * 0.75, 8vw * 0.75, 48px * 0.75);    }
+    font-weight: 700;        font-size: 36px;
+        color: #214E82;    }
     </style>
     <script>
     var targetDate = new Date(Date.now() + (86400 * 1000)).getTime();
@@ -1136,11 +1136,11 @@
     <div id="ss-live-status" role="status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
     <a id="skipToMainContentLink" href="#skiptocontent" class="sr-only sr-only-focusable">Skip to main content</a>
     <link rel="modulepreload" href="/dist/assets/StatusAlertAnnouncer-TlSm2OmV.js" />
-<link rel="modulepreload" href="/dist/assets/PopUpAlertsComponent-CHHzdeZW.js" />
+<link rel="modulepreload" href="/dist/assets/PopUpAlertsComponent-DiJXA-lV.js" />
 <link rel="modulepreload" href="/dist/assets/AlertsDialog-D9bH4YML.js" />
-<link rel="modulepreload" href="/dist/assets/schemas-DpJ4tIAr.js" />
+<link rel="modulepreload" href="/dist/assets/schemas-C_wqS0rR.js" />
 <link rel="modulepreload" href="/dist/assets/Logger-D_qtsJjD.js" /><link rel="stylesheet" href="/dist/assets/AlertsDialog-DTCJJhlc.css" /><script type="module" src="/dist/assets/StatusAlertAnnouncer-TlSm2OmV.js"></script>
-<script type="module" src="/dist/assets/PopUpAlertsComponent-CHHzdeZW.js"></script>    <style>
+<script type="module" src="/dist/assets/PopUpAlertsComponent-DiJXA-lV.js"></script>    <style>
         .ss-lightbox-modal-alert {
             --ss-modal-content-alert-btn-text-font-color: #FFFFFF;
             --ss-modal-content-alert-btn-color: #214E82;
@@ -1383,7 +1383,7 @@
     </div></div>        <style>
         .ss-site-header {
             --ss-header-background-color: #214E82;
---ss-header-gradient: linear-gradient(to bottom, rgba(0,0,0,.6) 0px, rgba(0,0,0,.5) calc(100% - 70px), rgba(0,0,0,0) 100%);
+--ss-header-gradient: linear-gradient(to bottom, rgba(0,0,0,.6) 0px, rgba(0,0,0,.6) calc(100% - 50px), rgba(0,0,0,0) 100%);
 --ss-header-transparent-spacer-color: rgba(255, 255, 255, .20);
 --ss-header-background-position: center;
 --ss-header-spacer-color-desktop: rgba(255, 255, 255, .20);
@@ -1627,7 +1627,7 @@
         <path d="M4 2L8 6L4 10" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
     </svg></div></a>    <ul class="dropdown-menu sm-nowrap">
             <li>    <a href="/bond-update-home" class="" target="_self">Bond Update Home</a></li>    <li>    <a href="/106655_3" class="" target="_self">2024 Bond Issue Information</a></li>    <li>    <a href="/feasibility-study-guthrie-junior-hi" class="" target="_self">Feasibility Study Guthrie Junior High</a></li>    <li>    <a href="/long-range-planning-committee-prior" class="" target="_self">Long Range Planning Committee Priorities</a></li>    </ul>
-</li>    <li>    <a href="/staff-directory" class="" target="_self">Staff Directory</a></li>    <li>    <a href="/employee-of-the-month" class="" target="_self">Employee of the Month</a></li>    </ul>
+</li>    <li>    <a href="/employee-of-the-month" class="" target="_self">Employee of the Month</a></li>    </ul>
 
     </li>    <li class="top-nav">
         <a class=" top-nav-link" href="/parents" target="_self">
@@ -1770,7 +1770,7 @@
         </h3>
         <div role="region" id="ss-mobile-menu0" class="ss-mobile-menu-group" aria-labelledby="ss-mobile-menu-heading0">
             <ul class="ss-mobile-menu-list">
-                    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/boe-overview" target="_self">Board of Education Home</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/boardmeeting2026dates" target="_self">2026 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/boardmeeting2026agendas" target="_self">2026 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/200235_3" target="_self">2026 Minutes </a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106595_3" target="_self">2026 Members</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106596_3" target="_self">2025 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106597_3" target="_self">2025 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106598_3" target="_self">2025 Minutes</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106599_3" target="_self">2024 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106600_3" target="_self">2024 Minutes</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106601_3" target="_self">2024 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106602_3" target="_self">2023 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106603_3" target="_self">2023 Minutes</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106604_3" target="_self">2023 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106605_3" target="_self">2022 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106606_3" target="_self">2022 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106607_3" target="_self">2022 Minutes</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/district-videos" target="_self">District Videos</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/superintendents-office" target="_self">Superintendent's Office</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/central-office-staff" target="_self">Central Office Staff</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/finance" target="_self">Finance</a></li>
+                    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/boe-overview" target="_self">Board of Education Home</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/dates-2027" target="_self">2027 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/boardmeeting2026dates" target="_self">2026 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/boardmeeting2026agendas" target="_self">2026 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/200235_3" target="_self">2026 Minutes </a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106595_3" target="_self">2026 Members</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106596_3" target="_self">2025 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106597_3" target="_self">2025 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106598_3" target="_self">2025 Minutes</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106599_3" target="_self">2024 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106600_3" target="_self">2024 Minutes</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106601_3" target="_self">2024 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106602_3" target="_self">2023 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106603_3" target="_self">2023 Minutes</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106604_3" target="_self">2023 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106605_3" target="_self">2022 Dates</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106606_3" target="_self">2022 Agendas</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106607_3" target="_self">2022 Minutes</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/district-videos" target="_self">District Videos</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/superintendents-office" target="_self">Superintendent's Office</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/central-office-staff" target="_self">Central Office Staff</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/finance" target="_self">Finance</a></li>
             </ul>
         </div>
     </li>
@@ -1953,7 +1953,7 @@
                     <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/bond-update-home" target="_self">Bond Update Home</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/106655_3" target="_self">2024 Bond Issue Information</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/feasibility-study-guthrie-junior-hi" target="_self">Feasibility Study Guthrie Junior High</a></li>    <li class=" ss-mobile-menu-level-3"><a class="ss-mobile-menu-link" href="/long-range-planning-committee-prior" target="_self">Long Range Planning Committee Priorities</a></li>
             </ul>
         </div>
-    </li>    <li class=" ss-mobile-menu-level-2"><a class="ss-mobile-menu-link" href="/staff-directory" target="_self">Staff Directory</a></li>    <li class=" ss-mobile-menu-level-2"><a class="ss-mobile-menu-link" href="/employee-of-the-month" target="_self">Employee of the Month</a></li>
+    </li>    <li class=" ss-mobile-menu-level-2"><a class="ss-mobile-menu-link" href="/employee-of-the-month" target="_self">Employee of the Month</a></li>
             </ul>
         </div>
     </li>    <li class="ss-mobile-menu-level-1 ">
@@ -2235,16 +2235,23 @@
     $(document).ready(function() {
         $(".warning").remove();
         $('.horitontal_pic').on('mouseup',function() {
-            src = $(this).attr('src');
-            new_file_path = src;
-            text = $(this).attr('alt');
+            var new_file_path = $(this).attr('data-full-src') || $(this).attr('src');
+            var text = $(this).attr('alt');
             if (text.toLowerCase().indexOf("website picture") >= 0) {
                 text = '';
             }
-            img = '<img src="' + new_file_path + '" class="img-responsive"/>';
+            var image = $('<img>', {
+                src: new_file_path,
+                class: 'img-responsive'
+            });
+            var description = $('<div>', {
+                class: 'photo_desc well text-center'
+            }).css('margin', '20px').text(text);
 
 
-                $('#horitontal_pic_list .modal-body').html('<center>'+img+'</center>'+'<div style="margin:20px;" class="photo_desc well text-center">'+text+'</div>');
+            $('#horitontal_pic_list .modal-body')
+                .empty()
+                .append($('<center>').append(image), description);
 
 
             $('#horitontal_pic_list').on('hidden.bs.modal', function () {
@@ -2792,16 +2799,17 @@
                 $('html').removeClass('modal-open');
             });
         });
-    </script><link rel="modulepreload" href="/dist/assets/staffMessageWidget-CbWF7cnU.js" />
+    </script><link rel="modulepreload" href="/dist/assets/staffMessageWidget-Cs0u45em.js" />
 <link rel="modulepreload" href="/dist/assets/client-BM4SMm7c.js" />
-<link rel="modulepreload" href="/dist/assets/QueryClientProvider-DKdJarPO.js" />
+<link rel="modulepreload" href="/dist/assets/QueryClientProvider-GRJIXBs2.js" />
 <link rel="modulepreload" href="/dist/assets/index-CvdBQeSo.js" />
 <link rel="modulepreload" href="/dist/assets/index-Dsgd8vKg.js" />
 <link rel="modulepreload" href="/dist/assets/index-Cvd99TXz.js" />
 <link rel="modulepreload" href="/dist/assets/index-DQ8APFtF.js" />
-<link rel="modulepreload" href="/dist/assets/_commonjsHelpers-CE1G-McA.js" />
-<link rel="modulepreload" href="/dist/assets/useMutation-DGF_4GXS.js" />
-<link rel="modulepreload" href="/dist/assets/useThemeColors-DBnXCWOx.js" /><link rel="stylesheet" href="/dist/assets/staffMessageWidget-D-Nia0TG.css" /><script type="module" src="/dist/assets/staffMessageWidget-CbWF7cnU.js"></script><script type="text/javascript">
+<link rel="modulepreload" href="/dist/assets/index-D1m_0cOo.js" />
+<link rel="modulepreload" href="/dist/assets/useMutation-C3Rkbrga.js" />
+<link rel="modulepreload" href="/dist/assets/useThemeColors-DBnXCWOx.js" />
+<link rel="modulepreload" href="/dist/assets/_commonjsHelpers-CE1G-McA.js" /><link rel="stylesheet" href="/dist/assets/staffMessageWidget-2Ro97DB0.css" /><script type="module" src="/dist/assets/staffMessageWidget-Cs0u45em.js"></script><script type="text/javascript">
 window.SS_RECAPTCHA_SITE_KEY = "6LcgqJAUAAAAAJhQs01VmAHQEf3SatmIFQjI7iNP";
 window.SS_STAFF_MESSAGE_PRIMARY_COLOR = "#214E82";
 window.SS_STAFF_MESSAGE_LINK_COLOR = "#214E82";
@@ -2819,7 +2827,7 @@ window.SS_STAFF_MESSAGE_EMAIL_VERIFICATION_REQUIRED = true;
 
 <!--end lesson plans-->
 
-<footer class="psq_admin_footer clearfix container footer-container-wide ss-has-footer-logo" id="footer_seven" style="background-image: url(https://files.smartsites.parentsquare.com/8055/footer_logo_img_nv05fpbi8i1taddcimg.png);">
+<footer class="psq_admin_footer clearfix container footer-container-wide ss-has-footer-logo ss-footer-seven-hide-top-line" id="footer_seven" style="background-image: url(https://files.smartsites.parentsquare.com/8055/footer_logo_img_nv05fpbi8i1taddcimg.png);">
 <div class="school-footer-row school-footer-top-row">
     <div class="school-footer-col school-footer-wide-col">
         <div class="school-footer-seven-general-info">

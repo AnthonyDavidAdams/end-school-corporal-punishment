@@ -590,12 +590,16 @@ districts:
     nces_id: "2000014"
     crdc_students_latest: null
     county_source: nces_edge_geocode_2023_24
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
-    last_verified: null
-    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Texas 48 times)); reset pending a re-read."
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/KS/2000014-JDA-Corporal-Punishment.pdf
+    quote: JDA Corporal Punishment JDA Corporal punishment shall not be permitted in the school districts.
+    policy_code: JDA
+    last_verified: 2026-11-12
+    notes: Received from the district by email in answer to a public records request, 2026-11-12; the document is kept in the repository at data/policies/inbound/KS/2000014-JDA-Corporal-Punishment.pdf. Identity is name and state matched against the federal LEA directory.
+    method: records_request
+    parent_control: unknown
+    quotes:
+      - JDA Corporal Punishment JDA Corporal punishment shall not be permitted in the school districts.
   - name: Central Plains
     county: Barton
     nces_id: "2000349"
