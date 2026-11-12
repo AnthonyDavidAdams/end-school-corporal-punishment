@@ -637,6 +637,15 @@ def inbox():
     if deaf: alert("inbox-deaf", f"ESCP: {len(deaf)} sent subjects are invisible to the inbox search, e.g. '{deaf[0][:50]}'. Add a term to INBOX_SUBJECT_TERMS.")
     typ, data = M.search(None, "X-GM-RAW", '"newer_than:21d -from:me -in:drafts (' + " OR ".join(("subject:" + t) if " " not in t else ('subject:\\"' + t + '\\"') for t in INBOX_SUBJECT_TERMS) + ')"'); seen = {m for r in reqs for m in [x["message_id"] for x in r.get("replies") or []]}
     handled = 0; nums = data[0].split() if data and data[0] else []; t0 = time.time()
+    # And every reply on a thread we started, whatever its subject: our Message-IDs all read escp-<row>@, and a reply
+    # carries one in In-Reply-To. The subject terms above are a list kept by hand; a new kind of message whose subject
+    # was not on it ("A correction on ...", 2026-11-12) would have had its replies go unread.
+    try:
+        since = (datetime.date.today() - datetime.timedelta(days=21)).strftime("%d-%b-%Y")
+        typ, more = M.search(None, "SINCE", since, "HEADER", "In-Reply-To", "escp-", "NOT", "FROM", USER)
+        extra = [n for n in (more[0].split() if more and more[0] else []) if n not in set(nums)]
+        if extra: log(f"inbox: {len(extra)} more on our own threads outside the subject search"); nums += extra
+    except Exception as ex: log("inbox: thread search failed", repr(ex)[:80])
     log(f"inbox: {len(nums)} candidate messages in the last 60 days")
     # Gather first, answer second: a district that sent three emails in twenty minutes (Milan IN, 2026-10-27:
     # the link, the directions, the answer) gets ONE reply, to the latest, with the earlier ones filed as
