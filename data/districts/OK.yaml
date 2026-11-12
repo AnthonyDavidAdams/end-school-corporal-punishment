@@ -2107,12 +2107,16 @@ districts:
     nces_id: "4008370"
     crdc_students_latest: null
     county_source: nces_edge_geocode_2023_24
-    status: unknown
-    source: null
-    quote: null
+    status: bans
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/854/Cps/cb783107-4cfa-419b-b5e6-3314fdde4a2e/4.24_Student_Behavior.pdf?disposition=inline
+    quote: Corporal punishment will not be utilized at any school site.
     policy_code: null
-    last_verified: null
-    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Oklahoma (it says Alabama 54 times)); reset pending a re-read."
+    last_verified: 2026-11-12
+    notes: Read from the district's own posted board policy or handbook, 2026-11-12. Identity is name and state matched against the federal LEA directory.
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - Corporal punishment will not be utilized at any school site.
   - name: Comanche
     county: Stephens
     nces_id: "4008460"

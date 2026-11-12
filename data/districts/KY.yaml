@@ -3304,12 +3304,16 @@ districts:
     nces_id: "2105040"
     crdc_students_latest: null
     county_source: nces_edge_geocode_2023_24
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
-    last_verified: null
-    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kentucky (it says Tennessee 45 times)); reset pending a re-read."
+    status: bans
+    source: https://policy.ksba.org/Handlers/OnlineDocumentHandler.ashx?id=16074&SubscriberId=114
+    quote: Employees shall not utilize corporal punishment as a penalty or punishment for student misbehavior.
+    policy_code: "09.433"
+    last_verified: 2026-11-12
+    notes: Read from the district's board policy manual on the KSBA policy portal (policy.ksba.org), 2026-11-12. Identity is name and state matched against the federal LEA directory.
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - Employees shall not utilize corporal punishment as a penalty or punishment for student misbehavior.
   - name: Rockcastle County
     county: Rockcastle
     nces_id: "2105070"

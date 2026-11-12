@@ -1203,12 +1203,12 @@ districts:
   - name: Seminole County School District
     county: Seminole
     nces_id: "1201710"
-    status: silent
-    source: https://static1.squarespace.com/static/62b0294f66825516d8498347/t/64b9784c5035643261c00d87/1689876557270/SCPSStudentCodeofConductandDisciplinePlan22-23.pdf
-    quote: null
+    status: bans
+    source: https://d3ud9wi9tlbq0g.cloudfront.net/wp-content/uploads/2025/06/11192007/2025-2026-Student-Conduct-and-Discipline-Code-Draft-05-02-2025.pdf
+    quote: CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
+    last_verified: 2026-11-12
     method: searched_document
     parent_control: unknown
     documents:
@@ -1230,8 +1230,13 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read, Florida sweep)
-    notes: 3 documents found by searching for the district's code of student conduct and board policy (student handbook, code of conduct, or policy pages) read in full on 2026-09-26; none mentions corporal punishment. Florida law (s. 1003.32) leaves the practice to school board policy, and since July 2025 a board that permits it must require parental consent; the board policy on the practice was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "Found by searching for the district's policy document and read 2026-11-12 (nightly). `quotes` carries every rule-bearing sentence in document order. Whose document: not on the district's own website (d3ud9wi9tlbq0g.cloudfront.net); read in full, the document names the district and Florida (77 mentions) and no other state more often."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.
+      - CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.
+      - CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.
+      - CORPORAL PUNISHMENT The School Board of Seminole County, Florida prohibits the use of corporal punishment.
   - name: St. Lucie County School District
     county: St. Lucie
     nces_id: "1201770"

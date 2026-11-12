@@ -430,12 +430,16 @@ districts:
     nces_id: "2004080"
     crdc_students_latest: null
     county_source: nces_edge_geocode_2023_24
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
-    last_verified: null
-    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Washington 16 times)); reset pending a re-read."
+    status: bans
+    source: http://usd314.weebly.com/uploads/5/8/3/6/58366735/jda_corporal_punishment.doc
+    quote: CORPORAL PUNISHMENT Corporal punishment shall not be permitted in the school district.
+    policy_code: JDA
+    last_verified: 2026-11-12
+    notes: Read from the district's board policy manual (KASB policy JDA), 2026-11-12. Identity is name and state matched against the federal LEA directory.
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - CORPORAL PUNISHMENT Corporal punishment shall not be permitted in the school district.
   - name: Bucklin
     county: Ford
     nces_id: "2004140"
@@ -3566,12 +3570,16 @@ districts:
     nces_id: "2010620"
     crdc_students_latest: null
     county_source: nces_edge_geocode_2023_24
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
-    last_verified: null
-    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Michigan 37 times)); reset pending a re-read."
+    status: bans
+    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/5177/Plusd/1afc6d87-d87e-460b-bb2c-8b8d9a35de26/USD_343_Policy_Handbook.pdf?disposition=inline
+    quote: Corporal punishment shall not be pe rmitted in the school district.
+    policy_code: JDA
+    last_verified: 2026-11-12
+    notes: Read from the district's board policy manual (KASB policy JDA), 2026-11-12. Identity is name and state matched against the federal LEA directory.
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - Corporal punishment shall not be pe rmitted in the school district.
   - name: Phillipsburg
     county: Phillips
     nces_id: "2010650"
@@ -4375,12 +4383,16 @@ districts:
     nces_id: "2011850"
     crdc_students_latest: null
     county_source: nces_edge_geocode_2023_24
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
-    last_verified: null
-    notes: "2026-11-11 audit: the document on file was not this district's (the document never says Kansas (it says Alabama 23 times)); reset pending a re-read."
+    status: bans
+    source: https://go.boarddocs.com/ks/usd230/Board.nsf/goto?open&id=DPXRQT6F26BF
+    quote: Corporal punishment shall not be permitted in the school district.
+    policy_code: JDA
+    last_verified: 2026-11-12
+    notes: Read from the district's board policy manual (KASB policy JDA), 2026-11-12. Identity is name and state matched against the federal LEA directory.
+    method: portal_harvest
+    parent_control: unknown
+    quotes:
+      - Corporal punishment shall not be permitted in the school district.
   - name: St Francis Comm Sch
     county: Cheyenne
     nces_id: "2011880"
