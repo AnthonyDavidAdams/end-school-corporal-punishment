@@ -1,0 +1,1068 @@
+
+<!DOCTYPE html>
+<html style="min-height: 100%" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+            <meta property="og:title" content="Enrollment Information" />
+            <meta property="og:url" content="https://tes.trionschools.org/enrollment" />
+            <meta property="og:type" content="website" />
+
+            <link rel="icon" type="image/ico" href="https://content.schoolinsites.com/api/documents/f6e9cf686e36401a9f449c5442058879.ico" />
+
+    <title>
+        
+    Enrollment Information
+
+    </title>
+
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/brands.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/solid.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/regular.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/v4-shims.min.css" />
+
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/custom-icons.css?v=0nvJki9gQnLR8cy7OQ62gyocqslU3-0UC4caTS3-zns" />
+    <link rel="stylesheet" href="/css/core/components.css?v=Vf-NAdeZjGYJj_koruCkkng_0snGh_WkiAEkx7MV1Fw" />
+    <link rel="stylesheet" href="/css/core/dialog.css?v=1ZqiCMDGL9AayDJeEOQRt9Q0kxP5vn7z7uOhyK3OqBI" />
+    <link rel="stylesheet" href="/css/toolbar.css?v=VwnbxHzktDLVXaVPyZXQYOir4v0G7gYmu2topYebOvo" />
+    <link rel="stylesheet" href="/css/audioplayer.css?v=oOVrPQm5jqukq_n6Qusjiltm60L5DqgmllxnDadm5yc" />
+
+
+    <!-- Load FullCalendar -->
+    <script src='/lib/fullCalendarV6/moment/moment.min.js'></script>
+    <script src="/lib/fullCalendarV6/index.global.min.js"></script>
+    <script src="/lib/fullCalendarV6/moment/index.global.min.js"></script>
+
+    
+    <link rel="stylesheet" href="/css/jquery-ui/jquery-ui-1.13.2.css" />
+    <link rel="stylesheet" href="/css/public.css?v=rwVB8ctwhKk5zO6mQUqPDn9fLsa6nSLJhsnTw1lodek" />
+
+
+    <style name="site-css">
+        @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+  
+
+
+/* focus visualization for ADA Compliance */
+a:focus, a:focus img, a:focus > img, button:focus, .navbar-default .navbar-nav > li > a:focus {outline: 3px solid #B30C09 !important;}
+
+/*-------- Inspiration Template CSS --------*/ 
+/* fonts */ 
+body {font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;font-size: 15px;line-height: 1.42857143;color: #333333;background: #ffffff url(/);}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;font-weight: 300;line-height: 1.1;color: inherit; letter-spacing: 0.4px;  }
+
+/* navigation menu */
+.navbar {border-radius: 0;}
+.navbar .navbar-default {margin-bottom: 0 }
+.navbar-default { border: none;background-color: transparent;}  
+.nav > li > a {font-family: color: #333;} 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {color: #ccc;}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {color: #999; background-color: #222222;}
+.dropdown-menu {background-color: #222;color:#fff;} 
+.navbar-default .navbar-nav > li > a { color: #000; }
+.navbar-default .navbar-nav > li > a:hover { color: #999; }
+.dropdown-menu { background: #eaeaea;color: #000; }
+.dropdown-menu > li > a { color: #000; } 
+.cs-topmenu .navbar-default .navbar-nav > li > a { color: #fff; }
+.cs-topmenu .navbar-submenu {  color: #999; }
+.navbar-default .navbar-nav .open .dropdown-menu > li > a { color: #000;}
+.navbar-nav .open .dropdown-menu {background-color: #eaeaea; }
+.site-nav {background: #222222;}
+.site-nav .navbar {border: none !important;}
+.navbar-vertical .navbar-header {background-color: #1a6ecc !important; color: #fff }
+.navbar {margin-bottom: 0px;}
+.navbar-toggle {background-color: #fff;}
+
+.sitenamefont {font-family: 'Satisfy', cursive;color:#ffffff;font-size:120px;line-height:1;}
+.sitenamesubfont { color:#ffffff;font-size:24px;letter-spacing: 4px;}
+
+/* padding */
+.cs-nopadding {padding: 0; margin: 0 -15px 0 0;}
+.cs-row-nopadding > .content-widget > .content-layout > .row > div:not(:first-child){ padding: 0 !important }
+.cs-row-nopadding > .content-widget > .content-layout > .row > div:not(:last-child){ padding: 0 !important }
+
+/* footer */
+.cs-footer{margin-top: 0px;background: #222222;}
+.cs-footer a {color:#fff;}
+.cs-footer-info {text-align: center} 
+.copyright {color: #ffffff;}
+
+/* misc */ 
+.text-muted {color: #575757;}
+.table-striped > tbody > tr:nth-of-type(2n+1) {background-color: #f9f9f9;color: #000;} 
+.jumbotron, .jumbotron h1, .jumbotron .h1 {color: #000;}
+.fa-search {color:  #ffffff;}
+.search-field.search-field-lucene { color: #fff;}
+.links-lite, .links-lite a:link, .links-lite a:hover, .links-lite a:visited,.links-lite a:active { color: #fff; }
+.fa-4x { font-size: 2em;}
+.newszone {color: #ffffff; text-align: center; }
+.alert-info { background-color: #eaeaea; border-color: #eaeaea; color: #000000;}
+
+/*toolbar */
+.cs-toolbar{ padding: 5px 15px 0 15px;background: #000; color: #fff; }
+.cs-toolbar,.cs-toolbar a{color: #8bb9ee;}
+
+/* carousel */        
+.cs-carousel-widget-title {font-size:20px;padding:5px; text-transform: uppercase;}
+.cs-carousel-widget-description {padding:5px; font-size:14px;font-weight: normal;}
+.cs-carousel-widget-link {color:#ffffff;padding:5px;font-weight: bold; }   
+.bg-default .cs-carousel-widget-link a,   .bg-contrast .cs-carousel-widget-link a,  .bg-dark  .cs-carousel-widget-link a,  .bg-danger  .cs-carousel-widget-link a {color: #ffffff;}
+
+/*-------- Site CSS --------*/ 
+button, input, optgroup, select, textarea { background-color: #ffffff;border: 1px solid #ffffff; color:#000000;}
+
+/* header */ 
+.cs-header-navbar { font-family: "Source Sans Pro", Calibri, Candara, Arial, sans-serif; font-size: 15px;  font-weight: 400; color: #fff; background: #222222;  }
+.cs-header {background: #004e9e;padding: 0;} 
+
+/* custom classes */
+.cs-borders {border: 10px solid #363636;  border-bottom: none; border-top: none;}
+.cs-divider1 {background: transparent url(/templates/theatrics/images/divider3.jpg) repeat-x top center; height: 58px;}
+
+/* blue color preset */
+.bg-default {background: #004e9e; color: #ffffff;}  
+a.bg-default:hover, a.bg-default:focus {background: #004e9e; color: #ffffff;}  
+.bg-contrast {background: #595959; color: #ffffff;} 
+a.bg-contrast:hover, a.bg-default:focus {background: #595959; color: #ffffff;}
+.bg-muted {background: #eaeaea; color: #000000;}
+.bg-clean {background: #ffffff; color: #000000;}
+.bg-dark {background: #222222; color: #ffffff;} 
+a.bg-dark:hover, a.bg-default:focus {background: #222222; color: #ffffff;}
+.bg-success {background: #749bbe; color: #000000;} 
+a.bg-success:hover, a.bg-success:focus {background: #749bbe; color: #000000;} 
+.bg-info {background: #c7e3fa; color: #000000;} 
+a.bg-info:hover, a.bg-info:focus {background: #c7e3fa; color: #000000;} 
+.bg-warning {background: #ffffff url(https://content.schoolinsites.com/api/documents/9f7cfa50861a4679b13b9ea074eaeff2.png) no-repeat left center; color: #000000;}  
+a.bg-warning:hover, a.bg-warning:focus {background: #edf6fe; color: #000000;}  
+.bg-danger {background: #fdd806; color: #000000;} 
+a.bg-danger:hover, a.bg-danger:focus  {background: #fdd806; color: #000000;} 
+
+/*-------- Beginning Color Adjustments --------*/
+.cs-calendar-widget a:link {color: #000;} 
+
+.panel-title a:link, .panel-title a:hover, .panel-title a:visited, .panel-title a:active {color: #000;}
+.list-group a:link, .list-group a:hover, .list-group a:visited, .list-group a:active {color: #000;} 
+.fc th, .fc td {color: inherit;}
+
+/*-------- Default --------*/ 
+.bg-default .h1, .bg-default .h2, .bg-default .h3, .bg-default .h4, .bg-default .h5, .bg-default .h6,
+.bg-default h1, .bg-default h2,.bg-default h3, .bg-default h4, .bg-default h5, .bg-default h6 {color: #ffffff;}
+.bg-default .panel-title a {color: #000;}
+.bg-default a:link, .bg-default a:hover, .bg-default a:active, .bg-default a:visited {color: #ffffff;}
+.bg-default .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-default .text-muted {color: #ffffff !important;}
+.bg-default .fc-day-number {color: #ffffff;}
+.bg-default .panel-title a {color: #000;}
+.bg-default .list-group-item  a:link, .bg-default .list-group-item a:hover, .bg-default .list-group-item a:active, .bg-default .list-group-item a:visited {color: #000000;}
+.bg-default .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-default .cs-card-carousel .title {color: #000000;} 
+.bg-default .cs-card-horizontal2 .title {color: #000000;} 
+.bg-default .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-default .fc th {color: #fff;}
+.bg-default .fc-list-heading a {color: #000;}
+
+/*-------- Contrast --------*/ 
+.bg-contrast .h1, .bg-contrast .h2, .bg-contrast .h3, .bg-contrast .h4, .bg-contrast .h5, .bg-contrast .h6,
+.bg-contrast h1, .bg-contrast h2,.bg-contrast h3, .bg-contrast h4, .bg-contrast h5, .bg-contrast h6 {color: #ffffff;}
+.bg-contrast .panel-title a {color: #000;}
+.bg-contrast a:link, .bg-contrast a:hover, .bg-contrast a:active, .bg-contrast a:visited {color: #ffffff;}
+.bg-contrast .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-contrast .text-muted {color: #ffffff !important;}
+.bg-contrast .fc-day-number {color: #ffffff;}
+.bg-contrast .panel-title a {color: #000;}
+.bg-contrast .list-group-item  a:link, .bg-contrast .list-group-item a:hover, .bg-contrast .list-group-item a:active, .bg-contrast .list-group-item a:visited {color: #000000;}
+.bg-contrast .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-contrast .cs-card-carousel .title {color: #000000;} 
+.bg-contrast .cs-card-horizontal2 .title {color: #000000;} 
+.bg-contrast .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-contrast .fc th {color: #fff;}
+.bg-contrast .fc-list-heading a {color: #000;}
+
+ 
+/*-------- Dark --------*/ 
+.bg-dark .h1, .bg-dark .h2, .bg-dark .h3, .bg-dark .h4, .bg-dark .h5, .bg-dark .h6,
+.bg-dark h1, .bg-dark h2,.bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6 {color: #ffffff;}
+.bg-dark .panel-title a {color: #000;}
+.bg-dark a:link, .bg-dark a:hover, .bg-dark a:active, .bg-dark a:visited {color: #ffffff;}
+.bg-dark .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-dark .text-muted {color: #ffffff !important;}
+.bg-dark .fc-day-number {color: #ffffff;}
+.bg-dark .panel-title a {color: #000;}
+.bg-dark .list-group-item  a:link, .bg-dark .list-group-item a:hover, .bg-dark .list-group-item a:active, .bg-dark .list-group-item a:visited {color: #000000;}
+.bg-dark .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-dark .cs-card-carousel .title {color: #000000;} 
+.bg-dark .cs-card-horizontal2 .title {color: #000000;} 
+.bg-dark .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-dark .fc th {color: #fff;}
+.bg-dark .fc-list-heading a {color: #000;}
+ 
+
+/*-------- End Color Adjustments --------*/
+ 
+.bg-default {color: #ffffff !important;}    
+
+.cs-whitelinks a:link, .cs-whitelinks a:hover, .cs-whitelinks a:active, .cs-whitelinks a:visited {color:#fff;}
+.cs-blacklinks a:link, .cs-blacklinks a:hover, .cs-blacklinks a:active, .cs-blacklinks a:visited {color:#000;}
+ 
+.bg-fancy {background: #004E9E url(https://content.schoolinsites.com/api/documents/b21b63c812b040cb9bcd88dbeab6a05e.jpg) no-repeat center center;}
+ 
+@media screen and (max-width: 299px) {
+    .logoalternate {padding-top:65px;}}
+@media screen and (min-width: 300px) and (max-width: 799px) {
+    .logoalternate {padding-top:65px;}}
+@media screen and (min-width: 800px) {
+    .logoalternate {padding-top:5px;}} 
+ 
+.navbar-vertical .navbar-header { background-color:  #eaeaea !important; }  
+.cs-quicklinks-item {margin: 10px 70px;font-weight:bold;}
+.cs-quicklinks-bubbles .cs-card {
+    width: 190px !important;
+    height: 190px !important;  
+    padding: 20px !important;
+    margin: 0 40px;
+}
+
+.cs-calendar-widget .btn {padding: 6px;font-size: 11px;}
+
+/* Grow */
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.shadow {text-shadow: 2px 2px #000;}
+
+/*-------- Default --------*/ 
+.bg-default .h1, .bg-default .h2, .bg-default .h3, .bg-default .h4, .bg-default .h5, .bg-default .h6,
+.bg-default h1, .bg-default h2,.bg-default h3, .bg-default h4, .bg-default h5, .bg-default h6 {color: #ffffff;}
+.bg-default .panel-title a {color: #000;}
+.bg-default a:link, .bg-default a:hover, .bg-default a:active, .bg-default a:visited {color: #ffffff;}
+.bg-default .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-default .text-muted {color: #ffffff !important;}
+.bg-default .fc-day-number {color: #ffffff;}
+.bg-default .panel-title a {color: #000;}
+.bg-default .list-group-item  a:link, .bg-default .list-group-item a:hover, .bg-default .list-group-item a:active, .bg-default .list-group-item a:visited {color: #000000;}
+.bg-default .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-default .cs-card-carousel .title {color: #000000;} 
+.bg-default .cs-card-horizontal2 .title {color: #000000;} 
+.bg-default .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-default .fc th {color: #fff;}
+.bg-default .fc-list-heading a {color: #000;}
+
+/*-------- Success --------*/ 
+.bg-success .h1, .bg-success .h2, .bg-success .h3, .bg-success .h4, .bg-success .h5, .bg-success .h6,
+.bg-success h1, .bg-success h2,.bg-success h3, .bg-success h4, .bg-success h5, .bg-success h6 {color: #000;}
+.bg-success .panel-title a {color: #000;}
+.bg-success a:link, .bg-success a:hover, .bg-success a:active, .bg-success a:visited {color: #000;}
+.bg-success .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-success .text-muted {color: #000 !important;}
+.bg-success .fc-day-number {color: #000;}
+.bg-success .panel-title a {color: #000;}
+.bg-success .list-group-item  a:link, .bg-success .list-group-item a:hover, .bg-success .list-group-item a:active, .bg-success .list-group-item a:visited {color: #000000;}
+.bg-success .cs-carousel-widget-link a:link {color: #000;} 
+.bg-success .cs-card-carousel .title {color: #000000;} 
+.bg-success .cs-card-horizontal2 .title {color: #000000;} 
+.bg-success .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #000;}
+.bg-success .fc th {color: #000;}
+.bg-success .fc-list-heading a {color: #000;}
+
+/* Forward */
+.hvr-forward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-forward:hover, .hvr-forward:focus, .hvr-forward:active {
+  -webkit-transform: translateX(8px);
+  transform: translateX(8px);
+}
+
+.boxshadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+z-index:999;}
+.smallshadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+z-index:999;}
+
+/* Shrink */
+.hvr-shrink {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-shrink:hover, .hvr-shrink:focus, .hvr-shrink:active {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+/* Float */
+.hvr-float {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+}
+    </style>
+
+    <style name="site-fonts">
+        
+
+
+    </style>
+
+    <style name="site-colors">
+        
+    </style>
+
+    
+
+
+
+    <!-- load these scripts first -->
+    
+
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
+<script>(window.jQuery||document.write("\u003Cscript src=\u0022/lib/jquery3.5.1/jquery.min.js\u0022 crossorigin=\u0022anonymous\u0022\u003E\u003C/script\u003E"));</script>
+    
+
+    <script>let __isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;</script>
+
+    <!-- Put JW Player scripts here for now.  TO DO: Update widget framework to allow for adding javascripts dependencies. -->
+    <script src="/js/jwplayer/jwplayer.js"></script>
+    <script>jwplayer.key = "e2ENuQrC9eoMFbWWNz3dxcI6mkbnbK5iF070aGKXo28=";</script>
+
+
+    
+
+    <script>
+        window.setTimeout(function () { document.title = "Enrollment Information - Trion Elementary School"; }, 500);
+    </script>
+
+    
+
+</head>
+<body class="">
+
+    
+    <a class="skip-main" href="#maincontent">Skip to main content</a>
+    
+
+
+
+
+
+    <div class="cs-body cs-master-layout cs-master-layout-fullwidth csc-content-tree">
+<div class="cs-toolbar clearfix" role="region" aria-label="User Toolbar">
+    <div class="pull-left">
+        <div></div>
+    </div>
+    <div class="pull-right text-right">
+        <div>
+<div class="csc-usertools">
+    <ul class="csc-list-inline">
+        <li class="csc-usertools-login">
+            <a href="/sys/account/login">
+                <i class="fa fa-sign-in"></i> &nbsp;
+                Login
+            </a>
+        </li>
+        <li class="csc-usertools-register">
+            <a href="/sys/account/register">
+                Register
+            </a>
+        </li>
+    </ul>
+</div>
+
+</div>
+    </div>
+</div>
+
+<header class="cs-header">
+    <div class="cs-header-navbar">
+        <div class="content-zone csc-content-zone" name="site-nav">
+
+
+    <div class="content-node csc-content-node cs-topmenu">
+        <div class="csc-content-widget" style="">
+            
+
+
+
+    <div class="navbar navbar-default cs-navbar-default " role="navigation" aria-labelledby="navMenuTitle_1138565ca2044e1baef2b8d149d9ec8d">
+        <div class="navbar-header cs-navbar-header">
+            <button class="navbar-toggle cs-navbar-toggle" type="button" id="navMenuButton_1138565ca2044e1baef2b8d149d9ec8d" data-toggle="collapse" data-target="#1138565ca2044e1baef2b8d149d9ec8d">
+                <span id="navMenuTitle_1138565ca2044e1baef2b8d149d9ec8d" class="sr-only cs-text">Top Navigation Menu</span>
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div id="1138565ca2044e1baef2b8d149d9ec8d" class="collapse navbar-collapse cs-navbar-collapse">
+            <ul class="navbar-nav nav scrollable-nav-menu cs-navbar-list">
+                        <li><a class="cs-link cs-item-title" href="/" target="_self">Home</a></li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                About 
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/principalsmessage" target="_self">Principal&#x27;s Message</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/administrationofficestaff" target="_self">Administration &amp; Office Staff</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/contact" target="_self">Contact</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/visionmissionbeliefs" target="_self">Vision, Mission, Beliefs &amp; Nondiscrimination Policy</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/about" target="_self">About TES</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://public.gosa.ga.gov/noauth/extensions/SchoolGrades-Georgia/SchoolGrades-Georgia.html?lang=English&amp;SchoolName=trion-city" target="_blank">TCS Report Card/Student Data</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://testrionschoolsga.schoolinsites.com/teshandbook" target="_self">Student Handbook</a></li>
+
+<li>
+    <a class="cs-link cs-item-title" href="/titleischool">Title I &amp; School Improvement Plan</a>
+    <ul class="navbar-submenu cs-navbar-item-submenu">
+                <li><a class="cs-link cs-item-title" href="https://trionschoolsga.schoolinsites.com/federalprograms" target="_blank">TITLE 1 INFORMATION</a></li>
+    </ul>
+</li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.trionschools.org/multitieredsystemofsupportsmtss" target="_blank">Multi-Tiered System of Supports [MTSS]</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://mytcs.myshopify.com/" target="_blank">Pay Fees or Make Purchases  </a></li>
+                                        <li><a class="cs-link cs-item-title" href="/enrollment" target="_self">Enrollment Information</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Grade Levels 
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/prek" target="_self">PreK</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/kindergarten" target="_self">Kindergarten</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/1stgrade" target="_self">1st Grade</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/2ndgrade" target="_self">2nd Grade</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/3rdgrade" target="_self">3rd Grade</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/4thgrade" target="_self">4th Grade</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/5thgrade" target="_self">5th Grade</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Departments 
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/test" target="_self">STEAM Extremes Team</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/studentsupportservices" target="_self">Student Support Services</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/esol" target="_self">ESOL</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/counselor" target="_self">School Counselor</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/mediacenter" target="_self">Media Center</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/afterschoolprogram" target="_self">After School Program</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://trionschoolsga.schoolinsites.com/nutrition" target="_blank">Food &amp; Nutrition</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="cs-link cs-item-title" href="/news" target="_self">TES News</a></li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Parents 
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/afterschoolprogram" target="_self">After School Program</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/parentinvolvement" target="_self">Family Engagement</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://trion.powerschool.com/public/home.html" target="_blank">Parent Portal </a></li>
+                                        <li><a class="cs-link cs-item-title" href="/supplylist" target="_self">Supply List</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="cs-link cs-item-title" href="/calendars" target="_self">Calendars</a></li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Schools
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="https://tes.trionschools.org" target="_blank">Trion Elementary School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://tms.trionschools.org" target="_blank">Trion Middle School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://ths.trionschools.org" target="_blank">Trion High School</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="cs-link cs-item-title" href="https://www.trionschools.org/" target="_blank">District</a></li>
+            </ul>
+        </div>
+    </div>
+<script type="text/javascript">
+    $("#navMenuButton_1138565ca2044e1baef2b8d149d9ec8d").click(function () {
+        $("i", this).toggleClass("fa-bars");
+        $("i", this).toggleClass("fa-times");
+    });
+</script>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="cs-header-content">
+        <div class=" content-zone csc-content-zone" name="header">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:30px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node cs-row-nopadding" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="/" target="_self"><img src="https://content.schoolinsites.com/api/documents/31b2b147bdcb42509c0d013d942ab3cd.png" class="img-responsive" alt="Bulldog Head Mascot logo" title="Bulldog Head Mascot logo" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-8">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="/" target="_self"><img src="https://content.schoolinsites.com/api/documents/c35ca3f7821b47db821370ad03be8e62.png" class="img-responsive" alt="Trion Elementary School" title="Trion Elementary School" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node links-lite" style="padding-top:60px;padding-right:None;padding-bottom:60px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            <div class="cs-html-widget">
+    <a href="https://www.facebook.com/TrionElementarySchool" target="_blank" aria-label="Facebook" class="hvr-float">
+<i title="Facebook" class="fa fa-facebook fa-2x" style="color:#ffffff; padding-right:20px;"></i>
+</a><a href="https://twitter.com/TrionElemSchool" target="_blank" aria-label="Twitter" class="hvr-float">
+<i title="Twitter" class="fa-brands fa-x-twitter fa-2x" style="color:#ffffff; padding-right:20px;"></i>
+</a><a href="mailto:info@trionschools.org" target="_blank" aria-label="Email" class="hvr-float">
+<i title="Instagram" class="fa fa-envelope fa-2x" style="color:#ffffff; padding-right:20px;"></i>
+</a> 
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node bg-dark" style="padding-top:5px;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-12">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+    </div>
+</header>
+
+<div class="cs-page-bg">
+    <div class="cs-page">
+        <div class="cs-page-layout cs-page-layout-1">
+            <div class="cs-page-content">
+                <div class="page-content cs-main-content csc-content-tree" id="maincontent" role="main"><div class=" content-zone csc-content-zone" name="body">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://content.myconnectsuite.com/api/documents/a24735700c184bda870bdf608d47b963" target="_self"><img src="https://content.myconnectsuite.com/api/documents/a24735700c184bda870bdf608d47b963" class="img-responsive" alt="https://content.myconnectsuite.com/api/documents/a24735700c184bda870bdf608d47b963" title="https://content.myconnectsuite.com/api/documents/a24735700c184bda870bdf608d47b963" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://content.myconnectsuite.com/api/documents/25faa5642623445ab7fb65b834fdaa34" target="_self"><img src="https://content.myconnectsuite.com/api/documents/25faa5642623445ab7fb65b834fdaa34" class="img-responsive" alt="https://content.myconnectsuite.com/api/documents/25faa5642623445ab7fb65b834fdaa34" title="https://content.myconnectsuite.com/api/documents/25faa5642623445ab7fb65b834fdaa34" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://content.myconnectsuite.com/api/documents/b4535c7b159a49249a993799e8890bb2" target="_self"><img src="https://content.myconnectsuite.com/api/documents/b4535c7b159a49249a993799e8890bb2" class="img-responsive" alt="https://content.myconnectsuite.com/api/documents/b4535c7b159a49249a993799e8890bb2" title="https://content.myconnectsuite.com/api/documents/b4535c7b159a49249a993799e8890bb2" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget" style="">
+                <div class="clearfix cs-title-widget">
+<h1 class="cs-page-title">Enrollment Information</h1>    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <span id="docs-internal-guid-536f5e02-7fff-74da-8727-3d483a6a4de8"><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:12pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">RETURNING STUDENTS</span></p><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">Returning families can complete the enrollment form through your student&rsquo;s </span><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">PowerSchool Parent Portal</span><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;"> account.</span></p><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">If you need assistance accessing your portal, please contact the school office. We are happy to help!</span></p><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">Required Items</span><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">:</span></p><ul style="margin-bottom:0px;padding-inline-start:48px;"><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Trion City Residents</span></p></li><ul style="padding-inline-start:48px;"><li dir="ltr" style="list-style-type:circle;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="2"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Own</span><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">: (Required) City of Trion water and gas bill and/or proof of property ownership</span></p></li><li dir="ltr" style="list-style-type:circle;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="2"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Rent</span><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">: (Required) Copy of Lease Agreement signed by the property owner and lessee/applicant and/or Town of Trion issued water and gas bill received in your name at the property address.</span></p></li></ul><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Non-Residents</span></p></li><ul style="padding-inline-start:48px;"><li dir="ltr" style="list-style-type:circle;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="2"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Tuition fees must be submitted to process the student application.</span></p></li><li dir="ltr" style="list-style-type:circle;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="2"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:12pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">If a payment plan is needed, please contact the Trion Elementary School Office.</span></p></li></ul></ul><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">NEW IN-DISTRICT STUDENTS</span></p><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">If you are enrolling a new student, please complete the enrollment application and return it to the TES Office with all the required documents.</span></p><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">If you need assistance accessing your portal, our office staff is happy to help!</span></p><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">Required Items</span><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">:</span></p><ul style="margin-bottom:0px;padding-inline-start:48px;"><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">TCS Enrollment Form</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Birth Certificate</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Social Security Card</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">School Certificate of Immunization on GA Form 3231</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Vision, Hearing, and Dental on GA Form 3300</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Parent/Guardian State-Issued Picture ID</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Custody Order (if applicable)</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Current Academic Transcript</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Current Attendance Records</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Current Discipline Records</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Proof of Residency (Trion City Residents only)</span></p></li><ul style="padding-inline-start:48px;"><li dir="ltr" style="list-style-type:circle;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="2"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Own</span><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">: (Required) City of Trion water and gas bill and/or proof of property ownership</span></p></li><li dir="ltr" style="list-style-type:circle;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="2"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:12pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Rent</span><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">: (Required) Copy of the Lease Agreement signed by the property owner and lessee/applicant and/or Town of Trion issued water and gas bill received in your name at the property address.</span></p></li></ul></ul><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;"><span style="font-size:12pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">KINDERGARTEN STUDENTS</span></p><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">If you are enrolling a kindergarten student, please pick up an enrollment application from the Trion Elementary Office and return it with all the required documents.</span></p><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:12pt;"><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">Required Items</span><span style="font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space-collapse:preserve;">:</span></p><ul style="margin-bottom:0px;padding-inline-start:48px;"><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:12pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Kindergarten Enrollment Form</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Birth Certificate</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Social Security Card</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">School Certificate of Immunization on GA Form 3231</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Vision, Hearing, and Dental on GA Form 3300</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Parent/Guardian State-Issued Picture ID</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Custody Order (if applicable)</span></p></li><li dir="ltr" style="list-style-type:disc;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="1"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Proof of Residency (Trion City Residents only)</span></p></li><ul style="padding-inline-start:48px;"><li dir="ltr" style="list-style-type:circle;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="2"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Own</span><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">: (Required) City of Trion water and gas bill and/or proof of property ownership</span></p></li><li dir="ltr" style="list-style-type:circle;font-size:11pt;font-family:Arial, sans-serif;color:#000000;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;white-space:pre;" aria-level="2"><p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:12pt;" role="presentation"><span style="font-size:11pt;background-color:transparent;font-weight:700;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">Rent</span><span style="font-size:11pt;background-color:transparent;font-variant-numeric:normal;font-variant-east-asian:normal;font-variant-alternates:normal;font-variant-position:normal;font-variant-emoji:normal;vertical-align:baseline;text-wrap-mode:wrap;">: (Required) Copy of the Lease Agreement signed by the property owner and lessee/applicant and/or Town of Trion issued water and gas bill received in your name at the property address.</span></p></li></ul></ul></span>
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://content.myconnectsuite.com/api/documents/48c000b1491848558a4f4888f56e8354" target="_self"><img src="https://content.myconnectsuite.com/api/documents/48c000b1491848558a4f4888f56e8354" class="img-responsive" alt="https://content.myconnectsuite.com/api/documents/48c000b1491848558a4f4888f56e8354" title="https://content.myconnectsuite.com/api/documents/48c000b1491848558a4f4888f56e8354" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+
+
+<div class="cs-quicklinks cs-quicklinks-icons">
+
+        <h3 class="cs-widget-title">Quick Links for Enrollment</h3>
+
+    <div class="row display-flex cs-card-group">
+            <div class="cs-card">
+                <a class="cs-link" href="https://trion.powerschool.com/public/home.html" target="_blank" title="Portal">
+                        <span class="cs-item-title">PowerSchool Parent Portal</span>
+                </a>
+            </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node bg-default" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#1557e6;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+                <div class="clearfix cs-title-widget">
+<h1 class="cs-page-title">New Student Non-Resident Enrollment Request </h1>    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node bg-muted" style="">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    If you are not a City of Trion resident and your child does not currently attend TCS, please use the links below to begin the enrollment process.
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:5px;padding-right:None;padding-bottom:None;padding-left:30px;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <a href="https://forms.gle/whYtL3AZCiUbW2MN7">English Non-Resident Enrollment Process</a>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:5px;padding-right:None;padding-bottom:None;padding-left:30px;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <a href="https://forms.gle/EviaX29GjjbiMxMw5">Spanish Non-Resident Enrollment RequestSpanish Non-Resident Enrollment Process</a>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:None;padding-left:125px;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://content.myconnectsuite.com/api/documents/892861e9e8c547238e72abc8d8dab21c" target="_self"><img src="https://content.myconnectsuite.com/api/documents/892861e9e8c547238e72abc8d8dab21c" class="img-responsive" alt="https://content.myconnectsuite.com/api/documents/892861e9e8c547238e72abc8d8dab21c" title="https://content.myconnectsuite.com/api/documents/892861e9e8c547238e72abc8d8dab21c" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="cs-footer">
+    <div class="cs-footer-content">
+        <div class=" content-zone csc-content-zone" name="footer">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget container" style="">
+            <div class="cs-html-widget">
+    <p style="text-align:center;"><span style="font-size:14px;color:#ffffff!important;">We are committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability. We endeavor to comply with best practices and standards defined by Section 508 of the U.S. Rehabilitation Act, and we use WCAG Version 2.1 level AA guidelines when measuring our efforts toward achieving this goal. If you encounter any technology-based barriers when accessing any of our sites, please contact us at (706) 734-2363 for assistance or email us at <a href="mailto:info@trionschools.org">info@trionschools.org</a>.</span></p>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:30px;padding-bottom:30px;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            <googletranslate> 
+
+<div id='google_translate_element'></div>
+<script>
+        function googleTranslateElementInit()
+        {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,hy,bg,zh-CN,zh-TW,hr,cs,da,nl,fil,fi,fr,de,el,haw,he,hi,hu,is,id,ga,it,ja,kk,ko,la,mi,my,no,fa,pl,pt,ro,ru,sr,sl,so,es,sv,th,tr,uk,ur,vi,cy,yi',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            function changeGoogleStyles() {
+                if($('.goog-te-menu-frame').contents().find('.goog-te-menu2').length) {
+                    $('.goog-te-menu-frame').contents().find('.goog-te-menu2').css({
+                        'max-width':'100%',
+                        'overflow-x':'auto',
+                        'box-sizing':'border-box',
+                        'height':'auto'
+                    });
+                } else {
+                    setTimeout(changeGoogleStyles, 50);
+                }
+                $('.goog-te-gadget-simple > span > a > span').first().css('color', 'black' );
+                $('.goog-te-gadget-simple > span > a > span').first().css('background-color', 'white' );
+            }
+            function customGoogleTranslateBehaviour() {
+                $('.goog-te-gadget-simple').on('click', function(e) {
+                    e.preventDefault();
+                });
+                $('#goog-gt-votingHiddenPane').empty();
+            }
+            changeGoogleStyles();
+            customGoogleTranslateBehaviour();
+        }
+</script>
+<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+</googletranslate>
+<style>
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    .goog-te-menu-frame {
+        max-width: 100% !important;
+    }
+
+    .goog-te-menu2 {
+        max-width: 100% !important;
+        overflow-x: scroll !important;
+        box-sizing: border-box !important;
+        height: auto !important;
+    }
+</style>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://trionschoolsga.schoolinsites.com/" target="_blank"><img src="https://content.schoolinsites.com/api/documents/be91721275094076b7b5988ece0fc629.png" class="img-responsive" alt="Trion " title="Trion " style="border-radius: 0px;max-width: 100%;max-height: 80px" /></a>
+    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <p style="text-align:center;"><span style="color:#ffffff;">919 Allgood Street Suite 1,&nbsp; Trion, GA 30753<br />PH: 1.706.734.2991<br />Fax: 1.706.734.7549</span></p>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://www.schoolinsites.com/" target="_blank"><img src="https://content.schoolinsites.com/api/documents/1536a33f166240af9c3ef504396bff37.png" class="img-responsive" alt="SCHOOLinSITES" title="SCHOOLinSITES" style="border-radius: 0px;max-width: 100%;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-3">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:30px;padding-bottom:30px;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+<div class="search-field search-field-lucene  " data-module="widgets/search">
+    <label for="q" class="hidden-sc">Search</label>
+    <input id="q" type="text" name="searchInput" placeholder="Search" />
+    <i name="searchGo" class="fa fa-search"></i>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+    </div>
+    <div class="cs-footer-info">
+        <div class="copyright">Copyright &copy; 2026 Trion City Schools
+</div>
+    </div>
+</footer>    </div>
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+    });
+</script>
+
+
+
+    
+
+    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+        </script>
+<script>(window.jQuery.fn.modal||document.write("\u003Cscript src=\u0022/lib/bootstrap/dist/js/bootstrap.min.js\u0022 crossorigin=\u0022anonymous\u0022\u003E\u003C/script\u003E"));</script>
+    
+
+    <script src="/js/site.js?v=8BlENTUWC3TjjHPYwI1ZrLIcj8Kea0f1kRjg-8UqBqA"></script>
+
+    <!-- MVC View Scripts-->
+    
+    <script src="/js/jquery-ui/jquery-ui-1.13.2.min.js"></script>
+    <script src="/js/jquery-ui/jquery.ui.touch-punch.js"></script>
+    <script src="/js/content.js?v=RFt2nsbRsk7ODh7fPKmVZRIRORp7F8xv1QG4MWVMed8"></script>
+
+
+    
+
+
+
+    <!-- Site Components: Render after MVC View Scripts -->
+    <script src="/js/dialog.js?v=U7x_P-RGJm34ojdh0-PjAyhUrO4K1c6FUIthBHbRHag"></script>
+    <script src="/js/toolbar.js?v=yA54fWzDkZnO2v4n0iJHqYZSPjpMOvJUc9HZIYnmthA"></script>
+    <script src="/js/siteform.js?v=OIo5tXKXkmF1uzC1k8prQNvijeHmO47G-G1lL8Jr2pI"></script>
+
+    <!-- Require Js -->
+    <script src="/lib/requirejs/require.js" data-main="/js/app001"></script>
+
+</body>
+</html>

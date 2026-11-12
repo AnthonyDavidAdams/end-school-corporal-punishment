@@ -1,0 +1,1295 @@
+
+<!DOCTYPE html>
+<html style="min-height: 100%" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+            <meta property="og:title" content="Enrollment" />
+            <meta property="og:url" content="https://tms.trionschools.org/enrollment" />
+            <meta property="og:type" content="website" />
+
+            <link rel="icon" type="image/ico" href="https://content.schoolinsites.com/api/documents/62800f9e6c0a46f1b7c9c219d6c3b68d.ico" />
+
+    <title>
+        
+    Enrollment
+
+    </title>
+
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/brands.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/solid.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/regular.min.css" />
+    <link rel="stylesheet" href="/lib/fontawesome6.4.2/css/v4-shims.min.css" />
+
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/custom-icons.css?v=0nvJki9gQnLR8cy7OQ62gyocqslU3-0UC4caTS3-zns" />
+    <link rel="stylesheet" href="/css/core/components.css?v=Vf-NAdeZjGYJj_koruCkkng_0snGh_WkiAEkx7MV1Fw" />
+    <link rel="stylesheet" href="/css/core/dialog.css?v=1ZqiCMDGL9AayDJeEOQRt9Q0kxP5vn7z7uOhyK3OqBI" />
+    <link rel="stylesheet" href="/css/toolbar.css?v=VwnbxHzktDLVXaVPyZXQYOir4v0G7gYmu2topYebOvo" />
+    <link rel="stylesheet" href="/css/audioplayer.css?v=oOVrPQm5jqukq_n6Qusjiltm60L5DqgmllxnDadm5yc" />
+
+
+    <!-- Load FullCalendar -->
+    <script src='/lib/fullCalendarV6/moment/moment.min.js'></script>
+    <script src="/lib/fullCalendarV6/index.global.min.js"></script>
+    <script src="/lib/fullCalendarV6/moment/index.global.min.js"></script>
+
+    
+    <link rel="stylesheet" href="/css/jquery-ui/jquery-ui-1.13.2.css" />
+    <link rel="stylesheet" href="/css/public.css?v=rwVB8ctwhKk5zO6mQUqPDn9fLsa6nSLJhsnTw1lodek" />
+
+
+    <style name="site-css">
+        @import url('https://fonts.googleapis.com/css?family=Raleway:200,400,600');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond');
+
+
+
+/*-------- Search Placeholder Text --------*/
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffffff;
+  opacity: 1; /* Firefox */}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ffffff;}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ffffff;}
+
+/* focus visualization for ADA Compliance */
+a:focus, a:focus img, a:focus > img, button:focus, .navbar-default .navbar-nav > li > a:focus {outline: 3px solid #B30C09 !important;}
+
+/*-------- Hamburger Color Fix --------*/
+.navbar-toggle {background-color: #ddd; color:#333333;}
+
+/*-------- Accomplished Template CSS --------*/ 
+/* fonts */
+body {background: #ffffff url() top center repeat;margin: 0px;font-family: 'Raleway', Arial, Helvetica, "sans-serif";}  
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {font-family: 'Raleway', Arial, Helvetica, "sans-serif"; font-weight: 300; letter-spacing: 0.4px; } 
+
+/* navigation menu */
+.navbar {margin-bottom: 0px;}
+.cs-header-navbar{background: #222222; font-family: 'Raleway', Arial, Helvetica, "sans-serif";  font-size: 14px; font-weight: 400; color: #fff; } 
+.navbar {border-radius: 0;}
+.navbar .navbar-default {margin-bottom: 0 }
+.navbar-default { border: none;background-color: transparent;}  
+.nav > li > a {font-family: color: #333;}
+.navbar-default .navbar-nav > li > a {color: #fff;}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {color: #ccc;}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {color: #999; background-color: #222222;}
+.dropdown-menu {background-color: #222;color:#fff;}
+.dropdown-menu > li > a {color:#ffffff;}
+.navbar-default .navbar-nav > li > a {color: #000; }
+.navbar-default .navbar-nav > li > a:hover {color: #999; }
+.dropdown-menu {background: #eaeaea;color: #000; }
+.dropdown-menu > li > a {color: #000 !important; } 
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {color: #999;} 
+.navbar-nav .open .dropdown-menu {background-color: #eaeaea; }
+.cs-topmenu .navbar-default .navbar-nav > li > a {color: #fff; }
+.cs-topmenu .navbar-submenu { color: #999; } 
+.navbar-toggle {background-color: #fff;} 
+
+/* padding */
+.cs-nopadding {padding: 0; margin: 0 -15px 0 0;}
+.cs-row-nopadding > .content-widget > .content-layout > .row > div:not(:first-child){ padding: 0 !important }
+.cs-row-nopadding > .content-widget > .content-layout > .row > div:not(:last-child){ padding: 0 !important } 
+.cs-padding20 {padding:20px}
+
+/* footer */
+.cs-footer-info {text-align: center} 
+.copyright {color: #ffffff;}
+
+/* misc */
+.text-muted {color: #575757;}
+.table-striped > tbody > tr:nth-of-type(2n+1) {background-color: #f9f9f9;color: #000;} 
+.jumbotron, .jumbotron h1, .jumbotron .h1 {color: #000;}
+.fa-search {color:#ffffff;} 
+.fc button { font-size: 11px;}
+.alert-info { background-color: #eaeaea; border-color: #eaeaea; color: #000000;}
+
+/*toolbar */
+.cs-toolbar {padding: 5px 15px 0 15px; background: #000; color: #fff;}
+.cs-toolbar, .cs-toolbar a {color: #8bb9ee;} 
+
+/* carousel */        
+.cs-carousel-widget-title {font-size:20px;padding:5px; text-transform: uppercase;}
+.cs-carousel-widget-description {padding:5px; font-size:14px;font-weight: normal;}
+.cs-carousel-widget-link {color:#ffffff;padding:5px;font-weight: bold; }   
+.bg-default .cs-carousel-widget-link a,   .bg-contrast .cs-carousel-widget-link a,  .bg-dark  .cs-carousel-widget-link a,  .bg-danger  .cs-carousel-widget-link a {color: #ffffff;}
+
+/*-------- Site CSS --------*/
+button, input, optgroup, select, textarea {background-color: #075391;border: 1px #fff solid;color: #fff;}
+
+/* header */
+.cs-header {background: #004e9e url() top center repeat;}
+.cs-footer {margin-top: 0px; background: #004e9e;}
+.cs-footer a {color:#fff;}
+
+h1, .h1 {font-family: 'EB Garamond', cursive; font-size: 40px; color: #004884;}
+
+/* blue color preset */
+.bg-default {background: #004e9e; color: #ffffff;}  
+a.bg-default:hover, a.bg-default:focus {background: #004e9e; color: #ffffff;}  
+.bg-contrast {background: #595959; color: #ffffff;} 
+a.bg-contrast:hover, a.bg-default:focus {background: #595959; color: #ffffff;}
+.bg-muted {background: #F1F1F1; color: #000000;}
+.bg-clean {background: #ffffff; color: #000000;}
+.bg-dark {background: #222222; color: #ffffff;} 
+a.bg-dark:hover, a.bg-default:focus {background: #222222; color: #ffffff;}
+.bg-success {background: #749bbe; color: #000000;} 
+a.bg-success:hover, a.bg-success:focus {background: #749bbe; color: #000000;} 
+.bg-info {background: #c7e3fa; color: #000000;} 
+a.bg-info:hover, a.bg-info:focus {background: #c7e3fa; color: #000000;} 
+.bg-warning {background: #edf6fe; color: #000000;}  
+a.bg-warning:hover, a.bg-warning:focus {background: #edf6fe; color: #000000;}  
+.bg-danger {background: #fdd806; color: #000000;} 
+a.bg-danger:hover, a.bg-danger:focus  {background: #fdd806; color: #000000;} 
+
+
+/*-------- Beginning Color Adjustments --------*/
+
+.panel-title a:link, .panel-title a:hover, .panel-title a:visited, .panel-title a:active {color: #000;}
+.list-group a:link, .list-group a:hover, .list-group a:visited, .list-group a:active {color: #000;} 
+.fc th, .fc td {color: inherit;}
+
+/*-------- Default --------*/ 
+.bg-default .h1, .bg-default .h2, .bg-default .h3, .bg-default .h4, .bg-default .h5, .bg-default .h6,
+.bg-default h1, .bg-default h2,.bg-default h3, .bg-default h4, .bg-default h5, .bg-default h6 {color: #ffffff;}
+.bg-default .panel-title a {color: #000;}
+.bg-default a:link, .bg-default a:hover, .bg-default a:active, .bg-default a:visited {color: #ffffff;}
+.bg-default .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-default .text-muted {color: #ffffff !important;}
+.bg-default .fc-day-number {color: #ffffff;}
+.bg-default .panel-title a {color: #000;}
+.bg-default .list-group-item  a:link, .bg-default .list-group-item a:hover, .bg-default .list-group-item a:active, .bg-default .list-group-item a:visited {color: #000000;}
+.bg-default .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-default .cs-card-carousel .title {color: #000000;} 
+.bg-default .cs-card-horizontal2 .title {color: #000000;} 
+.bg-default .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-default .fc th {color: #fff;}
+.bg-default .fc-list-heading a {color: #000;}
+
+/*-------- Contrast --------*/ 
+.bg-contrast .h1, .bg-contrast .h2, .bg-contrast .h3, .bg-contrast .h4, .bg-contrast .h5, .bg-contrast .h6,
+.bg-contrast h1, .bg-contrast h2,.bg-contrast h3, .bg-contrast h4, .bg-contrast h5, .bg-contrast h6 {color: #ffffff;}
+.bg-contrast .panel-title a {color: #000;}
+.bg-contrast a:link, .bg-contrast a:hover, .bg-contrast a:active, .bg-contrast a:visited {color: #ffffff;}
+.bg-contrast .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-contrast .text-muted {color: #ffffff !important;}
+.bg-contrast .fc-day-number {color: #ffffff;}
+.bg-contrast .panel-title a {color: #000;}
+.bg-contrast .list-group-item  a:link, .bg-contrast .list-group-item a:hover, .bg-contrast .list-group-item a:active, .bg-contrast .list-group-item a:visited {color: #000000;}
+.bg-contrast .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-contrast .cs-card-carousel .title {color: #000000;} 
+.bg-contrast .cs-card-horizontal2 .title {color: #000000;} 
+.bg-contrast .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-contrast .fc th {color: #fff;}
+.bg-contrast .fc-list-heading a {color: #000;}
+ 
+
+/*-------- Dark --------*/ 
+.bg-dark .h1, .bg-dark .h2, .bg-dark .h3, .bg-dark .h4, .bg-dark .h5, .bg-dark .h6,
+.bg-dark h1, .bg-dark h2,.bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6 {color: #ffffff;}
+.bg-dark .panel-title a {color: #000;}
+.bg-dark a:link, .bg-dark a:hover, .bg-dark a:active, .bg-dark a:visited {color: #ffffff;}
+.bg-dark .table-striped > tbody > tr:nth-of-type(2n+1) a:link {color: #000000;}
+.bg-dark .text-muted {color: #ffffff !important;}
+.bg-dark .fc-day-number {color: #ffffff;}
+.bg-dark .panel-title a {color: #000;}
+.bg-dark .list-group-item  a:link, .bg-dark .list-group-item a:hover, .bg-dark .list-group-item a:active, .bg-dark .list-group-item a:visited {color: #000000;}
+.bg-dark .cs-carousel-widget-link a:link {color: #ffffff;} 
+.bg-dark .cs-card-carousel .title {color: #000000;} 
+.bg-dark .cs-card-horizontal2 .title {color: #000000;} 
+.bg-dark .fc-ltr .fc-basic-view .fc-day-top .fc-day-number {color: #fff;}
+.bg-dark .fc th {color: #fff;}
+.bg-dark .fc-list-heading a {color: #000;}
+  
+
+.cs-calendar-widget a:link {color: #000;}
+
+/*-------- End Color Adjustments --------*/
+
+.cs-whitelinks a:link, .cs-whitelinks a:hover, .cs-whitelinks a:active, .cs-whitelinks a:visited {color:#fff;}
+.cs-blacklinks a:link, .cs-blacklinks a:hover, .cs-blacklinks a:active, .cs-blacklinks a:visited {color:#000;}
+
+.bg-fancy {background: #ffffff url(https://content.schoolinsites.com/api/documents/9f7cfa50861a4679b13b9ea074eaeff2.png) no-repeat left center;}
+.cs-stripe {background: url(https://content.schoolinsites.com/api/documents/12ec918ebece426da3dfe3618bb7ba71.jpg) repeat-x left bottom;}
+
+.cs-quicklinks-item {margin: 10px 70px; }
+
+.navbar-submenu > li > a {
+    padding: 3px 20px;
+    clear: both;
+    color: #000;
+    white-space: nowrap;
+}
+
+.cs-calendar-widget .btn {padding: 6px;font-size: 11px;}
+
+.boxshadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+z-index:999;}
+.smallshadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+z-index:999;}
+
+/* Float */
+.hvr-float {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+}
+
+/* Grow */
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/*-- quicklinks appearance adjustments --*/
+
+@media only screen and (max-width: 600px) {
+ .homepage-ql .cs-quicklinks-hover .cs-card {
+    min-width: 100%;}}
+
+.cs-quicklinks-item {margin: 10px 70px; }
+
+.homepage-ql .cs-quicklinks-hover .cs-item-title {font-size:40px;}
+
+.homepage-ql .cs-quicklinks-icons .cs-quicklinks-icon:hover, .homepage-ql .cs-quicklinks-icons .cs-quicklinks-icon:focus, .homepage-ql .cs-quicklinks-icons .cs-quicklinks-icon:active {
+  box-shadow: 0 5px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.homepage-ql .cs-quicklinks-icons .cs-item-title {font-size:18px;}
+.homepage-ql .cs-quicklinks-icons a {color:#075391;}
+.homepage-ql .cs-quicklinks-icons a:hover {color:#23669D;}
+
+.homepage-ql .cs-quicklinks-icons .cs-quicklinks-icon {
+    display: block;
+    text-align: center;
+    font-size: 80px;
+    line-height: 140px;
+    margin-bottom: 10px;
+margin:20px;
+    height: 170px;
+    width: 170px;
+    padding: 15px;
+    background: #F4F4F4;
+    border: 2px #FFF solid;
+    border-radius: 8px;
+    box-shadow: -1px 2px 5px 2px #c9c9c9;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.homepage-ql .cs-quicklinks-hover .cs-description-wrapper
+{flex-direction:inherit;}
+
+.homepage-ql .cs-quicklinks-hover .cs-link-focus, .homepage-ql .cs-quicklinks-hover .cs-description-wrapper:hover, .homepage-ql .cs-quicklinks-hover .cs-description-wrapper:focus {
+    background: rgb(7 83 145);
+    opacity: .8;
+}
+
+.homepage-ql .cs-quicklinks-hover .cs-card {
+    min-width: 25%;
+    padding: 0;
+    margin: 0;}
+
+/*-- end of quicklinks appearance adjustments --*/
+    </style>
+
+    <style name="site-fonts">
+        
+
+
+    </style>
+
+    <style name="site-colors">
+        
+    </style>
+
+    
+
+
+
+    <!-- load these scripts first -->
+    
+
+    
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
+<script>(window.jQuery||document.write("\u003Cscript src=\u0022/lib/jquery3.5.1/jquery.min.js\u0022 crossorigin=\u0022anonymous\u0022\u003E\u003C/script\u003E"));</script>
+    
+
+    <script>let __isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;</script>
+
+    <!-- Put JW Player scripts here for now.  TO DO: Update widget framework to allow for adding javascripts dependencies. -->
+    <script src="/js/jwplayer/jwplayer.js"></script>
+    <script>jwplayer.key = "e2ENuQrC9eoMFbWWNz3dxcI6mkbnbK5iF070aGKXo28=";</script>
+
+
+    
+
+    <script>
+        window.setTimeout(function () { document.title = "Enrollment - Trion Middle School"; }, 500);
+    </script>
+
+    
+
+</head>
+<body class="">
+
+    
+    <a class="skip-main" href="#maincontent">Skip to main content</a>
+    
+
+
+
+
+
+    <div class="cs-body cs-master-layout cs-master-layout-fullwidth csc-content-tree">
+<div class="cs-toolbar clearfix" role="region" aria-label="User Toolbar">
+    <div class="pull-left">
+        <div></div>
+    </div>
+    <div class="pull-right text-right">
+        <div>
+<div class="csc-usertools">
+    <ul class="csc-list-inline">
+        <li class="csc-usertools-login">
+            <a href="/sys/account/login">
+                <i class="fa fa-sign-in"></i> &nbsp;
+                Login
+            </a>
+        </li>
+        <li class="csc-usertools-register">
+            <a href="/sys/account/register">
+                Register
+            </a>
+        </li>
+    </ul>
+</div>
+
+</div>
+    </div>
+</div>
+
+<header class="cs-header">
+    <div class="cs-header-navbar">
+        <div class="content-zone csc-content-zone" name="site-nav">
+
+
+    <div class="content-node csc-content-node cs-topmenu">
+        <div class="csc-content-widget" style="">
+            
+
+
+
+    <div class="navbar navbar-default cs-navbar-default " role="navigation" aria-labelledby="navMenuTitle_b013a63f381f4c9f91afae3b9e7fc251">
+        <div class="navbar-header cs-navbar-header">
+            <button class="navbar-toggle cs-navbar-toggle" type="button" id="navMenuButton_b013a63f381f4c9f91afae3b9e7fc251" data-toggle="collapse" data-target="#b013a63f381f4c9f91afae3b9e7fc251">
+                <span id="navMenuTitle_b013a63f381f4c9f91afae3b9e7fc251" class="sr-only cs-text">Top Navigation Menu</span>
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <div id="b013a63f381f4c9f91afae3b9e7fc251" class="collapse navbar-collapse cs-navbar-collapse">
+            <ul class="navbar-nav nav scrollable-nav-menu cs-navbar-list">
+                        <li><a class="cs-link cs-item-title" href="/" target="_self">Home</a></li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                About TMS
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/principalsmessage" target="_self">Principal&#x27;s Message</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/admin_officestaff" target="_self">Administration &amp; Office Staff</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/contact" target="_self">Contact TMS</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/values" target="_self">Vision, Mission, Beliefs &amp; Nondisclosure Statement</a></li>
+
+<li>
+    <a class="cs-link cs-item-title" href="/profile_accountability">School Profile &amp; Accountability</a>
+    <ul class="navbar-submenu cs-navbar-item-submenu">
+                <li><a class="cs-link cs-item-title" href="https://drive.google.com/file/d/1iXOafl7-qRgPhTR5U6pUesp7SiYrFLyf/view?usp=sharing" target="_blank">School Improvement Plan</a></li>
+                <li><a class="cs-link cs-item-title" href="https://gaawards.gosa.ga.gov/analytics/K12ReportCard" target="_blank">TMS GOSHA REPORT CARD</a></li>
+                <li><a class="cs-link cs-item-title" href="https://www.gadoe.org/CCRPI/Pages/default.aspx" target="_blank">TMS CCRPI RESULTS</a></li>
+    </ul>
+</li>
+                                        <li><a class="cs-link cs-item-title" href="/enrollment" target="_self">Enrollment Information</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/studenthandbook" target="_self">Student Handbook</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Academics
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/staff" target="_self">Faculty and Staff</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.georgiastandards.org/Georgia-Standards/Pages/ELA-6-8.aspx" target="_blank">English</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.georgiastandards.org/Georgia-Standards/Pages/Math-6-8.aspx" target="_blank">Math</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.georgiastandards.org/Georgia-Standards/Pages/Science-6-8.aspx" target="_blank">Science</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.georgiastandards.org/Georgia-Standards/Pages/Social-Studies-6-8.aspx" target="_blank">Social Studies</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://www.galepages.com/trion6408/resources" target="_blank">Media Center</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/attendance" target="_self">Attendance</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://trionschoolsga.schoolinsites.com/studentservices" target="_blank">Student Services and Support</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://docs.google.com/document/d/e/2PACX-1vRvnaKrfdy7ZO1uxYeMKpfDxyOSpkUgZ6t2QKsl8QXr1aCMWS7tunytp5WQ5eqcMh7EEfwH4rn-dl_P/pub" target="_blank">ESOL Manual</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/counselor" target="_self">Counselor</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/academicincent" target="_self">Academic Incentives</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Athletics
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/athleticshome" target="_self">TMS Athletics</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/concussions" target="_self">Concussions</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/physicaled" target="_self">Physical Forms</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/baseball" target="_self">Baseball</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/basketball" target="_self">Basketball</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/bassfishing" target="_self">Bass Fishing</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/cheerleading" target="_self">Cheerleading</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/crosscountry" target="_self">Cross Country</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/football" target="_self">Football</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/golf" target="_blank">Golf</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/soccer" target="_self">Soccer</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/softball" target="_self">Softball</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/tennisclub" target="_blank">Tennis Club</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/volleyball" target="_self">Volleyball</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/wrestling" target="_self">Wrestling</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Clubs and Organizations
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="/fca" target="_self">Fellowship of Christian Athletes</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/4h" target="_self">4H Club</a></li>
+                            </ul>
+                        </li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Parent Info
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="https://trion.powerschool.com/public/home.html" target="_blank">PowerSchool Parent Portal</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://drive.google.com/file/d/1ToETElxVDw6JszFzBmWT45gzPB3bZpoL/view?usp=sharing" target="_blank">PowerSchool Parent Letter</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://docs.google.com/presentation/d/e/2PACX-1vSWofcswR0HR5ectjLni37BM9S9af1C4U0I3Fj4YDVZJarkw0hiKgM9JrSHHlte6Gdw2YfUAyzLgi_k/pub?start=true&amp;loop=true&amp;delayms=5000" target="_blank">Rising Freshmen Presentation</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/highschoolcredit" target="_self">High School Credit Class Oportunity</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/schoolinsurance" target="_self">School Insurance Option</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://mytcs.myshopify.com/" target="_blank">Pay Fees or Make Purchases</a></li>
+                                        <li><a class="cs-link cs-item-title" href="/onecall" target="_self">One Call Now</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="cs-link cs-item-title" href="/annualcalendar" target="_self">Calendars</a></li>
+                        <li class="cs-navbar cs-navbar-item">
+                            <a class="dropdown-toggle cs-link cs-item-title" href="#" data-toggle="dropdown">
+                                Schools
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu cs-navbar-submenu cs-navbar-item-submenu">
+                                        <li><a class="cs-link cs-item-title" href="https://tes.trionschools.org" target="_blank">Trion Elementary School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://tms.trionschools.org" target="_blank">Trion Middle School</a></li>
+                                        <li><a class="cs-link cs-item-title" href="https://ths.trionschools.org" target="_blank">Trion High School</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="cs-link cs-item-title" href="https://www.trionschools.org/" target="_blank">District</a></li>
+            </ul>
+        </div>
+    </div>
+<script type="text/javascript">
+    $("#navMenuButton_b013a63f381f4c9f91afae3b9e7fc251").click(function () {
+        $("i", this).toggleClass("fa-bars");
+        $("i", this).toggleClass("fa-times");
+    });
+</script>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="cs-header-content">
+        <div class=" content-zone csc-content-zone" name="header">
+    
+
+
+    <div class="content-node csc-content-node cs-stripe" style="padding-top:0;padding-bottom:0;">
+        <div class="content-widget csc-content-widget" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node cs-padding20" style="padding-top:None;padding-right:None;padding-bottom:30px;padding-left:30px;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="/" target="_self"><img src="https://content.schoolinsites.com/api/documents/75de8d2e13294c5aaed605abe86e2045.png" class="img-responsive" alt="Trion Middle School" title="Trion Middle School" style="border-radius: 0px;max-width: 100%;max-height: 150px" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="/" target="_self"><img src="https://content.schoolinsites.com/api/documents/65809979124d4b40a1f59f28eb53a0e9.png" class="img-responsive" alt="Trion Middle School logo" title="Trion Middle School logo" style="border-radius: 0px;max-width: 100%;max-height: 170px" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-3">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:45px;padding-right:None;padding-bottom:30px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            <div class="cs-html-widget">
+    <a href="https://www.facebook.com/TrionMiddle" target="_blank" aria-label="Facebook" class="hvr-float">
+<i title="Facebook" class="fa fa-facebook fa-2x" style="color:#ffffff; padding-right:20px;"></i>
+</a><a href="https://twitter.com/TrionMiddle" target="_blank" aria-label="Twitter" class="hvr-float">
+<i title="Twitter" class="fa-brands fa-x-twitter fa-2x" style="color:#ffffff; padding-right:20px;"></i>
+</a><a href="mailto:info@trionschools.org" target="_blank" aria-label="Email" class="hvr-float">
+<i title="Instagram" class="fa fa-envelope fa-2x" style="color:#ffffff; padding-right:20px;"></i>
+</a> 
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+    </div>
+</header>
+
+<div class="cs-page-bg">
+    <div class="cs-page">
+        <div class="cs-page-layout cs-page-layout-1">
+            <div class="cs-page-content">
+                <div class="page-content cs-main-content csc-content-tree" id="maincontent" role="main"><div class=" content-zone csc-content-zone" name="body">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-12">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:30px;padding-right:None;padding-bottom:30px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <img src="https://content.myconnectsuite.com/api/documents/50ea2d363a1a46b6ad8044ec48e6bb51.png" class="img-responsive" alt="Enrollment (Header)" title="Enrollment (Header)" style="border-radius: 0px;max-width: 100%;max-height: auto" />
+    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+
+
+<style>
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        .gallery-image {
+            max-height: 200px;
+        }
+    } 
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+        .gallery-image {
+            max-height: 300px;
+        }
+    } 
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        .gallery-image {
+            max-height: 500px;
+        }
+    } 
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+        .gallery-image {
+            max-height: 700px;
+        }
+    }
+
+    .gallery-body {
+        padding: 5px;
+    }
+
+    .gallery-footer {
+        padding: 10px;
+    }
+
+    .modal-dialog.modal-center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+        height: auto;
+        width: auto;
+    }
+    
+    .gallery-thumbnail > img {
+        height: 110px;
+        /*width: 100%;*/
+    }
+
+    .gallery-caption {
+        text-align: center;
+        overflow-wrap: break-word;
+    }
+    
+
+    li.photo_album{
+	    margin:10px;
+	    padding:5px;
+	    float: left;
+	    list-style: none; 
+	    height: 100px;
+	    text-align: center;
+    }
+
+    ul.photo_album{
+	    padding-left: 0;
+    }
+
+    .photo_album_thumb{
+	    height:100px;
+	    overflow:hidden; 
+	    text-align:center;
+    }
+    
+</style>
+
+<div class="container-fluid cs-gallery-widget">
+    <ul class="photo_album">
+    </ul>
+</div>
+
+
+
+<script>
+
+    function ShowGallery(item) {
+        new BstrapModal(item.dataset.title).Show();
+
+    }
+
+
+    var BstrapModal = function (title, body, buttons) {
+        var title = title || "";
+        var body = body || "";
+        var GetModalStructure = function () {
+            var that = this;
+            that.Id = BstrapModal.Id = "myModalLabel_ab89d00d-3726-46a7-8c35-b06055f905f8";  //Math.random();
+            return "<div class='modal fade cs-modal' name='dynamiccustommodal' id='" + that.Id + "' tabindex='-1' role='dialog'  data-backdrop='static' data-keyboard='false' aria-labelledby='image-gallery-caption' aria-modal='true'>" +
+                    "<div class='modal-center modal-dialog' style='z-index:1300;'>" +
+                        "<div class='modal-content'>" +
+                            "<div class='modal-body gallery-body'>" +
+                                    "<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'><span aria-hidden='true'>&times;  </span></button>" +
+                                    "<img id='image-gallery-image' class='img-responsive gallery-image' src='' alt=''>" + //body +
+                            "</div>" +
+                            "<div class='modal-footer gallery-footer'>" +
+                                "<div class='col-md-2 text-left'>" +
+                                    "<a href='#' id='show-previous-image' aria-label='Previous image'><i class='fa fa-chevron-left fa-2x'></i></a>" +
+                                "</div>" +
+                                "<div class='col-md-8 text-justify gallery-caption' id='image-gallery-caption'>" +
+                                    "." +
+                                "</div>" +
+                                "<div class='col-md-2 text-right'>" +
+                                    "<a href='#' id='show-next-image' aria-label='Next image'><i class='fa fa-chevron-right fa-2x'></i></a>" +
+                                "</div>" +
+                            "</div>" +
+                        "</div>" +
+
+                    "</div>" +
+                "</div>"
+        }();
+        BstrapModal.Delete = function () {
+            var modals = document.getElementsByName("dynamiccustommodal");
+            if (modals.length > 0) document.body.removeChild(modals[0]);
+        };
+        BstrapModal.Close = function () {
+            $(document.getElementById(BstrapModal.Id)).modal('hide');
+            BstrapModal.Delete();
+        };
+        this.Show = function () {
+            //var btns = document.querySelectorAll("button[name='btn" + BstrapModal.Id + "']");
+            //for (var i = 0; i < btns.length; i++) {
+            //    btns[i].addEventListener("click", buttons[i].Callback || BstrapModal.Close);
+            //}
+            $(document.getElementById(BstrapModal.Id)).modal('show');
+        };
+        this.Load = function () {
+            BstrapModal.Delete();
+            document.body.appendChild($(GetModalStructure)[0]);
+
+            modalFocusTrap($("#myModalLabel_ab89d00d-3726-46a7-8c35-b06055f905f8"));
+        };
+    };
+
+
+
+
+    $(document).ready(function () {
+        new BstrapModal().Load();
+
+
+        loadGallery(true, 'a.gallery-thumbnail');
+
+        //This function disables buttons when needed
+        function disableButtons(counter_max, counter_current) {
+            //debugger;
+            $('#show-previous-image, #show-next-image').show();
+            if (counter_max == counter_current) {
+                $('#show-next-image').hide();
+            } else if (counter_current == 1) {
+                $('#show-previous-image').hide();
+            }
+        }
+
+        function loadGallery(setIDs, setClickAttr) {
+            var current_image,
+                selector,
+                counter = 0;
+
+            $('#show-next-image, #show-previous-image').click(function () {
+                if ($(this).attr('id') == 'show-previous-image') {
+                    current_image--;
+                } else {
+                    current_image++;
+                }
+
+                selector = $('[data-image-id="' + current_image + '"]');
+                updateGallery(selector);
+            });
+/*
+            //workaround to get links to work with keyboard...
+            $('#show-next-image, #show-previous-image').keypress(function (e) {
+                if (e.which == 13) {//Enter key pressed
+                    changeImage($(this));
+                }
+            });
+
+
+            function changeImage(e) {
+                if (e.attr('id') == 'show-previous-image') {
+                    current_image--;
+                } else {
+                    current_image++;
+                }
+
+                selector = $('[data-image-id="' + current_image + '"]');
+                updateGallery(selector);
+            }
+            */
+
+            function updateGallery(selector) {
+                var $sel = selector;
+                current_image = $sel.data('image-id');
+                $('#image-gallery-caption').text($sel.data('caption'));
+                $('#image-gallery-title').text($sel.data('title'));
+                $('#image-gallery-image').attr('src', $sel.data('image'));
+                $('#image-gallery-image').attr('alt', $sel.data('title'));
+
+                disableButtons(counter, $sel.data('image-id'));
+            }
+
+            if (setIDs == true) {
+                $('[data-image-id]').each(function () {
+                    counter++;
+                    $(this).attr('data-image-id', counter);
+                });
+            }
+            $(setClickAttr).on('click', function () {
+                updateGallery($(this));
+            });
+        }
+    });
+
+
+
+</script>
+
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:0;padding-right:None;padding-bottom:0;padding-left:None;border-width:None;border-style:None;border-color:#4169e1;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+                <div class="clearfix cs-title-widget">
+<h1 class="cs-page-title">Enrollment Information</h1>    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            <div class="cs-html-widget">
+    <p data-start="111" data-end="245">For the 2026&ndash;2027 school year, tuition for out-of-district students will be <strong data-start="187" data-end="207">$200 per student</strong>, with a <strong data-start="216" data-end="242">family maximum of $450</strong>.</p><p data-start="247" data-end="372">Tuition must be paid in full before your child begins attending classes. Payments will open when student enrollment begins.</p><p data-start="374" data-end="492">Be sure to check our website for enrollment dates and important updates. </p>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:solid;border-color:#111112;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+                <div class="clearfix cs-title-widget">
+<h1 class="cs-page-title">Returning Students</h1>    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:solid;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <p>Returning families can complete the enrollment form through your student&rsquo;s <strong data-start="360" data-end="389">PowerSchool Parent Portal</strong> account. </p><p style="text-align:center;"><strong><span style="font-size:medium;background-color:#ffffff;color:#330000;">If you need assistance accessing your portal, please contact the school office &mdash; we&rsquo;re happy to help!</span></strong></p><p><strong><span style="text-decoration:underline;">Required Items</span></strong></p><ul><li><strong>Trion City Residents</strong><ul style="margin-bottom:0px;"><li><strong>Own:&nbsp;</strong>(Required) City of Trion Water and Gas Bill and/or Proof of property ownership</li><li><strong>Rent:&nbsp;</strong>(Required) Copy of the lease agreement signed by the property owner and lessee/applicant and/or Town of Trion issued water and gas bill received in your name at the property address.</li></ul></li><li><strong>Non-Residents: </strong>Tuition fees must be submitted to process the student application. If a payment plan is needed, please contact the Trion Middle School office.</li></ul><p>&nbsp;</p><p style="text-align:center;"><a href="https://trion.powerschool.com/public/home.html"><strong><span style="font-size:large;">PowerSchool Login for Parents</span></strong></a></p>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <img src="https://content.myconnectsuite.com/api/documents/c9874b8081ee4cd985145d5b28e6a76e.jpg" class="img-responsive" alt="Bulldog Head" title="Bulldog Head" style="border-radius: 0px;max-width: 100%;max-height: auto" />
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-6">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:solid;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+                <div class="clearfix cs-title-widget">
+<h1 class="cs-page-title">New Students</h1>    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:solid;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <p>If you are enrolling a <strong data-start="302" data-end="317">new student</strong>, please complete the enrollment application below and return it to the TMS office with all required documents. </p><p>If you have any questions about the process or need assistance, our office is happy to help!</p><p><strong><span style="text-decoration:underline;">Required Items</span></strong></p><ul><li>TCS Enrollment Form</li><li>Birth certificate (copy)</li><li>Social Security Card (copy)</li><li>School Certificate of Immunization on GA Form 3231</li><li>Vision, Hearing, and Dental Certificate on GA Form 3300<br></li><li>Parent/ Guardian State-Issued Picture ID (copy)</li><li>Custody Order (if applicable)<span style="font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-weight:inherit;"></span></li><li><span style="font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-weight:inherit;">Current Academic Transcript</span><span style="color:#464646;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-weight:inherit;"></span></li><li><span style="color:#464646;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-weight:inherit;">Current Attendance Records</span></li><li>Current Discipline Records</li><li>Proof of Residency (Trion City Residents only)<strong></strong><ul><li><strong>Own:&nbsp;</strong>(Required) City of Trion Water and Gas Bill and/or Proof of property ownership</li><li><strong style="color:#464646;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;">Rent:&nbsp;</strong><span style="color:#464646;font-family:inherit;font-size:inherit;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-weight:inherit;">(Required) Copy of the lease agreement signed by the property owner and lessee/applicant and/or Town of Trion issued water and gas bill received in your name at the property address.</span></li></ul></li></ul>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            
+
+
+
+<div class="cs-documents-widget">
+    <div>
+            <div class="container-fluid">
+                <h3 class="cs-title-widget">Enrollment Form</h3>
+            </div>
+            <ul class="list-group bg cs-documents-files">
+                    <li class="list-group-item back ">
+                        <a class="cs-link cs-item-title" target="_blank" href="https://content.myconnectsuite.com/api/documents/5290950e7a6c43bab4f94a00e2e44e35.pdf">
+                            <i class="fa fa-download"></i>
+
+                            2025-2026 TRION CITY SCHOOLS ENROLLMENT FORM.pdf
+                        </a>
+                    </li>
+            </ul>
+    </div>
+
+
+    <div class="panel-group cs-document-folders" id="accordion" role="tablist" aria-multiselectable="true">
+    
+    </div>
+</div>
+
+<style>
+    h4.panel-title a {
+        display: block;
+    }
+    h4.panel-title a.collapsed .fa-chevron-right{
+        color: #ada9a9 !important;
+        transform: rotate(0deg);
+    }
+    h4.panel-title a .fa-chevron-right {
+        color: #515e64 !important;
+        transform: rotate(90deg);
+    }
+    .csc-hide-border {
+        border: 0px !important
+    }
+</style>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    Spanish Version Coming Soon
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="cs-footer">
+    <div class="cs-footer-content">
+        <div class=" content-zone csc-content-zone" name="footer">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget container" style="">
+            <div class="cs-html-widget">
+    <p style="text-align:center;"><span style="font-size:14px;color:#ffffff!important;">We are committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability. We endeavor to comply with best practices and standards defined by Section 508 of the U.S. Rehabilitation Act, and we use WCAG Version 2.1 level AA guidelines when measuring our efforts toward achieving this goal. If you encounter any technology-based barriers when accessing any of our sites, please contact us at (706) 734-2363 for assistance or email us at <a href="mailto:info@trionschools.org">info@trionschools.org</a>.</span></p>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-bottom:15px;">
+        <div class="content-widget csc-content-widget container" style="">
+            
+<div class="content-layout">
+    <div class="row content-cell-group">
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-1">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:30px;padding-bottom:30px;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            <googletranslate> 
+
+<div id='google_translate_element'></div>
+<script>
+        function googleTranslateElementInit()
+        {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,hy,bg,zh-CN,zh-TW,hr,cs,da,nl,fil,fi,fr,de,el,haw,he,hi,hu,is,id,ga,it,ja,kk,ko,la,mi,my,no,fa,pl,pt,ro,ru,sr,sl,so,es,sv,th,tr,uk,ur,vi,cy,yi',
+                autoDisplay: false,
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            function changeGoogleStyles() {
+                if($('.goog-te-menu-frame').contents().find('.goog-te-menu2').length) {
+                    $('.goog-te-menu-frame').contents().find('.goog-te-menu2').css({
+                        'max-width':'100%',
+                        'overflow-x':'auto',
+                        'box-sizing':'border-box',
+                        'height':'auto'
+                    });
+                } else {
+                    setTimeout(changeGoogleStyles, 50);
+                }
+                $('.goog-te-gadget-simple > span > a > span').first().css('color', 'black' );
+                $('.goog-te-gadget-simple > span > a > span').first().css('background-color', 'white' );
+            }
+            function customGoogleTranslateBehaviour() {
+                $('.goog-te-gadget-simple').on('click', function(e) {
+                    e.preventDefault();
+                });
+                $('#goog-gt-votingHiddenPane').empty();
+            }
+            changeGoogleStyles();
+            customGoogleTranslateBehaviour();
+        }
+</script>
+<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+</googletranslate>
+<style>
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    .goog-te-menu-frame {
+        max-width: 100% !important;
+    }
+
+    .goog-te-menu2 {
+        max-width: 100% !important;
+        overflow-x: scroll !important;
+        box-sizing: border-box !important;
+        height: auto !important;
+    }
+</style>
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-2">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://trionschoolsga.schoolinsites.com/" target="_blank"><img src="https://content.schoolinsites.com/api/documents/672c5804cbfa4ad8b22e7dee8f501d9e.png" class="img-responsive" alt="Trion City Schools District Crest" title="Trion City Schools District Crest" style="border-radius: 0px;max-width: 100%;max-height: 80px" /></a>
+    </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:15px;padding-right:None;padding-bottom:15px;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget" style="">
+            <div class="cs-html-widget">
+    <p style="text-align:center;"><span style="color:#ffffff;">919 Allgood Street Suite 2,&nbsp;Trion, GA 30753<br />PH: 1.706.734.7433<br />Fax: 1.706.734.7517</span></p>
+</div>
+        </div>
+    </div>
+
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:None;padding-right:None;padding-bottom:None;padding-left:None;border-width:None;border-style:None;border-color:#000000;border-radius:None;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+
+    <div class="cs-image-widget">
+        <a href="https://www.schoolinsites.com/" target="_blank"><img src="https://content.schoolinsites.com/api/documents/1536a33f166240af9c3ef504396bff37.png" class="img-responsive" alt="SCHOOLinSITES" title="SCHOOLinSITES" style="border-radius: 0px;max-width: 150px;max-height: auto" /></a>
+    </div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+        <div class="col-sm-4">
+            <div class=" content-zone csc-content-zone" name="cell-3">
+    
+
+
+    <div class="content-node csc-content-node" style="padding-top:30px;padding-bottom:30px;">
+        <div class="content-widget csc-content-widget csc-force-center" style="">
+            
+<div class="search-field search-field-lucene  " data-module="widgets/search">
+    <label for="q" class="hidden-sc">Search</label>
+    <input id="q" type="text" name="searchInput" placeholder="Search" />
+    <i name="searchGo" class="fa fa-search"></i>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+
+</div>
+    </div>
+    <div class="cs-footer-info">
+        <div class="copyright">Copyright &copy; 2026 Trion City Schools
+</div>
+    </div>
+</footer>    </div>
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+    });
+</script>
+
+
+
+    
+
+    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
+        </script>
+<script>(window.jQuery.fn.modal||document.write("\u003Cscript src=\u0022/lib/bootstrap/dist/js/bootstrap.min.js\u0022 crossorigin=\u0022anonymous\u0022\u003E\u003C/script\u003E"));</script>
+    
+
+    <script src="/js/site.js?v=8BlENTUWC3TjjHPYwI1ZrLIcj8Kea0f1kRjg-8UqBqA"></script>
+
+    <!-- MVC View Scripts-->
+    
+    <script src="/js/jquery-ui/jquery-ui-1.13.2.min.js"></script>
+    <script src="/js/jquery-ui/jquery.ui.touch-punch.js"></script>
+    <script src="/js/content.js?v=RFt2nsbRsk7ODh7fPKmVZRIRORp7F8xv1QG4MWVMed8"></script>
+
+
+    
+
+
+
+    <!-- Site Components: Render after MVC View Scripts -->
+    <script src="/js/dialog.js?v=U7x_P-RGJm34ojdh0-PjAyhUrO4K1c6FUIthBHbRHag"></script>
+    <script src="/js/toolbar.js?v=yA54fWzDkZnO2v4n0iJHqYZSPjpMOvJUc9HZIYnmthA"></script>
+    <script src="/js/siteform.js?v=OIo5tXKXkmF1uzC1k8prQNvijeHmO47G-G1lL8Jr2pI"></script>
+
+    <!-- Require Js -->
+    <script src="/lib/requirejs/require.js" data-main="/js/app001"></script>
+
+</body>
+</html>
