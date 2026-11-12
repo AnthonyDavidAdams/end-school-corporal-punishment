@@ -35,6 +35,7 @@ h2,h3{break-after:avoid} table,.tree,.rule{break-inside:avoid}
   05-change/      verified "allows", campaign under way
   06-watch/       done; rechecked each school year and when a board meets
   hold/           an agent was unsure; the reason is the first line
+  review/         Jev flagged it; a review agent decides
 evidence/OK-calumet/   original files, source URL, fetch date, hash, quote with page
 inbox/other/           related mail that belongs to no district yet
 STOP                   if this file exists, nothing is sent</div>
@@ -90,6 +91,21 @@ STOP                   if this file exists, nothing is sent</div>
 <li>Each new move type sends three, then waits for the Supervisor's check and Anthony's first look.</li>
 </ul>
 
+<h2>Two speeds: Jev flags, an agent reviews</h2>
+<p>Jev is the fast check. Each cycle it reads every case file and thread that changed, plus a slice of the quiet ones, and answers a fixed set of yes or no questions. Any yes moves the file to <code>review/</code> with the question that fired at the top. A Claude agent is the slow check: it picks up the review folder, opens the evidence and the thread, uses whatever tools it needs, decides, and writes the outcome into the case log.</p>
+<table><tr><th>Jev asks</th><th>Example</th></tr>
+<tr><td>Does the quote support the status?</td><td>Status "bans", but the quote only says the board reviews the policy.</td></tr>
+<tr><td>Is the document the district's own?</td><td>The source is a different domain, or the document names another district.</td></tr>
+<tr><td>Did we tell them something the record no longer says?</td><td>A sent note says "permits"; the record now says "bans".</td></tr>
+<tr><td>Does the latest inbound need more than a routine reply?</td><td>A complaint, a stop request, a reporter, a lawyer, a board member.</td></tr>
+<tr><td>Is the case stuck?</td><td>Next action is two weeks overdue, or three tries failed.</td></tr>
+<tr><td>Do two facts in the file disagree?</td><td>Two policy codes, two superintendents, two statuses.</td></tr></table>
+<ul>
+<li>Jev only flags. It never clears anything and never writes text. A flag is a reason to look, not a finding.</li>
+<li>Thresholds favor over-flagging. A false flag costs one review run; a missed flag cost 74 districts this week.</li>
+<li>Each review records whether the flag held up. Each week the Supervisor reports how often each question was right, so weak questions get rewritten and strong ones can gate sends on their own.</li>
+<li>Review runs have a daily cap. If the folder grows past it, the oldest flags on outbound items go first and the rest wait.</li>
+</ul>
 <h2>Rules every agent follows</h2>
 <ul>
 <li>Nothing goes out without a verified evidence id, and the evidence is checked again at send time.</li>
