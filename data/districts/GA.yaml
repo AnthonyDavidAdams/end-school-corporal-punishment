@@ -2142,14 +2142,14 @@ districts:
   - name: Liberty County
     county: Liberty
     nces_id: "1303300"
-    status: silent
-    source: https://www.liberty.k12.ga.us/pdf/LibertyCountySchoolsGiftedManual.pdf
-    quote: null
-    policy_code: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/GA/1303300-email-27e22058.txt
+    quote: GA Code § 20-2-731 (2025) Learn more Previous <https://law.justia.com/codes/georgia/title-20/chapter-2/article-16/part-2/subpart-1/section-20-2-730/> Next <https://law.justia.com/codes/georgia/title-20/chapter-2/article-16/part-2/subpart-1/section-20-2-732/> - An area, county, or independent board of education may, upon the adoption of written policies, authorize any principal or teacher employed by the board to administer, in the exercise of his sound discretion, corporal punishment on any pupil or pupils placed under his supervision in order to maintain proper control and discipline.
+    policy_code: JCD
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
-    parent_control: unknown
+    last_verified: 2026-11-12
+    method: records_request
+    parent_control: opt_out
     documents:
       - kind: other
         url: https://www.liberty.k12.ga.us/pdf/LibertyCountySchoolsGiftedManual.pdf
@@ -2163,8 +2163,15 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-12; the document is kept in the repository at data/policies/inbound/GA/1303300-email-27e22058.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - GA Code § 20-2-731 (2025) Learn more Previous <https://law.justia.com/codes/georgia/title-20/chapter-2/article-16/part-2/subpart-1/section-20-2-730/> Next <https://law.justia.com/codes/georgia/title-20/chapter-2/article-16/part-2/subpart-1/section-20-2-732/> - An area, county, or independent board of education may, upon the adoption of written policies, authorize any principal or teacher employed by the board to administer, in the exercise of his sound discretion, corporal punishment on any pupil or pupils placed under his supervision in order to maintain proper control and discipline.
+      - "- (1) The corporal punishment shall not be excessive or unduly severe;"
+      - "- (2) Corporal punishment shall never be used as a first line of punishment for misbehavior unless the pupil was informed beforehand that specific misbehavior could occasion its use;"
+      - provided, however, that corporal punishment may be employed as a first line of punishment for those acts of misconduct which are so antisocial or disruptive in nature as to shock the conscience;
+      - "- (4) The principal or teacher who administered corporal punishment must provide the child’s parent, upon request, a written explanation of the reasons for the punishment and the name of the principal or assistant principal, or designee of the principal or assistant principal, who was present;"
+      - and - (5) Corporal punishment shall not be administered to a child whose parents or legal guardian has upon the day of enrollment of the pupil filed with the principal of the school a statement from a medical doctor licensed in Georgia stating that it is detrimental to the child’s mental or emotional stability.
   - name: Lincoln County
     county: Lincoln
     nces_id: "1303330"
