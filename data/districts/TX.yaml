@@ -10226,13 +10226,13 @@ districts:
     county: Harrison
     nces_id: "4822170"
     status: allows
-    method: vendor_model_policy
-    source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=607&code=FO
-    quote: Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.
-    policy_code: FO(LOCAL)
+    method: records_request
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TX/4822170-FO_LOCAL_.pdf
+    quote: Corporal Corporal punishment may be used as a discipline management Punishment technique in accordance with this policy and the Student Code of Conduct.
+    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Board policy FO(LOCAL) from TASB Policy Online, read 2026-09-24. The board permits the practice and its own policy sets out what say a parent has (opt_out); `quotes` carries the permission and the parent clause together. A district's Student Code of Conduct can still differ -- Ingram ISD's requires a parent's verbal approval where FO(LOCAL) reads as opt-out -- so a code of conduct, where one has been read, is the more specific source.
+    last_verified: 2026-11-12
+    notes: Received from the district by email in answer to a public records request, 2026-11-12; the document is kept in the repository at data/policies/inbound/TX/4822170-FO_LOCAL_.pdf. Identity is name and state matched against the federal LEA directory.
     documents:
       - kind: board_policy
         url: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=607&code=FO
@@ -10247,6 +10247,10 @@ districts:
       phone: (903) 668-5990 ext:5032
       contact_source: TEA AskTED download, 2026-09-25
       as_of: 2026-09-25
+    parent_control: opt_out
+    quotes:
+      - Corporal Corporal punishment may be used as a discipline management Punishment technique in accordance with this policy and the Student Code of Conduct.
+      - Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child.
   - name: Hamilton ISD
     county: Hamilton
     nces_id: "4822230"
