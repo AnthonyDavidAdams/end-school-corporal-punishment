@@ -2061,6 +2061,10 @@ if __name__ == "__main__":
         try:
             if time.time() < CYCLE_DEADLINE - 300: refile_pass(1)
         except Exception as ex: log("refile pass failed", repr(ex)[:100])
+        # The case folders (cases/<stage>/<district>/) follow the record and the ledger; moved and logged after
+        # every cycle, in the background so it never costs the cycle time. Read-only on our data.
+        try: subprocess.Popen([sys.executable, os.path.join(ROOT, "tools/cases/sync.py")], cwd=ROOT, stdout=open(os.path.join(ROOT, "out/outreach/cases-sync.log"), "a"), stderr=subprocess.STDOUT, start_new_session=True)
+        except Exception as ex: log("cases sync failed to start", repr(ex)[:100])
     elif cmd == "compliments":
         # Look up (once) the opening line for every request not yet sent, and show them. Nothing is sent.
         reqs = load(); n = 0
