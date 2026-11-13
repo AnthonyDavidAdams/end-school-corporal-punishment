@@ -2186,14 +2186,18 @@ districts:
   - name: Washington County
     county: Washington
     nces_id: "4704380"
-    status: unknown
-    source: null
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TN/4704380-email-36699301.txt
+    quote: Corporal punishment shall not be used as a disciplinary measure in any school.* J.
+    policy_code: "6.314"
     crdc_students_latest: null
-    last_verified: null
-    notes: "2026-11-10 review: the document on file belonged to a same-named district in AL; reset pending a re-read."
+    last_verified: 2026-11-13
+    notes: Received from the district by email in answer to a public records request, 2026-11-13; the document is kept in the repository at data/policies/inbound/TN/4704380-email-36699301.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: records_request
+    parent_control: unknown
+    quotes:
+      - Corporal punishment shall not be used as a disciplinary measure in any school.* J.
   - name: Wayne County
     county: Wayne
     nces_id: "4704440"
