@@ -449,12 +449,12 @@ districts:
   - name: City Of Baker School District
     county: East Baton Rouge Parish
     nces_id: "2200040"
-    status: silent
-    source: http://www.bakerschools.org/Board%20Policies/Policies/H-02-04b.13_(JBCF).htm
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/LA/2200040-recheck-45302913.html
+    quote: Such consequences may include, but may not be limited to, oral or written reprimands, parental contact, removal of the student from the classroom, detention, corporal punishment, in-school suspension, suspension from school, assignment to an alternative school, recommending expulsion from school, or any other disciplinary measure authorized by the principal in conjunction with state law and/or School Board policy.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
+    last_verified: 2026-11-13
     method: searched_document
     parent_control: unknown
     documents:
@@ -464,8 +464,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "Found on the district's own website at https://bakerschools.org/Board%20Policies/Policies/H-03-05a.21_(JCD).htm on 2026-11-13, after the district said its policy is published there; a copy is kept in the repository at data/policies/inbound/LA/2200040-recheck-45302913.html. Whose document: on the district's own website (bakerschools.org), and the page names the district."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Such consequences may include, but may not be limited to, oral or written reprimands, parental contact, removal of the student from the classroom, detention, corporal punishment, in-school suspension, suspension from school, assignment to an alternative school, recommending expulsion from school, or any other disciplinary measure authorized by the principal in conjunction with state law and/or School Board policy.
+      - ORIENTATION/NOTICE Students shall be informed by school authorities that violations of School Board policy and school rules or regulations may result in a range of disciplinary actions including corporal punishment, suspension or expulsion.
   - name: Claiborne Parish
     county: Claiborne Parish
     nces_id: "2200450"
