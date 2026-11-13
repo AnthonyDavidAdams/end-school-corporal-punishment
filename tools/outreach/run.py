@@ -1813,8 +1813,8 @@ def autopilot(force=False):
     log("autopilot:", ", ".join(f"{k} {v}" for k, v in did.items() if k != "at")); return did
 
 # ---------------------------------------------------------------- follow-up
-NUDGE_PER_CYCLE = 3     # about one every twenty minutes through the working day
-NUDGE_PER_DAY = 60      # 502 went out on 2026-10-27, from midnight on, when the whole 10-10 batch came due at once
+NUDGE_PER_CYCLE = 4     # four a cycle through the working day (raised 2026-11-13 with the daily caps)
+NUDGE_PER_DAY = 140     # 2026-11-13: Anthony, 250 a day or more is fine. Still capped because 502 went out on 2026-10-27, from midnight on, when the whole 10-10 batch came due at once
 NUDGE_HOURS = (8, 17)   # Central time, Monday to Friday; nothing at 2 a.m. signed "Sent from my iPhone"
 def office_now():
     """The hour where most of the districts are. The laptop's own clock moved to Pacific in November 2026 and
