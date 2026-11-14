@@ -478,16 +478,16 @@ If it is something the board might take up, the one-sentence language boards use
 def perspective_ask(r, user):
     """A district that still permits it and still used it in the last federal count. Built on the sales kit's
     cold email (~/sales-kit/playbook/easton-method.md, sections 2 and 5): who we are and how we are connected, one
-    insight about their world that is true and useful whether or not they ever answer, then them, then one
-    discovery question in the "what's the biggest ___" shape. It asks for nothing. Anthony, 2026-11-13: ask "the
+    insight about their world that is true and useful whether or not they ever answer, then "does it make sense
+    to ___ so you can ___" with an easy yes. Its only job is a reply (Anthony, 2026-11-13: "we just try to get a
+    response first and then work with it"). It does not ask why they still use it: a reason written down in a
+    cold email is a position defended, and their own count named back to them reads as an accusation. Anthony, 2026-11-13: ask "the
     persons personal perspective on why it persists despite the evidence", "what do you think is in the way?",
     "really use the sales skills we have". Every number is computed when the row is queued (queue_perspective);
     a district we have written to before gets the history line in place of the introduction, in our thread.
     The reply loop is writer.py's `reflect` move."""
     who = addressed_name(r); st = state_name(r.get("state")); p = r.get("peers") or {}
-    d = display_name(r["name"]); short = short_name(d)
     hello = "Hello," if who == "there" else f"{who},"
-    n = int(r.get("students") or 0); kids = "one student" if n == 1 else f"{n:,} students"
     intro = history_line(r) or f"Anthony Adams with the Safe Schools Project; I keep the public record of every {st} district's corporal punishment policy."
     before, now = p.get("students_before"), p.get("students_now")
     trend = []
@@ -496,11 +496,9 @@ def perspective_ask(r, user):
     if p.get("bans", 0) >= 10:
         trend.append(f"{p['bans']} boards in the state have now ended it in writing")
     insight = f" Wanted to make sure you'd seen this: {' and '.join(trend)}." if trend else ""
-    them = (f" {short} is one of the {p['using']} districts there still using it, with {kids} in 2023-24," if p.get("using", 0) > 1
-            else f" {short} reported {kids} in 2023-24,")
     return f"""{hello}
 
-{intro}{insight}{them} and you see that from the inside in a way I can't. What's the biggest thing in the way of ending it there?
+{intro}{insight} Does it make sense for me to send over the free toolkit we put together for districts moving off it, so your principals have more options when the same student keeps landing in the office?
 
 {sig(user)}
 """
