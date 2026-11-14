@@ -87,6 +87,13 @@ def nice(name):
     return name.title() if name.isupper() else name
 
 
+def display_name(name):
+    """nice(), plus the spellings the federal file leaves behind: 'Chapel Hill Isd' -> 'Chapel Hill ISD',
+    'North Pike School Dist' -> 'North Pike School District'."""
+    d = re.sub(r"\bC?Isd\b", lambda m: m.group(0).upper(), nice(name))
+    return re.sub(r"\bDist$", "District", d)
+
+
 # ---------------------------------------------------------------- first contact
 def ask_policy(r, user, compliment=None):
     """The first ask, the way a friend would put it (Anthony, 2026-10-09). No project name, no preamble,
@@ -453,6 +460,29 @@ If it is something the board might take up, the one-sentence language boards use
 {sig(user)}
 """
 
+
+def perspective_ask(r, user):
+    """A district that still permits it and still used it in the last federal count. Not an ask for anything: a
+    question about how the superintendent sees it, because nobody changes a practice they have been argued out
+    of, only one they have talked themselves out of (Anthony, 2026-11-13: ask "the person's perspective on why it
+    persists despite the evidence", then reinforce who they are and move them forward). Who we are, one true
+    computed fact, one question. The reply loop lives in writer.py (move `reflect`)."""
+    who = addressed_name(r); st = state_name(r.get("state")); p = r.get("peers") or {}
+    d = display_name(r["name"])
+    n = int(r.get("students") or 0)
+    kids = "one student" if n == 1 else f"{n:,} students"
+    others = p.get("using", 0) - 1
+    fact = f"In the 2023-24 federal count, {d} reported corporal punishment for {kids}"
+    if others > 0: fact += f", one of {p['using']} {st} districts still using it"
+    if p.get("bans", 0) >= 10: fact += f", while {p['bans']} {st} boards have ended it in writing"
+    hello = "Hello," if who == "there" else f"{who},"
+    short = re.sub(r"\s+(Public\s+)?(School\s+)?(Dist(rict)?|Schools|ISD|CISD|Charter Academy)\.?$", "", re.sub(r"\s*\(.*?\)", "", d), flags=re.I).strip() or d
+    return f"""{hello}
+
+I'm Anthony Adams. I keep a public record of what each {st} district's written policy says about corporal punishment, at earthpilot.org/kids. {fact}. You see this from inside a district and I don't, so I'd value your honest read: what do you think has kept it in place in {short}?
+
+{sig(user)}
+"""
 
 def apology(r, user):
     """Two shapes. The first is for the 2026-10-26 misfire, when a killed cycle re-sent the same nudge up to five

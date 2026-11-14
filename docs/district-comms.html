@@ -1,0 +1,127 @@
+<!doctype html><html><head><meta charset="utf-8"><title>District Comms Playbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+@page{size:letter;margin:.7in .75in}
+body{font-family:"Source Serif 4",Georgia,serif;font-size:11pt;line-height:1.45;color:#1d1d1b;background:#fff;max-width:7in;margin:0 auto}
+h1{font-size:22pt;margin:0 0 4pt;font-weight:600}
+.sub{color:#555;margin:0 0 18pt}
+h2{font-size:13.5pt;margin:20pt 0 6pt;padding-top:6pt;border-top:1.5px solid #1d1d1b;font-weight:600}
+h3{font-size:11pt;margin:12pt 0 3pt}
+p{margin:0 0 7pt}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:9pt}
+table{border-collapse:collapse;width:100%;margin:6pt 0 10pt;font-size:10pt}
+th,td{text-align:left;vertical-align:top;padding:4pt 6pt;border-bottom:.5px solid #bbb}
+th{font-weight:600;border-bottom:1px solid #1d1d1b}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+ul{margin:0 0 8pt;padding-left:16pt} li{margin:0 0 3pt}
+.tree{font-family:"IBM Plex Mono",monospace;font-size:8.6pt;line-height:1.5;background:#f4f2ec;padding:8pt 10pt;white-space:pre;margin:4pt 0 10pt}
+.rule{border-left:3px solid #1d1d1b;padding-left:9pt;margin:8pt 0}
+h2,h3{break-after:avoid} table,.tree,.rule{break-inside:avoid}
+.email{font-family:"Source Serif 4",Georgia,serif;font-size:10pt;background:#f4f2ec;padding:8pt 11pt;margin:4pt 0 10pt;white-space:pre-wrap;break-inside:avoid}
+</style></head><body>
+<h1>How we write to districts</h1>
+<p class="sub">Safe Schools Project. One playbook for every email the engine sends a superintendent, board member or records office, and for every reply it writes. 13 November 2026.</p>
+
+<p>Every message lives in <code>tools/outreach/messages.py</code>. Every reply is written from the brief in <code>tools/outreach/writer.py</code>. This document is what both of those are meant to say. When the code and this page disagree, one of them is wrong, so fix it.</p>
+
+<h2>1. The one idea</h2>
+<p>Nobody gives up a practice they were argued out of, only one they talked themselves out of. So we never argue. We ask a question, listen, say back what we heard, agree with the value underneath it, and suggest one small next step that serves that value.</p>
+<p>The method is Matt Easton's, from <code>~/sales-kit</code>, and it comes down to two questions. The first is "Does it make sense to ___ so you can ___?", where the "so you can" is their reason in their words, not ours. If the answer is anything but yes, the second is "Got it. What's a good next step then?"</p>
+
+<h2>2. Voice</h2>
+<ul>
+<li><b>A friend's note from a phone.</b> First name, two to five sentences, normal capitalization, plain words. Signed "Anthony" and "Sent from my iPhone".</li>
+<li><b>Formal only when the law is involved.</b> Records requests and state agencies are signed "Anthony Adams", with the project line and the North East, PA address.</li>
+<li><b>Thread-aware.</b> Every message knows who wrote last, when, and what they said, and greets people by the name they sign with. Time phrases come from <code>messages.ago()</code> and nowhere else.</li>
+<li><b>Answer first.</b> Respond to the specific thing they said before asking for anything.</li>
+<li><b>No em dashes, no stock openers, no bullets, no attachments in a first touch.</b> The one exception is the board brief on an invitation.</li>
+</ul>
+
+<h2>3. Honesty rules</h2>
+<div class="rule">Every fact in a message is computed from our record or the federal file at the moment it is sent, never written from memory. If a number cannot be computed, the sentence is dropped.</div>
+<ul>
+<li>What a district tells us by email is their word, not "the board prohibits it". The record says only what the written policy says, and a board policy outranks a handbook.</li>
+<li>A certificate says the contributor "contributed verified findings". It never says they "caused" anything.</li>
+<li>When we get something wrong, we say so in the same thread within a day and fix the record. The 12 November corrections are the model.</li>
+<li>Never promise anything beyond what the project does. Never name a student. Never threaten. A refusal gets the formal request, stated plainly.</li>
+</ul>
+
+<h2>4. Who gets what</h2>
+<p>What we send depends on what the record says about the district. Reply rates below cover every email of that kind sent so far, counting any reply that is not an auto-reply or a bounce. The newest kinds have had the least time.</p>
+<table>
+<tr><th>Record says</th><th>First message</th><th>What we want</th><th class="n">Sent</th><th class="n">Replied</th></tr>
+<tr><td>Nothing on file, or a handbook with no rule</td><td><code>policy</code>, the friend's note asking for the link</td><td>The written policy</td><td class="n">671</td><td class="n">35%</td></tr>
+<tr><td>They declined, or never answered the ask and the nudge</td><td><code>formal_request</code> under the state statute</td><td>The policy, as a public record</td><td class="n">15</td><td class="n">new</td></tr>
+<tr><td>Permits it, used it zero times in 2023-24</td><td><code>align</code>, the Safe School invitation with the brief</td><td>A board vote on one sentence</td><td class="n">64</td><td class="n">8%</td></tr>
+<tr><td>Permits it, next to a district that ended it</td><td><code>neighbor</code>, naming that district</td><td>The policy, then the board</td><td class="n">64</td><td class="n">14%</td></tr>
+<tr><td>Permits it, still uses it</td><td><code>perspective</code>, a question about why it persists</td><td>A conversation, then one small step</td><td class="n">0</td><td class="n">held</td></tr>
+<tr><td>Prohibits it in writing</td><td><code>certificate</code></td><td>Recognition they share</td><td class="n">867</td><td class="n">1%</td></tr>
+<tr><td>Our earlier email was wrong</td><td><code>retraction</code> or <code>certificate_reissue</code>, in that thread</td><td>The record put right</td><td class="n">22</td><td class="n">5%</td></tr>
+</table>
+<p>The pattern so far: a small factual ask gets answered and a request to change policy mostly doesn't. Superintendents reply when we ask about something they know. They go quiet when we ask them to take something to their board. The perspective question tests the middle ground by asking about something only they know, with no request attached.</p>
+
+<h2>5. The perspective question</h2>
+<p>This goes to districts whose written policy permits corporal punishment and that reported using it in 2023-24. There are 107 on our record, mostly in Mississippi, Arkansas and Alabama, and 102 have never heard from us. A sample:</p>
+<div class="email">Subject: A question about Chickasaw County School District
+
+William,
+
+I'm Anthony Adams. I keep a public record of what each Mississippi district's written policy says about corporal punishment, at earthpilot.org/kids. In the 2023-24 federal count, Chickasaw County School District reported corporal punishment for 192 students, one of 74 Mississippi districts still using it, while 19 Mississippi boards have ended it in writing. You see this from inside a district and I don't, so I'd value your honest read: what do you think has kept it in place in Chickasaw County?
+
+Anthony
+
+Sent from my iPhone</div>
+<p>The email has one fact, computed when it sends, and one question. It asks for nothing. The student count comes from the district's row in the federal file. The "one of N" counts every district in the state that the federal file shows using it. The "boards that ended it" count comes from our record.</p>
+
+<h2>6. Answering a reply: the loop</h2>
+<p>When someone answers the perspective question, the writer uses the <code>reflect</code> move. The same shape works on any reply that defends the practice.</p>
+<table>
+<tr><th>Step</th><th>What it sounds like</th></tr>
+<tr><td>1. Say back the heart of it, in their words</td><td>"So a lot of it is parents who grew up with it and still ask for it."</td></tr>
+<tr><td>2. Agree with the value, never the paddle</td><td>"You want families to trust the school is on their side."</td></tr>
+<tr><td>3. Name them as the leader that value describes</td><td>"You're the one who has to answer to those parents."</td></tr>
+<tr><td>4. One true thing that serves that value</td><td>The parent handout, or the fact that it tends to increase the behavior it is meant to stop.</td></tr>
+<tr><td>5. The smallest step, with their reason attached</td><td>"Does it make sense to send principals the one-page parent handout so you can give families something that works better?"</td></tr>
+<tr><td>6. Close the loop</td><td>"Does that match how you see it? Did I miss anything?"</td></tr>
+</table>
+<h3>Matching the value they name</h3>
+<table>
+<tr><th>They say</th><th>Value underneath</th><th>What we offer</th></tr>
+<tr><td>Parents expect it, or sign for it</td><td>Parents' trust, parental rights</td><td>The parent handout. A parent's request is a chance to show what works better. Consent-only policy is a step toward a ban.</td></tr>
+<tr><td>Teachers need something to fall back on</td><td>Backing teachers</td><td>The behavior coach at earthpilot.org/kids/coach and the staff script in the kit</td></tr>
+<tr><td>It keeps order</td><td>Safe, orderly buildings</td><td>On average it increases the behavior it is meant to stop, and the replacement practices in the kit</td></tr>
+<tr><td>It's the community's decision</td><td>Local control</td><td>A board vote is local control. "Who else is affected?" Then send the language to whoever they name.</td></tr>
+<tr><td>Faith</td><td>Faith</td><td>Do not argue scripture. Listen, thank them, and leave the door open.</td></tr>
+<tr><td>It's rare now, or on its way out</td><td>They are already there</td><td>Switch to the invitation: the one-sentence policy, the certificate</td></tr>
+</table>
+<p>The persuasion research behind these frames is in <code>strategy/playbooks/persuasion.md</code>. It covers Feinberg and Willer on moral reframing, Kalla and Broockman on deep canvassing, and descriptive norms.</p>
+
+<h2>7. Never say</h2>
+<table>
+<tr><th>Never</th><th>Instead</th></tr>
+<tr><td>"Why not?", "What's holding you back?"</td><td>"Got it. What's a good next step then?"</td></tr>
+<tr><td>"Just following up", "checking in", "bumping this"</td><td>Name what they were going to do and why it mattered to them</td></tr>
+<tr><td>"Let me know if you have any questions"</td><td>"Does that match what you need? Did I miss anything?"</td></tr>
+<tr><td>"Are you the decision maker?"</td><td>"Who else is affected by this?"</td></tr>
+<tr><td>Human rights, the UN, other countries</td><td>The district's own values: parents, order, teachers, local control</td></tr>
+<tr><td>"You could be sued", any settlement figure</td><td>Nothing. Liability is a board conversation, not an email.</td></tr>
+<tr><td>A statute in a first touch</td><td>The plain ask. The statute comes only after a refusal.</td></tr>
+<tr><td>"If you ever want to change"</td><td>A real question they can say no to</td></tr>
+</table>
+
+<h2>8. Pace and guards</h2>
+<ul>
+<li>At most one email per address per 24 hours. Weekdays only, 8 to 15 Central. About 250 sends a day across all kinds.</li>
+<li>Only the plain policy ask ever gets a nudge, and only one. A thread with any reply is never nudged.</li>
+<li>Every new kind of message queues held. Anthony reads the first batch before any district sees it, and that first batch has no clock. Later batches of the same kind go out after 24 hours unless he holds them.</li>
+<li>Board members and community contacts get three messages, then we wait.</li>
+<li>Anthony's own replies in a thread are context for the writer, not a stop. Only <code>hold_replies</code> parks a thread.</li>
+</ul>
+
+<h2>9. Open</h2>
+<ul>
+<li>The perspective question: 25 queued and held for your first look. The highest-use districts are first.</li>
+<li>The <code>reflect</code> move is in the writer and has not met a real reply yet. I'll read the first five replies and the answers it writes.</li>
+<li>Variant B of the policy ask and the "insight first" sequence in <code>~/sales-kit/applications/escp-allows-no-handbook.md</code> are still proposals.</li>
+</ul>
+</body></html>

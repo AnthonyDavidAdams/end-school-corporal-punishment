@@ -140,6 +140,7 @@ def subject_for(r):
         "align":    f"An invitation: {d} as a Safe School for 2026-27",
         "board_note": f"{d}: a four-minute film for the board",
         "neighbor": f"{d} corporal punishment policy",
+        "perspective": f"A question about {messages.display_name(r['name'])}",
         "apology": "Sorry for the repeat emails",
         "certificate_correction": f"A correction on the {d} certificate",
         "certificate_reissue": f"A clean copy of the {d} certificate",   # only when the certificate's thread is gone; it normally goes out as "Re:" on that thread
@@ -178,6 +179,8 @@ def body_for(r):
         return messages.neighbor_ask(r, USER, r.get("anchor") or "a neighboring district")
     if k == "formal_request":
         return messages.formal_request(r, USER, statute)
+    if k == "perspective":
+        return messages.perspective_ask(r, USER)
     return messages.ask_policy(r, USER, r.get("compliment"))
 
 # ---------------------------------------------------------------- send
@@ -242,7 +245,7 @@ def send(limit=25):
                 alert("reissue-blocked", f"ESCP: a clean certificate for {r['name']} was not sent ({why}). The row is marked error and will not retry by itself."); continue
         subject = r.get("subject") or subject_for(r)
         r["subject"] = subject; r.setdefault("kind", "policy")
-        if r["kind"] not in ("formal_request", "retraction", "certificate_reissue"): ensure_compliment(r)
+        if r["kind"] not in ("formal_request", "retraction", "certificate_reissue", "perspective"): ensure_compliment(r)
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
@@ -1672,6 +1675,42 @@ def queue_neighbors(n=25, quiet_days=14):
         added += 1
     save(reqs); log(f"queue-neighbors: {added} queued" + (" (held)" if HOLD_NEW else "")); return added
 
+def queue_perspective(n=25, quiet_days=14):
+    """The perspective question (messages.perspective_ask) to districts whose written policy permits it and which
+    reported using it in the latest federal count, most students first. Never to a district that has written to us,
+    was touched in the last `quiet_days`, or already had one. Always queued held: a new kind, Anthony reads the
+    first batch (2026-11-13)."""
+    import yaml, glob
+    reqs = load(); contacts = district_contacts(); cutoff = datetime.datetime.now() - datetime.timedelta(days=quiet_days)
+    recent = {str(r.get("nces_id")) for r in reqs if r.get("sent_at") and datetime.datetime.fromisoformat(r["sent_at"][:19]) > cutoff}
+    had = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "perspective"}
+    flat = lambda st, nm: (st, re.sub(r"[^a-z0-9]", "", str(nm).lower()))
+    heard = {flat(*k) for k in heard_from_set(reqs)}
+    # "one of N districts still using it" counts every district the 2023-24 federal file shows using it, whatever
+    # our record says; "boards that ended it in writing" counts bans on our record
+    import csv, collections
+    crdc = collections.Counter(row["state"] for row in csv.DictReader(open(os.path.join(ROOT, "data/crdc/2023-24/districts.csv"))) if int(row["students"] or 0) > 0)
+    contacted = {flat(r["state"], r["name"]) for r in reqs if r.get("sent_at")}   # a first contact only: an open thread gets its own reply
+    rows, peers = [], {}
+    for f in sorted(glob.glob(os.path.join(ROOT, "data/districts/*.yaml"))):
+        st = os.path.basename(f)[:2]; ds = yaml.safe_load(open(f)).get("districts") or []
+        peers[st] = {"using": crdc.get(st, 0), "bans": sum(1 for x in ds if x.get("status") == "bans")}
+        rows += [(st, x) for x in ds if x.get("status") == "allows" and isinstance(x.get("crdc_students_latest"), (int, float)) and x["crdc_students_latest"] > 0]
+    added = 0
+    for st, x in sorted(rows, key=lambda t: -t[1]["crdc_students_latest"]):
+        if added >= n: break
+        nid = str(x["nces_id"])
+        if nid in recent or nid in had or flat(st, x["name"]) in heard or flat(st, x["name"]) in contacted: continue
+        c = contacts.get(("id", nid)) or contacts.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
+        to = c.get("district_email") or c.get("email")
+        if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
+        rid = hashlib.sha1(f"perspective|{st}|{nid}".encode()).hexdigest()[:10]
+        reqs.append({"id": rid, "state": st, "name": x["name"], "nces_id": nid, "kids": 0, "kind": "perspective", "to": to, "superintendent": c.get("superintendent"),
+                     "students": int(x["crdc_students_latest"]), "peers": peers[st], "quote": x.get("quote"), "policy_code": x.get("policy_code"),
+                     "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": "n/a", "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        added += 1
+    save(reqs); log(f"queue-perspective: {added} queued (held)"); return added
+
 def release(kind, states=None):
     """Flip held requests of one kind to pending (optionally only some states) once Anthony has seen the batch."""
     reqs = load(); k = 0
@@ -1995,6 +2034,7 @@ if __name__ == "__main__":
         save(reqs); log(f"release-variant: {k} released ({exp} {var}); set approved: true in data/game/experiments.yaml so the next batch is not held"); sys.exit()
     if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-board": queue_board(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "queue-perspective": queue_perspective(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-neighbors": queue_neighbors(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-formal": queue_formal(int(sys.argv[2]) if len(sys.argv) > 2 else 15); sys.exit()
     if cmd == "formal-dry":   # who a formal request would go to today; changes nothing

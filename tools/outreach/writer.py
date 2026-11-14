@@ -84,7 +84,7 @@ WRITER = "anthropic/claude-fable-5.1"   # Anthony: "use more advanced models on 
 CLI_MODEL = "claude-fable-5-1"           # the same model through Claude Code on the Max plan (claude -p): no per-call charge
 USE_CLI = os.environ.get("ESCP_WRITER", "cli") != "openrouter"
 LAST_ERROR = [None]
-MOVES = ("thank_recorded", "ask_link", "ask_residency_proof", "invite_policy", "ask_minutes", "records_request", "forward", "answer", "hold")
+MOVES = ("thank_recorded", "ask_link", "ask_residency_proof", "invite_policy", "ask_minutes", "records_request", "forward", "answer", "reflect", "hold")
 
 BRIEF = """You are replying by email on behalf of Anthony Adams of the Safe Schools Project (a project of EarthPilot) to a school district official. Anthony wrote to the district about its written corporal punishment policy; the official has answered, and you have the entire thread, the project's current record for the district, every document the thread produced, and what a re-check of the district's website found.
 
@@ -110,6 +110,7 @@ The moves. Choose exactly one:
   records_request     they refuse, say they do not publish or share the policy, want a fee first, or otherwise decline the plain ask: a short formal public-records request under the statute given under STATUTE, asking for the board policy on corporal punishment and the student handbook, for the electronic file where one exists, and noting the request is in the public interest and not commercial so any copying charge should be itemized under the statute's per-page cap. If they offer only in-person pickup, do not cite case law (an Oklahoma case we once cited, Brooke v. Reed, was vacated in 2025); ask whether they can mail copies at our cost to the address under STATUTE, and if not, say we will arrange a local pickup. Sign this one "Anthony Adams" with the project line and address given under STATUTE instead of the phone sign-off.
   forward             they say we have the wrong person and name the right one: a one-line note to the new address.
   answer              a question or something else that a short, accurate reply settles.
+  reflect             WHAT WE FIRST ASKED FOR is "perspective": we asked how they see why corporal punishment has held on in their district, and they have answered with their view. This is a conversation, not a debate; nobody gives up a practice they were argued out of, only one they talked themselves out of. In four to six sentences: (1) say back the heart of what they said, in their own words, and agree with the value underneath it (order in the buildings, safety, what parents expect, backing teachers, local control, faith); agree with the value, never with the paddle. (2) Name them as the kind of leader that value describes ("you're clearly the one who has to answer to those parents" / "you want teachers backed up"). (3) One true thing that serves that same value, and only from what this brief already gives you: the settled research in the paragraph above, the PEERS number, the free kit (one-sentence policy, motion, staff script, family letter) at earthpilot.org/kids/kit, the parent handout there, the behavior coach for teachers and parents at earthpilot.org/kids/coach. Fit it to their value: parents expect it, then the parent handout and that a parent's request is a chance to show what works better; teachers need backup, then the coach and the staff script; local control, then the board deciding is exactly that; order, then that on average it increases the behavior it is meant to stop. (4) Ask the smallest next step as "does it make sense to ___ so you can ___", where the "so you can" is their own value in their own words: look at the one-sentence language, share the parent handout with principals, or put the policy on a board agenda. (5) End with "Does that match how you see it? Did I miss anything?" Never ask "why not" or "what's holding you back", never argue, never correct their reasons, never quote a statistic they did not ask for beyond the one fact in (3). If they say it is the board's or the community's call, ask who else is affected and offer to send the language to whoever they name. If they say it is rare, on its way out, or they would like to end it, use invite_policy instead. If they decline to discuss it, thank them in a line and say you'll be here when they want the policy to say what the district wants for its kids; nothing else.
   hold                ONLY for: a legal threat or a lawyer's letter, a complaint about us, a request to stop writing, a fee above $5, a demand for residency we cannot meet, or a message that needs no reply at all (then leave the reply empty and say so in WHY). Anthony does not want to send replies himself, so when a short accurate reply exists, choose the move that sends it, even on a dispute: say what the record says and why, offer to fix it the same day if we are wrong, and move on.
 
 Respond in exactly this form and nothing else:
@@ -219,7 +220,7 @@ def decide(r, thread, record, filed, facts, recheck, quiet, note=None):
     if USE_CLI:
         text = ask_cli(BRIEF, sit)
         if text:
-            return parse(text)
+            return only_reflect_on_perspective(parse(text), r)
     req = urllib.request.Request("https://openrouter.ai/api/v1/chat/completions",
         data=json.dumps({"model": WRITER, "max_tokens": 2000, "temperature": 0.2,
                          "messages": [{"role": "system", "content": BRIEF},
@@ -236,7 +237,13 @@ def decide(r, thread, record, filed, facts, recheck, quiet, note=None):
             LAST_ERROR[0] = repr(ex)[:160]
     if text is None:
         return None
-    return parse(text)
+    return only_reflect_on_perspective(parse(text), r)
+
+
+def only_reflect_on_perspective(d, r):
+    """`reflect` answers the perspective question and nothing else; on any other thread it is a plain answer."""
+    if isinstance(d, dict) and d.get("move") == "reflect" and r.get("kind") != "perspective": d["move"] = "answer"
+    return d
 
 
 STOCK_RE = re.compile("|".join(re.escape(x) for x in STOCK), re.I)
