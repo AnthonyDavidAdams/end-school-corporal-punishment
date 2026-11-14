@@ -140,7 +140,7 @@ def subject_for(r):
         "align":    f"An invitation: {d} as a Safe School for 2026-27",
         "board_note": f"{d}: a four-minute film for the board",
         "neighbor": f"{d} corporal punishment policy",
-        "perspective": f"A question about {messages.display_name(r['name'])}",
+        "perspective": "Anthony Adams | Safe Schools Project",   # the sales kit's subject: a name, not a headline (no mobile, Anthony 2026-11-07)
         "apology": "Sorry for the repeat emails",
         "certificate_correction": f"A correction on the {d} certificate",
         "certificate_reissue": f"A clean copy of the {d} certificate",   # only when the certificate's thread is gone; it normally goes out as "Re:" on that thread
@@ -214,6 +214,19 @@ HOLD_NEW = False   # 2026-10-30, Anthony: "I don't want anything really on my de
 STOP_EXEMPT = ("apology", "certificate_correction")   # these answer a thread of ours, even one a district has closed
 COOLDOWN_EXEMPT = STOP_EXEMPT + ("retraction", "certificate_reissue")   # these must not wait a day; a retraction or a reissue still honors a stop request
 
+FIRST_TOUCH = ("policy", "align", "neighbor", "perspective")
+
+def prior_contact(r, reqs):
+    """Every thread we already have with this district that reached them (sent, not bounced), oldest first, matched by
+    id or by name: the September research rows carry a different id than the record. A district we have written to
+    is never written to as a stranger again (Anthony, 2026-11-13: "if we already have spoken to them its not a new
+    communication")."""
+    flat = lambda st, nm: (st, re.sub(r"[^a-z0-9]", "", str(nm).lower()))
+    key = flat(r.get("state"), r.get("name")); nid = str(r.get("nces_id") or "")
+    out = [p for p in reqs if p is not r and p.get("id") != r.get("id") and p.get("sent_at") and p.get("status") != "bounced"
+           and p.get("kind") not in ("state_doe",) and ((nid and str(p.get("nces_id") or "") == nid) or flat(p.get("state"), p.get("name")) == key)]
+    return sorted(out, key=lambda p: p["sent_at"])
+
 def send(limit=25):
     reqs = load(); M = imap(); n = 0; cooled = 0; stop_ids, stop_addrs = stop_sets(reqs); stopped = 0
     for r in reqs:
@@ -243,14 +256,23 @@ def send(limit=25):
             if why:
                 r["status"] = "error"; r["error"] = why; save(reqs); log("reissue not sent", r["state"], r["name"], "-", why)
                 alert("reissue-blocked", f"ESCP: a clean certificate for {r['name']} was not sent ({why}). The row is marked error and will not retry by itself."); continue
+        if r.get("kind", "policy") in FIRST_TOUCH and not r.get("parent_request"):
+            prior = prior_contact(r, reqs)
+            if prior and r.get("kind", "policy") == "policy":
+                r["status"] = "dropped"; r["dropped_why"] = f"we already wrote to this district ({prior[-1].get('kind')}, {prior[-1]['sent_at'][:10]})"; save(reqs)
+                log("first ask dropped", r["state"], r["name"], "- already in contact"); continue
+            if prior:
+                last = prior[-1]; heard = any(p.get("last_reply_at") or any(e.get("kind") != "auto_reply_or_bounce" for e in p.get("replies") or []) for p in prior)
+                r["history"] = {"thread_on": last["id"], "last_at": last["sent_at"], "first_at": prior[0]["sent_at"], "they_replied": heard, "threads": len(prior)}
         subject = r.get("subject") or subject_for(r)
         r["subject"] = subject; r.setdefault("kind", "policy")
         if r["kind"] not in ("formal_request", "retraction", "certificate_reissue", "perspective"): ensure_compliment(r)
         mid = f"<escp-{r['id']}@earthpilot.org>"
         m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
-        if r.get("kind") in ("apology", "certificate_correction", "retraction", "certificate_reissue", "formal_request") and r.get("parent_request"):   # lands in the thread it corrects or continues
-            parent = next((p for p in reqs if p["id"] == r["parent_request"]), None)
+        thread_on = r.get("parent_request") if r.get("kind") in ("apology", "certificate_correction", "retraction", "certificate_reissue", "formal_request") else (r.get("history") or {}).get("thread_on")
+        if thread_on:   # lands in the thread it corrects or continues; a first-touch kind to a district we know lands in our latest thread with them
+            parent = next((p for p in reqs if p["id"] == thread_on), None)
             if parent and parent.get("message_id"):
                 m["In-Reply-To"] = parent["message_id"]; m["References"] = parent["message_id"]
                 del m["Subject"]; subject = "Re: " + re.sub(r"^(re:\s*)+", "", parent.get("subject") or subject_for(parent), flags=re.I); m["Subject"] = subject; r["subject"] = subject
@@ -1690,17 +1712,20 @@ def queue_perspective(n=25, quiet_days=14):
     # our record says; "boards that ended it in writing" counts bans on our record
     import csv, collections
     crdc = collections.Counter(row["state"] for row in csv.DictReader(open(os.path.join(ROOT, "data/crdc/2023-24/districts.csv"))) if int(row["students"] or 0) > 0)
-    contacted = {flat(r["state"], r["name"]) for r in reqs if r.get("sent_at")}   # a first contact only: an open thread gets its own reply
+    # statewide students struck, the last two federal counts: the insight sentence uses it only when it fell
+    trend = {}
+    for y, k in (("2021-22", "students_before"), ("2023-24", "students_now")):
+        for row in csv.DictReader(open(os.path.join(ROOT, f"data/crdc/{y}/states.csv"))): trend.setdefault(row["state"], {})[k] = int(row["students"] or 0)
     rows, peers = [], {}
     for f in sorted(glob.glob(os.path.join(ROOT, "data/districts/*.yaml"))):
         st = os.path.basename(f)[:2]; ds = yaml.safe_load(open(f)).get("districts") or []
-        peers[st] = {"using": crdc.get(st, 0), "bans": sum(1 for x in ds if x.get("status") == "bans")}
+        peers[st] = {"using": crdc.get(st, 0), "bans": sum(1 for x in ds if x.get("status") == "bans"), **trend.get(st, {})}
         rows += [(st, x) for x in ds if x.get("status") == "allows" and isinstance(x.get("crdc_students_latest"), (int, float)) and x["crdc_students_latest"] > 0]
     added = 0
     for st, x in sorted(rows, key=lambda t: -t[1]["crdc_students_latest"]):
         if added >= n: break
         nid = str(x["nces_id"])
-        if nid in recent or nid in had or flat(st, x["name"]) in heard or flat(st, x["name"]) in contacted: continue
+        if nid in recent or nid in had or flat(st, x["name"]) in heard: continue   # a district we wrote to before gets it in our thread, with history_line
         c = contacts.get(("id", nid)) or contacts.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
         to = c.get("district_email") or c.get("email")
         if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue

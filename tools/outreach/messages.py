@@ -388,6 +388,20 @@ def addressed_name(r):
     return "there"
 
 
+def history_line(r):
+    """When we have written to this district before, the note says so first, plainly and truly, instead of
+    introducing us as strangers. None when this is a first contact."""
+    h = r.get("history")
+    if not h: return None
+    short = short_name(display_name(r["name"]))
+    return (f"Thanks again for writing back {ago(h['last_at'])} about corporal punishment in {short}." if h.get("they_replied")
+            else f"I wrote {ago(h['last_at'])} about corporal punishment in {short}.")
+
+
+def short_name(d):
+    return re.sub(r"\s+(Public\s+)?(School\s+)?(Dist(rict)?|Schools|ISD|CISD|Charter Academy)\.?$", "", re.sub(r"\s*\(.*?\)", "", d), flags=re.I).strip() or d
+
+
 def tidy_quote(q):
     """A clipped sentence sometimes carries its section heading in front ("Corporal Punishment Corporal punishment
     may..."): quote the sentence. Mirrors tidy() in tools/certificates/board-brief.mjs."""
@@ -414,10 +428,10 @@ def align_policy(r, user, quote=None, code=None):
     who = addressed_name(r)
     d = nice(r["name"]); quote = tidy_quote(quote)
     line = f'Right now the policy on file ({code}) still says "{quote}"' if quote and code else (f'Right now the policy on file still says "{quote}"' if quote else "Right now the written policy still permits it")
-    peers = peers_sentence(r)
+    peers = peers_sentence(r); hist = history_line(r)
     return f"""Hey {who},
 
-I'd like to invite {d} to be recognized as a Safe School for 2026-27. In practice you're already there: in the most recent federal civil rights count (2023-24), the district reported no use of corporal punishment. {line}, so the paper lags the practice.{peers}
+{hist + " " if hist else ""}I'd like to invite {d} to be recognized as a Safe School for 2026-27. In practice you're already there: in the most recent federal civil rights count (2023-24), the district reported no use of corporal punishment. {line}, so the paper lags the practice.{peers}
 
 Would the board consider adopting language that says what the district already does? That is the whole ask. The research on this is settled: the largest review of it (Gershoff and Grogan-Kaylor, 2016, covering 160,927 children) found thirteen of seventeen outcomes worse for children who were physically punished, and none better. A Kansas superintendent who just took his board through it told me it was easy: "a great way to harvest litigation, not to mention that zero research supports it." The attached two-page brief has the sentence boards use to end it, in a form the board can adopt as written. When it's adopted, the district gets the Safe School certificate and a press release it can use.
 
@@ -453,7 +467,7 @@ def neighbor_ask(r, user, anchor):
     where = {"same_county": "next door to you", "next_county": "one county over from you", "other_state": "one county over, across the state line"}.get(r.get("anchor_where"), "not far from you")
     return f"""Hey {who},
 
-I keep a public record of what each school district's written policy says on corporal punishment, at earthpilot.org/kids. {a}, {where}, has ended it in policy, and I noticed {dp} policy still permits it on paper. Could you point me to the current board policy, or let me know whether the board has looked at it recently?
+{history_line(r) or "I keep a public record of what each school district's written policy says on corporal punishment, at earthpilot.org/kids."} {a}, {where}, has ended it in policy, and I noticed {dp} policy still permits it on paper. Could you point me to the current board policy, or let me know whether the board has looked at it recently?
 
 If it is something the board might take up, the one-sentence language boards use to end it is in a free two-page brief, and I am glad to send it.
 
@@ -462,24 +476,31 @@ If it is something the board might take up, the one-sentence language boards use
 
 
 def perspective_ask(r, user):
-    """A district that still permits it and still used it in the last federal count. Not an ask for anything: a
-    question about how the superintendent sees it, because nobody changes a practice they have been argued out
-    of, only one they have talked themselves out of (Anthony, 2026-11-13: ask "the person's perspective on why it
-    persists despite the evidence", then reinforce who they are and move them forward). Who we are, one true
-    computed fact, one question. The reply loop lives in writer.py (move `reflect`)."""
+    """A district that still permits it and still used it in the last federal count. Built on the sales kit's
+    cold email (~/sales-kit/playbook/easton-method.md, sections 2 and 5): who we are and how we are connected, one
+    insight about their world that is true and useful whether or not they ever answer, then them, then one
+    discovery question in the "what's the biggest ___" shape. It asks for nothing. Anthony, 2026-11-13: ask "the
+    persons personal perspective on why it persists despite the evidence", "what do you think is in the way?",
+    "really use the sales skills we have". Every number is computed when the row is queued (queue_perspective);
+    a district we have written to before gets the history line in place of the introduction, in our thread.
+    The reply loop is writer.py's `reflect` move."""
     who = addressed_name(r); st = state_name(r.get("state")); p = r.get("peers") or {}
-    d = display_name(r["name"])
-    n = int(r.get("students") or 0)
-    kids = "one student" if n == 1 else f"{n:,} students"
-    others = p.get("using", 0) - 1
-    fact = f"In the 2023-24 federal count, {d} reported corporal punishment for {kids}"
-    if others > 0: fact += f", one of {p['using']} {st} districts still using it"
-    if p.get("bans", 0) >= 10: fact += f", while {p['bans']} {st} boards have ended it in writing"
+    d = display_name(r["name"]); short = short_name(d)
     hello = "Hello," if who == "there" else f"{who},"
-    short = re.sub(r"\s+(Public\s+)?(School\s+)?(Dist(rict)?|Schools|ISD|CISD|Charter Academy)\.?$", "", re.sub(r"\s*\(.*?\)", "", d), flags=re.I).strip() or d
+    n = int(r.get("students") or 0); kids = "one student" if n == 1 else f"{n:,} students"
+    intro = history_line(r) or f"Anthony Adams with the Safe Schools Project; I keep the public record of every {st} district's corporal punishment policy."
+    before, now = p.get("students_before"), p.get("students_now")
+    trend = []
+    if before and now and now < before * 0.9:
+        trend.append(f"the number of {st} students struck at school fell from {before:,} to {now:,} between the last two federal counts")
+    if p.get("bans", 0) >= 10:
+        trend.append(f"{p['bans']} boards in the state have now ended it in writing")
+    insight = f" Wanted to make sure you'd seen this: {' and '.join(trend)}." if trend else ""
+    them = (f" {short} is one of the {p['using']} districts there still using it, with {kids} in 2023-24," if p.get("using", 0) > 1
+            else f" {short} reported {kids} in 2023-24,")
     return f"""{hello}
 
-I'm Anthony Adams. I keep a public record of what each {st} district's written policy says about corporal punishment, at earthpilot.org/kids. {fact}. You see this from inside a district and I don't, so I'd value your honest read: what do you think has kept it in place in {short}?
+{intro}{insight}{them} and you see that from the inside in a way I can't. What's the biggest thing in the way of ending it there?
 
 {sig(user)}
 """
