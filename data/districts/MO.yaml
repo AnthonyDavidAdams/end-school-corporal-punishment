@@ -3035,12 +3035,12 @@ districts:
   - name: Lawson R-XIV
     county: Ray
     nces_id: "2918220"
-    status: silent
-    source: https://lr14sd.rst7.rschooltoday.com/student-handbook-high-school/
-    quote: null
+    status: bans
+    source: https://irp.cdn-website.com/dc754019/files/uploaded/2026-09-21+Lawson+District+Policies+%28BOE+adopted%29.pdf
+    quote: Corporal punishment is strictly prohibited as a method of discipline.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-26
+    last_verified: 2026-11-15
     method: searched_document
     parent_control: unknown
     documents:
@@ -3056,8 +3056,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: "Found by searching for the district's policy document and read 2026-11-15 (nightly). `quotes` carries every rule-bearing sentence in document order. Whose document: not on the district's own website (irp.cdn-website.com); read in full, the document names the district and Missouri (44 mentions) and no other state more often."
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - Corporal punishment is strictly prohibited as a method of discipline.
+      - Corporal punishment is strictly prohibited as a method of discipline.
   - name: Lebanon R-III
     county: Laclede
     nces_id: "2918270"
