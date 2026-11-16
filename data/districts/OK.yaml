@@ -4881,13 +4881,13 @@ districts:
   - name: LONE STAR
     county: Creek
     nces_id: "4018240"
-    status: unknown
-    source: null
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4018240-Corporal_punichment_polciy.pdf
+    quote: LONE STAR SCHOOL BOARD POLICY FOB CORPORAL PUNISHMEN' It is the policy of the Lone Star Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
     policy_code: null
     crdc_students_latest: null
-    last_verified: null
-    notes: "2026-11-10 review: the document on file belonged to a same-named district in CO; reset pending a re-read."
+    last_verified: 2026-11-16
+    notes: Received from the district by email in answer to a public records request, 2026-11-16; the document is kept in the repository at data/policies/inbound/OK/4018240-Corporal_punichment_polciy.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: thale@lonestar.k12.ok.us
@@ -4895,6 +4895,14 @@ districts:
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
+    method: records_request
+    parent_control: opt_out
+    quotes:
+      - LONE STAR SCHOOL BOARD POLICY FOB CORPORAL PUNISHMEN' It is the policy of the Lone Star Board of Education to administer corporal punishment only as a last resort after other reasonable corrective measures have been used without success.
+      - However, under no circumstances shall any childin DHS custody or any student on an individualized educational program (IEP)be administered corporal punishment.
+      - The administration shall notify a parent or legal guardian that corporal punishment is being planned.
+      - At that time, the parent or legal guardian may request that corporal punishment not be administered.
+      - Ifa parent or legal guardian has requested that corporal punishment not be administered to the student, alternative discipline will be considered and may include suspension from school.
   - name: LONE WOLF
     county: Kiowa
     nces_id: "4018270"
