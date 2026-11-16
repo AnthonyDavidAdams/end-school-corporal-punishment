@@ -3318,15 +3318,15 @@ districts:
   - name: GLOVER
     county: McCurtain
     nces_id: "4012750"
-    status: silent
-    source: https://www.glover.k12.ok.us/
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4012750-GES_2026-2027__1_.pdf
+    quote: ​ 3rd offense-Students will be subject to corporal punishment or 3 days of ISS.
     policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-25
-    method: searched_document
+    last_verified: 2026-11-16
+    method: records_request
     parent_control: unknown
-    notes: Handbook or code of conduct read in full on 2026-09-25; it does not mention corporal punishment. The board policy manual was not located after search, crawl and vendor lookup. The district reported 6 students struck in 2023-24 (CRDC). State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom. A records request for the board policy is the next step.
+    notes: Received from the district by email in answer to a public records request, 2026-11-16; the document is kept in the repository at data/policies/inbound/OK/4012750-GES_2026-2027__1_.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     contact:
       district_email: tcasanover@glover.k12.ok.us
@@ -3334,6 +3334,8 @@ districts:
       phone: null
       contact_source: OSDE FY26 Online Directory District List, 2026-09-25
       as_of: 2026-09-25
+    quotes:
+      - ​ 3rd offense-Students will be subject to corporal punishment or 3 days of ISS.
   - name: GORE
     county: Sequoyah
     nces_id: "4012900"
