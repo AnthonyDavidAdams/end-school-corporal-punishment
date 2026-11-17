@@ -5727,13 +5727,13 @@ districts:
   - name: Newcastle
     county: McClain
     nces_id: "4021510"
-    status: silent
-    source: https://sites.google.com/newcastle.k12.ok.us/nhsstudenthandbook/home
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4021510-_FO_Student_Discipline.pdf
+    quote: District personnel will not use corporal punishment on students identified with the most significant cognitive disabilities, according to the criteria established by the Oklahoma State Department of Education, unless addressed in an annual individualized education program (IEP) developed pursuant to the IDEA.
+    policy_code: FOD
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-17
+    method: records_request
     parent_control: unknown
     documents:
       - kind: handbook
@@ -5742,8 +5742,11 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-17; the document is kept in the repository at data/policies/inbound/OK/4021510-_FO_Student_Discipline.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - District personnel will not use corporal punishment on students identified with the most significant cognitive disabilities, according to the criteria established by the Oklahoma State Department of Education, unless addressed in an annual individualized education program (IEP) developed pursuant to the IDEA.
+      - The district does not recognize corporal punishment as a means of discipline.
   - name: Newkirk
     county: Kay
     nces_id: "4021540"
