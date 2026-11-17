@@ -17180,13 +17180,13 @@ districts:
     county: Fort Bend
     nces_id: "4832310"
     status: allows
-    method: vendor_model_policy
-    source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=482&code=FO
-    quote: Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.
-    policy_code: FO(LOCAL)
+    method: records_request
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TX/4832310-link-054198.html
+    quote: Education Code 37.0021(i) Corporal Punishment If the board adopts a policy under Education Code 37.001(a)(8) under which corporal punishment is permitted as a method of student discipline, a district educator may use corporal punishment to discipline a student unless the student's parent or guardian or other person having lawful control over the student has previously provided a written, signed statement prohibiting the use of corporal punishment as a method of student discipline.
+    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Board policy FO(LOCAL) from TASB Policy Online, read 2026-09-24. The board permits the practice and its own policy sets out what say a parent has (opt_out); `quotes` carries the permission and the parent clause together. A district's Student Code of Conduct can still differ -- Ingram ISD's requires a parent's verbal approval where FO(LOCAL) reads as opt-out -- so a code of conduct, where one has been read, is the more specific source.
+    last_verified: 2026-11-17
+    notes: Received from the district by email in answer to a public records request, 2026-11-17; the document is kept in the repository at data/policies/inbound/TX/4832310-link-054198.html. Identity is name and state matched against the federal LEA directory.
     documents:
       - kind: board_policy
         url: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=482&code=FO
@@ -17201,6 +17201,14 @@ districts:
       phone: (979) 793-4308
       contact_source: TEA AskTED download, 2026-09-25
       as_of: 2026-09-25
+    parent_control: opt_out
+    quotes:
+      - Education Code 37.0021(i) Corporal Punishment If the board adopts a policy under Education Code 37.001(a)(8) under which corporal punishment is permitted as a method of student discipline, a district educator may use corporal punishment to discipline a student unless the student's parent or guardian or other person having lawful control over the student has previously provided a written, signed statement prohibiting the use of corporal punishment as a method of student discipline.
+      - Education Code 37.0011(b) Parent Statement To prohibit the use of corporal punishment as a method of student discipline, each school year a student's parent or guardian or other person having lawful control over the student must provide a separate written, signed statement to the board in the manner established by the board.
+      - Notwithstanding the above corporal punishment provisions, is designed to or likely to cause physical pain through the use of electric shock or any procedure that involves the use of pressure points or joint locks;
+      - Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.
+      - Corporal punishment shall not be administered to a student whose parent has submitted to the principal a signed statement for the current school year prohibiting the use of corporal punishment with his or her child.
+      - The parent may reinstate permission to use corporal punishment at any time during the school year by submitting a signed statement to the principal.
   - name: NEW BOSTON ISD
     county: Bowie
     nces_id: "4832340"
