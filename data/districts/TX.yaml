@@ -14815,13 +14815,13 @@ districts:
     county: Hardin
     nces_id: "4813530"
     status: allows
-    method: vendor_model_policy
-    source: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=576&code=FO
-    quote: Corporal Punishment Corporal punishment may be used as a discipline management technique in accordance with this policy and the Student Code of Conduct.
-    policy_code: FO(LOCAL)
+    method: records_request
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/TX/4813530-link-6eeb8f.pdf
+    quote: Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling a student—may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
+    policy_code: null
     crdc_students_latest: null
-    last_verified: 2026-09-24
-    notes: Board policy FO(LOCAL) from TASB Policy Online, read 2026-09-24. The board permits the practice and its own policy sets out what say a parent has (opt_out); `quotes` carries the permission and the parent clause together. A district's Student Code of Conduct can still differ -- Ingram ISD's requires a parent's verbal approval where FO(LOCAL) reads as opt-out -- so a code of conduct, where one has been read, is the more specific source.
+    last_verified: 2026-11-17
+    notes: Received from the district by email in answer to a public records request, 2026-11-17; the document is kept in the repository at data/policies/inbound/TX/4813530-link-6eeb8f.pdf. Identity is name and state matched against the federal LEA directory.
     documents:
       - kind: board_policy
         url: https://pol.tasb.org/PolicyOnline/PolicyDetails?key=576&code=FO
@@ -14836,6 +14836,13 @@ districts:
       phone: (409) 923-7580
       contact_source: TEA AskTED download, 2026-09-25
       as_of: 2026-09-25
+    parent_control: opt_out
+    quotes:
+      - Prohibiting the Use of Corporal Punishment Corporal punishment—spanking or paddling a student—may be used as a discipline management technique in accordance with the Student Code of Conduct and district policy FO(LOCAL).
+      - However, in accordance with law, the district may not administer corporal punishment if a student’s parent submits a signed, written statement prohibiting its use.
+      - A parent who does not want corporal punishment administered to his or her child must indicate on the student registration form A parent may revoke this prohibition at any time during the school year by providing a signed statement to the campus principal.
+      - 28 • District personnel may use discipline methods other than corporal punishment if a parent requests that corporal punishment not be used.
+      - • If the district knows that a student is in temporary or permanent custody of the state (through foster care, kinship care, or other arrangements), corporal punishment will not be administered, even when the student’s caregiver or caseworker has not submitted a signed statement prohibiting its use.
   - name: Lyford CISD
     county: Willacy
     nces_id: "4828620"
