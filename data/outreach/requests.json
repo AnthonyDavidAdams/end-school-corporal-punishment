@@ -75528,7 +75528,29 @@
   "status": "sent",
   "sent_at": "2026-11-17T07:04:42",
   "message_id": "<escp-2270fdb2fc@earthpilot.org>",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<DS2PR13MB760145AABA94112E29FCB2E0B27B2@DS2PR13MB7601.namprd13.prod.outlook.com>",
+    "from": "drakep@needvilleisd.com",
+    "date": "Tue, 17 Nov 2026 15:12:27 +0000",
+    "kind": "document_linked",
+    "confidence": 0.99,
+    "facts": {
+     "document_links": [
+      "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=482&code=FO#localTabContent"
+     ]
+    },
+    "attachments": [
+     "image.png"
+    ],
+    "links": [
+     "https://pol.tasb.org/PolicyOnline/PolicyDetails?key=482&code=FO#localTabContent"
+    ],
+    "file": "49e7b8f6.eml",
+    "action": "recorded allows; filed, answered with their later message in the same batch",
+    "move": "fold"
+   }
+  ],
   "followup_sent_at": null,
   "queued_at": "2026-11-17T06:00:50",
   "subject": "Needville ISD corporal punishment policy",
@@ -75542,7 +75564,13 @@
     "message_id": "<3D5E288F-D680-4B1D-9A90-1F0606998714@175g.com>",
     "by": "anthony"
    }
-  ]
+  ],
+  "answered_from": "drakep@needvilleisd.com",
+  "last_reply_at": "2026-11-17T07:37:42",
+  "answered_message_ids": [
+   "<DS2PR13MB760145AABA94112E29FCB2E0B27B2@DS2PR13MB7601.namprd13.prod.outlook.com>"
+  ],
+  "recorded_status": "allows"
  },
  {
   "id": "9cbebba589",
