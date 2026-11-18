@@ -8904,14 +8904,14 @@ districts:
   - name: Weleetka
     county: Okfuskee
     nces_id: "4032220"
-    status: allows
-    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4032220-ELEMENTARY_STUDENT_HANDBOOK_26-27.pdf
-    quote: Reasonable corporal punishment that does not inflict permanent bodily injury may be administered by the principal after careful evaluation of the case.
-    policy_code: null
+    status: consent_required
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/OK/4032220-link-63bc06.pdf
+    quote: You must have an admit from the office before class starts! (a) If you are late to class trying to get an admit, you will be in detention 1 day/corporal punishment.
+    policy_code: "21"
     crdc_students_latest: null
     last_verified: 2026-11-18
     method: records_request
-    parent_control: unknown
+    parent_control: opt_in
     documents:
       - kind: other
         url: https://www.weleetka.k12.ok.us/
@@ -8925,13 +8925,15 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: Received from the district by email in answer to a public records request, 2026-11-18; the document is kept in the repository at data/policies/inbound/OK/4032220-ELEMENTARY_STUDENT_HANDBOOK_26-27.pdf. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-18; the document is kept in the repository at data/policies/inbound/OK/4032220-link-63bc06.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
     quotes:
-      - Reasonable corporal punishment that does not inflict permanent bodily injury may be administered by the principal after careful evaluation of the case.
-      - Corporal punishment should not be given except by an administrator or designated person.
-      - Reasonable corporal punishment that does not inflict permanent bodily injury may be administered by the principal or his designee after careful evaluation of the case.
-      - Reasonable corporal punishment that does not inflict permanent bodily injury may be administered by the principal or his designee after careful evaluation of the case.
+      - You must have an admit from the office before class starts! (a) If you are late to class trying to get an admit, you will be in detention 1 day/corporal punishment.
+      - CORPORAL PUNISHMENT The principal may administer reasonable corporal punishment that does not inflict permanent bodily injury after careful evaluation of the case.
+      - Corporal punishment should not be given except by an administrator.
+      - A parent or guardian must be contacted and consent to Corporal punishment.
+      - Corporal punishment is prohibited for students with disabilities entitled to special education services under the Individuals with Disabilities Education Act (IDEA) per OSDE rule.
+      - Reasonable corporal punishment that does not inflict permanent bodily injury may be administered by the teacher of principal after careful evaluation of the case.
   - name: WELLSTON
     county: Lincoln
     nces_id: "4032280"
