@@ -138,7 +138,7 @@ def subject_for(r):
         "research": f"Records request: what {d}'s board relied on",
         "state_doe": f"Records request: district contacts, handbooks and discipline data",
         "align":    f"An invitation: {d} as a Safe School for 2026-27",
-        "board_note": f"{d}: a four-minute film for the board",
+        "board_note": f"{d}: a six-minute film for the board",
         "neighbor": f"{d} corporal punishment policy",
         "perspective": "Anthony Adams | Safe Schools Project",   # the sales kit's subject: a name, not a headline (no mobile, Anthony 2026-11-07)
         "apology": "Sorry for the repeat emails",

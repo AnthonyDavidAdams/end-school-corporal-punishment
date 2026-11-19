@@ -452,7 +452,7 @@ def board_note(r, user, link):
 
 I wrote to your superintendent {wrote} about {d}'s corporal punishment policy and wanted to send you the same thing directly, since it is the board's call. In the latest federal count the district reported no use of corporal punishment, but {line}. The paper lags the practice.
 
-Here is a four-minute film made for board members, with the one sentence boards in your state have adopted: {link}
+Here is a six-minute film made for board members, with the one sentence boards in your state have adopted: {link}
 
 The ask is small: put the policy on an upcoming agenda and bring the language in line with what the district already does. The two-page brief, the model policy in your numbering, and a staff training are all free at earthpilot.org/kids/kit. When it is adopted, {d} is recognized as a Safe School.
 
