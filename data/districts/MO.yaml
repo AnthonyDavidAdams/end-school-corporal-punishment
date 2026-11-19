@@ -1659,13 +1659,13 @@ districts:
   - name: Excelsior Springs 40
     county: Clay
     nces_id: "2911650"
-    status: silent
-    source: https://go.boarddocs.com/mo/es40s/Board.nsf/Public
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/MO/2911650-link-4eb0ce.pdf
+    quote: for any offenses listed in § 160.261, RSMo., or any act Corporal Punishment (Policy JGA-2) of violence or drug-related activity defined by policy No person employed by or volunteering on behalf JGF as a serious violation of school discipline shall not of the District shall administer corporal be allowed to be within 1,000 feet of any district punishment or cause corporal punishment to be property or any activity of the district, regardless of administered upon a student attending district whether the activity takes place on district property, schools.
+    policy_code: "3"
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-19
+    method: records_request
     parent_control: unknown
     documents:
       - kind: other
@@ -1674,8 +1674,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 1 document found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-19; the document is kept in the repository at data/policies/inbound/MO/2911650-link-4eb0ce.pdf. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - for any offenses listed in § 160.261, RSMo., or any act Corporal Punishment (Policy JGA-2) of violence or drug-related activity defined by policy No person employed by or volunteering on behalf JGF as a serious violation of school discipline shall not of the District shall administer corporal be allowed to be within 1,000 feet of any district punishment or cause corporal punishment to be property or any activity of the district, regardless of administered upon a student attending district whether the activity takes place on district property, schools.
   - name: Exeter R-VI
     county: Barry
     nces_id: "2911670"
