@@ -17768,6 +17768,27 @@
     ],
     "file": "2fe25a56.eml",
     "action": "logged"
+   },
+   {
+    "message_id": "<6aff3def.b32a687a.369554.215c.GMR@mx.google.com>",
+    "from": "mailer-daemon@googlemail.com",
+    "date": "Thu, 19 Nov 2026 10:20:31 -0800 (PST)",
+    "kind": "auto_reply_or_bounce",
+    "confidence": 1,
+    "facts": {
+     "addresses_named": [
+      "brandon.kirkpatrick@panolabearcats.org"
+     ]
+    },
+    "attachments": [
+     "icon.png"
+    ],
+    "links": [
+     "https://support.google.com/mail/answer/7720",
+     "https://support.google.com/mail/answer/7720."
+    ],
+    "file": "eb600b7b.eml",
+    "action": "logged"
    }
   ],
   "followup_sent_at": "2026-10-27T01:42:28",
@@ -17800,9 +17821,10 @@
   ],
   "formal_requested_at": "2026-11-17",
   "answered_from": "mailer-daemon@googlemail.com",
-  "last_reply_at": "2026-11-18T09:34:34",
+  "last_reply_at": "2026-11-19T10:34:55",
   "answered_message_ids": [
-   "<6afddccf.e0409da1.3c4932.f613.GMR@mx.google.com>"
+   "<6afddccf.e0409da1.3c4932.f613.GMR@mx.google.com>",
+   "<6aff3def.b32a687a.369554.215c.GMR@mx.google.com>"
   ],
   "bounce_retry": "2026-11-18T09:50:42",
   "notes": " Bounced at brandon.kirkpatrick@panolabearcats.org; no other address found (2026-11-18)."
@@ -23203,10 +23225,29 @@
   "to": "michael.williams@banks.k12.ga.su",
   "superintendent": "Michael Williams",
   "statute": "the Georgia Open Records Act, O.C.G.A. \u00a7 50-18-70 et seq.",
-  "status": "sent",
+  "status": "bounced",
   "sent_at": "2026-10-10T16:27:19",
   "message_id": "<escp-dd56bc1cbc@earthpilot.org>",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<6aff3c71.b92e7e5f.15663d.159b.GMR@mx.google.com>",
+    "from": "mailer-daemon@googlemail.com",
+    "date": "Thu, 19 Nov 2026 10:14:09 -0800 (PST)",
+    "kind": "auto_reply_or_bounce",
+    "confidence": 1,
+    "facts": {
+     "addresses_named": [
+      "michael.williams@banks.k12.ga.su"
+     ]
+    },
+    "attachments": [
+     "icon.png"
+    ],
+    "links": [],
+    "file": "c250c040.eml",
+    "action": "logged"
+   }
+  ],
   "followup_sent_at": "2026-10-27T03:25:35",
   "queued_at": "2026-10-10T16:20:45",
   "subject": "Banks County corporal punishment policy",
@@ -23230,7 +23271,12 @@
   "recheck_tried": [
    "(nothing indexed on banks.k12.ga.su)"
   ],
-  "formal_requested_at": "2026-11-18"
+  "formal_requested_at": "2026-11-18",
+  "answered_from": "mailer-daemon@googlemail.com",
+  "last_reply_at": "2026-11-19T10:34:52",
+  "answered_message_ids": [
+   "<6aff3c71.b92e7e5f.15663d.159b.GMR@mx.google.com>"
+  ]
  },
  {
   "id": "4cb9b7778d",
@@ -26845,8 +26891,7 @@
   "refile_tries": 1,
   "refile_tried": "2026-11-18",
   "unreadable": "2026-11-18",
-  "recorded_status": "silent",
-  "unfiled_since": "2026-11-19"
+  "recorded_status": "silent"
  },
  {
   "id": "375b41681c",
@@ -27769,7 +27814,25 @@
   "status": "sent",
   "sent_at": "2026-10-10T16:42:02",
   "message_id": "<escp-f9524fbed0@earthpilot.org>",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<CANp+OGG6yK9MLjycSsDTQaJj+GH97XKS0gxVkgUrf_gbWCDFGA@mail.gmail.com>",
+    "from": "andyallen@plainfield.k12.in.us",
+    "date": "Thu, 19 Nov 2026 13:22:53 -0500",
+    "kind": "website_no_link",
+    "confidence": 0.89,
+    "facts": {},
+    "attachments": [],
+    "links": [
+     "https://www.plainfield.k12.in.us/"
+    ],
+    "file": "f98538b9.eml",
+    "action": "; replied (ask_link)",
+    "move": "ask_link",
+    "why": "Andy says it is all on the website, but the re-check of the home page, district page and school pages found no board policy or current handbook, so ask for the direct link.",
+    "our_reply": "Hi Andy,\n\nThanks for pointing me to the website this morning. I went through plainfield.k12.in.us, the district website page, and the high school and middle school pages and couldn't find the board policy on corporal punishment or a current handbook, and the only handbook I've turned up is the 2019-20 middle school one, which doesn't mention it. Could you send me the direct link to the board policy, or just the page where the policy manual lives? That's all I need.\n\nAnthony\n\nSent from my iPhone"
+   }
+  ],
   "followup_sent_at": "2026-10-27T04:49:26",
   "queued_at": "2026-10-10T16:20:45",
   "subject": "Plainfield Community School Corp corporal punishment policy",
@@ -27787,9 +27850,14 @@
     "at": "2026-11-19T07:37:11",
     "kind": "formal_request",
     "text": "Hi Andrew,\n\nI still don't have Plainfield Community School Corp's policy on corporal punishment, so I'm making this a formal request. Under the Indiana Access to Public Records Act, Ind. Code \u00a7 5-14-3, please send copies of:\n\n  1. Plainfield Community School Corp's current board policy on corporal punishment (and the student discipline policy it sits in), as adopted; and\n  2. the current student handbook or code of conduct.\n\nA link to where each is posted is all it takes. If they are not posted, electronic copies by reply are fine. This request is in the public interest, not commercial, so please tell me before any charge is incurred. If any part is withheld, please cite the exemption.\n\nAnthony Adams\nSafe Schools Project, a project of EarthPilot\nearthpilot.org/kids \u00b7 anthony@175g.com\n11662 Old Lake Road, North East, PA 16428 \u00b7 (234) 516-2545\n"
+   },
+   {
+    "at": "2026-11-19T10:34:50",
+    "to": "andyallen@plainfield.k12.in.us",
+    "text": "Hi Andy,\n\nThanks for pointing me to the website this morning. I went through plainfield.k12.in.us, the district website page, and the high school and middle school pages and couldn't find the board policy on corporal punishment or a current handbook, and the only handbook I've turned up is the 2019-20 middle school one, which doesn't mention it. Could you send me the direct link to the board policy, or just the page where the policy manual lives? That's all I need.\n\nAnthony\n\nSent from my iPhone"
    }
   ],
-  "rechecked_at": "2026-11-12T15:58:52",
+  "rechecked_at": "2026-11-19T10:34:34",
   "recheck_tried": [
    "https://www.plainfield.k12.in.us/o/plainfield-high-school/dining/",
    "https://www.plainfield.k12.in.us/o/plainfield-community-middle-school/dining/",
@@ -27798,7 +27866,13 @@
    "https://plainfield.k12.in.us",
    "https://plainfield.k12.in.us/page/district-website"
   ],
-  "formal_requested_at": "2026-11-19"
+  "formal_requested_at": "2026-11-19",
+  "answered_from": "andyallen@plainfield.k12.in.us",
+  "last_reply_at": "2026-11-19T10:33:50",
+  "answered_message_ids": [
+   "<CANp+OGG6yK9MLjycSsDTQaJj+GH97XKS0gxVkgUrf_gbWCDFGA@mail.gmail.com>"
+  ],
+  "awaiting_link_since": "2026-11-19"
  },
  {
   "id": "dca3f14281",
@@ -28884,10 +28958,32 @@
   "to": "cvignery@usd458.org",
   "superintendent": "Mr. Chris Vignery",
   "statute": null,
-  "status": "sent",
+  "status": "answered",
   "sent_at": "2026-10-10T16:45:22",
   "message_id": "<escp-7768a50f60@earthpilot.org>",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<CAP-t5k+NViMq=LiUSyf6xgYR1nOv5k_6C8SYSCDgR+k55f0O3A@mail.gmail.com>",
+    "from": "cvignery@usd458.org",
+    "date": "Thu, 19 Nov 2026 12:22:33 -0600",
+    "kind": "document_attached",
+    "confidence": 1,
+    "facts": {
+     "document_attachments": [
+      "JDA-Policy.pdf"
+     ]
+    },
+    "attachments": [
+     "JDA-Policy.pdf"
+    ],
+    "links": [],
+    "file": "3dcf7f4b.eml",
+    "action": "recorded bans; replied (thank_recorded)",
+    "move": "thank_recorded",
+    "why": "Their attachment this morning is board policy JDA, which bans the practice; the record now says the board prohibits it, and the formal request is satisfied.",
+    "our_reply": "Hi Chris,\n\nSlow is fine, thanks for sending the policy this morning. That closes it out: the record for Basehor-Linwood now says the board prohibits it, quoting JDA, \"Corporal punishment shall not be permitted in the school district.\" If the handbook link is handy I'll add it too, but no need to dig for it. Good to have this one done.\n\nAnthony\n\nSent from my iPhone"
+   }
+  ],
   "followup_sent_at": "2026-10-27T05:14:31",
   "queued_at": "2026-10-10T16:20:45",
   "subject": "Basehor-Linwood corporal punishment policy",
@@ -28905,13 +29001,24 @@
     "at": "2026-11-19T07:38:31",
     "kind": "formal_request",
     "text": "Hi Chris,\n\nI still don't have Basehor-Linwood's policy on corporal punishment, so I'm making this a formal request. Under the Kansas Open Records Act, K.S.A. 45-215 et seq., please send copies of:\n\n  1. Basehor-Linwood's current board policy on corporal punishment (and the student discipline policy it sits in), as adopted; and\n  2. the current student handbook or code of conduct.\n\nA link to where each is posted is all it takes. If they are not posted, electronic copies by reply are fine. This request is in the public interest, not commercial, so please tell me before any charge is incurred. If any part is withheld, please cite the exemption.\n\nAnthony Adams\nSafe Schools Project, a project of EarthPilot\nearthpilot.org/kids \u00b7 anthony@175g.com\n11662 Old Lake Road, North East, PA 16428 \u00b7 (234) 516-2545\n"
+   },
+   {
+    "at": "2026-11-19T10:33:49",
+    "to": "cvignery@usd458.org",
+    "text": "Hi Chris,\n\nSlow is fine, thanks for sending the policy this morning. That closes it out: the record for Basehor-Linwood now says the board prohibits it, quoting JDA, \"Corporal punishment shall not be permitted in the school district.\" If the handbook link is handy I'll add it too, but no need to dig for it. Good to have this one done.\n\nAnthony\n\nSent from my iPhone"
    }
   ],
   "rechecked_at": "2026-11-12T18:36:22",
   "recheck_tried": [
    "(nothing indexed on usd458.org)"
   ],
-  "formal_requested_at": "2026-11-19"
+  "formal_requested_at": "2026-11-19",
+  "answered_from": "cvignery@usd458.org",
+  "last_reply_at": "2026-11-19T10:32:56",
+  "answered_message_ids": [
+   "<CAP-t5k+NViMq=LiUSyf6xgYR1nOv5k_6C8SYSCDgR+k55f0O3A@mail.gmail.com>"
+  ],
+  "recorded_status": "bans"
  },
  {
   "id": "7e3cbcd640",
@@ -36751,7 +36858,10 @@
     ],
     "move": "answer",
     "why": "Their links arrived this morning in reply to the formal request, the board policy page has not yet been read into the record (reader unsure of the rule), so thank them, confirm receipt, say it will be",
-    "our_reply": "Hi Brett,\n\nThanks for sending the links this morning, including the board policy page on eboardsolutions and the handbook pages for the high school, the district and the tech center. They all came through fine on my end. I'll read the board policy in full and update our record from what it actually says, and I'll let you know if anything in it is unclear.\n\nAnthony\n\nSent from my iPhone"
+    "our_reply": "Hi Brett,\n\nThanks for sending the links this morning, including the board policy page on eboardsolutions and the handbook pages for the high school, the district and the tech center. They all came through fine on my end. I'll read the board policy in full and update our record from what it actually says, and I'll let you know if anything in it is unclear.\n\nAnthony\n\nSent from my iPhone",
+    "filed": [
+     "nothing"
+    ]
    }
   ],
   "followup_sent_at": "2026-10-27T08:10:57",
@@ -36793,7 +36903,10 @@
   "answered_message_ids": [
    "<CADdTYSsUs_OdqdDkKsryBjL2Ojo83kzm_PJsVHQj0Y9+Y7VpVg@mail.gmail.com>"
   ],
-  "unfiled_since": "2026-11-19"
+  "unfiled_since": "2026-11-19",
+  "refile_tries": 1,
+  "refile_tried": "2026-11-19",
+  "unreadable": "2026-11-19"
  },
  {
   "id": "6c8922d025",
@@ -41240,10 +41353,11 @@
     "attachments": [],
     "links": [],
     "file": "28f7e033.eml",
-    "action": "; logged, Anthony is handling this thread",
-    "move": "hold",
+    "action": "; logged, Anthony is handling this thread; approved by anthony 2026-11-19, sent",
+    "move": "answer",
     "why": "Anthony is in this thread; He said send the kit and that they would never use it though P 2670 permits it; INVITED is no, so share the kit and coach, ask whether the board would be opposed to writing the prohibition down, and a",
-    "suggested": "John, here is the toolkit for your principals: earthpilot.org/kids/kit, plus the free behavior coach for teachers and parents at earthpilot.org/kids/coach. Since you would never use it and see that as the parent's role, would the board be opposed to saying so in writing? Policy 2670 still permits it, so the one thing the paper still allows is the one thing a new hire could get wrong, and the kit has the one-sentence policy 137 Missouri boards already have in writing, the motion, and the staff and family letters, so it is one agenda item adopted as written, and Stanberry gets listed as a Safe School with a certificate and a press release you can use. If the board ever took this up before and there are minutes or a policy from that, could you send those too?\n\nAnthony\n\nSent from my iPhone"
+    "suggested": "John, here is the toolkit for your principals: earthpilot.org/kids/kit, plus the free behavior coach for teachers and parents at earthpilot.org/kids/coach. Since you would never use it and see that as the parent's role, would the board be opposed to saying so in writing? Policy 2670 still permits it, so the one thing the paper still allows is the one thing a new hire could get wrong, and the kit has the one-sentence policy 137 Missouri boards already have in writing, the motion, and the staff and family letters, so it is one agenda item adopted as written, and Stanberry gets listed as a Safe School with a certificate and a press release you can use. If the board ever took this up before and there are minutes or a policy from that, could you send those too?\n\nAnthony\n\nSent from my iPhone",
+    "our_reply": "John, thank you. Here it is: earthpilot.org/kids/kit, and the free behavior coach for teachers and parents is at earthpilot.org/kids/coach.\n\nThat makes sense, and it sounds like Stanberry already sees discipline at home as the parent's job. Since you would never use it, does it make sense to put that in the board policy itself, so a new principal down the road can't read 2670 differently than you do? The kit has a model policy written so a board can adopt it in its own numbering.\n\nDoes that match how you see it? Did I miss anything?\n\nAnthony"
    }
   ],
   "followup_sent_at": null,
@@ -41264,6 +41378,11 @@
     "at": "2026-11-15T12:38:31",
     "to": "jdavison@stanberryschools.org",
     "text": "John, sorry for the slow reply, and thank you for sending Policy 2670. Our record for Stanberry now reads that it is permitted with a parent's consent, quoted from the policy itself. Does it make sense for me to send over the free toolkit we put together for districts moving off it, so your principals have more options when the same student keeps landing in the office?\n\nAnthony"
+   },
+   {
+    "at": "2026-11-19T10:35:07",
+    "to": "jdavison@stanberryschools.org",
+    "text": "John, thank you. Here it is: earthpilot.org/kids/kit, and the free behavior coach for teachers and parents is at earthpilot.org/kids/coach.\n\nThat makes sense, and it sounds like Stanberry already sees discipline at home as the parent's job. Since you would never use it, does it make sense to put that in the board policy itself, so a new principal down the road can't read 2670 differently than you do? The kit has a model policy written so a board can adopt it in its own numbering.\n\nDoes that match how you see it? Did I miss anything?\n\nAnthony"
    }
   ],
   "district_says": "As a side note, even though corporal punishment is permitted by board policy, we would never use this course of action.",
