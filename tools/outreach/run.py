@@ -140,7 +140,8 @@ def subject_for(r):
         "align":    f"An invitation: {d} as a Safe School for 2026-27",
         "board_note": f"{d}: a six-minute film for the board",
         "neighbor": f"{d} corporal punishment policy",
-        "perspective": "Anthony Adams | Safe Schools Project",   # the sales kit's subject: a name, not a headline (no mobile, Anthony 2026-11-07)
+        "perspective": "Anthony Adams | Safe Schools Project",
+        "group": "Anthony Adams | Safe Schools Project",   # both arms of the group experiment carry the perspective subject   # the sales kit's subject: a name, not a headline (no mobile, Anthony 2026-11-07)
         "apology": "Sorry for the repeat emails",
         "certificate_correction": f"A correction on the {d} certificate",
         "certificate_reissue": f"A clean copy of the {d} certificate",   # only when the certificate's thread is gone; it normally goes out as "Re:" on that thread
@@ -181,6 +182,8 @@ def body_for(r):
         return messages.formal_request(r, USER, statute)
     if k == "perspective":
         return messages.perspective_ask(r, USER)
+    if k == "group":
+        return messages.group_note(r, USER)
     return messages.ask_policy(r, USER, r.get("compliment"))
 
 # ---------------------------------------------------------------- send
@@ -214,7 +217,7 @@ HOLD_NEW = False   # 2026-10-30, Anthony: "I don't want anything really on my de
 STOP_EXEMPT = ("apology", "certificate_correction")   # these answer a thread of ours, even one a district has closed
 COOLDOWN_EXEMPT = STOP_EXEMPT + ("retraction", "certificate_reissue")   # these must not wait a day; a retraction or a reissue still honors a stop request
 
-FIRST_TOUCH = ("policy", "align", "neighbor", "perspective")
+FIRST_TOUCH = ("policy", "align", "neighbor", "perspective", "group")
 
 def prior_contact(r, reqs):
     """Every thread we already have with this district that reached them (sent, not bounced), oldest first, matched by
@@ -231,7 +234,7 @@ def send(limit=25):
     reqs = load(); M = imap(); n = 0; cooled = 0; stop_ids, stop_addrs = stop_sets(reqs); stopped = 0
     for r in reqs:
         if r["status"] != "pending" or n >= limit: continue
-        if r.get("kind") not in STOP_EXEMPT and (str(r.get("nces_id") or "") in stop_ids or (r.get("to") or "").lower() in stop_addrs):
+        if r.get("kind") not in STOP_EXEMPT and (str(r.get("nces_id") or "") in stop_ids or any(a.lower() in stop_addrs for a in [r.get("to") or ""] + (r.get("cc") or []))):
             stopped += 1; continue   # stays pending and unsent; cleared only when the stop or the hold is lifted
         if r.get("kind") not in COOLDOWN_EXEMPT and time.time() - last_contact(r.get("to"), reqs, exclude=r["id"]) < 24 * 3600:
             cooled += 1; continue   # stays pending; the next cycle after the day is up sends it
@@ -266,9 +269,9 @@ def send(limit=25):
                 r["history"] = {"thread_on": last["id"], "last_at": last["sent_at"], "first_at": prior[0]["sent_at"], "they_replied": heard, "threads": len(prior)}
         subject = r.get("subject") or subject_for(r)
         r["subject"] = subject; r.setdefault("kind", "policy")
-        if r["kind"] not in ("formal_request", "retraction", "certificate_reissue", "perspective"): ensure_compliment(r)
+        if r["kind"] not in ("formal_request", "retraction", "certificate_reissue", "perspective", "group"): ensure_compliment(r)
         mid = f"<escp-{r['id']}@earthpilot.org>"
-        m = EmailMessage(); m["From"] = FROM; m["To"] = r["to"]; m["Subject"] = subject; m["Message-ID"] = mid
+        m = EmailMessage(); m["From"] = FROM; m["To"] = ", ".join([r["to"]] + (r.get("cc") or [])); m["Subject"] = subject; m["Message-ID"] = mid
         m["Date"] = email.utils.formatdate(localtime=True); m["X-ESCP-Request"] = r["id"]; r["body"] = body_for(r); m.set_content(r["body"])
         thread_on = r.get("parent_request") if r.get("kind") in ("apology", "certificate_correction", "retraction", "certificate_reissue", "formal_request") else (r.get("history") or {}).get("thread_on")
         if thread_on:   # lands in the thread it corrects or continues; a first-touch kind to a district we know lands in our latest thread with them
@@ -903,6 +906,11 @@ def handle_one(M, reqs, r, msg, rawbytes, mid, subject, frm, body, atts, links, 
     """
     if mid in (r.get("answered_message_ids") or []):
         log("already answered", r["state"], r["name"], mid[:40]); return
+    if r.get("kind") == "group" and r.get("arm") == "group" and not r.get("hold_replies"):
+        # Three people on an open thread, two of them elected: the writer answers one sender at a time and would
+        # drop the other two. Filed and handed to Anthony, like a board member's reply.
+        r["hold_replies"] = True
+        alert("group-reply-" + r["id"], f"ESCP: a reply on a group email ({nice(r['name'])}, {frm}). Filed and left for you; nothing was sent back.")
     if r.get("kind") == "board_note" and not r.get("hold_replies"):
         # A board member is an elected official answering a personal note, and the triage and the writer
         # are built for records-request replies. These are filed and handed to Anthony, never auto-answered.
@@ -1736,6 +1744,65 @@ def queue_perspective(n=25, quiet_days=14):
         added += 1
     save(reqs); log(f"queue-perspective: {added} queued (held)"); return added
 
+def queue_group(n=40, quiet_days=10):
+    """The group experiment: districts whose policy still permits it, with a superintendent address and a board
+    president and vice president on file. Each district is put in one arm by its NCES id: "group" goes to all three
+    on one open thread, "solo" sends the same perspective note to the superintendent alone (the control). Never to a
+    district that asked us to stop, bounced, wrote to us in the last 21 days, or heard from us in the last
+    `quiet_days`. Always queued held: a new kind, Anthony reads the first batch (2026-11-19)."""
+    import yaml, glob, csv
+    reqs = load(); contacts = district_contacts(); now = time.time()
+    flat = lambda st, nm: (st, re.sub(r"[^a-z0-9]", "", str(nm).lower()))
+    had = {str(r.get("nces_id")) for r in reqs if r.get("kind") == "group"}
+    trend = {}
+    for y, k in (("2021-22", "students_before"), ("2023-24", "students_now")):
+        for row in csv.DictReader(open(os.path.join(ROOT, f"data/crdc/{y}/states.csv"))): trend.setdefault(row["state"], {})[k] = int(row["students"] or 0)
+    recs, peers = {}, {}
+    for f in sorted(glob.glob(os.path.join(ROOT, "data/districts/*.yaml"))):
+        st = os.path.basename(f)[:2]; ds = yaml.load(open(f), Loader=getattr(yaml, "CSafeLoader", yaml.SafeLoader)).get("districts") or []
+        peers[st] = {"bans": sum(1 for x in ds if x.get("status") == "bans"), **trend.get(st, {})}
+        for x in ds:
+            if x.get("nces_id"): recs[str(x["nces_id"])] = (st, x)
+    def owns(m):
+        # The scraped board pages sometimes shift names against addresses (West Central IN: Darin Gudeman's row
+        # carried hreese@). A member counts only when their last name is in their own mailbox.
+        toks = re.findall(r"[a-z]{3,}", str(m.get("name") or "").lower()); local = m["email"].split("@")[0].lower()
+        return bool(toks) and toks[-1] in local and bool(re.fullmatch(r"[A-Za-z0-9][\w.+-]*@[\w-]+(\.[\w-]+)+", m["email"]))
+    role = lambda m, pat: m.get("email") and re.search(pat, m.get("role") or "", re.I) and not re.search(r"@(gmail|yahoo|hotmail|aol)\.", m["email"], re.I) and owns(m)
+    added = {"group": 0, "solo": 0}
+    for l in open(os.path.join(ROOT, "data/contacts/board-members.jsonl")):
+        if sum(added.values()) >= n: break
+        if not l.strip(): continue
+        b = json.loads(l); nid = str(b["nces_id"])
+        if nid in had or nid not in recs: continue
+        st, x = recs[nid]
+        if x.get("status") not in ("allows", "consent_required"): continue
+        chair = next((m for m in b["members"] if role(m, r"chair|president") and not re.search(r"vice", m.get("role") or "", re.I)), None)
+        vice = next((m for m in b["members"] if role(m, r"vice")), None)
+        if not (chair and vice): continue
+        rows = [r for r in reqs if str(r.get("nces_id")) == nid or flat(r.get("state"), r.get("name")) == flat(st, x["name"])]
+        if any(r.get("do_not_contact") or r.get("hold_replies") or r.get("status") == "bounced" for r in rows): continue
+        if any(now - when_ts(e.get("date")) < 21 * 86400 for r in rows for e in r.get("replies") or []): continue
+        if any(now - when_ts(d) < quiet_days * 86400 for r in rows for d in [r.get("sent_at")] + [o.get("at") for o in r.get("our_messages") or []] if d): continue
+        sent = [r for r in rows if r.get("sent_at") and r.get("kind") not in ("board_note", "state_doe")]
+        c = contacts.get(("id", nid)) or contacts.get((st, re.sub(r"[^a-z0-9]", "", x["name"].lower()))) or {}
+        to = (sent[-1]["to"] if sent else None) or c.get("district_email") or c.get("email")
+        if not to or re.search(r"@(gmail|yahoo|hotmail|aol)\.", to, re.I): continue
+        sup = (sent[-1].get("superintendent") if sent else None) or c.get("superintendent")
+        arm = "group" if int(hashlib.sha1(nid.encode()).hexdigest(), 16) % 2 else "solo"
+        rid = hashlib.sha1(f"group|{st}|{nid}".encode()).hexdigest()[:10]
+        def called(m):   # "Beck Dobbins" at becky.dobbins@: the mailbox has the fuller first name
+            first = str(m["name"]).split()[0]; local = m["email"].split("@")[0]; lp = re.split(r"[._]", local)[0]
+            if not re.search(r"[._]", local): return m["name"]   # connievillanueva@ is a whole name, not a first name
+            return (lp.capitalize() + " " + " ".join(str(m["name"]).split()[1:])).strip() if len(lp) > len(first) and lp.startswith(first.lower()) else m["name"]
+        board = [{"name": called(m), "role": m.get("role"), "email": m["email"]} for m in (chair, vice)]
+        reqs.append({"id": rid, "state": st, "name": x["name"], "nces_id": nid, "kids": 0, "kind": "group", "arm": arm, "experiment": "group-vs-solo-2026-11",
+                     "to": to, "superintendent": sup, "cc": [m["email"] for m in board] if arm == "group" else [], "board": board,
+                     "peers": peers[st], "quote": x.get("quote"), "policy_code": x.get("policy_code"),
+                     "status": "held", "sent_at": None, "message_id": None, "replies": [], "followup_sent_at": "n/a", "queued_at": datetime.datetime.now().isoformat(timespec="seconds")})
+        added[arm] += 1
+    save(reqs); log(f"queue-group: {added['group']} group and {added['solo']} solo queued (held)"); return added
+
 def release(kind, states=None):
     """Flip held requests of one kind to pending (optionally only some states) once Anthony has seen the batch."""
     reqs = load(); k = 0
@@ -2060,6 +2127,7 @@ if __name__ == "__main__":
     if cmd == "queue": queue(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-board": queue_board(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-perspective": queue_perspective(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
+    if cmd == "queue-group": queue_group(int(sys.argv[2]) if len(sys.argv) > 2 else 40); sys.exit()
     if cmd == "queue-neighbors": queue_neighbors(int(sys.argv[2]) if len(sys.argv) > 2 else 25); sys.exit()
     if cmd == "queue-formal": queue_formal(int(sys.argv[2]) if len(sys.argv) > 2 else 15); sys.exit()
     if cmd == "formal-dry":   # who a formal request would go to today; changes nothing

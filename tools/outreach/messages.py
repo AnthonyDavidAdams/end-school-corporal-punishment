@@ -503,6 +503,22 @@ def perspective_ask(r, user):
 {sig(user)}
 """
 
+def group_note(r, user):
+    """The group experiment (Anthony, 2026-11-19: "experiment with group emails to 3 people at once"): the
+    perspective ask, sent to the superintendent, the board president and the vice president on one open thread.
+    The control arm gets perspective_ask to the superintendent alone, so the only difference is who is on it.
+    The line naming why three people are on it credits the superintendent's office first, so it does not read
+    as going over anyone's head."""
+    if r.get("arm") != "group": return perspective_ask(r, user)
+    sup = addressed_name(r)   # "there" when the mailbox is not the superintendent's own (Howe ISD: Ritchie's name, Misty's inbox)
+    names = [sup if sup != "there" else ""] + [first_name(m.get("name"), "") for m in r.get("board") or []]
+    hello = "Hello," if not all(names) else f"{', '.join(names[:-1])} and {names[-1]},"   # all three by name, or none
+    body = perspective_ask(r, user).split("\n", 2)[2]   # the same note after its greeting line
+    st = state_name(r.get("state"))
+    intro = history_line(r) or f"Anthony Adams with the Safe Schools Project; I keep the public record of every {st} district's corporal punishment policy."
+    body = body.replace(intro, intro + " I'm writing the three of you together because a question like this sits with both the superintendent's office and the board.", 1)
+    return f"{hello}\n\n{body}"
+
 def apology(r, user):
     """Two shapes. The first is for the 2026-10-26 misfire, when a killed cycle re-sent the same nudge up to five
     times in one evening. The second is for a follow-up that went to someone who had already answered: eight
