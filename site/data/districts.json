@@ -13212,13 +13212,13 @@
    "name": "Haralson County",
    "county": "Haralson",
    "nces_id": "1302670",
-   "status": "silent",
-   "source": "https://www.haralson.k12.ga.us/Downloads/FY21%20Handbook%20Updated%20Oct%205%202021.pdf",
-   "quote": null,
-   "policy_code": null,
+   "status": "bans",
+   "source": "https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/GA/1302670-link-4500e7.txt",
+   "quote": "Punishment Corporal punishment shall not be used as a means of discipline in the Haralson County School District.",
+   "policy_code": "17",
    "crdc_students_latest": null,
-   "last_verified": "2026-09-26",
-   "method": "searched_document",
+   "last_verified": "2026-11-20",
+   "method": "records_request",
    "parent_control": "unknown",
    "documents": [
     {
@@ -13246,8 +13246,11 @@
      "by": "Mothership (search + read)"
     }
    ],
-   "notes": "3 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.",
-   "county_source": "nces_edge_geocode_2023_24"
+   "notes": "Received from the district by email in answer to a public records request, 2026-11-20; the document is kept in the repository at data/policies/inbound/GA/1302670-link-4500e7.txt. Identity is name and state matched against the federal LEA directory.",
+   "county_source": "nces_edge_geocode_2023_24",
+   "quotes": [
+    "Punishment Corporal punishment shall not be used as a means of discipline in the Haralson County School District."
+   ]
   },
   {
    "name": "Harris County",
