@@ -2213,14 +2213,21 @@ districts:
   - name: Lowndes County
     county: Lowndes
     nces_id: "1303390"
-    status: unknown
-    source: null
-    quote: null
+    status: allows
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/GA/1303390-link-365a40.html
+    quote: work detail loss of privileges detention corporal punishment Fourth Offense Parental conference required (Parent/Guardian no substitute).
     policy_code: null
     crdc_students_latest: null
-    last_verified: null
-    notes: "2026-11-10 review: the document on file came from the website of a same-named district in AL; reset pending a re-read."
+    last_verified: 2026-11-20
+    notes: Received from the district by email in answer to a public records request, 2026-11-20; the document is kept in the repository at data/policies/inbound/GA/1303390-link-365a40.html. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    method: records_request
+    parent_control: none
+    quotes:
+      - work detail loss of privileges detention corporal punishment Fourth Offense Parental conference required (Parent/Guardian no substitute).
+      - JDB CORPORAL PUNISHMENT The Board permits the use of corporal punishment only after a teacher uses other methods in an attempt to correct misbehavior.
+      - These methods must include, at least, prior to administering corporal punishment a conference will be held with the student to discuss his or her misbehavior.
+      - Following the conference, the misbehavior by the student may result in the use of corporal punishment.
   - name: Lumpkin County Schools
     county: Lumpkin
     nces_id: "1303420"
