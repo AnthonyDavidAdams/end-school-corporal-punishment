@@ -181,13 +181,13 @@ districts:
   - name: Avery County Schools
     county: Avery
     nces_id: "3700300"
-    status: silent
-    source: https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3480/Ahs/b04a4705-715a-42b6-a014-c9b868fe0cc1/ACHS_Student_Handbook_24-25.pdf?disposition=inline
-    quote: null
-    policy_code: null
+    status: bans
+    source: https://raw.githubusercontent.com/AnthonyDavidAdams/end-school-corporal-punishment/main/data/policies/inbound/NC/3700300-email-f12c91e1.txt
+    quote: "*Policy 4302, School Plan for Management of Student Behavior*, page 1 under *Possible Consequences*, states, “The board prohibits corporal punishment.” LINK <https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3480/Acs/4da31eaa-9c37-441c-81d2-b5dc4c90b54e/4302_School_Plan_for_Management_of_Student_Beh.pdf?disposition=inline> Dr."
+    policy_code: "4302"
     crdc_students_latest: null
-    last_verified: 2026-09-26
-    method: searched_document
+    last_verified: 2026-11-20
+    method: records_request
     parent_control: unknown
     documents:
       - kind: code_of_conduct
@@ -202,8 +202,10 @@ districts:
         quote: null
         retrieved: 2026-09-26
         by: Mothership (search + read)
-    notes: 2 documents found by searching for the district's handbook, code of conduct and board policy and read in full on 2026-09-26; none mentions corporal punishment. State law permits the practice where a district has not prohibited it, so with no written rule it runs on custom; the board policy manual was not located by search or vendor lookup. Identity is name and state matched against the federal LEA directory.
+    notes: Received from the district by email in answer to a public records request, 2026-11-20; the document is kept in the repository at data/policies/inbound/NC/3700300-email-f12c91e1.txt. Identity is name and state matched against the federal LEA directory.
     county_source: nces_edge_geocode_2023_24
+    quotes:
+      - "*Policy 4302, School Plan for Management of Student Behavior*, page 1 under *Possible Consequences*, states, “The board prohibits corporal punishment.” LINK <https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/3480/Acs/4da31eaa-9c37-441c-81d2-b5dc4c90b54e/4302_School_Plan_for_Management_of_Student_Beh.pdf?disposition=inline> Dr."
   - name: Beaufort County Schools
     county: Beaufort
     nces_id: "3700330"

@@ -17789,6 +17789,27 @@
     ],
     "file": "eb600b7b.eml",
     "action": "logged"
+   },
+   {
+    "message_id": "<6b007cc6.678085ff.2d247.dae1.GMR@mx.google.com>",
+    "from": "mailer-daemon@googlemail.com",
+    "date": "Fri, 20 Nov 2026 09:00:54 -0800 (PST)",
+    "kind": "auto_reply_or_bounce",
+    "confidence": 1,
+    "facts": {
+     "addresses_named": [
+      "brandon.kirkpatrick@panolabearcats.org"
+     ]
+    },
+    "attachments": [
+     "icon.png"
+    ],
+    "links": [
+     "https://support.google.com/mail/answer/7720",
+     "https://support.google.com/mail/answer/7720."
+    ],
+    "file": "8a89a8fe.eml",
+    "action": "logged"
    }
   ],
   "followup_sent_at": "2026-10-27T01:42:28",
@@ -17821,10 +17842,11 @@
   ],
   "formal_requested_at": "2026-11-17",
   "answered_from": "mailer-daemon@googlemail.com",
-  "last_reply_at": "2026-11-19T10:34:55",
+  "last_reply_at": "2026-11-20T09:18:01",
   "answered_message_ids": [
    "<6afddccf.e0409da1.3c4932.f613.GMR@mx.google.com>",
-   "<6aff3def.b32a687a.369554.215c.GMR@mx.google.com>"
+   "<6aff3def.b32a687a.369554.215c.GMR@mx.google.com>",
+   "<6b007cc6.678085ff.2d247.dae1.GMR@mx.google.com>"
   ],
   "bounce_retry": "2026-11-18T09:50:42",
   "notes": " Bounced at brandon.kirkpatrick@panolabearcats.org; no other address found (2026-11-18)."
@@ -39227,7 +39249,31 @@
   "status": "sent",
   "sent_at": "2026-10-10T17:17:52",
   "message_id": "<escp-c6c5133b88@earthpilot.org>",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<CAMooRjEic3V9Z7ZoZ8-LJHOoKZzEV7tkzTAoBNDj6m3GovT=uQ@mail.gmail.com>",
+    "from": "kkinder@jackson.k12.mo.us",
+    "date": "Fri, 20 Nov 2026 11:09:32 -0600",
+    "kind": "claims_no_practice",
+    "confidence": 0.48,
+    "facts": {
+     "claims_no_practice": true
+    },
+    "attachments": [],
+    "links": [
+     "https://www.jacksonr2schools.com/"
+    ],
+    "file": "420ce3da.eml",
+    "action": "; replied (invite_policy)",
+    "directions_followed": [
+     "https://egs.edcounsel.law/jackson-r-2-school-district-policies",
+     "https://www.jacksonr2schools.com/documents/handbooks/843978"
+    ],
+    "move": "invite_policy",
+    "why": "They say the practice is not used, the record is silent (handbook read in full, no rule), INVITED is no; folded in a one-line ask for the direct policy link since the homepage alone was given and the ",
+    "our_reply": "Hi Keenan,\n\nThanks for the clear word this morning that Jackson R-2 does not use corporal punishment. The elementary handbook I read front to back has no rule on it either way, so the paper is quieter than the practice; would the board be opposed to putting it in writing as a one-sentence prohibition? The free kit at earthpilot.org/kids/kit has the sentence 141 Missouri boards already use, the motion, and the staff and family letters, so it can go on one agenda as written, and once it is adopted Jackson is listed as a Safe School with a certificate and a press release you can use. If the board ever ended the practice on paper, could you send me the minutes or policy, and a direct link to the discipline policy on the site would help too, since the homepage didn't get me to it?\n\nAnthony\n\nSent from my iPhone"
+   }
+  ],
   "followup_sent_at": "2026-10-27T08:40:53",
   "queued_at": "2026-10-10T16:20:45",
   "subject": "Jackson R-II corporal punishment policy",
@@ -39252,13 +39298,28 @@
     "at": "2026-11-20T08:09:16",
     "kind": "formal_request",
     "text": "Hi Keenan,\n\nI still don't have Jackson R-II's policy on corporal punishment, so I'm making this a formal request. Under the Missouri Sunshine Law, RSMo \u00a7 610.010 et seq., please send copies of:\n\n  1. Jackson R-II's current board policy on corporal punishment (and the student discipline policy it sits in), as adopted; and\n  2. the current student handbook or code of conduct.\n\nA link to where each is posted is all it takes. If they are not posted, electronic copies by reply are fine. This request is in the public interest, not commercial, so please tell me before any charge is incurred. If any part is withheld, please cite the exemption.\n\nAnthony Adams\nSafe Schools Project, a project of EarthPilot\nearthpilot.org/kids \u00b7 anthony@175g.com\n11662 Old Lake Road, North East, PA 16428 \u00b7 (234) 516-2545\n"
+   },
+   {
+    "at": "2026-11-20T09:17:59",
+    "to": "kkinder@jackson.k12.mo.us",
+    "text": "Hi Keenan,\n\nThanks for the clear word this morning that Jackson R-2 does not use corporal punishment. The elementary handbook I read front to back has no rule on it either way, so the paper is quieter than the practice; would the board be opposed to putting it in writing as a one-sentence prohibition? The free kit at earthpilot.org/kids/kit has the sentence 141 Missouri boards already use, the motion, and the staff and family letters, so it can go on one agenda as written, and once it is adopted Jackson is listed as a Safe School with a certificate and a press release you can use. If the board ever ended the practice on paper, could you send me the minutes or policy, and a direct link to the discipline policy on the site would help too, since the homepage didn't get me to it?\n\nAnthony\n\nSent from my iPhone"
    }
   ],
   "rechecked_at": "2026-11-13T22:34:06",
   "recheck_tried": [
    "(nothing indexed on jackson.k12.mo.us)"
   ],
-  "formal_requested_at": "2026-11-20"
+  "formal_requested_at": "2026-11-20",
+  "answered_from": "kkinder@jackson.k12.mo.us",
+  "last_reply_at": "2026-11-20T09:17:18",
+  "answered_message_ids": [
+   "<CAMooRjEic3V9Z7ZoZ8-LJHOoKZzEV7tkzTAoBNDj6m3GovT=uQ@mail.gmail.com>"
+  ],
+  "district_says": "Jackson R-2 does not use corporal punishment.",
+  "district_says_on": "2026-11-20",
+  "claims_no_practice": true,
+  "invited_policy_at": "2026-11-20",
+  "claim": "the district does not use corporal punishment"
  },
  {
   "id": "1133362e55",
@@ -40463,10 +40524,30 @@
   "to": "smithj@nhr3.net",
   "superintendent": "Mr. Josh M Smith",
   "statute": "the Missouri Sunshine Law, RSMo \u00a7 610.010 et seq.",
-  "status": "sent",
+  "status": "answered",
   "sent_at": "2026-10-10T17:21:58",
   "message_id": "<escp-6eef2ed518@earthpilot.org>",
-  "replies": [],
+  "replies": [
+   {
+    "message_id": "<CACPE8jCskTaCqDzONEz-cebY1pq5vXCO8Ydfqab3o-+KqLKr9g@mail.gmail.com>",
+    "from": "smithj@nhr3.net",
+    "date": "Fri, 20 Nov 2026 11:07:11 -0600",
+    "kind": "website_no_link",
+    "confidence": 0.57,
+    "facts": {},
+    "attachments": [],
+    "links": [],
+    "file": "9554368e.eml",
+    "action": "recorded consent_required; replied (thank_recorded)",
+    "directions_followed": [
+     "https://www.nhr3.net/pages/uploaded_files/Grades%206-12%20Student%20Handbook%202024-2025.pdf",
+     "https://www.nhr3.net/vnews/display.v/SEC/District%7CBoard%20of%20Education%20Policies"
+    ],
+    "move": "thank_recorded",
+    "why": "referee flagged, sent anyway (thank-you on a recorded document); Record already holds policy 2670 (consent required); confirm it back, skip the in-person Sunshine route, ask for the direct nhr3.net link so the record cites the district's copy, and one line on frequ",
+    "our_reply": "Hi Josh,\n\nGood to know it's all on the website, and that saves everyone the central office trip: I have the 6-12 handbook from your site and a copy of board policy 2670, so the formal request is covered. Our record now says North Harrison R-III permits corporal punishment with a parent's consent, quoting policy 2670. One thing that would help: the direct link to the board policy page on nhr3.net, so the record points to your copy rather than mine. And if it's easy to say, how often it's actually been used in the last year or so, and for what kinds of offenses?\n\nAnthony\n\nSent from my iPhone"
+   }
+  ],
   "followup_sent_at": "2026-10-27T09:08:41",
   "queued_at": "2026-10-10T16:20:45",
   "subject": "North Harrison R-III corporal punishment policy",
@@ -40484,13 +40565,24 @@
     "at": "2026-11-20T08:26:53",
     "kind": "formal_request",
     "text": "Hi Josh,\n\nI still don't have North Harrison R-III's policy on corporal punishment, so I'm making this a formal request. Under the Missouri Sunshine Law, RSMo \u00a7 610.010 et seq., please send copies of:\n\n  1. North Harrison R-III's current board policy on corporal punishment (and the student discipline policy it sits in), as adopted; and\n  2. the current student handbook or code of conduct.\n\nA link to where each is posted is all it takes. If they are not posted, electronic copies by reply are fine. This request is in the public interest, not commercial, so please tell me before any charge is incurred. If any part is withheld, please cite the exemption.\n\nAnthony Adams\nSafe Schools Project, a project of EarthPilot\nearthpilot.org/kids \u00b7 anthony@175g.com\n11662 Old Lake Road, North East, PA 16428 \u00b7 (234) 516-2545\n"
+   },
+   {
+    "at": "2026-11-20T09:16:29",
+    "to": "smithj@nhr3.net",
+    "text": "Hi Josh,\n\nGood to know it's all on the website, and that saves everyone the central office trip: I have the 6-12 handbook from your site and a copy of board policy 2670, so the formal request is covered. Our record now says North Harrison R-III permits corporal punishment with a parent's consent, quoting policy 2670. One thing that would help: the direct link to the board policy page on nhr3.net, so the record points to your copy rather than mine. And if it's easy to say, how often it's actually been used in the last year or so, and for what kinds of offenses?\n\nAnthony\n\nSent from my iPhone"
    }
   ],
   "rechecked_at": "2026-11-14T01:47:23",
   "recheck_tried": [
    "(nothing indexed on nhr3.net)"
   ],
-  "formal_requested_at": "2026-11-20"
+  "formal_requested_at": "2026-11-20",
+  "answered_from": "smithj@nhr3.net",
+  "last_reply_at": "2026-11-20T09:15:33",
+  "answered_message_ids": [
+   "<CACPE8jCskTaCqDzONEz-cebY1pq5vXCO8Ydfqab3o-+KqLKr9g@mail.gmail.com>"
+  ],
+  "recorded_status": "consent_required"
  },
  {
   "id": "b9e05170f1",
@@ -42246,7 +42338,7 @@
   "to": "jason.samples@valley.k12.mo.us",
   "superintendent": null,
   "statute": "the Missouri Sunshine Law, RSMo \u00a7 610.010 et seq.",
-  "status": "sent",
+  "status": "answered",
   "sent_at": "2026-10-10T17:27:47",
   "message_id": "<escp-52b312c7ba@earthpilot.org>",
   "replies": [
@@ -42272,6 +42364,35 @@
     "why": "desk: referee flagged tone; second reader passed it; He says the district does not use it and nothing is written; handbook read in full and record is silent; INVITED is no; formal request already went out 2026-11-20 so no second one; thank him and ask w",
     "suggested": "Hi Jason,\n\nThanks for getting back to me this morning and for being clear that Valley does not administer corporal punishment; I had read the handbook and found no rule on it either way, so right now the paper is just silent on something you already do not do. Would the board be opposed to putting that in writing as a one-sentence prohibition? The free kit at earthpilot.org/kids/kit has the model policy, the motion, and the staff and family letters, so it can be adopted as written in a single agenda item, 141 Missouri boards already have it in writing, and once it passes Valley is listed as a Safe School with a certificate and a press release you can use. If the board ever voted to end the practice, is there a policy or a set of minutes from that I could link to?\n\nAnthony\n\nSent from my iPhone",
     "our_reply": "Hi Jason,\n\nThanks for getting back to me so quickly, and good to hear Valley doesn't administer corporal punishment. Since it isn't written anywhere, the record at earthpilot.org/kids will show Valley's policy as silent rather than as a prohibition, so I'd still appreciate a link to the current student handbook and discipline policy to cite alongside your note. Would the board be open to putting what you already do in writing as an explicit prohibition? The free policy kit at earthpilot.org/kids has wording a board can adopt, and once it's adopted Valley gets listed as a Safe School with a certificate and a press release you can use.\n\nAnthony\n\nSent from my iPhone"
+   },
+   {
+    "message_id": "<CAG8369chHmcz8gRyOetE9T9O0aZcq2AauOSd3rSdYrpyW6p99Q@mail.gmail.com>",
+    "from": "jason.samples@valley.k12.mo.us",
+    "date": "Fri, 20 Nov 2026 11:09:05 -0600",
+    "kind": "document_linked",
+    "confidence": 1,
+    "facts": {
+     "document_links": [
+      "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4982/Valley_R_Vi_Sd/acb96e08-c416-463f-bddd-50fded1d7b1f/Elementary-Handbook-2026-2027.pdf?disposition=inline",
+      "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4982/Valley_R_Vi_Sd/07352f09-a55f-4373-8480-e0b49cbcf2db/Copy-of-Student-_Chromebook-Handbook-2027.docx.pdf?disposition=inline"
+     ]
+    },
+    "attachments": [],
+    "links": [
+     "http://www.moconed.com/district/ValleyRVI/district.php?pol=306",
+     "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4982/Valley_R_Vi_Sd/acb96e08-c416-463f-bddd-50fded1d7b1f/Elementary-Handbook-2026-2027.pdf?disposition=inline",
+     "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4982/Valley_R_Vi_Sd/07352f09-a55f-4373-8480-e0b49cbcf2db/Copy-of-Student-_Chromebook-Handbook-2027.docx.pdf?disposition=inline"
+    ],
+    "file": "4f712b54.eml",
+    "action": "; replied (thank_recorded)",
+    "directions_followed": [
+     "https://moconed.com/district/ValleyRVI/district.php?reg=921",
+     "https://files-backend.assets.thrillshare.com/documents/asset/uploaded_file/4982/Valley_R_Vi_Sd/bf5065f9-d0a1-4eec-8de4-ed837f497a59/Student__Chromebook_Handbook_2026.pdf?disposition=inline",
+     "https://www.valleyschooldistrict.org/page/junior-high-and-high-school/"
+    ],
+    "move": "thank_recorded",
+    "why": "Links arrived (board policy P 2610 plus both handbooks); record stays silent, they declined the prohibition so acknowledge without pushing and ask once, lightly, for any minutes where it was ended.",
+    "our_reply": "Hi Jason,\n\nThanks for sending the P 2610 link and both handbooks this morning. I read them through, and the record at earthpilot.org/kids will show Valley's documents as read in full with no rule on the practice either way, next to your note that it isn't administered. Understood on the prohibition, and if the board ever did vote to discontinue it at some point, a pointer to those minutes would let me cite that too. Have a good weekend yourself.\n\nAnthony\n\nSent from my iPhone"
    }
   ],
   "followup_sent_at": "2026-10-27T10:02:50",
@@ -42296,6 +42417,11 @@
     "at": "2026-11-20T08:55:20",
     "to": "jason.samples@valley.k12.mo.us",
     "text": "Hi Jason,\n\nThanks for getting back to me so quickly, and good to hear Valley doesn't administer corporal punishment. Since it isn't written anywhere, the record at earthpilot.org/kids will show Valley's policy as silent rather than as a prohibition, so I'd still appreciate a link to the current student handbook and discipline policy to cite alongside your note. Would the board be open to putting what you already do in writing as an explicit prohibition? The free policy kit at earthpilot.org/kids has wording a board can adopt, and once it's adopted Valley gets listed as a Safe School with a certificate and a press release you can use.\n\nAnthony\n\nSent from my iPhone"
+   },
+   {
+    "at": "2026-11-20T09:17:09",
+    "to": "jason.samples@valley.k12.mo.us",
+    "text": "Hi Jason,\n\nThanks for sending the P 2610 link and both handbooks this morning. I read them through, and the record at earthpilot.org/kids will show Valley's documents as read in full with no rule on the practice either way, next to your note that it isn't administered. Understood on the prohibition, and if the board ever did vote to discontinue it at some point, a pointer to those minutes would let me cite that too. Have a good weekend yourself.\n\nAnthony\n\nSent from my iPhone"
    }
   ],
   "rechecked_at": "2026-11-14T05:44:46",
@@ -42304,9 +42430,10 @@
   ],
   "formal_requested_at": "2026-11-20",
   "answered_from": "jason.samples@valley.k12.mo.us",
-  "last_reply_at": "2026-11-20T08:52:25",
+  "last_reply_at": "2026-11-20T09:16:32",
   "answered_message_ids": [
-   "<CAG8369eO2aY2AwFiJRYUQtPd5s5U2tebf4_KeJL2m-duwk+z4Q@mail.gmail.com>"
+   "<CAG8369eO2aY2AwFiJRYUQtPd5s5U2tebf4_KeJL2m-duwk+z4Q@mail.gmail.com>",
+   "<CAG8369chHmcz8gRyOetE9T9O0aZcq2AauOSd3rSdYrpyW6p99Q@mail.gmail.com>"
   ],
   "district_says": "We currently do not administer corporal punishment at Valley R-VI.",
   "district_says_on": "2026-11-20",
